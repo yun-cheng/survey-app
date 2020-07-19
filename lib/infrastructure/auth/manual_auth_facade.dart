@@ -19,7 +19,7 @@ class ManualAuthFacade implements IAuthFacade {
 
   ManualAuthFacade(this._firestore);
 
-  Option<InterviewerList> _interviewerListOption = none();
+  Option<KtList<Interviewer>> _interviewerListOption = none();
   Option<Interviewer> _currentInterviewerOption = none();
 
   // TEST
@@ -73,6 +73,7 @@ class ManualAuthFacade implements IAuthFacade {
     final interviewerIdStr = interviewerId.value.fold((l) => '', id);
     final interviewerNameStr = interviewerName.value.fold((l) => '', id);
 
+    // TODO 如果因為沒有網路取得不到 interviewerList，要怎麼呈現給使用者？
     if (_interviewerListOption.isNone()) {
       final failureOrSuccess = await this.getInterviewerList();
 
@@ -81,10 +82,7 @@ class ManualAuthFacade implements IAuthFacade {
       }
     }
 
-    final interviewerList = _interviewerListOption
-        .getOrElse(() => InterviewerList.empty())
-        .list
-        .getOrCrash();
+    final interviewerList = _interviewerListOption.getOrElse(() => emptyList());
 
     Interviewer matchId = interviewerList
         .filter(

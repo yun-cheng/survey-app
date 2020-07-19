@@ -16,21 +16,19 @@ abstract class InterviewerListDto implements _$InterviewerListDto {
     @required List<InterviewerDto> list,
   }) = _InterviewerListDto;
 
-  factory InterviewerListDto.fromDomain(InterviewerList interviewerList) {
+  factory InterviewerListDto.fromDomain(KtList<Interviewer> interviewerList) {
     return InterviewerListDto(
-      list: interviewerList.list
-          .getOrCrash()
+      list: interviewerList
           .map((interviewer) => InterviewerDto.fromDomain(interviewer))
           .asList(),
     );
   }
 
-  InterviewerList toDomain() {
-    return InterviewerList(
-      list: KtListVo(list.map((dto) => dto.toDomain()).toImmutableList()),
-    );
+  KtList<Interviewer> toDomain() {
+    return list.map((dto) => dto.toDomain()).toImmutableList();
   }
 
+  // TODO 是否要 trycatch?
   factory InterviewerListDto.fromJson(Map<String, dynamic> json) =>
       _$InterviewerListDtoFromJson(json);
 

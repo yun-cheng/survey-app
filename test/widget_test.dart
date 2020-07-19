@@ -35,17 +35,17 @@ void main() {
   });
 
   testWidgets('', (WidgetTester tester) async {
-    InterviewerDto interviewerDto = InterviewerDto(id: '0001', name: 'AAA');
-
-    InterviewerListDto interviewerListDto = InterviewerListDto(list: [
-      InterviewerDto(id: '0001', name: 'AAA'),
-      InterviewerDto(id: '0002', name: 'BBB'),
-    ]);
-
-    InterviewerList interviewerList = interviewerListDto.toDomain();
-
-    final interviewerIdStr = '0001';
-    final interviewerNameStr = 'BBB';
+//    InterviewerDto interviewerDto = InterviewerDto(id: '0001', name: 'AAA');
+//
+//    InterviewerListDto interviewerListDto = InterviewerListDto(list: [
+//      InterviewerDto(id: '0001', name: 'AAA'),
+//      InterviewerDto(id: '0002', name: 'BBB'),
+//    ]);
+//
+//    InterviewerList interviewerList = interviewerListDto.toDomain();
+//
+//    final interviewerIdStr = '0001';
+//    final interviewerNameStr = 'BBB';
 
 //    print(interviewerList);
 
