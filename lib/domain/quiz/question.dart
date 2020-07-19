@@ -12,13 +12,21 @@ abstract class Question implements _$Question {
   const factory Question({
     @required QuestionId id,
     @required QuestionBody body,
+    @required Answer answer,
   }) = _Question;
+
+  factory Question.empty() => Question(
+        id: QuestionId(''),
+        body: QuestionBody(''),
+        answer: Answer(''),
+      );
 
   Option<ValueFailure<dynamic>> get failureOption {
     return this
         .id
         .failureOrUnit
         .andThen(body.failureOrUnit)
+        .andThen(answer.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }
 }

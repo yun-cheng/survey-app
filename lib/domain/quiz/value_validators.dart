@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 
-Either<ValueFailure<String>, String> validateAnswerBody(String input) {
+Either<ValueFailure<String>, String> validateAnswer(String input) {
   if (input == 'O' || input == 'X') {
     return right(input);
   } else {

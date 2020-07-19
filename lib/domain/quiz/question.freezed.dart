@@ -12,10 +12,14 @@ T _$identity<T>(T value) => value;
 class _$QuestionTearOff {
   const _$QuestionTearOff();
 
-  _Question call({@required QuestionId id, @required QuestionBody body}) {
+  _Question call(
+      {@required QuestionId id,
+      @required QuestionBody body,
+      @required Answer answer}) {
     return _Question(
       id: id,
       body: body,
+      answer: answer,
     );
   }
 }
@@ -26,6 +30,7 @@ const $Question = _$QuestionTearOff();
 mixin _$Question {
   QuestionId get id;
   QuestionBody get body;
+  Answer get answer;
 
   $QuestionCopyWith<Question> get copyWith;
 }
@@ -33,7 +38,7 @@ mixin _$Question {
 abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res>;
-  $Res call({QuestionId id, QuestionBody body});
+  $Res call({QuestionId id, QuestionBody body, Answer answer});
 }
 
 class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
@@ -47,10 +52,12 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object body = freezed,
+    Object answer = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as QuestionId,
       body: body == freezed ? _value.body : body as QuestionBody,
+      answer: answer == freezed ? _value.answer : answer as Answer,
     ));
   }
 }
@@ -59,7 +66,7 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
   factory _$QuestionCopyWith(_Question value, $Res Function(_Question) then) =
       __$QuestionCopyWithImpl<$Res>;
   @override
-  $Res call({QuestionId id, QuestionBody body});
+  $Res call({QuestionId id, QuestionBody body, Answer answer});
 }
 
 class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
@@ -74,28 +81,34 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object body = freezed,
+    Object answer = freezed,
   }) {
     return _then(_Question(
       id: id == freezed ? _value.id : id as QuestionId,
       body: body == freezed ? _value.body : body as QuestionBody,
+      answer: answer == freezed ? _value.answer : answer as Answer,
     ));
   }
 }
 
 class _$_Question extends _Question {
-  const _$_Question({@required this.id, @required this.body})
+  const _$_Question(
+      {@required this.id, @required this.body, @required this.answer})
       : assert(id != null),
         assert(body != null),
+        assert(answer != null),
         super._();
 
   @override
   final QuestionId id;
   @override
   final QuestionBody body;
+  @override
+  final Answer answer;
 
   @override
   String toString() {
-    return 'Question(id: $id, body: $body)';
+    return 'Question(id: $id, body: $body, answer: $answer)';
   }
 
   @override
@@ -105,14 +118,17 @@ class _$_Question extends _Question {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)));
+                const DeepCollectionEquality().equals(other.body, body)) &&
+            (identical(other.answer, answer) ||
+                const DeepCollectionEquality().equals(other.answer, answer)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(body);
+      const DeepCollectionEquality().hash(body) ^
+      const DeepCollectionEquality().hash(answer);
 
   @override
   _$QuestionCopyWith<_Question> get copyWith =>
@@ -122,12 +138,16 @@ class _$_Question extends _Question {
 abstract class _Question extends Question {
   const _Question._() : super._();
   const factory _Question(
-      {@required QuestionId id, @required QuestionBody body}) = _$_Question;
+      {@required QuestionId id,
+      @required QuestionBody body,
+      @required Answer answer}) = _$_Question;
 
   @override
   QuestionId get id;
   @override
   QuestionBody get body;
+  @override
+  Answer get answer;
   @override
   _$QuestionCopyWith<_Question> get copyWith;
 }

@@ -7,9 +7,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // TEST
-//import 'infrastructure/auth/manual_auth_facade.dart';
-//import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'domain/quiz/score.dart';
 
 Future<void> main() async {
   configureInjection(Environment.prod);
@@ -18,11 +16,6 @@ Future<void> main() async {
 
   // TEST
 
-//  ManualAuthFacade manualAuthFacade = ManualAuthFacade(getIt<Firestore>());
-//
-//  await manualAuthFacade.getInterviewerList();
-//
-//  print(manualAuthFacade.interviewerListOption);
-//
-//  manualAuthFacade.getSomethingElse();
+//  Score score = Score.starting();
+//  print(score.copyWith(wrong: score.wrong.add));
 }

@@ -32,18 +32,18 @@ class QuestionId extends ValueObject<String> {
   const QuestionId._(this.value);
 }
 
-class AnswerBody extends ValueObject<String> {
+class Answer extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory AnswerBody(String input) {
+  factory Answer(String input) {
     assert(input != null);
-    return AnswerBody._(
-      validateAnswerBody(input),
+    return Answer._(
+      validateAnswer(input),
     );
   }
 
-  const AnswerBody._(this.value);
+  const Answer._(this.value);
 }
 
 class ScoreCount extends ValueObject<int> {
@@ -55,6 +55,11 @@ class ScoreCount extends ValueObject<int> {
     return ScoreCount._(
       validateScoreCount(input),
     );
+  }
+
+  ScoreCount add() {
+    final newValue = value.fold((l) => l, (r) => r + 1);
+    return ScoreCount(newValue);
   }
 
   const ScoreCount._(this.value);

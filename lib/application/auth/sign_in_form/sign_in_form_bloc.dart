@@ -22,7 +22,11 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
   SignInFormBloc(this._authFacade);
 
   @override
-  SignInFormState get initialState => SignInFormState.initial();
+  SignInFormState get initialState {
+    // TODO 也許該獨立出一個 bloc，才能呈現出讀取失敗的狀態
+    _authFacade.getInterviewerList();
+    return SignInFormState.initial();
+  }
 
   @override
   Stream<SignInFormState> mapEventToState(
@@ -51,7 +55,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
             authFailureOrSuccessOption: none(),
           );
 
-          failureOrSuccess = await _authFacade.signInWithInterviewerIdOrName(
+          failureOrSuccess = _authFacade.signInWithInterviewerIdOrName(
             interviewerId: state.interviewerId,
             interviewerName: state.interviewerName,
           );

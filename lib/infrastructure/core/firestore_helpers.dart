@@ -13,5 +13,6 @@ extension FirestoreX on Firestore {
 //}
 
 extension CollectionReferenceX on CollectionReference {
-  DocumentReference get interviewerListDoc => document('v1');
+  DocumentReference get interviewerListDoc => document('interviewer_list');
+  DocumentReference get questionListDoc => document('question_list');
 }

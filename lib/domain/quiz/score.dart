@@ -14,6 +14,19 @@ abstract class Score implements _$Score {
     @required ScoreCount wrong,
   }) = _Score;
 
+  factory Score.starting() => Score(
+        right: ScoreCount(0),
+        wrong: ScoreCount(0),
+      );
+
+  Score rightAnswer() {
+    return this.copyWith(right: this.right.add());
+  }
+
+  Score wrongAnswer() {
+    return this.copyWith(wrong: this.wrong.add());
+  }
+
   Option<ValueFailure<dynamic>> get failureOption {
     return this
         .right

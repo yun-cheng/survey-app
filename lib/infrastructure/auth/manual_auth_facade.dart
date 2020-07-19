@@ -5,9 +5,7 @@ import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/auth_failure.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer_list.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
@@ -37,6 +35,7 @@ class ManualAuthFacade implements IAuthFacade {
 //        .then((doc) => print(doc.data));
 //  }
 
+  // TODO 如果因為沒有網路取得不到 interviewerList，要怎麼呈現給使用者？
   @override
   Future<Either<AuthFailure, Unit>> getInterviewerList() async {
     try {
@@ -68,19 +67,10 @@ class ManualAuthFacade implements IAuthFacade {
   }
 
   @override
-  Future<Either<AuthFailure, Unit>> signInWithInterviewerIdOrName(
-      {InterviewerId interviewerId, InterviewerName interviewerName}) async {
+  Either<AuthFailure, Unit> signInWithInterviewerIdOrName(
+      {InterviewerId interviewerId, InterviewerName interviewerName}) {
     final interviewerIdStr = interviewerId.value.fold((l) => '', id);
     final interviewerNameStr = interviewerName.value.fold((l) => '', id);
-
-    // TODO 如果因為沒有網路取得不到 interviewerList，要怎麼呈現給使用者？
-    if (_interviewerListOption.isNone()) {
-      final failureOrSuccess = await this.getInterviewerList();
-
-      if (failureOrSuccess.isLeft()) {
-        return failureOrSuccess;
-      }
-    }
 
     final interviewerList = _interviewerListOption.getOrElse(() => emptyList());
 
