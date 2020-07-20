@@ -7,5 +7,5 @@ abstract class QuestionListState with _$QuestionListState {
   const factory QuestionListState.loadFailure(QuizFailure quizFailure) =
       _LoadFailure;
   const factory QuestionListState.loadSuccess(KtList<Question> questionList) =
-      _LoadSuccess;
+      LoadSuccess;
 }

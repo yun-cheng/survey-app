@@ -27,7 +27,7 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerFactory<QuestionListBloc>(
       () => QuestionListBloc(g<IQuizRepository>()));
   g.registerFactory<QuestionPageBloc>(
-      () => QuestionPageBloc(g<IQuizRepository>()));
+      () => QuestionPageBloc(g<IQuizRepository>(), g<QuestionListBloc>()));
   g.registerFactory<SignInFormBloc>(() => SignInFormBloc(g<IAuthFacade>()));
   g.registerFactory<AuthBloc>(() => AuthBloc(g<IAuthFacade>()));
 }

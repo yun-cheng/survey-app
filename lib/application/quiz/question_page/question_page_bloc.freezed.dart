@@ -15,12 +15,41 @@ class _$QuestionPageEventTearOff {
   _NextPagePressed nextPagePressed() {
     return const _NextPagePressed();
   }
+
+  _UpdateMaxPage updateMaxPage(PageNumber maxPage) {
+    return _UpdateMaxPage(
+      maxPage,
+    );
+  }
 }
 
 // ignore: unused_element
 const $QuestionPageEvent = _$QuestionPageEventTearOff();
 
-mixin _$QuestionPageEvent {}
+mixin _$QuestionPageEvent {
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result updateMaxPage(PageNumber maxPage),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result updateMaxPage(PageNumber maxPage),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result updateMaxPage(_UpdateMaxPage value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result updateMaxPage(_UpdateMaxPage value),
+    @required Result orElse(),
+  });
+}
 
 abstract class $QuestionPageEventCopyWith<$Res> {
   factory $QuestionPageEventCopyWith(
@@ -78,29 +107,197 @@ class _$_NextPagePressed
 
   @override
   int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result updateMaxPage(PageNumber maxPage),
+  }) {
+    assert(nextPagePressed != null);
+    assert(updateMaxPage != null);
+    return nextPagePressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result updateMaxPage(PageNumber maxPage),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (nextPagePressed != null) {
+      return nextPagePressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result updateMaxPage(_UpdateMaxPage value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(updateMaxPage != null);
+    return nextPagePressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result updateMaxPage(_UpdateMaxPage value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (nextPagePressed != null) {
+      return nextPagePressed(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class _NextPagePressed implements QuestionPageEvent {
   const factory _NextPagePressed() = _$_NextPagePressed;
 }
 
+abstract class _$UpdateMaxPageCopyWith<$Res> {
+  factory _$UpdateMaxPageCopyWith(
+          _UpdateMaxPage value, $Res Function(_UpdateMaxPage) then) =
+      __$UpdateMaxPageCopyWithImpl<$Res>;
+  $Res call({PageNumber maxPage});
+}
+
+class __$UpdateMaxPageCopyWithImpl<$Res>
+    extends _$QuestionPageEventCopyWithImpl<$Res>
+    implements _$UpdateMaxPageCopyWith<$Res> {
+  __$UpdateMaxPageCopyWithImpl(
+      _UpdateMaxPage _value, $Res Function(_UpdateMaxPage) _then)
+      : super(_value, (v) => _then(v as _UpdateMaxPage));
+
+  @override
+  _UpdateMaxPage get _value => super._value as _UpdateMaxPage;
+
+  @override
+  $Res call({
+    Object maxPage = freezed,
+  }) {
+    return _then(_UpdateMaxPage(
+      maxPage == freezed ? _value.maxPage : maxPage as PageNumber,
+    ));
+  }
+}
+
+class _$_UpdateMaxPage with DiagnosticableTreeMixin implements _UpdateMaxPage {
+  const _$_UpdateMaxPage(this.maxPage) : assert(maxPage != null);
+
+  @override
+  final PageNumber maxPage;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'QuestionPageEvent.updateMaxPage(maxPage: $maxPage)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'QuestionPageEvent.updateMaxPage'))
+      ..add(DiagnosticsProperty('maxPage', maxPage));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateMaxPage &&
+            (identical(other.maxPage, maxPage) ||
+                const DeepCollectionEquality().equals(other.maxPage, maxPage)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(maxPage);
+
+  @override
+  _$UpdateMaxPageCopyWith<_UpdateMaxPage> get copyWith =>
+      __$UpdateMaxPageCopyWithImpl<_UpdateMaxPage>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result updateMaxPage(PageNumber maxPage),
+  }) {
+    assert(nextPagePressed != null);
+    assert(updateMaxPage != null);
+    return updateMaxPage(maxPage);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result updateMaxPage(PageNumber maxPage),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (updateMaxPage != null) {
+      return updateMaxPage(maxPage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result updateMaxPage(_UpdateMaxPage value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(updateMaxPage != null);
+    return updateMaxPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result updateMaxPage(_UpdateMaxPage value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (updateMaxPage != null) {
+      return updateMaxPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateMaxPage implements QuestionPageEvent {
+  const factory _UpdateMaxPage(PageNumber maxPage) = _$_UpdateMaxPage;
+
+  PageNumber get maxPage;
+  _$UpdateMaxPageCopyWith<_UpdateMaxPage> get copyWith;
+}
+
 class _$QuestionPageStateTearOff {
   const _$QuestionPageStateTearOff();
 
   _QuestionPageState call(
-      {@required KtList<Question> questionList,
-      @required Question question,
+      {@required Question question,
       @required PageNumber page,
-      @required bool showErrorMessages,
       @required bool isTurningPage,
-      @required Option<Either<QuizFailure, Unit>> quizFailureOrSuccessOption}) {
+      @required bool isLastPage,
+      @required PageNumber maxPage}) {
     return _QuestionPageState(
-      questionList: questionList,
       question: question,
       page: page,
-      showErrorMessages: showErrorMessages,
       isTurningPage: isTurningPage,
-      quizFailureOrSuccessOption: quizFailureOrSuccessOption,
+      isLastPage: isLastPage,
+      maxPage: maxPage,
     );
   }
 }
@@ -109,12 +306,11 @@ class _$QuestionPageStateTearOff {
 const $QuestionPageState = _$QuestionPageStateTearOff();
 
 mixin _$QuestionPageState {
-  KtList<Question> get questionList;
   Question get question;
   PageNumber get page;
-  bool get showErrorMessages;
   bool get isTurningPage;
-  Option<Either<QuizFailure, Unit>> get quizFailureOrSuccessOption;
+  bool get isLastPage;
+  PageNumber get maxPage;
 
   $QuestionPageStateCopyWith<QuestionPageState> get copyWith;
 }
@@ -124,12 +320,11 @@ abstract class $QuestionPageStateCopyWith<$Res> {
           QuestionPageState value, $Res Function(QuestionPageState) then) =
       _$QuestionPageStateCopyWithImpl<$Res>;
   $Res call(
-      {KtList<Question> questionList,
-      Question question,
+      {Question question,
       PageNumber page,
-      bool showErrorMessages,
       bool isTurningPage,
-      Option<Either<QuizFailure, Unit>> quizFailureOrSuccessOption});
+      bool isLastPage,
+      PageNumber maxPage});
 
   $QuestionCopyWith<$Res> get question;
 }
@@ -144,28 +339,21 @@ class _$QuestionPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object questionList = freezed,
     Object question = freezed,
     Object page = freezed,
-    Object showErrorMessages = freezed,
     Object isTurningPage = freezed,
-    Object quizFailureOrSuccessOption = freezed,
+    Object isLastPage = freezed,
+    Object maxPage = freezed,
   }) {
     return _then(_value.copyWith(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList as KtList<Question>,
       question: question == freezed ? _value.question : question as Question,
       page: page == freezed ? _value.page : page as PageNumber,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages as bool,
       isTurningPage: isTurningPage == freezed
           ? _value.isTurningPage
           : isTurningPage as bool,
-      quizFailureOrSuccessOption: quizFailureOrSuccessOption == freezed
-          ? _value.quizFailureOrSuccessOption
-          : quizFailureOrSuccessOption as Option<Either<QuizFailure, Unit>>,
+      isLastPage:
+          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
+      maxPage: maxPage == freezed ? _value.maxPage : maxPage as PageNumber,
     ));
   }
 
@@ -187,12 +375,11 @@ abstract class _$QuestionPageStateCopyWith<$Res>
       __$QuestionPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtList<Question> questionList,
-      Question question,
+      {Question question,
       PageNumber page,
-      bool showErrorMessages,
       bool isTurningPage,
-      Option<Either<QuizFailure, Unit>> quizFailureOrSuccessOption});
+      bool isLastPage,
+      PageNumber maxPage});
 
   @override
   $QuestionCopyWith<$Res> get question;
@@ -210,28 +397,21 @@ class __$QuestionPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object questionList = freezed,
     Object question = freezed,
     Object page = freezed,
-    Object showErrorMessages = freezed,
     Object isTurningPage = freezed,
-    Object quizFailureOrSuccessOption = freezed,
+    Object isLastPage = freezed,
+    Object maxPage = freezed,
   }) {
     return _then(_QuestionPageState(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList as KtList<Question>,
       question: question == freezed ? _value.question : question as Question,
       page: page == freezed ? _value.page : page as PageNumber,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages as bool,
       isTurningPage: isTurningPage == freezed
           ? _value.isTurningPage
           : isTurningPage as bool,
-      quizFailureOrSuccessOption: quizFailureOrSuccessOption == freezed
-          ? _value.quizFailureOrSuccessOption
-          : quizFailureOrSuccessOption as Option<Either<QuizFailure, Unit>>,
+      isLastPage:
+          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
+      maxPage: maxPage == freezed ? _value.maxPage : maxPage as PageNumber,
     ));
   }
 }
@@ -240,35 +420,31 @@ class _$_QuestionPageState
     with DiagnosticableTreeMixin
     implements _QuestionPageState {
   const _$_QuestionPageState(
-      {@required this.questionList,
-      @required this.question,
+      {@required this.question,
       @required this.page,
-      @required this.showErrorMessages,
       @required this.isTurningPage,
-      @required this.quizFailureOrSuccessOption})
-      : assert(questionList != null),
-        assert(question != null),
+      @required this.isLastPage,
+      @required this.maxPage})
+      : assert(question != null),
         assert(page != null),
-        assert(showErrorMessages != null),
         assert(isTurningPage != null),
-        assert(quizFailureOrSuccessOption != null);
+        assert(isLastPage != null),
+        assert(maxPage != null);
 
-  @override
-  final KtList<Question> questionList;
   @override
   final Question question;
   @override
   final PageNumber page;
   @override
-  final bool showErrorMessages;
-  @override
   final bool isTurningPage;
   @override
-  final Option<Either<QuizFailure, Unit>> quizFailureOrSuccessOption;
+  final bool isLastPage;
+  @override
+  final PageNumber maxPage;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuestionPageState(questionList: $questionList, question: $question, page: $page, showErrorMessages: $showErrorMessages, isTurningPage: $isTurningPage, quizFailureOrSuccessOption: $quizFailureOrSuccessOption)';
+    return 'QuestionPageState(question: $question, page: $page, isTurningPage: $isTurningPage, isLastPage: $isLastPage, maxPage: $maxPage)';
   }
 
   @override
@@ -276,49 +452,40 @@ class _$_QuestionPageState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'QuestionPageState'))
-      ..add(DiagnosticsProperty('questionList', questionList))
       ..add(DiagnosticsProperty('question', question))
       ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('showErrorMessages', showErrorMessages))
       ..add(DiagnosticsProperty('isTurningPage', isTurningPage))
-      ..add(DiagnosticsProperty(
-          'quizFailureOrSuccessOption', quizFailureOrSuccessOption));
+      ..add(DiagnosticsProperty('isLastPage', isLastPage))
+      ..add(DiagnosticsProperty('maxPage', maxPage));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _QuestionPageState &&
-            (identical(other.questionList, questionList) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
             (identical(other.question, question) ||
                 const DeepCollectionEquality()
                     .equals(other.question, question)) &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
             (identical(other.isTurningPage, isTurningPage) ||
                 const DeepCollectionEquality()
                     .equals(other.isTurningPage, isTurningPage)) &&
-            (identical(other.quizFailureOrSuccessOption,
-                    quizFailureOrSuccessOption) ||
-                const DeepCollectionEquality().equals(
-                    other.quizFailureOrSuccessOption,
-                    quizFailureOrSuccessOption)));
+            (identical(other.isLastPage, isLastPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLastPage, isLastPage)) &&
+            (identical(other.maxPage, maxPage) ||
+                const DeepCollectionEquality().equals(other.maxPage, maxPage)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(question) ^
       const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
       const DeepCollectionEquality().hash(isTurningPage) ^
-      const DeepCollectionEquality().hash(quizFailureOrSuccessOption);
+      const DeepCollectionEquality().hash(isLastPage) ^
+      const DeepCollectionEquality().hash(maxPage);
 
   @override
   _$QuestionPageStateCopyWith<_QuestionPageState> get copyWith =>
@@ -327,32 +494,22 @@ class _$_QuestionPageState
 
 abstract class _QuestionPageState implements QuestionPageState {
   const factory _QuestionPageState(
-          {@required
-              KtList<Question> questionList,
-          @required
-              Question question,
-          @required
-              PageNumber page,
-          @required
-              bool showErrorMessages,
-          @required
-              bool isTurningPage,
-          @required
-              Option<Either<QuizFailure, Unit>> quizFailureOrSuccessOption}) =
-      _$_QuestionPageState;
+      {@required Question question,
+      @required PageNumber page,
+      @required bool isTurningPage,
+      @required bool isLastPage,
+      @required PageNumber maxPage}) = _$_QuestionPageState;
 
-  @override
-  KtList<Question> get questionList;
   @override
   Question get question;
   @override
   PageNumber get page;
   @override
-  bool get showErrorMessages;
-  @override
   bool get isTurningPage;
   @override
-  Option<Either<QuizFailure, Unit>> get quizFailureOrSuccessOption;
+  bool get isLastPage;
+  @override
+  PageNumber get maxPage;
   @override
   _$QuestionPageStateCopyWith<_QuestionPageState> get copyWith;
 }
