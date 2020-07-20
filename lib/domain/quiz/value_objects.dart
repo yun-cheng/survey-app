@@ -53,7 +53,7 @@ class ScoreCount extends ValueObject<int> {
   factory ScoreCount(int input) {
     assert(input != null);
     return ScoreCount._(
-      validateScoreCount(input),
+      validateNatureNumber(input),
     );
   }
 
@@ -63,4 +63,23 @@ class ScoreCount extends ValueObject<int> {
   }
 
   const ScoreCount._(this.value);
+}
+
+class PageNumber extends ValueObject<int> {
+  @override
+  final Either<ValueFailure<int>, int> value;
+
+  factory PageNumber(int input) {
+    assert(input != null);
+    return PageNumber._(
+      validateNatureNumber(input),
+    );
+  }
+
+  PageNumber next() {
+    final newValue = value.fold((l) => l, (r) => r + 1);
+    return PageNumber(newValue);
+  }
+
+  const PageNumber._(this.value);
 }

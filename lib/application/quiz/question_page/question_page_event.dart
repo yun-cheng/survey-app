@@ -1,4 +1,6 @@
 part of 'question_page_bloc.dart';
 
-@immutable
-abstract class QuestionPageEvent {}
+@freezed
+abstract class QuestionPageEvent with _$QuestionPageEvent {
+  const factory QuestionPageEvent.nextPagePressed() = _NextPagePressed;
+}

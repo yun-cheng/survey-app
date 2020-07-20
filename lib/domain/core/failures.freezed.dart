@@ -24,8 +24,8 @@ class _$ValueFailureTearOff {
     );
   }
 
-  AbnormalScore<T> abnormalScore<T>({@required T failedValue}) {
-    return AbnormalScore<T>(
+  NotNaturalNumber<T> notNaturalNumber<T>({@required T failedValue}) {
+    return NotNaturalNumber<T>(
       failedValue: failedValue,
     );
   }
@@ -41,26 +41,26 @@ mixin _$ValueFailure<T> {
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
-    @required Result abnormalScore(T failedValue),
+    @required Result notNaturalNumber(T failedValue),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
-    Result abnormalScore(T failedValue),
+    Result notNaturalNumber(T failedValue),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    @required Result abnormalScore(AbnormalScore<T> value),
+    @required Result notNaturalNumber(NotNaturalNumber<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    Result abnormalScore(AbnormalScore<T> value),
+    Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result orElse(),
   });
 
@@ -153,11 +153,11 @@ class _$Empty<T> implements Empty<T> {
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
-    @required Result abnormalScore(T failedValue),
+    @required Result notNaturalNumber(T failedValue),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
-    assert(abnormalScore != null);
+    assert(notNaturalNumber != null);
     return empty(failedValue);
   }
 
@@ -166,7 +166,7 @@ class _$Empty<T> implements Empty<T> {
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
-    Result abnormalScore(T failedValue),
+    Result notNaturalNumber(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -181,11 +181,11 @@ class _$Empty<T> implements Empty<T> {
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    @required Result abnormalScore(AbnormalScore<T> value),
+    @required Result notNaturalNumber(NotNaturalNumber<T> value),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
-    assert(abnormalScore != null);
+    assert(notNaturalNumber != null);
     return empty(this);
   }
 
@@ -194,7 +194,7 @@ class _$Empty<T> implements Empty<T> {
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    Result abnormalScore(AbnormalScore<T> value),
+    Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -278,11 +278,11 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
-    @required Result abnormalScore(T failedValue),
+    @required Result notNaturalNumber(T failedValue),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
-    assert(abnormalScore != null);
+    assert(notNaturalNumber != null);
     return unexpectedAnswer(failedValue);
   }
 
@@ -291,7 +291,7 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
-    Result abnormalScore(T failedValue),
+    Result notNaturalNumber(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -306,11 +306,11 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    @required Result abnormalScore(AbnormalScore<T> value),
+    @required Result notNaturalNumber(NotNaturalNumber<T> value),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
-    assert(abnormalScore != null);
+    assert(notNaturalNumber != null);
     return unexpectedAnswer(this);
   }
 
@@ -319,7 +319,7 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    Result abnormalScore(AbnormalScore<T> value),
+    Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -340,38 +340,38 @@ abstract class UnexpectedAnswer<T> implements ValueFailure<T> {
   $UnexpectedAnswerCopyWith<T, UnexpectedAnswer<T>> get copyWith;
 }
 
-abstract class $AbnormalScoreCopyWith<T, $Res>
+abstract class $NotNaturalNumberCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
-  factory $AbnormalScoreCopyWith(
-          AbnormalScore<T> value, $Res Function(AbnormalScore<T>) then) =
-      _$AbnormalScoreCopyWithImpl<T, $Res>;
+  factory $NotNaturalNumberCopyWith(
+          NotNaturalNumber<T> value, $Res Function(NotNaturalNumber<T>) then) =
+      _$NotNaturalNumberCopyWithImpl<T, $Res>;
   @override
   $Res call({T failedValue});
 }
 
-class _$AbnormalScoreCopyWithImpl<T, $Res>
+class _$NotNaturalNumberCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
-    implements $AbnormalScoreCopyWith<T, $Res> {
-  _$AbnormalScoreCopyWithImpl(
-      AbnormalScore<T> _value, $Res Function(AbnormalScore<T>) _then)
-      : super(_value, (v) => _then(v as AbnormalScore<T>));
+    implements $NotNaturalNumberCopyWith<T, $Res> {
+  _$NotNaturalNumberCopyWithImpl(
+      NotNaturalNumber<T> _value, $Res Function(NotNaturalNumber<T>) _then)
+      : super(_value, (v) => _then(v as NotNaturalNumber<T>));
 
   @override
-  AbnormalScore<T> get _value => super._value as AbnormalScore<T>;
+  NotNaturalNumber<T> get _value => super._value as NotNaturalNumber<T>;
 
   @override
   $Res call({
     Object failedValue = freezed,
   }) {
-    return _then(AbnormalScore<T>(
+    return _then(NotNaturalNumber<T>(
       failedValue:
           failedValue == freezed ? _value.failedValue : failedValue as T,
     ));
   }
 }
 
-class _$AbnormalScore<T> implements AbnormalScore<T> {
-  const _$AbnormalScore({@required this.failedValue})
+class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
+  const _$NotNaturalNumber({@required this.failedValue})
       : assert(failedValue != null);
 
   @override
@@ -379,13 +379,13 @@ class _$AbnormalScore<T> implements AbnormalScore<T> {
 
   @override
   String toString() {
-    return 'ValueFailure<$T>.abnormalScore(failedValue: $failedValue)';
+    return 'ValueFailure<$T>.notNaturalNumber(failedValue: $failedValue)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is AbnormalScore<T> &&
+        (other is NotNaturalNumber<T> &&
             (identical(other.failedValue, failedValue) ||
                 const DeepCollectionEquality()
                     .equals(other.failedValue, failedValue)));
@@ -396,20 +396,20 @@ class _$AbnormalScore<T> implements AbnormalScore<T> {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
   @override
-  $AbnormalScoreCopyWith<T, AbnormalScore<T>> get copyWith =>
-      _$AbnormalScoreCopyWithImpl<T, AbnormalScore<T>>(this, _$identity);
+  $NotNaturalNumberCopyWith<T, NotNaturalNumber<T>> get copyWith =>
+      _$NotNaturalNumberCopyWithImpl<T, NotNaturalNumber<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
-    @required Result abnormalScore(T failedValue),
+    @required Result notNaturalNumber(T failedValue),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
-    assert(abnormalScore != null);
-    return abnormalScore(failedValue);
+    assert(notNaturalNumber != null);
+    return notNaturalNumber(failedValue);
   }
 
   @override
@@ -417,12 +417,12 @@ class _$AbnormalScore<T> implements AbnormalScore<T> {
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
-    Result abnormalScore(T failedValue),
+    Result notNaturalNumber(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (abnormalScore != null) {
-      return abnormalScore(failedValue);
+    if (notNaturalNumber != null) {
+      return notNaturalNumber(failedValue);
     }
     return orElse();
   }
@@ -432,12 +432,12 @@ class _$AbnormalScore<T> implements AbnormalScore<T> {
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    @required Result abnormalScore(AbnormalScore<T> value),
+    @required Result notNaturalNumber(NotNaturalNumber<T> value),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
-    assert(abnormalScore != null);
-    return abnormalScore(this);
+    assert(notNaturalNumber != null);
+    return notNaturalNumber(this);
   }
 
   @override
@@ -445,22 +445,23 @@ class _$AbnormalScore<T> implements AbnormalScore<T> {
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
-    Result abnormalScore(AbnormalScore<T> value),
+    Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (abnormalScore != null) {
-      return abnormalScore(this);
+    if (notNaturalNumber != null) {
+      return notNaturalNumber(this);
     }
     return orElse();
   }
 }
 
-abstract class AbnormalScore<T> implements ValueFailure<T> {
-  const factory AbnormalScore({@required T failedValue}) = _$AbnormalScore<T>;
+abstract class NotNaturalNumber<T> implements ValueFailure<T> {
+  const factory NotNaturalNumber({@required T failedValue}) =
+      _$NotNaturalNumber<T>;
 
   @override
   T get failedValue;
   @override
-  $AbnormalScoreCopyWith<T, AbnormalScore<T>> get copyWith;
+  $NotNaturalNumberCopyWith<T, NotNaturalNumber<T>> get copyWith;
 }

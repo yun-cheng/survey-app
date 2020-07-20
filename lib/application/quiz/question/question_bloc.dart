@@ -24,10 +24,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   QuestionBloc(this._quizRepository);
 
   @override
-  QuestionState get initialState {
-    _quizRepository.getQuestionList();
-    return QuestionState.initial();
-  }
+  QuestionState get initialState => QuestionState.initial();
 
   @override
   Stream<QuestionState> mapEventToState(

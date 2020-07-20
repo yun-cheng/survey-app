@@ -12,7 +12,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     @required T failedValue,
   }) = UnexpectedAnswer<T>;
 
-  const factory ValueFailure.abnormalScore({
+  const factory ValueFailure.notNaturalNumber({
     @required T failedValue,
-  }) = AbnormalScore<T>;
+  }) = NotNaturalNumber<T>;
 }

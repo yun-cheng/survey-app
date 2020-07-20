@@ -10,10 +10,10 @@ Either<ValueFailure<String>, String> validateAnswer(String input) {
   }
 }
 
-Either<ValueFailure<int>, int> validateScoreCount(int input) {
+Either<ValueFailure<int>, int> validateNatureNumber(int input) {
   if (input >= 0) {
     return right(input);
   } else {
-    return left(ValueFailure.abnormalScore(failedValue: input));
+    return left(ValueFailure.notNaturalNumber(failedValue: input));
   }
 }

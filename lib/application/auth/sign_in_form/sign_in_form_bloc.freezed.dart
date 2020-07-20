@@ -12,20 +12,20 @@ T _$identity<T>(T value) => value;
 class _$SignInFormEventTearOff {
   const _$SignInFormEventTearOff();
 
-  InterviewerIdChanged interviewerIdChanged(String interviewerIdStr) {
-    return InterviewerIdChanged(
+  _InterviewerIdChanged interviewerIdChanged(String interviewerIdStr) {
+    return _InterviewerIdChanged(
       interviewerIdStr,
     );
   }
 
-  InterviewerNameChanged interviewerNameChanged(String interviewerNameStr) {
-    return InterviewerNameChanged(
+  _InterviewerNameChanged interviewerNameChanged(String interviewerNameStr) {
+    return _InterviewerNameChanged(
       interviewerNameStr,
     );
   }
 
-  SignInPressed signInPressed() {
-    return const SignInPressed();
+  _SignInPressed signInPressed() {
+    return const _SignInPressed();
   }
 }
 
@@ -48,15 +48,15 @@ mixin _$SignInFormEvent {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result interviewerIdChanged(InterviewerIdChanged value),
-    @required Result interviewerNameChanged(InterviewerNameChanged value),
-    @required Result signInPressed(SignInPressed value),
+    @required Result interviewerIdChanged(_InterviewerIdChanged value),
+    @required Result interviewerNameChanged(_InterviewerNameChanged value),
+    @required Result signInPressed(_SignInPressed value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result interviewerIdChanged(InterviewerIdChanged value),
-    Result interviewerNameChanged(InterviewerNameChanged value),
-    Result signInPressed(SignInPressed value),
+    Result interviewerIdChanged(_InterviewerIdChanged value),
+    Result interviewerNameChanged(_InterviewerNameChanged value),
+    Result signInPressed(_SignInPressed value),
     @required Result orElse(),
   });
 }
@@ -76,28 +76,28 @@ class _$SignInFormEventCopyWithImpl<$Res>
   final $Res Function(SignInFormEvent) _then;
 }
 
-abstract class $InterviewerIdChangedCopyWith<$Res> {
-  factory $InterviewerIdChangedCopyWith(InterviewerIdChanged value,
-          $Res Function(InterviewerIdChanged) then) =
-      _$InterviewerIdChangedCopyWithImpl<$Res>;
+abstract class _$InterviewerIdChangedCopyWith<$Res> {
+  factory _$InterviewerIdChangedCopyWith(_InterviewerIdChanged value,
+          $Res Function(_InterviewerIdChanged) then) =
+      __$InterviewerIdChangedCopyWithImpl<$Res>;
   $Res call({String interviewerIdStr});
 }
 
-class _$InterviewerIdChangedCopyWithImpl<$Res>
+class __$InterviewerIdChangedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
-    implements $InterviewerIdChangedCopyWith<$Res> {
-  _$InterviewerIdChangedCopyWithImpl(
-      InterviewerIdChanged _value, $Res Function(InterviewerIdChanged) _then)
-      : super(_value, (v) => _then(v as InterviewerIdChanged));
+    implements _$InterviewerIdChangedCopyWith<$Res> {
+  __$InterviewerIdChangedCopyWithImpl(
+      _InterviewerIdChanged _value, $Res Function(_InterviewerIdChanged) _then)
+      : super(_value, (v) => _then(v as _InterviewerIdChanged));
 
   @override
-  InterviewerIdChanged get _value => super._value as InterviewerIdChanged;
+  _InterviewerIdChanged get _value => super._value as _InterviewerIdChanged;
 
   @override
   $Res call({
     Object interviewerIdStr = freezed,
   }) {
-    return _then(InterviewerIdChanged(
+    return _then(_InterviewerIdChanged(
       interviewerIdStr == freezed
           ? _value.interviewerIdStr
           : interviewerIdStr as String,
@@ -105,10 +105,10 @@ class _$InterviewerIdChangedCopyWithImpl<$Res>
   }
 }
 
-class _$InterviewerIdChanged
+class _$_InterviewerIdChanged
     with DiagnosticableTreeMixin
-    implements InterviewerIdChanged {
-  const _$InterviewerIdChanged(this.interviewerIdStr)
+    implements _InterviewerIdChanged {
+  const _$_InterviewerIdChanged(this.interviewerIdStr)
       : assert(interviewerIdStr != null);
 
   @override
@@ -130,7 +130,7 @@ class _$InterviewerIdChanged
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is InterviewerIdChanged &&
+        (other is _InterviewerIdChanged &&
             (identical(other.interviewerIdStr, interviewerIdStr) ||
                 const DeepCollectionEquality()
                     .equals(other.interviewerIdStr, interviewerIdStr)));
@@ -142,8 +142,8 @@ class _$InterviewerIdChanged
       const DeepCollectionEquality().hash(interviewerIdStr);
 
   @override
-  $InterviewerIdChangedCopyWith<InterviewerIdChanged> get copyWith =>
-      _$InterviewerIdChangedCopyWithImpl<InterviewerIdChanged>(
+  _$InterviewerIdChangedCopyWith<_InterviewerIdChanged> get copyWith =>
+      __$InterviewerIdChangedCopyWithImpl<_InterviewerIdChanged>(
           this, _$identity);
 
   @override
@@ -177,9 +177,9 @@ class _$InterviewerIdChanged
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result interviewerIdChanged(InterviewerIdChanged value),
-    @required Result interviewerNameChanged(InterviewerNameChanged value),
-    @required Result signInPressed(SignInPressed value),
+    @required Result interviewerIdChanged(_InterviewerIdChanged value),
+    @required Result interviewerNameChanged(_InterviewerNameChanged value),
+    @required Result signInPressed(_SignInPressed value),
   }) {
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
@@ -190,9 +190,9 @@ class _$InterviewerIdChanged
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result interviewerIdChanged(InterviewerIdChanged value),
-    Result interviewerNameChanged(InterviewerNameChanged value),
-    Result signInPressed(SignInPressed value),
+    Result interviewerIdChanged(_InterviewerIdChanged value),
+    Result interviewerNameChanged(_InterviewerNameChanged value),
+    Result signInPressed(_SignInPressed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -203,36 +203,36 @@ class _$InterviewerIdChanged
   }
 }
 
-abstract class InterviewerIdChanged implements SignInFormEvent {
-  const factory InterviewerIdChanged(String interviewerIdStr) =
-      _$InterviewerIdChanged;
+abstract class _InterviewerIdChanged implements SignInFormEvent {
+  const factory _InterviewerIdChanged(String interviewerIdStr) =
+      _$_InterviewerIdChanged;
 
   String get interviewerIdStr;
-  $InterviewerIdChangedCopyWith<InterviewerIdChanged> get copyWith;
+  _$InterviewerIdChangedCopyWith<_InterviewerIdChanged> get copyWith;
 }
 
-abstract class $InterviewerNameChangedCopyWith<$Res> {
-  factory $InterviewerNameChangedCopyWith(InterviewerNameChanged value,
-          $Res Function(InterviewerNameChanged) then) =
-      _$InterviewerNameChangedCopyWithImpl<$Res>;
+abstract class _$InterviewerNameChangedCopyWith<$Res> {
+  factory _$InterviewerNameChangedCopyWith(_InterviewerNameChanged value,
+          $Res Function(_InterviewerNameChanged) then) =
+      __$InterviewerNameChangedCopyWithImpl<$Res>;
   $Res call({String interviewerNameStr});
 }
 
-class _$InterviewerNameChangedCopyWithImpl<$Res>
+class __$InterviewerNameChangedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
-    implements $InterviewerNameChangedCopyWith<$Res> {
-  _$InterviewerNameChangedCopyWithImpl(InterviewerNameChanged _value,
-      $Res Function(InterviewerNameChanged) _then)
-      : super(_value, (v) => _then(v as InterviewerNameChanged));
+    implements _$InterviewerNameChangedCopyWith<$Res> {
+  __$InterviewerNameChangedCopyWithImpl(_InterviewerNameChanged _value,
+      $Res Function(_InterviewerNameChanged) _then)
+      : super(_value, (v) => _then(v as _InterviewerNameChanged));
 
   @override
-  InterviewerNameChanged get _value => super._value as InterviewerNameChanged;
+  _InterviewerNameChanged get _value => super._value as _InterviewerNameChanged;
 
   @override
   $Res call({
     Object interviewerNameStr = freezed,
   }) {
-    return _then(InterviewerNameChanged(
+    return _then(_InterviewerNameChanged(
       interviewerNameStr == freezed
           ? _value.interviewerNameStr
           : interviewerNameStr as String,
@@ -240,10 +240,10 @@ class _$InterviewerNameChangedCopyWithImpl<$Res>
   }
 }
 
-class _$InterviewerNameChanged
+class _$_InterviewerNameChanged
     with DiagnosticableTreeMixin
-    implements InterviewerNameChanged {
-  const _$InterviewerNameChanged(this.interviewerNameStr)
+    implements _InterviewerNameChanged {
+  const _$_InterviewerNameChanged(this.interviewerNameStr)
       : assert(interviewerNameStr != null);
 
   @override
@@ -266,7 +266,7 @@ class _$InterviewerNameChanged
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is InterviewerNameChanged &&
+        (other is _InterviewerNameChanged &&
             (identical(other.interviewerNameStr, interviewerNameStr) ||
                 const DeepCollectionEquality()
                     .equals(other.interviewerNameStr, interviewerNameStr)));
@@ -278,8 +278,8 @@ class _$InterviewerNameChanged
       const DeepCollectionEquality().hash(interviewerNameStr);
 
   @override
-  $InterviewerNameChangedCopyWith<InterviewerNameChanged> get copyWith =>
-      _$InterviewerNameChangedCopyWithImpl<InterviewerNameChanged>(
+  _$InterviewerNameChangedCopyWith<_InterviewerNameChanged> get copyWith =>
+      __$InterviewerNameChangedCopyWithImpl<_InterviewerNameChanged>(
           this, _$identity);
 
   @override
@@ -313,9 +313,9 @@ class _$InterviewerNameChanged
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result interviewerIdChanged(InterviewerIdChanged value),
-    @required Result interviewerNameChanged(InterviewerNameChanged value),
-    @required Result signInPressed(SignInPressed value),
+    @required Result interviewerIdChanged(_InterviewerIdChanged value),
+    @required Result interviewerNameChanged(_InterviewerNameChanged value),
+    @required Result signInPressed(_SignInPressed value),
   }) {
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
@@ -326,9 +326,9 @@ class _$InterviewerNameChanged
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result interviewerIdChanged(InterviewerIdChanged value),
-    Result interviewerNameChanged(InterviewerNameChanged value),
-    Result signInPressed(SignInPressed value),
+    Result interviewerIdChanged(_InterviewerIdChanged value),
+    Result interviewerNameChanged(_InterviewerNameChanged value),
+    Result signInPressed(_SignInPressed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -339,33 +339,33 @@ class _$InterviewerNameChanged
   }
 }
 
-abstract class InterviewerNameChanged implements SignInFormEvent {
-  const factory InterviewerNameChanged(String interviewerNameStr) =
-      _$InterviewerNameChanged;
+abstract class _InterviewerNameChanged implements SignInFormEvent {
+  const factory _InterviewerNameChanged(String interviewerNameStr) =
+      _$_InterviewerNameChanged;
 
   String get interviewerNameStr;
-  $InterviewerNameChangedCopyWith<InterviewerNameChanged> get copyWith;
+  _$InterviewerNameChangedCopyWith<_InterviewerNameChanged> get copyWith;
 }
 
-abstract class $SignInPressedCopyWith<$Res> {
-  factory $SignInPressedCopyWith(
-          SignInPressed value, $Res Function(SignInPressed) then) =
-      _$SignInPressedCopyWithImpl<$Res>;
+abstract class _$SignInPressedCopyWith<$Res> {
+  factory _$SignInPressedCopyWith(
+          _SignInPressed value, $Res Function(_SignInPressed) then) =
+      __$SignInPressedCopyWithImpl<$Res>;
 }
 
-class _$SignInPressedCopyWithImpl<$Res>
+class __$SignInPressedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
-    implements $SignInPressedCopyWith<$Res> {
-  _$SignInPressedCopyWithImpl(
-      SignInPressed _value, $Res Function(SignInPressed) _then)
-      : super(_value, (v) => _then(v as SignInPressed));
+    implements _$SignInPressedCopyWith<$Res> {
+  __$SignInPressedCopyWithImpl(
+      _SignInPressed _value, $Res Function(_SignInPressed) _then)
+      : super(_value, (v) => _then(v as _SignInPressed));
 
   @override
-  SignInPressed get _value => super._value as SignInPressed;
+  _SignInPressed get _value => super._value as _SignInPressed;
 }
 
-class _$SignInPressed with DiagnosticableTreeMixin implements SignInPressed {
-  const _$SignInPressed();
+class _$_SignInPressed with DiagnosticableTreeMixin implements _SignInPressed {
+  const _$_SignInPressed();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -381,7 +381,7 @@ class _$SignInPressed with DiagnosticableTreeMixin implements SignInPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignInPressed);
+    return identical(this, other) || (other is _SignInPressed);
   }
 
   @override
@@ -418,9 +418,9 @@ class _$SignInPressed with DiagnosticableTreeMixin implements SignInPressed {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result interviewerIdChanged(InterviewerIdChanged value),
-    @required Result interviewerNameChanged(InterviewerNameChanged value),
-    @required Result signInPressed(SignInPressed value),
+    @required Result interviewerIdChanged(_InterviewerIdChanged value),
+    @required Result interviewerNameChanged(_InterviewerNameChanged value),
+    @required Result signInPressed(_SignInPressed value),
   }) {
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
@@ -431,9 +431,9 @@ class _$SignInPressed with DiagnosticableTreeMixin implements SignInPressed {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result interviewerIdChanged(InterviewerIdChanged value),
-    Result interviewerNameChanged(InterviewerNameChanged value),
-    Result signInPressed(SignInPressed value),
+    Result interviewerIdChanged(_InterviewerIdChanged value),
+    Result interviewerNameChanged(_InterviewerNameChanged value),
+    Result signInPressed(_SignInPressed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -444,8 +444,8 @@ class _$SignInPressed with DiagnosticableTreeMixin implements SignInPressed {
   }
 }
 
-abstract class SignInPressed implements SignInFormEvent {
-  const factory SignInPressed() = _$SignInPressed;
+abstract class _SignInPressed implements SignInFormEvent {
+  const factory _SignInPressed() = _$_SignInPressed;
 }
 
 class _$SignInFormStateTearOff {

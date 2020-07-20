@@ -11,6 +11,8 @@ import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/quiz/quiz_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -22,6 +24,10 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerLazySingleton<IQuizRepository>(
       () => QuizRepository(g<Firestore>()));
   g.registerFactory<QuestionBloc>(() => QuestionBloc(g<IQuizRepository>()));
+  g.registerFactory<QuestionListBloc>(
+      () => QuestionListBloc(g<IQuizRepository>()));
+  g.registerFactory<QuestionPageBloc>(
+      () => QuestionPageBloc(g<IQuizRepository>()));
   g.registerFactory<SignInFormBloc>(() => SignInFormBloc(g<IAuthFacade>()));
   g.registerFactory<AuthBloc>(() => AuthBloc(g<IAuthFacade>()));
 }

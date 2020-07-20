@@ -1,6 +1,22 @@
-part of '../../application/quiz/question_page/question_page_bloc.dart';
+part of 'question_page_bloc.dart';
 
-@immutable
-abstract class QuestionPageState {}
+@freezed
+abstract class QuestionPageState with _$QuestionPageState {
+  const factory QuestionPageState({
+    @required KtList<Question> questionList,
+    @required Question question,
+    @required PageNumber page,
+    @required bool showErrorMessages,
+    @required bool isTurningPage,
+    @required Option<Either<QuizFailure, Unit>> quizFailureOrSuccessOption,
+  }) = _QuestionPageState;
 
-class QuestionPageInitial extends QuestionPageState {}
+  factory QuestionPageState.initial() => QuestionPageState(
+        questionList: emptyList(),
+        question: Question.empty(),
+        page: PageNumber(1),
+        showErrorMessages: false,
+        isTurningPage: false,
+        quizFailureOrSuccessOption: none(),
+      );
+}
