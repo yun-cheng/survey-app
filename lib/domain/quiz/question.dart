@@ -18,7 +18,7 @@ abstract class Question implements _$Question {
   factory Question.empty() => Question(
         id: QuestionId(''),
         body: QuestionBody(''),
-        answer: Answer(''),
+        answer: Answer.empty(),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {

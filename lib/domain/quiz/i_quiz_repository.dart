@@ -7,8 +7,5 @@ import 'package:kt_dart/collection.dart';
 
 abstract class IQuizRepository {
   Future<Either<QuizFailure, KtList<Question>>> getQuestionList();
-  Either<QuizFailure, Unit> checkAnswer(
-      QuestionId questionId, Answer selectedAnswer);
-  Either<QuizFailure, Unit> saveScore();
   Future<Either<QuizFailure, Unit>> uploadScore();
 }

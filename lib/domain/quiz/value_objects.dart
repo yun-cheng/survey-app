@@ -32,6 +32,7 @@ class QuestionId extends ValueObject<String> {
   const QuestionId._(this.value);
 }
 
+// TODO 是否能改成類似 enum 那樣的形式？
 class Answer extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -42,6 +43,12 @@ class Answer extends ValueObject<String> {
       validateAnswer(input),
     );
   }
+
+  factory Answer.answerTrue() => Answer('O');
+
+  factory Answer.answerFalse() => Answer('X');
+
+  factory Answer.empty() => Answer('');
 
   const Answer._(this.value);
 }

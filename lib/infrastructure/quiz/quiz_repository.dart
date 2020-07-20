@@ -54,19 +54,6 @@ class QuizRepository implements IQuizRepository {
   }
 
   @override
-  Either<QuizFailure, Unit> checkAnswer(
-      QuestionId questionId, Answer selectedAnswer) {
-    // TODO: implement checkAnswer
-    throw UnimplementedError();
-  }
-
-  @override
-  Either<QuizFailure, Unit> saveScore() {
-    // TODO: implement saveScore
-    throw UnimplementedError();
-  }
-
-  @override
   Future<Either<QuizFailure, Unit>> uploadScore() {
     // TODO: implement uploadScore
     throw UnimplementedError();
