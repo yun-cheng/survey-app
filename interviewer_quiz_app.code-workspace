@@ -1,10 +1,24 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
+	"folders": [{
+		"path": "."
+	}],
 	"settings": {
 		"workbench.colorTheme": "Material Theme Darker",
+		"editor.tokenColorCustomizations": {
+			"[Material Theme Darker]": {
+				"comments": "#adadad"
+			}
+		},
+		"workbench.colorCustomizations": {
+			"[Material Theme Darker]": {
+				"statusBar.debuggingBackground": "#212121",
+				"sideBar.foreground": "#c7c7c7",
+				"gitDecoration.ignoredResourceForeground": "#666666"
+			}
+		},
+		"material-icon-theme.folders.associations": {
+			"ui": "layout",
+			"bloc": "controller"
+		}
 	}
 }

@@ -11,7 +11,7 @@ import 'domain/quiz/score.dart';
 
 Future<void> main() async {
   configureInjection(Environment.prod);
-  BlocSupervisor.delegate = SimpleBlocDelegate();
+  Bloc.observer = SimpleBlocObserver();
   runApp(AppWidget());
 
   // TEST

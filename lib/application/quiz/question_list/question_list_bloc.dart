@@ -16,12 +16,9 @@ part 'question_list_bloc.freezed.dart';
 
 @injectable
 class QuestionListBloc extends Bloc<QuestionListEvent, QuestionListState> {
+  QuestionListBloc(this._quizRepository): super(const QuestionListState.initial());
+
   final IQuizRepository _quizRepository;
-
-  QuestionListBloc(this._quizRepository);
-
-  @override
-  QuestionListState get initialState => const QuestionListState.initial();
 
   @override
   Stream<QuestionListState> mapEventToState(

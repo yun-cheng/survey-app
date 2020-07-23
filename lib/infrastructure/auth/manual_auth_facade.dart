@@ -7,7 +7,7 @@ import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show PlatformException, rootBundle;
 import 'dart:convert';
 import 'package:kt_dart/collection.dart';
 
@@ -37,7 +37,7 @@ class ManualAuthFacade implements IAuthFacade {
 
   // TODO 如果因為沒有網路取得不到 interviewerList，要怎麼呈現給使用者？
   @override
-  Future<Either<AuthFailure, Unit>> getInterviewerList() async {
+  Future<Either<AuthFailure, KtList<Interviewer>>> getInterviewerList() async {
     try {
       final projectCollection = _firestore.projectCollection;
 
@@ -45,14 +45,21 @@ class ManualAuthFacade implements IAuthFacade {
           .get()
           .then((doc) => InterviewerListDto.fromFirestore(doc).toDomain());
 
-      _interviewerListOption = some(interviewerList);
+      // _interviewerListOption = some(interviewerList);
 
-      return right(unit);
-    } on Exception catch (e) {
-      return left(const AuthFailure.serverError());
+      return right(interviewerList);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const AuthFailure.insufficientPermission());
+      } else if (e.message.contains('NOT_FOUND')) {
+        return left(const AuthFailure.unableToGet());
+      } else {
+        return left(const AuthFailure.unexpected());
+      }
     }
   }
 
+  // NOTE 原本從 local 端 load 資料的方法，現在未使用
   @override
   Future<void> getInterviewerListFromAsset() async {
     final path = 'assets/interviewer_list.json';
@@ -67,12 +74,13 @@ class ManualAuthFacade implements IAuthFacade {
   }
 
   @override
-  Either<AuthFailure, Unit> signInWithInterviewerIdOrName(
-      {InterviewerId interviewerId, InterviewerName interviewerName}) {
+  Either<AuthFailure, Unit> signInWithInterviewerIdOrName({
+    InterviewerId interviewerId,
+    InterviewerName interviewerName,
+    KtList<Interviewer> interviewerList,
+  }) {
     final interviewerIdStr = interviewerId.value.fold((l) => '', id);
     final interviewerNameStr = interviewerName.value.fold((l) => '', id);
-
-    final interviewerList = _interviewerListOption.getOrElse(() => emptyList());
 
     Interviewer matchId = interviewerList
         .filter(

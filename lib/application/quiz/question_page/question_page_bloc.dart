@@ -20,12 +20,9 @@ part 'question_page_bloc.freezed.dart';
 
 @injectable
 class QuestionPageBloc extends Bloc<QuestionPageEvent, QuestionPageState> {
-  final IQuizRepository _quizRepository;
-  StreamSubscription<QuestionListState> _subscription;
-  KtList<Question> _questionList;
-
   // TEST 標準寫法會加 assert，輸入參數也要指名，但因為使用 getIt，可能就不需要了
-  QuestionPageBloc(this._quizRepository, QuestionListBloc questionListBloc) {
+  QuestionPageBloc(this._quizRepository, QuestionListBloc questionListBloc)
+      : super(QuestionPageState.initial()) {
     _subscription = questionListBloc.listen((state) {
       if (state is LoadSuccess) {
         _questionList = state.questionList;
@@ -36,8 +33,9 @@ class QuestionPageBloc extends Bloc<QuestionPageEvent, QuestionPageState> {
     });
   }
 
-  @override
-  QuestionPageState get initialState => QuestionPageState.initial();
+  final IQuizRepository _quizRepository;
+  StreamSubscription _subscription;
+  KtList<Question> _questionList;
 
   @override
   Stream<QuestionPageState> mapEventToState(

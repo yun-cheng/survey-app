@@ -28,8 +28,6 @@ class SignInForm extends StatelessWidget {
               ).show(context);
             },
             (_) {
-              ExtendedNavigator.of(context)
-                  .pushReplacementNamed(Routes.quizPage);
               context
                   .bloc<AuthBloc>()
                   .add(const AuthEvent.authCheckRequested());
@@ -94,21 +92,6 @@ class SignInForm extends StatelessWidget {
                 color: Colors.blueAccent,
                 child: const Text(
                   '登入',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              FlatButton(
-                onPressed: () {
-                  context.bloc<SignInFormBloc>().add(
-                        const SignInFormEvent.signInPressed(),
-                      );
-                },
-                color: Colors.green,
-                child: const Text(
-                  '開始測驗',
                   style: TextStyle(
                     color: Colors.white,
                   ),
