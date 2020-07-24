@@ -15,6 +15,8 @@ class QuestionBody extends ValueObject<String> {
     );
   }
 
+  factory QuestionBody.empty() => QuestionBody('');
+
   const QuestionBody._(this.value);
 }
 
@@ -28,6 +30,8 @@ class QuestionId extends ValueObject<String> {
       validateStringNotEmpty(input),
     );
   }
+
+  factory QuestionId.empty() => QuestionId('');
 
   const QuestionId._(this.value);
 }

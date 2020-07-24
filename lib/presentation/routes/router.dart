@@ -6,8 +6,8 @@ import 'package:interviewer_quiz_flutter_app/presentation/splash/splash_page.dar
 @MaterialAutoRouter(
   generateNavigationHelperExtension: true,
   routes: <AutoRoute>[
-    MaterialRoute(page: SplashPage, initial: true),
-    MaterialRoute(page: SignInPage),
+    // MaterialRoute(page: SplashPage),
+    MaterialRoute(page: SignInPage, initial: true),
     MaterialRoute(page: QuizPage),
   ],
 )

@@ -16,10 +16,8 @@ class _$QuestionPageEventTearOff {
     return const _NextPagePressed();
   }
 
-  _UpdateMaxPage updateMaxPage(PageNumber maxPage) {
-    return _UpdateMaxPage(
-      maxPage,
-    );
+  _LoadQuestionList loadQuestionList() {
+    return const _LoadQuestionList();
   }
 }
 
@@ -30,23 +28,23 @@ mixin _$QuestionPageEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result nextPagePressed(),
-    @required Result updateMaxPage(PageNumber maxPage),
+    @required Result loadQuestionList(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result nextPagePressed(),
-    Result updateMaxPage(PageNumber maxPage),
+    Result loadQuestionList(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result nextPagePressed(_NextPagePressed value),
-    @required Result updateMaxPage(_UpdateMaxPage value),
+    @required Result loadQuestionList(_LoadQuestionList value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result nextPagePressed(_NextPagePressed value),
-    Result updateMaxPage(_UpdateMaxPage value),
+    Result loadQuestionList(_LoadQuestionList value),
     @required Result orElse(),
   });
 }
@@ -112,10 +110,10 @@ class _$_NextPagePressed
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result nextPagePressed(),
-    @required Result updateMaxPage(PageNumber maxPage),
+    @required Result loadQuestionList(),
   }) {
     assert(nextPagePressed != null);
-    assert(updateMaxPage != null);
+    assert(loadQuestionList != null);
     return nextPagePressed();
   }
 
@@ -123,7 +121,7 @@ class _$_NextPagePressed
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result nextPagePressed(),
-    Result updateMaxPage(PageNumber maxPage),
+    Result loadQuestionList(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -137,10 +135,10 @@ class _$_NextPagePressed
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result nextPagePressed(_NextPagePressed value),
-    @required Result updateMaxPage(_UpdateMaxPage value),
+    @required Result loadQuestionList(_LoadQuestionList value),
   }) {
     assert(nextPagePressed != null);
-    assert(updateMaxPage != null);
+    assert(loadQuestionList != null);
     return nextPagePressed(this);
   }
 
@@ -148,7 +146,7 @@ class _$_NextPagePressed
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result nextPagePressed(_NextPagePressed value),
-    Result updateMaxPage(_UpdateMaxPage value),
+    Result loadQuestionList(_LoadQuestionList value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -163,89 +161,69 @@ abstract class _NextPagePressed implements QuestionPageEvent {
   const factory _NextPagePressed() = _$_NextPagePressed;
 }
 
-abstract class _$UpdateMaxPageCopyWith<$Res> {
-  factory _$UpdateMaxPageCopyWith(
-          _UpdateMaxPage value, $Res Function(_UpdateMaxPage) then) =
-      __$UpdateMaxPageCopyWithImpl<$Res>;
-  $Res call({PageNumber maxPage});
+abstract class _$LoadQuestionListCopyWith<$Res> {
+  factory _$LoadQuestionListCopyWith(
+          _LoadQuestionList value, $Res Function(_LoadQuestionList) then) =
+      __$LoadQuestionListCopyWithImpl<$Res>;
 }
 
-class __$UpdateMaxPageCopyWithImpl<$Res>
+class __$LoadQuestionListCopyWithImpl<$Res>
     extends _$QuestionPageEventCopyWithImpl<$Res>
-    implements _$UpdateMaxPageCopyWith<$Res> {
-  __$UpdateMaxPageCopyWithImpl(
-      _UpdateMaxPage _value, $Res Function(_UpdateMaxPage) _then)
-      : super(_value, (v) => _then(v as _UpdateMaxPage));
+    implements _$LoadQuestionListCopyWith<$Res> {
+  __$LoadQuestionListCopyWithImpl(
+      _LoadQuestionList _value, $Res Function(_LoadQuestionList) _then)
+      : super(_value, (v) => _then(v as _LoadQuestionList));
 
   @override
-  _UpdateMaxPage get _value => super._value as _UpdateMaxPage;
-
-  @override
-  $Res call({
-    Object maxPage = freezed,
-  }) {
-    return _then(_UpdateMaxPage(
-      maxPage == freezed ? _value.maxPage : maxPage as PageNumber,
-    ));
-  }
+  _LoadQuestionList get _value => super._value as _LoadQuestionList;
 }
 
-class _$_UpdateMaxPage with DiagnosticableTreeMixin implements _UpdateMaxPage {
-  const _$_UpdateMaxPage(this.maxPage) : assert(maxPage != null);
-
-  @override
-  final PageNumber maxPage;
+class _$_LoadQuestionList
+    with DiagnosticableTreeMixin
+    implements _LoadQuestionList {
+  const _$_LoadQuestionList();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuestionPageEvent.updateMaxPage(maxPage: $maxPage)';
+    return 'QuestionPageEvent.loadQuestionList()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'QuestionPageEvent.updateMaxPage'))
-      ..add(DiagnosticsProperty('maxPage', maxPage));
+      ..add(DiagnosticsProperty('type', 'QuestionPageEvent.loadQuestionList'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _UpdateMaxPage &&
-            (identical(other.maxPage, maxPage) ||
-                const DeepCollectionEquality().equals(other.maxPage, maxPage)));
+    return identical(this, other) || (other is _LoadQuestionList);
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(maxPage);
-
-  @override
-  _$UpdateMaxPageCopyWith<_UpdateMaxPage> get copyWith =>
-      __$UpdateMaxPageCopyWithImpl<_UpdateMaxPage>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result nextPagePressed(),
-    @required Result updateMaxPage(PageNumber maxPage),
+    @required Result loadQuestionList(),
   }) {
     assert(nextPagePressed != null);
-    assert(updateMaxPage != null);
-    return updateMaxPage(maxPage);
+    assert(loadQuestionList != null);
+    return loadQuestionList();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result nextPagePressed(),
-    Result updateMaxPage(PageNumber maxPage),
+    Result loadQuestionList(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (updateMaxPage != null) {
-      return updateMaxPage(maxPage);
+    if (loadQuestionList != null) {
+      return loadQuestionList();
     }
     return orElse();
   }
@@ -254,33 +232,30 @@ class _$_UpdateMaxPage with DiagnosticableTreeMixin implements _UpdateMaxPage {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result nextPagePressed(_NextPagePressed value),
-    @required Result updateMaxPage(_UpdateMaxPage value),
+    @required Result loadQuestionList(_LoadQuestionList value),
   }) {
     assert(nextPagePressed != null);
-    assert(updateMaxPage != null);
-    return updateMaxPage(this);
+    assert(loadQuestionList != null);
+    return loadQuestionList(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result nextPagePressed(_NextPagePressed value),
-    Result updateMaxPage(_UpdateMaxPage value),
+    Result loadQuestionList(_LoadQuestionList value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (updateMaxPage != null) {
-      return updateMaxPage(this);
+    if (loadQuestionList != null) {
+      return loadQuestionList(this);
     }
     return orElse();
   }
 }
 
-abstract class _UpdateMaxPage implements QuestionPageEvent {
-  const factory _UpdateMaxPage(PageNumber maxPage) = _$_UpdateMaxPage;
-
-  PageNumber get maxPage;
-  _$UpdateMaxPageCopyWith<_UpdateMaxPage> get copyWith;
+abstract class _LoadQuestionList implements QuestionPageEvent {
+  const factory _LoadQuestionList() = _$_LoadQuestionList;
 }
 
 class _$QuestionPageStateTearOff {

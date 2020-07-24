@@ -40,13 +40,10 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         );
       },
       answerSelected: (e) async* {
-        print(e);
         final selectedAnswer = Answer(e.answerStr);
-        print(selectedAnswer);
         final isRightAnswer = state.realAnswer == selectedAnswer;
-        print(isRightAnswer);
 
-        state.copyWith(
+        yield state.copyWith(
           isAnswered: true,
           isRightAnswer: isRightAnswer,
           selectedAnswer: selectedAnswer,
@@ -54,7 +51,6 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
               ? state.score.rightAnswer()
               : state.score.wrongAnswer(),
         );
-        print(state);
       },
     );
   }

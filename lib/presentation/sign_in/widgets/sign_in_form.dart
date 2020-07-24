@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class SignInForm extends StatelessWidget {
@@ -23,7 +24,10 @@ class SignInForm extends StatelessWidget {
                 message: failure.map(
                   serverError: (_) => '伺服器錯誤',
                   interviewerIdAndNameNotFound: (_) => '找不到訪員ID或姓名',
-                  interviewerIdAndNameConflict: (_) => '',
+                  interviewerIdAndNameConflict: (_) => '...',
+                  insufficientPermission: (_) => '權限不足',
+                  unableToGet: (_) => '無法取得',
+                  unexpected: (_) => '未知錯誤',
                 ),
               ).show(context);
             },
@@ -52,15 +56,16 @@ class SignInForm extends StatelessWidget {
 
         return Form(
           autovalidate: state.showErrorMessages,
-          child: ListView(
-            padding: const EdgeInsets.all(8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               const Text(
                 '📝',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 130),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 24.0),
               TextFormField(
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.assignment_ind),
@@ -72,7 +77,7 @@ class SignInForm extends StatelessWidget {
                     .add(SignInFormEvent.interviewerIdChanged(value)),
                 validator: (_) => validateInterviewerIdAndName(),
               ),
-              const SizedBox(height: 8),
+              const SizedBox(height: 24.0),
               TextFormField(
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.person),
@@ -83,20 +88,18 @@ class SignInForm extends StatelessWidget {
                       .bloc<SignInFormBloc>()
                       .add(SignInFormEvent.interviewerNameChanged(value)),
                   validator: (_) => validateInterviewerIdAndName()),
-              FlatButton(
-                onPressed: () {
-                  context.bloc<SignInFormBloc>().add(
-                        const SignInFormEvent.signInPressed(),
-                      );
-                },
-                color: Colors.blueAccent,
-                child: const Text(
-                  '登入',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+              const SizedBox(height: 16.0),
+              if (context.bloc<AuthBloc>().state is Unauthenticated) ...[
+                RoundedButton(
+                  title: '確認身分',
+                  color: Colors.lightBlueAccent,
+                  onPressed: () {
+                    context.bloc<SignInFormBloc>().add(
+                          const SignInFormEvent.signInPressed(),
+                        );
+                  },
                 ),
-              ),
+              ]
             ],
           ),
         );

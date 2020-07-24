@@ -16,8 +16,8 @@ abstract class Question implements _$Question {
   }) = _Question;
 
   factory Question.empty() => Question(
-        id: QuestionId(''),
-        body: QuestionBody(''),
+        id: QuestionId.empty(),
+        body: QuestionBody.empty(),
         answer: Answer.empty(),
       );
 
