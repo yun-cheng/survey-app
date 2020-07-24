@@ -14,7 +14,6 @@ import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/sign_i
 class SignInPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // AuthBloc _authBloc = context.bloc<AuthBloc>();
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -48,7 +47,6 @@ class SignInPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[
                           SignInForm(),
-                          // const SizedBox(height: 12.0),
                           if (state is Authenticated) ...[
                             RoundedButton(
                               title: '不是我，重新輸入',
@@ -61,7 +59,7 @@ class SignInPage extends StatelessWidget {
                             ),
                             RoundedButton(
                               title: '是我，開始測驗',
-                              color: Colors.greenAccent[700],
+                              color: Colors.greenAccent[400],
                               onPressed: () {
                                 ExtendedNavigator.of(context)
                                     .pushReplacementNamed(Routes.quizPage);

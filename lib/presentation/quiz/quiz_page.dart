@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
@@ -5,6 +6,7 @@ import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/ques
 import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class QuizPage extends StatelessWidget {
   @override
@@ -79,9 +81,9 @@ class QuizPage extends StatelessWidget {
                                         children: <Widget>[
                                           FlatButton(
                                             disabledColor: realAnswer == 'O'
-                                                ? Colors.greenAccent[700]
+                                                ? Colors.greenAccent[400]
                                                 : null,
-                                            disabledTextColor: Colors.black,
+                                            disabledTextColor: Colors.grey[850],
                                             onPressed: !questionState.isAnswered
                                                 ? () {
                                                     context
@@ -100,9 +102,9 @@ class QuizPage extends StatelessWidget {
                                           ),
                                           FlatButton(
                                             disabledColor: realAnswer == 'X'
-                                                ? Colors.greenAccent[700]
+                                                ? Colors.greenAccent[400]
                                                 : null,
-                                            disabledTextColor: Colors.black,
+                                            disabledTextColor: Colors.grey[850],
                                             onPressed: !questionState.isAnswered
                                                 ? () {
                                                     context
@@ -127,65 +129,65 @@ class QuizPage extends StatelessWidget {
                         ),
                         Container(
                           color: Colors.grey[900],
-                          height: 100,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints.expand(width: 600.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: <Widget>[
-                                      Text(
-                                        '答對 $rightScore 題',
-                                        style: TextStyle(
-                                          fontSize: 30.0,
-                                          color: questionState.isRightAnswer &&
-                                                  questionState.isAnswered
-                                              ? Colors.greenAccent[700]
-                                              : Colors.white,
-                                        ),
+                          height: 100.0,
+                          alignment: Alignment.center,
+                          child: ConstrainedBox(
+                            constraints: BoxConstraints.expand(width: 600.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      '答對 $rightScore 題',
+                                      style: TextStyle(
+                                        fontSize: 30.0,
+                                        color: questionState.isRightAnswer &&
+                                                questionState.isAnswered
+                                            ? Colors.greenAccent[400]
+                                            : Colors.white,
                                       ),
-                                      Text(
-                                        '答錯 $wrongScore 題',
-                                        style: TextStyle(
-                                          fontSize: 30.0,
-                                          color: !questionState.isRightAnswer &&
-                                                  questionState.isAnswered
-                                              ? Colors.red[600]
-                                              : Colors.white,
-                                        ),
+                                    ),
+                                    Text(
+                                      '答錯 $wrongScore 題',
+                                      style: TextStyle(
+                                        fontSize: 30.0,
+                                        color: !questionState.isRightAnswer &&
+                                                questionState.isAnswered
+                                            ? Colors.red[600]
+                                            : Colors.white,
                                       ),
-                                    ],
+                                    ),
+                                  ],
+                                ),
+                                if (rightScore < 10 &&
+                                    !questionPageState.isLastPage) ...[
+                                  TurnPageButton(
+                                    '下一題',
+                                    onPressed: questionState.isAnswered
+                                        ? () {
+                                            context
+                                                .bloc<QuestionPageBloc>()
+                                                .add(QuestionPageEvent
+                                                    .nextPagePressed());
+                                          }
+                                        : null,
                                   ),
-                                  if (rightScore < 10 &&
-                                      !questionPageState.isLastPage) ...[
-                                    TurnPageButton(
-                                      '下一題',
-                                      onPressed: questionState.isAnswered
-                                          ? () {
-                                              context
-                                                  .bloc<QuestionPageBloc>()
-                                                  .add(QuestionPageEvent
-                                                      .nextPagePressed());
-                                            }
-                                          : null,
-                                    ),
-                                  ] else ...[
-                                    TurnPageButton(
-                                      '結束測驗',
-                                      onPressed: questionState.isAnswered
-                                          ? () {}
-                                          : null,
-                                    ),
-                                  ]
-                                ],
-                              ),
+                                ] else ...[
+                                  TurnPageButton(
+                                    '結束測驗',
+                                    onPressed: questionState.isAnswered
+                                        ? () {
+                                            ExtendedNavigator.of(context)
+                                                .pushReplacementNamed(
+                                                    Routes.finishedPage);
+                                          }
+                                        : null,
+                                  ),
+                                ]
+                              ],
                             ),
                           ),
                         ),
@@ -215,13 +217,15 @@ class TurnPageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 70.0,
-      width: 140.0,
+      width: 160.0,
       child: FlatButton(
-        color: Colors.greenAccent[700],
+        color: Colors.greenAccent[400],
+        disabledColor: Colors.grey[600],
+        disabledTextColor: Colors.grey[900],
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 20.0,
+            fontSize: 28.0,
           ),
         ),
         shape: RoundedRectangleBorder(

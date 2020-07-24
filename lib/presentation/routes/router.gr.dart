@@ -9,13 +9,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/sign_in/sign_in_page.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/quiz/quiz_page.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/finished/finished_page.dart';
 
 class Routes {
   static const String signInPage = '/';
   static const String quizPage = '/quiz-page';
+  static const String finishedPage = '/finished-page';
   static const all = <String>{
     signInPage,
     quizPage,
+    finishedPage,
   };
 }
 
@@ -25,6 +28,7 @@ class Router extends RouterBase {
   final _routes = <RouteDef>[
     RouteDef(Routes.signInPage, page: SignInPage),
     RouteDef(Routes.quizPage, page: QuizPage),
+    RouteDef(Routes.finishedPage, page: FinishedPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -41,6 +45,12 @@ class Router extends RouterBase {
         settings: data,
       );
     },
+    FinishedPage: (RouteData data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => FinishedPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -52,4 +62,6 @@ extension RouterNavigationHelperMethods on ExtendedNavigatorState {
   Future<dynamic> pushSignInPage() => pushNamed<dynamic>(Routes.signInPage);
 
   Future<dynamic> pushQuizPage() => pushNamed<dynamic>(Routes.quizPage);
+
+  Future<dynamic> pushFinishedPage() => pushNamed<dynamic>(Routes.finishedPage);
 }

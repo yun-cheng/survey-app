@@ -92,7 +92,7 @@ class SignInForm extends StatelessWidget {
               if (context.bloc<AuthBloc>().state is Unauthenticated) ...[
                 RoundedButton(
                   title: '確認身分',
-                  color: Colors.lightBlueAccent,
+                  color: Colors.lightBlueAccent[400],
                   onPressed: () {
                     context.bloc<SignInFormBloc>().add(
                           const SignInFormEvent.signInPressed(),
