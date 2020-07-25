@@ -14,6 +14,11 @@ abstract class Interviewer implements _$Interviewer {
     @required InterviewerName name,
   }) = _Interviewer;
 
+  factory Interviewer.empty() => Interviewer(
+        id: InterviewerId.empty(),
+        name: InterviewerName.empty(),
+      );
+
   Option<ValueFailure<dynamic>> get failureOption {
     return this
         .id

@@ -15,6 +15,8 @@ class InterviewerId extends ValueObject<String> {
     );
   }
 
+  factory InterviewerId.empty() => InterviewerId('');
+
   const InterviewerId._(this.value);
 }
 
@@ -29,20 +31,22 @@ class InterviewerName extends ValueObject<String> {
     );
   }
 
+  factory InterviewerName.empty() => InterviewerName('');
+
   const InterviewerName._(this.value);
 }
 
 // TEST
-class KtListVo<T> extends ValueObject<KtList<T>> {
-  @override
-  final Either<ValueFailure<KtList<T>>, KtList<T>> value;
+// class KtListVo<T> extends ValueObject<KtList<T>> {
+//   @override
+//   final Either<ValueFailure<KtList<T>>, KtList<T>> value;
 
-  factory KtListVo(KtList<T> input) {
-    assert(input != null);
-    return KtListVo._(
-      right(input),
-    );
-  }
+//   factory KtListVo(KtList<T> input) {
+//     assert(input != null);
+//     return KtListVo._(
+//       right(input),
+//     );
+//   }
 
-  const KtListVo._(this.value);
-}
+//   const KtListVo._(this.value);
+// }

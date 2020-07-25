@@ -41,38 +41,54 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     yield* event.map(
       interviewerIdChanged: (e) async* {
         yield state.copyWith(
-            interviewerId: InterviewerId(e.interviewerIdStr),
-            authFailureOrSuccessOption: none());
+          interviewerId: InterviewerId(e.interviewerIdStr),
+          failureOption: none(),
+        );
       },
       interviewerNameChanged: (e) async* {
         yield state.copyWith(
-            interviewerName: InterviewerName(e.interviewerNameStr),
-            authFailureOrSuccessOption: none());
+          interviewerName: InterviewerName(e.interviewerNameStr),
+          failureOption: none(),
+        );
       },
       signInPressed: (e) async* {
-        Either<AuthFailure, Unit> failureOrSuccess;
+        Either<AuthFailure, Interviewer> failureOrInterviewer;
+        AuthFailure failure;
+        Interviewer interviewer;
+        bool isSuccess = false;
 
         final isValidInterviewerId = state.interviewerId.isValid();
         final isValidInterviewerName = state.interviewerName.isValid();
 
         if (isValidInterviewerId || isValidInterviewerName) {
-          yield state.copyWith(
-            isSubmitting: true,
-            authFailureOrSuccessOption: none(),
-          );
-
-          failureOrSuccess = _authFacade.signInWithInterviewerIdOrName(
+          failureOrInterviewer = _authFacade.signInWithInterviewerIdOrName(
               interviewerId: state.interviewerId,
               interviewerName: state.interviewerName,
               interviewerList: _interviewerList);
+
+          isSuccess = failureOrInterviewer.isRight();
+
+          failureOrInterviewer.fold(
+            (_failure) {
+              failure = _failure;
+              interviewer = state.interviewer;
+            },
+            (_interviewer) {
+              interviewer = _interviewer;
+            },
+          );
         }
 
         // NOTE showErrorMessages 是即時驗證表單的錯誤訊息，只在使用者第一次送出後才啟用
         yield state.copyWith(
-          isSubmitting: false,
+          isSuccess: isSuccess,
+          failureOption: optionOf(failure),
+          interviewer: interviewer,
           showErrorMessages: true,
-          authFailureOrSuccessOption: optionOf(failureOrSuccess),
         );
+      },
+      signedOut: (e) async* {
+        yield SignInFormState.initial();
       },
     );
   }

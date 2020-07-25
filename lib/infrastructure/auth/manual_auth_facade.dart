@@ -74,7 +74,7 @@ class ManualAuthFacade implements IAuthFacade {
   }
 
   @override
-  Either<AuthFailure, Unit> signInWithInterviewerIdOrName({
+  Either<AuthFailure, Interviewer> signInWithInterviewerIdOrName({
     InterviewerId interviewerId,
     InterviewerName interviewerName,
     KtList<Interviewer> interviewerList,
@@ -96,7 +96,7 @@ class ManualAuthFacade implements IAuthFacade {
 
     return _currentInterviewerOption.fold(
       () => left(AuthFailure.interviewerIdAndNameNotFound()),
-      (_) => right(unit),
+      (interviewer) => right(interviewer),
     );
   }
 

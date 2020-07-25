@@ -32,7 +32,7 @@ void $initGetIt(GetIt g, {String environment}) {
       () => QuestionPageBloc(g<QuestionListBloc>()));
   g.registerFactory<SignInFormBloc>(
       () => SignInFormBloc(g<IAuthFacade>(), g<InterviewerListBloc>()));
-  g.registerFactory<AuthBloc>(() => AuthBloc(g<IAuthFacade>()));
+  g.registerFactory<AuthBloc>(() => AuthBloc(g<SignInFormBloc>()));
   g.registerFactory<QuestionBloc>(() => QuestionBloc(g<QuestionPageBloc>()));
 }
 

@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
@@ -12,13 +13,11 @@ class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
-      // NOTE 監聽是否登入成功
       listener: (context, state) {
-        // NOTE 拆開第一層 Option，針對 Some failure 處理
-        state.authFailureOrSuccessOption.fold(
-          () {},
-          // NOTE 拆開第二層 Either，Left 顯示失敗訊息， Right 則跳轉頁面
-          (either) => either.fold(
+        // NOTE 監聽是否登入成功
+        if (!state.isSuccess) {
+          state.failureOption.fold(
+            () {},
             (failure) {
               FlushbarHelper.createError(
                 message: failure.map(
@@ -31,13 +30,8 @@ class SignInForm extends StatelessWidget {
                 ),
               ).show(context);
             },
-            (_) {
-              context
-                  .bloc<AuthBloc>()
-                  .add(const AuthEvent.authCheckRequested());
-            },
-          ),
-        );
+          );
+        }
       },
       builder: (context, state) {
         // HIGHLIGHT 必須要使用完整的 context.bloc<SignInFormBloc>().state，
@@ -54,6 +48,13 @@ class SignInForm extends StatelessWidget {
           }
         }
 
+        String interviewerId;
+        String interviewerName;
+        if (state.isSuccess) {
+          interviewerId = state.interviewer.id.getOrCrash();
+          interviewerName = state.interviewer.name.getOrCrash();
+        }
+
         return Form(
           autovalidate: state.showErrorMessages,
           child: Column(
@@ -66,30 +67,98 @@ class SignInForm extends StatelessWidget {
                 style: TextStyle(fontSize: 130),
               ),
               const SizedBox(height: 24.0),
-              TextFormField(
-                decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.assignment_ind),
-                  labelText: '訪員ID',
+              Visibility(
+                visible: !state.isSuccess,
+                maintainSize: true,
+                maintainAnimation: true,
+                maintainState: true,
+                child: Text(
+                  '請輸入 ID 或姓名',
+                  style: TextStyle(
+                    fontSize: 28.0,
+                    // fontWeight: FontWeight.bold,
+                  ),
                 ),
-                autocorrect: false,
-                onChanged: (value) => context
-                    .bloc<SignInFormBloc>()
-                    .add(SignInFormEvent.interviewerIdChanged(value)),
-                validator: (_) => validateInterviewerIdAndName(),
               ),
-              const SizedBox(height: 24.0),
-              TextFormField(
+              if (state.isSuccess) ...[
+                DataTable(
+                  columns: [
+                    DataColumn(
+                      label: Text(
+                        'ID',
+                        style: TextStyle(fontSize: 32.0),
+                      ),
+                    ),
+                    DataColumn(
+                      label: Text(
+                        '姓名',
+                        style: TextStyle(fontSize: 32.0),
+                      ),
+                    ),
+                  ],
+                  rows: [
+                    DataRow(cells: [
+                      DataCell(Text(
+                        interviewerId,
+                        style: TextStyle(fontSize: 32.0),
+                      )),
+                      DataCell(Text(
+                        interviewerName,
+                        style: TextStyle(fontSize: 32.0),
+                      )),
+                    ]),
+                  ],
+                ),
+                const SizedBox(height: 52.0),
+                RoundedButton(
+                  title: '不是我，重新輸入',
+                  color: Colors.red[600],
+                  onPressed: () {
+                    context
+                        .bloc<SignInFormBloc>()
+                        .add(SignInFormEvent.signedOut());
+                  },
+                ),
+                RoundedButton(
+                  title: '是我，開始測驗',
+                  color: Colors.greenAccent[400],
+                  onPressed: () {
+                    ExtendedNavigator.of(context)
+                        .pushReplacementNamed(Routes.quizPage);
+                  },
+                ),
+              ] else ...[
+                const SizedBox(height: 24.0),
+                TextFormField(
+                  style: TextStyle(fontSize: 20.0),
                   decoration: const InputDecoration(
-                    prefixIcon: Icon(Icons.person),
-                    labelText: '訪員姓名',
+                    prefixIcon: Icon(Icons.assignment_ind),
+                    labelText: 'ID',
+                    labelStyle: TextStyle(fontSize: 20.0),
+                    errorStyle: TextStyle(fontSize: 16.0),
                   ),
                   autocorrect: false,
                   onChanged: (value) => context
                       .bloc<SignInFormBloc>()
-                      .add(SignInFormEvent.interviewerNameChanged(value)),
-                  validator: (_) => validateInterviewerIdAndName()),
-              const SizedBox(height: 16.0),
-              if (context.bloc<AuthBloc>().state is Unauthenticated) ...[
+                      .add(SignInFormEvent.interviewerIdChanged(value)),
+                  validator: (_) => validateInterviewerIdAndName(),
+                ),
+                const SizedBox(height: 24.0),
+                TextFormField(
+                    style: TextStyle(fontSize: 20.0),
+                    decoration: const InputDecoration(
+                      prefixIcon: Icon(Icons.person),
+                      labelText: '姓名',
+                      labelStyle: TextStyle(fontSize: 20.0),
+                      errorStyle: TextStyle(fontSize: 16.0),
+                      // contentPadding: ,
+                    ),
+                    autocorrect: false,
+                    onChanged: (value) => context
+                        .bloc<SignInFormBloc>()
+                        .add(SignInFormEvent.interviewerNameChanged(value)),
+                    validator: (_) => validateInterviewerIdAndName()),
+                const SizedBox(height: 16.0),
                 RoundedButton(
                   title: '確認身分',
                   color: Colors.lightBlueAccent[400],
@@ -99,7 +168,7 @@ class SignInForm extends StatelessWidget {
                         );
                   },
                 ),
-              ]
+              ],
             ],
           ),
         );

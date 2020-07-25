@@ -26,55 +26,37 @@ class SignInPage extends StatelessWidget {
             BlocProvider.of<InterviewerListBloc>(context),
           ),
         ),
+        BlocProvider(
+          create: (context) => AuthBloc(
+            BlocProvider.of<SignInFormBloc>(context),
+          ),
+        ),
       ],
-      child: BlocBuilder<AuthBloc, AuthState>(
-        builder: (context, state) {
-          return Scaffold(
-            appBar: AppBar(
-              title: const Text('訪員測驗'),
-            ),
-            body: SafeArea(
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: ConstrainedBox(
-                  constraints: BoxConstraints.expand(width: 600.0),
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(24.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: <Widget>[
-                          SignInForm(),
-                          if (state is Authenticated) ...[
-                            RoundedButton(
-                              title: '不是我，重新輸入',
-                              color: Colors.red[600],
-                              onPressed: () {
-                                context
-                                    .bloc<AuthBloc>()
-                                    .add(AuthEvent.signedOut());
-                              },
-                            ),
-                            RoundedButton(
-                              title: '是我，開始測驗',
-                              color: Colors.greenAccent[400],
-                              onPressed: () {
-                                ExtendedNavigator.of(context)
-                                    .pushReplacementNamed(Routes.quizPage);
-                              },
-                            ),
-                          ]
-                        ],
-                      ),
-                    ),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('訪員測驗'),
+        ),
+        body: SafeArea(
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: ConstrainedBox(
+              constraints: BoxConstraints.expand(width: 600.0),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.all(24.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: <Widget>[
+                      SignInForm(),
+                    ],
                   ),
                 ),
               ),
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }

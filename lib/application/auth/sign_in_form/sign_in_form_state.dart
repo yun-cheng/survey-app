@@ -5,16 +5,18 @@ abstract class SignInFormState with _$SignInFormState {
   const factory SignInFormState({
     @required InterviewerId interviewerId,
     @required InterviewerName interviewerName,
+    @required Interviewer interviewer,
+    @required Option<AuthFailure> failureOption,
     @required bool showErrorMessages,
-    @required bool isSubmitting,
-    @required Option<Either<AuthFailure, Unit>> authFailureOrSuccessOption,
+    @required bool isSuccess,
   }) = _SignInFormState;
 
   factory SignInFormState.initial() => SignInFormState(
-        interviewerId: InterviewerId(''),
-        interviewerName: InterviewerName(''),
+        interviewerId: InterviewerId.empty(),
+        interviewerName: InterviewerName.empty(),
+        interviewer: Interviewer.empty(),
+        failureOption: none(),
         showErrorMessages: false,
-        isSubmitting: false,
-        authFailureOrSuccessOption: none(),
+        isSuccess: false,
       );
 }

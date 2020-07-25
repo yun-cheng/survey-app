@@ -12,12 +12,10 @@ T _$identity<T>(T value) => value;
 class _$AuthEventTearOff {
   const _$AuthEventTearOff();
 
-  AuthCheckRequested authCheckRequested() {
-    return const AuthCheckRequested();
-  }
-
-  SignedOut signedOut() {
-    return const SignedOut();
+  AuthCheckRequested authCheckRequested(bool isSuccess) {
+    return AuthCheckRequested(
+      isSuccess,
+    );
   }
 }
 
@@ -25,33 +23,15 @@ class _$AuthEventTearOff {
 const $AuthEvent = _$AuthEventTearOff();
 
 mixin _$AuthEvent {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result authCheckRequested(),
-    @required Result signedOut(),
-  });
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result authCheckRequested(),
-    Result signedOut(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result authCheckRequested(AuthCheckRequested value),
-    @required Result signedOut(SignedOut value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result authCheckRequested(AuthCheckRequested value),
-    Result signedOut(SignedOut value),
-    @required Result orElse(),
-  });
+  bool get isSuccess;
+
+  $AuthEventCopyWith<AuthEvent> get copyWith;
 }
 
 abstract class $AuthEventCopyWith<$Res> {
   factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
       _$AuthEventCopyWithImpl<$Res>;
+  $Res call({bool isSuccess});
 }
 
 class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
@@ -60,12 +40,24 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
   final AuthEvent _value;
   // ignore: unused_field
   final $Res Function(AuthEvent) _then;
+
+  @override
+  $Res call({
+    Object isSuccess = freezed,
+  }) {
+    return _then(_value.copyWith(
+      isSuccess: isSuccess == freezed ? _value.isSuccess : isSuccess as bool,
+    ));
+  }
 }
 
-abstract class $AuthCheckRequestedCopyWith<$Res> {
+abstract class $AuthCheckRequestedCopyWith<$Res>
+    implements $AuthEventCopyWith<$Res> {
   factory $AuthCheckRequestedCopyWith(
           AuthCheckRequested value, $Res Function(AuthCheckRequested) then) =
       _$AuthCheckRequestedCopyWithImpl<$Res>;
+  @override
+  $Res call({bool isSuccess});
 }
 
 class _$AuthCheckRequestedCopyWithImpl<$Res>
@@ -77,162 +69,53 @@ class _$AuthCheckRequestedCopyWithImpl<$Res>
 
   @override
   AuthCheckRequested get _value => super._value as AuthCheckRequested;
+
+  @override
+  $Res call({
+    Object isSuccess = freezed,
+  }) {
+    return _then(AuthCheckRequested(
+      isSuccess == freezed ? _value.isSuccess : isSuccess as bool,
+    ));
+  }
 }
 
 class _$AuthCheckRequested implements AuthCheckRequested {
-  const _$AuthCheckRequested();
+  const _$AuthCheckRequested(this.isSuccess) : assert(isSuccess != null);
+
+  @override
+  final bool isSuccess;
 
   @override
   String toString() {
-    return 'AuthEvent.authCheckRequested()';
+    return 'AuthEvent.authCheckRequested(isSuccess: $isSuccess)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AuthCheckRequested);
+    return identical(this, other) ||
+        (other is AuthCheckRequested &&
+            (identical(other.isSuccess, isSuccess) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSuccess, isSuccess)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isSuccess);
 
   @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result authCheckRequested(),
-    @required Result signedOut(),
-  }) {
-    assert(authCheckRequested != null);
-    assert(signedOut != null);
-    return authCheckRequested();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result authCheckRequested(),
-    Result signedOut(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authCheckRequested != null) {
-      return authCheckRequested();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result authCheckRequested(AuthCheckRequested value),
-    @required Result signedOut(SignedOut value),
-  }) {
-    assert(authCheckRequested != null);
-    assert(signedOut != null);
-    return authCheckRequested(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result authCheckRequested(AuthCheckRequested value),
-    Result signedOut(SignedOut value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (authCheckRequested != null) {
-      return authCheckRequested(this);
-    }
-    return orElse();
-  }
+  $AuthCheckRequestedCopyWith<AuthCheckRequested> get copyWith =>
+      _$AuthCheckRequestedCopyWithImpl<AuthCheckRequested>(this, _$identity);
 }
 
 abstract class AuthCheckRequested implements AuthEvent {
-  const factory AuthCheckRequested() = _$AuthCheckRequested;
-}
-
-abstract class $SignedOutCopyWith<$Res> {
-  factory $SignedOutCopyWith(SignedOut value, $Res Function(SignedOut) then) =
-      _$SignedOutCopyWithImpl<$Res>;
-}
-
-class _$SignedOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements $SignedOutCopyWith<$Res> {
-  _$SignedOutCopyWithImpl(SignedOut _value, $Res Function(SignedOut) _then)
-      : super(_value, (v) => _then(v as SignedOut));
+  const factory AuthCheckRequested(bool isSuccess) = _$AuthCheckRequested;
 
   @override
-  SignedOut get _value => super._value as SignedOut;
-}
-
-class _$SignedOut implements SignedOut {
-  const _$SignedOut();
-
+  bool get isSuccess;
   @override
-  String toString() {
-    return 'AuthEvent.signedOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignedOut);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result authCheckRequested(),
-    @required Result signedOut(),
-  }) {
-    assert(authCheckRequested != null);
-    assert(signedOut != null);
-    return signedOut();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result authCheckRequested(),
-    Result signedOut(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (signedOut != null) {
-      return signedOut();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result authCheckRequested(AuthCheckRequested value),
-    @required Result signedOut(SignedOut value),
-  }) {
-    assert(authCheckRequested != null);
-    assert(signedOut != null);
-    return signedOut(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result authCheckRequested(AuthCheckRequested value),
-    Result signedOut(SignedOut value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (signedOut != null) {
-      return signedOut(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SignedOut implements AuthEvent {
-  const factory SignedOut() = _$SignedOut;
+  $AuthCheckRequestedCopyWith<AuthCheckRequested> get copyWith;
 }
 
 class _$AuthStateTearOff {

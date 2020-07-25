@@ -9,4 +9,5 @@ abstract class SignInFormEvent with _$SignInFormEvent {
   const factory SignInFormEvent.interviewerNameChanged(
       String interviewerNameStr) = _InterviewerNameChanged;
   const factory SignInFormEvent.signInPressed() = _SignInPressed;
+  const factory SignInFormEvent.signedOut() = _SignedOut;
 }

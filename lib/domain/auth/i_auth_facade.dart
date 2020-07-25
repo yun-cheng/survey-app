@@ -10,7 +10,7 @@ import 'package:kt_dart/collection.dart';
 abstract class IAuthFacade {
   Future<Either<AuthFailure, KtList<Interviewer>>> getInterviewerList();
   Future<void> getInterviewerListFromAsset();
-  Either<AuthFailure, Unit> signInWithInterviewerIdOrName({
+  Either<AuthFailure, Interviewer> signInWithInterviewerIdOrName({
     @required InterviewerId interviewerId,
     @required InterviewerName interviewerName,
     @required KtList<Interviewer> interviewerList,
