@@ -167,7 +167,7 @@ class QuizPage extends StatelessWidget {
                                   ],
                                 ),
                                 // TODO 控制的邏輯不該在這裡
-                                if (rightScore < 10 &&
+                                if (rightScore < 1 &&
                                     !questionPageState.isLastPage) ...[
                                   TurnPageButton(
                                     '下一題',

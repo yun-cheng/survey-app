@@ -25,9 +25,9 @@ _$_QuizResultDto _$_$_QuizResultDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_QuizResultDtoToJson(_$_QuizResultDto instance) =>
     <String, dynamic>{
-      'interviewer': instance.interviewer,
-      'score': instance.score,
-      'scoreHistory': instance.scoreHistory,
+      'interviewer': instance.interviewer?.toJson(),
+      'score': instance.score?.toJson(),
+      'scoreHistory': instance.scoreHistory?.toJson(),
       'serverTimeStamp':
           const ServerTimestampConverter().toJson(instance.serverTimeStamp),
     };

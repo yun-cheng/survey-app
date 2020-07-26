@@ -20,7 +20,7 @@ _$_InterviewerListDto _$_$_InterviewerListDtoFromJson(
 Map<String, dynamic> _$_$_InterviewerListDtoToJson(
         _$_InterviewerListDto instance) =>
     <String, dynamic>{
-      'list': instance.list,
+      'list': instance.list?.map((e) => e?.toJson())?.toList(),
     };
 
 _$_InterviewerDto _$_$_InterviewerDtoFromJson(Map<String, dynamic> json) {

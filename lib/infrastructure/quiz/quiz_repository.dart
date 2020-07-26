@@ -75,7 +75,7 @@ class QuizRepository implements IQuizRepository {
       final quizResultDto = QuizResultDto.fromDomain(quizResult);
 
       await projectCollection.quizIdDoc.quizResultCollection
-          .add(quizResultDto.customToJson());
+          .add(quizResultDto.toJson());
 
       return right(unit);
     } on PlatformException catch (e) {

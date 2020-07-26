@@ -17,7 +17,7 @@ _$_QuestionListDto _$_$_QuestionListDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_QuestionListDtoToJson(_$_QuestionListDto instance) =>
     <String, dynamic>{
-      'list': instance.list,
+      'list': instance.list?.map((e) => e?.toJson())?.toList(),
     };
 
 _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {

@@ -8,6 +8,8 @@ import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dto
 part 'quiz_result_dtos.freezed.dart';
 part 'quiz_result_dtos.g.dart';
 
+// HIGHLIGHT 因為太多層，原本自訂 toJson，
+// HIGHLIGHT 後來在 build.yaml 加上 explicit_to_json: true，就解決了
 @freezed
 abstract class QuizResultDto implements _$QuizResultDto {
   const QuizResultDto._();
@@ -39,24 +41,24 @@ abstract class QuizResultDto implements _$QuizResultDto {
   factory QuizResultDto.fromJson(Map<String, dynamic> json) =>
       _$QuizResultDtoFromJson(json);
 
-  factory QuizResultDto.customFromJson(Map<String, dynamic> json) {
-    return QuizResultDto(
-      interviewer: InterviewerDto.fromJson(json['interviewer']),
-      score: ScoreDto.fromJson(json['score']),
-      scoreHistory: ScoreHistoryDto.fromJson(json['scoreHistory']),
-      serverTimeStamp: FieldValue.serverTimestamp(),
-    );
-  }
+  // factory QuizResultDto.customFromJson(Map<String, dynamic> json) {
+  //   return QuizResultDto(
+  //     interviewer: InterviewerDto.fromJson(json['interviewer']),
+  //     score: ScoreDto.fromJson(json['score']),
+  //     scoreHistory: ScoreHistoryDto.fromJson(json['scoreHistory']),
+  //     serverTimeStamp: FieldValue.serverTimestamp(),
+  //   );
+  // }
 
-  // HIGHLIGHT 因為太多層，json_serializable 沒辦法做，所以要自己來
-  Map<String, dynamic> customToJson() {
-    return {
-      'interviewer': interviewer.toJson(),
-      'score': score.toJson(),
-      'scoreHistory': scoreHistory.toJson(),
-      'serverTimeStamp': serverTimeStamp,
-    };
-  }
+  // // HIGHLIGHT 因為太多層，json_serializable 沒辦法做，所以要自己來
+  // Map<String, dynamic> customToJson() {
+  //   return {
+  //     'interviewer': interviewer.toJson(),
+  //     'score': score.toJson(),
+  //     'scoreHistory': scoreHistory.toJson(),
+  //     'serverTimeStamp': serverTimeStamp,
+  //   };
+  // }
 
   factory QuizResultDto.fromFirestore(DocumentSnapshot doc) {
     return QuizResultDto.fromJson(doc.data);
