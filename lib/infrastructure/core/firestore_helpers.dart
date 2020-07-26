@@ -8,11 +8,13 @@ extension FirestoreX on Firestore {
       getIt<Firestore>().collection('interviewer_quiz');
 }
 
-//extension DocumentReferenceX on DocumentReference {
-//  CollectionReference get noteCollection => collection('notes');
-//}
+extension DocumentReferenceX on DocumentReference {
+  CollectionReference get quizResultCollection => collection('quiz_result');
+}
 
 extension CollectionReferenceX on CollectionReference {
   DocumentReference get interviewerListDoc => document('interviewer_list');
   DocumentReference get questionListDoc => document('question_list');
+  // TODO 調整不同測驗版本
+  DocumentReference get quizIdDoc => document('200722');
 }

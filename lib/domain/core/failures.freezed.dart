@@ -29,6 +29,12 @@ class _$ValueFailureTearOff {
       failedValue: failedValue,
     );
   }
+
+  NotBoolean<T> notBoolean<T>({@required T failedValue}) {
+    return NotBoolean<T>(
+      failedValue: failedValue,
+    );
+  }
 }
 
 // ignore: unused_element
@@ -42,12 +48,14 @@ mixin _$ValueFailure<T> {
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
     @required Result notNaturalNumber(T failedValue),
+    @required Result notBoolean(T failedValue),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
     Result notNaturalNumber(T failedValue),
+    Result notBoolean(T failedValue),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -55,12 +63,14 @@ mixin _$ValueFailure<T> {
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
+    @required Result notBoolean(NotBoolean<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
+    Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
   });
 
@@ -154,10 +164,12 @@ class _$Empty<T> implements Empty<T> {
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
     @required Result notNaturalNumber(T failedValue),
+    @required Result notBoolean(T failedValue),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
     assert(notNaturalNumber != null);
+    assert(notBoolean != null);
     return empty(failedValue);
   }
 
@@ -167,6 +179,7 @@ class _$Empty<T> implements Empty<T> {
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
     Result notNaturalNumber(T failedValue),
+    Result notBoolean(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -182,10 +195,12 @@ class _$Empty<T> implements Empty<T> {
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
+    @required Result notBoolean(NotBoolean<T> value),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
     assert(notNaturalNumber != null);
+    assert(notBoolean != null);
     return empty(this);
   }
 
@@ -195,6 +210,7 @@ class _$Empty<T> implements Empty<T> {
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
+    Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -279,10 +295,12 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
     @required Result notNaturalNumber(T failedValue),
+    @required Result notBoolean(T failedValue),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
     assert(notNaturalNumber != null);
+    assert(notBoolean != null);
     return unexpectedAnswer(failedValue);
   }
 
@@ -292,6 +310,7 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
     Result notNaturalNumber(T failedValue),
+    Result notBoolean(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -307,10 +326,12 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
+    @required Result notBoolean(NotBoolean<T> value),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
     assert(notNaturalNumber != null);
+    assert(notBoolean != null);
     return unexpectedAnswer(this);
   }
 
@@ -320,6 +341,7 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
+    Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -405,10 +427,12 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
     @required Result empty(T failedValue),
     @required Result unexpectedAnswer(T failedValue),
     @required Result notNaturalNumber(T failedValue),
+    @required Result notBoolean(T failedValue),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
     assert(notNaturalNumber != null);
+    assert(notBoolean != null);
     return notNaturalNumber(failedValue);
   }
 
@@ -418,6 +442,7 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
     Result empty(T failedValue),
     Result unexpectedAnswer(T failedValue),
     Result notNaturalNumber(T failedValue),
+    Result notBoolean(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -433,10 +458,12 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
     @required Result empty(Empty<T> value),
     @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
+    @required Result notBoolean(NotBoolean<T> value),
   }) {
     assert(empty != null);
     assert(unexpectedAnswer != null);
     assert(notNaturalNumber != null);
+    assert(notBoolean != null);
     return notNaturalNumber(this);
   }
 
@@ -446,6 +473,7 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
     Result empty(Empty<T> value),
     Result unexpectedAnswer(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
+    Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -464,4 +492,135 @@ abstract class NotNaturalNumber<T> implements ValueFailure<T> {
   T get failedValue;
   @override
   $NotNaturalNumberCopyWith<T, NotNaturalNumber<T>> get copyWith;
+}
+
+abstract class $NotBooleanCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory $NotBooleanCopyWith(
+          NotBoolean<T> value, $Res Function(NotBoolean<T>) then) =
+      _$NotBooleanCopyWithImpl<T, $Res>;
+  @override
+  $Res call({T failedValue});
+}
+
+class _$NotBooleanCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res>
+    implements $NotBooleanCopyWith<T, $Res> {
+  _$NotBooleanCopyWithImpl(
+      NotBoolean<T> _value, $Res Function(NotBoolean<T>) _then)
+      : super(_value, (v) => _then(v as NotBoolean<T>));
+
+  @override
+  NotBoolean<T> get _value => super._value as NotBoolean<T>;
+
+  @override
+  $Res call({
+    Object failedValue = freezed,
+  }) {
+    return _then(NotBoolean<T>(
+      failedValue:
+          failedValue == freezed ? _value.failedValue : failedValue as T,
+    ));
+  }
+}
+
+class _$NotBoolean<T> implements NotBoolean<T> {
+  const _$NotBoolean({@required this.failedValue})
+      : assert(failedValue != null);
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString() {
+    return 'ValueFailure<$T>.notBoolean(failedValue: $failedValue)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is NotBoolean<T> &&
+            (identical(other.failedValue, failedValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.failedValue, failedValue)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
+
+  @override
+  $NotBooleanCopyWith<T, NotBoolean<T>> get copyWith =>
+      _$NotBooleanCopyWithImpl<T, NotBoolean<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result empty(T failedValue),
+    @required Result unexpectedAnswer(T failedValue),
+    @required Result notNaturalNumber(T failedValue),
+    @required Result notBoolean(T failedValue),
+  }) {
+    assert(empty != null);
+    assert(unexpectedAnswer != null);
+    assert(notNaturalNumber != null);
+    assert(notBoolean != null);
+    return notBoolean(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result empty(T failedValue),
+    Result unexpectedAnswer(T failedValue),
+    Result notNaturalNumber(T failedValue),
+    Result notBoolean(T failedValue),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (notBoolean != null) {
+      return notBoolean(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result empty(Empty<T> value),
+    @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    @required Result notNaturalNumber(NotNaturalNumber<T> value),
+    @required Result notBoolean(NotBoolean<T> value),
+  }) {
+    assert(empty != null);
+    assert(unexpectedAnswer != null);
+    assert(notNaturalNumber != null);
+    assert(notBoolean != null);
+    return notBoolean(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result empty(Empty<T> value),
+    Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    Result notNaturalNumber(NotNaturalNumber<T> value),
+    Result notBoolean(NotBoolean<T> value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (notBoolean != null) {
+      return notBoolean(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotBoolean<T> implements ValueFailure<T> {
+  const factory NotBoolean({@required T failedValue}) = _$NotBoolean<T>;
+
+  @override
+  T get failedValue;
+  @override
+  $NotBooleanCopyWith<T, NotBoolean<T>> get copyWith;
 }

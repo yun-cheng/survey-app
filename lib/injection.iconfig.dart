@@ -33,7 +33,11 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerFactory<SignInFormBloc>(
       () => SignInFormBloc(g<IAuthFacade>(), g<InterviewerListBloc>()));
   g.registerFactory<AuthBloc>(() => AuthBloc(g<SignInFormBloc>()));
-  g.registerFactory<QuestionBloc>(() => QuestionBloc(g<QuestionPageBloc>()));
+  g.registerFactory<QuestionBloc>(() => QuestionBloc(
+        g<IQuizRepository>(),
+        g<QuestionPageBloc>(),
+        g<SignInFormBloc>(),
+      ));
 }
 
 class _$FirebaseInjectableModule extends FirebaseInjectableModule {}

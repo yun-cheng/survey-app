@@ -15,4 +15,8 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.notNaturalNumber({
     @required T failedValue,
   }) = NotNaturalNumber<T>;
+
+  const factory ValueFailure.notBoolean({
+    @required T failedValue,
+  }) = NotBoolean<T>;
 }

@@ -4,10 +4,9 @@ import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/routes/router.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -123,8 +122,7 @@ class SignInForm extends StatelessWidget {
                   title: '是我，開始測驗',
                   color: Colors.greenAccent[400],
                   onPressed: () {
-                    ExtendedNavigator.of(context)
-                        .pushReplacementNamed(Routes.quizPage);
+                    ExtendedNavigator.of(context).pushQuizPage();
                   },
                 ),
               ] else ...[

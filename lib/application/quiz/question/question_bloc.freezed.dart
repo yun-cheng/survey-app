@@ -23,6 +23,10 @@ class _$QuestionEventTearOff {
       answerStr,
     );
   }
+
+  QuizResultUploaded quizResultUploaded() {
+    return const QuizResultUploaded();
+  }
 }
 
 // ignore: unused_element
@@ -33,22 +37,26 @@ mixin _$QuestionEvent {
   Result when<Result extends Object>({
     @required Result newQuestionEntered(Question question),
     @required Result answerSelected(String answerStr),
+    @required Result quizResultUploaded(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result newQuestionEntered(Question question),
     Result answerSelected(String answerStr),
+    Result quizResultUploaded(),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result newQuestionEntered(_NewQuestionEntered value),
     @required Result answerSelected(AnswerSelected value),
+    @required Result quizResultUploaded(QuizResultUploaded value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result newQuestionEntered(_NewQuestionEntered value),
     Result answerSelected(AnswerSelected value),
+    Result quizResultUploaded(QuizResultUploaded value),
     @required Result orElse(),
   });
 }
@@ -150,9 +158,11 @@ class _$_NewQuestionEntered
   Result when<Result extends Object>({
     @required Result newQuestionEntered(Question question),
     @required Result answerSelected(String answerStr),
+    @required Result quizResultUploaded(),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
+    assert(quizResultUploaded != null);
     return newQuestionEntered(question);
   }
 
@@ -161,6 +171,7 @@ class _$_NewQuestionEntered
   Result maybeWhen<Result extends Object>({
     Result newQuestionEntered(Question question),
     Result answerSelected(String answerStr),
+    Result quizResultUploaded(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -175,9 +186,11 @@ class _$_NewQuestionEntered
   Result map<Result extends Object>({
     @required Result newQuestionEntered(_NewQuestionEntered value),
     @required Result answerSelected(AnswerSelected value),
+    @required Result quizResultUploaded(QuizResultUploaded value),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
+    assert(quizResultUploaded != null);
     return newQuestionEntered(this);
   }
 
@@ -186,6 +199,7 @@ class _$_NewQuestionEntered
   Result maybeMap<Result extends Object>({
     Result newQuestionEntered(_NewQuestionEntered value),
     Result answerSelected(AnswerSelected value),
+    Result quizResultUploaded(QuizResultUploaded value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -271,9 +285,11 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
   Result when<Result extends Object>({
     @required Result newQuestionEntered(Question question),
     @required Result answerSelected(String answerStr),
+    @required Result quizResultUploaded(),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
+    assert(quizResultUploaded != null);
     return answerSelected(answerStr);
   }
 
@@ -282,6 +298,7 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
   Result maybeWhen<Result extends Object>({
     Result newQuestionEntered(Question question),
     Result answerSelected(String answerStr),
+    Result quizResultUploaded(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -296,9 +313,11 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
   Result map<Result extends Object>({
     @required Result newQuestionEntered(_NewQuestionEntered value),
     @required Result answerSelected(AnswerSelected value),
+    @required Result quizResultUploaded(QuizResultUploaded value),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
+    assert(quizResultUploaded != null);
     return answerSelected(this);
   }
 
@@ -307,6 +326,7 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
   Result maybeMap<Result extends Object>({
     Result newQuestionEntered(_NewQuestionEntered value),
     Result answerSelected(AnswerSelected value),
+    Result quizResultUploaded(QuizResultUploaded value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -324,6 +344,109 @@ abstract class AnswerSelected implements QuestionEvent {
   $AnswerSelectedCopyWith<AnswerSelected> get copyWith;
 }
 
+abstract class $QuizResultUploadedCopyWith<$Res> {
+  factory $QuizResultUploadedCopyWith(
+          QuizResultUploaded value, $Res Function(QuizResultUploaded) then) =
+      _$QuizResultUploadedCopyWithImpl<$Res>;
+}
+
+class _$QuizResultUploadedCopyWithImpl<$Res>
+    extends _$QuestionEventCopyWithImpl<$Res>
+    implements $QuizResultUploadedCopyWith<$Res> {
+  _$QuizResultUploadedCopyWithImpl(
+      QuizResultUploaded _value, $Res Function(QuizResultUploaded) _then)
+      : super(_value, (v) => _then(v as QuizResultUploaded));
+
+  @override
+  QuizResultUploaded get _value => super._value as QuizResultUploaded;
+}
+
+class _$QuizResultUploaded
+    with DiagnosticableTreeMixin
+    implements QuizResultUploaded {
+  const _$QuizResultUploaded();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'QuestionEvent.quizResultUploaded()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'QuestionEvent.quizResultUploaded'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is QuizResultUploaded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result newQuestionEntered(Question question),
+    @required Result answerSelected(String answerStr),
+    @required Result quizResultUploaded(),
+  }) {
+    assert(newQuestionEntered != null);
+    assert(answerSelected != null);
+    assert(quizResultUploaded != null);
+    return quizResultUploaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result newQuestionEntered(Question question),
+    Result answerSelected(String answerStr),
+    Result quizResultUploaded(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (quizResultUploaded != null) {
+      return quizResultUploaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result newQuestionEntered(_NewQuestionEntered value),
+    @required Result answerSelected(AnswerSelected value),
+    @required Result quizResultUploaded(QuizResultUploaded value),
+  }) {
+    assert(newQuestionEntered != null);
+    assert(answerSelected != null);
+    assert(quizResultUploaded != null);
+    return quizResultUploaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result newQuestionEntered(_NewQuestionEntered value),
+    Result answerSelected(AnswerSelected value),
+    Result quizResultUploaded(QuizResultUploaded value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (quizResultUploaded != null) {
+      return quizResultUploaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class QuizResultUploaded implements QuestionEvent {
+  const factory QuizResultUploaded() = _$QuizResultUploaded;
+}
+
 class _$QuestionStateTearOff {
   const _$QuestionStateTearOff();
 
@@ -332,13 +455,19 @@ class _$QuestionStateTearOff {
       @required Answer realAnswer,
       @required bool isAnswered,
       @required bool isRightAnswer,
-      @required Score score}) {
+      @required Score score,
+      @required QuestionId questionId,
+      @required KtMutableMap<QuestionId, bool> scoreHistory,
+      @required bool isUploaded}) {
     return _QuestionState(
       selectedAnswer: selectedAnswer,
       realAnswer: realAnswer,
       isAnswered: isAnswered,
       isRightAnswer: isRightAnswer,
       score: score,
+      questionId: questionId,
+      scoreHistory: scoreHistory,
+      isUploaded: isUploaded,
     );
   }
 }
@@ -352,6 +481,9 @@ mixin _$QuestionState {
   bool get isAnswered;
   bool get isRightAnswer;
   Score get score;
+  QuestionId get questionId;
+  KtMutableMap<QuestionId, bool> get scoreHistory;
+  bool get isUploaded;
 
   $QuestionStateCopyWith<QuestionState> get copyWith;
 }
@@ -365,7 +497,10 @@ abstract class $QuestionStateCopyWith<$Res> {
       Answer realAnswer,
       bool isAnswered,
       bool isRightAnswer,
-      Score score});
+      Score score,
+      QuestionId questionId,
+      KtMutableMap<QuestionId, bool> scoreHistory,
+      bool isUploaded});
 
   $ScoreCopyWith<$Res> get score;
 }
@@ -385,6 +520,9 @@ class _$QuestionStateCopyWithImpl<$Res>
     Object isAnswered = freezed,
     Object isRightAnswer = freezed,
     Object score = freezed,
+    Object questionId = freezed,
+    Object scoreHistory = freezed,
+    Object isUploaded = freezed,
   }) {
     return _then(_value.copyWith(
       selectedAnswer: selectedAnswer == freezed
@@ -398,6 +536,13 @@ class _$QuestionStateCopyWithImpl<$Res>
           ? _value.isRightAnswer
           : isRightAnswer as bool,
       score: score == freezed ? _value.score : score as Score,
+      questionId:
+          questionId == freezed ? _value.questionId : questionId as QuestionId,
+      scoreHistory: scoreHistory == freezed
+          ? _value.scoreHistory
+          : scoreHistory as KtMutableMap<QuestionId, bool>,
+      isUploaded:
+          isUploaded == freezed ? _value.isUploaded : isUploaded as bool,
     ));
   }
 
@@ -423,7 +568,10 @@ abstract class _$QuestionStateCopyWith<$Res>
       Answer realAnswer,
       bool isAnswered,
       bool isRightAnswer,
-      Score score});
+      Score score,
+      QuestionId questionId,
+      KtMutableMap<QuestionId, bool> scoreHistory,
+      bool isUploaded});
 
   @override
   $ScoreCopyWith<$Res> get score;
@@ -446,6 +594,9 @@ class __$QuestionStateCopyWithImpl<$Res>
     Object isAnswered = freezed,
     Object isRightAnswer = freezed,
     Object score = freezed,
+    Object questionId = freezed,
+    Object scoreHistory = freezed,
+    Object isUploaded = freezed,
   }) {
     return _then(_QuestionState(
       selectedAnswer: selectedAnswer == freezed
@@ -459,6 +610,13 @@ class __$QuestionStateCopyWithImpl<$Res>
           ? _value.isRightAnswer
           : isRightAnswer as bool,
       score: score == freezed ? _value.score : score as Score,
+      questionId:
+          questionId == freezed ? _value.questionId : questionId as QuestionId,
+      scoreHistory: scoreHistory == freezed
+          ? _value.scoreHistory
+          : scoreHistory as KtMutableMap<QuestionId, bool>,
+      isUploaded:
+          isUploaded == freezed ? _value.isUploaded : isUploaded as bool,
     ));
   }
 }
@@ -469,12 +627,18 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
       @required this.realAnswer,
       @required this.isAnswered,
       @required this.isRightAnswer,
-      @required this.score})
+      @required this.score,
+      @required this.questionId,
+      @required this.scoreHistory,
+      @required this.isUploaded})
       : assert(selectedAnswer != null),
         assert(realAnswer != null),
         assert(isAnswered != null),
         assert(isRightAnswer != null),
-        assert(score != null);
+        assert(score != null),
+        assert(questionId != null),
+        assert(scoreHistory != null),
+        assert(isUploaded != null);
 
   @override
   final Answer selectedAnswer;
@@ -486,10 +650,16 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
   final bool isRightAnswer;
   @override
   final Score score;
+  @override
+  final QuestionId questionId;
+  @override
+  final KtMutableMap<QuestionId, bool> scoreHistory;
+  @override
+  final bool isUploaded;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuestionState(selectedAnswer: $selectedAnswer, realAnswer: $realAnswer, isAnswered: $isAnswered, isRightAnswer: $isRightAnswer, score: $score)';
+    return 'QuestionState(selectedAnswer: $selectedAnswer, realAnswer: $realAnswer, isAnswered: $isAnswered, isRightAnswer: $isRightAnswer, score: $score, questionId: $questionId, scoreHistory: $scoreHistory, isUploaded: $isUploaded)';
   }
 
   @override
@@ -501,7 +671,10 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
       ..add(DiagnosticsProperty('realAnswer', realAnswer))
       ..add(DiagnosticsProperty('isAnswered', isAnswered))
       ..add(DiagnosticsProperty('isRightAnswer', isRightAnswer))
-      ..add(DiagnosticsProperty('score', score));
+      ..add(DiagnosticsProperty('score', score))
+      ..add(DiagnosticsProperty('questionId', questionId))
+      ..add(DiagnosticsProperty('scoreHistory', scoreHistory))
+      ..add(DiagnosticsProperty('isUploaded', isUploaded));
   }
 
   @override
@@ -521,7 +694,16 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
                 const DeepCollectionEquality()
                     .equals(other.isRightAnswer, isRightAnswer)) &&
             (identical(other.score, score) ||
-                const DeepCollectionEquality().equals(other.score, score)));
+                const DeepCollectionEquality().equals(other.score, score)) &&
+            (identical(other.questionId, questionId) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionId, questionId)) &&
+            (identical(other.scoreHistory, scoreHistory) ||
+                const DeepCollectionEquality()
+                    .equals(other.scoreHistory, scoreHistory)) &&
+            (identical(other.isUploaded, isUploaded) ||
+                const DeepCollectionEquality()
+                    .equals(other.isUploaded, isUploaded)));
   }
 
   @override
@@ -531,7 +713,10 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
       const DeepCollectionEquality().hash(realAnswer) ^
       const DeepCollectionEquality().hash(isAnswered) ^
       const DeepCollectionEquality().hash(isRightAnswer) ^
-      const DeepCollectionEquality().hash(score);
+      const DeepCollectionEquality().hash(score) ^
+      const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(scoreHistory) ^
+      const DeepCollectionEquality().hash(isUploaded);
 
   @override
   _$QuestionStateCopyWith<_QuestionState> get copyWith =>
@@ -544,7 +729,10 @@ abstract class _QuestionState implements QuestionState {
       @required Answer realAnswer,
       @required bool isAnswered,
       @required bool isRightAnswer,
-      @required Score score}) = _$_QuestionState;
+      @required Score score,
+      @required QuestionId questionId,
+      @required KtMutableMap<QuestionId, bool> scoreHistory,
+      @required bool isUploaded}) = _$_QuestionState;
 
   @override
   Answer get selectedAnswer;
@@ -556,6 +744,12 @@ abstract class _QuestionState implements QuestionState {
   bool get isRightAnswer;
   @override
   Score get score;
+  @override
+  QuestionId get questionId;
+  @override
+  KtMutableMap<QuestionId, bool> get scoreHistory;
+  @override
+  bool get isUploaded;
   @override
   _$QuestionStateCopyWith<_QuestionState> get copyWith;
 }

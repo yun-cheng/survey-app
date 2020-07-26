@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/routes/router.dart';
 
 class QuizPage extends StatelessWidget {
   @override
@@ -14,8 +16,9 @@ class QuizPage extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<QuestionListBloc>(
-          create: (context) => getIt<QuestionListBloc>()
-            ..add(const QuestionListEvent.questionListLoaded()),
+          create: (context) => QuestionListBloc(
+            getIt<IQuizRepository>(),
+          )..add(const QuestionListEvent.questionListLoaded()),
         ),
         BlocProvider<QuestionPageBloc>(
           create: (context) => QuestionPageBloc(
@@ -24,7 +27,9 @@ class QuizPage extends StatelessWidget {
         ),
         BlocProvider<QuestionBloc>(
           create: (context) => QuestionBloc(
+            getIt<IQuizRepository>(),
             BlocProvider.of<QuestionPageBloc>(context),
+            BlocProvider.of<SignInFormBloc>(context),
           ),
         ),
       ],
@@ -60,7 +65,6 @@ class QuizPage extends StatelessWidget {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
-                                      // TODO 設定最小高度
                                       ConstrainedBox(
                                         constraints:
                                             BoxConstraints(minHeight: 200.0),
@@ -162,6 +166,7 @@ class QuizPage extends StatelessWidget {
                                     ),
                                   ],
                                 ),
+                                // TODO 控制的邏輯不該在這裡
                                 if (rightScore < 10 &&
                                     !questionPageState.isLastPage) ...[
                                   TurnPageButton(
@@ -180,6 +185,9 @@ class QuizPage extends StatelessWidget {
                                     '結束測驗',
                                     onPressed: questionState.isAnswered
                                         ? () {
+                                            context.bloc<QuestionBloc>().add(
+                                                QuestionEvent
+                                                    .quizResultUploaded());
                                             ExtendedNavigator.of(context)
                                                 .pushReplacementNamed(
                                                     Routes.finishedPage);
