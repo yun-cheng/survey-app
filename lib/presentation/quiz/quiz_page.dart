@@ -6,9 +6,8 @@ import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/ques
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class QuizPage extends StatelessWidget {
   @override
@@ -40,9 +39,9 @@ class QuizPage extends StatelessWidget {
               if (questionPageState.question.failureOption.isSome()) {
                 return Container();
               } else {
-                int rightScore = questionState.score.right.getOrCrash();
-                int wrongScore = questionState.score.wrong.getOrCrash();
-                String realAnswer = questionState.realAnswer.getOrCrash();
+                final rightScore = questionState.score.right.getOrCrash();
+                final wrongScore = questionState.score.wrong.getOrCrash();
+                final realAnswer = questionState.realAnswer.getOrCrash();
 
                 return Scaffold(
                   appBar: AppBar(
@@ -56,7 +55,8 @@ class QuizPage extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.center,
                             child: ConstrainedBox(
-                              constraints: BoxConstraints.expand(width: 600.0),
+                              constraints:
+                                  const BoxConstraints.expand(width: 600.0),
                               child: SingleChildScrollView(
                                 child: Padding(
                                   padding: const EdgeInsets.all(24.0),
@@ -66,15 +66,16 @@ class QuizPage extends StatelessWidget {
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
                                       ConstrainedBox(
-                                        constraints:
-                                            BoxConstraints(minHeight: 200.0),
+                                        constraints: const BoxConstraints(
+                                            minHeight: 200.0),
                                         child: Text(
                                           questionPageState.question.body
                                               .getOrCrash(),
-                                          style: TextStyle(fontSize: 40.0),
+                                          style:
+                                              const TextStyle(fontSize: 40.0),
                                         ),
                                       ),
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 24.0,
                                       ),
                                       Row(
@@ -92,16 +93,17 @@ class QuizPage extends StatelessWidget {
                                                 ? () {
                                                     context
                                                         .bloc<QuestionBloc>()
-                                                        .add(AnswerSelected(
-                                                            'O'));
+                                                        .add(
+                                                            const AnswerSelected(
+                                                                'O'));
                                                   }
                                                 : null,
-                                            child: Text(
+                                            child: const Text(
                                               'O',
                                               style: TextStyle(fontSize: 100.0),
                                             ),
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 100.0,
                                           ),
                                           FlatButton(
@@ -113,11 +115,12 @@ class QuizPage extends StatelessWidget {
                                                 ? () {
                                                     context
                                                         .bloc<QuestionBloc>()
-                                                        .add(AnswerSelected(
-                                                            'X'));
+                                                        .add(
+                                                            const AnswerSelected(
+                                                                'X'));
                                                   }
                                                 : null,
-                                            child: Text(
+                                            child: const Text(
                                               'X',
                                               style: TextStyle(fontSize: 100.0),
                                             ),
@@ -136,7 +139,8 @@ class QuizPage extends StatelessWidget {
                           height: 100.0,
                           alignment: Alignment.center,
                           child: ConstrainedBox(
-                            constraints: BoxConstraints.expand(width: 600.0),
+                            constraints:
+                                const BoxConstraints.expand(width: 600.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[
@@ -167,7 +171,7 @@ class QuizPage extends StatelessWidget {
                                   ],
                                 ),
                                 // TODO 控制的邏輯不該在這裡
-                                if (rightScore < 1 &&
+                                if (rightScore < 10 &&
                                     !questionPageState.isLastPage) ...[
                                   TurnPageButton(
                                     '下一題',
@@ -175,7 +179,7 @@ class QuizPage extends StatelessWidget {
                                         ? () {
                                             context
                                                 .bloc<QuestionPageBloc>()
-                                                .add(QuestionPageEvent
+                                                .add(const QuestionPageEvent
                                                     .nextPagePressed());
                                           }
                                         : null,
@@ -186,7 +190,7 @@ class QuizPage extends StatelessWidget {
                                     onPressed: questionState.isAnswered
                                         ? () {
                                             context.bloc<QuestionBloc>().add(
-                                                QuestionEvent
+                                                const QuestionEvent
                                                     .quizResultUploaded());
                                             ExtendedNavigator.of(context)
                                                 .pushReplacementNamed(
@@ -230,16 +234,16 @@ class TurnPageButton extends StatelessWidget {
         color: Colors.greenAccent[400],
         disabledColor: Colors.grey[600],
         disabledTextColor: Colors.grey[900],
-        child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 28.0,
-          ),
-        ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(18.0),
         ),
         onPressed: onPressed,
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontSize: 28.0,
+          ),
+        ),
       ),
     );
   }

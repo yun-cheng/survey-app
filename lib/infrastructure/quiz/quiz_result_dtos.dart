@@ -41,25 +41,6 @@ abstract class QuizResultDto implements _$QuizResultDto {
   factory QuizResultDto.fromJson(Map<String, dynamic> json) =>
       _$QuizResultDtoFromJson(json);
 
-  // factory QuizResultDto.customFromJson(Map<String, dynamic> json) {
-  //   return QuizResultDto(
-  //     interviewer: InterviewerDto.fromJson(json['interviewer']),
-  //     score: ScoreDto.fromJson(json['score']),
-  //     scoreHistory: ScoreHistoryDto.fromJson(json['scoreHistory']),
-  //     serverTimeStamp: FieldValue.serverTimestamp(),
-  //   );
-  // }
-
-  // // HIGHLIGHT 因為太多層，json_serializable 沒辦法做，所以要自己來
-  // Map<String, dynamic> customToJson() {
-  //   return {
-  //     'interviewer': interviewer.toJson(),
-  //     'score': score.toJson(),
-  //     'scoreHistory': scoreHistory.toJson(),
-  //     'serverTimeStamp': serverTimeStamp,
-  //   };
-  // }
-
   factory QuizResultDto.fromFirestore(DocumentSnapshot doc) {
     return QuizResultDto.fromJson(doc.data);
   }
@@ -114,7 +95,7 @@ abstract class ScoreHistoryDto implements _$ScoreHistoryDto {
 
   factory ScoreHistoryDto.fromDomain(
       KtMutableMap<QuestionId, bool> scoreHistory) {
-    KtMutableMap<String, bool> scoreHistoryTransform = KtMutableMap.empty();
+    final scoreHistoryTransform = KtMutableMap<String, bool>.empty();
 
     scoreHistory.mapKeysTo(
         scoreHistoryTransform, (entry) => entry.key.getOrCrash());

@@ -1,12 +1,12 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dartz/dartz.dart';
-import 'package:flushbar/flushbar.dart';
+// import 'package:dartz/dartz.dart';
+// import 'package:flushbar/flushbar.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -71,7 +71,7 @@ class SignInForm extends StatelessWidget {
                 maintainSize: true,
                 maintainAnimation: true,
                 maintainState: true,
-                child: Text(
+                child: const Text(
                   '請輸入 ID 或姓名',
                   style: TextStyle(
                     fontSize: 28.0,
@@ -81,7 +81,7 @@ class SignInForm extends StatelessWidget {
               ),
               if (state.isSuccess) ...[
                 DataTable(
-                  columns: [
+                  columns: const [
                     DataColumn(
                       label: Text(
                         'ID',
@@ -96,16 +96,22 @@ class SignInForm extends StatelessWidget {
                     ),
                   ],
                   rows: [
-                    DataRow(cells: [
-                      DataCell(Text(
-                        interviewerId,
-                        style: TextStyle(fontSize: 32.0),
-                      )),
-                      DataCell(Text(
-                        interviewerName,
-                        style: TextStyle(fontSize: 32.0),
-                      )),
-                    ]),
+                    DataRow(
+                      cells: [
+                        DataCell(
+                          Text(
+                            interviewerId,
+                            style: const TextStyle(fontSize: 32.0),
+                          ),
+                        ),
+                        DataCell(
+                          Text(
+                            interviewerName,
+                            style: const TextStyle(fontSize: 32.0),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
                 const SizedBox(height: 52.0),
@@ -115,7 +121,7 @@ class SignInForm extends StatelessWidget {
                   onPressed: () {
                     context
                         .bloc<SignInFormBloc>()
-                        .add(SignInFormEvent.signedOut());
+                        .add(const SignInFormEvent.signedOut());
                   },
                 ),
                 RoundedButton(
@@ -128,7 +134,7 @@ class SignInForm extends StatelessWidget {
               ] else ...[
                 const SizedBox(height: 24.0),
                 TextFormField(
-                  style: TextStyle(fontSize: 20.0),
+                  style: const TextStyle(fontSize: 20.0),
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.assignment_ind),
                     labelText: 'ID',
@@ -143,7 +149,7 @@ class SignInForm extends StatelessWidget {
                 ),
                 const SizedBox(height: 24.0),
                 TextFormField(
-                    style: TextStyle(fontSize: 20.0),
+                    style: const TextStyle(fontSize: 20.0),
                     decoration: const InputDecoration(
                       prefixIcon: Icon(Icons.person),
                       labelText: '姓名',

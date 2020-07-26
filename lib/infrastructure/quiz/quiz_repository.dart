@@ -21,7 +21,7 @@ import 'dart:math';
 // NOTE 必須要先 toMutableList 才能改變
 extension KtListX<T> on KtList<T> {
   KtList<T> shuffle() {
-    var list = this.toMutableList().asList();
+    final list = toMutableList().asList();
     list.shuffle();
     return list.toImmutableList();
   }
@@ -38,7 +38,7 @@ class QuizRepository implements IQuizRepository {
     try {
       final projectCollection = _firestore.projectCollection;
 
-      var questionList = await projectCollection.questionListDoc
+      final questionList = await projectCollection.questionListDoc
           .get()
           .then((doc) => QuestionListDto.fromFirestore(doc).toDomain());
 
@@ -66,7 +66,7 @@ class QuizRepository implements IQuizRepository {
     try {
       final projectCollection = _firestore.projectCollection;
 
-      Map<String, dynamic> quizResult = {
+      final quizResult = {
         'interviewer': interviewer,
         'score': score,
         'scoreHistory': scoreHistory,

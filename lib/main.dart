@@ -6,16 +6,8 @@ import 'package:interviewer_quiz_flutter_app/presentation/core/app_widget.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// TEST
-import 'domain/quiz/score.dart';
-
-Future<void> main() async {
+void main() {
   configureInjection(Environment.prod);
   Bloc.observer = SimpleBlocObserver();
   runApp(AppWidget());
-
-  // TEST
-
-//  Score score = Score.starting();
-//  print(score.copyWith(wrong: score.wrong.add));
 }

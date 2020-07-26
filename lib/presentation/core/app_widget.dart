@@ -6,7 +6,7 @@ import 'package:interviewer_quiz_flutter_app/application/auth/interviewer_list/i
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class AppWidget extends StatelessWidget {
   @override

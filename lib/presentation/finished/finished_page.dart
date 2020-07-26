@@ -11,12 +11,12 @@ class FinishedPage extends StatelessWidget {
         child: Align(
           alignment: Alignment.topCenter,
           child: ConstrainedBox(
-            constraints: BoxConstraints.expand(width: 600.0),
+            constraints: const BoxConstraints.expand(width: 600.0),
             child: SingleChildScrollView(
               child: Container(
                 alignment: Alignment.topCenter,
                 padding: const EdgeInsets.all(24.0),
-                child: Text(
+                child: const Text(
                   '成功上傳測驗結果！',
                   style: TextStyle(fontSize: 40.0),
                 ),
