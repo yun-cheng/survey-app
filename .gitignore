@@ -35,6 +35,9 @@
 lib/generated_plugin_registrant.dart
 web/firebase-config.js
 
+# Firebase related
+.firebase/
+
 # Symbolication related
 app.*.symbols
 

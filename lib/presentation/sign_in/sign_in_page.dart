@@ -6,7 +6,7 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('訪員測驗'),
+        title: const Text('訪員測驗 v1.0.1'),
       ),
       body: SafeArea(
         child: Align(
