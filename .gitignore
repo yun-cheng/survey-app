@@ -37,6 +37,8 @@ web/firebase-config.js
 
 # Firebase related
 .firebase/
+firebase.json
+.firebaserc
 
 # Symbolication related
 app.*.symbols
