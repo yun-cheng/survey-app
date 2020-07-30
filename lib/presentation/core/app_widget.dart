@@ -36,7 +36,14 @@ class AppWidget extends StatelessWidget {
         title: '訪員測驗',
         debugShowCheckedModeBanner: false,
         builder: ExtendedNavigator(router: Router()),
-        theme: ThemeData.dark().copyWith(
+        theme: ThemeData.light().copyWith(
+          textTheme:
+              ThemeData.light().textTheme.apply(fontFamily: 'NotoSansTC'),
+          primaryTextTheme: ThemeData.light()
+              .primaryTextTheme
+              .apply(fontFamily: 'NotoSansTC'),
+          accentTextTheme:
+              ThemeData.light().accentTextTheme.apply(fontFamily: 'NotoSansTC'),
           primaryColor: Colors.blueAccent,
           accentColor: Colors.blueAccent,
           floatingActionButtonTheme: FloatingActionButtonThemeData(

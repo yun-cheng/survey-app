@@ -56,7 +56,7 @@ class QuizPage extends StatelessWidget {
                             alignment: Alignment.center,
                             child: ConstrainedBox(
                               constraints:
-                                  const BoxConstraints.expand(width: 600.0),
+                                  const BoxConstraints.expand(width: 800.0),
                               child: SingleChildScrollView(
                                 child: Padding(
                                   padding: const EdgeInsets.all(24.0),
@@ -140,7 +140,7 @@ class QuizPage extends StatelessWidget {
                           alignment: Alignment.center,
                           child: ConstrainedBox(
                             constraints:
-                                const BoxConstraints.expand(width: 600.0),
+                                const BoxConstraints.expand(width: 800.0),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: <Widget>[

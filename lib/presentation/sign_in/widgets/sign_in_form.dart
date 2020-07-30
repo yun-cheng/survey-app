@@ -75,7 +75,7 @@ class SignInForm extends StatelessWidget {
                   '請輸入 ID 或姓名',
                   style: TextStyle(
                     fontSize: 28.0,
-                    // fontWeight: FontWeight.bold,
+                    fontFamily: 'NotoSansTC',
                   ),
                 ),
               ),
@@ -85,13 +85,19 @@ class SignInForm extends StatelessWidget {
                     DataColumn(
                       label: Text(
                         'ID',
-                        style: TextStyle(fontSize: 32.0),
+                        style: TextStyle(
+                          fontSize: 32.0,
+                          fontFamily: 'NotoSansTC',
+                        ),
                       ),
                     ),
                     DataColumn(
                       label: Text(
                         '姓名',
-                        style: TextStyle(fontSize: 32.0),
+                        style: TextStyle(
+                          fontSize: 32.0,
+                          fontFamily: 'NotoSansTC',
+                        ),
                       ),
                     ),
                   ],
@@ -101,13 +107,19 @@ class SignInForm extends StatelessWidget {
                         DataCell(
                           Text(
                             interviewerId,
-                            style: const TextStyle(fontSize: 32.0),
+                            style: const TextStyle(
+                              fontSize: 32.0,
+                              fontFamily: 'NotoSansTC',
+                            ),
                           ),
                         ),
                         DataCell(
                           Text(
                             interviewerName,
-                            style: const TextStyle(fontSize: 32.0),
+                            style: const TextStyle(
+                              fontSize: 32.0,
+                              fontFamily: 'NotoSansTC',
+                            ),
                           ),
                         ),
                       ],
