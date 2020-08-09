@@ -18,6 +18,7 @@ import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/ques
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/quiz_list/quiz_list_bloc.dart';
 import 'package:get_it/get_it.dart';
 
 void $initGetIt(GetIt g, {String environment}) {
@@ -42,6 +43,8 @@ void $initGetIt(GetIt g, {String environment}) {
         g<QuestionPageBloc>(),
         g<SignInFormBloc>(),
       ));
+  g.registerFactory<QuizListBloc>(
+      () => QuizListBloc(g<IQuizListRepository>(), g<SignInFormBloc>()));
 }
 
 class _$FirebaseInjectableModule extends FirebaseInjectableModule {}
