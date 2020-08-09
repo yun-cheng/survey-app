@@ -36,9 +36,9 @@ class QuizRepository implements IQuizRepository {
   @override
   Future<Either<QuizFailure, KtList<Question>>> getQuestionList() async {
     try {
-      final projectCollection = _firestore.projectCollection;
+      final questionListCollection = _firestore.questionListCollection;
 
-      final questionList = await projectCollection.questionListDoc
+      final questionList = await questionListCollection.quizIdDoc
           .get()
           .then((doc) => QuestionListDto.fromFirestore(doc).toDomain());
 
@@ -64,7 +64,7 @@ class QuizRepository implements IQuizRepository {
     @required KtMutableMap<QuestionId, bool> scoreHistory,
   }) async {
     try {
-      final projectCollection = _firestore.projectCollection;
+      final quizResultCollection = _firestore.quizResultCollection;
 
       final quizResult = {
         'interviewer': interviewer,
@@ -74,8 +74,7 @@ class QuizRepository implements IQuizRepository {
 
       final quizResultDto = QuizResultDto.fromDomain(quizResult);
 
-      await projectCollection.quizIdDoc.quizResultCollection
-          .add(quizResultDto.toJson());
+      await quizResultCollection.add(quizResultDto.toJson());
 
       return right(unit);
     } on PlatformException catch (e) {

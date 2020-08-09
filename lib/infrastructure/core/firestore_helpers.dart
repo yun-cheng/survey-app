@@ -6,6 +6,16 @@ import 'package:interviewer_quiz_flutter_app/injection.dart';
 extension FirestoreX on Firestore {
   CollectionReference get projectCollection =>
       getIt<Firestore>().collection('interviewer_quiz');
+  CollectionReference get interviewerCollection =>
+      getIt<Firestore>().collection('interviewer');
+  CollectionReference get interviewerQuizCollection =>
+      getIt<Firestore>().collection('interviewer_quiz');
+  CollectionReference get quizCollection =>
+      getIt<Firestore>().collection('quiz');
+  CollectionReference get quizResultCollection =>
+      getIt<Firestore>().collection('quiz_result');
+  CollectionReference get questionListCollection =>
+      getIt<Firestore>().collection('question_list');
 }
 
 extension DocumentReferenceX on DocumentReference {
@@ -15,6 +25,7 @@ extension DocumentReferenceX on DocumentReference {
 extension CollectionReferenceX on CollectionReference {
   DocumentReference get interviewerListDoc => document('interviewer_list');
   DocumentReference get questionListDoc => document('question_list');
-  // TODO 調整不同測驗版本
-  DocumentReference get quizIdDoc => document('200722');
+  DocumentReference get quizIdDoc =>
+      document('1s8LwLCE_oWASeL8DUmwjbV0AiesdPT32kXNmndz_Y8s');
+  DocumentReference get projectIdDoc => document('a_project_id');
 }

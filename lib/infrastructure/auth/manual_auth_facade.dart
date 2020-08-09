@@ -21,7 +21,7 @@ class ManualAuthFacade implements IAuthFacade {
   Option<Interviewer> _currentInterviewerOption = none();
 
   // TEST
-  get interviewerListOption {
+  Option<KtList<Interviewer>> get interviewerListOption {
     return _interviewerListOption;
   }
 
@@ -39,9 +39,9 @@ class ManualAuthFacade implements IAuthFacade {
   @override
   Future<Either<AuthFailure, KtList<Interviewer>>> getInterviewerList() async {
     try {
-      final projectCollection = _firestore.projectCollection;
+      final interviewerCollection = _firestore.interviewerCollection;
 
-      final interviewerList = await projectCollection.interviewerListDoc
+      final interviewerList = await interviewerCollection.projectIdDoc
           .get()
           .then((doc) => InterviewerListDto.fromFirestore(doc).toDomain());
 
@@ -82,20 +82,20 @@ class ManualAuthFacade implements IAuthFacade {
     final interviewerIdStr = interviewerId.value.fold((l) => '', id);
     final interviewerNameStr = interviewerName.value.fold((l) => '', id);
 
-    Interviewer matchId = interviewerList
+    final Interviewer matchId = interviewerList
         .filter(
             (interviewer) => interviewer.id.getOrCrash() == interviewerIdStr)
         .firstOrNull();
-    Interviewer matchName = interviewerList
+    final Interviewer matchName = interviewerList
         .filter((interviewer) =>
             interviewer.name.getOrCrash() == interviewerNameStr)
         .firstOrNull();
 
-    this._currentInterviewerOption =
+    _currentInterviewerOption =
         optionOf(matchId).orElse(() => optionOf(matchName));
 
     return _currentInterviewerOption.fold(
-      () => left(AuthFailure.interviewerIdAndNameNotFound()),
+      () => left(const AuthFailure.interviewerIdAndNameNotFound()),
       (interviewer) => right(interviewer),
     );
   }
