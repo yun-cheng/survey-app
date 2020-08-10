@@ -140,7 +140,7 @@ class SignInForm extends StatelessWidget {
                   title: '是我，開始測驗',
                   color: Colors.greenAccent[400],
                   onPressed: () {
-                    ExtendedNavigator.of(context).pushQuizPage();
+                    ExtendedNavigator.of(context).pushQuizListPage();
                   },
                 ),
               ] else ...[

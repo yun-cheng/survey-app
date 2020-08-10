@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/responsive_layout.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/sign_in_form.dart';
 
 class SignInPage extends StatelessWidget {
@@ -8,24 +9,16 @@ class SignInPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('訪員測驗 v1.0.1'),
       ),
-      body: SafeArea(
-        child: Align(
-          alignment: Alignment.topCenter,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints.expand(width: 600.0),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.all(24.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: <Widget>[
-                    SignInForm(),
-                  ],
-                ),
-              ),
-            ),
+      body: ResponsiveLayout(
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SignInForm(),
+            ],
           ),
         ),
       ),
