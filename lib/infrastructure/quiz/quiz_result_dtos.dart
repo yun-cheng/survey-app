@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
 
@@ -15,26 +16,40 @@ abstract class QuizResultDto implements _$QuizResultDto {
   const QuizResultDto._();
 
   const factory QuizResultDto({
+    @required String quizId,
+    @required String projectId,
+    @required bool isFinished,
     @required InterviewerDto interviewer,
     @required ScoreDto score,
     @required ScoreHistoryDto scoreHistory,
     @required @ServerTimestampConverter() FieldValue serverTimeStamp,
+    @required DateTime deviceTimeStamp,
   }) = _QuizResultDto;
 
   factory QuizResultDto.fromDomain(Map<String, dynamic> quizResult) {
     return QuizResultDto(
+      quizId: quizResult['quizId'].getOrCrash(),
+      // TODO
+      projectId: quizResult['projectId'],
+      isFinished: quizResult['isFinished'],
       interviewer: InterviewerDto.fromDomain(quizResult['interviewer']),
       score: ScoreDto.fromDomain(quizResult['score']),
       scoreHistory: ScoreHistoryDto.fromDomain(quizResult['scoreHistory']),
       serverTimeStamp: FieldValue.serverTimestamp(),
+      deviceTimeStamp: quizResult['deviceTimeStamp'],
     );
   }
 
   Map<String, dynamic> toDomain() {
     return {
+      'quizId': QuizId(quizId),
+      // TODO
+      'projectId': projectId,
+      'isFinished': isFinished,
       'interviewer': interviewer.toDomain(),
       'score': score.toDomain(),
       'scoreHistory': scoreHistory.toDomain(),
+      'deviceTimeStamp': deviceTimeStamp,
     };
   }
 

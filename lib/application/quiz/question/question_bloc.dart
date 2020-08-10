@@ -6,12 +6,15 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/interviewer_list/interviewer_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/quiz_list/quiz_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
@@ -22,15 +25,18 @@ part 'question_bloc.freezed.dart';
 
 @injectable
 class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
+  StreamSubscription<QuestionListState> _questionListSubscription;
   StreamSubscription<QuestionPageState> _questionPageSubscription;
   StreamSubscription<SignInFormState> _signInFormSubscription;
   final IQuizRepository _quizRepository;
   //TEST 測試只在內部使用
+  QuizId _quizId;
   Interviewer _interviewer;
 
   // TODO 須測試已答後，未到下一頁時跳出再重新進入，狀態是否會回復
   QuestionBloc(
     this._quizRepository,
+    QuestionListBloc questionListBloc,
     QuestionPageBloc questionPageBloc,
     SignInFormBloc signInFormBloc,
   ) : super(QuestionState.initial()) {
@@ -39,6 +45,12 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     _interviewer = signInFormBloc.state.interviewer;
     _signInFormSubscription = signInFormBloc.listen((state) {
       _interviewer = state.interviewer;
+    });
+
+    _questionListSubscription = questionListBloc.listen((state) {
+      if (state is QuestionListLoadSuccess) {
+        _quizId = state.quizId;
+      }
     });
 
     _questionPageSubscription = questionPageBloc.listen((state) {
@@ -76,12 +88,8 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         );
       },
       quizResultUploaded: (e) async* {
-        // print('************');
-        // print(_interviewer);
-        // print(state.score);
-        // print(state.scoreHistory);
-
         final failureOrSuccess = await _quizRepository.uploadQuizResult(
+          quizId: _quizId,
           interviewer: _interviewer,
           score: state.score,
           scoreHistory: state.scoreHistory,

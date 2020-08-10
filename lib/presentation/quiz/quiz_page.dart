@@ -6,10 +6,18 @@ import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/ques
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
+import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class QuizPage extends StatelessWidget {
+  final QuizId quizId;
+
+  const QuizPage({
+    Key key,
+    @required this.quizId,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -17,7 +25,7 @@ class QuizPage extends StatelessWidget {
         BlocProvider<QuestionListBloc>(
           create: (context) => QuestionListBloc(
             getIt<IQuizRepository>(),
-          )..add(const QuestionListEvent.questionListLoaded()),
+          )..add(QuestionListEvent.questionListLoaded(quizId)),
         ),
         BlocProvider<QuestionPageBloc>(
           create: (context) => QuestionPageBloc(
@@ -27,6 +35,7 @@ class QuizPage extends StatelessWidget {
         BlocProvider<QuestionBloc>(
           create: (context) => QuestionBloc(
             getIt<IQuizRepository>(),
+            BlocProvider.of<QuestionListBloc>(context),
             BlocProvider.of<QuestionPageBloc>(context),
             BlocProvider.of<SignInFormBloc>(context),
           ),

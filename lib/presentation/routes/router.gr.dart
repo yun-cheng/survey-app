@@ -10,6 +10,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/sign_in/sign_in_page.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/quiz_list/quiz_list_page.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/quiz/quiz_page.dart';
+import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/finished/finished_page.dart';
 
 class Routes {
@@ -50,8 +51,9 @@ class Router extends RouterBase {
       );
     },
     QuizPage: (RouteData data) {
+      var args = data.getArgs<QuizPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => QuizPage(),
+        builder: (context) => QuizPage(key: args.key, quizId: args.quizId),
         settings: data,
       );
     },
@@ -73,7 +75,25 @@ extension RouterNavigationHelperMethods on ExtendedNavigatorState {
 
   Future<dynamic> pushQuizListPage() => pushNamed<dynamic>(Routes.quizListPage);
 
-  Future<dynamic> pushQuizPage() => pushNamed<dynamic>(Routes.quizPage);
+  Future<dynamic> pushQuizPage({
+    Key key,
+    @required QuizId quizId,
+  }) =>
+      pushNamed<dynamic>(
+        Routes.quizPage,
+        arguments: QuizPageArguments(key: key, quizId: quizId),
+      );
 
   Future<dynamic> pushFinishedPage() => pushNamed<dynamic>(Routes.finishedPage);
+}
+
+// *************************************************************************
+// Arguments holder classes
+// **************************************************************************
+
+//QuizPage arguments holder class
+class QuizPageArguments {
+  final Key key;
+  final QuizId quizId;
+  QuizPageArguments({this.key, @required this.quizId});
 }

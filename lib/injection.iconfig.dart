@@ -40,6 +40,7 @@ void $initGetIt(GetIt g, {String environment}) {
   g.registerFactory<AuthBloc>(() => AuthBloc(g<SignInFormBloc>()));
   g.registerFactory<QuestionBloc>(() => QuestionBloc(
         g<IQuizRepository>(),
+        g<QuestionListBloc>(),
         g<QuestionPageBloc>(),
         g<SignInFormBloc>(),
       ));

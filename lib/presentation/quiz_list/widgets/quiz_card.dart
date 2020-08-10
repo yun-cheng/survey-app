@@ -21,7 +21,7 @@ class QuizCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 6.0),
       child: InkWell(
         onTap: () {
-          ExtendedNavigator.of(context).pushQuizPage();
+          ExtendedNavigator.of(context).pushQuizPage(quizId: quiz.id);
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),

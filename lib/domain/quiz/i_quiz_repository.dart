@@ -5,11 +5,13 @@ import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/quiz_failure.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
 abstract class IQuizRepository {
-  Future<Either<QuizFailure, KtList<Question>>> getQuestionList();
+  Future<Either<QuizFailure, KtList<Question>>> getQuestionList(QuizId quizId);
   Future<Either<QuizFailure, Unit>> uploadQuizResult({
+    @required QuizId quizId,
     @required Interviewer interviewer,
     @required Score score,
     @required KtMutableMap<QuestionId, bool> scoreHistory,

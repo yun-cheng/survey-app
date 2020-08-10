@@ -22,7 +22,7 @@ class QuestionPageBloc extends Bloc<QuestionPageEvent, QuestionPageState> {
   QuestionPageBloc(QuestionListBloc questionListBloc)
       : super(QuestionPageState.initial()) {
     _subscription = questionListBloc.listen((state) {
-      if (state is LoadSuccess) {
+      if (state is QuestionListLoadSuccess) {
         _questionList = state.questionList;
         add(QuestionPageEvent.loadQuestionList());
       }

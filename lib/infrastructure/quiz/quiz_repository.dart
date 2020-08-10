@@ -9,6 +9,7 @@ import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/quiz_failure.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/quiz/question_list_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/quiz/quiz_result_dtos.dart';
@@ -34,11 +35,13 @@ class QuizRepository implements IQuizRepository {
   QuizRepository(this._firestore);
 
   @override
-  Future<Either<QuizFailure, KtList<Question>>> getQuestionList() async {
+  Future<Either<QuizFailure, KtList<Question>>> getQuestionList(
+      QuizId quizId) async {
     try {
       final questionListCollection = _firestore.questionListCollection;
 
-      final questionList = await questionListCollection.quizIdDoc
+      final questionList = await questionListCollection
+          .document(quizId.getOrCrash())
           .get()
           .then((doc) => QuestionListDto.fromFirestore(doc).toDomain());
 
@@ -59,6 +62,7 @@ class QuizRepository implements IQuizRepository {
 
   @override
   Future<Either<QuizFailure, Unit>> uploadQuizResult({
+    @required QuizId quizId,
     @required Interviewer interviewer,
     @required Score score,
     @required KtMutableMap<QuestionId, bool> scoreHistory,
@@ -67,9 +71,14 @@ class QuizRepository implements IQuizRepository {
       final quizResultCollection = _firestore.quizResultCollection;
 
       final quizResult = {
+        'quizId':quizId,
+        // TODO
+        'projectId': 'a_project_id',
+        'isFinished': true,
         'interviewer': interviewer,
         'score': score,
         'scoreHistory': scoreHistory,
+        'deviceTimeStamp': DateTime.now(),
       };
 
       final quizResultDto = QuizResultDto.fromDomain(quizResult);

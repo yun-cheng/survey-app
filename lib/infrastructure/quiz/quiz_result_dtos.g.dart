@@ -8,6 +8,9 @@ part of 'quiz_result_dtos.dart';
 
 _$_QuizResultDto _$_$_QuizResultDtoFromJson(Map<String, dynamic> json) {
   return _$_QuizResultDto(
+    quizId: json['quizId'] as String,
+    projectId: json['projectId'] as String,
+    isFinished: json['isFinished'] as bool,
     interviewer: json['interviewer'] == null
         ? null
         : InterviewerDto.fromJson(json['interviewer'] as Map<String, dynamic>),
@@ -20,16 +23,23 @@ _$_QuizResultDto _$_$_QuizResultDtoFromJson(Map<String, dynamic> json) {
             json['scoreHistory'] as Map<String, dynamic>),
     serverTimeStamp:
         const ServerTimestampConverter().fromJson(json['serverTimeStamp']),
+    deviceTimeStamp: json['deviceTimeStamp'] == null
+        ? null
+        : DateTime.parse(json['deviceTimeStamp'] as String),
   );
 }
 
 Map<String, dynamic> _$_$_QuizResultDtoToJson(_$_QuizResultDto instance) =>
     <String, dynamic>{
+      'quizId': instance.quizId,
+      'projectId': instance.projectId,
+      'isFinished': instance.isFinished,
       'interviewer': instance.interviewer?.toJson(),
       'score': instance.score?.toJson(),
       'scoreHistory': instance.scoreHistory?.toJson(),
       'serverTimeStamp':
           const ServerTimestampConverter().toJson(instance.serverTimeStamp),
+      'deviceTimeStamp': instance.deviceTimeStamp?.toIso8601String(),
     };
 
 _$_ScoreDto _$_$_ScoreDtoFromJson(Map<String, dynamic> json) {

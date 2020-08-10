@@ -6,6 +6,8 @@ abstract class QuestionListState with _$QuestionListState {
   const factory QuestionListState.loadInProgress() = _LoadInProgress;
   const factory QuestionListState.loadFailure(QuizFailure quizFailure) =
       _LoadFailure;
-  const factory QuestionListState.loadSuccess(KtList<Question> questionList) =
-      LoadSuccess;
+  const factory QuestionListState.loadSuccess({
+    @required QuizId quizId,
+    @required KtList<Question> questionList,
+  }) = QuestionListLoadSuccess;
 }

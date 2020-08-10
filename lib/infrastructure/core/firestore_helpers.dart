@@ -19,13 +19,10 @@ extension FirestoreX on Firestore {
 }
 
 extension DocumentReferenceX on DocumentReference {
-  CollectionReference get quizResultCollection => collection('quiz_result');
+  // CollectionReference get quizResultCollection => collection('quiz_result');
 }
 
 extension CollectionReferenceX on CollectionReference {
-  DocumentReference get interviewerListDoc => document('interviewer_list');
-  DocumentReference get questionListDoc => document('question_list');
-  DocumentReference get quizIdDoc =>
-      document('1s8LwLCE_oWASeL8DUmwjbV0AiesdPT32kXNmndz_Y8s');
+  // TODO 改成選擇
   DocumentReference get projectIdDoc => document('a_project_id');
 }

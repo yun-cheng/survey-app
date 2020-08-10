@@ -16,15 +16,23 @@ class _$QuizResultDtoTearOff {
   const _$QuizResultDtoTearOff();
 
   _QuizResultDto call(
-      {@required InterviewerDto interviewer,
+      {@required String quizId,
+      @required String projectId,
+      @required bool isFinished,
+      @required InterviewerDto interviewer,
       @required ScoreDto score,
       @required ScoreHistoryDto scoreHistory,
-      @required @ServerTimestampConverter() FieldValue serverTimeStamp}) {
+      @required @ServerTimestampConverter() FieldValue serverTimeStamp,
+      @required DateTime deviceTimeStamp}) {
     return _QuizResultDto(
+      quizId: quizId,
+      projectId: projectId,
+      isFinished: isFinished,
       interviewer: interviewer,
       score: score,
       scoreHistory: scoreHistory,
       serverTimeStamp: serverTimeStamp,
+      deviceTimeStamp: deviceTimeStamp,
     );
   }
 }
@@ -33,11 +41,15 @@ class _$QuizResultDtoTearOff {
 const $QuizResultDto = _$QuizResultDtoTearOff();
 
 mixin _$QuizResultDto {
+  String get quizId;
+  String get projectId;
+  bool get isFinished;
   InterviewerDto get interviewer;
   ScoreDto get score;
   ScoreHistoryDto get scoreHistory;
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
+  DateTime get deviceTimeStamp;
 
   Map<String, dynamic> toJson();
   $QuizResultDtoCopyWith<QuizResultDto> get copyWith;
@@ -48,10 +60,14 @@ abstract class $QuizResultDtoCopyWith<$Res> {
           QuizResultDto value, $Res Function(QuizResultDto) then) =
       _$QuizResultDtoCopyWithImpl<$Res>;
   $Res call(
-      {InterviewerDto interviewer,
+      {String quizId,
+      String projectId,
+      bool isFinished,
+      InterviewerDto interviewer,
       ScoreDto score,
       ScoreHistoryDto scoreHistory,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      @ServerTimestampConverter() FieldValue serverTimeStamp,
+      DateTime deviceTimeStamp});
 
   $InterviewerDtoCopyWith<$Res> get interviewer;
   $ScoreDtoCopyWith<$Res> get score;
@@ -68,12 +84,20 @@ class _$QuizResultDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object quizId = freezed,
+    Object projectId = freezed,
+    Object isFinished = freezed,
     Object interviewer = freezed,
     Object score = freezed,
     Object scoreHistory = freezed,
     Object serverTimeStamp = freezed,
+    Object deviceTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
+      quizId: quizId == freezed ? _value.quizId : quizId as String,
+      projectId: projectId == freezed ? _value.projectId : projectId as String,
+      isFinished:
+          isFinished == freezed ? _value.isFinished : isFinished as bool,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer as InterviewerDto,
@@ -84,6 +108,9 @@ class _$QuizResultDtoCopyWithImpl<$Res>
       serverTimeStamp: serverTimeStamp == freezed
           ? _value.serverTimeStamp
           : serverTimeStamp as FieldValue,
+      deviceTimeStamp: deviceTimeStamp == freezed
+          ? _value.deviceTimeStamp
+          : deviceTimeStamp as DateTime,
     ));
   }
 
@@ -125,10 +152,14 @@ abstract class _$QuizResultDtoCopyWith<$Res>
       __$QuizResultDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {InterviewerDto interviewer,
+      {String quizId,
+      String projectId,
+      bool isFinished,
+      InterviewerDto interviewer,
       ScoreDto score,
       ScoreHistoryDto scoreHistory,
-      @ServerTimestampConverter() FieldValue serverTimeStamp});
+      @ServerTimestampConverter() FieldValue serverTimeStamp,
+      DateTime deviceTimeStamp});
 
   @override
   $InterviewerDtoCopyWith<$Res> get interviewer;
@@ -150,12 +181,20 @@ class __$QuizResultDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object quizId = freezed,
+    Object projectId = freezed,
+    Object isFinished = freezed,
     Object interviewer = freezed,
     Object score = freezed,
     Object scoreHistory = freezed,
     Object serverTimeStamp = freezed,
+    Object deviceTimeStamp = freezed,
   }) {
     return _then(_QuizResultDto(
+      quizId: quizId == freezed ? _value.quizId : quizId as String,
+      projectId: projectId == freezed ? _value.projectId : projectId as String,
+      isFinished:
+          isFinished == freezed ? _value.isFinished : isFinished as bool,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer as InterviewerDto,
@@ -166,6 +205,9 @@ class __$QuizResultDtoCopyWithImpl<$Res>
       serverTimeStamp: serverTimeStamp == freezed
           ? _value.serverTimeStamp
           : serverTimeStamp as FieldValue,
+      deviceTimeStamp: deviceTimeStamp == freezed
+          ? _value.deviceTimeStamp
+          : deviceTimeStamp as DateTime,
     ));
   }
 }
@@ -173,19 +215,33 @@ class __$QuizResultDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_QuizResultDto extends _QuizResultDto {
   const _$_QuizResultDto(
-      {@required this.interviewer,
+      {@required this.quizId,
+      @required this.projectId,
+      @required this.isFinished,
+      @required this.interviewer,
       @required this.score,
       @required this.scoreHistory,
-      @required @ServerTimestampConverter() this.serverTimeStamp})
-      : assert(interviewer != null),
+      @required @ServerTimestampConverter() this.serverTimeStamp,
+      @required this.deviceTimeStamp})
+      : assert(quizId != null),
+        assert(projectId != null),
+        assert(isFinished != null),
+        assert(interviewer != null),
         assert(score != null),
         assert(scoreHistory != null),
         assert(serverTimeStamp != null),
+        assert(deviceTimeStamp != null),
         super._();
 
   factory _$_QuizResultDto.fromJson(Map<String, dynamic> json) =>
       _$_$_QuizResultDtoFromJson(json);
 
+  @override
+  final String quizId;
+  @override
+  final String projectId;
+  @override
+  final bool isFinished;
   @override
   final InterviewerDto interviewer;
   @override
@@ -195,16 +251,26 @@ class _$_QuizResultDto extends _QuizResultDto {
   @override
   @ServerTimestampConverter()
   final FieldValue serverTimeStamp;
+  @override
+  final DateTime deviceTimeStamp;
 
   @override
   String toString() {
-    return 'QuizResultDto(interviewer: $interviewer, score: $score, scoreHistory: $scoreHistory, serverTimeStamp: $serverTimeStamp)';
+    return 'QuizResultDto(quizId: $quizId, projectId: $projectId, isFinished: $isFinished, interviewer: $interviewer, score: $score, scoreHistory: $scoreHistory, serverTimeStamp: $serverTimeStamp, deviceTimeStamp: $deviceTimeStamp)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _QuizResultDto &&
+            (identical(other.quizId, quizId) ||
+                const DeepCollectionEquality().equals(other.quizId, quizId)) &&
+            (identical(other.projectId, projectId) ||
+                const DeepCollectionEquality()
+                    .equals(other.projectId, projectId)) &&
+            (identical(other.isFinished, isFinished) ||
+                const DeepCollectionEquality()
+                    .equals(other.isFinished, isFinished)) &&
             (identical(other.interviewer, interviewer) ||
                 const DeepCollectionEquality()
                     .equals(other.interviewer, interviewer)) &&
@@ -215,16 +281,23 @@ class _$_QuizResultDto extends _QuizResultDto {
                     .equals(other.scoreHistory, scoreHistory)) &&
             (identical(other.serverTimeStamp, serverTimeStamp) ||
                 const DeepCollectionEquality()
-                    .equals(other.serverTimeStamp, serverTimeStamp)));
+                    .equals(other.serverTimeStamp, serverTimeStamp)) &&
+            (identical(other.deviceTimeStamp, deviceTimeStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.deviceTimeStamp, deviceTimeStamp)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(quizId) ^
+      const DeepCollectionEquality().hash(projectId) ^
+      const DeepCollectionEquality().hash(isFinished) ^
       const DeepCollectionEquality().hash(interviewer) ^
       const DeepCollectionEquality().hash(score) ^
       const DeepCollectionEquality().hash(scoreHistory) ^
-      const DeepCollectionEquality().hash(serverTimeStamp);
+      const DeepCollectionEquality().hash(serverTimeStamp) ^
+      const DeepCollectionEquality().hash(deviceTimeStamp);
 
   @override
   _$QuizResultDtoCopyWith<_QuizResultDto> get copyWith =>
@@ -239,15 +312,24 @@ class _$_QuizResultDto extends _QuizResultDto {
 abstract class _QuizResultDto extends QuizResultDto {
   const _QuizResultDto._() : super._();
   const factory _QuizResultDto(
-          {@required InterviewerDto interviewer,
-          @required ScoreDto score,
-          @required ScoreHistoryDto scoreHistory,
-          @required @ServerTimestampConverter() FieldValue serverTimeStamp}) =
-      _$_QuizResultDto;
+      {@required String quizId,
+      @required String projectId,
+      @required bool isFinished,
+      @required InterviewerDto interviewer,
+      @required ScoreDto score,
+      @required ScoreHistoryDto scoreHistory,
+      @required @ServerTimestampConverter() FieldValue serverTimeStamp,
+      @required DateTime deviceTimeStamp}) = _$_QuizResultDto;
 
   factory _QuizResultDto.fromJson(Map<String, dynamic> json) =
       _$_QuizResultDto.fromJson;
 
+  @override
+  String get quizId;
+  @override
+  String get projectId;
+  @override
+  bool get isFinished;
   @override
   InterviewerDto get interviewer;
   @override
@@ -257,6 +339,8 @@ abstract class _QuizResultDto extends QuizResultDto {
   @override
   @ServerTimestampConverter()
   FieldValue get serverTimeStamp;
+  @override
+  DateTime get deviceTimeStamp;
   @override
   _$QuizResultDtoCopyWith<_QuizResultDto> get copyWith;
 }

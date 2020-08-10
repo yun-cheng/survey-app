@@ -12,20 +12,27 @@ T _$identity<T>(T value) => value;
 class _$QuestionListEventTearOff {
   const _$QuestionListEventTearOff();
 
-  _QuestionListLoaded questionListLoaded() {
-    return const _QuestionListLoaded();
+  _QuestionListLoaded questionListLoaded(QuizId quizId) {
+    return _QuestionListLoaded(
+      quizId,
+    );
   }
 }
 
 // ignore: unused_element
 const $QuestionListEvent = _$QuestionListEventTearOff();
 
-mixin _$QuestionListEvent {}
+mixin _$QuestionListEvent {
+  QuizId get quizId;
+
+  $QuestionListEventCopyWith<QuestionListEvent> get copyWith;
+}
 
 abstract class $QuestionListEventCopyWith<$Res> {
   factory $QuestionListEventCopyWith(
           QuestionListEvent value, $Res Function(QuestionListEvent) then) =
       _$QuestionListEventCopyWithImpl<$Res>;
+  $Res call({QuizId quizId});
 }
 
 class _$QuestionListEventCopyWithImpl<$Res>
@@ -35,12 +42,24 @@ class _$QuestionListEventCopyWithImpl<$Res>
   final QuestionListEvent _value;
   // ignore: unused_field
   final $Res Function(QuestionListEvent) _then;
+
+  @override
+  $Res call({
+    Object quizId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      quizId: quizId == freezed ? _value.quizId : quizId as QuizId,
+    ));
+  }
 }
 
-abstract class _$QuestionListLoadedCopyWith<$Res> {
+abstract class _$QuestionListLoadedCopyWith<$Res>
+    implements $QuestionListEventCopyWith<$Res> {
   factory _$QuestionListLoadedCopyWith(
           _QuestionListLoaded value, $Res Function(_QuestionListLoaded) then) =
       __$QuestionListLoadedCopyWithImpl<$Res>;
+  @override
+  $Res call({QuizId quizId});
 }
 
 class __$QuestionListLoadedCopyWithImpl<$Res>
@@ -52,27 +71,52 @@ class __$QuestionListLoadedCopyWithImpl<$Res>
 
   @override
   _QuestionListLoaded get _value => super._value as _QuestionListLoaded;
+
+  @override
+  $Res call({
+    Object quizId = freezed,
+  }) {
+    return _then(_QuestionListLoaded(
+      quizId == freezed ? _value.quizId : quizId as QuizId,
+    ));
+  }
 }
 
 class _$_QuestionListLoaded implements _QuestionListLoaded {
-  const _$_QuestionListLoaded();
+  const _$_QuestionListLoaded(this.quizId) : assert(quizId != null);
+
+  @override
+  final QuizId quizId;
 
   @override
   String toString() {
-    return 'QuestionListEvent.questionListLoaded()';
+    return 'QuestionListEvent.questionListLoaded(quizId: $quizId)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _QuestionListLoaded);
+    return identical(this, other) ||
+        (other is _QuestionListLoaded &&
+            (identical(other.quizId, quizId) ||
+                const DeepCollectionEquality().equals(other.quizId, quizId)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(quizId);
+
+  @override
+  _$QuestionListLoadedCopyWith<_QuestionListLoaded> get copyWith =>
+      __$QuestionListLoadedCopyWithImpl<_QuestionListLoaded>(this, _$identity);
 }
 
 abstract class _QuestionListLoaded implements QuestionListEvent {
-  const factory _QuestionListLoaded() = _$_QuestionListLoaded;
+  const factory _QuestionListLoaded(QuizId quizId) = _$_QuestionListLoaded;
+
+  @override
+  QuizId get quizId;
+  @override
+  _$QuestionListLoadedCopyWith<_QuestionListLoaded> get copyWith;
 }
 
 class _$QuestionListStateTearOff {
@@ -92,9 +136,11 @@ class _$QuestionListStateTearOff {
     );
   }
 
-  LoadSuccess loadSuccess(KtList<Question> questionList) {
-    return LoadSuccess(
-      questionList,
+  QuestionListLoadSuccess loadSuccess(
+      {@required QuizId quizId, @required KtList<Question> questionList}) {
+    return QuestionListLoadSuccess(
+      quizId: quizId,
+      questionList: questionList,
     );
   }
 }
@@ -108,14 +154,14 @@ mixin _$QuestionListState {
     @required Result initial(),
     @required Result loadInProgress(),
     @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(KtList<Question> questionList),
+    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result initial(),
     Result loadInProgress(),
     Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(KtList<Question> questionList),
+    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -123,14 +169,14 @@ mixin _$QuestionListState {
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
     @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+    @required Result loadSuccess(QuestionListLoadSuccess value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
     Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
+    Result loadSuccess(QuestionListLoadSuccess value),
     @required Result orElse(),
   });
 }
@@ -186,7 +232,7 @@ class _$_Initial implements _Initial {
     @required Result initial(),
     @required Result loadInProgress(),
     @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(KtList<Question> questionList),
+    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -201,7 +247,7 @@ class _$_Initial implements _Initial {
     Result initial(),
     Result loadInProgress(),
     Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(KtList<Question> questionList),
+    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -217,7 +263,7 @@ class _$_Initial implements _Initial {
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
     @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+    @required Result loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -232,7 +278,7 @@ class _$_Initial implements _Initial {
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
     Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
+    Result loadSuccess(QuestionListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -286,7 +332,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     @required Result initial(),
     @required Result loadInProgress(),
     @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(KtList<Question> questionList),
+    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -301,7 +347,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     Result initial(),
     Result loadInProgress(),
     Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(KtList<Question> questionList),
+    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -317,7 +363,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
     @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+    @required Result loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -332,7 +378,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
     Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
+    Result loadSuccess(QuestionListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -420,7 +466,7 @@ class _$_LoadFailure implements _LoadFailure {
     @required Result initial(),
     @required Result loadInProgress(),
     @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(KtList<Question> questionList),
+    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -435,7 +481,7 @@ class _$_LoadFailure implements _LoadFailure {
     Result initial(),
     Result loadInProgress(),
     Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(KtList<Question> questionList),
+    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -451,7 +497,7 @@ class _$_LoadFailure implements _LoadFailure {
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
     @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+    @required Result loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -466,7 +512,7 @@ class _$_LoadFailure implements _LoadFailure {
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
     Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
+    Result loadSuccess(QuestionListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -484,50 +530,59 @@ abstract class _LoadFailure implements QuestionListState {
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }
 
-abstract class $LoadSuccessCopyWith<$Res> {
-  factory $LoadSuccessCopyWith(
-          LoadSuccess value, $Res Function(LoadSuccess) then) =
-      _$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({KtList<Question> questionList});
+abstract class $QuestionListLoadSuccessCopyWith<$Res> {
+  factory $QuestionListLoadSuccessCopyWith(QuestionListLoadSuccess value,
+          $Res Function(QuestionListLoadSuccess) then) =
+      _$QuestionListLoadSuccessCopyWithImpl<$Res>;
+  $Res call({QuizId quizId, KtList<Question> questionList});
 }
 
-class _$LoadSuccessCopyWithImpl<$Res>
+class _$QuestionListLoadSuccessCopyWithImpl<$Res>
     extends _$QuestionListStateCopyWithImpl<$Res>
-    implements $LoadSuccessCopyWith<$Res> {
-  _$LoadSuccessCopyWithImpl(
-      LoadSuccess _value, $Res Function(LoadSuccess) _then)
-      : super(_value, (v) => _then(v as LoadSuccess));
+    implements $QuestionListLoadSuccessCopyWith<$Res> {
+  _$QuestionListLoadSuccessCopyWithImpl(QuestionListLoadSuccess _value,
+      $Res Function(QuestionListLoadSuccess) _then)
+      : super(_value, (v) => _then(v as QuestionListLoadSuccess));
 
   @override
-  LoadSuccess get _value => super._value as LoadSuccess;
+  QuestionListLoadSuccess get _value => super._value as QuestionListLoadSuccess;
 
   @override
   $Res call({
+    Object quizId = freezed,
     Object questionList = freezed,
   }) {
-    return _then(LoadSuccess(
-      questionList == freezed
+    return _then(QuestionListLoadSuccess(
+      quizId: quizId == freezed ? _value.quizId : quizId as QuizId,
+      questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
     ));
   }
 }
 
-class _$LoadSuccess implements LoadSuccess {
-  const _$LoadSuccess(this.questionList) : assert(questionList != null);
+class _$QuestionListLoadSuccess implements QuestionListLoadSuccess {
+  const _$QuestionListLoadSuccess(
+      {@required this.quizId, @required this.questionList})
+      : assert(quizId != null),
+        assert(questionList != null);
 
+  @override
+  final QuizId quizId;
   @override
   final KtList<Question> questionList;
 
   @override
   String toString() {
-    return 'QuestionListState.loadSuccess(questionList: $questionList)';
+    return 'QuestionListState.loadSuccess(quizId: $quizId, questionList: $questionList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is LoadSuccess &&
+        (other is QuestionListLoadSuccess &&
+            (identical(other.quizId, quizId) ||
+                const DeepCollectionEquality().equals(other.quizId, quizId)) &&
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionList, questionList)));
@@ -535,11 +590,14 @@ class _$LoadSuccess implements LoadSuccess {
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(questionList);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(quizId) ^
+      const DeepCollectionEquality().hash(questionList);
 
   @override
-  $LoadSuccessCopyWith<LoadSuccess> get copyWith =>
-      _$LoadSuccessCopyWithImpl<LoadSuccess>(this, _$identity);
+  $QuestionListLoadSuccessCopyWith<QuestionListLoadSuccess> get copyWith =>
+      _$QuestionListLoadSuccessCopyWithImpl<QuestionListLoadSuccess>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -547,13 +605,13 @@ class _$LoadSuccess implements LoadSuccess {
     @required Result initial(),
     @required Result loadInProgress(),
     @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(KtList<Question> questionList),
+    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
     assert(loadFailure != null);
     assert(loadSuccess != null);
-    return loadSuccess(questionList);
+    return loadSuccess(quizId, questionList);
   }
 
   @override
@@ -562,12 +620,12 @@ class _$LoadSuccess implements LoadSuccess {
     Result initial(),
     Result loadInProgress(),
     Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(KtList<Question> questionList),
+    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
-      return loadSuccess(questionList);
+      return loadSuccess(quizId, questionList);
     }
     return orElse();
   }
@@ -578,7 +636,7 @@ class _$LoadSuccess implements LoadSuccess {
     @required Result initial(_Initial value),
     @required Result loadInProgress(_LoadInProgress value),
     @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+    @required Result loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -593,7 +651,7 @@ class _$LoadSuccess implements LoadSuccess {
     Result initial(_Initial value),
     Result loadInProgress(_LoadInProgress value),
     Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
+    Result loadSuccess(QuestionListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -604,9 +662,12 @@ class _$LoadSuccess implements LoadSuccess {
   }
 }
 
-abstract class LoadSuccess implements QuestionListState {
-  const factory LoadSuccess(KtList<Question> questionList) = _$LoadSuccess;
+abstract class QuestionListLoadSuccess implements QuestionListState {
+  const factory QuestionListLoadSuccess(
+      {@required QuizId quizId,
+      @required KtList<Question> questionList}) = _$QuestionListLoadSuccess;
 
+  QuizId get quizId;
   KtList<Question> get questionList;
-  $LoadSuccessCopyWith<LoadSuccess> get copyWith;
+  $QuestionListLoadSuccessCopyWith<QuestionListLoadSuccess> get copyWith;
 }
