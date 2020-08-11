@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/injection.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/responsive_layout.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
@@ -23,12 +26,12 @@ class FinishedPage extends StatelessWidget {
               ),
               const SizedBox(height: 24.0),
               RoundedButton(
-                  title: '返回測驗列表',
-                  color: Colors.lightBlueAccent[400],
-                  onPressed: () {
-                    ExtendedNavigator.of(context).pushQuizListPage();
-                  },
-                ),
+                title: '返回測驗列表',
+                color: Colors.lightBlueAccent[400],
+                onPressed: () {
+                  ExtendedNavigator.of(context).pushQuizListPage();
+                },
+              ),
             ],
           ),
         ),

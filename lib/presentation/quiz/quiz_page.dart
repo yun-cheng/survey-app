@@ -8,6 +8,7 @@ import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class QuizPage extends StatelessWidget {
@@ -43,7 +44,35 @@ class QuizPage extends StatelessWidget {
       ],
       child: BlocBuilder<QuestionPageBloc, QuestionPageState>(
         builder: (context, questionPageState) {
-          return BlocBuilder<QuestionBloc, QuestionState>(
+          return BlocConsumer<QuestionBloc, QuestionState>(
+            listener: (context, state) {
+              if (state.isUploaded == true) {
+                ExtendedNavigator.of(context)
+                    .pushReplacementNamed(Routes.finishedPage);
+              } else if (state.uploadFailed == true) {
+                showDialog(
+                  context: context,
+                  builder: (_) => AlertDialog(
+                    title: const Text(
+                      '上傳測驗結果失敗！重新上傳？',
+                      style: TextStyle(fontSize: 40.0),
+                    ),
+                    actions: [
+                      RoundedButton(
+                        title: '好',
+                        color: Colors.lightBlueAccent[400],
+                        onPressed: () {
+                          context
+                              .bloc<QuestionBloc>()
+                              .add(const QuestionEvent.quizResultUploaded());
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              }
+            },
             builder: (context, questionState) {
               if (questionPageState.question.failureOption.isSome()) {
                 return Container();
@@ -201,9 +230,6 @@ class QuizPage extends StatelessWidget {
                                             context.bloc<QuestionBloc>().add(
                                                 const QuestionEvent
                                                     .quizResultUploaded());
-                                            ExtendedNavigator.of(context)
-                                                .pushReplacementNamed(
-                                                    Routes.finishedPage);
                                           }
                                         : null,
                                   ),

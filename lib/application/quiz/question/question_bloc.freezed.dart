@@ -458,7 +458,8 @@ class _$QuestionStateTearOff {
       @required Score score,
       @required QuestionId questionId,
       @required KtMutableMap<QuestionId, bool> scoreHistory,
-      @required bool isUploaded}) {
+      @required bool isUploaded,
+      @required bool uploadFailed}) {
     return _QuestionState(
       selectedAnswer: selectedAnswer,
       realAnswer: realAnswer,
@@ -468,6 +469,7 @@ class _$QuestionStateTearOff {
       questionId: questionId,
       scoreHistory: scoreHistory,
       isUploaded: isUploaded,
+      uploadFailed: uploadFailed,
     );
   }
 }
@@ -484,6 +486,7 @@ mixin _$QuestionState {
   QuestionId get questionId;
   KtMutableMap<QuestionId, bool> get scoreHistory;
   bool get isUploaded;
+  bool get uploadFailed;
 
   $QuestionStateCopyWith<QuestionState> get copyWith;
 }
@@ -500,7 +503,8 @@ abstract class $QuestionStateCopyWith<$Res> {
       Score score,
       QuestionId questionId,
       KtMutableMap<QuestionId, bool> scoreHistory,
-      bool isUploaded});
+      bool isUploaded,
+      bool uploadFailed});
 
   $ScoreCopyWith<$Res> get score;
 }
@@ -523,6 +527,7 @@ class _$QuestionStateCopyWithImpl<$Res>
     Object questionId = freezed,
     Object scoreHistory = freezed,
     Object isUploaded = freezed,
+    Object uploadFailed = freezed,
   }) {
     return _then(_value.copyWith(
       selectedAnswer: selectedAnswer == freezed
@@ -543,6 +548,8 @@ class _$QuestionStateCopyWithImpl<$Res>
           : scoreHistory as KtMutableMap<QuestionId, bool>,
       isUploaded:
           isUploaded == freezed ? _value.isUploaded : isUploaded as bool,
+      uploadFailed:
+          uploadFailed == freezed ? _value.uploadFailed : uploadFailed as bool,
     ));
   }
 
@@ -571,7 +578,8 @@ abstract class _$QuestionStateCopyWith<$Res>
       Score score,
       QuestionId questionId,
       KtMutableMap<QuestionId, bool> scoreHistory,
-      bool isUploaded});
+      bool isUploaded,
+      bool uploadFailed});
 
   @override
   $ScoreCopyWith<$Res> get score;
@@ -597,6 +605,7 @@ class __$QuestionStateCopyWithImpl<$Res>
     Object questionId = freezed,
     Object scoreHistory = freezed,
     Object isUploaded = freezed,
+    Object uploadFailed = freezed,
   }) {
     return _then(_QuestionState(
       selectedAnswer: selectedAnswer == freezed
@@ -617,6 +626,8 @@ class __$QuestionStateCopyWithImpl<$Res>
           : scoreHistory as KtMutableMap<QuestionId, bool>,
       isUploaded:
           isUploaded == freezed ? _value.isUploaded : isUploaded as bool,
+      uploadFailed:
+          uploadFailed == freezed ? _value.uploadFailed : uploadFailed as bool,
     ));
   }
 }
@@ -630,7 +641,8 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
       @required this.score,
       @required this.questionId,
       @required this.scoreHistory,
-      @required this.isUploaded})
+      @required this.isUploaded,
+      @required this.uploadFailed})
       : assert(selectedAnswer != null),
         assert(realAnswer != null),
         assert(isAnswered != null),
@@ -638,7 +650,8 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
         assert(score != null),
         assert(questionId != null),
         assert(scoreHistory != null),
-        assert(isUploaded != null);
+        assert(isUploaded != null),
+        assert(uploadFailed != null);
 
   @override
   final Answer selectedAnswer;
@@ -656,10 +669,12 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
   final KtMutableMap<QuestionId, bool> scoreHistory;
   @override
   final bool isUploaded;
+  @override
+  final bool uploadFailed;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'QuestionState(selectedAnswer: $selectedAnswer, realAnswer: $realAnswer, isAnswered: $isAnswered, isRightAnswer: $isRightAnswer, score: $score, questionId: $questionId, scoreHistory: $scoreHistory, isUploaded: $isUploaded)';
+    return 'QuestionState(selectedAnswer: $selectedAnswer, realAnswer: $realAnswer, isAnswered: $isAnswered, isRightAnswer: $isRightAnswer, score: $score, questionId: $questionId, scoreHistory: $scoreHistory, isUploaded: $isUploaded, uploadFailed: $uploadFailed)';
   }
 
   @override
@@ -674,7 +689,8 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
       ..add(DiagnosticsProperty('score', score))
       ..add(DiagnosticsProperty('questionId', questionId))
       ..add(DiagnosticsProperty('scoreHistory', scoreHistory))
-      ..add(DiagnosticsProperty('isUploaded', isUploaded));
+      ..add(DiagnosticsProperty('isUploaded', isUploaded))
+      ..add(DiagnosticsProperty('uploadFailed', uploadFailed));
   }
 
   @override
@@ -703,7 +719,10 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
                     .equals(other.scoreHistory, scoreHistory)) &&
             (identical(other.isUploaded, isUploaded) ||
                 const DeepCollectionEquality()
-                    .equals(other.isUploaded, isUploaded)));
+                    .equals(other.isUploaded, isUploaded)) &&
+            (identical(other.uploadFailed, uploadFailed) ||
+                const DeepCollectionEquality()
+                    .equals(other.uploadFailed, uploadFailed)));
   }
 
   @override
@@ -716,7 +735,8 @@ class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
       const DeepCollectionEquality().hash(score) ^
       const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(scoreHistory) ^
-      const DeepCollectionEquality().hash(isUploaded);
+      const DeepCollectionEquality().hash(isUploaded) ^
+      const DeepCollectionEquality().hash(uploadFailed);
 
   @override
   _$QuestionStateCopyWith<_QuestionState> get copyWith =>
@@ -732,7 +752,8 @@ abstract class _QuestionState implements QuestionState {
       @required Score score,
       @required QuestionId questionId,
       @required KtMutableMap<QuestionId, bool> scoreHistory,
-      @required bool isUploaded}) = _$_QuestionState;
+      @required bool isUploaded,
+      @required bool uploadFailed}) = _$_QuestionState;
 
   @override
   Answer get selectedAnswer;
@@ -750,6 +771,8 @@ abstract class _QuestionState implements QuestionState {
   KtMutableMap<QuestionId, bool> get scoreHistory;
   @override
   bool get isUploaded;
+  @override
+  bool get uploadFailed;
   @override
   _$QuestionStateCopyWith<_QuestionState> get copyWith;
 }

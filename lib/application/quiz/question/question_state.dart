@@ -11,6 +11,7 @@ abstract class QuestionState with _$QuestionState {
     @required QuestionId questionId,
     @required KtMutableMap<QuestionId, bool> scoreHistory,
     @required bool isUploaded,
+    @required bool uploadFailed,
   }) = _QuestionState;
 
   factory QuestionState.initial() => QuestionState(
@@ -22,5 +23,6 @@ abstract class QuestionState with _$QuestionState {
         questionId: QuestionId.empty(),
         scoreHistory: KtMutableMap.empty(),
         isUploaded: false,
+        uploadFailed: false,
       );
 }

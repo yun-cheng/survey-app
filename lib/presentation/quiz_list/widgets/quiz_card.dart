@@ -21,7 +21,9 @@ class QuizCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 6.0),
       child: InkWell(
         onTap: () {
-          ExtendedNavigator.of(context).pushQuizPage(quizId: quiz.id);
+          if (!quiz.isFinished) {
+            ExtendedNavigator.of(context).pushQuizPage(quizId: quiz.id);
+          }
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),
@@ -33,6 +35,16 @@ class QuizCard extends StatelessWidget {
                 style: const TextStyle(
                   fontSize: 32.0,
                   color: Colors.white,
+                ),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Text(
+                  quiz.isFinished ? '已完成' : '未作答',
+                  style: const TextStyle(
+                    fontSize: 32.0,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],

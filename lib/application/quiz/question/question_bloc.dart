@@ -88,6 +88,8 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         );
       },
       quizResultUploaded: (e) async* {
+        yield state.copyWith(uploadFailed: false, isUploaded: false);
+        
         final failureOrSuccess = await _quizRepository.uploadQuizResult(
           quizId: _quizId,
           interviewer: _interviewer,
@@ -95,13 +97,9 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           scoreHistory: state.scoreHistory,
         );
 
-        yield state.copyWith(
-          isUploaded: true,
-        );
-
         yield failureOrSuccess.fold(
-          (f) => state.copyWith(isUploaded: false),
-          (_) => state.copyWith(isUploaded: true),
+          (f) => state.copyWith(uploadFailed: true, isUploaded: false),
+          (_) => state.copyWith(isUploaded: true, uploadFailed: false),
         );
       },
     );
