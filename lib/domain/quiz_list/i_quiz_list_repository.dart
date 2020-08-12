@@ -9,5 +9,6 @@ import 'package:kt_dart/collection.dart';
 abstract class IQuizListRepository {
   Future<Either<QuizListFailure, KtList<Quiz>>> getQuizList({
     @required InterviewerId interviewerId,
+    @required ProjectId projectId,
   });
 }

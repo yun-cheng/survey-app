@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_validators.dart';
-import 'package:kt_dart/collection.dart';
 
 class InterviewerId extends ValueObject<String> {
   @override
@@ -36,17 +35,34 @@ class InterviewerName extends ValueObject<String> {
   const InterviewerName._(this.value);
 }
 
-// TEST
-// class KtListVo<T> extends ValueObject<KtList<T>> {
-//   @override
-//   final Either<ValueFailure<KtList<T>>, KtList<T>> value;
+class ProjectId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
 
-//   factory KtListVo(KtList<T> input) {
-//     assert(input != null);
-//     return KtListVo._(
-//       right(input),
-//     );
-//   }
+  factory ProjectId(String input) {
+    assert(input != null);
+    return ProjectId._(
+      validateStringNotEmpty(input),
+    );
+  }
 
-//   const KtListVo._(this.value);
-// }
+  factory ProjectId.empty() => ProjectId('');
+
+  const ProjectId._(this.value);
+}
+
+class ProjectName extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ProjectName(String input) {
+    assert(input != null);
+    return ProjectName._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  factory ProjectName.empty() => ProjectName('');
+
+  const ProjectName._(this.value);
+}

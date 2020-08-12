@@ -6,6 +6,8 @@ import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/interviewer_list/interviewer_list_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/auth/project_list/project_list_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/auth/project.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
@@ -20,25 +22,34 @@ part 'sign_in_form_bloc.freezed.dart';
 
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
-  SignInFormBloc(this._authFacade, InterviewerListBloc interviewerListBloc)
-      : super(SignInFormState.initial()) {
-    _subscription = interviewerListBloc.listen((state) {
-      if (state is LoadSuccess) {
-        _interviewerList = state.interviewerList;
-        // TEST 先註解，試著不用存到 state
-        // add(SignInFormEvent.updateInterviewerList(_interviewerList));
-      }
+  // StreamSubscription _projectListSubscription;
+  StreamSubscription _interviewerListSubscription;
+  final IAuthFacade _authFacade;
+  KtList<Interviewer> _interviewerList;
+
+  SignInFormBloc(
+    this._authFacade,
+    // ProjectListBloc projectListBloc,
+    InterviewerListBloc interviewerListBloc,
+  ) : super(SignInFormState.initial()) {
+    _interviewerListSubscription = interviewerListBloc.listen((state) {
+      _interviewerList = state.interviewerList;
+      // TEST 先註解，試著不用存到 state
+      // add(SignInFormEvent.updateInterviewerList(_interviewerList));
     });
   }
-  final IAuthFacade _authFacade;
-  StreamSubscription _subscription;
-  KtList<Interviewer> _interviewerList;
 
   @override
   Stream<SignInFormState> mapEventToState(
     SignInFormEvent event,
   ) async* {
     yield* event.map(
+      projectSelected: (e) async* {
+        yield state.copyWith(
+          projectId: ProjectId(e.projectIdStr),
+          failureOption: none(),
+        );
+      },
       interviewerIdChanged: (e) async* {
         yield state.copyWith(
           interviewerId: InterviewerId(e.interviewerIdStr),
@@ -59,6 +70,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
         final isValidInterviewerId = state.interviewerId.isValid();
         final isValidInterviewerName = state.interviewerName.isValid();
+
+        print(_interviewerList);
 
         if (isValidInterviewerId || isValidInterviewerName) {
           failureOrInterviewer = _authFacade.signInWithInterviewerIdOrName(
@@ -95,7 +108,7 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
   @override
   Future<void> close() {
-    _subscription?.cancel();
+    _interviewerListSubscription?.cancel();
     return super.close();
   }
 }

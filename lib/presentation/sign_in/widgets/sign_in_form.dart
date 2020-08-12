@@ -4,9 +4,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/selector.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -65,6 +67,16 @@ class SignInForm extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 130),
               ),
+              const SizedBox(height: 24.0),
+              const Text(
+                '請選擇專案',
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontFamily: 'NotoSansTC',
+                ),
+              ),
+              const SizedBox(height: 24.0),
+              Selector(),
               const SizedBox(height: 24.0),
               Visibility(
                 visible: !state.isSuccess,
@@ -192,3 +204,4 @@ class SignInForm extends StatelessWidget {
     );
   }
 }
+

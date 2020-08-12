@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
@@ -28,9 +29,8 @@ abstract class QuizResultDto implements _$QuizResultDto {
 
   factory QuizResultDto.fromDomain(Map<String, dynamic> quizResult) {
     return QuizResultDto(
+      projectId: quizResult['projectId'].getOrCrash(),
       quizId: quizResult['quizId'].getOrCrash(),
-      // TODO
-      projectId: quizResult['projectId'],
       isFinished: quizResult['isFinished'],
       interviewer: InterviewerDto.fromDomain(quizResult['interviewer']),
       score: ScoreDto.fromDomain(quizResult['score']),
@@ -42,9 +42,8 @@ abstract class QuizResultDto implements _$QuizResultDto {
 
   Map<String, dynamic> toDomain() {
     return {
+      'projectId': ProjectId(projectId),
       'quizId': QuizId(quizId),
-      // TODO
-      'projectId': projectId,
       'isFinished': isFinished,
       'interviewer': interviewer.toDomain(),
       'score': score.toDomain(),

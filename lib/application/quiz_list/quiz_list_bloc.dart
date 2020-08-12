@@ -6,6 +6,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
+import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/i_quiz_list_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/quiz.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/quiz_list_failure.dart';
@@ -22,14 +23,17 @@ class QuizListBloc extends Bloc<QuizListEvent, QuizListState> {
   StreamSubscription<SignInFormState> _signInFormSubscription;
   final IQuizListRepository _quizListRepository;
   Interviewer _interviewer;
+  ProjectId _projectId;
 
   QuizListBloc(
     this._quizListRepository,
     SignInFormBloc signInFormBloc,
   ) : super(const QuizListState.initial()) {
     _interviewer = signInFormBloc.state.interviewer;
+    _projectId = signInFormBloc.state.projectId;
     _signInFormSubscription = signInFormBloc.listen((state) {
       _interviewer = state.interviewer;
+      _projectId = state.projectId;
     });
   }
 
@@ -40,6 +44,7 @@ class QuizListBloc extends Bloc<QuizListEvent, QuizListState> {
     yield const QuizListState.loadInProgress();
     final failureOrQuizList = await _quizListRepository.getQuizList(
       interviewerId: _interviewer.id,
+      projectId: _projectId,
     );
     yield failureOrQuizList.fold(
       (f) => QuizListState.loadFailure(f),

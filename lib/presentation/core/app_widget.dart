@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/interviewer_list/interviewer_list_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/auth/project_list/project_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
@@ -16,9 +17,14 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
+          create: (context) => ProjectListBloc(
+            getIt<IAuthFacade>(),
+          )..add(const ProjectListEvent.projectListLoaded()),
+        ),
+        BlocProvider(
           create: (context) => InterviewerListBloc(
             getIt<IAuthFacade>(),
-          )..add(const InterviewerListEvent.interviewerListLoaded()),
+          ),
         ),
         BlocProvider(
           create: (context) => SignInFormBloc(

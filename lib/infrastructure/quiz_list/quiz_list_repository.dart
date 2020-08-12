@@ -20,14 +20,15 @@ class QuizListRepository implements IQuizListRepository {
   @override
   Future<Either<QuizListFailure, KtList<Quiz>>> getQuizList({
     InterviewerId interviewerId,
+    ProjectId projectId,
   }) async {
     try {
       final interviewerIdStr = interviewerId.value.fold((l) => '', id);
+      final projectIdStr = projectId.value.fold((l) => '', id);
       final interviewerQuizCollection = _firestore.interviewerQuizCollection;
 
-      // TODO 改 project_id
       final quizList = await interviewerQuizCollection
-          .document(interviewerIdStr + '_a_project_id')
+          .document(interviewerIdStr + '_' + projectIdStr)
           .get()
           .then((doc) => QuizListDto.fromFirestore(doc).toDomain());
 

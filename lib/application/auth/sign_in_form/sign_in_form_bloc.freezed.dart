@@ -12,6 +12,12 @@ T _$identity<T>(T value) => value;
 class _$SignInFormEventTearOff {
   const _$SignInFormEventTearOff();
 
+  _ProjectSelected projectSelected(String projectIdStr) {
+    return _ProjectSelected(
+      projectIdStr,
+    );
+  }
+
   _InterviewerIdChanged interviewerIdChanged(String interviewerIdStr) {
     return _InterviewerIdChanged(
       interviewerIdStr,
@@ -39,6 +45,7 @@ const $SignInFormEvent = _$SignInFormEventTearOff();
 mixin _$SignInFormEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result projectSelected(String projectIdStr),
     @required Result interviewerIdChanged(String interviewerIdStr),
     @required Result interviewerNameChanged(String interviewerNameStr),
     @required Result signInPressed(),
@@ -46,6 +53,7 @@ mixin _$SignInFormEvent {
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result projectSelected(String projectIdStr),
     Result interviewerIdChanged(String interviewerIdStr),
     Result interviewerNameChanged(String interviewerNameStr),
     Result signInPressed(),
@@ -54,6 +62,7 @@ mixin _$SignInFormEvent {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result projectSelected(_ProjectSelected value),
     @required Result interviewerIdChanged(_InterviewerIdChanged value),
     @required Result interviewerNameChanged(_InterviewerNameChanged value),
     @required Result signInPressed(_SignInPressed value),
@@ -61,6 +70,7 @@ mixin _$SignInFormEvent {
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result projectSelected(_ProjectSelected value),
     Result interviewerIdChanged(_InterviewerIdChanged value),
     Result interviewerNameChanged(_InterviewerNameChanged value),
     Result signInPressed(_SignInPressed value),
@@ -82,6 +92,147 @@ class _$SignInFormEventCopyWithImpl<$Res>
   final SignInFormEvent _value;
   // ignore: unused_field
   final $Res Function(SignInFormEvent) _then;
+}
+
+abstract class _$ProjectSelectedCopyWith<$Res> {
+  factory _$ProjectSelectedCopyWith(
+          _ProjectSelected value, $Res Function(_ProjectSelected) then) =
+      __$ProjectSelectedCopyWithImpl<$Res>;
+  $Res call({String projectIdStr});
+}
+
+class __$ProjectSelectedCopyWithImpl<$Res>
+    extends _$SignInFormEventCopyWithImpl<$Res>
+    implements _$ProjectSelectedCopyWith<$Res> {
+  __$ProjectSelectedCopyWithImpl(
+      _ProjectSelected _value, $Res Function(_ProjectSelected) _then)
+      : super(_value, (v) => _then(v as _ProjectSelected));
+
+  @override
+  _ProjectSelected get _value => super._value as _ProjectSelected;
+
+  @override
+  $Res call({
+    Object projectIdStr = freezed,
+  }) {
+    return _then(_ProjectSelected(
+      projectIdStr == freezed ? _value.projectIdStr : projectIdStr as String,
+    ));
+  }
+}
+
+class _$_ProjectSelected
+    with DiagnosticableTreeMixin
+    implements _ProjectSelected {
+  const _$_ProjectSelected(this.projectIdStr) : assert(projectIdStr != null);
+
+  @override
+  final String projectIdStr;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SignInFormEvent.projectSelected(projectIdStr: $projectIdStr)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SignInFormEvent.projectSelected'))
+      ..add(DiagnosticsProperty('projectIdStr', projectIdStr));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ProjectSelected &&
+            (identical(other.projectIdStr, projectIdStr) ||
+                const DeepCollectionEquality()
+                    .equals(other.projectIdStr, projectIdStr)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(projectIdStr);
+
+  @override
+  _$ProjectSelectedCopyWith<_ProjectSelected> get copyWith =>
+      __$ProjectSelectedCopyWithImpl<_ProjectSelected>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result projectSelected(String projectIdStr),
+    @required Result interviewerIdChanged(String interviewerIdStr),
+    @required Result interviewerNameChanged(String interviewerNameStr),
+    @required Result signInPressed(),
+    @required Result signedOut(),
+  }) {
+    assert(projectSelected != null);
+    assert(interviewerIdChanged != null);
+    assert(interviewerNameChanged != null);
+    assert(signInPressed != null);
+    assert(signedOut != null);
+    return projectSelected(projectIdStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result projectSelected(String projectIdStr),
+    Result interviewerIdChanged(String interviewerIdStr),
+    Result interviewerNameChanged(String interviewerNameStr),
+    Result signInPressed(),
+    Result signedOut(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (projectSelected != null) {
+      return projectSelected(projectIdStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result projectSelected(_ProjectSelected value),
+    @required Result interviewerIdChanged(_InterviewerIdChanged value),
+    @required Result interviewerNameChanged(_InterviewerNameChanged value),
+    @required Result signInPressed(_SignInPressed value),
+    @required Result signedOut(_SignedOut value),
+  }) {
+    assert(projectSelected != null);
+    assert(interviewerIdChanged != null);
+    assert(interviewerNameChanged != null);
+    assert(signInPressed != null);
+    assert(signedOut != null);
+    return projectSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result projectSelected(_ProjectSelected value),
+    Result interviewerIdChanged(_InterviewerIdChanged value),
+    Result interviewerNameChanged(_InterviewerNameChanged value),
+    Result signInPressed(_SignInPressed value),
+    Result signedOut(_SignedOut value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (projectSelected != null) {
+      return projectSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ProjectSelected implements SignInFormEvent {
+  const factory _ProjectSelected(String projectIdStr) = _$_ProjectSelected;
+
+  String get projectIdStr;
+  _$ProjectSelectedCopyWith<_ProjectSelected> get copyWith;
 }
 
 abstract class _$InterviewerIdChangedCopyWith<$Res> {
@@ -157,11 +308,13 @@ class _$_InterviewerIdChanged
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result projectSelected(String projectIdStr),
     @required Result interviewerIdChanged(String interviewerIdStr),
     @required Result interviewerNameChanged(String interviewerNameStr),
     @required Result signInPressed(),
     @required Result signedOut(),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -172,6 +325,7 @@ class _$_InterviewerIdChanged
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result projectSelected(String projectIdStr),
     Result interviewerIdChanged(String interviewerIdStr),
     Result interviewerNameChanged(String interviewerNameStr),
     Result signInPressed(),
@@ -188,11 +342,13 @@ class _$_InterviewerIdChanged
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result projectSelected(_ProjectSelected value),
     @required Result interviewerIdChanged(_InterviewerIdChanged value),
     @required Result interviewerNameChanged(_InterviewerNameChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signedOut(_SignedOut value),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -203,6 +359,7 @@ class _$_InterviewerIdChanged
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result projectSelected(_ProjectSelected value),
     Result interviewerIdChanged(_InterviewerIdChanged value),
     Result interviewerNameChanged(_InterviewerNameChanged value),
     Result signInPressed(_SignInPressed value),
@@ -299,11 +456,13 @@ class _$_InterviewerNameChanged
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result projectSelected(String projectIdStr),
     @required Result interviewerIdChanged(String interviewerIdStr),
     @required Result interviewerNameChanged(String interviewerNameStr),
     @required Result signInPressed(),
     @required Result signedOut(),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -314,6 +473,7 @@ class _$_InterviewerNameChanged
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result projectSelected(String projectIdStr),
     Result interviewerIdChanged(String interviewerIdStr),
     Result interviewerNameChanged(String interviewerNameStr),
     Result signInPressed(),
@@ -330,11 +490,13 @@ class _$_InterviewerNameChanged
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result projectSelected(_ProjectSelected value),
     @required Result interviewerIdChanged(_InterviewerIdChanged value),
     @required Result interviewerNameChanged(_InterviewerNameChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signedOut(_SignedOut value),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -345,6 +507,7 @@ class _$_InterviewerNameChanged
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result projectSelected(_ProjectSelected value),
     Result interviewerIdChanged(_InterviewerIdChanged value),
     Result interviewerNameChanged(_InterviewerNameChanged value),
     Result signInPressed(_SignInPressed value),
@@ -410,11 +573,13 @@ class _$_SignInPressed with DiagnosticableTreeMixin implements _SignInPressed {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result projectSelected(String projectIdStr),
     @required Result interviewerIdChanged(String interviewerIdStr),
     @required Result interviewerNameChanged(String interviewerNameStr),
     @required Result signInPressed(),
     @required Result signedOut(),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -425,6 +590,7 @@ class _$_SignInPressed with DiagnosticableTreeMixin implements _SignInPressed {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result projectSelected(String projectIdStr),
     Result interviewerIdChanged(String interviewerIdStr),
     Result interviewerNameChanged(String interviewerNameStr),
     Result signInPressed(),
@@ -441,11 +607,13 @@ class _$_SignInPressed with DiagnosticableTreeMixin implements _SignInPressed {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result projectSelected(_ProjectSelected value),
     @required Result interviewerIdChanged(_InterviewerIdChanged value),
     @required Result interviewerNameChanged(_InterviewerNameChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signedOut(_SignedOut value),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -456,6 +624,7 @@ class _$_SignInPressed with DiagnosticableTreeMixin implements _SignInPressed {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result projectSelected(_ProjectSelected value),
     Result interviewerIdChanged(_InterviewerIdChanged value),
     Result interviewerNameChanged(_InterviewerNameChanged value),
     Result signInPressed(_SignInPressed value),
@@ -514,11 +683,13 @@ class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
+    @required Result projectSelected(String projectIdStr),
     @required Result interviewerIdChanged(String interviewerIdStr),
     @required Result interviewerNameChanged(String interviewerNameStr),
     @required Result signInPressed(),
     @required Result signedOut(),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -529,6 +700,7 @@ class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
+    Result projectSelected(String projectIdStr),
     Result interviewerIdChanged(String interviewerIdStr),
     Result interviewerNameChanged(String interviewerNameStr),
     Result signInPressed(),
@@ -545,11 +717,13 @@ class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
+    @required Result projectSelected(_ProjectSelected value),
     @required Result interviewerIdChanged(_InterviewerIdChanged value),
     @required Result interviewerNameChanged(_InterviewerNameChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signedOut(_SignedOut value),
   }) {
+    assert(projectSelected != null);
     assert(interviewerIdChanged != null);
     assert(interviewerNameChanged != null);
     assert(signInPressed != null);
@@ -560,6 +734,7 @@ class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
+    Result projectSelected(_ProjectSelected value),
     Result interviewerIdChanged(_InterviewerIdChanged value),
     Result interviewerNameChanged(_InterviewerNameChanged value),
     Result signInPressed(_SignInPressed value),
@@ -582,13 +757,15 @@ class _$SignInFormStateTearOff {
   const _$SignInFormStateTearOff();
 
   _SignInFormState call(
-      {@required InterviewerId interviewerId,
+      {@required ProjectId projectId,
+      @required InterviewerId interviewerId,
       @required InterviewerName interviewerName,
       @required Interviewer interviewer,
       @required Option<AuthFailure> failureOption,
       @required bool showErrorMessages,
       @required bool isSuccess}) {
     return _SignInFormState(
+      projectId: projectId,
       interviewerId: interviewerId,
       interviewerName: interviewerName,
       interviewer: interviewer,
@@ -603,6 +780,7 @@ class _$SignInFormStateTearOff {
 const $SignInFormState = _$SignInFormStateTearOff();
 
 mixin _$SignInFormState {
+  ProjectId get projectId;
   InterviewerId get interviewerId;
   InterviewerName get interviewerName;
   Interviewer get interviewer;
@@ -618,7 +796,8 @@ abstract class $SignInFormStateCopyWith<$Res> {
           SignInFormState value, $Res Function(SignInFormState) then) =
       _$SignInFormStateCopyWithImpl<$Res>;
   $Res call(
-      {InterviewerId interviewerId,
+      {ProjectId projectId,
+      InterviewerId interviewerId,
       InterviewerName interviewerName,
       Interviewer interviewer,
       Option<AuthFailure> failureOption,
@@ -638,6 +817,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object projectId = freezed,
     Object interviewerId = freezed,
     Object interviewerName = freezed,
     Object interviewer = freezed,
@@ -646,6 +826,8 @@ class _$SignInFormStateCopyWithImpl<$Res>
     Object isSuccess = freezed,
   }) {
     return _then(_value.copyWith(
+      projectId:
+          projectId == freezed ? _value.projectId : projectId as ProjectId,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId as InterviewerId,
@@ -683,7 +865,8 @@ abstract class _$SignInFormStateCopyWith<$Res>
       __$SignInFormStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {InterviewerId interviewerId,
+      {ProjectId projectId,
+      InterviewerId interviewerId,
       InterviewerName interviewerName,
       Interviewer interviewer,
       Option<AuthFailure> failureOption,
@@ -706,6 +889,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object projectId = freezed,
     Object interviewerId = freezed,
     Object interviewerName = freezed,
     Object interviewer = freezed,
@@ -714,6 +898,8 @@ class __$SignInFormStateCopyWithImpl<$Res>
     Object isSuccess = freezed,
   }) {
     return _then(_SignInFormState(
+      projectId:
+          projectId == freezed ? _value.projectId : projectId as ProjectId,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId as InterviewerId,
@@ -738,19 +924,23 @@ class _$_SignInFormState
     with DiagnosticableTreeMixin
     implements _SignInFormState {
   const _$_SignInFormState(
-      {@required this.interviewerId,
+      {@required this.projectId,
+      @required this.interviewerId,
       @required this.interviewerName,
       @required this.interviewer,
       @required this.failureOption,
       @required this.showErrorMessages,
       @required this.isSuccess})
-      : assert(interviewerId != null),
+      : assert(projectId != null),
+        assert(interviewerId != null),
         assert(interviewerName != null),
         assert(interviewer != null),
         assert(failureOption != null),
         assert(showErrorMessages != null),
         assert(isSuccess != null);
 
+  @override
+  final ProjectId projectId;
   @override
   final InterviewerId interviewerId;
   @override
@@ -766,7 +956,7 @@ class _$_SignInFormState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SignInFormState(interviewerId: $interviewerId, interviewerName: $interviewerName, interviewer: $interviewer, failureOption: $failureOption, showErrorMessages: $showErrorMessages, isSuccess: $isSuccess)';
+    return 'SignInFormState(projectId: $projectId, interviewerId: $interviewerId, interviewerName: $interviewerName, interviewer: $interviewer, failureOption: $failureOption, showErrorMessages: $showErrorMessages, isSuccess: $isSuccess)';
   }
 
   @override
@@ -774,6 +964,7 @@ class _$_SignInFormState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'SignInFormState'))
+      ..add(DiagnosticsProperty('projectId', projectId))
       ..add(DiagnosticsProperty('interviewerId', interviewerId))
       ..add(DiagnosticsProperty('interviewerName', interviewerName))
       ..add(DiagnosticsProperty('interviewer', interviewer))
@@ -786,6 +977,9 @@ class _$_SignInFormState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SignInFormState &&
+            (identical(other.projectId, projectId) ||
+                const DeepCollectionEquality()
+                    .equals(other.projectId, projectId)) &&
             (identical(other.interviewerId, interviewerId) ||
                 const DeepCollectionEquality()
                     .equals(other.interviewerId, interviewerId)) &&
@@ -809,6 +1003,7 @@ class _$_SignInFormState
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(interviewerId) ^
       const DeepCollectionEquality().hash(interviewerName) ^
       const DeepCollectionEquality().hash(interviewer) ^
@@ -823,13 +1018,16 @@ class _$_SignInFormState
 
 abstract class _SignInFormState implements SignInFormState {
   const factory _SignInFormState(
-      {@required InterviewerId interviewerId,
+      {@required ProjectId projectId,
+      @required InterviewerId interviewerId,
       @required InterviewerName interviewerName,
       @required Interviewer interviewer,
       @required Option<AuthFailure> failureOption,
       @required bool showErrorMessages,
       @required bool isSuccess}) = _$_SignInFormState;
 
+  @override
+  ProjectId get projectId;
   @override
   InterviewerId get interviewerId;
   @override

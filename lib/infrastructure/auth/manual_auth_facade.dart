@@ -1,11 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/auth_failure.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
+import 'package:interviewer_quiz_flutter_app/domain/auth/project.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/auth/project_list_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
 import 'package:flutter/services.dart' show PlatformException, rootBundle;
 import 'dart:convert';
@@ -35,13 +38,37 @@ class ManualAuthFacade implements IAuthFacade {
 //        .then((doc) => print(doc.data));
 //  }
 
+  @override
+  Future<Either<AuthFailure, KtList<Project>>> getProjectList() async {
+    try {
+      final projectListDoc = _firestore.projectListDoc;
+
+      final projectList = await projectListDoc
+          .get()
+          .then((doc) => ProjectListDto.fromFirestore(doc).toDomain());
+
+      return right(projectList);
+    } on PlatformException catch (e) {
+      if (e.message.contains('PERMISSION_DENIED')) {
+        return left(const AuthFailure.insufficientPermission());
+      } else if (e.message.contains('NOT_FOUND')) {
+        return left(const AuthFailure.unableToGet());
+      } else {
+        return left(const AuthFailure.unexpected());
+      }
+    }
+  }
+
   // TODO 如果因為沒有網路取得不到 interviewerList，要怎麼呈現給使用者？
   @override
-  Future<Either<AuthFailure, KtList<Interviewer>>> getInterviewerList() async {
+  Future<Either<AuthFailure, KtList<Interviewer>>> getInterviewerList({
+    @required ProjectId projectId,
+  }) async {
     try {
       final interviewerCollection = _firestore.interviewerCollection;
 
-      final interviewerList = await interviewerCollection.projectIdDoc
+      final interviewerList = await interviewerCollection
+          .document(projectId.getOrCrash())
           .get()
           .then((doc) => InterviewerListDto.fromFirestore(doc).toDomain());
 

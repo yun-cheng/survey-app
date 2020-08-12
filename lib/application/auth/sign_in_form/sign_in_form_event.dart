@@ -4,6 +4,8 @@ part of 'sign_in_form_bloc.dart';
 abstract class SignInFormEvent with _$SignInFormEvent {
   // const factory SignInFormEvent.updateInterviewerList(
   //     KtList<Interviewer> interviewerList) = _updateInterviewerList;
+  const factory SignInFormEvent.projectSelected(String projectIdStr) =
+      _ProjectSelected;
   const factory SignInFormEvent.interviewerIdChanged(String interviewerIdStr) =
       _InterviewerIdChanged;
   const factory SignInFormEvent.interviewerNameChanged(

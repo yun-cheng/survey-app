@@ -16,6 +16,8 @@ extension FirestoreX on Firestore {
       getIt<Firestore>().collection('quiz_result');
   CollectionReference get questionListCollection =>
       getIt<Firestore>().collection('question_list');
+  DocumentReference get projectListDoc =>
+      getIt<Firestore>().collection('project_list').document('project_list');
 }
 
 extension DocumentReferenceX on DocumentReference {
@@ -23,6 +25,5 @@ extension DocumentReferenceX on DocumentReference {
 }
 
 extension CollectionReferenceX on CollectionReference {
-  // TODO 改成選擇
-  DocumentReference get projectIdDoc => document('a_project_id');
+  // DocumentReference get projectIdDoc => document('a_project_id');
 }

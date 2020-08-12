@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
+import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/quiz_failure.dart';
@@ -62,6 +63,7 @@ class QuizRepository implements IQuizRepository {
 
   @override
   Future<Either<QuizFailure, Unit>> uploadQuizResult({
+    @required ProjectId projectId,
     @required QuizId quizId,
     @required Interviewer interviewer,
     @required Score score,
@@ -71,9 +73,8 @@ class QuizRepository implements IQuizRepository {
       final quizResultCollection = _firestore.quizResultCollection;
 
       final quizResult = {
-        'quizId':quizId,
-        // TODO
-        'projectId': 'a_project_id',
+        'projectId': projectId,
+        'quizId': quizId,
         'isFinished': true,
         'interviewer': interviewer,
         'score': score,
