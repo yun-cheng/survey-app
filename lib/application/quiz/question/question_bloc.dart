@@ -103,9 +103,15 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
           scoreHistory: state.scoreHistory,
         );
 
+        yield state.copyWith(
+            isUploading: true, isUploaded: false, uploadFailed: false);
+        await Future.delayed(const Duration(seconds: 3));
+
         yield failureOrSuccess.fold(
-          (f) => state.copyWith(uploadFailed: true, isUploaded: false),
-          (_) => state.copyWith(isUploaded: true, uploadFailed: false),
+          (f) => state.copyWith(
+              isUploading: false, uploadFailed: true, isUploaded: false),
+          (_) => state.copyWith(
+              isUploading: false, isUploaded: true, uploadFailed: false),
         );
       },
     );

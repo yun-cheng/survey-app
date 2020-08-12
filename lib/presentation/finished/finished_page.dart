@@ -29,7 +29,10 @@ class FinishedPage extends StatelessWidget {
                 title: '返回測驗列表',
                 color: Colors.lightBlueAccent[400],
                 onPressed: () {
-                  ExtendedNavigator.of(context).pushQuizListPage();
+                  ExtendedNavigator.of(context).pushAndRemoveUntil(
+                    Routes.quizListPage,
+                    (route) => false,
+                  );
                 },
               ),
             ],

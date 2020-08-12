@@ -4,14 +4,16 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: public_member_api_docs
+
 import 'package:auto_route/auto_route.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/sign_in/sign_in_page.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/quiz_list/quiz_list_page.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/quiz/quiz_page.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/finished/finished_page.dart';
+import 'package:flutter/material.dart';
+
+import '../../domain/quiz_list/value_objects.dart';
+import '../finished/finished_page.dart';
+import '../quiz/quiz_page.dart';
+import '../quiz_list/quiz_list_page.dart';
+import '../sign_in/sign_in_page.dart';
 
 class Routes {
   static const String signInPage = '/';
@@ -38,26 +40,29 @@ class Router extends RouterBase {
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
-    SignInPage: (RouteData data) {
+    SignInPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SignInPage(),
         settings: data,
       );
     },
-    QuizListPage: (RouteData data) {
+    QuizListPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => QuizListPage(),
         settings: data,
       );
     },
-    QuizPage: (RouteData data) {
-      var args = data.getArgs<QuizPageArguments>(nullOk: false);
+    QuizPage: (data) {
+      final args = data.getArgs<QuizPageArguments>(nullOk: false);
       return MaterialPageRoute<dynamic>(
-        builder: (context) => QuizPage(key: args.key, quizId: args.quizId),
+        builder: (context) => QuizPage(
+          key: args.key,
+          quizId: args.quizId,
+        ),
         settings: data,
       );
     },
-    FinishedPage: (RouteData data) {
+    FinishedPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => FinishedPage(),
         settings: data,
@@ -66,32 +71,32 @@ class Router extends RouterBase {
   };
 }
 
-// *************************************************************************
-// Navigation helper methods extension
-// **************************************************************************
+/// ************************************************************************
+/// Navigation helper methods extension
+/// *************************************************************************
 
-extension RouterNavigationHelperMethods on ExtendedNavigatorState {
-  Future<dynamic> pushSignInPage() => pushNamed<dynamic>(Routes.signInPage);
+extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
+  Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 
-  Future<dynamic> pushQuizListPage() => pushNamed<dynamic>(Routes.quizListPage);
+  Future<dynamic> pushQuizListPage() => push<dynamic>(Routes.quizListPage);
 
   Future<dynamic> pushQuizPage({
     Key key,
     @required QuizId quizId,
   }) =>
-      pushNamed<dynamic>(
+      push<dynamic>(
         Routes.quizPage,
         arguments: QuizPageArguments(key: key, quizId: quizId),
       );
 
-  Future<dynamic> pushFinishedPage() => pushNamed<dynamic>(Routes.finishedPage);
+  Future<dynamic> pushFinishedPage() => push<dynamic>(Routes.finishedPage);
 }
 
-// *************************************************************************
-// Arguments holder classes
-// **************************************************************************
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
 
-//QuizPage arguments holder class
+/// QuizPage arguments holder class
 class QuizPageArguments {
   final Key key;
   final QuizId quizId;

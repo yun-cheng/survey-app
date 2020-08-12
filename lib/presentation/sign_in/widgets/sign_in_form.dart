@@ -29,7 +29,10 @@ class SignInForm extends StatelessWidget {
               ),
             ).show(context);
           }, (_) {
-            ExtendedNavigator.of(context).pushQuizListPage();
+            ExtendedNavigator.of(context).pushAndRemoveUntil(
+              Routes.quizListPage,
+              (route) => false,
+            );
           }),
         );
       },
