@@ -12,11 +12,13 @@ abstract class Interviewer implements _$Interviewer {
   const factory Interviewer({
     @required InterviewerId id,
     @required InterviewerName name,
+    @required Password password,
   }) = _Interviewer;
 
   factory Interviewer.empty() => Interviewer(
         id: InterviewerId.empty(),
         name: InterviewerName.empty(),
+        password: Password.empty(),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
@@ -24,6 +26,7 @@ abstract class Interviewer implements _$Interviewer {
         .id
         .failureOrUnit
         .andThen(name.failureOrUnit)
+        .andThen(password.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }
 }

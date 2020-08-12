@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
@@ -32,7 +33,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   final IQuizRepository _quizRepository;
   //TEST 測試只在內部使用
   QuizId _quizId;
-  Interviewer _interviewer;
+  Option<Interviewer> _interviewerOption;
   ProjectId _projectId;
 
   // TODO 須測試已答後，未到下一頁時跳出再重新進入，狀態是否會回復
@@ -44,12 +45,11 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   ) : super(QuestionState.initial()) {
     // HIGHLIGHT bloc v6 以後，如果訂閱的 Bloc 不在同一層 Consumer/Listener/Builder，
     // HIGHLIGHT 就需要先取一次當前狀態，之後再 listen
-    _interviewer = signInFormBloc.state.interviewer;
+    _interviewerOption = signInFormBloc.state.interviewerOption;
     _projectId = signInFormBloc.state.projectId;
     _signInFormSubscription = signInFormBloc.listen((state) {
-      _interviewer = state.interviewer;
-    _projectId = state.projectId;
-
+      _interviewerOption = state.interviewerOption;
+      _projectId = state.projectId;
     });
 
     _questionListSubscription = questionListBloc.listen((state) {
@@ -98,7 +98,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
         final failureOrSuccess = await _quizRepository.uploadQuizResult(
           projectId: _projectId,
           quizId: _quizId,
-          interviewer: _interviewer,
+          interviewer: _interviewerOption.getOrElse(() => null),
           score: state.score,
           scoreHistory: state.scoreHistory,
         );
@@ -113,6 +113,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
 
   @override
   Future<void> close() {
+    _questionListSubscription?.cancel();
     _questionPageSubscription?.cancel();
     _signInFormSubscription?.cancel();
     return super.close();

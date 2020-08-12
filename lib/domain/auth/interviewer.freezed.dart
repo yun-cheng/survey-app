@@ -13,10 +13,13 @@ class _$InterviewerTearOff {
   const _$InterviewerTearOff();
 
   _Interviewer call(
-      {@required InterviewerId id, @required InterviewerName name}) {
+      {@required InterviewerId id,
+      @required InterviewerName name,
+      @required Password password}) {
     return _Interviewer(
       id: id,
       name: name,
+      password: password,
     );
   }
 }
@@ -27,6 +30,7 @@ const $Interviewer = _$InterviewerTearOff();
 mixin _$Interviewer {
   InterviewerId get id;
   InterviewerName get name;
+  Password get password;
 
   $InterviewerCopyWith<Interviewer> get copyWith;
 }
@@ -35,7 +39,7 @@ abstract class $InterviewerCopyWith<$Res> {
   factory $InterviewerCopyWith(
           Interviewer value, $Res Function(Interviewer) then) =
       _$InterviewerCopyWithImpl<$Res>;
-  $Res call({InterviewerId id, InterviewerName name});
+  $Res call({InterviewerId id, InterviewerName name, Password password});
 }
 
 class _$InterviewerCopyWithImpl<$Res> implements $InterviewerCopyWith<$Res> {
@@ -49,10 +53,12 @@ class _$InterviewerCopyWithImpl<$Res> implements $InterviewerCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object password = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as InterviewerId,
       name: name == freezed ? _value.name : name as InterviewerName,
+      password: password == freezed ? _value.password : password as Password,
     ));
   }
 }
@@ -63,7 +69,7 @@ abstract class _$InterviewerCopyWith<$Res>
           _Interviewer value, $Res Function(_Interviewer) then) =
       __$InterviewerCopyWithImpl<$Res>;
   @override
-  $Res call({InterviewerId id, InterviewerName name});
+  $Res call({InterviewerId id, InterviewerName name, Password password});
 }
 
 class __$InterviewerCopyWithImpl<$Res> extends _$InterviewerCopyWithImpl<$Res>
@@ -79,28 +85,34 @@ class __$InterviewerCopyWithImpl<$Res> extends _$InterviewerCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object password = freezed,
   }) {
     return _then(_Interviewer(
       id: id == freezed ? _value.id : id as InterviewerId,
       name: name == freezed ? _value.name : name as InterviewerName,
+      password: password == freezed ? _value.password : password as Password,
     ));
   }
 }
 
 class _$_Interviewer extends _Interviewer {
-  const _$_Interviewer({@required this.id, @required this.name})
+  const _$_Interviewer(
+      {@required this.id, @required this.name, @required this.password})
       : assert(id != null),
         assert(name != null),
+        assert(password != null),
         super._();
 
   @override
   final InterviewerId id;
   @override
   final InterviewerName name;
+  @override
+  final Password password;
 
   @override
   String toString() {
-    return 'Interviewer(id: $id, name: $name)';
+    return 'Interviewer(id: $id, name: $name, password: $password)';
   }
 
   @override
@@ -110,14 +122,18 @@ class _$_Interviewer extends _Interviewer {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(password);
 
   @override
   _$InterviewerCopyWith<_Interviewer> get copyWith =>
@@ -128,12 +144,15 @@ abstract class _Interviewer extends Interviewer {
   const _Interviewer._() : super._();
   const factory _Interviewer(
       {@required InterviewerId id,
-      @required InterviewerName name}) = _$_Interviewer;
+      @required InterviewerName name,
+      @required Password password}) = _$_Interviewer;
 
   @override
   InterviewerId get id;
   @override
   InterviewerName get name;
+  @override
+  Password get password;
   @override
   _$InterviewerCopyWith<_Interviewer> get copyWith;
 }

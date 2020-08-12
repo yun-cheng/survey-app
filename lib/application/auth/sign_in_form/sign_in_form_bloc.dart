@@ -22,7 +22,6 @@ part 'sign_in_form_bloc.freezed.dart';
 
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
-  // StreamSubscription _projectListSubscription;
   StreamSubscription _interviewerListSubscription;
   final IAuthFacade _authFacade;
   KtList<Interviewer> _interviewerList;
@@ -47,45 +46,36 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
       projectSelected: (e) async* {
         yield state.copyWith(
           projectId: ProjectId(e.projectIdStr),
-          failureOption: none(),
+          authFailureOrInterviewerOption: none(),
         );
       },
       interviewerIdChanged: (e) async* {
         yield state.copyWith(
           interviewerId: InterviewerId(e.interviewerIdStr),
-          failureOption: none(),
+          authFailureOrInterviewerOption: none(),
         );
       },
-      interviewerNameChanged: (e) async* {
+      passwordChanged: (e) async* {
         yield state.copyWith(
-          interviewerName: InterviewerName(e.interviewerNameStr),
-          failureOption: none(),
+          password: Password(e.passwordStr),
+          authFailureOrInterviewerOption: none(),
         );
       },
       signInPressed: (e) async* {
         Either<AuthFailure, Interviewer> failureOrInterviewer;
-        AuthFailure failure;
         Interviewer interviewer;
-        bool isSuccess = false;
 
         final isValidInterviewerId = state.interviewerId.isValid();
-        final isValidInterviewerName = state.interviewerName.isValid();
+        final isValidPassword = state.password.isValid();
 
-        print(_interviewerList);
-
-        if (isValidInterviewerId || isValidInterviewerName) {
-          failureOrInterviewer = _authFacade.signInWithInterviewerIdOrName(
+        if (isValidInterviewerId && isValidPassword) {
+          failureOrInterviewer = _authFacade.signInWithInterviewerIdAndPassword(
               interviewerId: state.interviewerId,
-              interviewerName: state.interviewerName,
+              password: state.password,
               interviewerList: _interviewerList);
 
-          isSuccess = failureOrInterviewer.isRight();
-
           failureOrInterviewer.fold(
-            (_failure) {
-              failure = _failure;
-              interviewer = state.interviewer;
-            },
+            (f) {},
             (_interviewer) {
               interviewer = _interviewer;
             },
@@ -94,9 +84,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
 
         // NOTE showErrorMessages 是即時驗證表單的錯誤訊息，只在使用者第一次送出後才啟用
         yield state.copyWith(
-          isSuccess: isSuccess,
-          failureOption: optionOf(failure),
-          interviewer: interviewer,
+          authFailureOrInterviewerOption: optionOf(failureOrInterviewer),
+          interviewerOption: optionOf(interviewer),
           showErrorMessages: true,
         );
       },

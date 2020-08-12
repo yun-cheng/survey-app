@@ -101,28 +101,24 @@ class ManualAuthFacade implements IAuthFacade {
   }
 
   @override
-  Either<AuthFailure, Interviewer> signInWithInterviewerIdOrName({
+  Either<AuthFailure, Interviewer> signInWithInterviewerIdAndPassword({
     InterviewerId interviewerId,
-    InterviewerName interviewerName,
+    Password password,
     KtList<Interviewer> interviewerList,
   }) {
     final interviewerIdStr = interviewerId.value.fold((l) => '', id);
-    final interviewerNameStr = interviewerName.value.fold((l) => '', id);
+    final passwordStr = password.value.fold((l) => '', id);
 
-    final Interviewer matchId = interviewerList
-        .filter(
-            (interviewer) => interviewer.id.getOrCrash() == interviewerIdStr)
-        .firstOrNull();
-    final Interviewer matchName = interviewerList
+    final Interviewer match = interviewerList
         .filter((interviewer) =>
-            interviewer.name.getOrCrash() == interviewerNameStr)
+            interviewer.id.getOrCrash() == interviewerIdStr &&
+            interviewer.password.getOrCrash() == passwordStr)
         .firstOrNull();
 
-    _currentInterviewerOption =
-        optionOf(matchId).orElse(() => optionOf(matchName));
+    _currentInterviewerOption = optionOf(match);
 
     return _currentInterviewerOption.fold(
-      () => left(const AuthFailure.interviewerIdAndNameNotFound()),
+      () => left(const AuthFailure.invalidIdAndPasswordCombination()),
       (interviewer) => right(interviewer),
     );
   }

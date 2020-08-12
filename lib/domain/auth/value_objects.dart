@@ -19,6 +19,22 @@ class InterviewerId extends ValueObject<String> {
   const InterviewerId._(this.value);
 }
 
+class Password extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Password(String input) {
+    assert(input != null);
+    return Password._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  factory Password.empty() => Password('');
+
+  const Password._(this.value);
+}
+
 class InterviewerName extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;

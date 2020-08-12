@@ -32,11 +32,11 @@ class AppWidget extends StatelessWidget {
             BlocProvider.of<InterviewerListBloc>(context),
           ),
         ),
-        BlocProvider(
-          create: (context) => AuthBloc(
-            BlocProvider.of<SignInFormBloc>(context),
-          ),
-        ),
+        // BlocProvider(
+        //   create: (context) => AuthBloc(
+        //     BlocProvider.of<SignInFormBloc>(context),
+        //   ),
+        // ),
       ],
       child: MaterialApp(
         title: '訪員測驗',

@@ -8,8 +8,8 @@ abstract class SignInFormEvent with _$SignInFormEvent {
       _ProjectSelected;
   const factory SignInFormEvent.interviewerIdChanged(String interviewerIdStr) =
       _InterviewerIdChanged;
-  const factory SignInFormEvent.interviewerNameChanged(
-      String interviewerNameStr) = _InterviewerNameChanged;
+  const factory SignInFormEvent.passwordChanged(
+      String passwordStr) = _PasswordChanged;
   const factory SignInFormEvent.signInPressed() = _SignInPressed;
   const factory SignInFormEvent.signedOut() = _SignedOut;
 }

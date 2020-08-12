@@ -28,12 +28,8 @@ class _$AuthFailureTearOff {
     return const _Unexpected();
   }
 
-  InterviewerIdAndNameNotFound interviewerIdAndNameNotFound() {
-    return const InterviewerIdAndNameNotFound();
-  }
-
-  InterviewerIdAndNameConflict interviewerIdAndNameConflict() {
-    return const InterviewerIdAndNameConflict();
+  InvalidIdAndPasswordCombination invalidIdAndPasswordCombination() {
+    return const InvalidIdAndPasswordCombination();
   }
 }
 
@@ -47,8 +43,7 @@ mixin _$AuthFailure {
     @required Result insufficientPermission(),
     @required Result unableToGet(),
     @required Result unexpected(),
-    @required Result interviewerIdAndNameNotFound(),
-    @required Result interviewerIdAndNameConflict(),
+    @required Result invalidIdAndPasswordCombination(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -56,8 +51,7 @@ mixin _$AuthFailure {
     Result insufficientPermission(),
     Result unableToGet(),
     Result unexpected(),
-    Result interviewerIdAndNameNotFound(),
-    Result interviewerIdAndNameConflict(),
+    Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -67,9 +61,8 @@ mixin _$AuthFailure {
     @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
-        Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    @required
-        Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+        Result invalidIdAndPasswordCombination(
+            InvalidIdAndPasswordCombination value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -77,8 +70,8 @@ mixin _$AuthFailure {
     Result insufficientPermission(_InsufficientPermission value),
     Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
-    Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+    Result invalidIdAndPasswordCombination(
+        InvalidIdAndPasswordCombination value),
     @required Result orElse(),
   });
 }
@@ -136,15 +129,13 @@ class _$ServerError implements ServerError {
     @required Result insufficientPermission(),
     @required Result unableToGet(),
     @required Result unexpected(),
-    @required Result interviewerIdAndNameNotFound(),
-    @required Result interviewerIdAndNameConflict(),
+    @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return serverError();
   }
 
@@ -155,8 +146,7 @@ class _$ServerError implements ServerError {
     Result insufficientPermission(),
     Result unableToGet(),
     Result unexpected(),
-    Result interviewerIdAndNameNotFound(),
-    Result interviewerIdAndNameConflict(),
+    Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -174,16 +164,14 @@ class _$ServerError implements ServerError {
     @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
-        Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    @required
-        Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+        Result invalidIdAndPasswordCombination(
+            InvalidIdAndPasswordCombination value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return serverError(this);
   }
 
@@ -194,8 +182,8 @@ class _$ServerError implements ServerError {
     Result insufficientPermission(_InsufficientPermission value),
     Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
-    Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+    Result invalidIdAndPasswordCombination(
+        InvalidIdAndPasswordCombination value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -250,15 +238,13 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     @required Result insufficientPermission(),
     @required Result unableToGet(),
     @required Result unexpected(),
-    @required Result interviewerIdAndNameNotFound(),
-    @required Result interviewerIdAndNameConflict(),
+    @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return insufficientPermission();
   }
 
@@ -269,8 +255,7 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     Result insufficientPermission(),
     Result unableToGet(),
     Result unexpected(),
-    Result interviewerIdAndNameNotFound(),
-    Result interviewerIdAndNameConflict(),
+    Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -288,16 +273,14 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
-        Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    @required
-        Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+        Result invalidIdAndPasswordCombination(
+            InvalidIdAndPasswordCombination value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return insufficientPermission(this);
   }
 
@@ -308,8 +291,8 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     Result insufficientPermission(_InsufficientPermission value),
     Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
-    Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+    Result invalidIdAndPasswordCombination(
+        InvalidIdAndPasswordCombination value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -363,15 +346,13 @@ class _$_UnableToGet implements _UnableToGet {
     @required Result insufficientPermission(),
     @required Result unableToGet(),
     @required Result unexpected(),
-    @required Result interviewerIdAndNameNotFound(),
-    @required Result interviewerIdAndNameConflict(),
+    @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return unableToGet();
   }
 
@@ -382,8 +363,7 @@ class _$_UnableToGet implements _UnableToGet {
     Result insufficientPermission(),
     Result unableToGet(),
     Result unexpected(),
-    Result interviewerIdAndNameNotFound(),
-    Result interviewerIdAndNameConflict(),
+    Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -401,16 +381,14 @@ class _$_UnableToGet implements _UnableToGet {
     @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
-        Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    @required
-        Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+        Result invalidIdAndPasswordCombination(
+            InvalidIdAndPasswordCombination value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return unableToGet(this);
   }
 
@@ -421,8 +399,8 @@ class _$_UnableToGet implements _UnableToGet {
     Result insufficientPermission(_InsufficientPermission value),
     Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
-    Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+    Result invalidIdAndPasswordCombination(
+        InvalidIdAndPasswordCombination value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -476,15 +454,13 @@ class _$_Unexpected implements _Unexpected {
     @required Result insufficientPermission(),
     @required Result unableToGet(),
     @required Result unexpected(),
-    @required Result interviewerIdAndNameNotFound(),
-    @required Result interviewerIdAndNameConflict(),
+    @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return unexpected();
   }
 
@@ -495,8 +471,7 @@ class _$_Unexpected implements _Unexpected {
     Result insufficientPermission(),
     Result unableToGet(),
     Result unexpected(),
-    Result interviewerIdAndNameNotFound(),
-    Result interviewerIdAndNameConflict(),
+    Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -514,16 +489,14 @@ class _$_Unexpected implements _Unexpected {
     @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
-        Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    @required
-        Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+        Result invalidIdAndPasswordCombination(
+            InvalidIdAndPasswordCombination value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
+    assert(invalidIdAndPasswordCombination != null);
     return unexpected(this);
   }
 
@@ -534,8 +507,8 @@ class _$_Unexpected implements _Unexpected {
     Result insufficientPermission(_InsufficientPermission value),
     Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
-    Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+    Result invalidIdAndPasswordCombination(
+        InvalidIdAndPasswordCombination value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -550,37 +523,38 @@ abstract class _Unexpected implements AuthFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
-abstract class $InterviewerIdAndNameNotFoundCopyWith<$Res> {
-  factory $InterviewerIdAndNameNotFoundCopyWith(
-          InterviewerIdAndNameNotFound value,
-          $Res Function(InterviewerIdAndNameNotFound) then) =
-      _$InterviewerIdAndNameNotFoundCopyWithImpl<$Res>;
+abstract class $InvalidIdAndPasswordCombinationCopyWith<$Res> {
+  factory $InvalidIdAndPasswordCombinationCopyWith(
+          InvalidIdAndPasswordCombination value,
+          $Res Function(InvalidIdAndPasswordCombination) then) =
+      _$InvalidIdAndPasswordCombinationCopyWithImpl<$Res>;
 }
 
-class _$InterviewerIdAndNameNotFoundCopyWithImpl<$Res>
+class _$InvalidIdAndPasswordCombinationCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
-    implements $InterviewerIdAndNameNotFoundCopyWith<$Res> {
-  _$InterviewerIdAndNameNotFoundCopyWithImpl(
-      InterviewerIdAndNameNotFound _value,
-      $Res Function(InterviewerIdAndNameNotFound) _then)
-      : super(_value, (v) => _then(v as InterviewerIdAndNameNotFound));
+    implements $InvalidIdAndPasswordCombinationCopyWith<$Res> {
+  _$InvalidIdAndPasswordCombinationCopyWithImpl(
+      InvalidIdAndPasswordCombination _value,
+      $Res Function(InvalidIdAndPasswordCombination) _then)
+      : super(_value, (v) => _then(v as InvalidIdAndPasswordCombination));
 
   @override
-  InterviewerIdAndNameNotFound get _value =>
-      super._value as InterviewerIdAndNameNotFound;
+  InvalidIdAndPasswordCombination get _value =>
+      super._value as InvalidIdAndPasswordCombination;
 }
 
-class _$InterviewerIdAndNameNotFound implements InterviewerIdAndNameNotFound {
-  const _$InterviewerIdAndNameNotFound();
+class _$InvalidIdAndPasswordCombination
+    implements InvalidIdAndPasswordCombination {
+  const _$InvalidIdAndPasswordCombination();
 
   @override
   String toString() {
-    return 'AuthFailure.interviewerIdAndNameNotFound()';
+    return 'AuthFailure.invalidIdAndPasswordCombination()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InterviewerIdAndNameNotFound);
+    return identical(this, other) || (other is InvalidIdAndPasswordCombination);
   }
 
   @override
@@ -593,16 +567,14 @@ class _$InterviewerIdAndNameNotFound implements InterviewerIdAndNameNotFound {
     @required Result insufficientPermission(),
     @required Result unableToGet(),
     @required Result unexpected(),
-    @required Result interviewerIdAndNameNotFound(),
-    @required Result interviewerIdAndNameConflict(),
+    @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
-    return interviewerIdAndNameNotFound();
+    assert(invalidIdAndPasswordCombination != null);
+    return invalidIdAndPasswordCombination();
   }
 
   @override
@@ -612,13 +584,12 @@ class _$InterviewerIdAndNameNotFound implements InterviewerIdAndNameNotFound {
     Result insufficientPermission(),
     Result unableToGet(),
     Result unexpected(),
-    Result interviewerIdAndNameNotFound(),
-    Result interviewerIdAndNameConflict(),
+    Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (interviewerIdAndNameNotFound != null) {
-      return interviewerIdAndNameNotFound();
+    if (invalidIdAndPasswordCombination != null) {
+      return invalidIdAndPasswordCombination();
     }
     return orElse();
   }
@@ -631,17 +602,15 @@ class _$InterviewerIdAndNameNotFound implements InterviewerIdAndNameNotFound {
     @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
-        Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    @required
-        Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+        Result invalidIdAndPasswordCombination(
+            InvalidIdAndPasswordCombination value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
     assert(unableToGet != null);
     assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
-    return interviewerIdAndNameNotFound(this);
+    assert(invalidIdAndPasswordCombination != null);
+    return invalidIdAndPasswordCombination(this);
   }
 
   @override
@@ -651,135 +620,19 @@ class _$InterviewerIdAndNameNotFound implements InterviewerIdAndNameNotFound {
     Result insufficientPermission(_InsufficientPermission value),
     Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
-    Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
+    Result invalidIdAndPasswordCombination(
+        InvalidIdAndPasswordCombination value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (interviewerIdAndNameNotFound != null) {
-      return interviewerIdAndNameNotFound(this);
+    if (invalidIdAndPasswordCombination != null) {
+      return invalidIdAndPasswordCombination(this);
     }
     return orElse();
   }
 }
 
-abstract class InterviewerIdAndNameNotFound implements AuthFailure {
-  const factory InterviewerIdAndNameNotFound() = _$InterviewerIdAndNameNotFound;
-}
-
-abstract class $InterviewerIdAndNameConflictCopyWith<$Res> {
-  factory $InterviewerIdAndNameConflictCopyWith(
-          InterviewerIdAndNameConflict value,
-          $Res Function(InterviewerIdAndNameConflict) then) =
-      _$InterviewerIdAndNameConflictCopyWithImpl<$Res>;
-}
-
-class _$InterviewerIdAndNameConflictCopyWithImpl<$Res>
-    extends _$AuthFailureCopyWithImpl<$Res>
-    implements $InterviewerIdAndNameConflictCopyWith<$Res> {
-  _$InterviewerIdAndNameConflictCopyWithImpl(
-      InterviewerIdAndNameConflict _value,
-      $Res Function(InterviewerIdAndNameConflict) _then)
-      : super(_value, (v) => _then(v as InterviewerIdAndNameConflict));
-
-  @override
-  InterviewerIdAndNameConflict get _value =>
-      super._value as InterviewerIdAndNameConflict;
-}
-
-class _$InterviewerIdAndNameConflict implements InterviewerIdAndNameConflict {
-  const _$InterviewerIdAndNameConflict();
-
-  @override
-  String toString() {
-    return 'AuthFailure.interviewerIdAndNameConflict()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InterviewerIdAndNameConflict);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverError(),
-    @required Result insufficientPermission(),
-    @required Result unableToGet(),
-    @required Result unexpected(),
-    @required Result interviewerIdAndNameNotFound(),
-    @required Result interviewerIdAndNameConflict(),
-  }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unableToGet != null);
-    assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
-    return interviewerIdAndNameConflict();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverError(),
-    Result insufficientPermission(),
-    Result unableToGet(),
-    Result unexpected(),
-    Result interviewerIdAndNameNotFound(),
-    Result interviewerIdAndNameConflict(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (interviewerIdAndNameConflict != null) {
-      return interviewerIdAndNameConflict();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverError(ServerError value),
-    @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unableToGet(_UnableToGet value),
-    @required Result unexpected(_Unexpected value),
-    @required
-        Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    @required
-        Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
-  }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unableToGet != null);
-    assert(unexpected != null);
-    assert(interviewerIdAndNameNotFound != null);
-    assert(interviewerIdAndNameConflict != null);
-    return interviewerIdAndNameConflict(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverError(ServerError value),
-    Result insufficientPermission(_InsufficientPermission value),
-    Result unableToGet(_UnableToGet value),
-    Result unexpected(_Unexpected value),
-    Result interviewerIdAndNameNotFound(InterviewerIdAndNameNotFound value),
-    Result interviewerIdAndNameConflict(InterviewerIdAndNameConflict value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (interviewerIdAndNameConflict != null) {
-      return interviewerIdAndNameConflict(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class InterviewerIdAndNameConflict implements AuthFailure {
-  const factory InterviewerIdAndNameConflict() = _$InterviewerIdAndNameConflict;
+abstract class InvalidIdAndPasswordCombination implements AuthFailure {
+  const factory InvalidIdAndPasswordCombination() =
+      _$InvalidIdAndPasswordCombination;
 }

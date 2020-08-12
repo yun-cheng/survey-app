@@ -146,10 +146,12 @@ InterviewerDto _$InterviewerDtoFromJson(Map<String, dynamic> json) {
 class _$InterviewerDtoTearOff {
   const _$InterviewerDtoTearOff();
 
-  _InterviewerDto call({@required String id, @required String name}) {
+  _InterviewerDto call(
+      {@required String id, @required String name, @required String password}) {
     return _InterviewerDto(
       id: id,
       name: name,
+      password: password,
     );
   }
 }
@@ -160,6 +162,7 @@ const $InterviewerDto = _$InterviewerDtoTearOff();
 mixin _$InterviewerDto {
   String get id;
   String get name;
+  String get password;
 
   Map<String, dynamic> toJson();
   $InterviewerDtoCopyWith<InterviewerDto> get copyWith;
@@ -169,7 +172,7 @@ abstract class $InterviewerDtoCopyWith<$Res> {
   factory $InterviewerDtoCopyWith(
           InterviewerDto value, $Res Function(InterviewerDto) then) =
       _$InterviewerDtoCopyWithImpl<$Res>;
-  $Res call({String id, String name});
+  $Res call({String id, String name, String password});
 }
 
 class _$InterviewerDtoCopyWithImpl<$Res>
@@ -184,10 +187,12 @@ class _$InterviewerDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object password = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
+      password: password == freezed ? _value.password : password as String,
     ));
   }
 }
@@ -198,7 +203,7 @@ abstract class _$InterviewerDtoCopyWith<$Res>
           _InterviewerDto value, $Res Function(_InterviewerDto) then) =
       __$InterviewerDtoCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name});
+  $Res call({String id, String name, String password});
 }
 
 class __$InterviewerDtoCopyWithImpl<$Res>
@@ -215,19 +220,23 @@ class __$InterviewerDtoCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object name = freezed,
+    Object password = freezed,
   }) {
     return _then(_InterviewerDto(
       id: id == freezed ? _value.id : id as String,
       name: name == freezed ? _value.name : name as String,
+      password: password == freezed ? _value.password : password as String,
     ));
   }
 }
 
 @JsonSerializable()
 class _$_InterviewerDto extends _InterviewerDto {
-  const _$_InterviewerDto({@required this.id, @required this.name})
+  const _$_InterviewerDto(
+      {@required this.id, @required this.name, @required this.password})
       : assert(id != null),
         assert(name != null),
+        assert(password != null),
         super._();
 
   factory _$_InterviewerDto.fromJson(Map<String, dynamic> json) =>
@@ -237,10 +246,12 @@ class _$_InterviewerDto extends _InterviewerDto {
   final String id;
   @override
   final String name;
+  @override
+  final String password;
 
   @override
   String toString() {
-    return 'InterviewerDto(id: $id, name: $name)';
+    return 'InterviewerDto(id: $id, name: $name, password: $password)';
   }
 
   @override
@@ -250,14 +261,18 @@ class _$_InterviewerDto extends _InterviewerDto {
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)));
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.password, password) ||
+                const DeepCollectionEquality()
+                    .equals(other.password, password)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name);
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(password);
 
   @override
   _$InterviewerDtoCopyWith<_InterviewerDto> get copyWith =>
@@ -271,8 +286,10 @@ class _$_InterviewerDto extends _InterviewerDto {
 
 abstract class _InterviewerDto extends InterviewerDto {
   const _InterviewerDto._() : super._();
-  const factory _InterviewerDto({@required String id, @required String name}) =
-      _$_InterviewerDto;
+  const factory _InterviewerDto(
+      {@required String id,
+      @required String name,
+      @required String password}) = _$_InterviewerDto;
 
   factory _InterviewerDto.fromJson(Map<String, dynamic> json) =
       _$_InterviewerDto.fromJson;
@@ -281,6 +298,8 @@ abstract class _InterviewerDto extends InterviewerDto {
   String get id;
   @override
   String get name;
+  @override
+  String get password;
   @override
   _$InterviewerDtoCopyWith<_InterviewerDto> get copyWith;
 }

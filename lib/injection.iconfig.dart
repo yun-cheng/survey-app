@@ -17,7 +17,6 @@ import 'package:interviewer_quiz_flutter_app/application/auth/project_list/proje
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz_list/quiz_list_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -39,7 +38,6 @@ void $initGetIt(GetIt g, {String environment}) {
       () => QuestionPageBloc(g<QuestionListBloc>()));
   g.registerFactory<SignInFormBloc>(
       () => SignInFormBloc(g<IAuthFacade>(), g<InterviewerListBloc>()));
-  g.registerFactory<AuthBloc>(() => AuthBloc(g<SignInFormBloc>()));
   g.registerFactory<QuestionBloc>(() => QuestionBloc(
         g<IQuizRepository>(),
         g<QuestionListBloc>(),

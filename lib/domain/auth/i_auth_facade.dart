@@ -14,9 +14,9 @@ abstract class IAuthFacade {
     @required ProjectId projectId,
   });
   Future<void> getInterviewerListFromAsset();
-  Either<AuthFailure, Interviewer> signInWithInterviewerIdOrName({
+  Either<AuthFailure, Interviewer> signInWithInterviewerIdAndPassword({
     @required InterviewerId interviewerId,
-    @required InterviewerName interviewerName,
+    @required Password password,
     @required KtList<Interviewer> interviewerList,
   });
   Option<Interviewer> getSignedInInterviewer();

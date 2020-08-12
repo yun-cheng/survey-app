@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
@@ -22,17 +23,17 @@ part 'quiz_list_bloc.freezed.dart';
 class QuizListBloc extends Bloc<QuizListEvent, QuizListState> {
   StreamSubscription<SignInFormState> _signInFormSubscription;
   final IQuizListRepository _quizListRepository;
-  Interviewer _interviewer;
+  Option<Interviewer> _interviewerOption;
   ProjectId _projectId;
 
   QuizListBloc(
     this._quizListRepository,
     SignInFormBloc signInFormBloc,
   ) : super(const QuizListState.initial()) {
-    _interviewer = signInFormBloc.state.interviewer;
+    _interviewerOption = signInFormBloc.state.interviewerOption;
     _projectId = signInFormBloc.state.projectId;
     _signInFormSubscription = signInFormBloc.listen((state) {
-      _interviewer = state.interviewer;
+      _interviewerOption = state.interviewerOption;
       _projectId = state.projectId;
     });
   }
@@ -42,13 +43,21 @@ class QuizListBloc extends Bloc<QuizListEvent, QuizListState> {
     QuizListEvent event,
   ) async* {
     yield const QuizListState.loadInProgress();
-    final failureOrQuizList = await _quizListRepository.getQuizList(
-      interviewerId: _interviewer.id,
-      projectId: _projectId,
-    );
-    yield failureOrQuizList.fold(
-      (f) => QuizListState.loadFailure(f),
-      (quizList) => QuizListState.loadSuccess(quizList),
-    );
+    if (_interviewerOption.isSome()) {
+      final failureOrQuizList = await _quizListRepository.getQuizList(
+        interviewerId: _interviewerOption.getOrElse(() => null).id,
+        projectId: _projectId,
+      );
+      yield failureOrQuizList.fold(
+        (f) => QuizListState.loadFailure(f),
+        (quizList) => QuizListState.loadSuccess(quizList),
+      );
+    }
+  }
+
+  @override
+  Future<void> close() {
+    _signInFormSubscription?.cancel();
+    return super.close();
   }
 }

@@ -44,12 +44,14 @@ abstract class InterviewerDto implements _$InterviewerDto {
   const factory InterviewerDto({
     @required String id,
     @required String name,
+    @required String password,
   }) = _InterviewerDto;
 
   factory InterviewerDto.fromDomain(Interviewer interviewer) {
     return InterviewerDto(
       id: interviewer.id.getOrCrash(),
       name: interviewer.name.getOrCrash(),
+      password: interviewer.password.getOrCrash(),
     );
   }
 
@@ -57,6 +59,7 @@ abstract class InterviewerDto implements _$InterviewerDto {
     return Interviewer(
       id: InterviewerId(id),
       name: InterviewerName(name),
+      password: Password(password),
     );
   }
 

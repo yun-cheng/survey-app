@@ -8,8 +8,8 @@ abstract class AuthFailure with _$AuthFailure {
   const factory AuthFailure.insufficientPermission() = _InsufficientPermission;
   const factory AuthFailure.unableToGet() = _UnableToGet;
   const factory AuthFailure.unexpected() = _Unexpected;
-  const factory AuthFailure.interviewerIdAndNameNotFound() =
-      InterviewerIdAndNameNotFound;
-  const factory AuthFailure.interviewerIdAndNameConflict() =
-      InterviewerIdAndNameConflict;
+  const factory AuthFailure.invalidIdAndPasswordCombination() =
+      InvalidIdAndPasswordCombination;
+  // const factory AuthFailure.interviewerIdAndNameConflict() =
+  //     InterviewerIdAndNameConflict;
 }
