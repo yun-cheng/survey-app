@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'failures.dart';
 
@@ -12,24 +12,28 @@ T _$identity<T>(T value) => value;
 class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
 
+// ignore: unused_element
   Empty<T> empty<T>({@required T failedValue}) {
     return Empty<T>(
       failedValue: failedValue,
     );
   }
 
+// ignore: unused_element
   UnexpectedAnswer<T> unexpectedAnswer<T>({@required T failedValue}) {
     return UnexpectedAnswer<T>(
       failedValue: failedValue,
     );
   }
 
+// ignore: unused_element
   NotNaturalNumber<T> notNaturalNumber<T>({@required T failedValue}) {
     return NotNaturalNumber<T>(
       failedValue: failedValue,
     );
   }
 
+// ignore: unused_element
   NotBoolean<T> notBoolean<T>({@required T failedValue}) {
     return NotBoolean<T>(
       failedValue: failedValue,

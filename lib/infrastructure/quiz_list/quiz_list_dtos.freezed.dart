@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'quiz_list_dtos.dart';
 
@@ -15,6 +15,7 @@ QuizListDto _$QuizListDtoFromJson(Map<String, dynamic> json) {
 class _$QuizListDtoTearOff {
   const _$QuizListDtoTearOff();
 
+// ignore: unused_element
   _QuizListDto call({@required List<QuizDto> list}) {
     return _QuizListDto(
       list: list,
@@ -143,6 +144,7 @@ QuizDto _$QuizDtoFromJson(Map<String, dynamic> json) {
 class _$QuizDtoTearOff {
   const _$QuizDtoTearOff();
 
+// ignore: unused_element
   _QuizDto call(
       {@required String id, @required String name, @required bool isFinished}) {
     return _QuizDto(

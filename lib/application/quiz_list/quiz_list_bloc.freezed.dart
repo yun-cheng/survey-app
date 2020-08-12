@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'quiz_list_bloc.dart';
 
@@ -12,6 +12,7 @@ T _$identity<T>(T value) => value;
 class _$QuizListEventTearOff {
   const _$QuizListEventTearOff();
 
+// ignore: unused_element
   _QuizListLoaded quizListLoaded() {
     return const _QuizListLoaded();
   }
@@ -20,7 +21,26 @@ class _$QuizListEventTearOff {
 // ignore: unused_element
 const $QuizListEvent = _$QuizListEventTearOff();
 
-mixin _$QuizListEvent {}
+mixin _$QuizListEvent {
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result quizListLoaded(),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result quizListLoaded(),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result quizListLoaded(_QuizListLoaded value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result quizListLoaded(_QuizListLoaded value),
+    @required Result orElse(),
+  });
+}
 
 abstract class $QuizListEventCopyWith<$Res> {
   factory $QuizListEventCopyWith(
@@ -78,6 +98,50 @@ class _$_QuizListLoaded
 
   @override
   int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result quizListLoaded(),
+  }) {
+    assert(quizListLoaded != null);
+    return quizListLoaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result quizListLoaded(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (quizListLoaded != null) {
+      return quizListLoaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result quizListLoaded(_QuizListLoaded value),
+  }) {
+    assert(quizListLoaded != null);
+    return quizListLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result quizListLoaded(_QuizListLoaded value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (quizListLoaded != null) {
+      return quizListLoaded(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class _QuizListLoaded implements QuizListEvent {
@@ -87,20 +151,24 @@ abstract class _QuizListLoaded implements QuizListEvent {
 class _$QuizListStateTearOff {
   const _$QuizListStateTearOff();
 
+// ignore: unused_element
   _Initial initial() {
     return const _Initial();
   }
 
+// ignore: unused_element
   _LoadInProgress loadInProgress() {
     return const _LoadInProgress();
   }
 
+// ignore: unused_element
   _LoadFailure loadFailure(QuizListFailure quizListFailure) {
     return _LoadFailure(
       quizListFailure,
     );
   }
 
+// ignore: unused_element
   LoadSuccess loadSuccess(KtList<Quiz> quizList) {
     return LoadSuccess(
       quizList,

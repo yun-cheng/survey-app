@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'question_list_dtos.dart';
 
@@ -15,6 +15,7 @@ QuestionListDto _$QuestionListDtoFromJson(Map<String, dynamic> json) {
 class _$QuestionListDtoTearOff {
   const _$QuestionListDtoTearOff();
 
+// ignore: unused_element
   _QuestionListDto call({@required List<QuestionDto> list}) {
     return _QuestionListDto(
       list: list,
@@ -146,6 +147,7 @@ QuestionDto _$QuestionDtoFromJson(Map<String, dynamic> json) {
 class _$QuestionDtoTearOff {
   const _$QuestionDtoTearOff();
 
+// ignore: unused_element
   _QuestionDto call(
       {@required String id, @required String body, @required String answer}) {
     return _QuestionDto(

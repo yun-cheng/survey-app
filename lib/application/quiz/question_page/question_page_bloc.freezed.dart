@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'question_page_bloc.dart';
 
@@ -12,10 +12,12 @@ T _$identity<T>(T value) => value;
 class _$QuestionPageEventTearOff {
   const _$QuestionPageEventTearOff();
 
+// ignore: unused_element
   _NextPagePressed nextPagePressed() {
     return const _NextPagePressed();
   }
 
+// ignore: unused_element
   _LoadQuestionList loadQuestionList() {
     return const _LoadQuestionList();
   }
@@ -261,6 +263,7 @@ abstract class _LoadQuestionList implements QuestionPageEvent {
 class _$QuestionPageStateTearOff {
   const _$QuestionPageStateTearOff();
 
+// ignore: unused_element
   _QuestionPageState call(
       {@required Question question,
       @required PageNumber page,

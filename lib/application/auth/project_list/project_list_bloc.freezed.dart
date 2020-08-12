@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'project_list_bloc.dart';
 
@@ -12,6 +12,7 @@ T _$identity<T>(T value) => value;
 class _$ProjectListEventTearOff {
   const _$ProjectListEventTearOff();
 
+// ignore: unused_element
   _ProjectListLoaded projectListLoaded() {
     return const _ProjectListLoaded();
   }
@@ -20,7 +21,26 @@ class _$ProjectListEventTearOff {
 // ignore: unused_element
 const $ProjectListEvent = _$ProjectListEventTearOff();
 
-mixin _$ProjectListEvent {}
+mixin _$ProjectListEvent {
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result projectListLoaded(),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result projectListLoaded(),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result projectListLoaded(_ProjectListLoaded value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result projectListLoaded(_ProjectListLoaded value),
+    @required Result orElse(),
+  });
+}
 
 abstract class $ProjectListEventCopyWith<$Res> {
   factory $ProjectListEventCopyWith(
@@ -69,6 +89,50 @@ class _$_ProjectListLoaded implements _ProjectListLoaded {
 
   @override
   int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result projectListLoaded(),
+  }) {
+    assert(projectListLoaded != null);
+    return projectListLoaded();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result projectListLoaded(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (projectListLoaded != null) {
+      return projectListLoaded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result projectListLoaded(_ProjectListLoaded value),
+  }) {
+    assert(projectListLoaded != null);
+    return projectListLoaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result projectListLoaded(_ProjectListLoaded value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (projectListLoaded != null) {
+      return projectListLoaded(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class _ProjectListLoaded implements ProjectListEvent {
@@ -78,20 +142,24 @@ abstract class _ProjectListLoaded implements ProjectListEvent {
 class _$ProjectListStateTearOff {
   const _$ProjectListStateTearOff();
 
+// ignore: unused_element
   _Initial initial() {
     return const _Initial();
   }
 
+// ignore: unused_element
   _LoadInProgress loadInProgress() {
     return const _LoadInProgress();
   }
 
+// ignore: unused_element
   _LoadFailure loadFailure(AuthFailure authFailure) {
     return _LoadFailure(
       authFailure,
     );
   }
 
+// ignore: unused_element
   LoadSuccess loadSuccess(KtList<Project> projectList) {
     return LoadSuccess(
       projectList,

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'quiz_result_dtos.dart';
 
@@ -15,6 +15,7 @@ QuizResultDto _$QuizResultDtoFromJson(Map<String, dynamic> json) {
 class _$QuizResultDtoTearOff {
   const _$QuizResultDtoTearOff();
 
+// ignore: unused_element
   _QuizResultDto call(
       {@required String quizId,
       @required String projectId,
@@ -352,6 +353,7 @@ ScoreDto _$ScoreDtoFromJson(Map<String, dynamic> json) {
 class _$ScoreDtoTearOff {
   const _$ScoreDtoTearOff();
 
+// ignore: unused_element
   _ScoreDto call({@required int right, @required int wrong}) {
     return _ScoreDto(
       right: right,
@@ -491,6 +493,7 @@ ScoreHistoryDto _$ScoreHistoryDtoFromJson(Map<String, dynamic> json) {
 class _$ScoreHistoryDtoTearOff {
   const _$ScoreHistoryDtoTearOff();
 
+// ignore: unused_element
   _ScoreHistoryDto call({@required Map<String, bool> scoreHistory}) {
     return _ScoreHistoryDto(
       scoreHistory: scoreHistory,

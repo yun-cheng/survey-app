@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'interviewer_list_bloc.dart';
 
@@ -12,6 +12,7 @@ T _$identity<T>(T value) => value;
 class _$InterviewerListEventTearOff {
   const _$InterviewerListEventTearOff();
 
+// ignore: unused_element
   _ProjectChanged projectChanged(String projectId) {
     return _ProjectChanged(
       projectId,
@@ -24,6 +25,25 @@ const $InterviewerListEvent = _$InterviewerListEventTearOff();
 
 mixin _$InterviewerListEvent {
   String get projectId;
+
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result projectChanged(String projectId),
+  });
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result projectChanged(String projectId),
+    @required Result orElse(),
+  });
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result projectChanged(_ProjectChanged value),
+  });
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result projectChanged(_ProjectChanged value),
+    @required Result orElse(),
+  });
 
   $InterviewerListEventCopyWith<InterviewerListEvent> get copyWith;
 }
@@ -109,6 +129,50 @@ class _$_ProjectChanged implements _ProjectChanged {
   @override
   _$ProjectChangedCopyWith<_ProjectChanged> get copyWith =>
       __$ProjectChangedCopyWithImpl<_ProjectChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result projectChanged(String projectId),
+  }) {
+    assert(projectChanged != null);
+    return projectChanged(projectId);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result projectChanged(String projectId),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (projectChanged != null) {
+      return projectChanged(projectId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result projectChanged(_ProjectChanged value),
+  }) {
+    assert(projectChanged != null);
+    return projectChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result projectChanged(_ProjectChanged value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (projectChanged != null) {
+      return projectChanged(this);
+    }
+    return orElse();
+  }
 }
 
 abstract class _ProjectChanged implements InterviewerListEvent {
@@ -123,6 +187,7 @@ abstract class _ProjectChanged implements InterviewerListEvent {
 class _$InterviewerListStateTearOff {
   const _$InterviewerListStateTearOff();
 
+// ignore: unused_element
   _InterviewerListState call(
       {@required KtList<Interviewer> interviewerList,
       @required Option<AuthFailure> failureOption}) {

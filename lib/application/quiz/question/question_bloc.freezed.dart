@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named
+// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
 part of 'question_bloc.dart';
 
@@ -12,18 +12,21 @@ T _$identity<T>(T value) => value;
 class _$QuestionEventTearOff {
   const _$QuestionEventTearOff();
 
+// ignore: unused_element
   _NewQuestionEntered newQuestionEntered(Question question) {
     return _NewQuestionEntered(
       question,
     );
   }
 
+// ignore: unused_element
   AnswerSelected answerSelected(String answerStr) {
     return AnswerSelected(
       answerStr,
     );
   }
 
+// ignore: unused_element
   QuizResultUploaded quizResultUploaded() {
     return const QuizResultUploaded();
   }
@@ -450,6 +453,7 @@ abstract class QuizResultUploaded implements QuestionEvent {
 class _$QuestionStateTearOff {
   const _$QuestionStateTearOff();
 
+// ignore: unused_element
   _QuestionState call(
       {@required Answer selectedAnswer,
       @required Answer realAnswer,
