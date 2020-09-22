@@ -105,7 +105,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
 
         yield state.copyWith(
             isUploading: true, isUploaded: false, uploadFailed: false);
-        await Future.delayed(const Duration(seconds: 3));
+        await Future.delayed(const Duration(seconds: 4));
 
         yield failureOrSuccess.fold(
           (f) => state.copyWith(

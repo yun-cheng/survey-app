@@ -55,6 +55,23 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+
+    flavorDimensions "flavor-type"
+
+    productFlavors {
+        dev {
+            dimension "flavor-type"
+            applicationId "com.yun_cheng.interviewer_quiz.dev"
+            versionCode 1
+            versionName "1.0"
+        }
+        prod{
+            dimension "flavor-type"
+            applicationId "com.yun_cheng.interviewer_quiz"
+            versionCode 1
+            versionName "1.0"
+        }
+    }
 }
 
 flutter {
