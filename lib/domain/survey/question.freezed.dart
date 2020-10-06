@@ -9,6 +9,7 @@ part of 'question.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuestionTearOff {
   const _$QuestionTearOff();
 
@@ -23,6 +24,7 @@ class _$QuestionTearOff {
       @required ShowQuestion show,
       @required KtList<Choice> choiceAnswerList,
       @required KtList<Choice> specialAnswerList,
+      @required bool hasSpecialAnswer,
       @required ValidateAnswer validateAnswer,
       @required QuestionId upperQuestionId,
       @required PageNumber pageNumber}) {
@@ -36,6 +38,7 @@ class _$QuestionTearOff {
       show: show,
       choiceAnswerList: choiceAnswerList,
       specialAnswerList: specialAnswerList,
+      hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer,
       upperQuestionId: upperQuestionId,
       pageNumber: pageNumber,
@@ -43,9 +46,11 @@ class _$QuestionTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Question = _$QuestionTearOff();
 
+/// @nodoc
 mixin _$Question {
   QuestionId get id;
   bool get hideId;
@@ -56,6 +61,7 @@ mixin _$Question {
   ShowQuestion get show;
   KtList<Choice> get choiceAnswerList;
   KtList<Choice> get specialAnswerList;
+  bool get hasSpecialAnswer;
   ValidateAnswer get validateAnswer;
   QuestionId get upperQuestionId;
   PageNumber get pageNumber;
@@ -63,6 +69,7 @@ mixin _$Question {
   $QuestionCopyWith<Question> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res>;
@@ -76,11 +83,13 @@ abstract class $QuestionCopyWith<$Res> {
       ShowQuestion show,
       KtList<Choice> choiceAnswerList,
       KtList<Choice> specialAnswerList,
+      bool hasSpecialAnswer,
       ValidateAnswer validateAnswer,
       QuestionId upperQuestionId,
       PageNumber pageNumber});
 }
 
+/// @nodoc
 class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
   _$QuestionCopyWithImpl(this._value, this._then);
 
@@ -99,6 +108,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
     Object show = freezed,
     Object choiceAnswerList = freezed,
     Object specialAnswerList = freezed,
+    Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
     Object pageNumber = freezed,
@@ -119,6 +129,9 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       specialAnswerList: specialAnswerList == freezed
           ? _value.specialAnswerList
           : specialAnswerList as KtList<Choice>,
+      hasSpecialAnswer: hasSpecialAnswer == freezed
+          ? _value.hasSpecialAnswer
+          : hasSpecialAnswer as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
           : validateAnswer as ValidateAnswer,
@@ -131,6 +144,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
   factory _$QuestionCopyWith(_Question value, $Res Function(_Question) then) =
       __$QuestionCopyWithImpl<$Res>;
@@ -145,11 +159,13 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       ShowQuestion show,
       KtList<Choice> choiceAnswerList,
       KtList<Choice> specialAnswerList,
+      bool hasSpecialAnswer,
       ValidateAnswer validateAnswer,
       QuestionId upperQuestionId,
       PageNumber pageNumber});
 }
 
+/// @nodoc
 class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     implements _$QuestionCopyWith<$Res> {
   __$QuestionCopyWithImpl(_Question _value, $Res Function(_Question) _then)
@@ -169,6 +185,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     Object show = freezed,
     Object choiceAnswerList = freezed,
     Object specialAnswerList = freezed,
+    Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
     Object pageNumber = freezed,
@@ -189,6 +206,9 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       specialAnswerList: specialAnswerList == freezed
           ? _value.specialAnswerList
           : specialAnswerList as KtList<Choice>,
+      hasSpecialAnswer: hasSpecialAnswer == freezed
+          ? _value.hasSpecialAnswer
+          : hasSpecialAnswer as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
           : validateAnswer as ValidateAnswer,
@@ -201,6 +221,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Question extends _Question {
   const _$_Question(
       {@required this.id,
@@ -212,6 +233,7 @@ class _$_Question extends _Question {
       @required this.show,
       @required this.choiceAnswerList,
       @required this.specialAnswerList,
+      @required this.hasSpecialAnswer,
       @required this.validateAnswer,
       @required this.upperQuestionId,
       @required this.pageNumber})
@@ -224,6 +246,7 @@ class _$_Question extends _Question {
         assert(show != null),
         assert(choiceAnswerList != null),
         assert(specialAnswerList != null),
+        assert(hasSpecialAnswer != null),
         assert(validateAnswer != null),
         assert(upperQuestionId != null),
         assert(pageNumber != null),
@@ -248,6 +271,8 @@ class _$_Question extends _Question {
   @override
   final KtList<Choice> specialAnswerList;
   @override
+  final bool hasSpecialAnswer;
+  @override
   final ValidateAnswer validateAnswer;
   @override
   final QuestionId upperQuestionId;
@@ -256,7 +281,7 @@ class _$_Question extends _Question {
 
   @override
   String toString() {
-    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceAnswerList: $choiceAnswerList, specialAnswerList: $specialAnswerList, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
+    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceAnswerList: $choiceAnswerList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
   }
 
   @override
@@ -284,6 +309,9 @@ class _$_Question extends _Question {
             (identical(other.specialAnswerList, specialAnswerList) ||
                 const DeepCollectionEquality()
                     .equals(other.specialAnswerList, specialAnswerList)) &&
+            (identical(other.hasSpecialAnswer, hasSpecialAnswer) ||
+                const DeepCollectionEquality()
+                    .equals(other.hasSpecialAnswer, hasSpecialAnswer)) &&
             (identical(other.validateAnswer, validateAnswer) ||
                 const DeepCollectionEquality()
                     .equals(other.validateAnswer, validateAnswer)) &&
@@ -307,6 +335,7 @@ class _$_Question extends _Question {
       const DeepCollectionEquality().hash(show) ^
       const DeepCollectionEquality().hash(choiceAnswerList) ^
       const DeepCollectionEquality().hash(specialAnswerList) ^
+      const DeepCollectionEquality().hash(hasSpecialAnswer) ^
       const DeepCollectionEquality().hash(validateAnswer) ^
       const DeepCollectionEquality().hash(upperQuestionId) ^
       const DeepCollectionEquality().hash(pageNumber);
@@ -328,6 +357,7 @@ abstract class _Question extends Question {
       @required ShowQuestion show,
       @required KtList<Choice> choiceAnswerList,
       @required KtList<Choice> specialAnswerList,
+      @required bool hasSpecialAnswer,
       @required ValidateAnswer validateAnswer,
       @required QuestionId upperQuestionId,
       @required PageNumber pageNumber}) = _$_Question;
@@ -350,6 +380,8 @@ abstract class _Question extends Question {
   KtList<Choice> get choiceAnswerList;
   @override
   KtList<Choice> get specialAnswerList;
+  @override
+  bool get hasSpecialAnswer;
   @override
   ValidateAnswer get validateAnswer;
   @override

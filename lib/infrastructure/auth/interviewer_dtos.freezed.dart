@@ -12,6 +12,7 @@ InterviewerListDto _$InterviewerListDtoFromJson(Map<String, dynamic> json) {
   return _InterviewerListDto.fromJson(json);
 }
 
+/// @nodoc
 class _$InterviewerListDtoTearOff {
   const _$InterviewerListDtoTearOff();
 
@@ -21,11 +22,18 @@ class _$InterviewerListDtoTearOff {
       list: list,
     );
   }
+
+// ignore: unused_element
+  InterviewerListDto fromJson(Map<String, Object> json) {
+    return InterviewerListDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $InterviewerListDto = _$InterviewerListDtoTearOff();
 
+/// @nodoc
 mixin _$InterviewerListDto {
   List<InterviewerDto> get list;
 
@@ -33,6 +41,7 @@ mixin _$InterviewerListDto {
   $InterviewerListDtoCopyWith<InterviewerListDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $InterviewerListDtoCopyWith<$Res> {
   factory $InterviewerListDtoCopyWith(
           InterviewerListDto value, $Res Function(InterviewerListDto) then) =
@@ -40,6 +49,7 @@ abstract class $InterviewerListDtoCopyWith<$Res> {
   $Res call({List<InterviewerDto> list});
 }
 
+/// @nodoc
 class _$InterviewerListDtoCopyWithImpl<$Res>
     implements $InterviewerListDtoCopyWith<$Res> {
   _$InterviewerListDtoCopyWithImpl(this._value, this._then);
@@ -58,6 +68,7 @@ class _$InterviewerListDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$InterviewerListDtoCopyWith<$Res>
     implements $InterviewerListDtoCopyWith<$Res> {
   factory _$InterviewerListDtoCopyWith(
@@ -67,6 +78,7 @@ abstract class _$InterviewerListDtoCopyWith<$Res>
   $Res call({List<InterviewerDto> list});
 }
 
+/// @nodoc
 class __$InterviewerListDtoCopyWithImpl<$Res>
     extends _$InterviewerListDtoCopyWithImpl<$Res>
     implements _$InterviewerListDtoCopyWith<$Res> {
@@ -88,6 +100,8 @@ class __$InterviewerListDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_InterviewerListDto extends _InterviewerListDto {
   const _$_InterviewerListDto({@required this.list})
       : assert(list != null),
@@ -144,6 +158,7 @@ InterviewerDto _$InterviewerDtoFromJson(Map<String, dynamic> json) {
   return _InterviewerDto.fromJson(json);
 }
 
+/// @nodoc
 class _$InterviewerDtoTearOff {
   const _$InterviewerDtoTearOff();
 
@@ -156,11 +171,18 @@ class _$InterviewerDtoTearOff {
       password: password,
     );
   }
+
+// ignore: unused_element
+  InterviewerDto fromJson(Map<String, Object> json) {
+    return InterviewerDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $InterviewerDto = _$InterviewerDtoTearOff();
 
+/// @nodoc
 mixin _$InterviewerDto {
   String get id;
   String get name;
@@ -170,6 +192,7 @@ mixin _$InterviewerDto {
   $InterviewerDtoCopyWith<InterviewerDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $InterviewerDtoCopyWith<$Res> {
   factory $InterviewerDtoCopyWith(
           InterviewerDto value, $Res Function(InterviewerDto) then) =
@@ -177,6 +200,7 @@ abstract class $InterviewerDtoCopyWith<$Res> {
   $Res call({String id, String name, String password});
 }
 
+/// @nodoc
 class _$InterviewerDtoCopyWithImpl<$Res>
     implements $InterviewerDtoCopyWith<$Res> {
   _$InterviewerDtoCopyWithImpl(this._value, this._then);
@@ -199,6 +223,7 @@ class _$InterviewerDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$InterviewerDtoCopyWith<$Res>
     implements $InterviewerDtoCopyWith<$Res> {
   factory _$InterviewerDtoCopyWith(
@@ -208,6 +233,7 @@ abstract class _$InterviewerDtoCopyWith<$Res>
   $Res call({String id, String name, String password});
 }
 
+/// @nodoc
 class __$InterviewerDtoCopyWithImpl<$Res>
     extends _$InterviewerDtoCopyWithImpl<$Res>
     implements _$InterviewerDtoCopyWith<$Res> {
@@ -233,6 +259,8 @@ class __$InterviewerDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_InterviewerDto extends _InterviewerDto {
   const _$_InterviewerDto(
       {@required this.id, @required this.name, @required this.password})

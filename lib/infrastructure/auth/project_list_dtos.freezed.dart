@@ -12,6 +12,7 @@ ProjectListDto _$ProjectListDtoFromJson(Map<String, dynamic> json) {
   return _ProjectListDto.fromJson(json);
 }
 
+/// @nodoc
 class _$ProjectListDtoTearOff {
   const _$ProjectListDtoTearOff();
 
@@ -21,11 +22,18 @@ class _$ProjectListDtoTearOff {
       list: list,
     );
   }
+
+// ignore: unused_element
+  ProjectListDto fromJson(Map<String, Object> json) {
+    return ProjectListDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ProjectListDto = _$ProjectListDtoTearOff();
 
+/// @nodoc
 mixin _$ProjectListDto {
   List<ProjectDto> get list;
 
@@ -33,6 +41,7 @@ mixin _$ProjectListDto {
   $ProjectListDtoCopyWith<ProjectListDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $ProjectListDtoCopyWith<$Res> {
   factory $ProjectListDtoCopyWith(
           ProjectListDto value, $Res Function(ProjectListDto) then) =
@@ -40,6 +49,7 @@ abstract class $ProjectListDtoCopyWith<$Res> {
   $Res call({List<ProjectDto> list});
 }
 
+/// @nodoc
 class _$ProjectListDtoCopyWithImpl<$Res>
     implements $ProjectListDtoCopyWith<$Res> {
   _$ProjectListDtoCopyWithImpl(this._value, this._then);
@@ -58,6 +68,7 @@ class _$ProjectListDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$ProjectListDtoCopyWith<$Res>
     implements $ProjectListDtoCopyWith<$Res> {
   factory _$ProjectListDtoCopyWith(
@@ -67,6 +78,7 @@ abstract class _$ProjectListDtoCopyWith<$Res>
   $Res call({List<ProjectDto> list});
 }
 
+/// @nodoc
 class __$ProjectListDtoCopyWithImpl<$Res>
     extends _$ProjectListDtoCopyWithImpl<$Res>
     implements _$ProjectListDtoCopyWith<$Res> {
@@ -88,6 +100,8 @@ class __$ProjectListDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_ProjectListDto extends _ProjectListDto {
   const _$_ProjectListDto({@required this.list})
       : assert(list != null),
@@ -144,6 +158,7 @@ ProjectDto _$ProjectDtoFromJson(Map<String, dynamic> json) {
   return _ProjectDto.fromJson(json);
 }
 
+/// @nodoc
 class _$ProjectDtoTearOff {
   const _$ProjectDtoTearOff();
 
@@ -154,12 +169,20 @@ class _$ProjectDtoTearOff {
       projectName: projectName,
     );
   }
+
+// ignore: unused_element
+  ProjectDto fromJson(Map<String, Object> json) {
+    return ProjectDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ProjectDto = _$ProjectDtoTearOff();
 
+/// @nodoc
 mixin _$ProjectDto {
+// TODO 是否改為 id, name?
   String get projectId;
   String get projectName;
 
@@ -167,6 +190,7 @@ mixin _$ProjectDto {
   $ProjectDtoCopyWith<ProjectDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $ProjectDtoCopyWith<$Res> {
   factory $ProjectDtoCopyWith(
           ProjectDto value, $Res Function(ProjectDto) then) =
@@ -174,6 +198,7 @@ abstract class $ProjectDtoCopyWith<$Res> {
   $Res call({String projectId, String projectName});
 }
 
+/// @nodoc
 class _$ProjectDtoCopyWithImpl<$Res> implements $ProjectDtoCopyWith<$Res> {
   _$ProjectDtoCopyWithImpl(this._value, this._then);
 
@@ -194,6 +219,7 @@ class _$ProjectDtoCopyWithImpl<$Res> implements $ProjectDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ProjectDtoCopyWith<$Res> implements $ProjectDtoCopyWith<$Res> {
   factory _$ProjectDtoCopyWith(
           _ProjectDto value, $Res Function(_ProjectDto) then) =
@@ -202,6 +228,7 @@ abstract class _$ProjectDtoCopyWith<$Res> implements $ProjectDtoCopyWith<$Res> {
   $Res call({String projectId, String projectName});
 }
 
+/// @nodoc
 class __$ProjectDtoCopyWithImpl<$Res> extends _$ProjectDtoCopyWithImpl<$Res>
     implements _$ProjectDtoCopyWith<$Res> {
   __$ProjectDtoCopyWithImpl(
@@ -225,6 +252,8 @@ class __$ProjectDtoCopyWithImpl<$Res> extends _$ProjectDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_ProjectDto extends _ProjectDto {
   const _$_ProjectDto({@required this.projectId, @required this.projectName})
       : assert(projectId != null),
@@ -234,7 +263,7 @@ class _$_ProjectDto extends _ProjectDto {
   factory _$_ProjectDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ProjectDtoFromJson(json);
 
-  @override
+  @override // TODO 是否改為 id, name?
   final String projectId;
   @override
   final String projectName;
@@ -281,7 +310,7 @@ abstract class _ProjectDto extends ProjectDto {
   factory _ProjectDto.fromJson(Map<String, dynamic> json) =
       _$_ProjectDto.fromJson;
 
-  @override
+  @override // TODO 是否改為 id, name?
   String get projectId;
   @override
   String get projectName;

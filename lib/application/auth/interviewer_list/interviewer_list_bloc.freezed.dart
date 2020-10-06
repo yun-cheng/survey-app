@@ -9,6 +9,7 @@ part of 'interviewer_list_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$InterviewerListEventTearOff {
   const _$InterviewerListEventTearOff();
 
@@ -20,9 +21,11 @@ class _$InterviewerListEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $InterviewerListEvent = _$InterviewerListEventTearOff();
 
+/// @nodoc
 mixin _$InterviewerListEvent {
   String get projectId;
 
@@ -48,6 +51,7 @@ mixin _$InterviewerListEvent {
   $InterviewerListEventCopyWith<InterviewerListEvent> get copyWith;
 }
 
+/// @nodoc
 abstract class $InterviewerListEventCopyWith<$Res> {
   factory $InterviewerListEventCopyWith(InterviewerListEvent value,
           $Res Function(InterviewerListEvent) then) =
@@ -55,6 +59,7 @@ abstract class $InterviewerListEventCopyWith<$Res> {
   $Res call({String projectId});
 }
 
+/// @nodoc
 class _$InterviewerListEventCopyWithImpl<$Res>
     implements $InterviewerListEventCopyWith<$Res> {
   _$InterviewerListEventCopyWithImpl(this._value, this._then);
@@ -73,6 +78,7 @@ class _$InterviewerListEventCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$ProjectChangedCopyWith<$Res>
     implements $InterviewerListEventCopyWith<$Res> {
   factory _$ProjectChangedCopyWith(
@@ -82,6 +88,7 @@ abstract class _$ProjectChangedCopyWith<$Res>
   $Res call({String projectId});
 }
 
+/// @nodoc
 class __$ProjectChangedCopyWithImpl<$Res>
     extends _$InterviewerListEventCopyWithImpl<$Res>
     implements _$ProjectChangedCopyWith<$Res> {
@@ -102,6 +109,7 @@ class __$ProjectChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_ProjectChanged implements _ProjectChanged {
   const _$_ProjectChanged(this.projectId) : assert(projectId != null);
 
@@ -184,6 +192,7 @@ abstract class _ProjectChanged implements InterviewerListEvent {
   _$ProjectChangedCopyWith<_ProjectChanged> get copyWith;
 }
 
+/// @nodoc
 class _$InterviewerListStateTearOff {
   const _$InterviewerListStateTearOff();
 
@@ -198,9 +207,11 @@ class _$InterviewerListStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $InterviewerListState = _$InterviewerListStateTearOff();
 
+/// @nodoc
 mixin _$InterviewerListState {
   KtList<Interviewer> get interviewerList;
   Option<AuthFailure> get failureOption;
@@ -208,6 +219,7 @@ mixin _$InterviewerListState {
   $InterviewerListStateCopyWith<InterviewerListState> get copyWith;
 }
 
+/// @nodoc
 abstract class $InterviewerListStateCopyWith<$Res> {
   factory $InterviewerListStateCopyWith(InterviewerListState value,
           $Res Function(InterviewerListState) then) =
@@ -216,6 +228,7 @@ abstract class $InterviewerListStateCopyWith<$Res> {
       {KtList<Interviewer> interviewerList, Option<AuthFailure> failureOption});
 }
 
+/// @nodoc
 class _$InterviewerListStateCopyWithImpl<$Res>
     implements $InterviewerListStateCopyWith<$Res> {
   _$InterviewerListStateCopyWithImpl(this._value, this._then);
@@ -240,6 +253,7 @@ class _$InterviewerListStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$InterviewerListStateCopyWith<$Res>
     implements $InterviewerListStateCopyWith<$Res> {
   factory _$InterviewerListStateCopyWith(_InterviewerListState value,
@@ -250,6 +264,7 @@ abstract class _$InterviewerListStateCopyWith<$Res>
       {KtList<Interviewer> interviewerList, Option<AuthFailure> failureOption});
 }
 
+/// @nodoc
 class __$InterviewerListStateCopyWithImpl<$Res>
     extends _$InterviewerListStateCopyWithImpl<$Res>
     implements _$InterviewerListStateCopyWith<$Res> {
@@ -276,6 +291,7 @@ class __$InterviewerListStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_InterviewerListState implements _InterviewerListState {
   const _$_InterviewerListState(
       {@required this.interviewerList, @required this.failureOption})

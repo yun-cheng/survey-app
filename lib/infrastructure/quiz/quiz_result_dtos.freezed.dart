@@ -12,6 +12,7 @@ QuizResultDto _$QuizResultDtoFromJson(Map<String, dynamic> json) {
   return _QuizResultDto.fromJson(json);
 }
 
+/// @nodoc
 class _$QuizResultDtoTearOff {
   const _$QuizResultDtoTearOff();
 
@@ -36,11 +37,18 @@ class _$QuizResultDtoTearOff {
       deviceTimeStamp: deviceTimeStamp,
     );
   }
+
+// ignore: unused_element
+  QuizResultDto fromJson(Map<String, Object> json) {
+    return QuizResultDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuizResultDto = _$QuizResultDtoTearOff();
 
+/// @nodoc
 mixin _$QuizResultDto {
   String get quizId;
   String get projectId;
@@ -56,6 +64,7 @@ mixin _$QuizResultDto {
   $QuizResultDtoCopyWith<QuizResultDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuizResultDtoCopyWith<$Res> {
   factory $QuizResultDtoCopyWith(
           QuizResultDto value, $Res Function(QuizResultDto) then) =
@@ -75,6 +84,7 @@ abstract class $QuizResultDtoCopyWith<$Res> {
   $ScoreHistoryDtoCopyWith<$Res> get scoreHistory;
 }
 
+/// @nodoc
 class _$QuizResultDtoCopyWithImpl<$Res>
     implements $QuizResultDtoCopyWith<$Res> {
   _$QuizResultDtoCopyWithImpl(this._value, this._then);
@@ -146,6 +156,7 @@ class _$QuizResultDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$QuizResultDtoCopyWith<$Res>
     implements $QuizResultDtoCopyWith<$Res> {
   factory _$QuizResultDtoCopyWith(
@@ -170,6 +181,7 @@ abstract class _$QuizResultDtoCopyWith<$Res>
   $ScoreHistoryDtoCopyWith<$Res> get scoreHistory;
 }
 
+/// @nodoc
 class __$QuizResultDtoCopyWithImpl<$Res>
     extends _$QuizResultDtoCopyWithImpl<$Res>
     implements _$QuizResultDtoCopyWith<$Res> {
@@ -214,6 +226,8 @@ class __$QuizResultDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_QuizResultDto extends _QuizResultDto {
   const _$_QuizResultDto(
       {@required this.quizId,
@@ -350,6 +364,7 @@ ScoreDto _$ScoreDtoFromJson(Map<String, dynamic> json) {
   return _ScoreDto.fromJson(json);
 }
 
+/// @nodoc
 class _$ScoreDtoTearOff {
   const _$ScoreDtoTearOff();
 
@@ -360,11 +375,18 @@ class _$ScoreDtoTearOff {
       wrong: wrong,
     );
   }
+
+// ignore: unused_element
+  ScoreDto fromJson(Map<String, Object> json) {
+    return ScoreDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ScoreDto = _$ScoreDtoTearOff();
 
+/// @nodoc
 mixin _$ScoreDto {
   int get right;
   int get wrong;
@@ -373,12 +395,14 @@ mixin _$ScoreDto {
   $ScoreDtoCopyWith<ScoreDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $ScoreDtoCopyWith<$Res> {
   factory $ScoreDtoCopyWith(ScoreDto value, $Res Function(ScoreDto) then) =
       _$ScoreDtoCopyWithImpl<$Res>;
   $Res call({int right, int wrong});
 }
 
+/// @nodoc
 class _$ScoreDtoCopyWithImpl<$Res> implements $ScoreDtoCopyWith<$Res> {
   _$ScoreDtoCopyWithImpl(this._value, this._then);
 
@@ -398,6 +422,7 @@ class _$ScoreDtoCopyWithImpl<$Res> implements $ScoreDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ScoreDtoCopyWith<$Res> implements $ScoreDtoCopyWith<$Res> {
   factory _$ScoreDtoCopyWith(_ScoreDto value, $Res Function(_ScoreDto) then) =
       __$ScoreDtoCopyWithImpl<$Res>;
@@ -405,6 +430,7 @@ abstract class _$ScoreDtoCopyWith<$Res> implements $ScoreDtoCopyWith<$Res> {
   $Res call({int right, int wrong});
 }
 
+/// @nodoc
 class __$ScoreDtoCopyWithImpl<$Res> extends _$ScoreDtoCopyWithImpl<$Res>
     implements _$ScoreDtoCopyWith<$Res> {
   __$ScoreDtoCopyWithImpl(_ScoreDto _value, $Res Function(_ScoreDto) _then)
@@ -426,6 +452,8 @@ class __$ScoreDtoCopyWithImpl<$Res> extends _$ScoreDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_ScoreDto extends _ScoreDto {
   const _$_ScoreDto({@required this.right, @required this.wrong})
       : assert(right != null),
@@ -490,6 +518,7 @@ ScoreHistoryDto _$ScoreHistoryDtoFromJson(Map<String, dynamic> json) {
   return _ScoreHistoryDto.fromJson(json);
 }
 
+/// @nodoc
 class _$ScoreHistoryDtoTearOff {
   const _$ScoreHistoryDtoTearOff();
 
@@ -499,11 +528,18 @@ class _$ScoreHistoryDtoTearOff {
       scoreHistory: scoreHistory,
     );
   }
+
+// ignore: unused_element
+  ScoreHistoryDto fromJson(Map<String, Object> json) {
+    return ScoreHistoryDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ScoreHistoryDto = _$ScoreHistoryDtoTearOff();
 
+/// @nodoc
 mixin _$ScoreHistoryDto {
   Map<String, bool> get scoreHistory;
 
@@ -511,6 +547,7 @@ mixin _$ScoreHistoryDto {
   $ScoreHistoryDtoCopyWith<ScoreHistoryDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $ScoreHistoryDtoCopyWith<$Res> {
   factory $ScoreHistoryDtoCopyWith(
           ScoreHistoryDto value, $Res Function(ScoreHistoryDto) then) =
@@ -518,6 +555,7 @@ abstract class $ScoreHistoryDtoCopyWith<$Res> {
   $Res call({Map<String, bool> scoreHistory});
 }
 
+/// @nodoc
 class _$ScoreHistoryDtoCopyWithImpl<$Res>
     implements $ScoreHistoryDtoCopyWith<$Res> {
   _$ScoreHistoryDtoCopyWithImpl(this._value, this._then);
@@ -538,6 +576,7 @@ class _$ScoreHistoryDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$ScoreHistoryDtoCopyWith<$Res>
     implements $ScoreHistoryDtoCopyWith<$Res> {
   factory _$ScoreHistoryDtoCopyWith(
@@ -547,6 +586,7 @@ abstract class _$ScoreHistoryDtoCopyWith<$Res>
   $Res call({Map<String, bool> scoreHistory});
 }
 
+/// @nodoc
 class __$ScoreHistoryDtoCopyWithImpl<$Res>
     extends _$ScoreHistoryDtoCopyWithImpl<$Res>
     implements _$ScoreHistoryDtoCopyWith<$Res> {
@@ -570,6 +610,8 @@ class __$ScoreHistoryDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_ScoreHistoryDto extends _ScoreHistoryDto {
   const _$_ScoreHistoryDto({@required this.scoreHistory})
       : assert(scoreHistory != null),

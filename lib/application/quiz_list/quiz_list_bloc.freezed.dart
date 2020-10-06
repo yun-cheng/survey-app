@@ -9,6 +9,7 @@ part of 'quiz_list_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuizListEventTearOff {
   const _$QuizListEventTearOff();
 
@@ -18,9 +19,11 @@ class _$QuizListEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuizListEvent = _$QuizListEventTearOff();
 
+/// @nodoc
 mixin _$QuizListEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -42,12 +45,14 @@ mixin _$QuizListEvent {
   });
 }
 
+/// @nodoc
 abstract class $QuizListEventCopyWith<$Res> {
   factory $QuizListEventCopyWith(
           QuizListEvent value, $Res Function(QuizListEvent) then) =
       _$QuizListEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$QuizListEventCopyWithImpl<$Res>
     implements $QuizListEventCopyWith<$Res> {
   _$QuizListEventCopyWithImpl(this._value, this._then);
@@ -57,12 +62,14 @@ class _$QuizListEventCopyWithImpl<$Res>
   final $Res Function(QuizListEvent) _then;
 }
 
+/// @nodoc
 abstract class _$QuizListLoadedCopyWith<$Res> {
   factory _$QuizListLoadedCopyWith(
           _QuizListLoaded value, $Res Function(_QuizListLoaded) then) =
       __$QuizListLoadedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$QuizListLoadedCopyWithImpl<$Res>
     extends _$QuizListEventCopyWithImpl<$Res>
     implements _$QuizListLoadedCopyWith<$Res> {
@@ -74,6 +81,7 @@ class __$QuizListLoadedCopyWithImpl<$Res>
   _QuizListLoaded get _value => super._value as _QuizListLoaded;
 }
 
+/// @nodoc
 class _$_QuizListLoaded
     with DiagnosticableTreeMixin
     implements _QuizListLoaded {
@@ -148,6 +156,7 @@ abstract class _QuizListLoaded implements QuizListEvent {
   const factory _QuizListLoaded() = _$_QuizListLoaded;
 }
 
+/// @nodoc
 class _$QuizListStateTearOff {
   const _$QuizListStateTearOff();
 
@@ -176,9 +185,11 @@ class _$QuizListStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuizListState = _$QuizListStateTearOff();
 
+/// @nodoc
 mixin _$QuizListState {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -212,12 +223,14 @@ mixin _$QuizListState {
   });
 }
 
+/// @nodoc
 abstract class $QuizListStateCopyWith<$Res> {
   factory $QuizListStateCopyWith(
           QuizListState value, $Res Function(QuizListState) then) =
       _$QuizListStateCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$QuizListStateCopyWithImpl<$Res>
     implements $QuizListStateCopyWith<$Res> {
   _$QuizListStateCopyWithImpl(this._value, this._then);
@@ -227,11 +240,13 @@ class _$QuizListStateCopyWithImpl<$Res>
   final $Res Function(QuizListState) _then;
 }
 
+/// @nodoc
 abstract class _$InitialCopyWith<$Res> {
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InitialCopyWithImpl<$Res> extends _$QuizListStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
@@ -241,6 +256,7 @@ class __$InitialCopyWithImpl<$Res> extends _$QuizListStateCopyWithImpl<$Res>
   _Initial get _value => super._value as _Initial;
 }
 
+/// @nodoc
 class _$_Initial with DiagnosticableTreeMixin implements _Initial {
   const _$_Initial();
 
@@ -330,12 +346,14 @@ abstract class _Initial implements QuizListState {
   const factory _Initial() = _$_Initial;
 }
 
+/// @nodoc
 abstract class _$LoadInProgressCopyWith<$Res> {
   factory _$LoadInProgressCopyWith(
           _LoadInProgress value, $Res Function(_LoadInProgress) then) =
       __$LoadInProgressCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$LoadInProgressCopyWithImpl<$Res>
     extends _$QuizListStateCopyWithImpl<$Res>
     implements _$LoadInProgressCopyWith<$Res> {
@@ -347,6 +365,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
   _LoadInProgress get _value => super._value as _LoadInProgress;
 }
 
+/// @nodoc
 class _$_LoadInProgress
     with DiagnosticableTreeMixin
     implements _LoadInProgress {
@@ -439,6 +458,7 @@ abstract class _LoadInProgress implements QuizListState {
   const factory _LoadInProgress() = _$_LoadInProgress;
 }
 
+/// @nodoc
 abstract class _$LoadFailureCopyWith<$Res> {
   factory _$LoadFailureCopyWith(
           _LoadFailure value, $Res Function(_LoadFailure) then) =
@@ -448,6 +468,7 @@ abstract class _$LoadFailureCopyWith<$Res> {
   $QuizListFailureCopyWith<$Res> get quizListFailure;
 }
 
+/// @nodoc
 class __$LoadFailureCopyWithImpl<$Res> extends _$QuizListStateCopyWithImpl<$Res>
     implements _$LoadFailureCopyWith<$Res> {
   __$LoadFailureCopyWithImpl(
@@ -479,6 +500,7 @@ class __$LoadFailureCopyWithImpl<$Res> extends _$QuizListStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_LoadFailure with DiagnosticableTreeMixin implements _LoadFailure {
   const _$_LoadFailure(this.quizListFailure) : assert(quizListFailure != null);
 
@@ -586,6 +608,7 @@ abstract class _LoadFailure implements QuizListState {
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }
 
+/// @nodoc
 abstract class $LoadSuccessCopyWith<$Res> {
   factory $LoadSuccessCopyWith(
           LoadSuccess value, $Res Function(LoadSuccess) then) =
@@ -593,6 +616,7 @@ abstract class $LoadSuccessCopyWith<$Res> {
   $Res call({KtList<Quiz> quizList});
 }
 
+/// @nodoc
 class _$LoadSuccessCopyWithImpl<$Res> extends _$QuizListStateCopyWithImpl<$Res>
     implements $LoadSuccessCopyWith<$Res> {
   _$LoadSuccessCopyWithImpl(
@@ -612,6 +636,7 @@ class _$LoadSuccessCopyWithImpl<$Res> extends _$QuizListStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$LoadSuccess with DiagnosticableTreeMixin implements LoadSuccess {
   const _$LoadSuccess(this.quizList) : assert(quizList != null);
 

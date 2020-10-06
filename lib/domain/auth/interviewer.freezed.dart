@@ -9,6 +9,7 @@ part of 'interviewer.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$InterviewerTearOff {
   const _$InterviewerTearOff();
 
@@ -25,9 +26,11 @@ class _$InterviewerTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Interviewer = _$InterviewerTearOff();
 
+/// @nodoc
 mixin _$Interviewer {
   InterviewerId get id;
   InterviewerName get name;
@@ -36,6 +39,7 @@ mixin _$Interviewer {
   $InterviewerCopyWith<Interviewer> get copyWith;
 }
 
+/// @nodoc
 abstract class $InterviewerCopyWith<$Res> {
   factory $InterviewerCopyWith(
           Interviewer value, $Res Function(Interviewer) then) =
@@ -43,6 +47,7 @@ abstract class $InterviewerCopyWith<$Res> {
   $Res call({InterviewerId id, InterviewerName name, Password password});
 }
 
+/// @nodoc
 class _$InterviewerCopyWithImpl<$Res> implements $InterviewerCopyWith<$Res> {
   _$InterviewerCopyWithImpl(this._value, this._then);
 
@@ -64,6 +69,7 @@ class _$InterviewerCopyWithImpl<$Res> implements $InterviewerCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$InterviewerCopyWith<$Res>
     implements $InterviewerCopyWith<$Res> {
   factory _$InterviewerCopyWith(
@@ -73,6 +79,7 @@ abstract class _$InterviewerCopyWith<$Res>
   $Res call({InterviewerId id, InterviewerName name, Password password});
 }
 
+/// @nodoc
 class __$InterviewerCopyWithImpl<$Res> extends _$InterviewerCopyWithImpl<$Res>
     implements _$InterviewerCopyWith<$Res> {
   __$InterviewerCopyWithImpl(
@@ -96,6 +103,7 @@ class __$InterviewerCopyWithImpl<$Res> extends _$InterviewerCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Interviewer extends _Interviewer {
   const _$_Interviewer(
       {@required this.id, @required this.name, @required this.password})

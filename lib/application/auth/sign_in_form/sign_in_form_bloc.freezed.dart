@@ -9,6 +9,7 @@ part of 'sign_in_form_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SignInFormEventTearOff {
   const _$SignInFormEventTearOff();
 
@@ -44,9 +45,11 @@ class _$SignInFormEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignInFormEvent = _$SignInFormEventTearOff();
 
+/// @nodoc
 mixin _$SignInFormEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -84,12 +87,14 @@ mixin _$SignInFormEvent {
   });
 }
 
+/// @nodoc
 abstract class $SignInFormEventCopyWith<$Res> {
   factory $SignInFormEventCopyWith(
           SignInFormEvent value, $Res Function(SignInFormEvent) then) =
       _$SignInFormEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SignInFormEventCopyWithImpl<$Res>
     implements $SignInFormEventCopyWith<$Res> {
   _$SignInFormEventCopyWithImpl(this._value, this._then);
@@ -99,6 +104,7 @@ class _$SignInFormEventCopyWithImpl<$Res>
   final $Res Function(SignInFormEvent) _then;
 }
 
+/// @nodoc
 abstract class _$ProjectSelectedCopyWith<$Res> {
   factory _$ProjectSelectedCopyWith(
           _ProjectSelected value, $Res Function(_ProjectSelected) then) =
@@ -106,6 +112,7 @@ abstract class _$ProjectSelectedCopyWith<$Res> {
   $Res call({String projectIdStr});
 }
 
+/// @nodoc
 class __$ProjectSelectedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements _$ProjectSelectedCopyWith<$Res> {
@@ -126,6 +133,7 @@ class __$ProjectSelectedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_ProjectSelected
     with DiagnosticableTreeMixin
     implements _ProjectSelected {
@@ -240,6 +248,7 @@ abstract class _ProjectSelected implements SignInFormEvent {
   _$ProjectSelectedCopyWith<_ProjectSelected> get copyWith;
 }
 
+/// @nodoc
 abstract class _$InterviewerIdChangedCopyWith<$Res> {
   factory _$InterviewerIdChangedCopyWith(_InterviewerIdChanged value,
           $Res Function(_InterviewerIdChanged) then) =
@@ -247,6 +256,7 @@ abstract class _$InterviewerIdChangedCopyWith<$Res> {
   $Res call({String interviewerIdStr});
 }
 
+/// @nodoc
 class __$InterviewerIdChangedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements _$InterviewerIdChangedCopyWith<$Res> {
@@ -269,6 +279,7 @@ class __$InterviewerIdChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_InterviewerIdChanged
     with DiagnosticableTreeMixin
     implements _InterviewerIdChanged {
@@ -387,6 +398,7 @@ abstract class _InterviewerIdChanged implements SignInFormEvent {
   _$InterviewerIdChangedCopyWith<_InterviewerIdChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class _$PasswordChangedCopyWith<$Res> {
   factory _$PasswordChangedCopyWith(
           _PasswordChanged value, $Res Function(_PasswordChanged) then) =
@@ -394,6 +406,7 @@ abstract class _$PasswordChangedCopyWith<$Res> {
   $Res call({String passwordStr});
 }
 
+/// @nodoc
 class __$PasswordChangedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements _$PasswordChangedCopyWith<$Res> {
@@ -414,6 +427,7 @@ class __$PasswordChangedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_PasswordChanged
     with DiagnosticableTreeMixin
     implements _PasswordChanged {
@@ -528,12 +542,14 @@ abstract class _PasswordChanged implements SignInFormEvent {
   _$PasswordChangedCopyWith<_PasswordChanged> get copyWith;
 }
 
+/// @nodoc
 abstract class _$SignInPressedCopyWith<$Res> {
   factory _$SignInPressedCopyWith(
           _SignInPressed value, $Res Function(_SignInPressed) then) =
       __$SignInPressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$SignInPressedCopyWithImpl<$Res>
     extends _$SignInFormEventCopyWithImpl<$Res>
     implements _$SignInPressedCopyWith<$Res> {
@@ -545,6 +561,7 @@ class __$SignInPressedCopyWithImpl<$Res>
   _SignInPressed get _value => super._value as _SignInPressed;
 }
 
+/// @nodoc
 class _$_SignInPressed with DiagnosticableTreeMixin implements _SignInPressed {
   const _$_SignInPressed();
 
@@ -641,12 +658,14 @@ abstract class _SignInPressed implements SignInFormEvent {
   const factory _SignInPressed() = _$_SignInPressed;
 }
 
+/// @nodoc
 abstract class _$SignedOutCopyWith<$Res> {
   factory _$SignedOutCopyWith(
           _SignedOut value, $Res Function(_SignedOut) then) =
       __$SignedOutCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$SignedOutCopyWithImpl<$Res> extends _$SignInFormEventCopyWithImpl<$Res>
     implements _$SignedOutCopyWith<$Res> {
   __$SignedOutCopyWithImpl(_SignedOut _value, $Res Function(_SignedOut) _then)
@@ -656,6 +675,7 @@ class __$SignedOutCopyWithImpl<$Res> extends _$SignInFormEventCopyWithImpl<$Res>
   _SignedOut get _value => super._value as _SignedOut;
 }
 
+/// @nodoc
 class _$_SignedOut with DiagnosticableTreeMixin implements _SignedOut {
   const _$_SignedOut();
 
@@ -751,6 +771,7 @@ abstract class _SignedOut implements SignInFormEvent {
   const factory _SignedOut() = _$_SignedOut;
 }
 
+/// @nodoc
 class _$SignInFormStateTearOff {
   const _$SignInFormStateTearOff();
 
@@ -780,9 +801,11 @@ class _$SignInFormStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SignInFormState = _$SignInFormStateTearOff();
 
+/// @nodoc
 mixin _$SignInFormState {
   ProjectId get projectId;
   InterviewerId get interviewerId;
@@ -794,6 +817,7 @@ mixin _$SignInFormState {
   $SignInFormStateCopyWith<SignInFormState> get copyWith;
 }
 
+/// @nodoc
 abstract class $SignInFormStateCopyWith<$Res> {
   factory $SignInFormStateCopyWith(
           SignInFormState value, $Res Function(SignInFormState) then) =
@@ -807,6 +831,7 @@ abstract class $SignInFormStateCopyWith<$Res> {
       bool showErrorMessages});
 }
 
+/// @nodoc
 class _$SignInFormStateCopyWithImpl<$Res>
     implements $SignInFormStateCopyWith<$Res> {
   _$SignInFormStateCopyWithImpl(this._value, this._then);
@@ -845,6 +870,7 @@ class _$SignInFormStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$SignInFormStateCopyWith<$Res>
     implements $SignInFormStateCopyWith<$Res> {
   factory _$SignInFormStateCopyWith(
@@ -860,6 +886,7 @@ abstract class _$SignInFormStateCopyWith<$Res>
       bool showErrorMessages});
 }
 
+/// @nodoc
 class __$SignInFormStateCopyWithImpl<$Res>
     extends _$SignInFormStateCopyWithImpl<$Res>
     implements _$SignInFormStateCopyWith<$Res> {
@@ -900,6 +927,7 @@ class __$SignInFormStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_SignInFormState
     with DiagnosticableTreeMixin
     implements _SignInFormState {

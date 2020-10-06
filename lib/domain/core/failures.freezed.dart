@@ -9,6 +9,7 @@ part of 'failures.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
 
@@ -41,9 +42,11 @@ class _$ValueFailureTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ValueFailure = _$ValueFailureTearOff();
 
+/// @nodoc
 mixin _$ValueFailure<T> {
   T get failedValue;
 
@@ -81,6 +84,7 @@ mixin _$ValueFailure<T> {
   $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
 }
 
+/// @nodoc
 abstract class $ValueFailureCopyWith<T, $Res> {
   factory $ValueFailureCopyWith(
           ValueFailure<T> value, $Res Function(ValueFailure<T>) then) =
@@ -88,6 +92,7 @@ abstract class $ValueFailureCopyWith<T, $Res> {
   $Res call({T failedValue});
 }
 
+/// @nodoc
 class _$ValueFailureCopyWithImpl<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
   _$ValueFailureCopyWithImpl(this._value, this._then);
@@ -107,6 +112,7 @@ class _$ValueFailureCopyWithImpl<T, $Res>
   }
 }
 
+/// @nodoc
 abstract class $EmptyCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
   factory $EmptyCopyWith(Empty<T> value, $Res Function(Empty<T>) then) =
@@ -115,6 +121,7 @@ abstract class $EmptyCopyWith<T, $Res>
   $Res call({T failedValue});
 }
 
+/// @nodoc
 class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
     implements $EmptyCopyWith<T, $Res> {
   _$EmptyCopyWithImpl(Empty<T> _value, $Res Function(Empty<T>) _then)
@@ -134,6 +141,7 @@ class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
   }
 }
 
+/// @nodoc
 class _$Empty<T> implements Empty<T> {
   const _$Empty({@required this.failedValue}) : assert(failedValue != null);
 
@@ -234,6 +242,7 @@ abstract class Empty<T> implements ValueFailure<T> {
   $EmptyCopyWith<T, Empty<T>> get copyWith;
 }
 
+/// @nodoc
 abstract class $UnexpectedAnswerCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
   factory $UnexpectedAnswerCopyWith(
@@ -243,6 +252,7 @@ abstract class $UnexpectedAnswerCopyWith<T, $Res>
   $Res call({T failedValue});
 }
 
+/// @nodoc
 class _$UnexpectedAnswerCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
     implements $UnexpectedAnswerCopyWith<T, $Res> {
@@ -264,6 +274,7 @@ class _$UnexpectedAnswerCopyWithImpl<T, $Res>
   }
 }
 
+/// @nodoc
 class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   const _$UnexpectedAnswer({@required this.failedValue})
       : assert(failedValue != null);
@@ -366,6 +377,7 @@ abstract class UnexpectedAnswer<T> implements ValueFailure<T> {
   $UnexpectedAnswerCopyWith<T, UnexpectedAnswer<T>> get copyWith;
 }
 
+/// @nodoc
 abstract class $NotNaturalNumberCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
   factory $NotNaturalNumberCopyWith(
@@ -375,6 +387,7 @@ abstract class $NotNaturalNumberCopyWith<T, $Res>
   $Res call({T failedValue});
 }
 
+/// @nodoc
 class _$NotNaturalNumberCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
     implements $NotNaturalNumberCopyWith<T, $Res> {
@@ -396,6 +409,7 @@ class _$NotNaturalNumberCopyWithImpl<T, $Res>
   }
 }
 
+/// @nodoc
 class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
   const _$NotNaturalNumber({@required this.failedValue})
       : assert(failedValue != null);
@@ -498,6 +512,7 @@ abstract class NotNaturalNumber<T> implements ValueFailure<T> {
   $NotNaturalNumberCopyWith<T, NotNaturalNumber<T>> get copyWith;
 }
 
+/// @nodoc
 abstract class $NotBooleanCopyWith<T, $Res>
     implements $ValueFailureCopyWith<T, $Res> {
   factory $NotBooleanCopyWith(
@@ -507,6 +522,7 @@ abstract class $NotBooleanCopyWith<T, $Res>
   $Res call({T failedValue});
 }
 
+/// @nodoc
 class _$NotBooleanCopyWithImpl<T, $Res>
     extends _$ValueFailureCopyWithImpl<T, $Res>
     implements $NotBooleanCopyWith<T, $Res> {
@@ -528,6 +544,7 @@ class _$NotBooleanCopyWithImpl<T, $Res>
   }
 }
 
+/// @nodoc
 class _$NotBoolean<T> implements NotBoolean<T> {
   const _$NotBoolean({@required this.failedValue})
       : assert(failedValue != null);

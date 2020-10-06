@@ -9,6 +9,7 @@ part of 'project.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ProjectTearOff {
   const _$ProjectTearOff();
 
@@ -21,9 +22,11 @@ class _$ProjectTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Project = _$ProjectTearOff();
 
+/// @nodoc
 mixin _$Project {
   ProjectId get id;
   ProjectName get name;
@@ -31,12 +34,14 @@ mixin _$Project {
   $ProjectCopyWith<Project> get copyWith;
 }
 
+/// @nodoc
 abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res>;
   $Res call({ProjectId id, ProjectName name});
 }
 
+/// @nodoc
 class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
   _$ProjectCopyWithImpl(this._value, this._then);
 
@@ -56,6 +61,7 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
       __$ProjectCopyWithImpl<$Res>;
@@ -63,6 +69,7 @@ abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   $Res call({ProjectId id, ProjectName name});
 }
 
+/// @nodoc
 class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
     implements _$ProjectCopyWith<$Res> {
   __$ProjectCopyWithImpl(_Project _value, $Res Function(_Project) _then)
@@ -83,6 +90,7 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Project extends _Project {
   const _$_Project({@required this.id, @required this.name})
       : assert(id != null),

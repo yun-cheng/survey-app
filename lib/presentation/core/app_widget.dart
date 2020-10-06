@@ -41,7 +41,7 @@ class AppWidget extends StatelessWidget {
       child: MaterialApp(
         title: '訪員測驗',
         debugShowCheckedModeBanner: false,
-        builder: ExtendedNavigator(router: Router()),
+        builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
         theme: ThemeData.light().copyWith(
           textTheme:
               ThemeData.light().textTheme.apply(fontFamily: 'NotoSansTC'),

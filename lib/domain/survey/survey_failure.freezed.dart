@@ -9,6 +9,7 @@ part of 'survey_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$SurveyFailureTearOff {
   const _$SurveyFailureTearOff();
 
@@ -33,9 +34,11 @@ class _$SurveyFailureTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $SurveyFailure = _$SurveyFailureTearOff();
 
+/// @nodoc
 mixin _$SurveyFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -69,12 +72,14 @@ mixin _$SurveyFailure {
   });
 }
 
+/// @nodoc
 abstract class $SurveyFailureCopyWith<$Res> {
   factory $SurveyFailureCopyWith(
           SurveyFailure value, $Res Function(SurveyFailure) then) =
       _$SurveyFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$SurveyFailureCopyWithImpl<$Res>
     implements $SurveyFailureCopyWith<$Res> {
   _$SurveyFailureCopyWithImpl(this._value, this._then);
@@ -84,12 +89,14 @@ class _$SurveyFailureCopyWithImpl<$Res>
   final $Res Function(SurveyFailure) _then;
 }
 
+/// @nodoc
 abstract class _$ServerErrorCopyWith<$Res> {
   factory _$ServerErrorCopyWith(
           _ServerError value, $Res Function(_ServerError) then) =
       __$ServerErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$ServerErrorCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
     implements _$ServerErrorCopyWith<$Res> {
   __$ServerErrorCopyWithImpl(
@@ -100,6 +107,7 @@ class __$ServerErrorCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
   _ServerError get _value => super._value as _ServerError;
 }
 
+/// @nodoc
 class _$_ServerError implements _ServerError {
   const _$_ServerError();
 
@@ -183,12 +191,14 @@ abstract class _ServerError implements SurveyFailure {
   const factory _ServerError() = _$_ServerError;
 }
 
+/// @nodoc
 abstract class _$UnexpectedCopyWith<$Res> {
   factory _$UnexpectedCopyWith(
           _Unexpected value, $Res Function(_Unexpected) then) =
       __$UnexpectedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$UnexpectedCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
     implements _$UnexpectedCopyWith<$Res> {
   __$UnexpectedCopyWithImpl(
@@ -199,6 +209,7 @@ class __$UnexpectedCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
   _Unexpected get _value => super._value as _Unexpected;
 }
 
+/// @nodoc
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
 
@@ -282,12 +293,14 @@ abstract class _Unexpected implements SurveyFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
+/// @nodoc
 abstract class _$InsufficientPermissionCopyWith<$Res> {
   factory _$InsufficientPermissionCopyWith(_InsufficientPermission value,
           $Res Function(_InsufficientPermission) then) =
       __$InsufficientPermissionCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InsufficientPermissionCopyWithImpl<$Res>
     extends _$SurveyFailureCopyWithImpl<$Res>
     implements _$InsufficientPermissionCopyWith<$Res> {
@@ -299,6 +312,7 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
   _InsufficientPermission get _value => super._value as _InsufficientPermission;
 }
 
+/// @nodoc
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
 
@@ -382,12 +396,14 @@ abstract class _InsufficientPermission implements SurveyFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
 }
 
+/// @nodoc
 abstract class _$UnableToGetCopyWith<$Res> {
   factory _$UnableToGetCopyWith(
           _UnableToGet value, $Res Function(_UnableToGet) then) =
       __$UnableToGetCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$UnableToGetCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
     implements _$UnableToGetCopyWith<$Res> {
   __$UnableToGetCopyWithImpl(
@@ -398,6 +414,7 @@ class __$UnableToGetCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
   _UnableToGet get _value => super._value as _UnableToGet;
 }
 
+/// @nodoc
 class _$_UnableToGet implements _UnableToGet {
   const _$_UnableToGet();
 

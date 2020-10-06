@@ -9,6 +9,7 @@ part of 'question.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuestionTearOff {
   const _$QuestionTearOff();
 
@@ -25,9 +26,11 @@ class _$QuestionTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Question = _$QuestionTearOff();
 
+/// @nodoc
 mixin _$Question {
   QuestionId get id;
   QuestionBody get body;
@@ -36,12 +39,14 @@ mixin _$Question {
   $QuestionCopyWith<Question> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res>;
   $Res call({QuestionId id, QuestionBody body, Answer answer});
 }
 
+/// @nodoc
 class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
   _$QuestionCopyWithImpl(this._value, this._then);
 
@@ -63,6 +68,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
   factory _$QuestionCopyWith(_Question value, $Res Function(_Question) then) =
       __$QuestionCopyWithImpl<$Res>;
@@ -70,6 +76,7 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
   $Res call({QuestionId id, QuestionBody body, Answer answer});
 }
 
+/// @nodoc
 class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     implements _$QuestionCopyWith<$Res> {
   __$QuestionCopyWithImpl(_Question _value, $Res Function(_Question) _then)
@@ -92,6 +99,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Question extends _Question {
   const _$_Question(
       {@required this.id, @required this.body, @required this.answer})

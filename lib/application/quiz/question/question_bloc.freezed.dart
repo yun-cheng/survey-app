@@ -9,6 +9,7 @@ part of 'question_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuestionEventTearOff {
   const _$QuestionEventTearOff();
 
@@ -32,9 +33,11 @@ class _$QuestionEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionEvent = _$QuestionEventTearOff();
 
+/// @nodoc
 mixin _$QuestionEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -64,12 +67,14 @@ mixin _$QuestionEvent {
   });
 }
 
+/// @nodoc
 abstract class $QuestionEventCopyWith<$Res> {
   factory $QuestionEventCopyWith(
           QuestionEvent value, $Res Function(QuestionEvent) then) =
       _$QuestionEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$QuestionEventCopyWithImpl<$Res>
     implements $QuestionEventCopyWith<$Res> {
   _$QuestionEventCopyWithImpl(this._value, this._then);
@@ -79,6 +84,7 @@ class _$QuestionEventCopyWithImpl<$Res>
   final $Res Function(QuestionEvent) _then;
 }
 
+/// @nodoc
 abstract class _$NewQuestionEnteredCopyWith<$Res> {
   factory _$NewQuestionEnteredCopyWith(
           _NewQuestionEntered value, $Res Function(_NewQuestionEntered) then) =
@@ -88,6 +94,7 @@ abstract class _$NewQuestionEnteredCopyWith<$Res> {
   $QuestionCopyWith<$Res> get question;
 }
 
+/// @nodoc
 class __$NewQuestionEnteredCopyWithImpl<$Res>
     extends _$QuestionEventCopyWithImpl<$Res>
     implements _$NewQuestionEnteredCopyWith<$Res> {
@@ -118,6 +125,7 @@ class __$NewQuestionEnteredCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_NewQuestionEntered
     with DiagnosticableTreeMixin
     implements _NewQuestionEntered {
@@ -220,6 +228,7 @@ abstract class _NewQuestionEntered implements QuestionEvent {
   _$NewQuestionEnteredCopyWith<_NewQuestionEntered> get copyWith;
 }
 
+/// @nodoc
 abstract class $AnswerSelectedCopyWith<$Res> {
   factory $AnswerSelectedCopyWith(
           AnswerSelected value, $Res Function(AnswerSelected) then) =
@@ -227,6 +236,7 @@ abstract class $AnswerSelectedCopyWith<$Res> {
   $Res call({String answerStr});
 }
 
+/// @nodoc
 class _$AnswerSelectedCopyWithImpl<$Res>
     extends _$QuestionEventCopyWithImpl<$Res>
     implements $AnswerSelectedCopyWith<$Res> {
@@ -247,6 +257,7 @@ class _$AnswerSelectedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
   const _$AnswerSelected(this.answerStr) : assert(answerStr != null);
 
@@ -347,12 +358,14 @@ abstract class AnswerSelected implements QuestionEvent {
   $AnswerSelectedCopyWith<AnswerSelected> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuizResultUploadedCopyWith<$Res> {
   factory $QuizResultUploadedCopyWith(
           QuizResultUploaded value, $Res Function(QuizResultUploaded) then) =
       _$QuizResultUploadedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$QuizResultUploadedCopyWithImpl<$Res>
     extends _$QuestionEventCopyWithImpl<$Res>
     implements $QuizResultUploadedCopyWith<$Res> {
@@ -364,6 +377,7 @@ class _$QuizResultUploadedCopyWithImpl<$Res>
   QuizResultUploaded get _value => super._value as QuizResultUploaded;
 }
 
+/// @nodoc
 class _$QuizResultUploaded
     with DiagnosticableTreeMixin
     implements QuizResultUploaded {
@@ -450,6 +464,7 @@ abstract class QuizResultUploaded implements QuestionEvent {
   const factory QuizResultUploaded() = _$QuizResultUploaded;
 }
 
+/// @nodoc
 class _$QuestionStateTearOff {
   const _$QuestionStateTearOff();
 
@@ -480,9 +495,11 @@ class _$QuestionStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionState = _$QuestionStateTearOff();
 
+/// @nodoc
 mixin _$QuestionState {
   Answer get selectedAnswer;
   Answer get realAnswer;
@@ -498,6 +515,7 @@ mixin _$QuestionState {
   $QuestionStateCopyWith<QuestionState> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionStateCopyWith<$Res> {
   factory $QuestionStateCopyWith(
           QuestionState value, $Res Function(QuestionState) then) =
@@ -517,6 +535,7 @@ abstract class $QuestionStateCopyWith<$Res> {
   $ScoreCopyWith<$Res> get score;
 }
 
+/// @nodoc
 class _$QuestionStateCopyWithImpl<$Res>
     implements $QuestionStateCopyWith<$Res> {
   _$QuestionStateCopyWithImpl(this._value, this._then);
@@ -575,6 +594,7 @@ class _$QuestionStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$QuestionStateCopyWith<$Res>
     implements $QuestionStateCopyWith<$Res> {
   factory _$QuestionStateCopyWith(
@@ -597,6 +617,7 @@ abstract class _$QuestionStateCopyWith<$Res>
   $ScoreCopyWith<$Res> get score;
 }
 
+/// @nodoc
 class __$QuestionStateCopyWithImpl<$Res>
     extends _$QuestionStateCopyWithImpl<$Res>
     implements _$QuestionStateCopyWith<$Res> {
@@ -647,6 +668,7 @@ class __$QuestionStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_QuestionState with DiagnosticableTreeMixin implements _QuestionState {
   const _$_QuestionState(
       {@required this.selectedAnswer,

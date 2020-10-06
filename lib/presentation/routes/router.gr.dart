@@ -28,7 +28,7 @@ class Routes {
   };
 }
 
-class Router extends RouterBase {
+class AutoRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
@@ -75,7 +75,7 @@ class Router extends RouterBase {
 /// Navigation helper methods extension
 /// *************************************************************************
 
-extension RouterExtendedNavigatorStateX on ExtendedNavigatorState {
+extension AutoRouterExtendedNavigatorStateX on ExtendedNavigatorState {
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 
   Future<dynamic> pushQuizListPage() => push<dynamic>(Routes.quizListPage);

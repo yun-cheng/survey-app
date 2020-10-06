@@ -9,6 +9,7 @@ part of 'quiz_list_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuizListFailureTearOff {
   const _$QuizListFailureTearOff();
 
@@ -33,9 +34,11 @@ class _$QuizListFailureTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuizListFailure = _$QuizListFailureTearOff();
 
+/// @nodoc
 mixin _$QuizListFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -69,12 +72,14 @@ mixin _$QuizListFailure {
   });
 }
 
+/// @nodoc
 abstract class $QuizListFailureCopyWith<$Res> {
   factory $QuizListFailureCopyWith(
           QuizListFailure value, $Res Function(QuizListFailure) then) =
       _$QuizListFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$QuizListFailureCopyWithImpl<$Res>
     implements $QuizListFailureCopyWith<$Res> {
   _$QuizListFailureCopyWithImpl(this._value, this._then);
@@ -84,12 +89,14 @@ class _$QuizListFailureCopyWithImpl<$Res>
   final $Res Function(QuizListFailure) _then;
 }
 
+/// @nodoc
 abstract class _$ServerErrorCopyWith<$Res> {
   factory _$ServerErrorCopyWith(
           _ServerError value, $Res Function(_ServerError) then) =
       __$ServerErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$ServerErrorCopyWithImpl<$Res>
     extends _$QuizListFailureCopyWithImpl<$Res>
     implements _$ServerErrorCopyWith<$Res> {
@@ -101,6 +108,7 @@ class __$ServerErrorCopyWithImpl<$Res>
   _ServerError get _value => super._value as _ServerError;
 }
 
+/// @nodoc
 class _$_ServerError implements _ServerError {
   const _$_ServerError();
 
@@ -184,12 +192,14 @@ abstract class _ServerError implements QuizListFailure {
   const factory _ServerError() = _$_ServerError;
 }
 
+/// @nodoc
 abstract class _$UnexpectedCopyWith<$Res> {
   factory _$UnexpectedCopyWith(
           _Unexpected value, $Res Function(_Unexpected) then) =
       __$UnexpectedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$UnexpectedCopyWithImpl<$Res>
     extends _$QuizListFailureCopyWithImpl<$Res>
     implements _$UnexpectedCopyWith<$Res> {
@@ -201,6 +211,7 @@ class __$UnexpectedCopyWithImpl<$Res>
   _Unexpected get _value => super._value as _Unexpected;
 }
 
+/// @nodoc
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
 
@@ -284,12 +295,14 @@ abstract class _Unexpected implements QuizListFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
+/// @nodoc
 abstract class _$InsufficientPermissionCopyWith<$Res> {
   factory _$InsufficientPermissionCopyWith(_InsufficientPermission value,
           $Res Function(_InsufficientPermission) then) =
       __$InsufficientPermissionCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InsufficientPermissionCopyWithImpl<$Res>
     extends _$QuizListFailureCopyWithImpl<$Res>
     implements _$InsufficientPermissionCopyWith<$Res> {
@@ -301,6 +314,7 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
   _InsufficientPermission get _value => super._value as _InsufficientPermission;
 }
 
+/// @nodoc
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
 
@@ -384,12 +398,14 @@ abstract class _InsufficientPermission implements QuizListFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
 }
 
+/// @nodoc
 abstract class _$UnableToGetCopyWith<$Res> {
   factory _$UnableToGetCopyWith(
           _UnableToGet value, $Res Function(_UnableToGet) then) =
       __$UnableToGetCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$UnableToGetCopyWithImpl<$Res>
     extends _$QuizListFailureCopyWithImpl<$Res>
     implements _$UnableToGetCopyWith<$Res> {
@@ -401,6 +417,7 @@ class __$UnableToGetCopyWithImpl<$Res>
   _UnableToGet get _value => super._value as _UnableToGet;
 }
 
+/// @nodoc
 class _$_UnableToGet implements _UnableToGet {
   const _$_UnableToGet();
 

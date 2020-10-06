@@ -9,6 +9,7 @@ part of 'question_list_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuestionListEventTearOff {
   const _$QuestionListEventTearOff();
 
@@ -20,9 +21,11 @@ class _$QuestionListEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionListEvent = _$QuestionListEventTearOff();
 
+/// @nodoc
 mixin _$QuestionListEvent {
   QuizId get quizId;
 
@@ -48,6 +51,7 @@ mixin _$QuestionListEvent {
   $QuestionListEventCopyWith<QuestionListEvent> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionListEventCopyWith<$Res> {
   factory $QuestionListEventCopyWith(
           QuestionListEvent value, $Res Function(QuestionListEvent) then) =
@@ -55,6 +59,7 @@ abstract class $QuestionListEventCopyWith<$Res> {
   $Res call({QuizId quizId});
 }
 
+/// @nodoc
 class _$QuestionListEventCopyWithImpl<$Res>
     implements $QuestionListEventCopyWith<$Res> {
   _$QuestionListEventCopyWithImpl(this._value, this._then);
@@ -73,6 +78,7 @@ class _$QuestionListEventCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$QuestionListLoadedCopyWith<$Res>
     implements $QuestionListEventCopyWith<$Res> {
   factory _$QuestionListLoadedCopyWith(
@@ -82,6 +88,7 @@ abstract class _$QuestionListLoadedCopyWith<$Res>
   $Res call({QuizId quizId});
 }
 
+/// @nodoc
 class __$QuestionListLoadedCopyWithImpl<$Res>
     extends _$QuestionListEventCopyWithImpl<$Res>
     implements _$QuestionListLoadedCopyWith<$Res> {
@@ -102,6 +109,7 @@ class __$QuestionListLoadedCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_QuestionListLoaded implements _QuestionListLoaded {
   const _$_QuestionListLoaded(this.quizId) : assert(quizId != null);
 
@@ -183,6 +191,7 @@ abstract class _QuestionListLoaded implements QuestionListEvent {
   _$QuestionListLoadedCopyWith<_QuestionListLoaded> get copyWith;
 }
 
+/// @nodoc
 class _$QuestionListStateTearOff {
   const _$QuestionListStateTearOff();
 
@@ -213,9 +222,11 @@ class _$QuestionListStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionListState = _$QuestionListStateTearOff();
 
+/// @nodoc
 mixin _$QuestionListState {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -249,12 +260,14 @@ mixin _$QuestionListState {
   });
 }
 
+/// @nodoc
 abstract class $QuestionListStateCopyWith<$Res> {
   factory $QuestionListStateCopyWith(
           QuestionListState value, $Res Function(QuestionListState) then) =
       _$QuestionListStateCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$QuestionListStateCopyWithImpl<$Res>
     implements $QuestionListStateCopyWith<$Res> {
   _$QuestionListStateCopyWithImpl(this._value, this._then);
@@ -264,11 +277,13 @@ class _$QuestionListStateCopyWithImpl<$Res>
   final $Res Function(QuestionListState) _then;
 }
 
+/// @nodoc
 abstract class _$InitialCopyWith<$Res> {
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InitialCopyWithImpl<$Res> extends _$QuestionListStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
@@ -278,6 +293,7 @@ class __$InitialCopyWithImpl<$Res> extends _$QuestionListStateCopyWithImpl<$Res>
   _Initial get _value => super._value as _Initial;
 }
 
+/// @nodoc
 class _$_Initial implements _Initial {
   const _$_Initial();
 
@@ -361,12 +377,14 @@ abstract class _Initial implements QuestionListState {
   const factory _Initial() = _$_Initial;
 }
 
+/// @nodoc
 abstract class _$LoadInProgressCopyWith<$Res> {
   factory _$LoadInProgressCopyWith(
           _LoadInProgress value, $Res Function(_LoadInProgress) then) =
       __$LoadInProgressCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$LoadInProgressCopyWithImpl<$Res>
     extends _$QuestionListStateCopyWithImpl<$Res>
     implements _$LoadInProgressCopyWith<$Res> {
@@ -378,6 +396,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
   _LoadInProgress get _value => super._value as _LoadInProgress;
 }
 
+/// @nodoc
 class _$_LoadInProgress implements _LoadInProgress {
   const _$_LoadInProgress();
 
@@ -461,6 +480,7 @@ abstract class _LoadInProgress implements QuestionListState {
   const factory _LoadInProgress() = _$_LoadInProgress;
 }
 
+/// @nodoc
 abstract class _$LoadFailureCopyWith<$Res> {
   factory _$LoadFailureCopyWith(
           _LoadFailure value, $Res Function(_LoadFailure) then) =
@@ -470,6 +490,7 @@ abstract class _$LoadFailureCopyWith<$Res> {
   $QuizFailureCopyWith<$Res> get quizFailure;
 }
 
+/// @nodoc
 class __$LoadFailureCopyWithImpl<$Res>
     extends _$QuestionListStateCopyWithImpl<$Res>
     implements _$LoadFailureCopyWith<$Res> {
@@ -500,6 +521,7 @@ class __$LoadFailureCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_LoadFailure implements _LoadFailure {
   const _$_LoadFailure(this.quizFailure) : assert(quizFailure != null);
 
@@ -598,6 +620,7 @@ abstract class _LoadFailure implements QuestionListState {
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionListLoadSuccessCopyWith<$Res> {
   factory $QuestionListLoadSuccessCopyWith(QuestionListLoadSuccess value,
           $Res Function(QuestionListLoadSuccess) then) =
@@ -605,6 +628,7 @@ abstract class $QuestionListLoadSuccessCopyWith<$Res> {
   $Res call({QuizId quizId, KtList<Question> questionList});
 }
 
+/// @nodoc
 class _$QuestionListLoadSuccessCopyWithImpl<$Res>
     extends _$QuestionListStateCopyWithImpl<$Res>
     implements $QuestionListLoadSuccessCopyWith<$Res> {
@@ -629,6 +653,7 @@ class _$QuestionListLoadSuccessCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$QuestionListLoadSuccess implements QuestionListLoadSuccess {
   const _$QuestionListLoadSuccess(
       {@required this.quizId, @required this.questionList})

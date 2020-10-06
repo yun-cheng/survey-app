@@ -12,6 +12,7 @@ QuestionListDto _$QuestionListDtoFromJson(Map<String, dynamic> json) {
   return _QuestionListDto.fromJson(json);
 }
 
+/// @nodoc
 class _$QuestionListDtoTearOff {
   const _$QuestionListDtoTearOff();
 
@@ -21,11 +22,18 @@ class _$QuestionListDtoTearOff {
       list: list,
     );
   }
+
+// ignore: unused_element
+  QuestionListDto fromJson(Map<String, Object> json) {
+    return QuestionListDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionListDto = _$QuestionListDtoTearOff();
 
+/// @nodoc
 mixin _$QuestionListDto {
   List<QuestionDto> get list;
 
@@ -33,6 +41,7 @@ mixin _$QuestionListDto {
   $QuestionListDtoCopyWith<QuestionListDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionListDtoCopyWith<$Res> {
   factory $QuestionListDtoCopyWith(
           QuestionListDto value, $Res Function(QuestionListDto) then) =
@@ -40,6 +49,7 @@ abstract class $QuestionListDtoCopyWith<$Res> {
   $Res call({List<QuestionDto> list});
 }
 
+/// @nodoc
 class _$QuestionListDtoCopyWithImpl<$Res>
     implements $QuestionListDtoCopyWith<$Res> {
   _$QuestionListDtoCopyWithImpl(this._value, this._then);
@@ -58,6 +68,7 @@ class _$QuestionListDtoCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$QuestionListDtoCopyWith<$Res>
     implements $QuestionListDtoCopyWith<$Res> {
   factory _$QuestionListDtoCopyWith(
@@ -67,6 +78,7 @@ abstract class _$QuestionListDtoCopyWith<$Res>
   $Res call({List<QuestionDto> list});
 }
 
+/// @nodoc
 class __$QuestionListDtoCopyWithImpl<$Res>
     extends _$QuestionListDtoCopyWithImpl<$Res>
     implements _$QuestionListDtoCopyWith<$Res> {
@@ -88,6 +100,8 @@ class __$QuestionListDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_QuestionListDto extends _QuestionListDto {
   const _$_QuestionListDto({@required this.list})
       : assert(list != null),
@@ -144,6 +158,7 @@ QuestionDto _$QuestionDtoFromJson(Map<String, dynamic> json) {
   return _QuestionDto.fromJson(json);
 }
 
+/// @nodoc
 class _$QuestionDtoTearOff {
   const _$QuestionDtoTearOff();
 
@@ -156,11 +171,18 @@ class _$QuestionDtoTearOff {
       answer: answer,
     );
   }
+
+// ignore: unused_element
+  QuestionDto fromJson(Map<String, Object> json) {
+    return QuestionDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionDto = _$QuestionDtoTearOff();
 
+/// @nodoc
 mixin _$QuestionDto {
   String get id;
   String get body;
@@ -170,6 +192,7 @@ mixin _$QuestionDto {
   $QuestionDtoCopyWith<QuestionDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionDtoCopyWith<$Res> {
   factory $QuestionDtoCopyWith(
           QuestionDto value, $Res Function(QuestionDto) then) =
@@ -177,6 +200,7 @@ abstract class $QuestionDtoCopyWith<$Res> {
   $Res call({String id, String body, String answer});
 }
 
+/// @nodoc
 class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
   _$QuestionDtoCopyWithImpl(this._value, this._then);
 
@@ -198,6 +222,7 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$QuestionDtoCopyWith<$Res>
     implements $QuestionDtoCopyWith<$Res> {
   factory _$QuestionDtoCopyWith(
@@ -207,6 +232,7 @@ abstract class _$QuestionDtoCopyWith<$Res>
   $Res call({String id, String body, String answer});
 }
 
+/// @nodoc
 class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
     implements _$QuestionDtoCopyWith<$Res> {
   __$QuestionDtoCopyWithImpl(
@@ -231,6 +257,8 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_QuestionDto extends _QuestionDto {
   const _$_QuestionDto(
       {@required this.id, @required this.body, @required this.answer})

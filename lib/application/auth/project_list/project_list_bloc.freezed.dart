@@ -9,6 +9,7 @@ part of 'project_list_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ProjectListEventTearOff {
   const _$ProjectListEventTearOff();
 
@@ -18,9 +19,11 @@ class _$ProjectListEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ProjectListEvent = _$ProjectListEventTearOff();
 
+/// @nodoc
 mixin _$ProjectListEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -42,12 +45,14 @@ mixin _$ProjectListEvent {
   });
 }
 
+/// @nodoc
 abstract class $ProjectListEventCopyWith<$Res> {
   factory $ProjectListEventCopyWith(
           ProjectListEvent value, $Res Function(ProjectListEvent) then) =
       _$ProjectListEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$ProjectListEventCopyWithImpl<$Res>
     implements $ProjectListEventCopyWith<$Res> {
   _$ProjectListEventCopyWithImpl(this._value, this._then);
@@ -57,12 +62,14 @@ class _$ProjectListEventCopyWithImpl<$Res>
   final $Res Function(ProjectListEvent) _then;
 }
 
+/// @nodoc
 abstract class _$ProjectListLoadedCopyWith<$Res> {
   factory _$ProjectListLoadedCopyWith(
           _ProjectListLoaded value, $Res Function(_ProjectListLoaded) then) =
       __$ProjectListLoadedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$ProjectListLoadedCopyWithImpl<$Res>
     extends _$ProjectListEventCopyWithImpl<$Res>
     implements _$ProjectListLoadedCopyWith<$Res> {
@@ -74,6 +81,7 @@ class __$ProjectListLoadedCopyWithImpl<$Res>
   _ProjectListLoaded get _value => super._value as _ProjectListLoaded;
 }
 
+/// @nodoc
 class _$_ProjectListLoaded implements _ProjectListLoaded {
   const _$_ProjectListLoaded();
 
@@ -139,6 +147,7 @@ abstract class _ProjectListLoaded implements ProjectListEvent {
   const factory _ProjectListLoaded() = _$_ProjectListLoaded;
 }
 
+/// @nodoc
 class _$ProjectListStateTearOff {
   const _$ProjectListStateTearOff();
 
@@ -167,9 +176,11 @@ class _$ProjectListStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $ProjectListState = _$ProjectListStateTearOff();
 
+/// @nodoc
 mixin _$ProjectListState {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -203,12 +214,14 @@ mixin _$ProjectListState {
   });
 }
 
+/// @nodoc
 abstract class $ProjectListStateCopyWith<$Res> {
   factory $ProjectListStateCopyWith(
           ProjectListState value, $Res Function(ProjectListState) then) =
       _$ProjectListStateCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$ProjectListStateCopyWithImpl<$Res>
     implements $ProjectListStateCopyWith<$Res> {
   _$ProjectListStateCopyWithImpl(this._value, this._then);
@@ -218,11 +231,13 @@ class _$ProjectListStateCopyWithImpl<$Res>
   final $Res Function(ProjectListState) _then;
 }
 
+/// @nodoc
 abstract class _$InitialCopyWith<$Res> {
   factory _$InitialCopyWith(_Initial value, $Res Function(_Initial) then) =
       __$InitialCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InitialCopyWithImpl<$Res> extends _$ProjectListStateCopyWithImpl<$Res>
     implements _$InitialCopyWith<$Res> {
   __$InitialCopyWithImpl(_Initial _value, $Res Function(_Initial) _then)
@@ -232,6 +247,7 @@ class __$InitialCopyWithImpl<$Res> extends _$ProjectListStateCopyWithImpl<$Res>
   _Initial get _value => super._value as _Initial;
 }
 
+/// @nodoc
 class _$_Initial implements _Initial {
   const _$_Initial();
 
@@ -315,12 +331,14 @@ abstract class _Initial implements ProjectListState {
   const factory _Initial() = _$_Initial;
 }
 
+/// @nodoc
 abstract class _$LoadInProgressCopyWith<$Res> {
   factory _$LoadInProgressCopyWith(
           _LoadInProgress value, $Res Function(_LoadInProgress) then) =
       __$LoadInProgressCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$LoadInProgressCopyWithImpl<$Res>
     extends _$ProjectListStateCopyWithImpl<$Res>
     implements _$LoadInProgressCopyWith<$Res> {
@@ -332,6 +350,7 @@ class __$LoadInProgressCopyWithImpl<$Res>
   _LoadInProgress get _value => super._value as _LoadInProgress;
 }
 
+/// @nodoc
 class _$_LoadInProgress implements _LoadInProgress {
   const _$_LoadInProgress();
 
@@ -415,6 +434,7 @@ abstract class _LoadInProgress implements ProjectListState {
   const factory _LoadInProgress() = _$_LoadInProgress;
 }
 
+/// @nodoc
 abstract class _$LoadFailureCopyWith<$Res> {
   factory _$LoadFailureCopyWith(
           _LoadFailure value, $Res Function(_LoadFailure) then) =
@@ -424,6 +444,7 @@ abstract class _$LoadFailureCopyWith<$Res> {
   $AuthFailureCopyWith<$Res> get authFailure;
 }
 
+/// @nodoc
 class __$LoadFailureCopyWithImpl<$Res>
     extends _$ProjectListStateCopyWithImpl<$Res>
     implements _$LoadFailureCopyWith<$Res> {
@@ -454,6 +475,7 @@ class __$LoadFailureCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_LoadFailure implements _LoadFailure {
   const _$_LoadFailure(this.authFailure) : assert(authFailure != null);
 
@@ -552,6 +574,7 @@ abstract class _LoadFailure implements ProjectListState {
   _$LoadFailureCopyWith<_LoadFailure> get copyWith;
 }
 
+/// @nodoc
 abstract class $LoadSuccessCopyWith<$Res> {
   factory $LoadSuccessCopyWith(
           LoadSuccess value, $Res Function(LoadSuccess) then) =
@@ -559,6 +582,7 @@ abstract class $LoadSuccessCopyWith<$Res> {
   $Res call({KtList<Project> projectList});
 }
 
+/// @nodoc
 class _$LoadSuccessCopyWithImpl<$Res>
     extends _$ProjectListStateCopyWithImpl<$Res>
     implements $LoadSuccessCopyWith<$Res> {
@@ -581,6 +605,7 @@ class _$LoadSuccessCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$LoadSuccess implements LoadSuccess {
   const _$LoadSuccess(this.projectList) : assert(projectList != null);
 

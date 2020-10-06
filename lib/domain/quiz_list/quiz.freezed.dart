@@ -9,6 +9,7 @@ part of 'quiz.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuizTearOff {
   const _$QuizTearOff();
 
@@ -25,9 +26,11 @@ class _$QuizTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Quiz = _$QuizTearOff();
 
+/// @nodoc
 mixin _$Quiz {
   QuizId get id;
   QuizName get name;
@@ -36,12 +39,14 @@ mixin _$Quiz {
   $QuizCopyWith<Quiz> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuizCopyWith<$Res> {
   factory $QuizCopyWith(Quiz value, $Res Function(Quiz) then) =
       _$QuizCopyWithImpl<$Res>;
   $Res call({QuizId id, QuizName name, bool isFinished});
 }
 
+/// @nodoc
 class _$QuizCopyWithImpl<$Res> implements $QuizCopyWith<$Res> {
   _$QuizCopyWithImpl(this._value, this._then);
 
@@ -64,6 +69,7 @@ class _$QuizCopyWithImpl<$Res> implements $QuizCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$QuizCopyWith<$Res> implements $QuizCopyWith<$Res> {
   factory _$QuizCopyWith(_Quiz value, $Res Function(_Quiz) then) =
       __$QuizCopyWithImpl<$Res>;
@@ -71,6 +77,7 @@ abstract class _$QuizCopyWith<$Res> implements $QuizCopyWith<$Res> {
   $Res call({QuizId id, QuizName name, bool isFinished});
 }
 
+/// @nodoc
 class __$QuizCopyWithImpl<$Res> extends _$QuizCopyWithImpl<$Res>
     implements _$QuizCopyWith<$Res> {
   __$QuizCopyWithImpl(_Quiz _value, $Res Function(_Quiz) _then)
@@ -94,6 +101,7 @@ class __$QuizCopyWithImpl<$Res> extends _$QuizCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Quiz extends _Quiz {
   const _$_Quiz(
       {@required this.id, @required this.name, @required this.isFinished})

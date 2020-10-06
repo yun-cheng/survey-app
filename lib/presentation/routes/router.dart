@@ -15,4 +15,4 @@ import 'package:interviewer_quiz_flutter_app/presentation/sign_in/sign_in_page.d
     MaterialRoute(page: FinishedPage),
   ],
 )
-class $Router {}
+class $AutoRouter {}

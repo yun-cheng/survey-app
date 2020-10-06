@@ -9,6 +9,7 @@ part of 'score.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$ScoreTearOff {
   const _$ScoreTearOff();
 
@@ -21,9 +22,11 @@ class _$ScoreTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Score = _$ScoreTearOff();
 
+/// @nodoc
 mixin _$Score {
   ScoreCount get right;
   ScoreCount get wrong;
@@ -31,12 +34,14 @@ mixin _$Score {
   $ScoreCopyWith<Score> get copyWith;
 }
 
+/// @nodoc
 abstract class $ScoreCopyWith<$Res> {
   factory $ScoreCopyWith(Score value, $Res Function(Score) then) =
       _$ScoreCopyWithImpl<$Res>;
   $Res call({ScoreCount right, ScoreCount wrong});
 }
 
+/// @nodoc
 class _$ScoreCopyWithImpl<$Res> implements $ScoreCopyWith<$Res> {
   _$ScoreCopyWithImpl(this._value, this._then);
 
@@ -56,6 +61,7 @@ class _$ScoreCopyWithImpl<$Res> implements $ScoreCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ScoreCopyWith<$Res> implements $ScoreCopyWith<$Res> {
   factory _$ScoreCopyWith(_Score value, $Res Function(_Score) then) =
       __$ScoreCopyWithImpl<$Res>;
@@ -63,6 +69,7 @@ abstract class _$ScoreCopyWith<$Res> implements $ScoreCopyWith<$Res> {
   $Res call({ScoreCount right, ScoreCount wrong});
 }
 
+/// @nodoc
 class __$ScoreCopyWithImpl<$Res> extends _$ScoreCopyWithImpl<$Res>
     implements _$ScoreCopyWith<$Res> {
   __$ScoreCopyWithImpl(_Score _value, $Res Function(_Score) _then)
@@ -83,6 +90,7 @@ class __$ScoreCopyWithImpl<$Res> extends _$ScoreCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_Score extends _Score {
   const _$_Score({@required this.right, @required this.wrong})
       : assert(right != null),

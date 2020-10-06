@@ -12,6 +12,7 @@ QuizListDto _$QuizListDtoFromJson(Map<String, dynamic> json) {
   return _QuizListDto.fromJson(json);
 }
 
+/// @nodoc
 class _$QuizListDtoTearOff {
   const _$QuizListDtoTearOff();
 
@@ -21,11 +22,18 @@ class _$QuizListDtoTearOff {
       list: list,
     );
   }
+
+// ignore: unused_element
+  QuizListDto fromJson(Map<String, Object> json) {
+    return QuizListDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuizListDto = _$QuizListDtoTearOff();
 
+/// @nodoc
 mixin _$QuizListDto {
   List<QuizDto> get list;
 
@@ -33,6 +41,7 @@ mixin _$QuizListDto {
   $QuizListDtoCopyWith<QuizListDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuizListDtoCopyWith<$Res> {
   factory $QuizListDtoCopyWith(
           QuizListDto value, $Res Function(QuizListDto) then) =
@@ -40,6 +49,7 @@ abstract class $QuizListDtoCopyWith<$Res> {
   $Res call({List<QuizDto> list});
 }
 
+/// @nodoc
 class _$QuizListDtoCopyWithImpl<$Res> implements $QuizListDtoCopyWith<$Res> {
   _$QuizListDtoCopyWithImpl(this._value, this._then);
 
@@ -57,6 +67,7 @@ class _$QuizListDtoCopyWithImpl<$Res> implements $QuizListDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$QuizListDtoCopyWith<$Res>
     implements $QuizListDtoCopyWith<$Res> {
   factory _$QuizListDtoCopyWith(
@@ -66,6 +77,7 @@ abstract class _$QuizListDtoCopyWith<$Res>
   $Res call({List<QuizDto> list});
 }
 
+/// @nodoc
 class __$QuizListDtoCopyWithImpl<$Res> extends _$QuizListDtoCopyWithImpl<$Res>
     implements _$QuizListDtoCopyWith<$Res> {
   __$QuizListDtoCopyWithImpl(
@@ -86,6 +98,8 @@ class __$QuizListDtoCopyWithImpl<$Res> extends _$QuizListDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_QuizListDto extends _QuizListDto {
   const _$_QuizListDto({@required this.list})
       : assert(list != null),
@@ -141,6 +155,7 @@ QuizDto _$QuizDtoFromJson(Map<String, dynamic> json) {
   return _QuizDto.fromJson(json);
 }
 
+/// @nodoc
 class _$QuizDtoTearOff {
   const _$QuizDtoTearOff();
 
@@ -153,11 +168,18 @@ class _$QuizDtoTearOff {
       isFinished: isFinished,
     );
   }
+
+// ignore: unused_element
+  QuizDto fromJson(Map<String, Object> json) {
+    return QuizDto.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuizDto = _$QuizDtoTearOff();
 
+/// @nodoc
 mixin _$QuizDto {
   String get id;
   String get name;
@@ -167,12 +189,14 @@ mixin _$QuizDto {
   $QuizDtoCopyWith<QuizDto> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuizDtoCopyWith<$Res> {
   factory $QuizDtoCopyWith(QuizDto value, $Res Function(QuizDto) then) =
       _$QuizDtoCopyWithImpl<$Res>;
   $Res call({String id, String name, bool isFinished});
 }
 
+/// @nodoc
 class _$QuizDtoCopyWithImpl<$Res> implements $QuizDtoCopyWith<$Res> {
   _$QuizDtoCopyWithImpl(this._value, this._then);
 
@@ -195,6 +219,7 @@ class _$QuizDtoCopyWithImpl<$Res> implements $QuizDtoCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$QuizDtoCopyWith<$Res> implements $QuizDtoCopyWith<$Res> {
   factory _$QuizDtoCopyWith(_QuizDto value, $Res Function(_QuizDto) then) =
       __$QuizDtoCopyWithImpl<$Res>;
@@ -202,6 +227,7 @@ abstract class _$QuizDtoCopyWith<$Res> implements $QuizDtoCopyWith<$Res> {
   $Res call({String id, String name, bool isFinished});
 }
 
+/// @nodoc
 class __$QuizDtoCopyWithImpl<$Res> extends _$QuizDtoCopyWithImpl<$Res>
     implements _$QuizDtoCopyWith<$Res> {
   __$QuizDtoCopyWithImpl(_QuizDto _value, $Res Function(_QuizDto) _then)
@@ -226,6 +252,8 @@ class __$QuizDtoCopyWithImpl<$Res> extends _$QuizDtoCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_QuizDto extends _QuizDto {
   const _$_QuizDto(
       {@required this.id, @required this.name, @required this.isFinished})

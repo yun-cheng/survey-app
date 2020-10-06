@@ -9,6 +9,7 @@ part of 'question_page_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuestionPageEventTearOff {
   const _$QuestionPageEventTearOff();
 
@@ -23,9 +24,11 @@ class _$QuestionPageEventTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionPageEvent = _$QuestionPageEventTearOff();
 
+/// @nodoc
 mixin _$QuestionPageEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -51,12 +54,14 @@ mixin _$QuestionPageEvent {
   });
 }
 
+/// @nodoc
 abstract class $QuestionPageEventCopyWith<$Res> {
   factory $QuestionPageEventCopyWith(
           QuestionPageEvent value, $Res Function(QuestionPageEvent) then) =
       _$QuestionPageEventCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$QuestionPageEventCopyWithImpl<$Res>
     implements $QuestionPageEventCopyWith<$Res> {
   _$QuestionPageEventCopyWithImpl(this._value, this._then);
@@ -66,12 +71,14 @@ class _$QuestionPageEventCopyWithImpl<$Res>
   final $Res Function(QuestionPageEvent) _then;
 }
 
+/// @nodoc
 abstract class _$NextPagePressedCopyWith<$Res> {
   factory _$NextPagePressedCopyWith(
           _NextPagePressed value, $Res Function(_NextPagePressed) then) =
       __$NextPagePressedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$NextPagePressedCopyWithImpl<$Res>
     extends _$QuestionPageEventCopyWithImpl<$Res>
     implements _$NextPagePressedCopyWith<$Res> {
@@ -83,6 +90,7 @@ class __$NextPagePressedCopyWithImpl<$Res>
   _NextPagePressed get _value => super._value as _NextPagePressed;
 }
 
+/// @nodoc
 class _$_NextPagePressed
     with DiagnosticableTreeMixin
     implements _NextPagePressed {
@@ -163,12 +171,14 @@ abstract class _NextPagePressed implements QuestionPageEvent {
   const factory _NextPagePressed() = _$_NextPagePressed;
 }
 
+/// @nodoc
 abstract class _$LoadQuestionListCopyWith<$Res> {
   factory _$LoadQuestionListCopyWith(
           _LoadQuestionList value, $Res Function(_LoadQuestionList) then) =
       __$LoadQuestionListCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$LoadQuestionListCopyWithImpl<$Res>
     extends _$QuestionPageEventCopyWithImpl<$Res>
     implements _$LoadQuestionListCopyWith<$Res> {
@@ -180,6 +190,7 @@ class __$LoadQuestionListCopyWithImpl<$Res>
   _LoadQuestionList get _value => super._value as _LoadQuestionList;
 }
 
+/// @nodoc
 class _$_LoadQuestionList
     with DiagnosticableTreeMixin
     implements _LoadQuestionList {
@@ -260,6 +271,7 @@ abstract class _LoadQuestionList implements QuestionPageEvent {
   const factory _LoadQuestionList() = _$_LoadQuestionList;
 }
 
+/// @nodoc
 class _$QuestionPageStateTearOff {
   const _$QuestionPageStateTearOff();
 
@@ -280,10 +292,13 @@ class _$QuestionPageStateTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuestionPageState = _$QuestionPageStateTearOff();
 
+/// @nodoc
 mixin _$QuestionPageState {
+//    @required KtList<Question> questionList,
   Question get question;
   PageNumber get page;
   bool get isTurningPage;
@@ -293,6 +308,7 @@ mixin _$QuestionPageState {
   $QuestionPageStateCopyWith<QuestionPageState> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuestionPageStateCopyWith<$Res> {
   factory $QuestionPageStateCopyWith(
           QuestionPageState value, $Res Function(QuestionPageState) then) =
@@ -307,6 +323,7 @@ abstract class $QuestionPageStateCopyWith<$Res> {
   $QuestionCopyWith<$Res> get question;
 }
 
+/// @nodoc
 class _$QuestionPageStateCopyWithImpl<$Res>
     implements $QuestionPageStateCopyWith<$Res> {
   _$QuestionPageStateCopyWithImpl(this._value, this._then);
@@ -346,6 +363,7 @@ class _$QuestionPageStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 abstract class _$QuestionPageStateCopyWith<$Res>
     implements $QuestionPageStateCopyWith<$Res> {
   factory _$QuestionPageStateCopyWith(
@@ -363,6 +381,7 @@ abstract class _$QuestionPageStateCopyWith<$Res>
   $QuestionCopyWith<$Res> get question;
 }
 
+/// @nodoc
 class __$QuestionPageStateCopyWithImpl<$Res>
     extends _$QuestionPageStateCopyWithImpl<$Res>
     implements _$QuestionPageStateCopyWith<$Res> {
@@ -394,6 +413,7 @@ class __$QuestionPageStateCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_QuestionPageState
     with DiagnosticableTreeMixin
     implements _QuestionPageState {
@@ -409,7 +429,7 @@ class _$_QuestionPageState
         assert(isLastPage != null),
         assert(maxPage != null);
 
-  @override
+  @override //    @required KtList<Question> questionList,
   final Question question;
   @override
   final PageNumber page;
@@ -478,7 +498,7 @@ abstract class _QuestionPageState implements QuestionPageState {
       @required bool isLastPage,
       @required PageNumber maxPage}) = _$_QuestionPageState;
 
-  @override
+  @override //    @required KtList<Question> questionList,
   Question get question;
   @override
   PageNumber get page;

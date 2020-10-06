@@ -27,6 +27,7 @@ abstract class QuizResultDto implements _$QuizResultDto {
     @required DateTime deviceTimeStamp,
   }) = _QuizResultDto;
 
+  // QUESTION 怎麼沒用 QuizResult class? 是因為只有這裡要用嗎？
   factory QuizResultDto.fromDomain(Map<String, dynamic> quizResult) {
     return QuizResultDto(
       projectId: quizResult['projectId'].getOrCrash(),

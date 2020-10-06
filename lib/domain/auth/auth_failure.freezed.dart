@@ -9,6 +9,7 @@ part of 'auth_failure.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$AuthFailureTearOff {
   const _$AuthFailureTearOff();
 
@@ -38,9 +39,11 @@ class _$AuthFailureTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $AuthFailure = _$AuthFailureTearOff();
 
+/// @nodoc
 mixin _$AuthFailure {
   @optionalTypeArgs
   Result when<Result extends Object>({
@@ -81,12 +84,14 @@ mixin _$AuthFailure {
   });
 }
 
+/// @nodoc
 abstract class $AuthFailureCopyWith<$Res> {
   factory $AuthFailureCopyWith(
           AuthFailure value, $Res Function(AuthFailure) then) =
       _$AuthFailureCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   _$AuthFailureCopyWithImpl(this._value, this._then);
 
@@ -95,12 +100,14 @@ class _$AuthFailureCopyWithImpl<$Res> implements $AuthFailureCopyWith<$Res> {
   final $Res Function(AuthFailure) _then;
 }
 
+/// @nodoc
 abstract class $ServerErrorCopyWith<$Res> {
   factory $ServerErrorCopyWith(
           ServerError value, $Res Function(ServerError) then) =
       _$ServerErrorCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements $ServerErrorCopyWith<$Res> {
   _$ServerErrorCopyWithImpl(
@@ -111,6 +118,7 @@ class _$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   ServerError get _value => super._value as ServerError;
 }
 
+/// @nodoc
 class _$ServerError implements ServerError {
   const _$ServerError();
 
@@ -203,12 +211,14 @@ abstract class ServerError implements AuthFailure {
   const factory ServerError() = _$ServerError;
 }
 
+/// @nodoc
 abstract class _$InsufficientPermissionCopyWith<$Res> {
   factory _$InsufficientPermissionCopyWith(_InsufficientPermission value,
           $Res Function(_InsufficientPermission) then) =
       __$InsufficientPermissionCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$InsufficientPermissionCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements _$InsufficientPermissionCopyWith<$Res> {
@@ -220,6 +230,7 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
   _InsufficientPermission get _value => super._value as _InsufficientPermission;
 }
 
+/// @nodoc
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
 
@@ -312,12 +323,14 @@ abstract class _InsufficientPermission implements AuthFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
 }
 
+/// @nodoc
 abstract class _$UnableToGetCopyWith<$Res> {
   factory _$UnableToGetCopyWith(
           _UnableToGet value, $Res Function(_UnableToGet) then) =
       __$UnableToGetCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$UnableToGetCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements _$UnableToGetCopyWith<$Res> {
   __$UnableToGetCopyWithImpl(
@@ -328,6 +341,7 @@ class __$UnableToGetCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   _UnableToGet get _value => super._value as _UnableToGet;
 }
 
+/// @nodoc
 class _$_UnableToGet implements _UnableToGet {
   const _$_UnableToGet();
 
@@ -420,12 +434,14 @@ abstract class _UnableToGet implements AuthFailure {
   const factory _UnableToGet() = _$_UnableToGet;
 }
 
+/// @nodoc
 abstract class _$UnexpectedCopyWith<$Res> {
   factory _$UnexpectedCopyWith(
           _Unexpected value, $Res Function(_Unexpected) then) =
       __$UnexpectedCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class __$UnexpectedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
     implements _$UnexpectedCopyWith<$Res> {
   __$UnexpectedCopyWithImpl(
@@ -436,6 +452,7 @@ class __$UnexpectedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   _Unexpected get _value => super._value as _Unexpected;
 }
 
+/// @nodoc
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
 
@@ -528,6 +545,7 @@ abstract class _Unexpected implements AuthFailure {
   const factory _Unexpected() = _$_Unexpected;
 }
 
+/// @nodoc
 abstract class $InvalidIdAndPasswordCombinationCopyWith<$Res> {
   factory $InvalidIdAndPasswordCombinationCopyWith(
           InvalidIdAndPasswordCombination value,
@@ -535,6 +553,7 @@ abstract class $InvalidIdAndPasswordCombinationCopyWith<$Res> {
       _$InvalidIdAndPasswordCombinationCopyWithImpl<$Res>;
 }
 
+/// @nodoc
 class _$InvalidIdAndPasswordCombinationCopyWithImpl<$Res>
     extends _$AuthFailureCopyWithImpl<$Res>
     implements $InvalidIdAndPasswordCombinationCopyWith<$Res> {
@@ -548,6 +567,7 @@ class _$InvalidIdAndPasswordCombinationCopyWithImpl<$Res>
       super._value as InvalidIdAndPasswordCombination;
 }
 
+/// @nodoc
 class _$InvalidIdAndPasswordCombination
     implements InvalidIdAndPasswordCombination {
   const _$InvalidIdAndPasswordCombination();

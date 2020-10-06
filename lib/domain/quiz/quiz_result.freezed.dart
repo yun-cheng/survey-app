@@ -9,6 +9,7 @@ part of 'quiz_result.dart';
 
 T _$identity<T>(T value) => value;
 
+/// @nodoc
 class _$QuizResultTearOff {
   const _$QuizResultTearOff();
 
@@ -23,9 +24,11 @@ class _$QuizResultTearOff {
   }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $QuizResult = _$QuizResultTearOff();
 
+/// @nodoc
 mixin _$QuizResult {
   Interviewer get interviewer;
   KtMutableMap<QuestionId, bool> get scoreHistory;
@@ -33,6 +36,7 @@ mixin _$QuizResult {
   $QuizResultCopyWith<QuizResult> get copyWith;
 }
 
+/// @nodoc
 abstract class $QuizResultCopyWith<$Res> {
   factory $QuizResultCopyWith(
           QuizResult value, $Res Function(QuizResult) then) =
@@ -43,6 +47,7 @@ abstract class $QuizResultCopyWith<$Res> {
   $InterviewerCopyWith<$Res> get interviewer;
 }
 
+/// @nodoc
 class _$QuizResultCopyWithImpl<$Res> implements $QuizResultCopyWith<$Res> {
   _$QuizResultCopyWithImpl(this._value, this._then);
 
@@ -76,6 +81,7 @@ class _$QuizResultCopyWithImpl<$Res> implements $QuizResultCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$QuizResultCopyWith<$Res> implements $QuizResultCopyWith<$Res> {
   factory _$QuizResultCopyWith(
           _QuizResult value, $Res Function(_QuizResult) then) =
@@ -88,6 +94,7 @@ abstract class _$QuizResultCopyWith<$Res> implements $QuizResultCopyWith<$Res> {
   $InterviewerCopyWith<$Res> get interviewer;
 }
 
+/// @nodoc
 class __$QuizResultCopyWithImpl<$Res> extends _$QuizResultCopyWithImpl<$Res>
     implements _$QuizResultCopyWith<$Res> {
   __$QuizResultCopyWithImpl(
@@ -113,6 +120,7 @@ class __$QuizResultCopyWithImpl<$Res> extends _$QuizResultCopyWithImpl<$Res>
   }
 }
 
+/// @nodoc
 class _$_QuizResult extends _QuizResult {
   const _$_QuizResult({@required this.interviewer, @required this.scoreHistory})
       : assert(interviewer != null),
