@@ -12,7 +12,7 @@ class Selector extends StatelessWidget {
     return BlocBuilder<ProjectListBloc, ProjectListState>(
       builder: (context, state) {
         if (state is LoadSuccess) {
-          ProjectId dropdownValue =
+          final ProjectId dropdownValue =
               context.bloc<SignInFormBloc>().state.projectId;
 
           return DropdownButtonFormField(

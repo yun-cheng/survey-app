@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
@@ -14,10 +13,7 @@ import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart
 import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/quiz/question_list_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/quiz/quiz_result_dtos.dart';
-import 'dart:convert';
 import 'package:kt_dart/collection.dart';
-import 'package:rxdart/rxdart.dart';
-import 'dart:math';
 
 // TODO 看要移去哪裡
 // NOTE 必須要先 toMutableList 才能改變
@@ -31,7 +27,7 @@ extension KtListX<T> on KtList<T> {
 
 @LazySingleton(as: IQuizRepository)
 class QuizRepository implements IQuizRepository {
-  final Firestore _firestore;
+  final FirebaseFirestore _firestore;
 
   QuizRepository(this._firestore);
 
@@ -42,7 +38,7 @@ class QuizRepository implements IQuizRepository {
       final questionListCollection = _firestore.questionListCollection;
 
       final questionList = await questionListCollection
-          .document(quizId.getOrCrash())
+          .doc(quizId.getOrCrash())
           .get()
           .then((doc) => QuestionListDto.fromFirestore(doc).toDomain());
 
@@ -50,7 +46,7 @@ class QuizRepository implements IQuizRepository {
       final shuffledQuestionList = questionList.shuffle();
 
       return right(shuffledQuestionList);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const QuizFailure.insufficientPermission());
       } else if (e.message.contains('NOT_FOUND')) {
@@ -87,7 +83,7 @@ class QuizRepository implements IQuizRepository {
       await quizResultCollection.add(quizResultDto.toJson());
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const QuizFailure.insufficientPermission());
       } else {

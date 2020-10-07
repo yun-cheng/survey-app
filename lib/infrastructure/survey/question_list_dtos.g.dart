@@ -6,8 +6,8 @@ part of 'question_list_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_QuestionListDto _$_$_QuestionListDtoFromJson(Map<String, dynamic> json) {
-  return _$_QuestionListDto(
+_$_QuestionMapDto _$_$_QuestionMapDtoFromJson(Map<String, dynamic> json) {
+  return _$_QuestionMapDto(
     map: (json['map'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(int.parse(k),
           e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>)),
@@ -15,7 +15,7 @@ _$_QuestionListDto _$_$_QuestionListDtoFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_QuestionListDtoToJson(_$_QuestionListDto instance) =>
+Map<String, dynamic> _$_$_QuestionMapDtoToJson(_$_QuestionMapDto instance) =>
     <String, dynamic>{
       'map': instance.map?.map((k, e) => MapEntry(k.toString(), e?.toJson())),
     };

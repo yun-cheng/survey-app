@@ -30,8 +30,7 @@ abstract class ProjectListDto implements _$ProjectListDto {
       _$ProjectListDtoFromJson(json);
 
   factory ProjectListDto.fromFirestore(DocumentSnapshot doc) {
-    print(doc.data);
-    return ProjectListDto.fromJson(doc.data);
+    return ProjectListDto.fromJson(doc.data());
   }
 }
 

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/quiz.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
 import 'package:kt_dart/collection.dart';
@@ -32,7 +31,7 @@ abstract class QuizListDto implements _$QuizListDto {
 
   factory QuizListDto.fromFirestore(DocumentSnapshot doc) {
     // TODO 這個做法好嗎?
-    return QuizListDto.fromJson({'list': doc.data['quizList']});
+    return QuizListDto.fromJson({'list': doc.data()['quizList']});
   }
 }
 

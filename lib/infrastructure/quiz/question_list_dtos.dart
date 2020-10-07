@@ -32,7 +32,7 @@ abstract class QuestionListDto implements _$QuestionListDto {
       _$QuestionListDtoFromJson(json);
 
   factory QuestionListDto.fromFirestore(DocumentSnapshot doc) {
-    return QuestionListDto.fromJson(doc.data);
+    return QuestionListDto.fromJson(doc.data());
   }
 }
 

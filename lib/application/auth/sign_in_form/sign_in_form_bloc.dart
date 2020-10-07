@@ -6,8 +6,6 @@ import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/interviewer_list/interviewer_list_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/project_list/project_list_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/project.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';

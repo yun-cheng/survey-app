@@ -93,7 +93,6 @@ class QuizPage extends StatelessWidget {
                       children: <Widget>[
                         Expanded(
                           child: Align(
-                            alignment: Alignment.center,
                             child: ConstrainedBox(
                               constraints:
                                   const BoxConstraints.expand(width: 800.0),
@@ -102,8 +101,6 @@ class QuizPage extends StatelessWidget {
                                   padding: const EdgeInsets.all(24.0),
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
                                     children: <Widget>[
                                       if (questionState.isUploading ==
                                           true) ...[
@@ -130,8 +127,6 @@ class QuizPage extends StatelessWidget {
                                         Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
                                           children: <Widget>[
                                             FlatButton(
                                               disabledColor: realAnswer == 'O'

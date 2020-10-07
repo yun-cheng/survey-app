@@ -57,7 +57,7 @@ abstract class QuizResultDto implements _$QuizResultDto {
       _$QuizResultDtoFromJson(json);
 
   factory QuizResultDto.fromFirestore(DocumentSnapshot doc) {
-    return QuizResultDto.fromJson(doc.data);
+    return QuizResultDto.fromJson(doc.data());
   }
 }
 

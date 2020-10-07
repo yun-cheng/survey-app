@@ -8,55 +8,55 @@ part of 'question_list_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-QuestionListDto _$QuestionListDtoFromJson(Map<String, dynamic> json) {
-  return _QuestionListDto.fromJson(json);
+QuestionMapDto _$QuestionMapDtoFromJson(Map<String, dynamic> json) {
+  return _QuestionMapDto.fromJson(json);
 }
 
 /// @nodoc
-class _$QuestionListDtoTearOff {
-  const _$QuestionListDtoTearOff();
+class _$QuestionMapDtoTearOff {
+  const _$QuestionMapDtoTearOff();
 
 // ignore: unused_element
-  _QuestionListDto call({@required Map<int, QuestionDto> map}) {
-    return _QuestionListDto(
+  _QuestionMapDto call({@required Map<int, QuestionDto> map}) {
+    return _QuestionMapDto(
       map: map,
     );
   }
 
 // ignore: unused_element
-  QuestionListDto fromJson(Map<String, Object> json) {
-    return QuestionListDto.fromJson(json);
+  QuestionMapDto fromJson(Map<String, Object> json) {
+    return QuestionMapDto.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $QuestionListDto = _$QuestionListDtoTearOff();
+const $QuestionMapDto = _$QuestionMapDtoTearOff();
 
 /// @nodoc
-mixin _$QuestionListDto {
+mixin _$QuestionMapDto {
   Map<int, QuestionDto> get map;
 
   Map<String, dynamic> toJson();
-  $QuestionListDtoCopyWith<QuestionListDto> get copyWith;
+  $QuestionMapDtoCopyWith<QuestionMapDto> get copyWith;
 }
 
 /// @nodoc
-abstract class $QuestionListDtoCopyWith<$Res> {
-  factory $QuestionListDtoCopyWith(
-          QuestionListDto value, $Res Function(QuestionListDto) then) =
-      _$QuestionListDtoCopyWithImpl<$Res>;
+abstract class $QuestionMapDtoCopyWith<$Res> {
+  factory $QuestionMapDtoCopyWith(
+          QuestionMapDto value, $Res Function(QuestionMapDto) then) =
+      _$QuestionMapDtoCopyWithImpl<$Res>;
   $Res call({Map<int, QuestionDto> map});
 }
 
 /// @nodoc
-class _$QuestionListDtoCopyWithImpl<$Res>
-    implements $QuestionListDtoCopyWith<$Res> {
-  _$QuestionListDtoCopyWithImpl(this._value, this._then);
+class _$QuestionMapDtoCopyWithImpl<$Res>
+    implements $QuestionMapDtoCopyWith<$Res> {
+  _$QuestionMapDtoCopyWithImpl(this._value, this._then);
 
-  final QuestionListDto _value;
+  final QuestionMapDto _value;
   // ignore: unused_field
-  final $Res Function(QuestionListDto) _then;
+  final $Res Function(QuestionMapDto) _then;
 
   @override
   $Res call({
@@ -69,31 +69,31 @@ class _$QuestionListDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$QuestionListDtoCopyWith<$Res>
-    implements $QuestionListDtoCopyWith<$Res> {
-  factory _$QuestionListDtoCopyWith(
-          _QuestionListDto value, $Res Function(_QuestionListDto) then) =
-      __$QuestionListDtoCopyWithImpl<$Res>;
+abstract class _$QuestionMapDtoCopyWith<$Res>
+    implements $QuestionMapDtoCopyWith<$Res> {
+  factory _$QuestionMapDtoCopyWith(
+          _QuestionMapDto value, $Res Function(_QuestionMapDto) then) =
+      __$QuestionMapDtoCopyWithImpl<$Res>;
   @override
   $Res call({Map<int, QuestionDto> map});
 }
 
 /// @nodoc
-class __$QuestionListDtoCopyWithImpl<$Res>
-    extends _$QuestionListDtoCopyWithImpl<$Res>
-    implements _$QuestionListDtoCopyWith<$Res> {
-  __$QuestionListDtoCopyWithImpl(
-      _QuestionListDto _value, $Res Function(_QuestionListDto) _then)
-      : super(_value, (v) => _then(v as _QuestionListDto));
+class __$QuestionMapDtoCopyWithImpl<$Res>
+    extends _$QuestionMapDtoCopyWithImpl<$Res>
+    implements _$QuestionMapDtoCopyWith<$Res> {
+  __$QuestionMapDtoCopyWithImpl(
+      _QuestionMapDto _value, $Res Function(_QuestionMapDto) _then)
+      : super(_value, (v) => _then(v as _QuestionMapDto));
 
   @override
-  _QuestionListDto get _value => super._value as _QuestionListDto;
+  _QuestionMapDto get _value => super._value as _QuestionMapDto;
 
   @override
   $Res call({
     Object map = freezed,
   }) {
-    return _then(_QuestionListDto(
+    return _then(_QuestionMapDto(
       map: map == freezed ? _value.map : map as Map<int, QuestionDto>,
     ));
   }
@@ -102,26 +102,26 @@ class __$QuestionListDtoCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_QuestionListDto extends _QuestionListDto {
-  const _$_QuestionListDto({@required this.map})
+class _$_QuestionMapDto extends _QuestionMapDto {
+  const _$_QuestionMapDto({@required this.map})
       : assert(map != null),
         super._();
 
-  factory _$_QuestionListDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_QuestionListDtoFromJson(json);
+  factory _$_QuestionMapDto.fromJson(Map<String, dynamic> json) =>
+      _$_$_QuestionMapDtoFromJson(json);
 
   @override
   final Map<int, QuestionDto> map;
 
   @override
   String toString() {
-    return 'QuestionListDto(map: $map)';
+    return 'QuestionMapDto(map: $map)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuestionListDto &&
+        (other is _QuestionMapDto &&
             (identical(other.map, map) ||
                 const DeepCollectionEquality().equals(other.map, map)));
   }
@@ -131,27 +131,27 @@ class _$_QuestionListDto extends _QuestionListDto {
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(map);
 
   @override
-  _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith =>
-      __$QuestionListDtoCopyWithImpl<_QuestionListDto>(this, _$identity);
+  _$QuestionMapDtoCopyWith<_QuestionMapDto> get copyWith =>
+      __$QuestionMapDtoCopyWithImpl<_QuestionMapDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_QuestionListDtoToJson(this);
+    return _$_$_QuestionMapDtoToJson(this);
   }
 }
 
-abstract class _QuestionListDto extends QuestionListDto {
-  const _QuestionListDto._() : super._();
-  const factory _QuestionListDto({@required Map<int, QuestionDto> map}) =
-      _$_QuestionListDto;
+abstract class _QuestionMapDto extends QuestionMapDto {
+  const _QuestionMapDto._() : super._();
+  const factory _QuestionMapDto({@required Map<int, QuestionDto> map}) =
+      _$_QuestionMapDto;
 
-  factory _QuestionListDto.fromJson(Map<String, dynamic> json) =
-      _$_QuestionListDto.fromJson;
+  factory _QuestionMapDto.fromJson(Map<String, dynamic> json) =
+      _$_QuestionMapDto.fromJson;
 
   @override
   Map<int, QuestionDto> get map;
   @override
-  _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith;
+  _$QuestionMapDtoCopyWith<_QuestionMapDto> get copyWith;
 }
 
 QuestionDto _$QuestionDtoFromJson(Map<String, dynamic> json) {

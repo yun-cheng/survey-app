@@ -5,11 +5,9 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/interviewer_list/interviewer_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz_list/quiz_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
@@ -79,7 +77,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
       answerSelected: (e) async* {
         final selectedAnswer = Answer(e.answerStr);
         final isRightAnswer = state.realAnswer == selectedAnswer;
-        KtMutableMap scoreHistory = state.scoreHistory;
+        final KtMutableMap scoreHistory = state.scoreHistory;
         scoreHistory[state.questionId] = isRightAnswer;
 
         yield state.copyWith(

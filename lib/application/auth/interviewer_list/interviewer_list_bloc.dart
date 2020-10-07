@@ -7,7 +7,6 @@ import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/auth_failure.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/project.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';

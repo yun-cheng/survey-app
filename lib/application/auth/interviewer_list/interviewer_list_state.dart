@@ -8,7 +8,7 @@ abstract class InterviewerListState with _$InterviewerListState {
   }) = _InterviewerListState;
 
   factory InterviewerListState.initial() => InterviewerListState(
-        interviewerList: KtList<Interviewer>.empty(),
+        interviewerList: const KtList<Interviewer>.empty(),
         failureOption: none(),
       );
 }

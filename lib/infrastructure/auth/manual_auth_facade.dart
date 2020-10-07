@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
@@ -10,13 +11,12 @@ import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/project_list_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
-import 'package:flutter/services.dart' show PlatformException, rootBundle;
-import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:kt_dart/collection.dart';
 
 @LazySingleton(as: IAuthFacade)
 class ManualAuthFacade implements IAuthFacade {
-  final Firestore _firestore;
+  final FirebaseFirestore _firestore;
 
   ManualAuthFacade(this._firestore);
 
@@ -48,7 +48,7 @@ class ManualAuthFacade implements IAuthFacade {
           .then((doc) => ProjectListDto.fromFirestore(doc).toDomain());
 
       return right(projectList);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const AuthFailure.insufficientPermission());
       } else if (e.message.contains('NOT_FOUND')) {
@@ -68,14 +68,14 @@ class ManualAuthFacade implements IAuthFacade {
       final interviewerCollection = _firestore.interviewerCollection;
 
       final interviewerList = await interviewerCollection
-          .document(projectId.getOrCrash())
+          .doc(projectId.getOrCrash())
           .get()
           .then((doc) => InterviewerListDto.fromFirestore(doc).toDomain());
 
       // _interviewerListOption = some(interviewerList);
 
       return right(interviewerList);
-    } on PlatformException catch (e) {
+    } on FirebaseException catch (e) {
       if (e.message.contains('PERMISSION_DENIED')) {
         return left(const AuthFailure.insufficientPermission());
       } else if (e.message.contains('NOT_FOUND')) {
@@ -89,7 +89,7 @@ class ManualAuthFacade implements IAuthFacade {
   // NOTE 原本從 local 端 load 資料的方法，現在未使用
   @override
   Future<void> getInterviewerListFromAsset() async {
-    final path = 'assets/interviewer_list.json';
+    const path = 'assets/interviewer_list.json';
 
     final jsonString = await rootBundle.loadString(path);
     final jsonResponse = json.decode(jsonString);

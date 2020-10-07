@@ -20,11 +20,11 @@ abstract class Score implements _$Score {
       );
 
   Score rightAnswer() {
-    return this.copyWith(right: this.right.add());
+    return copyWith(right: this.right.add());
   }
 
   Score wrongAnswer() {
-    return this.copyWith(wrong: this.wrong.add());
+    return copyWith(wrong: wrong.add());
   }
 
   Option<ValueFailure<dynamic>> get failureOption {

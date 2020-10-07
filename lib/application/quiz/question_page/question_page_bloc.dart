@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
@@ -24,7 +23,7 @@ class QuestionPageBloc extends Bloc<QuestionPageEvent, QuestionPageState> {
     _subscription = questionListBloc.listen((state) {
       if (state is QuestionListLoadSuccess) {
         _questionList = state.questionList;
-        add(QuestionPageEvent.loadQuestionList());
+        add(const QuestionPageEvent.loadQuestionList());
       }
     });
   }

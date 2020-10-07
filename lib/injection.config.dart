@@ -33,11 +33,13 @@ GetIt $initGetIt(
 }) {
   final gh = GetItHelper(get, environment, environmentFilter);
   final firebaseInjectableModule = _$FirebaseInjectableModule();
-  gh.lazySingleton<Firestore>(() => firebaseInjectableModule.firestore);
-  gh.lazySingleton<IAuthFacade>(() => ManualAuthFacade(get<Firestore>()));
+  gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
+  gh.lazySingleton<IAuthFacade>(
+      () => ManualAuthFacade(get<FirebaseFirestore>()));
   gh.lazySingleton<IQuizListRepository>(
-      () => QuizListRepository(get<Firestore>()));
-  gh.lazySingleton<IQuizRepository>(() => QuizRepository(get<Firestore>()));
+      () => QuizListRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<IQuizRepository>(
+      () => QuizRepository(get<FirebaseFirestore>()));
   gh.factory<InterviewerListBloc>(
       () => InterviewerListBloc(get<IAuthFacade>()));
   gh.factory<ProjectListBloc>(() => ProjectListBloc(get<IAuthFacade>()));

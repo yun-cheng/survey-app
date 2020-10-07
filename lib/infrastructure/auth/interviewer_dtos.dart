@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer_list.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -33,7 +32,7 @@ abstract class InterviewerListDto implements _$InterviewerListDto {
       _$InterviewerListDtoFromJson(json);
 
   factory InterviewerListDto.fromFirestore(DocumentSnapshot doc) {
-    return InterviewerListDto.fromJson(doc.data);
+    return InterviewerListDto.fromJson(doc.data());
   }
 }
 
