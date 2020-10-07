@@ -17,9 +17,9 @@ class _$QuestionListDtoTearOff {
   const _$QuestionListDtoTearOff();
 
 // ignore: unused_element
-  _QuestionListDto call({@required List<QuestionDto> list}) {
+  _QuestionListDto call({@required Map<int, QuestionDto> map}) {
     return _QuestionListDto(
-      list: list,
+      map: map,
     );
   }
 
@@ -35,7 +35,7 @@ const $QuestionListDto = _$QuestionListDtoTearOff();
 
 /// @nodoc
 mixin _$QuestionListDto {
-  List<QuestionDto> get list;
+  Map<int, QuestionDto> get map;
 
   Map<String, dynamic> toJson();
   $QuestionListDtoCopyWith<QuestionListDto> get copyWith;
@@ -46,7 +46,7 @@ abstract class $QuestionListDtoCopyWith<$Res> {
   factory $QuestionListDtoCopyWith(
           QuestionListDto value, $Res Function(QuestionListDto) then) =
       _$QuestionListDtoCopyWithImpl<$Res>;
-  $Res call({List<QuestionDto> list});
+  $Res call({Map<int, QuestionDto> map});
 }
 
 /// @nodoc
@@ -60,10 +60,10 @@ class _$QuestionListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object map = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<QuestionDto>,
+      map: map == freezed ? _value.map : map as Map<int, QuestionDto>,
     ));
   }
 }
@@ -75,7 +75,7 @@ abstract class _$QuestionListDtoCopyWith<$Res>
           _QuestionListDto value, $Res Function(_QuestionListDto) then) =
       __$QuestionListDtoCopyWithImpl<$Res>;
   @override
-  $Res call({List<QuestionDto> list});
+  $Res call({Map<int, QuestionDto> map});
 }
 
 /// @nodoc
@@ -91,10 +91,10 @@ class __$QuestionListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object map = freezed,
   }) {
     return _then(_QuestionListDto(
-      list: list == freezed ? _value.list : list as List<QuestionDto>,
+      map: map == freezed ? _value.map : map as Map<int, QuestionDto>,
     ));
   }
 }
@@ -103,32 +103,32 @@ class __$QuestionListDtoCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_QuestionListDto extends _QuestionListDto {
-  const _$_QuestionListDto({@required this.list})
-      : assert(list != null),
+  const _$_QuestionListDto({@required this.map})
+      : assert(map != null),
         super._();
 
   factory _$_QuestionListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_QuestionListDtoFromJson(json);
 
   @override
-  final List<QuestionDto> list;
+  final Map<int, QuestionDto> map;
 
   @override
   String toString() {
-    return 'QuestionListDto(list: $list)';
+    return 'QuestionListDto(map: $map)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _QuestionListDto &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+            (identical(other.map, map) ||
+                const DeepCollectionEquality().equals(other.map, map)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(map);
 
   @override
   _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith =>
@@ -142,14 +142,14 @@ class _$_QuestionListDto extends _QuestionListDto {
 
 abstract class _QuestionListDto extends QuestionListDto {
   const _QuestionListDto._() : super._();
-  const factory _QuestionListDto({@required List<QuestionDto> list}) =
+  const factory _QuestionListDto({@required Map<int, QuestionDto> map}) =
       _$_QuestionListDto;
 
   factory _QuestionListDto.fromJson(Map<String, dynamic> json) =
       _$_QuestionListDto.fromJson;
 
   @override
-  List<QuestionDto> get list;
+  Map<int, QuestionDto> get map;
   @override
   _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith;
 }

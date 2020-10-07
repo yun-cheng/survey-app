@@ -8,16 +8,16 @@ part of 'question_list_dtos.dart';
 
 _$_QuestionListDto _$_$_QuestionListDtoFromJson(Map<String, dynamic> json) {
   return _$_QuestionListDto(
-    list: (json['list'] as List)
-        ?.map((e) =>
-            e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    map: (json['map'] as Map<String, dynamic>)?.map(
+      (k, e) => MapEntry(int.parse(k),
+          e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
   );
 }
 
 Map<String, dynamic> _$_$_QuestionListDtoToJson(_$_QuestionListDto instance) =>
     <String, dynamic>{
-      'list': instance.list?.map((e) => e?.toJson())?.toList(),
+      'map': instance.map?.map((k, e) => MapEntry(k.toString(), e?.toJson())),
     };
 
 _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
