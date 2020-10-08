@@ -8,93 +8,93 @@ part of 'question_list_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-QuestionMapDto _$QuestionMapDtoFromJson(Map<String, dynamic> json) {
-  return _QuestionMapDto.fromJson(json);
+QuestionListDto _$QuestionListDtoFromJson(Map<String, dynamic> json) {
+  return _QuestionListDto.fromJson(json);
 }
 
 /// @nodoc
-class _$QuestionMapDtoTearOff {
-  const _$QuestionMapDtoTearOff();
+class _$QuestionListDtoTearOff {
+  const _$QuestionListDtoTearOff();
 
 // ignore: unused_element
-  _QuestionMapDto call({@required Map<int, QuestionDto> map}) {
-    return _QuestionMapDto(
-      map: map,
+  _QuestionListDto call({List<QuestionDto> list}) {
+    return _QuestionListDto(
+      list: list,
     );
   }
 
 // ignore: unused_element
-  QuestionMapDto fromJson(Map<String, Object> json) {
-    return QuestionMapDto.fromJson(json);
+  QuestionListDto fromJson(Map<String, Object> json) {
+    return QuestionListDto.fromJson(json);
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $QuestionMapDto = _$QuestionMapDtoTearOff();
+const $QuestionListDto = _$QuestionListDtoTearOff();
 
 /// @nodoc
-mixin _$QuestionMapDto {
-  Map<int, QuestionDto> get map;
+mixin _$QuestionListDto {
+  List<QuestionDto> get list;
 
   Map<String, dynamic> toJson();
-  $QuestionMapDtoCopyWith<QuestionMapDto> get copyWith;
+  $QuestionListDtoCopyWith<QuestionListDto> get copyWith;
 }
 
 /// @nodoc
-abstract class $QuestionMapDtoCopyWith<$Res> {
-  factory $QuestionMapDtoCopyWith(
-          QuestionMapDto value, $Res Function(QuestionMapDto) then) =
-      _$QuestionMapDtoCopyWithImpl<$Res>;
-  $Res call({Map<int, QuestionDto> map});
+abstract class $QuestionListDtoCopyWith<$Res> {
+  factory $QuestionListDtoCopyWith(
+          QuestionListDto value, $Res Function(QuestionListDto) then) =
+      _$QuestionListDtoCopyWithImpl<$Res>;
+  $Res call({List<QuestionDto> list});
 }
 
 /// @nodoc
-class _$QuestionMapDtoCopyWithImpl<$Res>
-    implements $QuestionMapDtoCopyWith<$Res> {
-  _$QuestionMapDtoCopyWithImpl(this._value, this._then);
+class _$QuestionListDtoCopyWithImpl<$Res>
+    implements $QuestionListDtoCopyWith<$Res> {
+  _$QuestionListDtoCopyWithImpl(this._value, this._then);
 
-  final QuestionMapDto _value;
+  final QuestionListDto _value;
   // ignore: unused_field
-  final $Res Function(QuestionMapDto) _then;
+  final $Res Function(QuestionListDto) _then;
 
   @override
   $Res call({
-    Object map = freezed,
+    Object list = freezed,
   }) {
     return _then(_value.copyWith(
-      map: map == freezed ? _value.map : map as Map<int, QuestionDto>,
+      list: list == freezed ? _value.list : list as List<QuestionDto>,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$QuestionMapDtoCopyWith<$Res>
-    implements $QuestionMapDtoCopyWith<$Res> {
-  factory _$QuestionMapDtoCopyWith(
-          _QuestionMapDto value, $Res Function(_QuestionMapDto) then) =
-      __$QuestionMapDtoCopyWithImpl<$Res>;
+abstract class _$QuestionListDtoCopyWith<$Res>
+    implements $QuestionListDtoCopyWith<$Res> {
+  factory _$QuestionListDtoCopyWith(
+          _QuestionListDto value, $Res Function(_QuestionListDto) then) =
+      __$QuestionListDtoCopyWithImpl<$Res>;
   @override
-  $Res call({Map<int, QuestionDto> map});
+  $Res call({List<QuestionDto> list});
 }
 
 /// @nodoc
-class __$QuestionMapDtoCopyWithImpl<$Res>
-    extends _$QuestionMapDtoCopyWithImpl<$Res>
-    implements _$QuestionMapDtoCopyWith<$Res> {
-  __$QuestionMapDtoCopyWithImpl(
-      _QuestionMapDto _value, $Res Function(_QuestionMapDto) _then)
-      : super(_value, (v) => _then(v as _QuestionMapDto));
+class __$QuestionListDtoCopyWithImpl<$Res>
+    extends _$QuestionListDtoCopyWithImpl<$Res>
+    implements _$QuestionListDtoCopyWith<$Res> {
+  __$QuestionListDtoCopyWithImpl(
+      _QuestionListDto _value, $Res Function(_QuestionListDto) _then)
+      : super(_value, (v) => _then(v as _QuestionListDto));
 
   @override
-  _QuestionMapDto get _value => super._value as _QuestionMapDto;
+  _QuestionListDto get _value => super._value as _QuestionListDto;
 
   @override
   $Res call({
-    Object map = freezed,
+    Object list = freezed,
   }) {
-    return _then(_QuestionMapDto(
-      map: map == freezed ? _value.map : map as Map<int, QuestionDto>,
+    return _then(_QuestionListDto(
+      list: list == freezed ? _value.list : list as List<QuestionDto>,
     ));
   }
 }
@@ -102,56 +102,53 @@ class __$QuestionMapDtoCopyWithImpl<$Res>
 @JsonSerializable()
 
 /// @nodoc
-class _$_QuestionMapDto extends _QuestionMapDto {
-  const _$_QuestionMapDto({@required this.map})
-      : assert(map != null),
-        super._();
+class _$_QuestionListDto extends _QuestionListDto {
+  const _$_QuestionListDto({this.list}) : super._();
 
-  factory _$_QuestionMapDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_QuestionMapDtoFromJson(json);
+  factory _$_QuestionListDto.fromJson(Map<String, dynamic> json) =>
+      _$_$_QuestionListDtoFromJson(json);
 
   @override
-  final Map<int, QuestionDto> map;
+  final List<QuestionDto> list;
 
   @override
   String toString() {
-    return 'QuestionMapDto(map: $map)';
+    return 'QuestionListDto(list: $list)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuestionMapDto &&
-            (identical(other.map, map) ||
-                const DeepCollectionEquality().equals(other.map, map)));
+        (other is _QuestionListDto &&
+            (identical(other.list, list) ||
+                const DeepCollectionEquality().equals(other.list, list)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(map);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
 
   @override
-  _$QuestionMapDtoCopyWith<_QuestionMapDto> get copyWith =>
-      __$QuestionMapDtoCopyWithImpl<_QuestionMapDto>(this, _$identity);
+  _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith =>
+      __$QuestionListDtoCopyWithImpl<_QuestionListDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_QuestionMapDtoToJson(this);
+    return _$_$_QuestionListDtoToJson(this);
   }
 }
 
-abstract class _QuestionMapDto extends QuestionMapDto {
-  const _QuestionMapDto._() : super._();
-  const factory _QuestionMapDto({@required Map<int, QuestionDto> map}) =
-      _$_QuestionMapDto;
+abstract class _QuestionListDto extends QuestionListDto {
+  const _QuestionListDto._() : super._();
+  const factory _QuestionListDto({List<QuestionDto> list}) = _$_QuestionListDto;
 
-  factory _QuestionMapDto.fromJson(Map<String, dynamic> json) =
-      _$_QuestionMapDto.fromJson;
+  factory _QuestionListDto.fromJson(Map<String, dynamic> json) =
+      _$_QuestionListDto.fromJson;
 
   @override
-  Map<int, QuestionDto> get map;
+  List<QuestionDto> get list;
   @override
-  _$QuestionMapDtoCopyWith<_QuestionMapDto> get copyWith;
+  _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith;
 }
 
 QuestionDto _$QuestionDtoFromJson(Map<String, dynamic> json) {
@@ -164,28 +161,28 @@ class _$QuestionDtoTearOff {
 
 // ignore: unused_element
   _QuestionDto call(
-      {@required String id,
-      @required bool hideId,
-      @required int serialNumber,
-      @required String body,
-      @required String note,
-      @required String type,
-      @required String show,
-      @required List<ChoiceDto> choiceAnswerList,
-      @required List<ChoiceDto> specialAnswerList,
-      @required bool hasSpecialAnswer,
-      @required String validateAnswer,
-      @required String upperQuestionId,
-      @required int pageNumber}) {
+      {String questionId,
+      bool hideQuestionId,
+      int serialNumber,
+      String questionBody,
+      String questionNote,
+      String questionType,
+      String showQuestion,
+      List<ChoiceDto> choiceList,
+      List<ChoiceDto> specialAnswerList,
+      bool hasSpecialAnswer,
+      String validateAnswer,
+      String upperQuestionId,
+      int pageNumber}) {
     return _QuestionDto(
-      id: id,
-      hideId: hideId,
+      questionId: questionId,
+      hideQuestionId: hideQuestionId,
       serialNumber: serialNumber,
-      body: body,
-      note: note,
-      type: type,
-      show: show,
-      choiceAnswerList: choiceAnswerList,
+      questionBody: questionBody,
+      questionNote: questionNote,
+      questionType: questionType,
+      showQuestion: showQuestion,
+      choiceList: choiceList,
       specialAnswerList: specialAnswerList,
       hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer,
@@ -206,14 +203,14 @@ const $QuestionDto = _$QuestionDtoTearOff();
 
 /// @nodoc
 mixin _$QuestionDto {
-  String get id;
-  bool get hideId;
+  String get questionId;
+  bool get hideQuestionId;
   int get serialNumber;
-  String get body;
-  String get note;
-  String get type;
-  String get show;
-  List<ChoiceDto> get choiceAnswerList;
+  String get questionBody;
+  String get questionNote;
+  String get questionType;
+  String get showQuestion;
+  List<ChoiceDto> get choiceList;
   List<ChoiceDto> get specialAnswerList;
   bool get hasSpecialAnswer;
   String get validateAnswer;
@@ -230,14 +227,14 @@ abstract class $QuestionDtoCopyWith<$Res> {
           QuestionDto value, $Res Function(QuestionDto) then) =
       _$QuestionDtoCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      bool hideId,
+      {String questionId,
+      bool hideQuestionId,
       int serialNumber,
-      String body,
-      String note,
-      String type,
-      String show,
-      List<ChoiceDto> choiceAnswerList,
+      String questionBody,
+      String questionNote,
+      String questionType,
+      String showQuestion,
+      List<ChoiceDto> choiceList,
       List<ChoiceDto> specialAnswerList,
       bool hasSpecialAnswer,
       String validateAnswer,
@@ -255,14 +252,14 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object hideId = freezed,
+    Object questionId = freezed,
+    Object hideQuestionId = freezed,
     Object serialNumber = freezed,
-    Object body = freezed,
-    Object note = freezed,
-    Object type = freezed,
-    Object show = freezed,
-    Object choiceAnswerList = freezed,
+    Object questionBody = freezed,
+    Object questionNote = freezed,
+    Object questionType = freezed,
+    Object showQuestion = freezed,
+    Object choiceList = freezed,
     Object specialAnswerList = freezed,
     Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
@@ -270,17 +267,28 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
     Object pageNumber = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      hideId: hideId == freezed ? _value.hideId : hideId as bool,
+      questionId:
+          questionId == freezed ? _value.questionId : questionId as String,
+      hideQuestionId: hideQuestionId == freezed
+          ? _value.hideQuestionId
+          : hideQuestionId as bool,
       serialNumber:
           serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      body: body == freezed ? _value.body : body as String,
-      note: note == freezed ? _value.note : note as String,
-      type: type == freezed ? _value.type : type as String,
-      show: show == freezed ? _value.show : show as String,
-      choiceAnswerList: choiceAnswerList == freezed
-          ? _value.choiceAnswerList
-          : choiceAnswerList as List<ChoiceDto>,
+      questionBody: questionBody == freezed
+          ? _value.questionBody
+          : questionBody as String,
+      questionNote: questionNote == freezed
+          ? _value.questionNote
+          : questionNote as String,
+      questionType: questionType == freezed
+          ? _value.questionType
+          : questionType as String,
+      showQuestion: showQuestion == freezed
+          ? _value.showQuestion
+          : showQuestion as String,
+      choiceList: choiceList == freezed
+          ? _value.choiceList
+          : choiceList as List<ChoiceDto>,
       specialAnswerList: specialAnswerList == freezed
           ? _value.specialAnswerList
           : specialAnswerList as List<ChoiceDto>,
@@ -306,14 +314,14 @@ abstract class _$QuestionDtoCopyWith<$Res>
       __$QuestionDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      bool hideId,
+      {String questionId,
+      bool hideQuestionId,
       int serialNumber,
-      String body,
-      String note,
-      String type,
-      String show,
-      List<ChoiceDto> choiceAnswerList,
+      String questionBody,
+      String questionNote,
+      String questionType,
+      String showQuestion,
+      List<ChoiceDto> choiceList,
       List<ChoiceDto> specialAnswerList,
       bool hasSpecialAnswer,
       String validateAnswer,
@@ -333,14 +341,14 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object hideId = freezed,
+    Object questionId = freezed,
+    Object hideQuestionId = freezed,
     Object serialNumber = freezed,
-    Object body = freezed,
-    Object note = freezed,
-    Object type = freezed,
-    Object show = freezed,
-    Object choiceAnswerList = freezed,
+    Object questionBody = freezed,
+    Object questionNote = freezed,
+    Object questionType = freezed,
+    Object showQuestion = freezed,
+    Object choiceList = freezed,
     Object specialAnswerList = freezed,
     Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
@@ -348,17 +356,28 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
     Object pageNumber = freezed,
   }) {
     return _then(_QuestionDto(
-      id: id == freezed ? _value.id : id as String,
-      hideId: hideId == freezed ? _value.hideId : hideId as bool,
+      questionId:
+          questionId == freezed ? _value.questionId : questionId as String,
+      hideQuestionId: hideQuestionId == freezed
+          ? _value.hideQuestionId
+          : hideQuestionId as bool,
       serialNumber:
           serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      body: body == freezed ? _value.body : body as String,
-      note: note == freezed ? _value.note : note as String,
-      type: type == freezed ? _value.type : type as String,
-      show: show == freezed ? _value.show : show as String,
-      choiceAnswerList: choiceAnswerList == freezed
-          ? _value.choiceAnswerList
-          : choiceAnswerList as List<ChoiceDto>,
+      questionBody: questionBody == freezed
+          ? _value.questionBody
+          : questionBody as String,
+      questionNote: questionNote == freezed
+          ? _value.questionNote
+          : questionNote as String,
+      questionType: questionType == freezed
+          ? _value.questionType
+          : questionType as String,
+      showQuestion: showQuestion == freezed
+          ? _value.showQuestion
+          : showQuestion as String,
+      choiceList: choiceList == freezed
+          ? _value.choiceList
+          : choiceList as List<ChoiceDto>,
       specialAnswerList: specialAnswerList == freezed
           ? _value.specialAnswerList
           : specialAnswerList as List<ChoiceDto>,
@@ -381,53 +400,40 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_QuestionDto extends _QuestionDto {
   const _$_QuestionDto(
-      {@required this.id,
-      @required this.hideId,
-      @required this.serialNumber,
-      @required this.body,
-      @required this.note,
-      @required this.type,
-      @required this.show,
-      @required this.choiceAnswerList,
-      @required this.specialAnswerList,
-      @required this.hasSpecialAnswer,
-      @required this.validateAnswer,
-      @required this.upperQuestionId,
-      @required this.pageNumber})
-      : assert(id != null),
-        assert(hideId != null),
-        assert(serialNumber != null),
-        assert(body != null),
-        assert(note != null),
-        assert(type != null),
-        assert(show != null),
-        assert(choiceAnswerList != null),
-        assert(specialAnswerList != null),
-        assert(hasSpecialAnswer != null),
-        assert(validateAnswer != null),
-        assert(upperQuestionId != null),
-        assert(pageNumber != null),
-        super._();
+      {this.questionId,
+      this.hideQuestionId,
+      this.serialNumber,
+      this.questionBody,
+      this.questionNote,
+      this.questionType,
+      this.showQuestion,
+      this.choiceList,
+      this.specialAnswerList,
+      this.hasSpecialAnswer,
+      this.validateAnswer,
+      this.upperQuestionId,
+      this.pageNumber})
+      : super._();
 
   factory _$_QuestionDto.fromJson(Map<String, dynamic> json) =>
       _$_$_QuestionDtoFromJson(json);
 
   @override
-  final String id;
+  final String questionId;
   @override
-  final bool hideId;
+  final bool hideQuestionId;
   @override
   final int serialNumber;
   @override
-  final String body;
+  final String questionBody;
   @override
-  final String note;
+  final String questionNote;
   @override
-  final String type;
+  final String questionType;
   @override
-  final String show;
+  final String showQuestion;
   @override
-  final List<ChoiceDto> choiceAnswerList;
+  final List<ChoiceDto> choiceList;
   @override
   final List<ChoiceDto> specialAnswerList;
   @override
@@ -441,31 +447,37 @@ class _$_QuestionDto extends _QuestionDto {
 
   @override
   String toString() {
-    return 'QuestionDto(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceAnswerList: $choiceAnswerList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
+    return 'QuestionDto(questionId: $questionId, hideQuestionId: $hideQuestionId, serialNumber: $serialNumber, questionBody: $questionBody, questionNote: $questionNote, questionType: $questionType, showQuestion: $showQuestion, choiceList: $choiceList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _QuestionDto &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.hideId, hideId) ||
-                const DeepCollectionEquality().equals(other.hideId, hideId)) &&
+            (identical(other.questionId, questionId) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionId, questionId)) &&
+            (identical(other.hideQuestionId, hideQuestionId) ||
+                const DeepCollectionEquality()
+                    .equals(other.hideQuestionId, hideQuestionId)) &&
             (identical(other.serialNumber, serialNumber) ||
                 const DeepCollectionEquality()
                     .equals(other.serialNumber, serialNumber)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)) &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.show, show) ||
-                const DeepCollectionEquality().equals(other.show, show)) &&
-            (identical(other.choiceAnswerList, choiceAnswerList) ||
+            (identical(other.questionBody, questionBody) ||
                 const DeepCollectionEquality()
-                    .equals(other.choiceAnswerList, choiceAnswerList)) &&
+                    .equals(other.questionBody, questionBody)) &&
+            (identical(other.questionNote, questionNote) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionNote, questionNote)) &&
+            (identical(other.questionType, questionType) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionType, questionType)) &&
+            (identical(other.showQuestion, showQuestion) ||
+                const DeepCollectionEquality()
+                    .equals(other.showQuestion, showQuestion)) &&
+            (identical(other.choiceList, choiceList) ||
+                const DeepCollectionEquality()
+                    .equals(other.choiceList, choiceList)) &&
             (identical(other.specialAnswerList, specialAnswerList) ||
                 const DeepCollectionEquality()
                     .equals(other.specialAnswerList, specialAnswerList)) &&
@@ -486,14 +498,14 @@ class _$_QuestionDto extends _QuestionDto {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(hideId) ^
+      const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(hideQuestionId) ^
       const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(body) ^
-      const DeepCollectionEquality().hash(note) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(show) ^
-      const DeepCollectionEquality().hash(choiceAnswerList) ^
+      const DeepCollectionEquality().hash(questionBody) ^
+      const DeepCollectionEquality().hash(questionNote) ^
+      const DeepCollectionEquality().hash(questionType) ^
+      const DeepCollectionEquality().hash(showQuestion) ^
+      const DeepCollectionEquality().hash(choiceList) ^
       const DeepCollectionEquality().hash(specialAnswerList) ^
       const DeepCollectionEquality().hash(hasSpecialAnswer) ^
       const DeepCollectionEquality().hash(validateAnswer) ^
@@ -513,39 +525,39 @@ class _$_QuestionDto extends _QuestionDto {
 abstract class _QuestionDto extends QuestionDto {
   const _QuestionDto._() : super._();
   const factory _QuestionDto(
-      {@required String id,
-      @required bool hideId,
-      @required int serialNumber,
-      @required String body,
-      @required String note,
-      @required String type,
-      @required String show,
-      @required List<ChoiceDto> choiceAnswerList,
-      @required List<ChoiceDto> specialAnswerList,
-      @required bool hasSpecialAnswer,
-      @required String validateAnswer,
-      @required String upperQuestionId,
-      @required int pageNumber}) = _$_QuestionDto;
+      {String questionId,
+      bool hideQuestionId,
+      int serialNumber,
+      String questionBody,
+      String questionNote,
+      String questionType,
+      String showQuestion,
+      List<ChoiceDto> choiceList,
+      List<ChoiceDto> specialAnswerList,
+      bool hasSpecialAnswer,
+      String validateAnswer,
+      String upperQuestionId,
+      int pageNumber}) = _$_QuestionDto;
 
   factory _QuestionDto.fromJson(Map<String, dynamic> json) =
       _$_QuestionDto.fromJson;
 
   @override
-  String get id;
+  String get questionId;
   @override
-  bool get hideId;
+  bool get hideQuestionId;
   @override
   int get serialNumber;
   @override
-  String get body;
+  String get questionBody;
   @override
-  String get note;
+  String get questionNote;
   @override
-  String get type;
+  String get questionType;
   @override
-  String get show;
+  String get showQuestion;
   @override
-  List<ChoiceDto> get choiceAnswerList;
+  List<ChoiceDto> get choiceList;
   @override
   List<ChoiceDto> get specialAnswerList;
   @override
@@ -570,18 +582,20 @@ class _$ChoiceDtoTearOff {
 
 // ignore: unused_element
   _ChoiceDto call(
-      {@required String id,
-      @required String body,
-      @required bool asNote,
-      @required bool asSingle,
-      @required String group,
-      @required String upperChoiceId}) {
+      {int serialNumber,
+      String choiceId,
+      String choiceBody,
+      bool asNote,
+      bool asSingle,
+      String choiceGroup,
+      String upperChoiceId}) {
     return _ChoiceDto(
-      id: id,
-      body: body,
+      serialNumber: serialNumber,
+      choiceId: choiceId,
+      choiceBody: choiceBody,
       asNote: asNote,
       asSingle: asSingle,
-      group: group,
+      choiceGroup: choiceGroup,
       upperChoiceId: upperChoiceId,
     );
   }
@@ -598,11 +612,12 @@ const $ChoiceDto = _$ChoiceDtoTearOff();
 
 /// @nodoc
 mixin _$ChoiceDto {
-  String get id;
-  String get body;
+  int get serialNumber;
+  String get choiceId;
+  String get choiceBody;
   bool get asNote;
   bool get asSingle;
-  String get group;
+  String get choiceGroup;
   String get upperChoiceId;
 
   Map<String, dynamic> toJson();
@@ -614,11 +629,12 @@ abstract class $ChoiceDtoCopyWith<$Res> {
   factory $ChoiceDtoCopyWith(ChoiceDto value, $Res Function(ChoiceDto) then) =
       _$ChoiceDtoCopyWithImpl<$Res>;
   $Res call(
-      {String id,
-      String body,
+      {int serialNumber,
+      String choiceId,
+      String choiceBody,
       bool asNote,
       bool asSingle,
-      String group,
+      String choiceGroup,
       String upperChoiceId});
 }
 
@@ -632,19 +648,24 @@ class _$ChoiceDtoCopyWithImpl<$Res> implements $ChoiceDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object body = freezed,
+    Object serialNumber = freezed,
+    Object choiceId = freezed,
+    Object choiceBody = freezed,
     Object asNote = freezed,
     Object asSingle = freezed,
-    Object group = freezed,
+    Object choiceGroup = freezed,
     Object upperChoiceId = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      body: body == freezed ? _value.body : body as String,
+      serialNumber:
+          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
+      choiceId: choiceId == freezed ? _value.choiceId : choiceId as String,
+      choiceBody:
+          choiceBody == freezed ? _value.choiceBody : choiceBody as String,
       asNote: asNote == freezed ? _value.asNote : asNote as bool,
       asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
-      group: group == freezed ? _value.group : group as String,
+      choiceGroup:
+          choiceGroup == freezed ? _value.choiceGroup : choiceGroup as String,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId as String,
@@ -659,11 +680,12 @@ abstract class _$ChoiceDtoCopyWith<$Res> implements $ChoiceDtoCopyWith<$Res> {
       __$ChoiceDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
-      String body,
+      {int serialNumber,
+      String choiceId,
+      String choiceBody,
       bool asNote,
       bool asSingle,
-      String group,
+      String choiceGroup,
       String upperChoiceId});
 }
 
@@ -678,19 +700,24 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object body = freezed,
+    Object serialNumber = freezed,
+    Object choiceId = freezed,
+    Object choiceBody = freezed,
     Object asNote = freezed,
     Object asSingle = freezed,
-    Object group = freezed,
+    Object choiceGroup = freezed,
     Object upperChoiceId = freezed,
   }) {
     return _then(_ChoiceDto(
-      id: id == freezed ? _value.id : id as String,
-      body: body == freezed ? _value.body : body as String,
+      serialNumber:
+          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
+      choiceId: choiceId == freezed ? _value.choiceId : choiceId as String,
+      choiceBody:
+          choiceBody == freezed ? _value.choiceBody : choiceBody as String,
       asNote: asNote == freezed ? _value.asNote : asNote as bool,
       asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
-      group: group == freezed ? _value.group : group as String,
+      choiceGroup:
+          choiceGroup == freezed ? _value.choiceGroup : choiceGroup as String,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId as String,
@@ -703,56 +730,59 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_ChoiceDto extends _ChoiceDto {
   const _$_ChoiceDto(
-      {@required this.id,
-      @required this.body,
-      @required this.asNote,
-      @required this.asSingle,
-      @required this.group,
-      @required this.upperChoiceId})
-      : assert(id != null),
-        assert(body != null),
-        assert(asNote != null),
-        assert(asSingle != null),
-        assert(group != null),
-        assert(upperChoiceId != null),
-        super._();
+      {this.serialNumber,
+      this.choiceId,
+      this.choiceBody,
+      this.asNote,
+      this.asSingle,
+      this.choiceGroup,
+      this.upperChoiceId})
+      : super._();
 
   factory _$_ChoiceDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ChoiceDtoFromJson(json);
 
   @override
-  final String id;
+  final int serialNumber;
   @override
-  final String body;
+  final String choiceId;
+  @override
+  final String choiceBody;
   @override
   final bool asNote;
   @override
   final bool asSingle;
   @override
-  final String group;
+  final String choiceGroup;
   @override
   final String upperChoiceId;
 
   @override
   String toString() {
-    return 'ChoiceDto(id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, group: $group, upperChoiceId: $upperChoiceId)';
+    return 'ChoiceDto(serialNumber: $serialNumber, choiceId: $choiceId, choiceBody: $choiceBody, asNote: $asNote, asSingle: $asSingle, choiceGroup: $choiceGroup, upperChoiceId: $upperChoiceId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ChoiceDto &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)) &&
+            (identical(other.serialNumber, serialNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.serialNumber, serialNumber)) &&
+            (identical(other.choiceId, choiceId) ||
+                const DeepCollectionEquality()
+                    .equals(other.choiceId, choiceId)) &&
+            (identical(other.choiceBody, choiceBody) ||
+                const DeepCollectionEquality()
+                    .equals(other.choiceBody, choiceBody)) &&
             (identical(other.asNote, asNote) ||
                 const DeepCollectionEquality().equals(other.asNote, asNote)) &&
             (identical(other.asSingle, asSingle) ||
                 const DeepCollectionEquality()
                     .equals(other.asSingle, asSingle)) &&
-            (identical(other.group, group) ||
-                const DeepCollectionEquality().equals(other.group, group)) &&
+            (identical(other.choiceGroup, choiceGroup) ||
+                const DeepCollectionEquality()
+                    .equals(other.choiceGroup, choiceGroup)) &&
             (identical(other.upperChoiceId, upperChoiceId) ||
                 const DeepCollectionEquality()
                     .equals(other.upperChoiceId, upperChoiceId)));
@@ -761,11 +791,12 @@ class _$_ChoiceDto extends _ChoiceDto {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(body) ^
+      const DeepCollectionEquality().hash(serialNumber) ^
+      const DeepCollectionEquality().hash(choiceId) ^
+      const DeepCollectionEquality().hash(choiceBody) ^
       const DeepCollectionEquality().hash(asNote) ^
       const DeepCollectionEquality().hash(asSingle) ^
-      const DeepCollectionEquality().hash(group) ^
+      const DeepCollectionEquality().hash(choiceGroup) ^
       const DeepCollectionEquality().hash(upperChoiceId);
 
   @override
@@ -781,26 +812,29 @@ class _$_ChoiceDto extends _ChoiceDto {
 abstract class _ChoiceDto extends ChoiceDto {
   const _ChoiceDto._() : super._();
   const factory _ChoiceDto(
-      {@required String id,
-      @required String body,
-      @required bool asNote,
-      @required bool asSingle,
-      @required String group,
-      @required String upperChoiceId}) = _$_ChoiceDto;
+      {int serialNumber,
+      String choiceId,
+      String choiceBody,
+      bool asNote,
+      bool asSingle,
+      String choiceGroup,
+      String upperChoiceId}) = _$_ChoiceDto;
 
   factory _ChoiceDto.fromJson(Map<String, dynamic> json) =
       _$_ChoiceDto.fromJson;
 
   @override
-  String get id;
+  int get serialNumber;
   @override
-  String get body;
+  String get choiceId;
+  @override
+  String get choiceBody;
   @override
   bool get asNote;
   @override
   bool get asSingle;
   @override
-  String get group;
+  String get choiceGroup;
   @override
   String get upperChoiceId;
   @override

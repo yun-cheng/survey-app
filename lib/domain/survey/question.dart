@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
@@ -18,8 +17,9 @@ abstract class Question implements _$Question {
     @required QuestionNote note,
     @required QuestionType type,
     @required ShowQuestion show,
-    @required KtList<Choice> choiceAnswerList,
+    @required KtList<Choice> choiceList,
     @required KtList<Choice> specialAnswerList,
+    @required bool hasSpecialAnswer,
     @required ValidateAnswer validateAnswer,
     @required QuestionId upperQuestionId,
     @required PageNumber pageNumber,
@@ -32,8 +32,9 @@ abstract class Question implements _$Question {
         body: QuestionBody.empty(),
         note: QuestionNote.empty(),
         type: QuestionType.description(),
-        choiceAnswerList: emptyList<Choice>(),
+        choiceList: emptyList<Choice>(),
         specialAnswerList: emptyList<Choice>(),
+        hasSpecialAnswer: false,
         show: ShowQuestion.empty(),
         validateAnswer: ValidateAnswer.empty(),
         upperQuestionId: QuestionId.empty(),

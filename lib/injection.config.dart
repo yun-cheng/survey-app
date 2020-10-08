@@ -12,6 +12,7 @@ import 'infrastructure/core/firebase_injectable_module.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/quiz_list/i_quiz_list_repository.dart';
 import 'domain/quiz/i_quiz_repository.dart';
+import 'domain/survey/i_survey_repository.dart';
 import 'application/auth/interviewer_list/interviewer_list_bloc.dart';
 import 'infrastructure/auth/manual_auth_facade.dart';
 import 'application/auth/project_list/project_list_bloc.dart';
@@ -22,6 +23,7 @@ import 'application/quiz_list/quiz_list_bloc.dart';
 import 'infrastructure/quiz_list/quiz_list_repository.dart';
 import 'infrastructure/quiz/quiz_repository.dart';
 import 'application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'infrastructure/survey/survey_repository.dart';
 
 /// adds generated dependencies
 /// to the provided [GetIt] instance
@@ -40,6 +42,8 @@ GetIt $initGetIt(
       () => QuizListRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IQuizRepository>(
       () => QuizRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<ISurveyRepository>(
+      () => SurveyRepository(get<FirebaseFirestore>()));
   gh.factory<InterviewerListBloc>(
       () => InterviewerListBloc(get<IAuthFacade>()));
   gh.factory<ProjectListBloc>(() => ProjectListBloc(get<IAuthFacade>()));

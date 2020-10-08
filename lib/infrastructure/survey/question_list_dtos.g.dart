@@ -6,30 +6,30 @@ part of 'question_list_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_QuestionMapDto _$_$_QuestionMapDtoFromJson(Map<String, dynamic> json) {
-  return _$_QuestionMapDto(
-    map: (json['map'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(int.parse(k),
-          e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>)),
-    ),
+_$_QuestionListDto _$_$_QuestionListDtoFromJson(Map<String, dynamic> json) {
+  return _$_QuestionListDto(
+    list: (json['list'] as List)
+        ?.map((e) =>
+            e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
-Map<String, dynamic> _$_$_QuestionMapDtoToJson(_$_QuestionMapDto instance) =>
+Map<String, dynamic> _$_$_QuestionListDtoToJson(_$_QuestionListDto instance) =>
     <String, dynamic>{
-      'map': instance.map?.map((k, e) => MapEntry(k.toString(), e?.toJson())),
+      'list': instance.list?.map((e) => e?.toJson())?.toList(),
     };
 
 _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
   return _$_QuestionDto(
-    id: json['id'] as String,
-    hideId: json['hideId'] as bool,
+    questionId: json['questionId'] as String,
+    hideQuestionId: json['hideQuestionId'] as bool,
     serialNumber: json['serialNumber'] as int,
-    body: json['body'] as String,
-    note: json['note'] as String,
-    type: json['type'] as String,
-    show: json['show'] as String,
-    choiceAnswerList: (json['choiceAnswerList'] as List)
+    questionBody: json['questionBody'] as String,
+    questionNote: json['questionNote'] as String,
+    questionType: json['questionType'] as String,
+    showQuestion: json['showQuestion'] as String,
+    choiceList: (json['choiceList'] as List)
         ?.map((e) =>
             e == null ? null : ChoiceDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
@@ -46,15 +46,14 @@ _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_QuestionDtoToJson(_$_QuestionDto instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'hideId': instance.hideId,
+      'questionId': instance.questionId,
+      'hideQuestionId': instance.hideQuestionId,
       'serialNumber': instance.serialNumber,
-      'body': instance.body,
-      'note': instance.note,
-      'type': instance.type,
-      'show': instance.show,
-      'choiceAnswerList':
-          instance.choiceAnswerList?.map((e) => e?.toJson())?.toList(),
+      'questionBody': instance.questionBody,
+      'questionNote': instance.questionNote,
+      'questionType': instance.questionType,
+      'showQuestion': instance.showQuestion,
+      'choiceList': instance.choiceList?.map((e) => e?.toJson())?.toList(),
       'specialAnswerList':
           instance.specialAnswerList?.map((e) => e?.toJson())?.toList(),
       'hasSpecialAnswer': instance.hasSpecialAnswer,
@@ -65,21 +64,23 @@ Map<String, dynamic> _$_$_QuestionDtoToJson(_$_QuestionDto instance) =>
 
 _$_ChoiceDto _$_$_ChoiceDtoFromJson(Map<String, dynamic> json) {
   return _$_ChoiceDto(
-    id: json['id'] as String,
-    body: json['body'] as String,
+    serialNumber: json['serialNumber'] as int,
+    choiceId: json['choiceId'] as String,
+    choiceBody: json['choiceBody'] as String,
     asNote: json['asNote'] as bool,
     asSingle: json['asSingle'] as bool,
-    group: json['group'] as String,
+    choiceGroup: json['choiceGroup'] as String,
     upperChoiceId: json['upperChoiceId'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_ChoiceDtoToJson(_$_ChoiceDto instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'body': instance.body,
+      'serialNumber': instance.serialNumber,
+      'choiceId': instance.choiceId,
+      'choiceBody': instance.choiceBody,
       'asNote': instance.asNote,
       'asSingle': instance.asSingle,
-      'group': instance.group,
+      'choiceGroup': instance.choiceGroup,
       'upperChoiceId': instance.upperChoiceId,
     };

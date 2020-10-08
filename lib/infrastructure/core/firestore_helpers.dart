@@ -16,6 +16,8 @@ extension FirestoreX on FirebaseFirestore {
       getIt<FirebaseFirestore>().collection('quiz_result');
   CollectionReference get questionListCollection =>
       getIt<FirebaseFirestore>().collection('question_list');
+  CollectionReference get surveyQuestionListCollection =>
+      getIt<FirebaseFirestore>().collection('surveyQuestionList');
   DocumentReference get projectListDoc =>
       getIt<FirebaseFirestore>().collection('project_list').doc('project_list');
 }

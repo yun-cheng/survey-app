@@ -22,7 +22,7 @@ class _$QuestionTearOff {
       @required QuestionNote note,
       @required QuestionType type,
       @required ShowQuestion show,
-      @required KtList<Choice> choiceAnswerList,
+      @required KtList<Choice> choiceList,
       @required KtList<Choice> specialAnswerList,
       @required bool hasSpecialAnswer,
       @required ValidateAnswer validateAnswer,
@@ -36,7 +36,7 @@ class _$QuestionTearOff {
       note: note,
       type: type,
       show: show,
-      choiceAnswerList: choiceAnswerList,
+      choiceList: choiceList,
       specialAnswerList: specialAnswerList,
       hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer,
@@ -59,7 +59,7 @@ mixin _$Question {
   QuestionNote get note;
   QuestionType get type;
   ShowQuestion get show;
-  KtList<Choice> get choiceAnswerList;
+  KtList<Choice> get choiceList;
   KtList<Choice> get specialAnswerList;
   bool get hasSpecialAnswer;
   ValidateAnswer get validateAnswer;
@@ -81,7 +81,7 @@ abstract class $QuestionCopyWith<$Res> {
       QuestionNote note,
       QuestionType type,
       ShowQuestion show,
-      KtList<Choice> choiceAnswerList,
+      KtList<Choice> choiceList,
       KtList<Choice> specialAnswerList,
       bool hasSpecialAnswer,
       ValidateAnswer validateAnswer,
@@ -106,7 +106,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
     Object note = freezed,
     Object type = freezed,
     Object show = freezed,
-    Object choiceAnswerList = freezed,
+    Object choiceList = freezed,
     Object specialAnswerList = freezed,
     Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
@@ -123,9 +123,9 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       note: note == freezed ? _value.note : note as QuestionNote,
       type: type == freezed ? _value.type : type as QuestionType,
       show: show == freezed ? _value.show : show as ShowQuestion,
-      choiceAnswerList: choiceAnswerList == freezed
-          ? _value.choiceAnswerList
-          : choiceAnswerList as KtList<Choice>,
+      choiceList: choiceList == freezed
+          ? _value.choiceList
+          : choiceList as KtList<Choice>,
       specialAnswerList: specialAnswerList == freezed
           ? _value.specialAnswerList
           : specialAnswerList as KtList<Choice>,
@@ -157,7 +157,7 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       QuestionNote note,
       QuestionType type,
       ShowQuestion show,
-      KtList<Choice> choiceAnswerList,
+      KtList<Choice> choiceList,
       KtList<Choice> specialAnswerList,
       bool hasSpecialAnswer,
       ValidateAnswer validateAnswer,
@@ -183,7 +183,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     Object note = freezed,
     Object type = freezed,
     Object show = freezed,
-    Object choiceAnswerList = freezed,
+    Object choiceList = freezed,
     Object specialAnswerList = freezed,
     Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
@@ -200,9 +200,9 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       note: note == freezed ? _value.note : note as QuestionNote,
       type: type == freezed ? _value.type : type as QuestionType,
       show: show == freezed ? _value.show : show as ShowQuestion,
-      choiceAnswerList: choiceAnswerList == freezed
-          ? _value.choiceAnswerList
-          : choiceAnswerList as KtList<Choice>,
+      choiceList: choiceList == freezed
+          ? _value.choiceList
+          : choiceList as KtList<Choice>,
       specialAnswerList: specialAnswerList == freezed
           ? _value.specialAnswerList
           : specialAnswerList as KtList<Choice>,
@@ -231,7 +231,7 @@ class _$_Question extends _Question {
       @required this.note,
       @required this.type,
       @required this.show,
-      @required this.choiceAnswerList,
+      @required this.choiceList,
       @required this.specialAnswerList,
       @required this.hasSpecialAnswer,
       @required this.validateAnswer,
@@ -244,7 +244,7 @@ class _$_Question extends _Question {
         assert(note != null),
         assert(type != null),
         assert(show != null),
-        assert(choiceAnswerList != null),
+        assert(choiceList != null),
         assert(specialAnswerList != null),
         assert(hasSpecialAnswer != null),
         assert(validateAnswer != null),
@@ -267,7 +267,7 @@ class _$_Question extends _Question {
   @override
   final ShowQuestion show;
   @override
-  final KtList<Choice> choiceAnswerList;
+  final KtList<Choice> choiceList;
   @override
   final KtList<Choice> specialAnswerList;
   @override
@@ -281,7 +281,7 @@ class _$_Question extends _Question {
 
   @override
   String toString() {
-    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceAnswerList: $choiceAnswerList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
+    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceList: $choiceList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
   }
 
   @override
@@ -303,9 +303,9 @@ class _$_Question extends _Question {
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.show, show) ||
                 const DeepCollectionEquality().equals(other.show, show)) &&
-            (identical(other.choiceAnswerList, choiceAnswerList) ||
+            (identical(other.choiceList, choiceList) ||
                 const DeepCollectionEquality()
-                    .equals(other.choiceAnswerList, choiceAnswerList)) &&
+                    .equals(other.choiceList, choiceList)) &&
             (identical(other.specialAnswerList, specialAnswerList) ||
                 const DeepCollectionEquality()
                     .equals(other.specialAnswerList, specialAnswerList)) &&
@@ -333,7 +333,7 @@ class _$_Question extends _Question {
       const DeepCollectionEquality().hash(note) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(show) ^
-      const DeepCollectionEquality().hash(choiceAnswerList) ^
+      const DeepCollectionEquality().hash(choiceList) ^
       const DeepCollectionEquality().hash(specialAnswerList) ^
       const DeepCollectionEquality().hash(hasSpecialAnswer) ^
       const DeepCollectionEquality().hash(validateAnswer) ^
@@ -355,7 +355,7 @@ abstract class _Question extends Question {
       @required QuestionNote note,
       @required QuestionType type,
       @required ShowQuestion show,
-      @required KtList<Choice> choiceAnswerList,
+      @required KtList<Choice> choiceList,
       @required KtList<Choice> specialAnswerList,
       @required bool hasSpecialAnswer,
       @required ValidateAnswer validateAnswer,
@@ -377,7 +377,7 @@ abstract class _Question extends Question {
   @override
   ShowQuestion get show;
   @override
-  KtList<Choice> get choiceAnswerList;
+  KtList<Choice> get choiceList;
   @override
   KtList<Choice> get specialAnswerList;
   @override

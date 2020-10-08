@@ -35,6 +35,7 @@
 # Web related
 lib/generated_plugin_registrant.dart
 web/firebase-config.js
+web/firebase-config.dev.js
 
 # Firebase related
 .firebase/

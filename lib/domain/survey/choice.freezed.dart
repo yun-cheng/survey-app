@@ -15,13 +15,15 @@ class _$ChoiceTearOff {
 
 // ignore: unused_element
   _Choice call(
-      {@required ChoiceId id,
+      {@required SerialNumber serialNumber,
+      @required ChoiceId id,
       @required ChoiceBody body,
       @required bool asNote,
       @required bool asSingle,
       @required ChoiceGroup group,
       @required ChoiceId upperChoiceId}) {
     return _Choice(
+      serialNumber: serialNumber,
       id: id,
       body: body,
       asNote: asNote,
@@ -38,6 +40,7 @@ const $Choice = _$ChoiceTearOff();
 
 /// @nodoc
 mixin _$Choice {
+  SerialNumber get serialNumber;
   ChoiceId get id;
   ChoiceBody get body;
   bool get asNote;
@@ -53,7 +56,8 @@ abstract class $ChoiceCopyWith<$Res> {
   factory $ChoiceCopyWith(Choice value, $Res Function(Choice) then) =
       _$ChoiceCopyWithImpl<$Res>;
   $Res call(
-      {ChoiceId id,
+      {SerialNumber serialNumber,
+      ChoiceId id,
       ChoiceBody body,
       bool asNote,
       bool asSingle,
@@ -71,6 +75,7 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
 
   @override
   $Res call({
+    Object serialNumber = freezed,
     Object id = freezed,
     Object body = freezed,
     Object asNote = freezed,
@@ -79,6 +84,9 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
     Object upperChoiceId = freezed,
   }) {
     return _then(_value.copyWith(
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber as SerialNumber,
       id: id == freezed ? _value.id : id as ChoiceId,
       body: body == freezed ? _value.body : body as ChoiceBody,
       asNote: asNote == freezed ? _value.asNote : asNote as bool,
@@ -97,7 +105,8 @@ abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
       __$ChoiceCopyWithImpl<$Res>;
   @override
   $Res call(
-      {ChoiceId id,
+      {SerialNumber serialNumber,
+      ChoiceId id,
       ChoiceBody body,
       bool asNote,
       bool asSingle,
@@ -116,6 +125,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object serialNumber = freezed,
     Object id = freezed,
     Object body = freezed,
     Object asNote = freezed,
@@ -124,6 +134,9 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
     Object upperChoiceId = freezed,
   }) {
     return _then(_Choice(
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber as SerialNumber,
       id: id == freezed ? _value.id : id as ChoiceId,
       body: body == freezed ? _value.body : body as ChoiceBody,
       asNote: asNote == freezed ? _value.asNote : asNote as bool,
@@ -139,13 +152,15 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
 /// @nodoc
 class _$_Choice extends _Choice {
   const _$_Choice(
-      {@required this.id,
+      {@required this.serialNumber,
+      @required this.id,
       @required this.body,
       @required this.asNote,
       @required this.asSingle,
       @required this.group,
       @required this.upperChoiceId})
-      : assert(id != null),
+      : assert(serialNumber != null),
+        assert(id != null),
         assert(body != null),
         assert(asNote != null),
         assert(asSingle != null),
@@ -153,6 +168,8 @@ class _$_Choice extends _Choice {
         assert(upperChoiceId != null),
         super._();
 
+  @override
+  final SerialNumber serialNumber;
   @override
   final ChoiceId id;
   @override
@@ -168,13 +185,16 @@ class _$_Choice extends _Choice {
 
   @override
   String toString() {
-    return 'Choice(id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, group: $group, upperChoiceId: $upperChoiceId)';
+    return 'Choice(serialNumber: $serialNumber, id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, group: $group, upperChoiceId: $upperChoiceId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Choice &&
+            (identical(other.serialNumber, serialNumber) ||
+                const DeepCollectionEquality()
+                    .equals(other.serialNumber, serialNumber)) &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.body, body) ||
@@ -194,6 +214,7 @@ class _$_Choice extends _Choice {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(serialNumber) ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(body) ^
       const DeepCollectionEquality().hash(asNote) ^
@@ -209,13 +230,16 @@ class _$_Choice extends _Choice {
 abstract class _Choice extends Choice {
   const _Choice._() : super._();
   const factory _Choice(
-      {@required ChoiceId id,
+      {@required SerialNumber serialNumber,
+      @required ChoiceId id,
       @required ChoiceBody body,
       @required bool asNote,
       @required bool asSingle,
       @required ChoiceGroup group,
       @required ChoiceId upperChoiceId}) = _$_Choice;
 
+  @override
+  SerialNumber get serialNumber;
   @override
   ChoiceId get id;
   @override
