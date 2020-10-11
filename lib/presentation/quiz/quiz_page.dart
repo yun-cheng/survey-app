@@ -37,7 +37,7 @@ class QuizPage extends StatelessWidget {
             getIt<IQuizRepository>(),
             BlocProvider.of<QuestionListBloc>(context),
             BlocProvider.of<QuestionPageBloc>(context),
-            BlocProvider.of<SignInFormBloc>(context),
+            // BlocProvider.of<SignInFormBloc>(context),
           ),
         ),
       ],

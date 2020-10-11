@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
+import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
 
 part 'project.freezed.dart';
 
@@ -20,9 +20,7 @@ abstract class Project implements _$Project {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return this
-        .id
-        .failureOrUnit
+    return (this.id.failureOrUnit)
         .andThen(name.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }

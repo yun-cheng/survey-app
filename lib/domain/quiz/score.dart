@@ -28,9 +28,7 @@ abstract class Score implements _$Score {
   }
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return this
-        .right
-        .failureOrUnit
+    return (this.right.failureOrUnit)
         .andThen(wrong.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }

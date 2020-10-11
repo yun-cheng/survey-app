@@ -1,4 +1,7 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 
 part 'choice.freezed.dart';
@@ -27,12 +30,11 @@ abstract class Choice implements _$Choice {
         upperChoiceId: ChoiceId.empty(),
       );
 
-  // Option<ValueFailure<dynamic>> get failureOption {
-  //   return this
-  //       .id
-  //       .failureOrUnit
-  //       .andThen(body.failureOrUnit)
-  //       .andThen(answer.failureOrUnit)
-  //       .fold((f) => some(f), (_) => none());
-  // }
+  Option<ValueFailure<dynamic>> get failureOption {
+    return (this.id.failureOrUnit)
+        .andThen(body.failureOrUnit)
+        .andThen(group.failureOrUnit)
+        .andThen(upperChoiceId.failureOrUnit)
+        .fold((f) => some(f), (_) => none());
+  }
 }

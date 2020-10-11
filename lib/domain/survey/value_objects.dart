@@ -75,7 +75,7 @@ class QuestionType extends ValueObject<String> {
     );
   }
 
-  // QUESTION 有更好的方式嗎？
+  // NOTE 這樣就不用輸入文字
   factory QuestionType.single() => QuestionType('single');
   factory QuestionType.multiple() => QuestionType('multiple');
   factory QuestionType.popupSingle() => QuestionType('popup_single');
@@ -85,6 +85,7 @@ class QuestionType extends ValueObject<String> {
   factory QuestionType.date() => QuestionType('date');
   factory QuestionType.time() => QuestionType('time');
   factory QuestionType.description() => QuestionType('description');
+  factory QuestionType.empty() => QuestionType('');
 
   const QuestionType._(this.value);
 }
@@ -104,20 +105,6 @@ class ShowQuestion extends ValueObject<String> {
   factory ShowQuestion.empty() => ShowQuestion('');
 
   const ShowQuestion._(this.value);
-}
-
-class SerialNumber extends ValueObject<int> {
-  @override
-  final Either<ValueFailure<int>, int> value;
-
-  factory SerialNumber(int input) {
-    assert(input != null);
-    return SerialNumber._(
-      right(input),
-    );
-  }
-
-  const SerialNumber._(this.value);
 }
 
 class PageNumber extends ValueObject<int> {

@@ -22,9 +22,7 @@ abstract class Question implements _$Question {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return this
-        .id
-        .failureOrUnit
+    return (this.id.failureOrUnit)
         .andThen(body.failureOrUnit)
         .andThen(answer.failureOrUnit)
         .fold((f) => some(f), (_) => none());

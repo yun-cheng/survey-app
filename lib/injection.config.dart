@@ -21,6 +21,7 @@ import 'application/quiz/question_page/question_page_bloc.dart';
 import 'application/quiz_list/quiz_list_bloc.dart';
 import 'infrastructure/quiz_list/quiz_list_repository.dart';
 import 'infrastructure/quiz/quiz_repository.dart';
+import 'application/survey/survey_page/survey_page_bloc.dart';
 import 'infrastructure/survey/survey_repository.dart';
 
 /// adds generated dependencies
@@ -44,14 +45,13 @@ GetIt $initGetIt(
       () => SurveyRepository(get<FirebaseFirestore>()));
   gh.factory<QuestionListBloc>(() => QuestionListBloc(get<IQuizRepository>()));
   gh.factory<QuestionPageBloc>(() => QuestionPageBloc(get<QuestionListBloc>()));
-  gh.factory<QuizListBloc>(
-      () => QuizListBloc(get<IQuizListRepository>(), get()));
+  gh.factory<QuizListBloc>(() => QuizListBloc(get<IQuizListRepository>()));
+  gh.factory<SurveyPageBloc>(() => SurveyPageBloc());
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<QuestionBloc>(() => QuestionBloc(
         get<IQuizRepository>(),
         get<QuestionListBloc>(),
         get<QuestionPageBloc>(),
-        get(),
       ));
   return get;
 }

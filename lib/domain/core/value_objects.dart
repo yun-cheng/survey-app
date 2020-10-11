@@ -66,3 +66,17 @@ class UniqueId extends ValueObject<String> {
 
   const UniqueId._(this.value);
 }
+
+class SerialNumber extends ValueObject<int> {
+  @override
+  final Either<ValueFailure<int>, int> value;
+
+  factory SerialNumber(int input) {
+    assert(input != null);
+    return SerialNumber._(
+      right(input),
+    );
+  }
+
+  const SerialNumber._(this.value);
+}

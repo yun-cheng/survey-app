@@ -22,9 +22,7 @@ abstract class Quiz implements _$Quiz {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return this
-        .id
-        .failureOrUnit
+    return (this.id.failureOrUnit)
         .andThen(name.failureOrUnit)
         .fold((f) => some(f), (_) => none());
   }

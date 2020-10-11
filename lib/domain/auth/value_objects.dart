@@ -51,38 +51,6 @@ class InterviewerName extends ValueObject<String> {
   const InterviewerName._(this.value);
 }
 
-class ProjectId extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ProjectId(String input) {
-    assert(input != null);
-    return ProjectId._(
-      validateStringNotEmpty(input),
-    );
-  }
-
-  factory ProjectId.empty() => ProjectId('');
-
-  const ProjectId._(this.value);
-}
-
-class ProjectName extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ProjectName(String input) {
-    assert(input != null);
-    return ProjectName._(
-      validateStringNotEmpty(input),
-    );
-  }
-
-  factory ProjectName.empty() => ProjectName('');
-
-  const ProjectName._(this.value);
-}
-
 class TeamId extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;

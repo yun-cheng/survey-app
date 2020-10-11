@@ -22,9 +22,7 @@ abstract class Interviewer implements _$Interviewer {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return this
-        .id
-        .failureOrUnit
+    return (this.id.failureOrUnit)
         .andThen(name.failureOrUnit)
         .andThen(password.failureOrUnit)
         .fold((f) => some(f), (_) => none());

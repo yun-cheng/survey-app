@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
+// import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz_list/quiz_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz_list/i_quiz_list_repository.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
@@ -13,7 +13,7 @@ class QuizListPage extends StatelessWidget {
     return BlocProvider<QuizListBloc>(
       create: (context) => QuizListBloc(
         getIt<IQuizListRepository>(),
-        BlocProvider.of<SignInFormBloc>(context),
+        // BlocProvider.of<SignInFormBloc>(context),
       )..add(const QuizListEvent.quizListLoaded()),
       child: Scaffold(
         appBar: AppBar(

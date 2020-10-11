@@ -22,12 +22,13 @@ abstract class QuizResult implements _$QuizResult {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return interviewer.failureOption.andThen(
-      scoreHistory
-          .map((o) => o.key.failureOrUnit)
-          .filter((o) => o.isLeft())
-          .getOrElse(0, (_) => right(unit))
-          .fold((f) => some(f), (_) => none()),
-    );
+    return (interviewer.failureOption)
+        .andThen(
+          scoreHistory
+              .map((entry) => entry.key.failureOrUnit)
+              .filter((either) => either.isLeft())
+              .getOrElse(0, (_) => right(unit)),
+        )
+        .fold((f) => some(f), (_) => none());
   }
 }

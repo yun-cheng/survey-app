@@ -5,11 +5,10 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
@@ -27,7 +26,7 @@ part 'question_bloc.freezed.dart';
 class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   StreamSubscription<QuestionListState> _questionListSubscription;
   StreamSubscription<QuestionPageState> _questionPageSubscription;
-  StreamSubscription<SignInFormState> _signInFormSubscription;
+  // StreamSubscription<SignInFormState> _signInFormSubscription;
   final IQuizRepository _quizRepository;
   //TEST 測試只在內部使用
   QuizId _quizId;
@@ -39,16 +38,16 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
     this._quizRepository,
     QuestionListBloc questionListBloc,
     QuestionPageBloc questionPageBloc,
-    SignInFormBloc signInFormBloc,
+    // SignInFormBloc signInFormBloc,
   ) : super(QuestionState.initial()) {
     // HIGHLIGHT bloc v6 以後，如果訂閱的 Bloc 不在同一層 Consumer/Listener/Builder，
     // HIGHLIGHT 就需要先取一次當前狀態，之後再 listen
-    _interviewerOption = signInFormBloc.state.interviewerOption;
-    _projectId = signInFormBloc.state.projectId;
-    _signInFormSubscription = signInFormBloc.listen((state) {
-      _interviewerOption = state.interviewerOption;
-      _projectId = state.projectId;
-    });
+    // _interviewerOption = signInFormBloc.state.interviewerOption;
+    // _projectId = signInFormBloc.state.projectId;
+    // _signInFormSubscription = signInFormBloc.listen((state) {
+    //   _interviewerOption = state.interviewerOption;
+    //   _projectId = state.projectId;
+    // });
 
     _questionListSubscription = questionListBloc.listen((state) {
       if (state is QuestionListLoadSuccess) {
@@ -119,7 +118,7 @@ class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {
   Future<void> close() {
     _questionListSubscription?.cancel();
     _questionPageSubscription?.cancel();
-    _signInFormSubscription?.cancel();
+    // _signInFormSubscription?.cancel();
     return super.close();
   }
 }
