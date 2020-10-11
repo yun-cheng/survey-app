@@ -24,11 +24,6 @@ class _$AuthFailureTearOff {
   }
 
 // ignore: unused_element
-  _UnableToGet unableToGet() {
-    return const _UnableToGet();
-  }
-
-// ignore: unused_element
   _Unexpected unexpected() {
     return const _Unexpected();
   }
@@ -49,7 +44,6 @@ mixin _$AuthFailure {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result insufficientPermission(),
-    @required Result unableToGet(),
     @required Result unexpected(),
     @required Result invalidIdAndPasswordCombination(),
   });
@@ -57,7 +51,6 @@ mixin _$AuthFailure {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result insufficientPermission(),
-    Result unableToGet(),
     Result unexpected(),
     Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
@@ -66,7 +59,6 @@ mixin _$AuthFailure {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
         Result invalidIdAndPasswordCombination(
@@ -76,7 +68,6 @@ mixin _$AuthFailure {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result insufficientPermission(_InsufficientPermission value),
-    Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
     Result invalidIdAndPasswordCombination(
         InvalidIdAndPasswordCombination value),
@@ -140,13 +131,11 @@ class _$ServerError implements ServerError {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result insufficientPermission(),
-    @required Result unableToGet(),
     @required Result unexpected(),
     @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return serverError();
@@ -157,7 +146,6 @@ class _$ServerError implements ServerError {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result insufficientPermission(),
-    Result unableToGet(),
     Result unexpected(),
     Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
@@ -174,7 +162,6 @@ class _$ServerError implements ServerError {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
         Result invalidIdAndPasswordCombination(
@@ -182,7 +169,6 @@ class _$ServerError implements ServerError {
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return serverError(this);
@@ -193,7 +179,6 @@ class _$ServerError implements ServerError {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result insufficientPermission(_InsufficientPermission value),
-    Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
     Result invalidIdAndPasswordCombination(
         InvalidIdAndPasswordCombination value),
@@ -252,13 +237,11 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result insufficientPermission(),
-    @required Result unableToGet(),
     @required Result unexpected(),
     @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return insufficientPermission();
@@ -269,7 +252,6 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result insufficientPermission(),
-    Result unableToGet(),
     Result unexpected(),
     Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
@@ -286,7 +268,6 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
         Result invalidIdAndPasswordCombination(
@@ -294,7 +275,6 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return insufficientPermission(this);
@@ -305,7 +285,6 @@ class _$_InsufficientPermission implements _InsufficientPermission {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result insufficientPermission(_InsufficientPermission value),
-    Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
     Result invalidIdAndPasswordCombination(
         InvalidIdAndPasswordCombination value),
@@ -321,117 +300,6 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
 abstract class _InsufficientPermission implements AuthFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
-}
-
-/// @nodoc
-abstract class _$UnableToGetCopyWith<$Res> {
-  factory _$UnableToGetCopyWith(
-          _UnableToGet value, $Res Function(_UnableToGet) then) =
-      __$UnableToGetCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$UnableToGetCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
-    implements _$UnableToGetCopyWith<$Res> {
-  __$UnableToGetCopyWithImpl(
-      _UnableToGet _value, $Res Function(_UnableToGet) _then)
-      : super(_value, (v) => _then(v as _UnableToGet));
-
-  @override
-  _UnableToGet get _value => super._value as _UnableToGet;
-}
-
-/// @nodoc
-class _$_UnableToGet implements _UnableToGet {
-  const _$_UnableToGet();
-
-  @override
-  String toString() {
-    return 'AuthFailure.unableToGet()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UnableToGet);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverError(),
-    @required Result insufficientPermission(),
-    @required Result unableToGet(),
-    @required Result unexpected(),
-    @required Result invalidIdAndPasswordCombination(),
-  }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unableToGet != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
-    return unableToGet();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverError(),
-    Result insufficientPermission(),
-    Result unableToGet(),
-    Result unexpected(),
-    Result invalidIdAndPasswordCombination(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (unableToGet != null) {
-      return unableToGet();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverError(ServerError value),
-    @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unableToGet(_UnableToGet value),
-    @required Result unexpected(_Unexpected value),
-    @required
-        Result invalidIdAndPasswordCombination(
-            InvalidIdAndPasswordCombination value),
-  }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unableToGet != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
-    return unableToGet(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverError(ServerError value),
-    Result insufficientPermission(_InsufficientPermission value),
-    Result unableToGet(_UnableToGet value),
-    Result unexpected(_Unexpected value),
-    Result invalidIdAndPasswordCombination(
-        InvalidIdAndPasswordCombination value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (unableToGet != null) {
-      return unableToGet(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UnableToGet implements AuthFailure {
-  const factory _UnableToGet() = _$_UnableToGet;
 }
 
 /// @nodoc
@@ -474,13 +342,11 @@ class _$_Unexpected implements _Unexpected {
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result insufficientPermission(),
-    @required Result unableToGet(),
     @required Result unexpected(),
     @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return unexpected();
@@ -491,7 +357,6 @@ class _$_Unexpected implements _Unexpected {
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result insufficientPermission(),
-    Result unableToGet(),
     Result unexpected(),
     Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
@@ -508,7 +373,6 @@ class _$_Unexpected implements _Unexpected {
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
         Result invalidIdAndPasswordCombination(
@@ -516,7 +380,6 @@ class _$_Unexpected implements _Unexpected {
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return unexpected(this);
@@ -527,7 +390,6 @@ class _$_Unexpected implements _Unexpected {
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result insufficientPermission(_InsufficientPermission value),
-    Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
     Result invalidIdAndPasswordCombination(
         InvalidIdAndPasswordCombination value),
@@ -590,13 +452,11 @@ class _$InvalidIdAndPasswordCombination
   Result when<Result extends Object>({
     @required Result serverError(),
     @required Result insufficientPermission(),
-    @required Result unableToGet(),
     @required Result unexpected(),
     @required Result invalidIdAndPasswordCombination(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return invalidIdAndPasswordCombination();
@@ -607,7 +467,6 @@ class _$InvalidIdAndPasswordCombination
   Result maybeWhen<Result extends Object>({
     Result serverError(),
     Result insufficientPermission(),
-    Result unableToGet(),
     Result unexpected(),
     Result invalidIdAndPasswordCombination(),
     @required Result orElse(),
@@ -624,7 +483,6 @@ class _$InvalidIdAndPasswordCombination
   Result map<Result extends Object>({
     @required Result serverError(ServerError value),
     @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unableToGet(_UnableToGet value),
     @required Result unexpected(_Unexpected value),
     @required
         Result invalidIdAndPasswordCombination(
@@ -632,7 +490,6 @@ class _$InvalidIdAndPasswordCombination
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
-    assert(unableToGet != null);
     assert(unexpected != null);
     assert(invalidIdAndPasswordCombination != null);
     return invalidIdAndPasswordCombination(this);
@@ -643,7 +500,6 @@ class _$InvalidIdAndPasswordCombination
   Result maybeMap<Result extends Object>({
     Result serverError(ServerError value),
     Result insufficientPermission(_InsufficientPermission value),
-    Result unableToGet(_UnableToGet value),
     Result unexpected(_Unexpected value),
     Result invalidIdAndPasswordCombination(
         InvalidIdAndPasswordCombination value),

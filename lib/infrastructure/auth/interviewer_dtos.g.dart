@@ -25,15 +25,15 @@ Map<String, dynamic> _$_$_InterviewerListDtoToJson(
 
 _$_InterviewerDto _$_$_InterviewerDtoFromJson(Map<String, dynamic> json) {
   return _$_InterviewerDto(
-    id: json['id'] as String,
-    name: json['name'] as String,
-    password: json['password'] as String,
+    interviewerId: json['interviewerId'] as String,
+    interviewerName: json['interviewerName'] as String,
+    interviewerPassword: json['interviewerPassword'] as String,
   );
 }
 
 Map<String, dynamic> _$_$_InterviewerDtoToJson(_$_InterviewerDto instance) =>
     <String, dynamic>{
-      'id': instance.id,
-      'name': instance.name,
-      'password': instance.password,
+      'interviewerId': instance.interviewerId,
+      'interviewerName': instance.interviewerName,
+      'interviewerPassword': instance.interviewerPassword,
     };

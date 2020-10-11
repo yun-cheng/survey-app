@@ -20,6 +20,9 @@ extension FirestoreX on FirebaseFirestore {
       getIt<FirebaseFirestore>().collection('surveyQuestionList');
   DocumentReference get projectListDoc =>
       getIt<FirebaseFirestore>().collection('project_list').doc('project_list');
+  CollectionReference get teamCollection => collection('team');
+  CollectionReference get interviewerListCollection =>
+      getIt<FirebaseFirestore>().collection('interviewerList');
 }
 
 extension DocumentReferenceX on DocumentReference {

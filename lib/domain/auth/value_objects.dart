@@ -82,3 +82,35 @@ class ProjectName extends ValueObject<String> {
 
   const ProjectName._(this.value);
 }
+
+class TeamId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory TeamId(String input) {
+    assert(input != null);
+    return TeamId._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  factory TeamId.empty() => TeamId('');
+
+  const TeamId._(this.value);
+}
+
+class TeamName extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory TeamName(String input) {
+    assert(input != null);
+    return TeamName._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  factory TeamName.empty() => TeamName('');
+
+  const TeamName._(this.value);
+}
