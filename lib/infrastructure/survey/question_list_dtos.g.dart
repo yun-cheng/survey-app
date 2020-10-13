@@ -6,20 +6,6 @@ part of 'question_list_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_QuestionListDto _$_$_QuestionListDtoFromJson(Map<String, dynamic> json) {
-  return _$_QuestionListDto(
-    list: (json['list'] as List)
-        ?.map((e) =>
-            e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-  );
-}
-
-Map<String, dynamic> _$_$_QuestionListDtoToJson(_$_QuestionListDto instance) =>
-    <String, dynamic>{
-      'list': instance.list?.map((e) => e?.toJson())?.toList(),
-    };
-
 _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
   return _$_QuestionDto(
     questionId: json['questionId'] as String,

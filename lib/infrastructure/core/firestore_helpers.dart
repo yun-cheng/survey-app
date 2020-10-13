@@ -4,10 +4,16 @@ import 'package:interviewer_quiz_flutter_app/injection.dart';
 // TEST DDD 教學中每次 CRUD 都開一個 instance，這邊嘗試只開一個，重複使用
 // HIGHLIGHT Firestore.instance 改成 getIt<Firestore>() 好像也還是可以運作
 extension FirestoreX on FirebaseFirestore {
-  CollectionReference get projectCollection =>
-      getIt<FirebaseFirestore>().collection('interviewer_quiz');
-  CollectionReference get interviewerCollection =>
-      getIt<FirebaseFirestore>().collection('interviewer');
+  CollectionReference get teamCollection => collection('team');
+  CollectionReference get projectCollection => collection('project');
+  CollectionReference get interviewerListCollection =>
+      getIt<FirebaseFirestore>().collection('interviewerList');
+  CollectionReference get surveyCollection =>
+      getIt<FirebaseFirestore>().collection('survey');
+  CollectionReference get surveyQuestionListCollection =>
+      getIt<FirebaseFirestore>().collection('surveyQuestionList');
+  CollectionReference get respondentCollection =>
+      getIt<FirebaseFirestore>().collection('interviewerRespondentList');
   CollectionReference get interviewerQuizCollection =>
       getIt<FirebaseFirestore>().collection('interviewer_quiz');
   CollectionReference get quizCollection =>
@@ -16,13 +22,6 @@ extension FirestoreX on FirebaseFirestore {
       getIt<FirebaseFirestore>().collection('quiz_result');
   CollectionReference get questionListCollection =>
       getIt<FirebaseFirestore>().collection('question_list');
-  CollectionReference get surveyQuestionListCollection =>
-      getIt<FirebaseFirestore>().collection('surveyQuestionList');
-  DocumentReference get projectListDoc =>
-      getIt<FirebaseFirestore>().collection('project_list').doc('project_list');
-  CollectionReference get teamCollection => collection('team');
-  CollectionReference get interviewerListCollection =>
-      getIt<FirebaseFirestore>().collection('interviewerList');
 }
 
 extension DocumentReferenceX on DocumentReference {

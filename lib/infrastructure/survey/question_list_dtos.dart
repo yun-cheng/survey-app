@@ -9,52 +9,52 @@ import 'package:kt_dart/collection.dart';
 part 'question_list_dtos.freezed.dart';
 part 'question_list_dtos.g.dart';
 
-@freezed
-abstract class QuestionListDto implements _$QuestionListDto {
-  const QuestionListDto._();
+// @freezed
+// abstract class QuestionListDto implements _$QuestionListDto {
+//   const QuestionListDto._();
 
-  const factory QuestionListDto({
-    List<QuestionDto> list,
-  }) = _QuestionListDto;
+//   const factory QuestionListDto({
+//     @required List<QuestionDto> list,
+//   }) = _QuestionListDto;
 
-  factory QuestionListDto.fromDomain(KtList<Question> questionList) {
-    return QuestionListDto(
-      list: questionList
-          .map((question) => QuestionDto.fromDomain(question))
-          .asList(),
-    );
-  }
+//   factory QuestionListDto.fromDomain(KtList<Question> questionList) {
+//     return QuestionListDto(
+//       list: questionList
+//           .map((question) => QuestionDto.fromDomain(question))
+//           .asList(),
+//     );
+//   }
 
-  KtList<Question> toDomain() {
-    return list.map((dto) => dto.toDomain()).toImmutableList();
-  }
+//   KtList<Question> toDomain() {
+//     return list.map((dto) => dto.toDomain()).toImmutableList();
+//   }
 
-  factory QuestionListDto.fromJson(Map<String, dynamic> json) =>
-      _$QuestionListDtoFromJson(json);
+//   factory QuestionListDto.fromJson(Map<String, dynamic> json) =>
+//       _$QuestionListDtoFromJson(json);
 
-  factory QuestionListDto.fromFirestore(DocumentSnapshot doc) {
-    return QuestionListDto.fromJson(doc.data());
-  }
-}
+//   factory QuestionListDto.fromFirestore(DocumentSnapshot doc) {
+//     return QuestionListDto.fromJson(doc.data());
+//   }
+// }
 
 @freezed
 abstract class QuestionDto implements _$QuestionDto {
   const QuestionDto._();
 
   const factory QuestionDto({
-    String questionId,
-    bool hideQuestionId,
-    int serialNumber,
-    String questionBody,
-    String questionNote,
-    String questionType,
-    String showQuestion,
-    List<ChoiceDto> choiceList,
-    List<ChoiceDto> specialAnswerList,
-    bool hasSpecialAnswer,
-    String validateAnswer,
-    String upperQuestionId,
-    int pageNumber,
+    @required String questionId,
+    @required bool hideQuestionId,
+    @required int serialNumber,
+    @required String questionBody,
+    @required String questionNote,
+    @required String questionType,
+    @required String showQuestion,
+    @required List<ChoiceDto> choiceList,
+    @required List<ChoiceDto> specialAnswerList,
+    @required bool hasSpecialAnswer,
+    @required String validateAnswer,
+    @required String upperQuestionId,
+    @required int pageNumber,
   }) = _QuestionDto;
 
   factory QuestionDto.fromDomain(Question question) {
@@ -107,13 +107,13 @@ abstract class ChoiceDto implements _$ChoiceDto {
   const ChoiceDto._();
 
   const factory ChoiceDto({
-    int serialNumber,
-    String choiceId,
-    String choiceBody,
-    bool asNote,
-    bool asSingle,
-    String choiceGroup,
-    String upperChoiceId,
+    @required int serialNumber,
+    @required String choiceId,
+    @required String choiceBody,
+    @required bool asNote,
+    @required bool asSingle,
+    @required String choiceGroup,
+    @required String upperChoiceId,
   }) = _ChoiceDto;
 
   factory ChoiceDto.fromDomain(Choice choice) {

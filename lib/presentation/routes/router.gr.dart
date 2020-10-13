@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 import '../../domain/quiz_list/value_objects.dart';
 import '../finished/finished_page.dart';
+import '../overview/overview_page.dart';
 import '../quiz/quiz_page.dart';
 import '../quiz_list/quiz_list_page.dart';
 import '../sign_in/sign_in_page.dart';
@@ -20,11 +21,13 @@ class Routes {
   static const String quizListPage = '/quiz-list-page';
   static const String quizPage = '/quiz-page';
   static const String finishedPage = '/finished-page';
+  static const String overviewPage = '/overview-page';
   static const all = <String>{
     signInPage,
     quizListPage,
     quizPage,
     finishedPage,
+    overviewPage,
   };
 }
 
@@ -36,6 +39,7 @@ class AutoRouter extends RouterBase {
     RouteDef(Routes.quizListPage, page: QuizListPage),
     RouteDef(Routes.quizPage, page: QuizPage),
     RouteDef(Routes.finishedPage, page: FinishedPage),
+    RouteDef(Routes.overviewPage, page: OverviewPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -68,6 +72,12 @@ class AutoRouter extends RouterBase {
         settings: data,
       );
     },
+    OverviewPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => OverviewPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -90,6 +100,8 @@ extension AutoRouterExtendedNavigatorStateX on ExtendedNavigatorState {
       );
 
   Future<dynamic> pushFinishedPage() => push<dynamic>(Routes.finishedPage);
+
+  Future<dynamic> pushOverviewPage() => push<dynamic>(Routes.overviewPage);
 }
 
 /// ************************************************************************

@@ -8,149 +8,6 @@ part of 'question_list_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
-QuestionListDto _$QuestionListDtoFromJson(Map<String, dynamic> json) {
-  return _QuestionListDto.fromJson(json);
-}
-
-/// @nodoc
-class _$QuestionListDtoTearOff {
-  const _$QuestionListDtoTearOff();
-
-// ignore: unused_element
-  _QuestionListDto call({List<QuestionDto> list}) {
-    return _QuestionListDto(
-      list: list,
-    );
-  }
-
-// ignore: unused_element
-  QuestionListDto fromJson(Map<String, Object> json) {
-    return QuestionListDto.fromJson(json);
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $QuestionListDto = _$QuestionListDtoTearOff();
-
-/// @nodoc
-mixin _$QuestionListDto {
-  List<QuestionDto> get list;
-
-  Map<String, dynamic> toJson();
-  $QuestionListDtoCopyWith<QuestionListDto> get copyWith;
-}
-
-/// @nodoc
-abstract class $QuestionListDtoCopyWith<$Res> {
-  factory $QuestionListDtoCopyWith(
-          QuestionListDto value, $Res Function(QuestionListDto) then) =
-      _$QuestionListDtoCopyWithImpl<$Res>;
-  $Res call({List<QuestionDto> list});
-}
-
-/// @nodoc
-class _$QuestionListDtoCopyWithImpl<$Res>
-    implements $QuestionListDtoCopyWith<$Res> {
-  _$QuestionListDtoCopyWithImpl(this._value, this._then);
-
-  final QuestionListDto _value;
-  // ignore: unused_field
-  final $Res Function(QuestionListDto) _then;
-
-  @override
-  $Res call({
-    Object list = freezed,
-  }) {
-    return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<QuestionDto>,
-    ));
-  }
-}
-
-/// @nodoc
-abstract class _$QuestionListDtoCopyWith<$Res>
-    implements $QuestionListDtoCopyWith<$Res> {
-  factory _$QuestionListDtoCopyWith(
-          _QuestionListDto value, $Res Function(_QuestionListDto) then) =
-      __$QuestionListDtoCopyWithImpl<$Res>;
-  @override
-  $Res call({List<QuestionDto> list});
-}
-
-/// @nodoc
-class __$QuestionListDtoCopyWithImpl<$Res>
-    extends _$QuestionListDtoCopyWithImpl<$Res>
-    implements _$QuestionListDtoCopyWith<$Res> {
-  __$QuestionListDtoCopyWithImpl(
-      _QuestionListDto _value, $Res Function(_QuestionListDto) _then)
-      : super(_value, (v) => _then(v as _QuestionListDto));
-
-  @override
-  _QuestionListDto get _value => super._value as _QuestionListDto;
-
-  @override
-  $Res call({
-    Object list = freezed,
-  }) {
-    return _then(_QuestionListDto(
-      list: list == freezed ? _value.list : list as List<QuestionDto>,
-    ));
-  }
-}
-
-@JsonSerializable()
-
-/// @nodoc
-class _$_QuestionListDto extends _QuestionListDto {
-  const _$_QuestionListDto({this.list}) : super._();
-
-  factory _$_QuestionListDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_QuestionListDtoFromJson(json);
-
-  @override
-  final List<QuestionDto> list;
-
-  @override
-  String toString() {
-    return 'QuestionListDto(list: $list)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _QuestionListDto &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
-
-  @override
-  _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith =>
-      __$QuestionListDtoCopyWithImpl<_QuestionListDto>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$_$_QuestionListDtoToJson(this);
-  }
-}
-
-abstract class _QuestionListDto extends QuestionListDto {
-  const _QuestionListDto._() : super._();
-  const factory _QuestionListDto({List<QuestionDto> list}) = _$_QuestionListDto;
-
-  factory _QuestionListDto.fromJson(Map<String, dynamic> json) =
-      _$_QuestionListDto.fromJson;
-
-  @override
-  List<QuestionDto> get list;
-  @override
-  _$QuestionListDtoCopyWith<_QuestionListDto> get copyWith;
-}
-
 QuestionDto _$QuestionDtoFromJson(Map<String, dynamic> json) {
   return _QuestionDto.fromJson(json);
 }
@@ -161,19 +18,19 @@ class _$QuestionDtoTearOff {
 
 // ignore: unused_element
   _QuestionDto call(
-      {String questionId,
-      bool hideQuestionId,
-      int serialNumber,
-      String questionBody,
-      String questionNote,
-      String questionType,
-      String showQuestion,
-      List<ChoiceDto> choiceList,
-      List<ChoiceDto> specialAnswerList,
-      bool hasSpecialAnswer,
-      String validateAnswer,
-      String upperQuestionId,
-      int pageNumber}) {
+      {@required String questionId,
+      @required bool hideQuestionId,
+      @required int serialNumber,
+      @required String questionBody,
+      @required String questionNote,
+      @required String questionType,
+      @required String showQuestion,
+      @required List<ChoiceDto> choiceList,
+      @required List<ChoiceDto> specialAnswerList,
+      @required bool hasSpecialAnswer,
+      @required String validateAnswer,
+      @required String upperQuestionId,
+      @required int pageNumber}) {
     return _QuestionDto(
       questionId: questionId,
       hideQuestionId: hideQuestionId,
@@ -400,20 +257,33 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_QuestionDto extends _QuestionDto {
   const _$_QuestionDto(
-      {this.questionId,
-      this.hideQuestionId,
-      this.serialNumber,
-      this.questionBody,
-      this.questionNote,
-      this.questionType,
-      this.showQuestion,
-      this.choiceList,
-      this.specialAnswerList,
-      this.hasSpecialAnswer,
-      this.validateAnswer,
-      this.upperQuestionId,
-      this.pageNumber})
-      : super._();
+      {@required this.questionId,
+      @required this.hideQuestionId,
+      @required this.serialNumber,
+      @required this.questionBody,
+      @required this.questionNote,
+      @required this.questionType,
+      @required this.showQuestion,
+      @required this.choiceList,
+      @required this.specialAnswerList,
+      @required this.hasSpecialAnswer,
+      @required this.validateAnswer,
+      @required this.upperQuestionId,
+      @required this.pageNumber})
+      : assert(questionId != null),
+        assert(hideQuestionId != null),
+        assert(serialNumber != null),
+        assert(questionBody != null),
+        assert(questionNote != null),
+        assert(questionType != null),
+        assert(showQuestion != null),
+        assert(choiceList != null),
+        assert(specialAnswerList != null),
+        assert(hasSpecialAnswer != null),
+        assert(validateAnswer != null),
+        assert(upperQuestionId != null),
+        assert(pageNumber != null),
+        super._();
 
   factory _$_QuestionDto.fromJson(Map<String, dynamic> json) =>
       _$_$_QuestionDtoFromJson(json);
@@ -525,19 +395,19 @@ class _$_QuestionDto extends _QuestionDto {
 abstract class _QuestionDto extends QuestionDto {
   const _QuestionDto._() : super._();
   const factory _QuestionDto(
-      {String questionId,
-      bool hideQuestionId,
-      int serialNumber,
-      String questionBody,
-      String questionNote,
-      String questionType,
-      String showQuestion,
-      List<ChoiceDto> choiceList,
-      List<ChoiceDto> specialAnswerList,
-      bool hasSpecialAnswer,
-      String validateAnswer,
-      String upperQuestionId,
-      int pageNumber}) = _$_QuestionDto;
+      {@required String questionId,
+      @required bool hideQuestionId,
+      @required int serialNumber,
+      @required String questionBody,
+      @required String questionNote,
+      @required String questionType,
+      @required String showQuestion,
+      @required List<ChoiceDto> choiceList,
+      @required List<ChoiceDto> specialAnswerList,
+      @required bool hasSpecialAnswer,
+      @required String validateAnswer,
+      @required String upperQuestionId,
+      @required int pageNumber}) = _$_QuestionDto;
 
   factory _QuestionDto.fromJson(Map<String, dynamic> json) =
       _$_QuestionDto.fromJson;
@@ -582,13 +452,13 @@ class _$ChoiceDtoTearOff {
 
 // ignore: unused_element
   _ChoiceDto call(
-      {int serialNumber,
-      String choiceId,
-      String choiceBody,
-      bool asNote,
-      bool asSingle,
-      String choiceGroup,
-      String upperChoiceId}) {
+      {@required int serialNumber,
+      @required String choiceId,
+      @required String choiceBody,
+      @required bool asNote,
+      @required bool asSingle,
+      @required String choiceGroup,
+      @required String upperChoiceId}) {
     return _ChoiceDto(
       serialNumber: serialNumber,
       choiceId: choiceId,
@@ -730,14 +600,21 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_ChoiceDto extends _ChoiceDto {
   const _$_ChoiceDto(
-      {this.serialNumber,
-      this.choiceId,
-      this.choiceBody,
-      this.asNote,
-      this.asSingle,
-      this.choiceGroup,
-      this.upperChoiceId})
-      : super._();
+      {@required this.serialNumber,
+      @required this.choiceId,
+      @required this.choiceBody,
+      @required this.asNote,
+      @required this.asSingle,
+      @required this.choiceGroup,
+      @required this.upperChoiceId})
+      : assert(serialNumber != null),
+        assert(choiceId != null),
+        assert(choiceBody != null),
+        assert(asNote != null),
+        assert(asSingle != null),
+        assert(choiceGroup != null),
+        assert(upperChoiceId != null),
+        super._();
 
   factory _$_ChoiceDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ChoiceDtoFromJson(json);
@@ -812,13 +689,13 @@ class _$_ChoiceDto extends _ChoiceDto {
 abstract class _ChoiceDto extends ChoiceDto {
   const _ChoiceDto._() : super._();
   const factory _ChoiceDto(
-      {int serialNumber,
-      String choiceId,
-      String choiceBody,
-      bool asNote,
-      bool asSingle,
-      String choiceGroup,
-      String upperChoiceId}) = _$_ChoiceDto;
+      {@required int serialNumber,
+      @required String choiceId,
+      @required String choiceBody,
+      @required bool asNote,
+      @required bool asSingle,
+      @required String choiceGroup,
+      @required String upperChoiceId}) = _$_ChoiceDto;
 
   factory _ChoiceDto.fromJson(Map<String, dynamic> json) =
       _$_ChoiceDto.fromJson;

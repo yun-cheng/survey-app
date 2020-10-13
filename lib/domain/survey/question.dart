@@ -1,4 +1,6 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
@@ -42,12 +44,30 @@ abstract class Question implements _$Question {
         pageNumber: PageNumber(0),
       );
 
-  // Option<ValueFailure<dynamic>> get failureOption {
-  //   return this
-  //       .id
-  //       .failureOrUnit
-  //       .andThen(body.failureOrUnit)
-  //       .andThen(answer.failureOrUnit)
-  //       .fold((f) => some(f), (_) => none());
-  // }
+  Option<ValueFailure<dynamic>> get failureOption {
+    return (this.id.failureOrUnit)
+        .andThen(serialNumber.failureOrUnit)
+        .andThen(body.failureOrUnit)
+        .andThen(note.failureOrUnit)
+        .andThen(type.failureOrUnit)
+        .andThen(show.failureOrUnit)
+        .andThen(validateAnswer.failureOrUnit)
+        .andThen(upperQuestionId.failureOrUnit)
+        .andThen(pageNumber.failureOrUnit)
+        .andThen(
+          choiceList
+              .map((choice) => choice.failureOption)
+              .filter((o) => o.isSome())
+              .getOrElse(0, (_) => none())
+              .fold(() => right(unit), (f) => left(f)),
+        )
+        .andThen(
+          specialAnswerList
+              .map((choice) => choice.failureOption)
+              .filter((o) => o.isSome())
+              .getOrElse(0, (_) => none())
+              .fold(() => right(unit), (f) => left(f)),
+        )
+        .fold((f) => some(f), (_) => none());
+  }
 }

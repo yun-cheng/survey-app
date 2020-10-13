@@ -29,9 +29,7 @@ abstract class TeamListDto implements _$TeamListDto {
       _$TeamListDtoFromJson(json);
 
   factory TeamListDto.fromFirestore(QuerySnapshot snapshot) {
-    final list = snapshot.docs.map((doc) {
-      return doc.data();
-    }).toList();
+    final list = snapshot.docs.map((doc) => doc.data()).toList();
     // print(list);
     return TeamListDto.fromJson({'list': list});
   }

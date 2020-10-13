@@ -32,6 +32,7 @@ abstract class Choice implements _$Choice {
 
   Option<ValueFailure<dynamic>> get failureOption {
     return (this.id.failureOrUnit)
+        .andThen(serialNumber.failureOrUnit)
         .andThen(body.failureOrUnit)
         .andThen(group.failureOrUnit)
         .andThen(upperChoiceId.failureOrUnit)

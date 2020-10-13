@@ -11,10 +11,13 @@ import 'package:injectable/injectable.dart';
 import 'application/auth/auth_bloc.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
 import 'domain/auth/i_auth_facade.dart';
+import 'domain/overview/i_overview_repository.dart';
 import 'domain/quiz_list/i_quiz_list_repository.dart';
 import 'domain/quiz/i_quiz_repository.dart';
 import 'domain/survey/i_survey_repository.dart';
 import 'infrastructure/auth/manual_auth_facade.dart';
+import 'application/overview/overview_bloc.dart';
+import 'infrastructure/overview/overview_repository.dart';
 import 'application/quiz/question/question_bloc.dart';
 import 'application/quiz/question_list/question_list_bloc.dart';
 import 'application/quiz/question_page/question_page_bloc.dart';
@@ -37,12 +40,15 @@ GetIt $initGetIt(
   gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
   gh.lazySingleton<IAuthFacade>(
       () => ManualAuthFacade(get<FirebaseFirestore>()));
+  gh.lazySingleton<IOverviewRepository>(
+      () => OverviewRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IQuizListRepository>(
       () => QuizListRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IQuizRepository>(
       () => QuizRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<ISurveyRepository>(
       () => SurveyRepository(get<FirebaseFirestore>()));
+  gh.factory<OverviewBloc>(() => OverviewBloc(get<IOverviewRepository>()));
   gh.factory<QuestionListBloc>(() => QuestionListBloc(get<IQuizRepository>()));
   gh.factory<QuestionPageBloc>(() => QuestionPageBloc(get<QuestionListBloc>()));
   gh.factory<QuizListBloc>(() => QuizListBloc(get<IQuizListRepository>()));

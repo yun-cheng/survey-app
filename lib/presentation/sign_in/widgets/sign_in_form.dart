@@ -49,7 +49,7 @@ class SignInForm extends StatelessWidget {
 
         if (state.signInState is SignInSuccess) {
           ExtendedNavigator.of(context).pushAndRemoveUntil(
-            Routes.quizListPage,
+            Routes.overviewPage,
             (route) => false,
           );
         }

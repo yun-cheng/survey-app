@@ -19,17 +19,15 @@ class _$SurveyTearOff {
       @required SurveyName name,
       @required TeamId teamId,
       @required ProjectId projectId,
-      @required SurveyType type,
-      @required ModuleType moduleType,
-      @required KtMap<ModuleType, SurveyId> module}) {
+      @required KtMap<ModuleType, KtList<Question>> module,
+      @required KtList<Question> questionList}) {
     return _Survey(
       id: id,
       name: name,
       teamId: teamId,
       projectId: projectId,
-      type: type,
-      moduleType: moduleType,
       module: module,
+      questionList: questionList,
     );
   }
 }
@@ -44,9 +42,8 @@ mixin _$Survey {
   SurveyName get name;
   TeamId get teamId;
   ProjectId get projectId;
-  SurveyType get type;
-  ModuleType get moduleType;
-  KtMap<ModuleType, SurveyId> get module;
+  KtMap<ModuleType, KtList<Question>> get module;
+  KtList<Question> get questionList;
 
   $SurveyCopyWith<Survey> get copyWith;
 }
@@ -60,9 +57,8 @@ abstract class $SurveyCopyWith<$Res> {
       SurveyName name,
       TeamId teamId,
       ProjectId projectId,
-      SurveyType type,
-      ModuleType moduleType,
-      KtMap<ModuleType, SurveyId> module});
+      KtMap<ModuleType, KtList<Question>> module,
+      KtList<Question> questionList});
 }
 
 /// @nodoc
@@ -79,9 +75,8 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
     Object name = freezed,
     Object teamId = freezed,
     Object projectId = freezed,
-    Object type = freezed,
-    Object moduleType = freezed,
     Object module = freezed,
+    Object questionList = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as SurveyId,
@@ -89,12 +84,12 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
       teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
       projectId:
           projectId == freezed ? _value.projectId : projectId as ProjectId,
-      type: type == freezed ? _value.type : type as SurveyType,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
       module: module == freezed
           ? _value.module
-          : module as KtMap<ModuleType, SurveyId>,
+          : module as KtMap<ModuleType, KtList<Question>>,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as KtList<Question>,
     ));
   }
 }
@@ -109,9 +104,8 @@ abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
       SurveyName name,
       TeamId teamId,
       ProjectId projectId,
-      SurveyType type,
-      ModuleType moduleType,
-      KtMap<ModuleType, SurveyId> module});
+      KtMap<ModuleType, KtList<Question>> module,
+      KtList<Question> questionList});
 }
 
 /// @nodoc
@@ -129,9 +123,8 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
     Object name = freezed,
     Object teamId = freezed,
     Object projectId = freezed,
-    Object type = freezed,
-    Object moduleType = freezed,
     Object module = freezed,
+    Object questionList = freezed,
   }) {
     return _then(_Survey(
       id: id == freezed ? _value.id : id as SurveyId,
@@ -139,12 +132,12 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
       teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
       projectId:
           projectId == freezed ? _value.projectId : projectId as ProjectId,
-      type: type == freezed ? _value.type : type as SurveyType,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
       module: module == freezed
           ? _value.module
-          : module as KtMap<ModuleType, SurveyId>,
+          : module as KtMap<ModuleType, KtList<Question>>,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as KtList<Question>,
     ));
   }
 }
@@ -156,16 +149,14 @@ class _$_Survey extends _Survey {
       @required this.name,
       @required this.teamId,
       @required this.projectId,
-      @required this.type,
-      @required this.moduleType,
-      @required this.module})
+      @required this.module,
+      @required this.questionList})
       : assert(id != null),
         assert(name != null),
         assert(teamId != null),
         assert(projectId != null),
-        assert(type != null),
-        assert(moduleType != null),
         assert(module != null),
+        assert(questionList != null),
         super._();
 
   @override
@@ -177,15 +168,13 @@ class _$_Survey extends _Survey {
   @override
   final ProjectId projectId;
   @override
-  final SurveyType type;
+  final KtMap<ModuleType, KtList<Question>> module;
   @override
-  final ModuleType moduleType;
-  @override
-  final KtMap<ModuleType, SurveyId> module;
+  final KtList<Question> questionList;
 
   @override
   String toString() {
-    return 'Survey(id: $id, name: $name, teamId: $teamId, projectId: $projectId, type: $type, moduleType: $moduleType, module: $module)';
+    return 'Survey(id: $id, name: $name, teamId: $teamId, projectId: $projectId, module: $module, questionList: $questionList)';
   }
 
   @override
@@ -201,13 +190,11 @@ class _$_Survey extends _Survey {
             (identical(other.projectId, projectId) ||
                 const DeepCollectionEquality()
                     .equals(other.projectId, projectId)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
             (identical(other.module, module) ||
-                const DeepCollectionEquality().equals(other.module, module)));
+                const DeepCollectionEquality().equals(other.module, module)) &&
+            (identical(other.questionList, questionList) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionList, questionList)));
   }
 
   @override
@@ -217,9 +204,8 @@ class _$_Survey extends _Survey {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(projectId) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(module);
+      const DeepCollectionEquality().hash(module) ^
+      const DeepCollectionEquality().hash(questionList);
 
   @override
   _$SurveyCopyWith<_Survey> get copyWith =>
@@ -233,9 +219,8 @@ abstract class _Survey extends Survey {
       @required SurveyName name,
       @required TeamId teamId,
       @required ProjectId projectId,
-      @required SurveyType type,
-      @required ModuleType moduleType,
-      @required KtMap<ModuleType, SurveyId> module}) = _$_Survey;
+      @required KtMap<ModuleType, KtList<Question>> module,
+      @required KtList<Question> questionList}) = _$_Survey;
 
   @override
   SurveyId get id;
@@ -246,11 +231,9 @@ abstract class _Survey extends Survey {
   @override
   ProjectId get projectId;
   @override
-  SurveyType get type;
+  KtMap<ModuleType, KtList<Question>> get module;
   @override
-  ModuleType get moduleType;
-  @override
-  KtMap<ModuleType, SurveyId> get module;
+  KtList<Question> get questionList;
   @override
   _$SurveyCopyWith<_Survey> get copyWith;
 }
