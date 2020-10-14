@@ -31,18 +31,20 @@ class _$OverviewEventTearOff {
   }
 
 // ignore: unused_element
-  _SurveyQuestionListReceived surveyQuestionListReceived(
-      Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList) {
-    return _SurveyQuestionListReceived(
-      failureOrsurveyQuestionList,
+  _WatchRespondentListListStarted watchRespondentListListStarted(
+      {@required TeamId teamId, @required InterviewerId interviewerId}) {
+    return _WatchRespondentListListStarted(
+      teamId: teamId,
+      interviewerId: interviewerId,
     );
   }
 
 // ignore: unused_element
-  _RespondentListReceived respondentListReceived(
-      Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList) {
-    return _RespondentListReceived(
-      failureOrrespondentList,
+  _RespondentListListReceived respondentListListReceived(
+      Either<OverviewFailure, KtList<RespondentList>>
+          failureOrRespondentListList) {
+    return _RespondentListListReceived(
+      failureOrRespondentListList,
     );
   }
 }
@@ -62,23 +64,23 @@ mixin _$OverviewEvent {
         Result surveyListReceived(
             Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
     @required
-        Result surveyQuestionListReceived(
-            Either<OverviewFailure, KtList<Question>>
-                failureOrsurveyQuestionList),
+        Result watchRespondentListListStarted(
+            TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListReceived(
-            Either<OverviewFailure, KtList<Respondent>>
-                failureOrrespondentList),
+        Result respondentListListReceived(
+            Either<OverviewFailure, KtList<RespondentList>>
+                failureOrRespondentListList),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result watchSurveyListStarted(TeamId teamId, InterviewerId interviewerId),
     Result surveyListReceived(
         Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
-    Result surveyQuestionListReceived(
-        Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList),
-    Result respondentListReceived(
-        Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList),
+    Result watchRespondentListListStarted(
+        TeamId teamId, InterviewerId interviewerId),
+    Result respondentListListReceived(
+        Either<OverviewFailure, KtList<RespondentList>>
+            failureOrRespondentListList),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -86,15 +88,18 @@ mixin _$OverviewEvent {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required
-        Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    @required Result respondentListReceived(_RespondentListReceived value),
+        Result watchRespondentListListStarted(
+            _WatchRespondentListListStarted value),
+    @required
+        Result respondentListListReceived(_RespondentListListReceived value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
-    Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    Result respondentListReceived(_RespondentListReceived value),
+    Result watchRespondentListListStarted(
+        _WatchRespondentListListStarted value),
+    Result respondentListListReceived(_RespondentListListReceived value),
     @required Result orElse(),
   });
 }
@@ -198,18 +203,17 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
         Result surveyListReceived(
             Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
     @required
-        Result surveyQuestionListReceived(
-            Either<OverviewFailure, KtList<Question>>
-                failureOrsurveyQuestionList),
+        Result watchRespondentListListStarted(
+            TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListReceived(
-            Either<OverviewFailure, KtList<Respondent>>
-                failureOrrespondentList),
+        Result respondentListListReceived(
+            Either<OverviewFailure, KtList<RespondentList>>
+                failureOrRespondentListList),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
     return watchSurveyListStarted(teamId, interviewerId);
   }
 
@@ -219,10 +223,11 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     Result watchSurveyListStarted(TeamId teamId, InterviewerId interviewerId),
     Result surveyListReceived(
         Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
-    Result surveyQuestionListReceived(
-        Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList),
-    Result respondentListReceived(
-        Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList),
+    Result watchRespondentListListStarted(
+        TeamId teamId, InterviewerId interviewerId),
+    Result respondentListListReceived(
+        Either<OverviewFailure, KtList<RespondentList>>
+            failureOrRespondentListList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -238,13 +243,15 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required
-        Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    @required Result respondentListReceived(_RespondentListReceived value),
+        Result watchRespondentListListStarted(
+            _WatchRespondentListListStarted value),
+    @required
+        Result respondentListListReceived(_RespondentListListReceived value),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
     return watchSurveyListStarted(this);
   }
 
@@ -253,8 +260,9 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
   Result maybeMap<Result extends Object>({
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
-    Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    Result respondentListReceived(_RespondentListReceived value),
+    Result watchRespondentListListStarted(
+        _WatchRespondentListListStarted value),
+    Result respondentListListReceived(_RespondentListListReceived value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -347,18 +355,17 @@ class _$_SurveyListReceived implements _SurveyListReceived {
         Result surveyListReceived(
             Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
     @required
-        Result surveyQuestionListReceived(
-            Either<OverviewFailure, KtList<Question>>
-                failureOrsurveyQuestionList),
+        Result watchRespondentListListStarted(
+            TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListReceived(
-            Either<OverviewFailure, KtList<Respondent>>
-                failureOrrespondentList),
+        Result respondentListListReceived(
+            Either<OverviewFailure, KtList<RespondentList>>
+                failureOrRespondentListList),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
     return surveyListReceived(failureOrSurveyList);
   }
 
@@ -368,10 +375,11 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     Result watchSurveyListStarted(TeamId teamId, InterviewerId interviewerId),
     Result surveyListReceived(
         Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
-    Result surveyQuestionListReceived(
-        Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList),
-    Result respondentListReceived(
-        Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList),
+    Result watchRespondentListListStarted(
+        TeamId teamId, InterviewerId interviewerId),
+    Result respondentListListReceived(
+        Either<OverviewFailure, KtList<RespondentList>>
+            failureOrRespondentListList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -387,13 +395,15 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required
-        Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    @required Result respondentListReceived(_RespondentListReceived value),
+        Result watchRespondentListListStarted(
+            _WatchRespondentListListStarted value),
+    @required
+        Result respondentListListReceived(_RespondentListListReceived value),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
     return surveyListReceived(this);
   }
 
@@ -402,8 +412,9 @@ class _$_SurveyListReceived implements _SurveyListReceived {
   Result maybeMap<Result extends Object>({
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
-    Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    Result respondentListReceived(_RespondentListReceived value),
+    Result watchRespondentListListStarted(
+        _WatchRespondentListListStarted value),
+    Result respondentListListReceived(_RespondentListListReceived value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -424,73 +435,80 @@ abstract class _SurveyListReceived implements OverviewEvent {
 }
 
 /// @nodoc
-abstract class _$SurveyQuestionListReceivedCopyWith<$Res> {
-  factory _$SurveyQuestionListReceivedCopyWith(
-          _SurveyQuestionListReceived value,
-          $Res Function(_SurveyQuestionListReceived) then) =
-      __$SurveyQuestionListReceivedCopyWithImpl<$Res>;
-  $Res call(
-      {Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList});
+abstract class _$WatchRespondentListListStartedCopyWith<$Res> {
+  factory _$WatchRespondentListListStartedCopyWith(
+          _WatchRespondentListListStarted value,
+          $Res Function(_WatchRespondentListListStarted) then) =
+      __$WatchRespondentListListStartedCopyWithImpl<$Res>;
+  $Res call({TeamId teamId, InterviewerId interviewerId});
 }
 
 /// @nodoc
-class __$SurveyQuestionListReceivedCopyWithImpl<$Res>
+class __$WatchRespondentListListStartedCopyWithImpl<$Res>
     extends _$OverviewEventCopyWithImpl<$Res>
-    implements _$SurveyQuestionListReceivedCopyWith<$Res> {
-  __$SurveyQuestionListReceivedCopyWithImpl(_SurveyQuestionListReceived _value,
-      $Res Function(_SurveyQuestionListReceived) _then)
-      : super(_value, (v) => _then(v as _SurveyQuestionListReceived));
+    implements _$WatchRespondentListListStartedCopyWith<$Res> {
+  __$WatchRespondentListListStartedCopyWithImpl(
+      _WatchRespondentListListStarted _value,
+      $Res Function(_WatchRespondentListListStarted) _then)
+      : super(_value, (v) => _then(v as _WatchRespondentListListStarted));
 
   @override
-  _SurveyQuestionListReceived get _value =>
-      super._value as _SurveyQuestionListReceived;
+  _WatchRespondentListListStarted get _value =>
+      super._value as _WatchRespondentListListStarted;
 
   @override
   $Res call({
-    Object failureOrsurveyQuestionList = freezed,
+    Object teamId = freezed,
+    Object interviewerId = freezed,
   }) {
-    return _then(_SurveyQuestionListReceived(
-      failureOrsurveyQuestionList == freezed
-          ? _value.failureOrsurveyQuestionList
-          : failureOrsurveyQuestionList
-              as Either<OverviewFailure, KtList<Question>>,
+    return _then(_WatchRespondentListListStarted(
+      teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId as InterviewerId,
     ));
   }
 }
 
 /// @nodoc
-class _$_SurveyQuestionListReceived implements _SurveyQuestionListReceived {
-  const _$_SurveyQuestionListReceived(this.failureOrsurveyQuestionList)
-      : assert(failureOrsurveyQuestionList != null);
+class _$_WatchRespondentListListStarted
+    implements _WatchRespondentListListStarted {
+  const _$_WatchRespondentListListStarted(
+      {@required this.teamId, @required this.interviewerId})
+      : assert(teamId != null),
+        assert(interviewerId != null);
 
   @override
-  final Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList;
+  final TeamId teamId;
+  @override
+  final InterviewerId interviewerId;
 
   @override
   String toString() {
-    return 'OverviewEvent.surveyQuestionListReceived(failureOrsurveyQuestionList: $failureOrsurveyQuestionList)';
+    return 'OverviewEvent.watchRespondentListListStarted(teamId: $teamId, interviewerId: $interviewerId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyQuestionListReceived &&
-            (identical(other.failureOrsurveyQuestionList,
-                    failureOrsurveyQuestionList) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrsurveyQuestionList,
-                    failureOrsurveyQuestionList)));
+        (other is _WatchRespondentListListStarted &&
+            (identical(other.teamId, teamId) ||
+                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
+            (identical(other.interviewerId, interviewerId) ||
+                const DeepCollectionEquality()
+                    .equals(other.interviewerId, interviewerId)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrsurveyQuestionList);
+      const DeepCollectionEquality().hash(teamId) ^
+      const DeepCollectionEquality().hash(interviewerId);
 
   @override
-  _$SurveyQuestionListReceivedCopyWith<_SurveyQuestionListReceived>
-      get copyWith => __$SurveyQuestionListReceivedCopyWithImpl<
-          _SurveyQuestionListReceived>(this, _$identity);
+  _$WatchRespondentListListStartedCopyWith<_WatchRespondentListListStarted>
+      get copyWith => __$WatchRespondentListListStartedCopyWithImpl<
+          _WatchRespondentListListStarted>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -502,19 +520,18 @@ class _$_SurveyQuestionListReceived implements _SurveyQuestionListReceived {
         Result surveyListReceived(
             Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
     @required
-        Result surveyQuestionListReceived(
-            Either<OverviewFailure, KtList<Question>>
-                failureOrsurveyQuestionList),
+        Result watchRespondentListListStarted(
+            TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListReceived(
-            Either<OverviewFailure, KtList<Respondent>>
-                failureOrrespondentList),
+        Result respondentListListReceived(
+            Either<OverviewFailure, KtList<RespondentList>>
+                failureOrRespondentListList),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
-    return surveyQuestionListReceived(failureOrsurveyQuestionList);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
+    return watchRespondentListListStarted(teamId, interviewerId);
   }
 
   @override
@@ -523,15 +540,16 @@ class _$_SurveyQuestionListReceived implements _SurveyQuestionListReceived {
     Result watchSurveyListStarted(TeamId teamId, InterviewerId interviewerId),
     Result surveyListReceived(
         Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
-    Result surveyQuestionListReceived(
-        Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList),
-    Result respondentListReceived(
-        Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList),
+    Result watchRespondentListListStarted(
+        TeamId teamId, InterviewerId interviewerId),
+    Result respondentListListReceived(
+        Either<OverviewFailure, KtList<RespondentList>>
+            failureOrRespondentListList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (surveyQuestionListReceived != null) {
-      return surveyQuestionListReceived(failureOrsurveyQuestionList);
+    if (watchRespondentListListStarted != null) {
+      return watchRespondentListListStarted(teamId, interviewerId);
     }
     return orElse();
   }
@@ -542,14 +560,16 @@ class _$_SurveyQuestionListReceived implements _SurveyQuestionListReceived {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required
-        Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    @required Result respondentListReceived(_RespondentListReceived value),
+        Result watchRespondentListListStarted(
+            _WatchRespondentListListStarted value),
+    @required
+        Result respondentListListReceived(_RespondentListListReceived value),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
-    return surveyQuestionListReceived(this);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
+    return watchRespondentListListStarted(this);
   }
 
   @override
@@ -557,93 +577,100 @@ class _$_SurveyQuestionListReceived implements _SurveyQuestionListReceived {
   Result maybeMap<Result extends Object>({
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
-    Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    Result respondentListReceived(_RespondentListReceived value),
+    Result watchRespondentListListStarted(
+        _WatchRespondentListListStarted value),
+    Result respondentListListReceived(_RespondentListListReceived value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (surveyQuestionListReceived != null) {
-      return surveyQuestionListReceived(this);
+    if (watchRespondentListListStarted != null) {
+      return watchRespondentListListStarted(this);
     }
     return orElse();
   }
 }
 
-abstract class _SurveyQuestionListReceived implements OverviewEvent {
-  const factory _SurveyQuestionListReceived(
-      Either<OverviewFailure, KtList<Question>>
-          failureOrsurveyQuestionList) = _$_SurveyQuestionListReceived;
+abstract class _WatchRespondentListListStarted implements OverviewEvent {
+  const factory _WatchRespondentListListStarted(
+          {@required TeamId teamId, @required InterviewerId interviewerId}) =
+      _$_WatchRespondentListListStarted;
 
-  Either<OverviewFailure, KtList<Question>> get failureOrsurveyQuestionList;
-  _$SurveyQuestionListReceivedCopyWith<_SurveyQuestionListReceived>
+  TeamId get teamId;
+  InterviewerId get interviewerId;
+  _$WatchRespondentListListStartedCopyWith<_WatchRespondentListListStarted>
       get copyWith;
 }
 
 /// @nodoc
-abstract class _$RespondentListReceivedCopyWith<$Res> {
-  factory _$RespondentListReceivedCopyWith(_RespondentListReceived value,
-          $Res Function(_RespondentListReceived) then) =
-      __$RespondentListReceivedCopyWithImpl<$Res>;
+abstract class _$RespondentListListReceivedCopyWith<$Res> {
+  factory _$RespondentListListReceivedCopyWith(
+          _RespondentListListReceived value,
+          $Res Function(_RespondentListListReceived) then) =
+      __$RespondentListListReceivedCopyWithImpl<$Res>;
   $Res call(
-      {Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList});
+      {Either<OverviewFailure, KtList<RespondentList>>
+          failureOrRespondentListList});
 }
 
 /// @nodoc
-class __$RespondentListReceivedCopyWithImpl<$Res>
+class __$RespondentListListReceivedCopyWithImpl<$Res>
     extends _$OverviewEventCopyWithImpl<$Res>
-    implements _$RespondentListReceivedCopyWith<$Res> {
-  __$RespondentListReceivedCopyWithImpl(_RespondentListReceived _value,
-      $Res Function(_RespondentListReceived) _then)
-      : super(_value, (v) => _then(v as _RespondentListReceived));
+    implements _$RespondentListListReceivedCopyWith<$Res> {
+  __$RespondentListListReceivedCopyWithImpl(_RespondentListListReceived _value,
+      $Res Function(_RespondentListListReceived) _then)
+      : super(_value, (v) => _then(v as _RespondentListListReceived));
 
   @override
-  _RespondentListReceived get _value => super._value as _RespondentListReceived;
+  _RespondentListListReceived get _value =>
+      super._value as _RespondentListListReceived;
 
   @override
   $Res call({
-    Object failureOrrespondentList = freezed,
+    Object failureOrRespondentListList = freezed,
   }) {
-    return _then(_RespondentListReceived(
-      failureOrrespondentList == freezed
-          ? _value.failureOrrespondentList
-          : failureOrrespondentList
-              as Either<OverviewFailure, KtList<Respondent>>,
+    return _then(_RespondentListListReceived(
+      failureOrRespondentListList == freezed
+          ? _value.failureOrRespondentListList
+          : failureOrRespondentListList
+              as Either<OverviewFailure, KtList<RespondentList>>,
     ));
   }
 }
 
 /// @nodoc
-class _$_RespondentListReceived implements _RespondentListReceived {
-  const _$_RespondentListReceived(this.failureOrrespondentList)
-      : assert(failureOrrespondentList != null);
+class _$_RespondentListListReceived implements _RespondentListListReceived {
+  const _$_RespondentListListReceived(this.failureOrRespondentListList)
+      : assert(failureOrRespondentListList != null);
 
   @override
-  final Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList;
+  final Either<OverviewFailure, KtList<RespondentList>>
+      failureOrRespondentListList;
 
   @override
   String toString() {
-    return 'OverviewEvent.respondentListReceived(failureOrrespondentList: $failureOrrespondentList)';
+    return 'OverviewEvent.respondentListListReceived(failureOrRespondentListList: $failureOrRespondentListList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RespondentListReceived &&
-            (identical(
-                    other.failureOrrespondentList, failureOrrespondentList) ||
+        (other is _RespondentListListReceived &&
+            (identical(other.failureOrRespondentListList,
+                    failureOrRespondentListList) ||
                 const DeepCollectionEquality().equals(
-                    other.failureOrrespondentList, failureOrrespondentList)));
+                    other.failureOrRespondentListList,
+                    failureOrRespondentListList)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrrespondentList);
+      const DeepCollectionEquality().hash(failureOrRespondentListList);
 
   @override
-  _$RespondentListReceivedCopyWith<_RespondentListReceived> get copyWith =>
-      __$RespondentListReceivedCopyWithImpl<_RespondentListReceived>(
-          this, _$identity);
+  _$RespondentListListReceivedCopyWith<_RespondentListListReceived>
+      get copyWith => __$RespondentListListReceivedCopyWithImpl<
+          _RespondentListListReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -655,19 +682,18 @@ class _$_RespondentListReceived implements _RespondentListReceived {
         Result surveyListReceived(
             Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
     @required
-        Result surveyQuestionListReceived(
-            Either<OverviewFailure, KtList<Question>>
-                failureOrsurveyQuestionList),
+        Result watchRespondentListListStarted(
+            TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListReceived(
-            Either<OverviewFailure, KtList<Respondent>>
-                failureOrrespondentList),
+        Result respondentListListReceived(
+            Either<OverviewFailure, KtList<RespondentList>>
+                failureOrRespondentListList),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
-    return respondentListReceived(failureOrrespondentList);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
+    return respondentListListReceived(failureOrRespondentListList);
   }
 
   @override
@@ -676,15 +702,16 @@ class _$_RespondentListReceived implements _RespondentListReceived {
     Result watchSurveyListStarted(TeamId teamId, InterviewerId interviewerId),
     Result surveyListReceived(
         Either<OverviewFailure, KtList<Survey>> failureOrSurveyList),
-    Result surveyQuestionListReceived(
-        Either<OverviewFailure, KtList<Question>> failureOrsurveyQuestionList),
-    Result respondentListReceived(
-        Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList),
+    Result watchRespondentListListStarted(
+        TeamId teamId, InterviewerId interviewerId),
+    Result respondentListListReceived(
+        Either<OverviewFailure, KtList<RespondentList>>
+            failureOrRespondentListList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (respondentListReceived != null) {
-      return respondentListReceived(failureOrrespondentList);
+    if (respondentListListReceived != null) {
+      return respondentListListReceived(failureOrRespondentListList);
     }
     return orElse();
   }
@@ -695,14 +722,16 @@ class _$_RespondentListReceived implements _RespondentListReceived {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required
-        Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    @required Result respondentListReceived(_RespondentListReceived value),
+        Result watchRespondentListListStarted(
+            _WatchRespondentListListStarted value),
+    @required
+        Result respondentListListReceived(_RespondentListListReceived value),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
-    assert(surveyQuestionListReceived != null);
-    assert(respondentListReceived != null);
-    return respondentListReceived(this);
+    assert(watchRespondentListListStarted != null);
+    assert(respondentListListReceived != null);
+    return respondentListListReceived(this);
   }
 
   @override
@@ -710,25 +739,28 @@ class _$_RespondentListReceived implements _RespondentListReceived {
   Result maybeMap<Result extends Object>({
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
-    Result surveyQuestionListReceived(_SurveyQuestionListReceived value),
-    Result respondentListReceived(_RespondentListReceived value),
+    Result watchRespondentListListStarted(
+        _WatchRespondentListListStarted value),
+    Result respondentListListReceived(_RespondentListListReceived value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (respondentListReceived != null) {
-      return respondentListReceived(this);
+    if (respondentListListReceived != null) {
+      return respondentListListReceived(this);
     }
     return orElse();
   }
 }
 
-abstract class _RespondentListReceived implements OverviewEvent {
-  const factory _RespondentListReceived(
-          Either<OverviewFailure, KtList<Respondent>> failureOrrespondentList) =
-      _$_RespondentListReceived;
+abstract class _RespondentListListReceived implements OverviewEvent {
+  const factory _RespondentListListReceived(
+      Either<OverviewFailure, KtList<RespondentList>>
+          failureOrRespondentListList) = _$_RespondentListListReceived;
 
-  Either<OverviewFailure, KtList<Respondent>> get failureOrrespondentList;
-  _$RespondentListReceivedCopyWith<_RespondentListReceived> get copyWith;
+  Either<OverviewFailure, KtList<RespondentList>>
+      get failureOrRespondentListList;
+  _$RespondentListListReceivedCopyWith<_RespondentListListReceived>
+      get copyWith;
 }
 
 /// @nodoc
@@ -741,8 +773,8 @@ class _$SurveyListStateTearOff {
   }
 
 // ignore: unused_element
-  _SurveyListLoadInProgress loadInProgress() {
-    return const _SurveyListLoadInProgress();
+  SurveyListLoadInProgress loadInProgress() {
+    return const SurveyListLoadInProgress();
   }
 
 // ignore: unused_element
@@ -780,14 +812,14 @@ mixin _$SurveyListState {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_SurveyListInitial value),
-    @required Result loadInProgress(_SurveyListLoadInProgress value),
+    @required Result loadInProgress(SurveyListLoadInProgress value),
     @required Result loadFailure(_SurveyListLoadFailure value),
     @required Result loadSuccess(SurveyListLoadSuccess value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_SurveyListInitial value),
-    Result loadInProgress(_SurveyListLoadInProgress value),
+    Result loadInProgress(SurveyListLoadInProgress value),
     Result loadFailure(_SurveyListLoadFailure value),
     Result loadSuccess(SurveyListLoadSuccess value),
     @required Result orElse(),
@@ -882,7 +914,7 @@ class _$_SurveyListInitial implements _SurveyListInitial {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_SurveyListInitial value),
-    @required Result loadInProgress(_SurveyListLoadInProgress value),
+    @required Result loadInProgress(SurveyListLoadInProgress value),
     @required Result loadFailure(_SurveyListLoadFailure value),
     @required Result loadSuccess(SurveyListLoadSuccess value),
   }) {
@@ -897,7 +929,7 @@ class _$_SurveyListInitial implements _SurveyListInitial {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_SurveyListInitial value),
-    Result loadInProgress(_SurveyListLoadInProgress value),
+    Result loadInProgress(SurveyListLoadInProgress value),
     Result loadFailure(_SurveyListLoadFailure value),
     Result loadSuccess(SurveyListLoadSuccess value),
     @required Result orElse(),
@@ -915,28 +947,28 @@ abstract class _SurveyListInitial implements SurveyListState {
 }
 
 /// @nodoc
-abstract class _$SurveyListLoadInProgressCopyWith<$Res> {
-  factory _$SurveyListLoadInProgressCopyWith(_SurveyListLoadInProgress value,
-          $Res Function(_SurveyListLoadInProgress) then) =
-      __$SurveyListLoadInProgressCopyWithImpl<$Res>;
+abstract class $SurveyListLoadInProgressCopyWith<$Res> {
+  factory $SurveyListLoadInProgressCopyWith(SurveyListLoadInProgress value,
+          $Res Function(SurveyListLoadInProgress) then) =
+      _$SurveyListLoadInProgressCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SurveyListLoadInProgressCopyWithImpl<$Res>
+class _$SurveyListLoadInProgressCopyWithImpl<$Res>
     extends _$SurveyListStateCopyWithImpl<$Res>
-    implements _$SurveyListLoadInProgressCopyWith<$Res> {
-  __$SurveyListLoadInProgressCopyWithImpl(_SurveyListLoadInProgress _value,
-      $Res Function(_SurveyListLoadInProgress) _then)
-      : super(_value, (v) => _then(v as _SurveyListLoadInProgress));
+    implements $SurveyListLoadInProgressCopyWith<$Res> {
+  _$SurveyListLoadInProgressCopyWithImpl(SurveyListLoadInProgress _value,
+      $Res Function(SurveyListLoadInProgress) _then)
+      : super(_value, (v) => _then(v as SurveyListLoadInProgress));
 
   @override
-  _SurveyListLoadInProgress get _value =>
-      super._value as _SurveyListLoadInProgress;
+  SurveyListLoadInProgress get _value =>
+      super._value as SurveyListLoadInProgress;
 }
 
 /// @nodoc
-class _$_SurveyListLoadInProgress implements _SurveyListLoadInProgress {
-  const _$_SurveyListLoadInProgress();
+class _$SurveyListLoadInProgress implements SurveyListLoadInProgress {
+  const _$SurveyListLoadInProgress();
 
   @override
   String toString() {
@@ -945,7 +977,7 @@ class _$_SurveyListLoadInProgress implements _SurveyListLoadInProgress {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SurveyListLoadInProgress);
+    return identical(this, other) || (other is SurveyListLoadInProgress);
   }
 
   @override
@@ -986,7 +1018,7 @@ class _$_SurveyListLoadInProgress implements _SurveyListLoadInProgress {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_SurveyListInitial value),
-    @required Result loadInProgress(_SurveyListLoadInProgress value),
+    @required Result loadInProgress(SurveyListLoadInProgress value),
     @required Result loadFailure(_SurveyListLoadFailure value),
     @required Result loadSuccess(SurveyListLoadSuccess value),
   }) {
@@ -1001,7 +1033,7 @@ class _$_SurveyListLoadInProgress implements _SurveyListLoadInProgress {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_SurveyListInitial value),
-    Result loadInProgress(_SurveyListLoadInProgress value),
+    Result loadInProgress(SurveyListLoadInProgress value),
     Result loadFailure(_SurveyListLoadFailure value),
     Result loadSuccess(SurveyListLoadSuccess value),
     @required Result orElse(),
@@ -1014,8 +1046,8 @@ class _$_SurveyListLoadInProgress implements _SurveyListLoadInProgress {
   }
 }
 
-abstract class _SurveyListLoadInProgress implements SurveyListState {
-  const factory _SurveyListLoadInProgress() = _$_SurveyListLoadInProgress;
+abstract class SurveyListLoadInProgress implements SurveyListState {
+  const factory SurveyListLoadInProgress() = _$SurveyListLoadInProgress;
 }
 
 /// @nodoc
@@ -1089,7 +1121,7 @@ class _$_SurveyListLoadFailure implements _SurveyListLoadFailure {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_SurveyListInitial value),
-    @required Result loadInProgress(_SurveyListLoadInProgress value),
+    @required Result loadInProgress(SurveyListLoadInProgress value),
     @required Result loadFailure(_SurveyListLoadFailure value),
     @required Result loadSuccess(SurveyListLoadSuccess value),
   }) {
@@ -1104,7 +1136,7 @@ class _$_SurveyListLoadFailure implements _SurveyListLoadFailure {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_SurveyListInitial value),
-    Result loadInProgress(_SurveyListLoadInProgress value),
+    Result loadInProgress(SurveyListLoadInProgress value),
     Result loadFailure(_SurveyListLoadFailure value),
     Result loadSuccess(SurveyListLoadSuccess value),
     @required Result orElse(),
@@ -1192,7 +1224,7 @@ class _$SurveyListLoadSuccess implements SurveyListLoadSuccess {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result initial(_SurveyListInitial value),
-    @required Result loadInProgress(_SurveyListLoadInProgress value),
+    @required Result loadInProgress(SurveyListLoadInProgress value),
     @required Result loadFailure(_SurveyListLoadFailure value),
     @required Result loadSuccess(SurveyListLoadSuccess value),
   }) {
@@ -1207,7 +1239,7 @@ class _$SurveyListLoadSuccess implements SurveyListLoadSuccess {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result initial(_SurveyListInitial value),
-    Result loadInProgress(_SurveyListLoadInProgress value),
+    Result loadInProgress(SurveyListLoadInProgress value),
     Result loadFailure(_SurveyListLoadFailure value),
     Result loadSuccess(SurveyListLoadSuccess value),
     @required Result orElse(),
@@ -1225,36 +1257,36 @@ abstract class SurveyListLoadSuccess implements SurveyListState {
 }
 
 /// @nodoc
-class _$SurveyQuestionListStateTearOff {
-  const _$SurveyQuestionListStateTearOff();
+class _$RespondentListListStateTearOff {
+  const _$RespondentListListStateTearOff();
 
 // ignore: unused_element
-  _SurveyQuestionListInitial initial() {
-    return const _SurveyQuestionListInitial();
+  _RespondentListListInitial initial() {
+    return const _RespondentListListInitial();
   }
 
 // ignore: unused_element
-  _SurveyQuestionListLoadInProgress loadInProgress() {
-    return const _SurveyQuestionListLoadInProgress();
+  _RespondentListListLoadInProgress loadInProgress() {
+    return const _RespondentListListLoadInProgress();
   }
 
 // ignore: unused_element
-  _SurveyQuestionListLoadFailure loadFailure() {
-    return const _SurveyQuestionListLoadFailure();
+  _RespondentListListLoadFailure loadFailure() {
+    return const _RespondentListListLoadFailure();
   }
 
 // ignore: unused_element
-  SurveyQuestionListLoadSuccess loadSuccess() {
-    return const SurveyQuestionListLoadSuccess();
+  RespondentListListLoadSuccess loadSuccess() {
+    return const RespondentListListLoadSuccess();
   }
 }
 
 /// @nodoc
 // ignore: unused_element
-const $SurveyQuestionListState = _$SurveyQuestionListStateTearOff();
+const $RespondentListListState = _$RespondentListListStateTearOff();
 
 /// @nodoc
-mixin _$SurveyQuestionListState {
+mixin _$RespondentListListState {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result initial(),
@@ -1272,70 +1304,70 @@ mixin _$SurveyQuestionListState {
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_SurveyQuestionListInitial value),
-    @required Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    @required Result loadFailure(_SurveyQuestionListLoadFailure value),
-    @required Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    @required Result initial(_RespondentListListInitial value),
+    @required Result loadInProgress(_RespondentListListLoadInProgress value),
+    @required Result loadFailure(_RespondentListListLoadFailure value),
+    @required Result loadSuccess(RespondentListListLoadSuccess value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_SurveyQuestionListInitial value),
-    Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    Result loadFailure(_SurveyQuestionListLoadFailure value),
-    Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    Result initial(_RespondentListListInitial value),
+    Result loadInProgress(_RespondentListListLoadInProgress value),
+    Result loadFailure(_RespondentListListLoadFailure value),
+    Result loadSuccess(RespondentListListLoadSuccess value),
     @required Result orElse(),
   });
 }
 
 /// @nodoc
-abstract class $SurveyQuestionListStateCopyWith<$Res> {
-  factory $SurveyQuestionListStateCopyWith(SurveyQuestionListState value,
-          $Res Function(SurveyQuestionListState) then) =
-      _$SurveyQuestionListStateCopyWithImpl<$Res>;
+abstract class $RespondentListListStateCopyWith<$Res> {
+  factory $RespondentListListStateCopyWith(RespondentListListState value,
+          $Res Function(RespondentListListState) then) =
+      _$RespondentListListStateCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SurveyQuestionListStateCopyWithImpl<$Res>
-    implements $SurveyQuestionListStateCopyWith<$Res> {
-  _$SurveyQuestionListStateCopyWithImpl(this._value, this._then);
+class _$RespondentListListStateCopyWithImpl<$Res>
+    implements $RespondentListListStateCopyWith<$Res> {
+  _$RespondentListListStateCopyWithImpl(this._value, this._then);
 
-  final SurveyQuestionListState _value;
+  final RespondentListListState _value;
   // ignore: unused_field
-  final $Res Function(SurveyQuestionListState) _then;
+  final $Res Function(RespondentListListState) _then;
 }
 
 /// @nodoc
-abstract class _$SurveyQuestionListInitialCopyWith<$Res> {
-  factory _$SurveyQuestionListInitialCopyWith(_SurveyQuestionListInitial value,
-          $Res Function(_SurveyQuestionListInitial) then) =
-      __$SurveyQuestionListInitialCopyWithImpl<$Res>;
+abstract class _$RespondentListListInitialCopyWith<$Res> {
+  factory _$RespondentListListInitialCopyWith(_RespondentListListInitial value,
+          $Res Function(_RespondentListListInitial) then) =
+      __$RespondentListListInitialCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SurveyQuestionListInitialCopyWithImpl<$Res>
-    extends _$SurveyQuestionListStateCopyWithImpl<$Res>
-    implements _$SurveyQuestionListInitialCopyWith<$Res> {
-  __$SurveyQuestionListInitialCopyWithImpl(_SurveyQuestionListInitial _value,
-      $Res Function(_SurveyQuestionListInitial) _then)
-      : super(_value, (v) => _then(v as _SurveyQuestionListInitial));
+class __$RespondentListListInitialCopyWithImpl<$Res>
+    extends _$RespondentListListStateCopyWithImpl<$Res>
+    implements _$RespondentListListInitialCopyWith<$Res> {
+  __$RespondentListListInitialCopyWithImpl(_RespondentListListInitial _value,
+      $Res Function(_RespondentListListInitial) _then)
+      : super(_value, (v) => _then(v as _RespondentListListInitial));
 
   @override
-  _SurveyQuestionListInitial get _value =>
-      super._value as _SurveyQuestionListInitial;
+  _RespondentListListInitial get _value =>
+      super._value as _RespondentListListInitial;
 }
 
 /// @nodoc
-class _$_SurveyQuestionListInitial implements _SurveyQuestionListInitial {
-  const _$_SurveyQuestionListInitial();
+class _$_RespondentListListInitial implements _RespondentListListInitial {
+  const _$_RespondentListListInitial();
 
   @override
   String toString() {
-    return 'SurveyQuestionListState.initial()';
+    return 'RespondentListListState.initial()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SurveyQuestionListInitial);
+    return identical(this, other) || (other is _RespondentListListInitial);
   }
 
   @override
@@ -1375,10 +1407,10 @@ class _$_SurveyQuestionListInitial implements _SurveyQuestionListInitial {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_SurveyQuestionListInitial value),
-    @required Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    @required Result loadFailure(_SurveyQuestionListLoadFailure value),
-    @required Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    @required Result initial(_RespondentListListInitial value),
+    @required Result loadInProgress(_RespondentListListLoadInProgress value),
+    @required Result loadFailure(_RespondentListListLoadFailure value),
+    @required Result loadSuccess(RespondentListListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -1390,10 +1422,10 @@ class _$_SurveyQuestionListInitial implements _SurveyQuestionListInitial {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_SurveyQuestionListInitial value),
-    Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    Result loadFailure(_SurveyQuestionListLoadFailure value),
-    Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    Result initial(_RespondentListListInitial value),
+    Result loadInProgress(_RespondentListListLoadInProgress value),
+    Result loadFailure(_RespondentListListLoadFailure value),
+    Result loadSuccess(RespondentListListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1404,46 +1436,46 @@ class _$_SurveyQuestionListInitial implements _SurveyQuestionListInitial {
   }
 }
 
-abstract class _SurveyQuestionListInitial implements SurveyQuestionListState {
-  const factory _SurveyQuestionListInitial() = _$_SurveyQuestionListInitial;
+abstract class _RespondentListListInitial implements RespondentListListState {
+  const factory _RespondentListListInitial() = _$_RespondentListListInitial;
 }
 
 /// @nodoc
-abstract class _$SurveyQuestionListLoadInProgressCopyWith<$Res> {
-  factory _$SurveyQuestionListLoadInProgressCopyWith(
-          _SurveyQuestionListLoadInProgress value,
-          $Res Function(_SurveyQuestionListLoadInProgress) then) =
-      __$SurveyQuestionListLoadInProgressCopyWithImpl<$Res>;
+abstract class _$RespondentListListLoadInProgressCopyWith<$Res> {
+  factory _$RespondentListListLoadInProgressCopyWith(
+          _RespondentListListLoadInProgress value,
+          $Res Function(_RespondentListListLoadInProgress) then) =
+      __$RespondentListListLoadInProgressCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SurveyQuestionListLoadInProgressCopyWithImpl<$Res>
-    extends _$SurveyQuestionListStateCopyWithImpl<$Res>
-    implements _$SurveyQuestionListLoadInProgressCopyWith<$Res> {
-  __$SurveyQuestionListLoadInProgressCopyWithImpl(
-      _SurveyQuestionListLoadInProgress _value,
-      $Res Function(_SurveyQuestionListLoadInProgress) _then)
-      : super(_value, (v) => _then(v as _SurveyQuestionListLoadInProgress));
+class __$RespondentListListLoadInProgressCopyWithImpl<$Res>
+    extends _$RespondentListListStateCopyWithImpl<$Res>
+    implements _$RespondentListListLoadInProgressCopyWith<$Res> {
+  __$RespondentListListLoadInProgressCopyWithImpl(
+      _RespondentListListLoadInProgress _value,
+      $Res Function(_RespondentListListLoadInProgress) _then)
+      : super(_value, (v) => _then(v as _RespondentListListLoadInProgress));
 
   @override
-  _SurveyQuestionListLoadInProgress get _value =>
-      super._value as _SurveyQuestionListLoadInProgress;
+  _RespondentListListLoadInProgress get _value =>
+      super._value as _RespondentListListLoadInProgress;
 }
 
 /// @nodoc
-class _$_SurveyQuestionListLoadInProgress
-    implements _SurveyQuestionListLoadInProgress {
-  const _$_SurveyQuestionListLoadInProgress();
+class _$_RespondentListListLoadInProgress
+    implements _RespondentListListLoadInProgress {
+  const _$_RespondentListListLoadInProgress();
 
   @override
   String toString() {
-    return 'SurveyQuestionListState.loadInProgress()';
+    return 'RespondentListListState.loadInProgress()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyQuestionListLoadInProgress);
+        (other is _RespondentListListLoadInProgress);
   }
 
   @override
@@ -1483,10 +1515,10 @@ class _$_SurveyQuestionListLoadInProgress
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_SurveyQuestionListInitial value),
-    @required Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    @required Result loadFailure(_SurveyQuestionListLoadFailure value),
-    @required Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    @required Result initial(_RespondentListListInitial value),
+    @required Result loadInProgress(_RespondentListListLoadInProgress value),
+    @required Result loadFailure(_RespondentListListLoadFailure value),
+    @required Result loadSuccess(RespondentListListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -1498,10 +1530,10 @@ class _$_SurveyQuestionListLoadInProgress
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_SurveyQuestionListInitial value),
-    Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    Result loadFailure(_SurveyQuestionListLoadFailure value),
-    Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    Result initial(_RespondentListListInitial value),
+    Result loadInProgress(_RespondentListListLoadInProgress value),
+    Result loadFailure(_RespondentListListLoadFailure value),
+    Result loadSuccess(RespondentListListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1512,47 +1544,47 @@ class _$_SurveyQuestionListLoadInProgress
   }
 }
 
-abstract class _SurveyQuestionListLoadInProgress
-    implements SurveyQuestionListState {
-  const factory _SurveyQuestionListLoadInProgress() =
-      _$_SurveyQuestionListLoadInProgress;
+abstract class _RespondentListListLoadInProgress
+    implements RespondentListListState {
+  const factory _RespondentListListLoadInProgress() =
+      _$_RespondentListListLoadInProgress;
 }
 
 /// @nodoc
-abstract class _$SurveyQuestionListLoadFailureCopyWith<$Res> {
-  factory _$SurveyQuestionListLoadFailureCopyWith(
-          _SurveyQuestionListLoadFailure value,
-          $Res Function(_SurveyQuestionListLoadFailure) then) =
-      __$SurveyQuestionListLoadFailureCopyWithImpl<$Res>;
+abstract class _$RespondentListListLoadFailureCopyWith<$Res> {
+  factory _$RespondentListListLoadFailureCopyWith(
+          _RespondentListListLoadFailure value,
+          $Res Function(_RespondentListListLoadFailure) then) =
+      __$RespondentListListLoadFailureCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$SurveyQuestionListLoadFailureCopyWithImpl<$Res>
-    extends _$SurveyQuestionListStateCopyWithImpl<$Res>
-    implements _$SurveyQuestionListLoadFailureCopyWith<$Res> {
-  __$SurveyQuestionListLoadFailureCopyWithImpl(
-      _SurveyQuestionListLoadFailure _value,
-      $Res Function(_SurveyQuestionListLoadFailure) _then)
-      : super(_value, (v) => _then(v as _SurveyQuestionListLoadFailure));
+class __$RespondentListListLoadFailureCopyWithImpl<$Res>
+    extends _$RespondentListListStateCopyWithImpl<$Res>
+    implements _$RespondentListListLoadFailureCopyWith<$Res> {
+  __$RespondentListListLoadFailureCopyWithImpl(
+      _RespondentListListLoadFailure _value,
+      $Res Function(_RespondentListListLoadFailure) _then)
+      : super(_value, (v) => _then(v as _RespondentListListLoadFailure));
 
   @override
-  _SurveyQuestionListLoadFailure get _value =>
-      super._value as _SurveyQuestionListLoadFailure;
+  _RespondentListListLoadFailure get _value =>
+      super._value as _RespondentListListLoadFailure;
 }
 
 /// @nodoc
-class _$_SurveyQuestionListLoadFailure
-    implements _SurveyQuestionListLoadFailure {
-  const _$_SurveyQuestionListLoadFailure();
+class _$_RespondentListListLoadFailure
+    implements _RespondentListListLoadFailure {
+  const _$_RespondentListListLoadFailure();
 
   @override
   String toString() {
-    return 'SurveyQuestionListState.loadFailure()';
+    return 'RespondentListListState.loadFailure()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SurveyQuestionListLoadFailure);
+    return identical(this, other) || (other is _RespondentListListLoadFailure);
   }
 
   @override
@@ -1592,10 +1624,10 @@ class _$_SurveyQuestionListLoadFailure
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_SurveyQuestionListInitial value),
-    @required Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    @required Result loadFailure(_SurveyQuestionListLoadFailure value),
-    @required Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    @required Result initial(_RespondentListListInitial value),
+    @required Result loadInProgress(_RespondentListListLoadInProgress value),
+    @required Result loadFailure(_RespondentListListLoadFailure value),
+    @required Result loadSuccess(RespondentListListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -1607,10 +1639,10 @@ class _$_SurveyQuestionListLoadFailure
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_SurveyQuestionListInitial value),
-    Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    Result loadFailure(_SurveyQuestionListLoadFailure value),
-    Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    Result initial(_RespondentListListInitial value),
+    Result loadInProgress(_RespondentListListLoadInProgress value),
+    Result loadFailure(_RespondentListListLoadFailure value),
+    Result loadSuccess(RespondentListListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1621,46 +1653,46 @@ class _$_SurveyQuestionListLoadFailure
   }
 }
 
-abstract class _SurveyQuestionListLoadFailure
-    implements SurveyQuestionListState {
-  const factory _SurveyQuestionListLoadFailure() =
-      _$_SurveyQuestionListLoadFailure;
+abstract class _RespondentListListLoadFailure
+    implements RespondentListListState {
+  const factory _RespondentListListLoadFailure() =
+      _$_RespondentListListLoadFailure;
 }
 
 /// @nodoc
-abstract class $SurveyQuestionListLoadSuccessCopyWith<$Res> {
-  factory $SurveyQuestionListLoadSuccessCopyWith(
-          SurveyQuestionListLoadSuccess value,
-          $Res Function(SurveyQuestionListLoadSuccess) then) =
-      _$SurveyQuestionListLoadSuccessCopyWithImpl<$Res>;
+abstract class $RespondentListListLoadSuccessCopyWith<$Res> {
+  factory $RespondentListListLoadSuccessCopyWith(
+          RespondentListListLoadSuccess value,
+          $Res Function(RespondentListListLoadSuccess) then) =
+      _$RespondentListListLoadSuccessCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SurveyQuestionListLoadSuccessCopyWithImpl<$Res>
-    extends _$SurveyQuestionListStateCopyWithImpl<$Res>
-    implements $SurveyQuestionListLoadSuccessCopyWith<$Res> {
-  _$SurveyQuestionListLoadSuccessCopyWithImpl(
-      SurveyQuestionListLoadSuccess _value,
-      $Res Function(SurveyQuestionListLoadSuccess) _then)
-      : super(_value, (v) => _then(v as SurveyQuestionListLoadSuccess));
+class _$RespondentListListLoadSuccessCopyWithImpl<$Res>
+    extends _$RespondentListListStateCopyWithImpl<$Res>
+    implements $RespondentListListLoadSuccessCopyWith<$Res> {
+  _$RespondentListListLoadSuccessCopyWithImpl(
+      RespondentListListLoadSuccess _value,
+      $Res Function(RespondentListListLoadSuccess) _then)
+      : super(_value, (v) => _then(v as RespondentListListLoadSuccess));
 
   @override
-  SurveyQuestionListLoadSuccess get _value =>
-      super._value as SurveyQuestionListLoadSuccess;
+  RespondentListListLoadSuccess get _value =>
+      super._value as RespondentListListLoadSuccess;
 }
 
 /// @nodoc
-class _$SurveyQuestionListLoadSuccess implements SurveyQuestionListLoadSuccess {
-  const _$SurveyQuestionListLoadSuccess();
+class _$RespondentListListLoadSuccess implements RespondentListListLoadSuccess {
+  const _$RespondentListListLoadSuccess();
 
   @override
   String toString() {
-    return 'SurveyQuestionListState.loadSuccess()';
+    return 'RespondentListListState.loadSuccess()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SurveyQuestionListLoadSuccess);
+    return identical(this, other) || (other is RespondentListListLoadSuccess);
   }
 
   @override
@@ -1700,10 +1732,10 @@ class _$SurveyQuestionListLoadSuccess implements SurveyQuestionListLoadSuccess {
   @override
   @optionalTypeArgs
   Result map<Result extends Object>({
-    @required Result initial(_SurveyQuestionListInitial value),
-    @required Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    @required Result loadFailure(_SurveyQuestionListLoadFailure value),
-    @required Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    @required Result initial(_RespondentListListInitial value),
+    @required Result loadInProgress(_RespondentListListLoadInProgress value),
+    @required Result loadFailure(_RespondentListListLoadFailure value),
+    @required Result loadSuccess(RespondentListListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -1715,10 +1747,10 @@ class _$SurveyQuestionListLoadSuccess implements SurveyQuestionListLoadSuccess {
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
-    Result initial(_SurveyQuestionListInitial value),
-    Result loadInProgress(_SurveyQuestionListLoadInProgress value),
-    Result loadFailure(_SurveyQuestionListLoadFailure value),
-    Result loadSuccess(SurveyQuestionListLoadSuccess value),
+    Result initial(_RespondentListListInitial value),
+    Result loadInProgress(_RespondentListListLoadInProgress value),
+    Result loadFailure(_RespondentListListLoadFailure value),
+    Result loadSuccess(RespondentListListLoadSuccess value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1729,508 +1761,10 @@ class _$SurveyQuestionListLoadSuccess implements SurveyQuestionListLoadSuccess {
   }
 }
 
-abstract class SurveyQuestionListLoadSuccess
-    implements SurveyQuestionListState {
-  const factory SurveyQuestionListLoadSuccess() =
-      _$SurveyQuestionListLoadSuccess;
-}
-
-/// @nodoc
-class _$RespondentListStateTearOff {
-  const _$RespondentListStateTearOff();
-
-// ignore: unused_element
-  _RespondentListInitial initial() {
-    return const _RespondentListInitial();
-  }
-
-// ignore: unused_element
-  _RespondentListLoadInProgress loadInProgress() {
-    return const _RespondentListLoadInProgress();
-  }
-
-// ignore: unused_element
-  _RespondentListLoadFailure loadFailure() {
-    return const _RespondentListLoadFailure();
-  }
-
-// ignore: unused_element
-  RespondentListLoadSuccess loadSuccess() {
-    return const RespondentListLoadSuccess();
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $RespondentListState = _$RespondentListStateTearOff();
-
-/// @nodoc
-mixin _$RespondentListState {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  });
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_RespondentListInitial value),
-    @required Result loadInProgress(_RespondentListLoadInProgress value),
-    @required Result loadFailure(_RespondentListLoadFailure value),
-    @required Result loadSuccess(RespondentListLoadSuccess value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_RespondentListInitial value),
-    Result loadInProgress(_RespondentListLoadInProgress value),
-    Result loadFailure(_RespondentListLoadFailure value),
-    Result loadSuccess(RespondentListLoadSuccess value),
-    @required Result orElse(),
-  });
-}
-
-/// @nodoc
-abstract class $RespondentListStateCopyWith<$Res> {
-  factory $RespondentListStateCopyWith(
-          RespondentListState value, $Res Function(RespondentListState) then) =
-      _$RespondentListStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$RespondentListStateCopyWithImpl<$Res>
-    implements $RespondentListStateCopyWith<$Res> {
-  _$RespondentListStateCopyWithImpl(this._value, this._then);
-
-  final RespondentListState _value;
-  // ignore: unused_field
-  final $Res Function(RespondentListState) _then;
-}
-
-/// @nodoc
-abstract class _$RespondentListInitialCopyWith<$Res> {
-  factory _$RespondentListInitialCopyWith(_RespondentListInitial value,
-          $Res Function(_RespondentListInitial) then) =
-      __$RespondentListInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RespondentListInitialCopyWithImpl<$Res>
-    extends _$RespondentListStateCopyWithImpl<$Res>
-    implements _$RespondentListInitialCopyWith<$Res> {
-  __$RespondentListInitialCopyWithImpl(_RespondentListInitial _value,
-      $Res Function(_RespondentListInitial) _then)
-      : super(_value, (v) => _then(v as _RespondentListInitial));
-
-  @override
-  _RespondentListInitial get _value => super._value as _RespondentListInitial;
-}
-
-/// @nodoc
-class _$_RespondentListInitial implements _RespondentListInitial {
-  const _$_RespondentListInitial();
-
-  @override
-  String toString() {
-    return 'RespondentListState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RespondentListInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_RespondentListInitial value),
-    @required Result loadInProgress(_RespondentListLoadInProgress value),
-    @required Result loadFailure(_RespondentListLoadFailure value),
-    @required Result loadSuccess(RespondentListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_RespondentListInitial value),
-    Result loadInProgress(_RespondentListLoadInProgress value),
-    Result loadFailure(_RespondentListLoadFailure value),
-    Result loadSuccess(RespondentListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RespondentListInitial implements RespondentListState {
-  const factory _RespondentListInitial() = _$_RespondentListInitial;
-}
-
-/// @nodoc
-abstract class _$RespondentListLoadInProgressCopyWith<$Res> {
-  factory _$RespondentListLoadInProgressCopyWith(
-          _RespondentListLoadInProgress value,
-          $Res Function(_RespondentListLoadInProgress) then) =
-      __$RespondentListLoadInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RespondentListLoadInProgressCopyWithImpl<$Res>
-    extends _$RespondentListStateCopyWithImpl<$Res>
-    implements _$RespondentListLoadInProgressCopyWith<$Res> {
-  __$RespondentListLoadInProgressCopyWithImpl(
-      _RespondentListLoadInProgress _value,
-      $Res Function(_RespondentListLoadInProgress) _then)
-      : super(_value, (v) => _then(v as _RespondentListLoadInProgress));
-
-  @override
-  _RespondentListLoadInProgress get _value =>
-      super._value as _RespondentListLoadInProgress;
-}
-
-/// @nodoc
-class _$_RespondentListLoadInProgress implements _RespondentListLoadInProgress {
-  const _$_RespondentListLoadInProgress();
-
-  @override
-  String toString() {
-    return 'RespondentListState.loadInProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RespondentListLoadInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadInProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadInProgress != null) {
-      return loadInProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_RespondentListInitial value),
-    @required Result loadInProgress(_RespondentListLoadInProgress value),
-    @required Result loadFailure(_RespondentListLoadFailure value),
-    @required Result loadSuccess(RespondentListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadInProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_RespondentListInitial value),
-    Result loadInProgress(_RespondentListLoadInProgress value),
-    Result loadFailure(_RespondentListLoadFailure value),
-    Result loadSuccess(RespondentListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadInProgress != null) {
-      return loadInProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RespondentListLoadInProgress implements RespondentListState {
-  const factory _RespondentListLoadInProgress() =
-      _$_RespondentListLoadInProgress;
-}
-
-/// @nodoc
-abstract class _$RespondentListLoadFailureCopyWith<$Res> {
-  factory _$RespondentListLoadFailureCopyWith(_RespondentListLoadFailure value,
-          $Res Function(_RespondentListLoadFailure) then) =
-      __$RespondentListLoadFailureCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RespondentListLoadFailureCopyWithImpl<$Res>
-    extends _$RespondentListStateCopyWithImpl<$Res>
-    implements _$RespondentListLoadFailureCopyWith<$Res> {
-  __$RespondentListLoadFailureCopyWithImpl(_RespondentListLoadFailure _value,
-      $Res Function(_RespondentListLoadFailure) _then)
-      : super(_value, (v) => _then(v as _RespondentListLoadFailure));
-
-  @override
-  _RespondentListLoadFailure get _value =>
-      super._value as _RespondentListLoadFailure;
-}
-
-/// @nodoc
-class _$_RespondentListLoadFailure implements _RespondentListLoadFailure {
-  const _$_RespondentListLoadFailure();
-
-  @override
-  String toString() {
-    return 'RespondentListState.loadFailure()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RespondentListLoadFailure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadFailure();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadFailure != null) {
-      return loadFailure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_RespondentListInitial value),
-    @required Result loadInProgress(_RespondentListLoadInProgress value),
-    @required Result loadFailure(_RespondentListLoadFailure value),
-    @required Result loadSuccess(RespondentListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_RespondentListInitial value),
-    Result loadInProgress(_RespondentListLoadInProgress value),
-    Result loadFailure(_RespondentListLoadFailure value),
-    Result loadSuccess(RespondentListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadFailure != null) {
-      return loadFailure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RespondentListLoadFailure implements RespondentListState {
-  const factory _RespondentListLoadFailure() = _$_RespondentListLoadFailure;
-}
-
-/// @nodoc
-abstract class $RespondentListLoadSuccessCopyWith<$Res> {
-  factory $RespondentListLoadSuccessCopyWith(RespondentListLoadSuccess value,
-          $Res Function(RespondentListLoadSuccess) then) =
-      _$RespondentListLoadSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$RespondentListLoadSuccessCopyWithImpl<$Res>
-    extends _$RespondentListStateCopyWithImpl<$Res>
-    implements $RespondentListLoadSuccessCopyWith<$Res> {
-  _$RespondentListLoadSuccessCopyWithImpl(RespondentListLoadSuccess _value,
-      $Res Function(RespondentListLoadSuccess) _then)
-      : super(_value, (v) => _then(v as RespondentListLoadSuccess));
-
-  @override
-  RespondentListLoadSuccess get _value =>
-      super._value as RespondentListLoadSuccess;
-}
-
-/// @nodoc
-class _$RespondentListLoadSuccess implements RespondentListLoadSuccess {
-  const _$RespondentListLoadSuccess();
-
-  @override
-  String toString() {
-    return 'RespondentListState.loadSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is RespondentListLoadSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadSuccess != null) {
-      return loadSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_RespondentListInitial value),
-    @required Result loadInProgress(_RespondentListLoadInProgress value),
-    @required Result loadFailure(_RespondentListLoadFailure value),
-    @required Result loadSuccess(RespondentListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_RespondentListInitial value),
-    Result loadInProgress(_RespondentListLoadInProgress value),
-    Result loadFailure(_RespondentListLoadFailure value),
-    Result loadSuccess(RespondentListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadSuccess != null) {
-      return loadSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class RespondentListLoadSuccess implements RespondentListState {
-  const factory RespondentListLoadSuccess() = _$RespondentListLoadSuccess;
+abstract class RespondentListListLoadSuccess
+    implements RespondentListListState {
+  const factory RespondentListListLoadSuccess() =
+      _$RespondentListListLoadSuccess;
 }
 
 /// @nodoc
@@ -2241,18 +1775,14 @@ class _$OverviewStateTearOff {
   _OverviewState call(
       {@required SurveyListState surveyListState,
       @required KtList<Survey> surveyList,
-      @required SurveyQuestionListState surveyQuestionListState,
-      @required KtList<Question> surveQuestionList,
-      @required RespondentListState respondentListState,
-      @required KtList<Respondent> respondentList,
+      @required RespondentListListState respondentListListState,
+      @required KtList<RespondentList> respondentListList,
       @required Option<OverviewFailure> overviewFailure}) {
     return _OverviewState(
       surveyListState: surveyListState,
       surveyList: surveyList,
-      surveyQuestionListState: surveyQuestionListState,
-      surveQuestionList: surveQuestionList,
-      respondentListState: respondentListState,
-      respondentList: respondentList,
+      respondentListListState: respondentListListState,
+      respondentListList: respondentListList,
       overviewFailure: overviewFailure,
     );
   }
@@ -2266,10 +1796,8 @@ const $OverviewState = _$OverviewStateTearOff();
 mixin _$OverviewState {
   SurveyListState get surveyListState;
   KtList<Survey> get surveyList;
-  SurveyQuestionListState get surveyQuestionListState;
-  KtList<Question> get surveQuestionList;
-  RespondentListState get respondentListState;
-  KtList<Respondent> get respondentList;
+  RespondentListListState get respondentListListState;
+  KtList<RespondentList> get respondentListList;
   Option<OverviewFailure> get overviewFailure;
 
   $OverviewStateCopyWith<OverviewState> get copyWith;
@@ -2283,15 +1811,12 @@ abstract class $OverviewStateCopyWith<$Res> {
   $Res call(
       {SurveyListState surveyListState,
       KtList<Survey> surveyList,
-      SurveyQuestionListState surveyQuestionListState,
-      KtList<Question> surveQuestionList,
-      RespondentListState respondentListState,
-      KtList<Respondent> respondentList,
+      RespondentListListState respondentListListState,
+      KtList<RespondentList> respondentListList,
       Option<OverviewFailure> overviewFailure});
 
   $SurveyListStateCopyWith<$Res> get surveyListState;
-  $SurveyQuestionListStateCopyWith<$Res> get surveyQuestionListState;
-  $RespondentListStateCopyWith<$Res> get respondentListState;
+  $RespondentListListStateCopyWith<$Res> get respondentListListState;
 }
 
 /// @nodoc
@@ -2307,10 +1832,8 @@ class _$OverviewStateCopyWithImpl<$Res>
   $Res call({
     Object surveyListState = freezed,
     Object surveyList = freezed,
-    Object surveyQuestionListState = freezed,
-    Object surveQuestionList = freezed,
-    Object respondentListState = freezed,
-    Object respondentList = freezed,
+    Object respondentListListState = freezed,
+    Object respondentListList = freezed,
     Object overviewFailure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -2320,18 +1843,12 @@ class _$OverviewStateCopyWithImpl<$Res>
       surveyList: surveyList == freezed
           ? _value.surveyList
           : surveyList as KtList<Survey>,
-      surveyQuestionListState: surveyQuestionListState == freezed
-          ? _value.surveyQuestionListState
-          : surveyQuestionListState as SurveyQuestionListState,
-      surveQuestionList: surveQuestionList == freezed
-          ? _value.surveQuestionList
-          : surveQuestionList as KtList<Question>,
-      respondentListState: respondentListState == freezed
-          ? _value.respondentListState
-          : respondentListState as RespondentListState,
-      respondentList: respondentList == freezed
-          ? _value.respondentList
-          : respondentList as KtList<Respondent>,
+      respondentListListState: respondentListListState == freezed
+          ? _value.respondentListListState
+          : respondentListListState as RespondentListListState,
+      respondentListList: respondentListList == freezed
+          ? _value.respondentListList
+          : respondentListList as KtList<RespondentList>,
       overviewFailure: overviewFailure == freezed
           ? _value.overviewFailure
           : overviewFailure as Option<OverviewFailure>,
@@ -2349,24 +1866,13 @@ class _$OverviewStateCopyWithImpl<$Res>
   }
 
   @override
-  $SurveyQuestionListStateCopyWith<$Res> get surveyQuestionListState {
-    if (_value.surveyQuestionListState == null) {
+  $RespondentListListStateCopyWith<$Res> get respondentListListState {
+    if (_value.respondentListListState == null) {
       return null;
     }
-    return $SurveyQuestionListStateCopyWith<$Res>(
-        _value.surveyQuestionListState, (value) {
-      return _then(_value.copyWith(surveyQuestionListState: value));
-    });
-  }
-
-  @override
-  $RespondentListStateCopyWith<$Res> get respondentListState {
-    if (_value.respondentListState == null) {
-      return null;
-    }
-    return $RespondentListStateCopyWith<$Res>(_value.respondentListState,
-        (value) {
-      return _then(_value.copyWith(respondentListState: value));
+    return $RespondentListListStateCopyWith<$Res>(
+        _value.respondentListListState, (value) {
+      return _then(_value.copyWith(respondentListListState: value));
     });
   }
 }
@@ -2381,18 +1887,14 @@ abstract class _$OverviewStateCopyWith<$Res>
   $Res call(
       {SurveyListState surveyListState,
       KtList<Survey> surveyList,
-      SurveyQuestionListState surveyQuestionListState,
-      KtList<Question> surveQuestionList,
-      RespondentListState respondentListState,
-      KtList<Respondent> respondentList,
+      RespondentListListState respondentListListState,
+      KtList<RespondentList> respondentListList,
       Option<OverviewFailure> overviewFailure});
 
   @override
   $SurveyListStateCopyWith<$Res> get surveyListState;
   @override
-  $SurveyQuestionListStateCopyWith<$Res> get surveyQuestionListState;
-  @override
-  $RespondentListStateCopyWith<$Res> get respondentListState;
+  $RespondentListListStateCopyWith<$Res> get respondentListListState;
 }
 
 /// @nodoc
@@ -2410,10 +1912,8 @@ class __$OverviewStateCopyWithImpl<$Res>
   $Res call({
     Object surveyListState = freezed,
     Object surveyList = freezed,
-    Object surveyQuestionListState = freezed,
-    Object surveQuestionList = freezed,
-    Object respondentListState = freezed,
-    Object respondentList = freezed,
+    Object respondentListListState = freezed,
+    Object respondentListList = freezed,
     Object overviewFailure = freezed,
   }) {
     return _then(_OverviewState(
@@ -2423,18 +1923,12 @@ class __$OverviewStateCopyWithImpl<$Res>
       surveyList: surveyList == freezed
           ? _value.surveyList
           : surveyList as KtList<Survey>,
-      surveyQuestionListState: surveyQuestionListState == freezed
-          ? _value.surveyQuestionListState
-          : surveyQuestionListState as SurveyQuestionListState,
-      surveQuestionList: surveQuestionList == freezed
-          ? _value.surveQuestionList
-          : surveQuestionList as KtList<Question>,
-      respondentListState: respondentListState == freezed
-          ? _value.respondentListState
-          : respondentListState as RespondentListState,
-      respondentList: respondentList == freezed
-          ? _value.respondentList
-          : respondentList as KtList<Respondent>,
+      respondentListListState: respondentListListState == freezed
+          ? _value.respondentListListState
+          : respondentListListState as RespondentListListState,
+      respondentListList: respondentListList == freezed
+          ? _value.respondentListList
+          : respondentListList as KtList<RespondentList>,
       overviewFailure: overviewFailure == freezed
           ? _value.overviewFailure
           : overviewFailure as Option<OverviewFailure>,
@@ -2447,17 +1941,13 @@ class _$_OverviewState implements _OverviewState {
   const _$_OverviewState(
       {@required this.surveyListState,
       @required this.surveyList,
-      @required this.surveyQuestionListState,
-      @required this.surveQuestionList,
-      @required this.respondentListState,
-      @required this.respondentList,
+      @required this.respondentListListState,
+      @required this.respondentListList,
       @required this.overviewFailure})
       : assert(surveyListState != null),
         assert(surveyList != null),
-        assert(surveyQuestionListState != null),
-        assert(surveQuestionList != null),
-        assert(respondentListState != null),
-        assert(respondentList != null),
+        assert(respondentListListState != null),
+        assert(respondentListList != null),
         assert(overviewFailure != null);
 
   @override
@@ -2465,19 +1955,15 @@ class _$_OverviewState implements _OverviewState {
   @override
   final KtList<Survey> surveyList;
   @override
-  final SurveyQuestionListState surveyQuestionListState;
+  final RespondentListListState respondentListListState;
   @override
-  final KtList<Question> surveQuestionList;
-  @override
-  final RespondentListState respondentListState;
-  @override
-  final KtList<Respondent> respondentList;
+  final KtList<RespondentList> respondentListList;
   @override
   final Option<OverviewFailure> overviewFailure;
 
   @override
   String toString() {
-    return 'OverviewState(surveyListState: $surveyListState, surveyList: $surveyList, surveyQuestionListState: $surveyQuestionListState, surveQuestionList: $surveQuestionList, respondentListState: $respondentListState, respondentList: $respondentList, overviewFailure: $overviewFailure)';
+    return 'OverviewState(surveyListState: $surveyListState, surveyList: $surveyList, respondentListListState: $respondentListListState, respondentListList: $respondentListList, overviewFailure: $overviewFailure)';
   }
 
   @override
@@ -2491,18 +1977,12 @@ class _$_OverviewState implements _OverviewState {
                 const DeepCollectionEquality()
                     .equals(other.surveyList, surveyList)) &&
             (identical(
-                    other.surveyQuestionListState, surveyQuestionListState) ||
+                    other.respondentListListState, respondentListListState) ||
                 const DeepCollectionEquality().equals(
-                    other.surveyQuestionListState, surveyQuestionListState)) &&
-            (identical(other.surveQuestionList, surveQuestionList) ||
+                    other.respondentListListState, respondentListListState)) &&
+            (identical(other.respondentListList, respondentListList) ||
                 const DeepCollectionEquality()
-                    .equals(other.surveQuestionList, surveQuestionList)) &&
-            (identical(other.respondentListState, respondentListState) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentListState, respondentListState)) &&
-            (identical(other.respondentList, respondentList) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentList, respondentList)) &&
+                    .equals(other.respondentListList, respondentListList)) &&
             (identical(other.overviewFailure, overviewFailure) ||
                 const DeepCollectionEquality()
                     .equals(other.overviewFailure, overviewFailure)));
@@ -2513,10 +1993,8 @@ class _$_OverviewState implements _OverviewState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(surveyListState) ^
       const DeepCollectionEquality().hash(surveyList) ^
-      const DeepCollectionEquality().hash(surveyQuestionListState) ^
-      const DeepCollectionEquality().hash(surveQuestionList) ^
-      const DeepCollectionEquality().hash(respondentListState) ^
-      const DeepCollectionEquality().hash(respondentList) ^
+      const DeepCollectionEquality().hash(respondentListListState) ^
+      const DeepCollectionEquality().hash(respondentListList) ^
       const DeepCollectionEquality().hash(overviewFailure);
 
   @override
@@ -2528,10 +2006,8 @@ abstract class _OverviewState implements OverviewState {
   const factory _OverviewState(
       {@required SurveyListState surveyListState,
       @required KtList<Survey> surveyList,
-      @required SurveyQuestionListState surveyQuestionListState,
-      @required KtList<Question> surveQuestionList,
-      @required RespondentListState respondentListState,
-      @required KtList<Respondent> respondentList,
+      @required RespondentListListState respondentListListState,
+      @required KtList<RespondentList> respondentListList,
       @required Option<OverviewFailure> overviewFailure}) = _$_OverviewState;
 
   @override
@@ -2539,13 +2015,9 @@ abstract class _OverviewState implements OverviewState {
   @override
   KtList<Survey> get surveyList;
   @override
-  SurveyQuestionListState get surveyQuestionListState;
+  RespondentListListState get respondentListListState;
   @override
-  KtList<Question> get surveQuestionList;
-  @override
-  RespondentListState get respondentListState;
-  @override
-  KtList<Respondent> get respondentList;
+  KtList<RespondentList> get respondentListList;
   @override
   Option<OverviewFailure> get overviewFailure;
   @override
