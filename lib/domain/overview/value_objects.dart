@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_validators.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 
@@ -9,7 +10,7 @@ class SurveyId extends ValueObject<String> {
   factory SurveyId(String input) {
     assert(input != null);
     return SurveyId._(
-      right(input),
+      validateStringNotEmpty(input),
     );
   }
 
@@ -25,7 +26,7 @@ class SurveyName extends ValueObject<String> {
   factory SurveyName(String input) {
     assert(input != null);
     return SurveyName._(
-      right(input),
+      validateStringNotEmpty(input),
     );
   }
 
@@ -34,23 +35,23 @@ class SurveyName extends ValueObject<String> {
   const SurveyName._(this.value);
 }
 
-class SurveyType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+// class SurveyType extends ValueObject<String> {
+//   @override
+//   final Either<ValueFailure<String>, String> value;
 
-  factory SurveyType(String input) {
-    assert(input != null);
-    return SurveyType._(
-      right(input),
-    );
-  }
+//   factory SurveyType(String input) {
+//     assert(input != null);
+//     return SurveyType._(
+//       right(input),
+//     );
+//   }
 
-  factory SurveyType.main() => SurveyType('main');
-  factory SurveyType.module() => SurveyType('module');
-  factory SurveyType.empty() => SurveyType('');
+//   factory SurveyType.main() => SurveyType('main');
+//   factory SurveyType.module() => SurveyType('module');
+//   factory SurveyType.empty() => SurveyType('');
 
-  const SurveyType._(this.value);
-}
+//   const SurveyType._(this.value);
+// }
 
 class ModuleType extends ValueObject<String> {
   @override
@@ -100,68 +101,4 @@ class ProjectName extends ValueObject<String> {
   factory ProjectName.empty() => ProjectName('');
 
   const ProjectName._(this.value);
-}
-
-class RespondentId extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory RespondentId(String input) {
-    assert(input != null);
-    return RespondentId._(
-      right(input),
-    );
-  }
-
-  factory RespondentId.empty() => RespondentId('');
-
-  const RespondentId._(this.value);
-}
-
-class CountyTown extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory CountyTown(String input) {
-    assert(input != null);
-    return CountyTown._(
-      right(input),
-    );
-  }
-
-  factory CountyTown.empty() => CountyTown('');
-
-  const CountyTown._(this.value);
-}
-
-class Village extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory Village(String input) {
-    assert(input != null);
-    return Village._(
-      right(input),
-    );
-  }
-
-  factory Village.empty() => Village('');
-
-  const Village._(this.value);
-}
-
-class RemainAddress extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory RemainAddress(String input) {
-    assert(input != null);
-    return RemainAddress._(
-      right(input),
-    );
-  }
-
-  factory RemainAddress.empty() => RemainAddress('');
-
-  const RemainAddress._(this.value);
 }

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/respondent_list/widgets/respondent_card.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/qa_card.dart';
 
-class RespondentListBody extends StatelessWidget {
+class SurveyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<RespondentBloc, RespondentState>(
-      buildWhen: (p, c) => p.respondentList != c.respondentList,
+    return BlocBuilder<SurveyBloc, SurveyState>(
+      buildWhen: (p, c) => p.surveyList != c.surveyList,
       builder: (context, state) {
-        return state.respondentListListState.map(
+        return state.surveyListState.map(
           initial: (_) => Container(),
           loadInProgress: (_) => const Center(
             child: CircularProgressIndicator(),
@@ -23,15 +23,15 @@ class RespondentListBody extends StatelessWidget {
                 horizontal: 15.0,
               ),
               itemBuilder: (context, index) {
-                final respondent = state.respondentList[index];
+                final question = state.survey.questionList[index];
                 // if (survey.failureOption.isSome()) {
                 //   print('survey error!');
-                //   return Container();
+                // return Container();
                 // } else {
-                return RespondentCard(respondent: respondent);
+                return QaCard(question: question);
                 // }
               },
-              itemCount: state.respondentList.size,
+              itemCount: state.survey.questionList.size,
             );
           },
         );

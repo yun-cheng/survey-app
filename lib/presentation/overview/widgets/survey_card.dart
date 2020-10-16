@@ -1,5 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
@@ -21,8 +24,13 @@ class SurveyCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 6.0),
       child: InkWell(
         onTap: () {
-          ExtendedNavigator.of(context)
-              .pushRespondentListPage(surveyId: survey.id);
+          context
+              .bloc<RespondentBloc>()
+              .add(RespondentEvent.surveySelected(survey: survey));
+          context
+              .bloc<SurveyBloc>()
+              .add(SurveyEvent.surveySelected(survey: survey));
+          ExtendedNavigator.of(context).pushRespondentListPage();
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),

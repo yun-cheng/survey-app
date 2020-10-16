@@ -1,5 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/respondent.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class RespondentCard extends StatelessWidget {
   final Respondent respondent;
@@ -19,9 +23,10 @@ class RespondentCard extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 6.0),
       child: InkWell(
         onTap: () {
-          // if (!quiz.isFinished) {
-          //   ExtendedNavigator.of(context).pushQuizPage(quizId: quiz.id);
-          // }
+          context
+              .bloc<RespondentBloc>()
+              .add(RespondentEvent.respondentSelected(respondent: respondent));
+          ExtendedNavigator.of(context).pushSurveyPage();
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),

@@ -61,4 +61,10 @@ abstract class Survey implements _$Survey {
         )
         .fold((f) => some(f), (_) => none());
   }
+
+  // NOTE 避免 print 太多東西出來
+  @override
+  String toString() {
+    return 'Survey(id: $id, name: $name, teamId: $teamId, projectId: $projectId)';
+  }
 }

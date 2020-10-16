@@ -14,9 +14,9 @@ import 'domain/auth/i_auth_facade.dart';
 import 'domain/overview/i_overview_repository.dart';
 import 'domain/quiz_list/i_quiz_list_repository.dart';
 import 'domain/quiz/i_quiz_repository.dart';
+import 'domain/respondent/i_respondent_repository.dart';
 import 'domain/survey/i_survey_repository.dart';
 import 'infrastructure/auth/manual_auth_facade.dart';
-import 'application/overview/overview_bloc.dart';
 import 'infrastructure/overview/overview_repository.dart';
 import 'application/quiz/question/question_bloc.dart';
 import 'application/quiz/question_list/question_list_bloc.dart';
@@ -24,6 +24,7 @@ import 'application/quiz/question_page/question_page_bloc.dart';
 import 'application/quiz_list/quiz_list_bloc.dart';
 import 'infrastructure/quiz_list/quiz_list_repository.dart';
 import 'infrastructure/quiz/quiz_repository.dart';
+import 'infrastructure/respondent/respondent_repository.dart';
 import 'application/survey/survey_page/survey_page_bloc.dart';
 import 'infrastructure/survey/survey_repository.dart';
 
@@ -46,9 +47,10 @@ GetIt $initGetIt(
       () => QuizListRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<IQuizRepository>(
       () => QuizRepository(get<FirebaseFirestore>()));
+  gh.lazySingleton<IRespondentRepository>(
+      () => RespondentRepository(get<FirebaseFirestore>()));
   gh.lazySingleton<ISurveyRepository>(
       () => SurveyRepository(get<FirebaseFirestore>()));
-  gh.factory<OverviewBloc>(() => OverviewBloc(get<IOverviewRepository>()));
   gh.factory<QuestionListBloc>(() => QuestionListBloc(get<IQuizRepository>()));
   gh.factory<QuestionPageBloc>(() => QuestionPageBloc(get<QuestionListBloc>()));
   gh.factory<QuizListBloc>(() => QuizListBloc(get<IQuizListRepository>()));

@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_validators.dart';
 
 class QuestionBody extends ValueObject<String> {
   @override
@@ -25,7 +26,7 @@ class QuestionNote extends ValueObject<String> {
   factory QuestionNote(String input) {
     assert(input != null);
     return QuestionNote._(
-      right(input),
+      validateStringNotEmpty(input),
     );
   }
 
@@ -71,15 +72,15 @@ class QuestionType extends ValueObject<String> {
   factory QuestionType(String input) {
     assert(input != null);
     return QuestionType._(
-      right(input),
+      validateStringNotEmpty(input),
     );
   }
 
   // NOTE 這樣就不用輸入文字
   factory QuestionType.single() => QuestionType('single');
   factory QuestionType.multiple() => QuestionType('multiple');
-  factory QuestionType.popupSingle() => QuestionType('popup_single');
-  factory QuestionType.popupMultiple() => QuestionType('popup_multiple');
+  factory QuestionType.popupSingle() => QuestionType('popupSingle');
+  factory QuestionType.popupMultiple() => QuestionType('popupMultiple');
   factory QuestionType.number() => QuestionType('number');
   factory QuestionType.text() => QuestionType('text');
   factory QuestionType.date() => QuestionType('date');

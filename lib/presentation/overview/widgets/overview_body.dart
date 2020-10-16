@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/overview/overview_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/overview/widgets/survey_card.dart';
 
 class OverviewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<OverviewBloc, OverviewState>(builder: (context, state) {
+    return BlocBuilder<SurveyBloc, SurveyState>(builder: (context, state) {
       return state.surveyListState.map(
         initial: (_) => Container(),
         loadInProgress: (_) => const Center(

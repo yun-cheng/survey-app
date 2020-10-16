@@ -166,11 +166,6 @@ class _$_RespondentList extends _RespondentList {
   final KtList<Respondent> respondentList;
 
   @override
-  String toString() {
-    return 'RespondentList(surveyId: $surveyId, interviewerId: $interviewerId, teamId: $teamId, projectId: $projectId, respondentList: $respondentList)';
-  }
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RespondentList &&

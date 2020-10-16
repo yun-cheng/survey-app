@@ -173,11 +173,6 @@ class _$_Survey extends _Survey {
   final KtList<Question> questionList;
 
   @override
-  String toString() {
-    return 'Survey(id: $id, name: $name, teamId: $teamId, projectId: $projectId, module: $module, questionList: $questionList)';
-  }
-
-  @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Survey &&

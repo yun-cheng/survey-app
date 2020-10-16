@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/respondent_list.dart';
 import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/overview/respondent_dtos.dart';
+import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent_list.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/respondent/respondent_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'respondent_list_dtos.freezed.dart';
