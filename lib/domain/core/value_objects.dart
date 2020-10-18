@@ -78,5 +78,7 @@ class SerialNumber extends ValueObject<int> {
     );
   }
 
+  factory SerialNumber.initial() => SerialNumber(0);
+
   const SerialNumber._(this.value);
 }

@@ -3,18 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 
-class NoteBox extends HookWidget {
+class TextBox extends HookWidget {
   final Question question;
-  final Choice choice;
 
-  const NoteBox({
+  const TextBox({
     Key key,
     @required this.question,
-    @required this.choice,
   }) : super(key: key);
 
   @override
@@ -22,13 +18,17 @@ class NoteBox extends HookWidget {
     final textEditingController = useTextEditingController();
 
     return BlocListener<AnswerBloc, AnswerState>(
+      // HIGHLIGHT 只有在第一次 build 時需要 textEditingController 給出之前儲存的資料，
+      // HIGHLIGHT 後續在編輯時則不用 listen
       // FIXME 在題目出現在頁面時 listen
+      listenWhen: (p, c) => false,
       listener: (context, state) {
-        final note = state.answerMap
+        final note = (context.bloc<AnswerBloc>().state)
+            .answerMap
             .getOrDefault(question.serialNumber, Answer.empty())
-            .noteMap
-            .getOrDefault(choice.serialNumber, NoteBody.empty())
-            .getOrCrash();
+            .body
+            .getOrCrash()
+            .toString();
 
         textEditingController.text = note;
       },
@@ -41,30 +41,12 @@ class NoteBox extends HookWidget {
             counterText: '',
           ),
           maxLines: null,
-          onTap: () {
-            context.bloc<AnswerBloc>().add(
-                  AnswerEvent.answerChangedWith(
-                    question: question,
-                    body: choice.serialNumber,
-                    toggle: false,
-                  ),
-                );
-          },
+          // autocorrect: false,
           onChanged: (value) {
             context.bloc<AnswerBloc>().add(
                   AnswerEvent.answerChangedWith(
                     question: question,
-                    body: choice.serialNumber,
-                    toggle: false,
-                  ),
-                );
-
-            context.bloc<AnswerBloc>().add(
-                  AnswerEvent.answerChangedWith(
-                    question: question,
                     body: value,
-                    isNote: true,
-                    noteOf: choice.serialNumber,
                   ),
                 );
           },

@@ -186,3 +186,75 @@ class ValidateAnswer extends ValueObject<String> {
 
   const ValidateAnswer._(this.value);
 }
+
+class AnswerBody extends ValueObject<dynamic> {
+  @override
+  final Either<ValueFailure<dynamic>, dynamic> value;
+
+  factory AnswerBody(dynamic input) {
+    assert(input != null);
+    return AnswerBody._(
+      right(input),
+    );
+  }
+
+  factory AnswerBody.empty() => AnswerBody('');
+
+  AnswerBody toggle(SerialNumber serialNumber) {
+    return value.fold((l) => AnswerBody(l), (r) {
+      List newList;
+      if (r is List && r.contains(serialNumber)) {
+        newList = r.where((element) => element != serialNumber).toList();
+      } else if (r is List) {
+        newList = [...r];
+        newList.add(serialNumber);
+      } else {
+        newList = [serialNumber];
+      }
+      return AnswerBody(newList);
+    });
+  }
+
+   AnswerBody add(SerialNumber serialNumber) {
+    return value.fold((l) => AnswerBody(l), (r) {
+      List newList;
+      if (r is List && r.contains(serialNumber)) {
+        newList = r;
+      } else if (r is List) {
+        newList = [...r];
+        newList.add(serialNumber);
+      } else {
+        newList = [serialNumber];
+      }
+      return AnswerBody(newList);
+    });
+  }
+
+  bool contains(SerialNumber serialNumber) {
+    return value.fold((l) => false, (r) {
+      if (r is List) {
+        return r.contains(serialNumber);
+      } else {
+        return false;
+      }
+    });
+  }
+
+  const AnswerBody._(this.value);
+}
+
+class NoteBody extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory NoteBody(String input) {
+    assert(input != null);
+    return NoteBody._(
+      right(input),
+    );
+  }
+
+  factory NoteBody.empty() => NoteBody('');
+
+  const NoteBody._(this.value);
+}

@@ -7,7 +7,7 @@ class SurveyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyBloc, SurveyState>(
-      buildWhen: (p, c) => p.surveyList != c.surveyList,
+      // buildWhen: (p, c) => p.surveyList != c.surveyList,
       builder: (context, state) {
         return state.surveyListState.map(
           initial: (_) => Container(),
@@ -28,7 +28,10 @@ class SurveyBody extends StatelessWidget {
                 //   print('survey error!');
                 // return Container();
                 // } else {
-                return QaCard(question: question);
+
+                return QaCard(
+                  question: question,
+                );
                 // }
               },
               itemCount: state.survey.questionList.size,

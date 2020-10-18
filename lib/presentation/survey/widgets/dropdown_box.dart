@@ -1,0 +1,69 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
+import 'package:kt_dart/collection.dart';
+
+class DropdownBox extends StatelessWidget {
+  final Question question;
+
+  const DropdownBox({
+    Key key,
+    @required this.question,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<AnswerBloc, AnswerState>(
+      builder: (context, state) {
+        final thisAnswer =
+            state.answerMap.getOrDefault(question.serialNumber, Answer.empty());
+
+        return DropdownButton(
+          // NOTE 雖然不確定背後是什麼問題，但這樣就解決無法呈現選擇的選項的問題
+          value: thisAnswer.body.getOrCrash() == ''
+              ? null
+              : thisAnswer.body.getOrCrash(),
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 20.0,
+          ),
+          // elevation: 16,
+          focusColor: Colors.red,
+          iconSize: 40.0,
+          isExpanded: true,
+          // NOTE 選擇到的選項，要呈現什麼文字
+          // selectedItemBuilder: (BuildContext context) {
+          //   return question.choiceList
+          //       .map(
+          //         (choice) => Text(
+          //           choice.body.getOrCrash(),
+          //         ),
+          //       )
+          //       .asList();
+          // },
+          items: question.choiceList
+              .map(
+                (choice) => DropdownMenuItem(
+                  value: choice.serialNumber,
+                  child: Text(
+                    choice.body.getOrCrash(),
+                  ),
+                ),
+              )
+              .asList(),
+          onChanged: (value) {
+            context.bloc<AnswerBloc>().add(
+                  AnswerEvent.answerChangedWith(
+                    question: question,
+                    body: value,
+                    // asSingle: choice.asSingle,
+                  ),
+                );
+          },
+        );
+      },
+    );
+  }
+}

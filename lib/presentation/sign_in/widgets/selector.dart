@@ -16,7 +16,7 @@ class Selector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField(
-      value: team.failureOption.isNone() ? team : null,
+      // value: team.failureOption.isNone() ? team : null,
       style: const TextStyle(
         color: Colors.black,
         fontSize: 20.0,
