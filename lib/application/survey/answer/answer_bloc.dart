@@ -23,7 +23,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
   Stream<AnswerState> mapEventToState(
     AnswerEvent event,
   ) async* {
-    KtMutableMap<SerialNumber, Answer> newAnswerMap;
+    KtMutableMap<QuestionId, Answer> newAnswerMap;
 
     newAnswerMap = _answerAlgorithm.updateAnswer(
       answerMap: state.answerMap,

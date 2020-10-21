@@ -214,40 +214,40 @@ class AnswerBody extends ValueObject<dynamic> {
 
   factory AnswerBody.empty() => AnswerBody('');
 
-  AnswerBody toggle(SerialNumber serialNumber) {
+  AnswerBody toggle(ChoiceId choiceId) {
     return value.fold((l) => AnswerBody(l), (r) {
       List newList;
-      if (r is List && r.contains(serialNumber)) {
-        newList = r.where((element) => element != serialNumber).toList();
+      if (r is List && r.contains(choiceId)) {
+        newList = r.where((element) => element != choiceId).toList();
       } else if (r is List) {
         newList = [...r];
-        newList.add(serialNumber);
+        newList.add(choiceId);
       } else {
-        newList = [serialNumber];
+        newList = [choiceId];
       }
       return AnswerBody(newList);
     });
   }
 
-  AnswerBody add(SerialNumber serialNumber) {
+  AnswerBody add(ChoiceId choiceId) {
     return value.fold((l) => AnswerBody(l), (r) {
       List newList;
-      if (r is List && r.contains(serialNumber)) {
+      if (r is List && r.contains(choiceId)) {
         newList = r;
       } else if (r is List) {
         newList = [...r];
-        newList.add(serialNumber);
+        newList.add(choiceId);
       } else {
-        newList = [serialNumber];
+        newList = [choiceId];
       }
       return AnswerBody(newList);
     });
   }
 
-  bool contains(SerialNumber serialNumber) {
+  bool contains(ChoiceId choiceId) {
     return value.fold((l) => false, (r) {
       if (r is List) {
-        return r.contains(serialNumber);
+        return r.contains(choiceId);
       } else {
         return false;
       }

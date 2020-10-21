@@ -15,14 +15,14 @@ abstract class Answer implements _$Answer {
     @required QuestionId id,
     @required SerialNumber serialNumber,
     AnswerBody body,
-    KtMutableMap<SerialNumber, NoteBody> noteMap,
+    KtMutableMap<ChoiceId, NoteBody> noteMap,
   }) = _Answer;
 
   factory Answer.empty() => Answer(
         id: QuestionId.empty(),
         serialNumber: SerialNumber.initial(),
         body: AnswerBody.empty(),
-        noteMap: KtMutableMap<SerialNumber, NoteBody>.empty(),
+        noteMap: KtMutableMap<ChoiceId, NoteBody>.empty(),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {

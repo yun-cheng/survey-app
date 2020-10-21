@@ -25,7 +25,7 @@ class TextBox extends HookWidget {
       listener: (context, state) {
         final note = (context.bloc<AnswerBloc>().state)
             .answerMap
-            .getOrDefault(question.serialNumber, Answer.empty())
+            .getOrDefault(question.id, Answer.empty())
             .body
             .getOrCrash()
             .toString();

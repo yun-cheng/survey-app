@@ -8,7 +8,7 @@ abstract class AnswerEvent with _$AnswerEvent {
     @required bool isNote,
     @required bool asSingle,
     @required bool toggle,
-    SerialNumber noteOf,
+    ChoiceId noteOf,
   }) = _AnswerChanged;
 
   factory AnswerEvent.answerChangedWith({
@@ -17,7 +17,7 @@ abstract class AnswerEvent with _$AnswerEvent {
     bool isNote,
     bool asSingle,
     bool toggle,
-    SerialNumber noteOf,
+    ChoiceId noteOf,
   }) =>
       _AnswerChanged(
         question: question,

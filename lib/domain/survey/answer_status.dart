@@ -15,14 +15,14 @@ abstract class AnswerStatus implements _$AnswerStatus {
     @required QuestionId id,
     @required SerialNumber serialNumber,
     @required AnswerStatusType type,
-    KtMutableMap<SerialNumber, AnswerStatusType> noteMap,
+    KtMutableMap<ChoiceId, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
   factory AnswerStatus.empty() => AnswerStatus(
         id: QuestionId.empty(),
         serialNumber: SerialNumber.initial(),
         type: AnswerStatusType.empty(),
-        noteMap: KtMutableMap<SerialNumber, AnswerStatusType>.empty(),
+        noteMap: KtMutableMap<ChoiceId, AnswerStatusType>.empty(),
       );
 
   bool get isCompleted {

@@ -25,9 +25,9 @@ class NoteBox extends HookWidget {
       // FIXME 在題目出現在頁面時 listen
       listener: (context, state) {
         final note = state.answerMap
-            .getOrDefault(question.serialNumber, Answer.empty())
+            .getOrDefault(question.id, Answer.empty())
             .noteMap
-            .getOrDefault(choice.serialNumber, NoteBody.empty())
+            .getOrDefault(choice.id, NoteBody.empty())
             .getOrCrash();
 
         textEditingController.text = note;
@@ -45,7 +45,7 @@ class NoteBox extends HookWidget {
             context.bloc<AnswerBloc>().add(
                   AnswerEvent.answerChangedWith(
                     question: question,
-                    body: choice.serialNumber,
+                    body: choice.id,
                     toggle: false,
                   ),
                 );
@@ -54,7 +54,7 @@ class NoteBox extends HookWidget {
             context.bloc<AnswerBloc>().add(
                   AnswerEvent.answerChangedWith(
                     question: question,
-                    body: choice.serialNumber,
+                    body: choice.id,
                     toggle: false,
                   ),
                 );
@@ -64,7 +64,7 @@ class NoteBox extends HookWidget {
                     question: question,
                     body: value,
                     isNote: true,
-                    noteOf: choice.serialNumber,
+                    noteOf: choice.id,
                   ),
                 );
           },

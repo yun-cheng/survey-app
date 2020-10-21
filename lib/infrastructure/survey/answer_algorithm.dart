@@ -1,5 +1,4 @@
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
@@ -9,16 +8,16 @@ import 'package:kt_dart/collection.dart';
 @LazySingleton(as: IAnswerAlgorithm)
 class AnswerAlgorithm implements IAnswerAlgorithm {
   @override
-  KtMutableMap<SerialNumber, Answer> updateAnswer({
-    KtMutableMap<SerialNumber, Answer> answerMap,
+  KtMutableMap<QuestionId, Answer> updateAnswer({
+    KtMutableMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
     bool asSingle,
     bool toggle,
     bool isNote,
-    SerialNumber noteOf,
+    ChoiceId noteOf,
   }) {
-    KtMutableMap<SerialNumber, Answer> newAnswerMap;
+    KtMutableMap<QuestionId, Answer> newAnswerMap;
 
     if (isNote) {
       newAnswerMap = updateNoteAnswer(
@@ -47,8 +46,8 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
   }
 
   @override
-  KtMutableMap<SerialNumber, Answer> updateSingleAnswer({
-    KtMutableMap<SerialNumber, Answer> answerMap,
+  KtMutableMap<QuestionId, Answer> updateSingleAnswer({
+    KtMutableMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
   }) {
@@ -57,8 +56,8 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     Answer newAnswer;
 
     // H_ 已答過該題
-    if (newAnswerMap.containsKey(question.serialNumber)) {
-      newAnswer = newAnswerMap[question.serialNumber]
+    if (newAnswerMap.containsKey(question.id)) {
+      newAnswer = newAnswerMap[question.id]
           .copyWith(body: AnswerBody(answerBody));
 
       // H_ 初次回答該題
@@ -69,14 +68,14 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
         body: AnswerBody(answerBody),
       );
     }
-    newAnswerMap[question.serialNumber] = newAnswer;
+    newAnswerMap[question.id] = newAnswer;
 
     return newAnswerMap;
   }
 
   @override
-  KtMutableMap<SerialNumber, Answer> updateMultipleAnswer({
-    KtMutableMap<SerialNumber, Answer> answerMap,
+  KtMutableMap<QuestionId, Answer> updateMultipleAnswer({
+    KtMutableMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
     bool asSingle,
@@ -86,15 +85,15 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     Answer newAnswer;
 
     // H_ 已答過該題
-    if (newAnswerMap.containsKey(question.serialNumber)) {
+    if (newAnswerMap.containsKey(question.id)) {
       if (asSingle) {
-        newAnswer = newAnswerMap[question.serialNumber]
+        newAnswer = newAnswerMap[question.id]
             .copyWith(body: AnswerBody(answerBody));
       } else if (toggle) {
-        final oldAnswer = newAnswerMap[question.serialNumber];
+        final oldAnswer = newAnswerMap[question.id];
         newAnswer = oldAnswer.copyWith(body: oldAnswer.body.toggle(answerBody));
       } else {
-        final oldAnswer = newAnswerMap[question.serialNumber];
+        final oldAnswer = newAnswerMap[question.id];
         newAnswer = oldAnswer.copyWith(body: oldAnswer.body.add(answerBody));
       }
 
@@ -106,23 +105,23 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
         body: AnswerBody(asSingle ? answerBody : [answerBody]),
       );
     }
-    newAnswerMap[question.serialNumber] = newAnswer;
+    newAnswerMap[question.id] = newAnswer;
 
     return newAnswerMap;
   }
 
   @override
-  KtMutableMap<SerialNumber, Answer> updateNoteAnswer({
-    KtMutableMap<SerialNumber, Answer> answerMap,
+  KtMutableMap<QuestionId, Answer> updateNoteAnswer({
+    KtMutableMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
-    SerialNumber noteOf,
+    ChoiceId noteOf,
   }) {
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
 
     // H_ 已答過該題
-    if (newAnswerMap.containsKey(question.serialNumber)) {
-      newAnswerMap[question.serialNumber].noteMap[noteOf] =
+    if (newAnswerMap.containsKey(question.id)) {
+      newAnswerMap[question.id].noteMap[noteOf] =
           NoteBody(answerBody);
 
       // H_ 初次回答該題
@@ -131,8 +130,8 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
         id: question.id,
         serialNumber: question.serialNumber,
       );
-      newAnswerMap[question.serialNumber] = newAnswer.copyWith(
-        noteMap: KtMutableMap<SerialNumber, NoteBody>.from({
+      newAnswerMap[question.id] = newAnswer.copyWith(
+        noteMap: KtMutableMap<ChoiceId, NoteBody>.from({
           noteOf: NoteBody(answerBody),
         }),
       );

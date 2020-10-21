@@ -18,7 +18,7 @@ class DropdownBox extends StatelessWidget {
     return BlocBuilder<AnswerBloc, AnswerState>(
       builder: (context, state) {
         final thisAnswer =
-            state.answerMap.getOrDefault(question.serialNumber, Answer.empty());
+            state.answerMap.getOrDefault(question.id, Answer.empty());
 
         return DropdownButton(
           // NOTE 雖然不確定背後是什麼問題，但這樣就解決無法呈現選擇的選項的問題
@@ -46,7 +46,7 @@ class DropdownBox extends StatelessWidget {
           items: question.choiceList
               .map(
                 (choice) => DropdownMenuItem(
-                  value: choice.serialNumber,
+                  value: choice.id,
                   child: Text(
                     choice.body.getOrCrash(),
                   ),

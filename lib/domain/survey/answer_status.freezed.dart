@@ -18,7 +18,7 @@ class _$AnswerStatusTearOff {
       {@required QuestionId id,
       @required SerialNumber serialNumber,
       @required AnswerStatusType type,
-      KtMutableMap<SerialNumber, AnswerStatusType> noteMap}) {
+      KtMutableMap<ChoiceId, AnswerStatusType> noteMap}) {
     return _AnswerStatus(
       id: id,
       serialNumber: serialNumber,
@@ -37,7 +37,7 @@ mixin _$AnswerStatus {
   QuestionId get id;
   SerialNumber get serialNumber;
   AnswerStatusType get type;
-  KtMutableMap<SerialNumber, AnswerStatusType> get noteMap;
+  KtMutableMap<ChoiceId, AnswerStatusType> get noteMap;
 
   $AnswerStatusCopyWith<AnswerStatus> get copyWith;
 }
@@ -51,7 +51,7 @@ abstract class $AnswerStatusCopyWith<$Res> {
       {QuestionId id,
       SerialNumber serialNumber,
       AnswerStatusType type,
-      KtMutableMap<SerialNumber, AnswerStatusType> noteMap});
+      KtMutableMap<ChoiceId, AnswerStatusType> noteMap});
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
       type: type == freezed ? _value.type : type as AnswerStatusType,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMutableMap<SerialNumber, AnswerStatusType>,
+          : noteMap as KtMutableMap<ChoiceId, AnswerStatusType>,
     ));
   }
 }
@@ -93,7 +93,7 @@ abstract class _$AnswerStatusCopyWith<$Res>
       {QuestionId id,
       SerialNumber serialNumber,
       AnswerStatusType type,
-      KtMutableMap<SerialNumber, AnswerStatusType> noteMap});
+      KtMutableMap<ChoiceId, AnswerStatusType> noteMap});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
       type: type == freezed ? _value.type : type as AnswerStatusType,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMutableMap<SerialNumber, AnswerStatusType>,
+          : noteMap as KtMutableMap<ChoiceId, AnswerStatusType>,
     ));
   }
 }
@@ -145,7 +145,7 @@ class _$_AnswerStatus extends _AnswerStatus {
   @override
   final AnswerStatusType type;
   @override
-  final KtMutableMap<SerialNumber, AnswerStatusType> noteMap;
+  final KtMutableMap<ChoiceId, AnswerStatusType> noteMap;
 
   @override
   String toString() {
@@ -186,7 +186,7 @@ abstract class _AnswerStatus extends AnswerStatus {
       {@required QuestionId id,
       @required SerialNumber serialNumber,
       @required AnswerStatusType type,
-      KtMutableMap<SerialNumber, AnswerStatusType> noteMap}) = _$_AnswerStatus;
+      KtMutableMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
 
   @override
   QuestionId get id;
@@ -195,7 +195,7 @@ abstract class _AnswerStatus extends AnswerStatus {
   @override
   AnswerStatusType get type;
   @override
-  KtMutableMap<SerialNumber, AnswerStatusType> get noteMap;
+  KtMutableMap<ChoiceId, AnswerStatusType> get noteMap;
   @override
   _$AnswerStatusCopyWith<_AnswerStatus> get copyWith;
 }

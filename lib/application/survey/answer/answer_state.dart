@@ -3,12 +3,12 @@ part of 'answer_bloc.dart';
 @freezed
 abstract class AnswerState with _$AnswerState {
   const factory AnswerState({
-    @required KtMutableMap<SerialNumber, Answer> answerMap,
-    @required KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap,
+    @required KtMutableMap<QuestionId, Answer> answerMap,
+    @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
   }) = _AnswerState;
 
   factory AnswerState.initial() => AnswerState(
-        answerMap: KtMutableMap<SerialNumber, Answer>.empty(),
-        answerStatusMap: KtMutableMap<SerialNumber, AnswerStatus>.empty(),
+        answerMap: KtMutableMap<QuestionId, Answer>.empty(),
+        answerStatusMap: KtMutableMap<QuestionId, AnswerStatus>.empty(),
       );
 }

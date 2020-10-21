@@ -24,7 +24,7 @@ class AnswerBox extends StatelessWidget {
       // buildWhen:  (p, c) => p.question != c.isSaving,
       builder: (context, state) {
         final thisAnswer =
-            state.answerMap.getOrDefault(question.serialNumber, Answer.empty());
+            state.answerMap.getOrDefault(question.id, Answer.empty());
 
         // TODO 根據 isSpecialAnswer 來丟選項
         // return ListView.builder(
@@ -56,13 +56,13 @@ class AnswerBox extends StatelessWidget {
                     ]
                   ],
                 ),
-                value: choice.serialNumber,
+                value: choice.id,
                 groupValue: thisAnswer.body.getOrCrash(),
                 onChanged: (_) {
                   context.bloc<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           question: question,
-                          body: choice.serialNumber,
+                          body: choice.id,
                           asSingle: choice.asSingle,
                         ),
                       );
@@ -87,12 +87,12 @@ class AnswerBox extends StatelessWidget {
                     ]
                   ],
                 ),
-                value: thisAnswer.body.contains(choice.serialNumber),
+                value: thisAnswer.body.contains(choice.id),
                 onChanged: (_) {
                   context.bloc<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           question: question,
-                          body: choice.serialNumber,
+                          body: choice.id,
                           toggle: true,
                         ),
                       );

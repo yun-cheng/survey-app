@@ -20,7 +20,7 @@ class _$AnswerEventTearOff {
       @required bool isNote,
       @required bool asSingle,
       @required bool toggle,
-      SerialNumber noteOf}) {
+      ChoiceId noteOf}) {
     return _AnswerChanged(
       question: question,
       body: body,
@@ -43,18 +43,18 @@ mixin _$AnswerEvent {
   bool get isNote;
   bool get asSingle;
   bool get toggle;
-  SerialNumber get noteOf;
+  ChoiceId get noteOf;
 
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
-            bool asSingle, bool toggle, SerialNumber noteOf),
+            bool asSingle, bool toggle, ChoiceId noteOf),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result answerChanged(Question question, dynamic body, bool isNote,
-        bool asSingle, bool toggle, SerialNumber noteOf),
+        bool asSingle, bool toggle, ChoiceId noteOf),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -81,7 +81,7 @@ abstract class $AnswerEventCopyWith<$Res> {
       bool isNote,
       bool asSingle,
       bool toggle,
-      SerialNumber noteOf});
+      ChoiceId noteOf});
 
   $QuestionCopyWith<$Res> get question;
 }
@@ -109,7 +109,7 @@ class _$AnswerEventCopyWithImpl<$Res> implements $AnswerEventCopyWith<$Res> {
       isNote: isNote == freezed ? _value.isNote : isNote as bool,
       asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
       toggle: toggle == freezed ? _value.toggle : toggle as bool,
-      noteOf: noteOf == freezed ? _value.noteOf : noteOf as SerialNumber,
+      noteOf: noteOf == freezed ? _value.noteOf : noteOf as ChoiceId,
     ));
   }
 
@@ -137,7 +137,7 @@ abstract class _$AnswerChangedCopyWith<$Res>
       bool isNote,
       bool asSingle,
       bool toggle,
-      SerialNumber noteOf});
+      ChoiceId noteOf});
 
   @override
   $QuestionCopyWith<$Res> get question;
@@ -168,7 +168,7 @@ class __$AnswerChangedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
       isNote: isNote == freezed ? _value.isNote : isNote as bool,
       asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
       toggle: toggle == freezed ? _value.toggle : toggle as bool,
-      noteOf: noteOf == freezed ? _value.noteOf : noteOf as SerialNumber,
+      noteOf: noteOf == freezed ? _value.noteOf : noteOf as ChoiceId,
     ));
   }
 }
@@ -199,7 +199,7 @@ class _$_AnswerChanged implements _AnswerChanged {
   @override
   final bool toggle;
   @override
-  final SerialNumber noteOf;
+  final ChoiceId noteOf;
 
   @override
   String toString() {
@@ -245,7 +245,7 @@ class _$_AnswerChanged implements _AnswerChanged {
   Result when<Result extends Object>({
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
-            bool asSingle, bool toggle, SerialNumber noteOf),
+            bool asSingle, bool toggle, ChoiceId noteOf),
   }) {
     assert(answerChanged != null);
     return answerChanged(question, body, isNote, asSingle, toggle, noteOf);
@@ -255,7 +255,7 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result answerChanged(Question question, dynamic body, bool isNote,
-        bool asSingle, bool toggle, SerialNumber noteOf),
+        bool asSingle, bool toggle, ChoiceId noteOf),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -295,7 +295,7 @@ abstract class _AnswerChanged implements AnswerEvent {
       @required bool isNote,
       @required bool asSingle,
       @required bool toggle,
-      SerialNumber noteOf}) = _$_AnswerChanged;
+      ChoiceId noteOf}) = _$_AnswerChanged;
 
   @override
   Question get question;
@@ -308,7 +308,7 @@ abstract class _AnswerChanged implements AnswerEvent {
   @override
   bool get toggle;
   @override
-  SerialNumber get noteOf;
+  ChoiceId get noteOf;
   @override
   _$AnswerChangedCopyWith<_AnswerChanged> get copyWith;
 }
@@ -319,8 +319,8 @@ class _$AnswerStateTearOff {
 
 // ignore: unused_element
   _AnswerState call(
-      {@required KtMutableMap<SerialNumber, Answer> answerMap,
-      @required KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap}) {
+      {@required KtMutableMap<QuestionId, Answer> answerMap,
+      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap}) {
     return _AnswerState(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -334,8 +334,8 @@ const $AnswerState = _$AnswerStateTearOff();
 
 /// @nodoc
 mixin _$AnswerState {
-  KtMutableMap<SerialNumber, Answer> get answerMap;
-  KtMutableMap<SerialNumber, AnswerStatus> get answerStatusMap;
+  KtMutableMap<QuestionId, Answer> get answerMap;
+  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
 
   $AnswerStateCopyWith<AnswerState> get copyWith;
 }
@@ -346,8 +346,8 @@ abstract class $AnswerStateCopyWith<$Res> {
           AnswerState value, $Res Function(AnswerState) then) =
       _$AnswerStateCopyWithImpl<$Res>;
   $Res call(
-      {KtMutableMap<SerialNumber, Answer> answerMap,
-      KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap});
+      {KtMutableMap<QuestionId, Answer> answerMap,
+      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -366,10 +366,10 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<SerialNumber, Answer>,
+          : answerMap as KtMutableMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<SerialNumber, AnswerStatus>,
+          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
     ));
   }
 }
@@ -382,8 +382,8 @@ abstract class _$AnswerStateCopyWith<$Res>
       __$AnswerStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtMutableMap<SerialNumber, Answer> answerMap,
-      KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap});
+      {KtMutableMap<QuestionId, Answer> answerMap,
+      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -404,10 +404,10 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
     return _then(_AnswerState(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<SerialNumber, Answer>,
+          : answerMap as KtMutableMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<SerialNumber, AnswerStatus>,
+          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
     ));
   }
 }
@@ -420,9 +420,9 @@ class _$_AnswerState implements _AnswerState {
         assert(answerStatusMap != null);
 
   @override
-  final KtMutableMap<SerialNumber, Answer> answerMap;
+  final KtMutableMap<QuestionId, Answer> answerMap;
   @override
-  final KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap;
+  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
 
   @override
   String toString() {
@@ -454,14 +454,14 @@ class _$_AnswerState implements _AnswerState {
 
 abstract class _AnswerState implements AnswerState {
   const factory _AnswerState(
-          {@required KtMutableMap<SerialNumber, Answer> answerMap,
-          @required KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap}) =
+          {@required KtMutableMap<QuestionId, Answer> answerMap,
+          @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap}) =
       _$_AnswerState;
 
   @override
-  KtMutableMap<SerialNumber, Answer> get answerMap;
+  KtMutableMap<QuestionId, Answer> get answerMap;
   @override
-  KtMutableMap<SerialNumber, AnswerStatus> get answerStatusMap;
+  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
   @override
   _$AnswerStateCopyWith<_AnswerState> get copyWith;
 }
