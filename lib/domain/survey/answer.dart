@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 

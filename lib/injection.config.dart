@@ -8,8 +8,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
+import 'infrastructure/survey/answer_algorithm.dart';
+import 'infrastructure/survey/answer_status_algorithm.dart';
 import 'application/auth/auth_bloc.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
+import 'domain/survey/i_answer_algorithm.dart';
+import 'domain/survey/i_answer_status_algorithm.dart';
 import 'domain/auth/i_auth_facade.dart';
 import 'domain/overview/i_overview_repository.dart';
 import 'domain/quiz_list/i_quiz_list_repository.dart';
@@ -39,6 +43,8 @@ GetIt $initGetIt(
   final gh = GetItHelper(get, environment, environmentFilter);
   final firebaseInjectableModule = _$FirebaseInjectableModule();
   gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
+  gh.lazySingleton<IAnswerAlgorithm>(() => AnswerAlgorithm());
+  gh.lazySingleton<IAnswerStatusAlgorithm>(() => AnswerStatusAlgorithm());
   gh.lazySingleton<IAuthFacade>(
       () => ManualAuthFacade(get<FirebaseFirestore>()));
   gh.lazySingleton<IOverviewRepository>(

@@ -6,6 +6,8 @@ import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/qa_card
 class SurveyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // TODO 根據 AnswerBloc 中的 answerStatusMap 來決定是否呈現該題
+    // TODO 根據 SurveyPageBloc 中的 ? 來決定呈現哪些題目
     return BlocBuilder<SurveyBloc, SurveyState>(
       // buildWhen: (p, c) => p.surveyList != c.surveyList,
       builder: (context, state) {

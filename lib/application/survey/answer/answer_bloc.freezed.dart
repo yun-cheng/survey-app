@@ -318,9 +318,12 @@ class _$AnswerStateTearOff {
   const _$AnswerStateTearOff();
 
 // ignore: unused_element
-  _AnswerState call({@required KtMutableMap<SerialNumber, Answer> answerMap}) {
+  _AnswerState call(
+      {@required KtMutableMap<SerialNumber, Answer> answerMap,
+      @required KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap}) {
     return _AnswerState(
       answerMap: answerMap,
+      answerStatusMap: answerStatusMap,
     );
   }
 }
@@ -332,6 +335,7 @@ const $AnswerState = _$AnswerStateTearOff();
 /// @nodoc
 mixin _$AnswerState {
   KtMutableMap<SerialNumber, Answer> get answerMap;
+  KtMutableMap<SerialNumber, AnswerStatus> get answerStatusMap;
 
   $AnswerStateCopyWith<AnswerState> get copyWith;
 }
@@ -341,7 +345,9 @@ abstract class $AnswerStateCopyWith<$Res> {
   factory $AnswerStateCopyWith(
           AnswerState value, $Res Function(AnswerState) then) =
       _$AnswerStateCopyWithImpl<$Res>;
-  $Res call({KtMutableMap<SerialNumber, Answer> answerMap});
+  $Res call(
+      {KtMutableMap<SerialNumber, Answer> answerMap,
+      KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -355,11 +361,15 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
   @override
   $Res call({
     Object answerMap = freezed,
+    Object answerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as KtMutableMap<SerialNumber, Answer>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap as KtMutableMap<SerialNumber, AnswerStatus>,
     ));
   }
 }
@@ -371,7 +381,9 @@ abstract class _$AnswerStateCopyWith<$Res>
           _AnswerState value, $Res Function(_AnswerState) then) =
       __$AnswerStateCopyWithImpl<$Res>;
   @override
-  $Res call({KtMutableMap<SerialNumber, Answer> answerMap});
+  $Res call(
+      {KtMutableMap<SerialNumber, Answer> answerMap,
+      KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -387,25 +399,34 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object answerMap = freezed,
+    Object answerStatusMap = freezed,
   }) {
     return _then(_AnswerState(
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as KtMutableMap<SerialNumber, Answer>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap as KtMutableMap<SerialNumber, AnswerStatus>,
     ));
   }
 }
 
 /// @nodoc
 class _$_AnswerState implements _AnswerState {
-  const _$_AnswerState({@required this.answerMap}) : assert(answerMap != null);
+  const _$_AnswerState(
+      {@required this.answerMap, @required this.answerStatusMap})
+      : assert(answerMap != null),
+        assert(answerStatusMap != null);
 
   @override
   final KtMutableMap<SerialNumber, Answer> answerMap;
+  @override
+  final KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap;
 
   @override
   String toString() {
-    return 'AnswerState(answerMap: $answerMap)';
+    return 'AnswerState(answerMap: $answerMap, answerStatusMap: $answerStatusMap)';
   }
 
   @override
@@ -414,12 +435,17 @@ class _$_AnswerState implements _AnswerState {
         (other is _AnswerState &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)));
+                    .equals(other.answerMap, answerMap)) &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(answerMap);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(answerMap) ^
+      const DeepCollectionEquality().hash(answerStatusMap);
 
   @override
   _$AnswerStateCopyWith<_AnswerState> get copyWith =>
@@ -428,11 +454,14 @@ class _$_AnswerState implements _AnswerState {
 
 abstract class _AnswerState implements AnswerState {
   const factory _AnswerState(
-          {@required KtMutableMap<SerialNumber, Answer> answerMap}) =
+          {@required KtMutableMap<SerialNumber, Answer> answerMap,
+          @required KtMutableMap<SerialNumber, AnswerStatus> answerStatusMap}) =
       _$_AnswerState;
 
   @override
   KtMutableMap<SerialNumber, Answer> get answerMap;
+  @override
+  KtMutableMap<SerialNumber, AnswerStatus> get answerStatusMap;
   @override
   _$AnswerStateCopyWith<_AnswerState> get copyWith;
 }

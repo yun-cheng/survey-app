@@ -31,7 +31,7 @@ class QaCard extends StatelessWidget {
             QuestionBox(question: question),
             // TODO 新增一個切換是否使用 specialAnswer 的 switch
             if (question.type.isValid()) ...[
-              if (question.type == QuestionType('popupSingle')) ...[
+              if (question.type == QuestionType.popupSingle()) ...[
                 DropdownBox(question: question),
               ] else if ([QuestionType.number(), QuestionType.text()]
                   .contains(question.type)) ...[

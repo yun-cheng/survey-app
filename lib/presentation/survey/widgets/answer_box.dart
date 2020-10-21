@@ -39,10 +39,7 @@ class AnswerBox extends StatelessWidget {
                 index.isEven ? index ~/ 2 : (index + size) ~/ 2;
             final choice = question.choiceList[size < 4 ? index : newIndex];
 
-            // QUESTION 不知為何要用文字才可以判斷
-            if (([QuestionType.single(), QuestionType('popupSingle')]
-                    .contains(question.type)) ||
-                choice.asSingle) {
+            if ((question.type == QuestionType.single()) || choice.asSingle) {
               return RadioListTile(
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +68,7 @@ class AnswerBox extends StatelessWidget {
                       );
                 },
               );
-            } else if ([QuestionType.multiple(), QuestionType('popupMultiple')]
+            } else if ([QuestionType.multiple(), QuestionType.popupMultiple()]
                 .contains(question.type)) {
               return CheckboxListTile(
                 controlAffinity: ListTileControlAffinity.leading,

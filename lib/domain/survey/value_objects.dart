@@ -88,6 +88,20 @@ class QuestionType extends ValueObject<String> {
   factory QuestionType.description() => QuestionType('description');
   factory QuestionType.empty() => QuestionType('');
 
+  bool get isSingle {
+    return value.fold(
+        (l) => false, (r) => ['single', 'popupSingle'].contains(r));
+  }
+
+  bool get isMultiple {
+    return value.fold(
+        (l) => false, (r) => ['multiple', 'popupMultiple'].contains(r));
+  }
+
+  bool get isInput {
+    return value.fold((l) => false, (r) => ['number', 'text'].contains(r));
+  }
+
   const QuestionType._(this.value);
 }
 
@@ -215,7 +229,7 @@ class AnswerBody extends ValueObject<dynamic> {
     });
   }
 
-   AnswerBody add(SerialNumber serialNumber) {
+  AnswerBody add(SerialNumber serialNumber) {
     return value.fold((l) => AnswerBody(l), (r) {
       List newList;
       if (r is List && r.contains(serialNumber)) {
@@ -257,4 +271,56 @@ class NoteBody extends ValueObject<String> {
   factory NoteBody.empty() => NoteBody('');
 
   const NoteBody._(this.value);
+}
+
+class AnswerStatusType extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory AnswerStatusType(String input) {
+    assert(input != null);
+    return AnswerStatusType._(
+      right(input),
+    );
+  }
+
+  factory AnswerStatusType.answered() => AnswerStatusType('answered');
+  factory AnswerStatusType.unanswered() => AnswerStatusType('unanswered');
+  factory AnswerStatusType.wrongAnswered() => AnswerStatusType('wrongAnswered');
+  factory AnswerStatusType.hidden() => AnswerStatusType('hidden');
+  factory AnswerStatusType.empty() => AnswerStatusType('');
+
+  const AnswerStatusType._(this.value);
+}
+
+class FullExpressionBody extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory FullExpressionBody(String input) {
+    assert(input != null);
+    return FullExpressionBody._(
+      right(input),
+    );
+  }
+
+  factory FullExpressionBody.empty() => FullExpressionBody('');
+
+  const FullExpressionBody._(this.value);
+}
+
+class ExpressionId extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ExpressionId(String input) {
+    assert(input != null);
+    return ExpressionId._(
+      right(input),
+    );
+  }
+
+  factory ExpressionId.empty() => ExpressionId('');
+
+  const ExpressionId._(this.value);
 }

@@ -17,11 +17,13 @@ class _$AnswerStatusTearOff {
   _AnswerStatus call(
       {@required QuestionId id,
       @required SerialNumber serialNumber,
-      Choice choice}) {
+      @required AnswerStatusType type,
+      KtMutableMap<SerialNumber, AnswerStatusType> noteMap}) {
     return _AnswerStatus(
       id: id,
       serialNumber: serialNumber,
-      choice: choice,
+      type: type,
+      noteMap: noteMap,
     );
   }
 }
@@ -33,8 +35,9 @@ const $AnswerStatus = _$AnswerStatusTearOff();
 /// @nodoc
 mixin _$AnswerStatus {
   QuestionId get id;
-  SerialNumber get serialNumber; // @required AnswerStatusBody body,
-  Choice get choice;
+  SerialNumber get serialNumber;
+  AnswerStatusType get type;
+  KtMutableMap<SerialNumber, AnswerStatusType> get noteMap;
 
   $AnswerStatusCopyWith<AnswerStatus> get copyWith;
 }
@@ -44,9 +47,11 @@ abstract class $AnswerStatusCopyWith<$Res> {
   factory $AnswerStatusCopyWith(
           AnswerStatus value, $Res Function(AnswerStatus) then) =
       _$AnswerStatusCopyWithImpl<$Res>;
-  $Res call({QuestionId id, SerialNumber serialNumber, Choice choice});
-
-  $ChoiceCopyWith<$Res> get choice;
+  $Res call(
+      {QuestionId id,
+      SerialNumber serialNumber,
+      AnswerStatusType type,
+      KtMutableMap<SerialNumber, AnswerStatusType> noteMap});
 }
 
 /// @nodoc
@@ -61,25 +66,19 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
   $Res call({
     Object id = freezed,
     Object serialNumber = freezed,
-    Object choice = freezed,
+    Object type = freezed,
+    Object noteMap = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as QuestionId,
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber as SerialNumber,
-      choice: choice == freezed ? _value.choice : choice as Choice,
+      type: type == freezed ? _value.type : type as AnswerStatusType,
+      noteMap: noteMap == freezed
+          ? _value.noteMap
+          : noteMap as KtMutableMap<SerialNumber, AnswerStatusType>,
     ));
-  }
-
-  @override
-  $ChoiceCopyWith<$Res> get choice {
-    if (_value.choice == null) {
-      return null;
-    }
-    return $ChoiceCopyWith<$Res>(_value.choice, (value) {
-      return _then(_value.copyWith(choice: value));
-    });
   }
 }
 
@@ -90,10 +89,11 @@ abstract class _$AnswerStatusCopyWith<$Res>
           _AnswerStatus value, $Res Function(_AnswerStatus) then) =
       __$AnswerStatusCopyWithImpl<$Res>;
   @override
-  $Res call({QuestionId id, SerialNumber serialNumber, Choice choice});
-
-  @override
-  $ChoiceCopyWith<$Res> get choice;
+  $Res call(
+      {QuestionId id,
+      SerialNumber serialNumber,
+      AnswerStatusType type,
+      KtMutableMap<SerialNumber, AnswerStatusType> noteMap});
 }
 
 /// @nodoc
@@ -110,14 +110,18 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
   $Res call({
     Object id = freezed,
     Object serialNumber = freezed,
-    Object choice = freezed,
+    Object type = freezed,
+    Object noteMap = freezed,
   }) {
     return _then(_AnswerStatus(
       id: id == freezed ? _value.id : id as QuestionId,
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber as SerialNumber,
-      choice: choice == freezed ? _value.choice : choice as Choice,
+      type: type == freezed ? _value.type : type as AnswerStatusType,
+      noteMap: noteMap == freezed
+          ? _value.noteMap
+          : noteMap as KtMutableMap<SerialNumber, AnswerStatusType>,
     ));
   }
 }
@@ -125,21 +129,27 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
 /// @nodoc
 class _$_AnswerStatus extends _AnswerStatus {
   const _$_AnswerStatus(
-      {@required this.id, @required this.serialNumber, this.choice})
+      {@required this.id,
+      @required this.serialNumber,
+      @required this.type,
+      this.noteMap})
       : assert(id != null),
         assert(serialNumber != null),
+        assert(type != null),
         super._();
 
   @override
   final QuestionId id;
   @override
   final SerialNumber serialNumber;
-  @override // @required AnswerStatusBody body,
-  final Choice choice;
+  @override
+  final AnswerStatusType type;
+  @override
+  final KtMutableMap<SerialNumber, AnswerStatusType> noteMap;
 
   @override
   String toString() {
-    return 'AnswerStatus(id: $id, serialNumber: $serialNumber, choice: $choice)';
+    return 'AnswerStatus(id: $id, serialNumber: $serialNumber, type: $type, noteMap: $noteMap)';
   }
 
   @override
@@ -151,8 +161,10 @@ class _$_AnswerStatus extends _AnswerStatus {
             (identical(other.serialNumber, serialNumber) ||
                 const DeepCollectionEquality()
                     .equals(other.serialNumber, serialNumber)) &&
-            (identical(other.choice, choice) ||
-                const DeepCollectionEquality().equals(other.choice, choice)));
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.noteMap, noteMap) ||
+                const DeepCollectionEquality().equals(other.noteMap, noteMap)));
   }
 
   @override
@@ -160,7 +172,8 @@ class _$_AnswerStatus extends _AnswerStatus {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(choice);
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(noteMap);
 
   @override
   _$AnswerStatusCopyWith<_AnswerStatus> get copyWith =>
@@ -172,14 +185,17 @@ abstract class _AnswerStatus extends AnswerStatus {
   const factory _AnswerStatus(
       {@required QuestionId id,
       @required SerialNumber serialNumber,
-      Choice choice}) = _$_AnswerStatus;
+      @required AnswerStatusType type,
+      KtMutableMap<SerialNumber, AnswerStatusType> noteMap}) = _$_AnswerStatus;
 
   @override
   QuestionId get id;
   @override
   SerialNumber get serialNumber;
-  @override // @required AnswerStatusBody body,
-  Choice get choice;
+  @override
+  AnswerStatusType get type;
+  @override
+  KtMutableMap<SerialNumber, AnswerStatusType> get noteMap;
   @override
   _$AnswerStatusCopyWith<_AnswerStatus> get copyWith;
 }
