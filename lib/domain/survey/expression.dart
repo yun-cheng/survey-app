@@ -1,7 +1,4 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -12,7 +9,7 @@ abstract class Expression implements _$Expression {
   const Expression._();
 
   const factory Expression({
-    @required SerialNumber field,
+    @required dynamic field,
     AnswerBody isEqualTo,
     AnswerBody notEqualTo,
     AnswerBody isLessThan,
@@ -29,15 +26,8 @@ abstract class Expression implements _$Expression {
     AnswerBody notContainsAny,
     AnswerBody containsAll,
     AnswerBody notContainsAll,
+    AnswerBody isType,
   }) = _Expression;
-
-  factory Expression.empty() => Expression(
-        field: SerialNumber(0),
-      );
-
-  Option<ValueFailure<dynamic>> get failureOption {
-    return (field.failureOrUnit).fold((f) => some(f), (_) => none());
-  }
 
   bool evaluate(AnswerBody answerBody) {
     if (isEqualTo != null) {

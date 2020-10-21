@@ -168,8 +168,10 @@ class _$SurveyDtoTearOff {
       @required String surveyName,
       @required String projectId,
       @required String teamId,
-      @required Map<String, List<QuestionDto>> module,
-      @required List<QuestionDto> questionList}) {
+      @required Map<String, SurveyModuleDto> module,
+      @required List<QuestionDto> questionList,
+      @required Map<String, AnswerDto> initialAnswerList,
+      @required Map<String, AnswerStatusDto> initialAnswerStatusList}) {
     return _SurveyDto(
       surveyId: surveyId,
       surveyName: surveyName,
@@ -177,6 +179,8 @@ class _$SurveyDtoTearOff {
       teamId: teamId,
       module: module,
       questionList: questionList,
+      initialAnswerList: initialAnswerList,
+      initialAnswerStatusList: initialAnswerStatusList,
     );
   }
 
@@ -196,8 +200,10 @@ mixin _$SurveyDto {
   String get surveyName;
   String get projectId;
   String get teamId;
-  Map<String, List<QuestionDto>> get module;
+  Map<String, SurveyModuleDto> get module;
   List<QuestionDto> get questionList;
+  Map<String, AnswerDto> get initialAnswerList;
+  Map<String, AnswerStatusDto> get initialAnswerStatusList;
 
   Map<String, dynamic> toJson();
   $SurveyDtoCopyWith<SurveyDto> get copyWith;
@@ -212,8 +218,10 @@ abstract class $SurveyDtoCopyWith<$Res> {
       String surveyName,
       String projectId,
       String teamId,
-      Map<String, List<QuestionDto>> module,
-      List<QuestionDto> questionList});
+      Map<String, SurveyModuleDto> module,
+      List<QuestionDto> questionList,
+      Map<String, AnswerDto> initialAnswerList,
+      Map<String, AnswerStatusDto> initialAnswerStatusList});
 }
 
 /// @nodoc
@@ -232,6 +240,8 @@ class _$SurveyDtoCopyWithImpl<$Res> implements $SurveyDtoCopyWith<$Res> {
     Object teamId = freezed,
     Object module = freezed,
     Object questionList = freezed,
+    Object initialAnswerList = freezed,
+    Object initialAnswerStatusList = freezed,
   }) {
     return _then(_value.copyWith(
       surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
@@ -241,10 +251,16 @@ class _$SurveyDtoCopyWithImpl<$Res> implements $SurveyDtoCopyWith<$Res> {
       teamId: teamId == freezed ? _value.teamId : teamId as String,
       module: module == freezed
           ? _value.module
-          : module as Map<String, List<QuestionDto>>,
+          : module as Map<String, SurveyModuleDto>,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as List<QuestionDto>,
+      initialAnswerList: initialAnswerList == freezed
+          ? _value.initialAnswerList
+          : initialAnswerList as Map<String, AnswerDto>,
+      initialAnswerStatusList: initialAnswerStatusList == freezed
+          ? _value.initialAnswerStatusList
+          : initialAnswerStatusList as Map<String, AnswerStatusDto>,
     ));
   }
 }
@@ -260,8 +276,10 @@ abstract class _$SurveyDtoCopyWith<$Res> implements $SurveyDtoCopyWith<$Res> {
       String surveyName,
       String projectId,
       String teamId,
-      Map<String, List<QuestionDto>> module,
-      List<QuestionDto> questionList});
+      Map<String, SurveyModuleDto> module,
+      List<QuestionDto> questionList,
+      Map<String, AnswerDto> initialAnswerList,
+      Map<String, AnswerStatusDto> initialAnswerStatusList});
 }
 
 /// @nodoc
@@ -281,6 +299,8 @@ class __$SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
     Object teamId = freezed,
     Object module = freezed,
     Object questionList = freezed,
+    Object initialAnswerList = freezed,
+    Object initialAnswerStatusList = freezed,
   }) {
     return _then(_SurveyDto(
       surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
@@ -290,10 +310,16 @@ class __$SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
       teamId: teamId == freezed ? _value.teamId : teamId as String,
       module: module == freezed
           ? _value.module
-          : module as Map<String, List<QuestionDto>>,
+          : module as Map<String, SurveyModuleDto>,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as List<QuestionDto>,
+      initialAnswerList: initialAnswerList == freezed
+          ? _value.initialAnswerList
+          : initialAnswerList as Map<String, AnswerDto>,
+      initialAnswerStatusList: initialAnswerStatusList == freezed
+          ? _value.initialAnswerStatusList
+          : initialAnswerStatusList as Map<String, AnswerStatusDto>,
     ));
   }
 }
@@ -308,13 +334,17 @@ class _$_SurveyDto extends _SurveyDto {
       @required this.projectId,
       @required this.teamId,
       @required this.module,
-      @required this.questionList})
+      @required this.questionList,
+      @required this.initialAnswerList,
+      @required this.initialAnswerStatusList})
       : assert(surveyId != null),
         assert(surveyName != null),
         assert(projectId != null),
         assert(teamId != null),
         assert(module != null),
         assert(questionList != null),
+        assert(initialAnswerList != null),
+        assert(initialAnswerStatusList != null),
         super._();
 
   factory _$_SurveyDto.fromJson(Map<String, dynamic> json) =>
@@ -329,13 +359,17 @@ class _$_SurveyDto extends _SurveyDto {
   @override
   final String teamId;
   @override
-  final Map<String, List<QuestionDto>> module;
+  final Map<String, SurveyModuleDto> module;
   @override
   final List<QuestionDto> questionList;
+  @override
+  final Map<String, AnswerDto> initialAnswerList;
+  @override
+  final Map<String, AnswerStatusDto> initialAnswerStatusList;
 
   @override
   String toString() {
-    return 'SurveyDto(surveyId: $surveyId, surveyName: $surveyName, projectId: $projectId, teamId: $teamId, module: $module, questionList: $questionList)';
+    return 'SurveyDto(surveyId: $surveyId, surveyName: $surveyName, projectId: $projectId, teamId: $teamId, module: $module, questionList: $questionList, initialAnswerList: $initialAnswerList, initialAnswerStatusList: $initialAnswerStatusList)';
   }
 
   @override
@@ -357,7 +391,14 @@ class _$_SurveyDto extends _SurveyDto {
                 const DeepCollectionEquality().equals(other.module, module)) &&
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)));
+                    .equals(other.questionList, questionList)) &&
+            (identical(other.initialAnswerList, initialAnswerList) ||
+                const DeepCollectionEquality()
+                    .equals(other.initialAnswerList, initialAnswerList)) &&
+            (identical(
+                    other.initialAnswerStatusList, initialAnswerStatusList) ||
+                const DeepCollectionEquality().equals(
+                    other.initialAnswerStatusList, initialAnswerStatusList)));
   }
 
   @override
@@ -368,7 +409,9 @@ class _$_SurveyDto extends _SurveyDto {
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(module) ^
-      const DeepCollectionEquality().hash(questionList);
+      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(initialAnswerList) ^
+      const DeepCollectionEquality().hash(initialAnswerStatusList);
 
   @override
   _$SurveyDtoCopyWith<_SurveyDto> get copyWith =>
@@ -383,12 +426,15 @@ class _$_SurveyDto extends _SurveyDto {
 abstract class _SurveyDto extends SurveyDto {
   const _SurveyDto._() : super._();
   const factory _SurveyDto(
-      {@required String surveyId,
-      @required String surveyName,
-      @required String projectId,
-      @required String teamId,
-      @required Map<String, List<QuestionDto>> module,
-      @required List<QuestionDto> questionList}) = _$_SurveyDto;
+          {@required String surveyId,
+          @required String surveyName,
+          @required String projectId,
+          @required String teamId,
+          @required Map<String, SurveyModuleDto> module,
+          @required List<QuestionDto> questionList,
+          @required Map<String, AnswerDto> initialAnswerList,
+          @required Map<String, AnswerStatusDto> initialAnswerStatusList}) =
+      _$_SurveyDto;
 
   factory _SurveyDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyDto.fromJson;
@@ -402,9 +448,13 @@ abstract class _SurveyDto extends SurveyDto {
   @override
   String get teamId;
   @override
-  Map<String, List<QuestionDto>> get module;
+  Map<String, SurveyModuleDto> get module;
   @override
   List<QuestionDto> get questionList;
+  @override
+  Map<String, AnswerDto> get initialAnswerList;
+  @override
+  Map<String, AnswerStatusDto> get initialAnswerStatusList;
   @override
   _$SurveyDtoCopyWith<_SurveyDto> get copyWith;
 }

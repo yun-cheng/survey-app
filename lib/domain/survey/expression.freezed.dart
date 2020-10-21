@@ -15,7 +15,7 @@ class _$ExpressionTearOff {
 
 // ignore: unused_element
   _Expression call(
-      {@required SerialNumber field,
+      {@required dynamic field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -31,7 +31,8 @@ class _$ExpressionTearOff {
       AnswerBody containsAny,
       AnswerBody notContainsAny,
       AnswerBody containsAll,
-      AnswerBody notContainsAll}) {
+      AnswerBody notContainsAll,
+      AnswerBody isType}) {
     return _Expression(
       field: field,
       isEqualTo: isEqualTo,
@@ -50,6 +51,7 @@ class _$ExpressionTearOff {
       notContainsAny: notContainsAny,
       containsAll: containsAll,
       notContainsAll: notContainsAll,
+      isType: isType,
     );
   }
 }
@@ -60,7 +62,7 @@ const $Expression = _$ExpressionTearOff();
 
 /// @nodoc
 mixin _$Expression {
-  SerialNumber get field;
+  dynamic get field;
   AnswerBody get isEqualTo;
   AnswerBody get notEqualTo;
   AnswerBody get isLessThan;
@@ -77,6 +79,7 @@ mixin _$Expression {
   AnswerBody get notContainsAny;
   AnswerBody get containsAll;
   AnswerBody get notContainsAll;
+  AnswerBody get isType;
 
   $ExpressionCopyWith<Expression> get copyWith;
 }
@@ -87,7 +90,7 @@ abstract class $ExpressionCopyWith<$Res> {
           Expression value, $Res Function(Expression) then) =
       _$ExpressionCopyWithImpl<$Res>;
   $Res call(
-      {SerialNumber field,
+      {dynamic field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -103,7 +106,8 @@ abstract class $ExpressionCopyWith<$Res> {
       AnswerBody containsAny,
       AnswerBody notContainsAny,
       AnswerBody containsAll,
-      AnswerBody notContainsAll});
+      AnswerBody notContainsAll,
+      AnswerBody isType});
 }
 
 /// @nodoc
@@ -133,9 +137,10 @@ class _$ExpressionCopyWithImpl<$Res> implements $ExpressionCopyWith<$Res> {
     Object notContainsAny = freezed,
     Object containsAll = freezed,
     Object notContainsAll = freezed,
+    Object isType = freezed,
   }) {
     return _then(_value.copyWith(
-      field: field == freezed ? _value.field : field as SerialNumber,
+      field: field == freezed ? _value.field : field as dynamic,
       isEqualTo:
           isEqualTo == freezed ? _value.isEqualTo : isEqualTo as AnswerBody,
       notEqualTo:
@@ -174,6 +179,7 @@ class _$ExpressionCopyWithImpl<$Res> implements $ExpressionCopyWith<$Res> {
       notContainsAll: notContainsAll == freezed
           ? _value.notContainsAll
           : notContainsAll as AnswerBody,
+      isType: isType == freezed ? _value.isType : isType as AnswerBody,
     ));
   }
 }
@@ -185,7 +191,7 @@ abstract class _$ExpressionCopyWith<$Res> implements $ExpressionCopyWith<$Res> {
       __$ExpressionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SerialNumber field,
+      {dynamic field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -201,7 +207,8 @@ abstract class _$ExpressionCopyWith<$Res> implements $ExpressionCopyWith<$Res> {
       AnswerBody containsAny,
       AnswerBody notContainsAny,
       AnswerBody containsAll,
-      AnswerBody notContainsAll});
+      AnswerBody notContainsAll,
+      AnswerBody isType});
 }
 
 /// @nodoc
@@ -233,9 +240,10 @@ class __$ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
     Object notContainsAny = freezed,
     Object containsAll = freezed,
     Object notContainsAll = freezed,
+    Object isType = freezed,
   }) {
     return _then(_Expression(
-      field: field == freezed ? _value.field : field as SerialNumber,
+      field: field == freezed ? _value.field : field as dynamic,
       isEqualTo:
           isEqualTo == freezed ? _value.isEqualTo : isEqualTo as AnswerBody,
       notEqualTo:
@@ -274,6 +282,7 @@ class __$ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
       notContainsAll: notContainsAll == freezed
           ? _value.notContainsAll
           : notContainsAll as AnswerBody,
+      isType: isType == freezed ? _value.isType : isType as AnswerBody,
     ));
   }
 }
@@ -297,12 +306,13 @@ class _$_Expression extends _Expression {
       this.containsAny,
       this.notContainsAny,
       this.containsAll,
-      this.notContainsAll})
+      this.notContainsAll,
+      this.isType})
       : assert(field != null),
         super._();
 
   @override
-  final SerialNumber field;
+  final dynamic field;
   @override
   final AnswerBody isEqualTo;
   @override
@@ -335,10 +345,12 @@ class _$_Expression extends _Expression {
   final AnswerBody containsAll;
   @override
   final AnswerBody notContainsAll;
+  @override
+  final AnswerBody isType;
 
   @override
   String toString() {
-    return 'Expression(field: $field, isEqualTo: $isEqualTo, notEqualTo: $notEqualTo, isLessThan: $isLessThan, isLessThanOrEqualTo: $isLessThanOrEqualTo, isGreaterThan: $isGreaterThan, isGreaterThanOrEqualTo: $isGreaterThanOrEqualTo, isSameList: $isSameList, notSameList: $notSameList, isIn: $isIn, notIn: $notIn, contains: $contains, notContains: $notContains, containsAny: $containsAny, notContainsAny: $notContainsAny, containsAll: $containsAll, notContainsAll: $notContainsAll)';
+    return 'Expression(field: $field, isEqualTo: $isEqualTo, notEqualTo: $notEqualTo, isLessThan: $isLessThan, isLessThanOrEqualTo: $isLessThanOrEqualTo, isGreaterThan: $isGreaterThan, isGreaterThanOrEqualTo: $isGreaterThanOrEqualTo, isSameList: $isSameList, notSameList: $notSameList, isIn: $isIn, notIn: $notIn, contains: $contains, notContains: $notContains, containsAny: $containsAny, notContainsAny: $notContainsAny, containsAll: $containsAll, notContainsAll: $notContainsAll, isType: $isType)';
   }
 
   @override
@@ -392,7 +404,9 @@ class _$_Expression extends _Expression {
                     .equals(other.containsAll, containsAll)) &&
             (identical(other.notContainsAll, notContainsAll) ||
                 const DeepCollectionEquality()
-                    .equals(other.notContainsAll, notContainsAll)));
+                    .equals(other.notContainsAll, notContainsAll)) &&
+            (identical(other.isType, isType) ||
+                const DeepCollectionEquality().equals(other.isType, isType)));
   }
 
   @override
@@ -414,7 +428,8 @@ class _$_Expression extends _Expression {
       const DeepCollectionEquality().hash(containsAny) ^
       const DeepCollectionEquality().hash(notContainsAny) ^
       const DeepCollectionEquality().hash(containsAll) ^
-      const DeepCollectionEquality().hash(notContainsAll);
+      const DeepCollectionEquality().hash(notContainsAll) ^
+      const DeepCollectionEquality().hash(isType);
 
   @override
   _$ExpressionCopyWith<_Expression> get copyWith =>
@@ -424,7 +439,7 @@ class _$_Expression extends _Expression {
 abstract class _Expression extends Expression {
   const _Expression._() : super._();
   const factory _Expression(
-      {@required SerialNumber field,
+      {@required dynamic field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -440,10 +455,11 @@ abstract class _Expression extends Expression {
       AnswerBody containsAny,
       AnswerBody notContainsAny,
       AnswerBody containsAll,
-      AnswerBody notContainsAll}) = _$_Expression;
+      AnswerBody notContainsAll,
+      AnswerBody isType}) = _$_Expression;
 
   @override
-  SerialNumber get field;
+  dynamic get field;
   @override
   AnswerBody get isEqualTo;
   @override
@@ -476,6 +492,8 @@ abstract class _Expression extends Expression {
   AnswerBody get containsAll;
   @override
   AnswerBody get notContainsAll;
+  @override
+  AnswerBody get isType;
   @override
   _$ExpressionCopyWith<_Expression> get copyWith;
 }

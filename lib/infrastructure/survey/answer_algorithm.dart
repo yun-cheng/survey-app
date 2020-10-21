@@ -53,21 +53,18 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
   }) {
     // QUESTION 複製 map，不知有無其他方法
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
+    Answer oldAnswer;
     Answer newAnswer;
 
-    // H_ 已答過該題
-    if (newAnswerMap.containsKey(question.id)) {
-      newAnswer = newAnswerMap[question.id]
-          .copyWith(body: AnswerBody(answerBody));
-
-      // H_ 初次回答該題
-    } else {
-      newAnswer = Answer.empty().copyWith(
+    // H_ 初次回答該題
+    if (!newAnswerMap.containsKey(question.id)) {
+      oldAnswer = Answer.empty().copyWith(
         id: question.id,
         serialNumber: question.serialNumber,
-        body: AnswerBody(answerBody),
       );
     }
+    newAnswer = oldAnswer.copyWith(body: AnswerBody(answerBody));
+
     newAnswerMap[question.id] = newAnswer;
 
     return newAnswerMap;
@@ -82,29 +79,28 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     bool toggle,
   }) {
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
+    Answer oldAnswer;
     Answer newAnswer;
 
-    // H_ 已答過該題
-    if (newAnswerMap.containsKey(question.id)) {
-      if (asSingle) {
-        newAnswer = newAnswerMap[question.id]
-            .copyWith(body: AnswerBody(answerBody));
-      } else if (toggle) {
-        final oldAnswer = newAnswerMap[question.id];
-        newAnswer = oldAnswer.copyWith(body: oldAnswer.body.toggle(answerBody));
-      } else {
-        final oldAnswer = newAnswerMap[question.id];
-        newAnswer = oldAnswer.copyWith(body: oldAnswer.body.add(answerBody));
-      }
-
-      // H_ 初次回答該題
-    } else {
-      newAnswer = Answer.empty().copyWith(
+    // H_ 初次回答該題
+    if (!newAnswerMap.containsKey(question.id)) {
+      oldAnswer = Answer.empty().copyWith(
         id: question.id,
         serialNumber: question.serialNumber,
-        body: AnswerBody(asSingle ? answerBody : [answerBody]),
       );
+      // H_ 已答過該題
+    } else {
+      oldAnswer = newAnswerMap[question.id];
     }
+
+    if (asSingle) {
+      newAnswer = oldAnswer.copyWith(body: AnswerBody([answerBody]));
+    } else if (toggle) {
+      newAnswer = oldAnswer.copyWith(body: oldAnswer.body.toggle(answerBody));
+    } else {
+      newAnswer = oldAnswer.copyWith(body: oldAnswer.body.add(answerBody));
+    }
+
     newAnswerMap[question.id] = newAnswer;
 
     return newAnswerMap;
@@ -119,23 +115,7 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
   }) {
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
 
-    // H_ 已答過該題
-    if (newAnswerMap.containsKey(question.id)) {
-      newAnswerMap[question.id].noteMap[noteOf] =
-          NoteBody(answerBody);
-
-      // H_ 初次回答該題
-    } else {
-      final newAnswer = Answer.empty().copyWith(
-        id: question.id,
-        serialNumber: question.serialNumber,
-      );
-      newAnswerMap[question.id] = newAnswer.copyWith(
-        noteMap: KtMutableMap<ChoiceId, NoteBody>.from({
-          noteOf: NoteBody(answerBody),
-        }),
-      );
-    }
+    newAnswerMap[question.id].noteMap.put(noteOf, NoteBody(answerBody));
 
     return newAnswerMap;
   }

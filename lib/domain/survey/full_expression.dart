@@ -29,11 +29,11 @@ abstract class FullExpression implements _$FullExpression {
     return (body.failureOrUnit).fold((f) => some(f), (_) => none());
   }
 
-  bool evaluate(KtMutableMap<SerialNumber, Answer> answerMap) {
+  bool evaluate(KtMutableMap<QuestionId, Answer> answerMap) {
     // NOTE (((A || B) && C) || D) -> true/false
     // NOTE A -> (Q1 != 3)
 
-    var newExpressionMap = KtMutableMap<ExpressionId, bool>.empty();
+    final newExpressionMap = KtMutableMap<ExpressionId, bool>.empty();
 
     // H_ 各個 expression 轉成 bool
     expressionMap.mapValuesTo(

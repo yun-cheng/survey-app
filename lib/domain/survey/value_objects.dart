@@ -324,3 +324,20 @@ class ExpressionId extends ValueObject<String> {
 
   const ExpressionId._(this.value);
 }
+
+class ModuleType extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ModuleType(String input) {
+    assert(input != null);
+    return ModuleType._(
+      right(input),
+    );
+  }
+
+  factory ModuleType.visitAddress() => ModuleType('visitAddress');
+  factory ModuleType.inHouseSampling() => ModuleType('inHouseSampling');
+
+  const ModuleType._(this.value);
+}

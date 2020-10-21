@@ -4,7 +4,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/play.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/note_box.dart';
 
 class AnswerBox extends StatelessWidget {

@@ -53,24 +53,6 @@ class SurveyName extends ValueObject<String> {
 //   const SurveyType._(this.value);
 // }
 
-class ModuleType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ModuleType(String input) {
-    assert(input != null);
-    return ModuleType._(
-      right(input),
-    );
-  }
-
-  factory ModuleType.visitAddress() => ModuleType('visitAddress');
-  factory ModuleType.inHouseSamping() => ModuleType('inHouseSamping');
-  factory ModuleType.empty() => ModuleType('');
-
-  const ModuleType._(this.value);
-}
-
 class ProjectId extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
