@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_validators.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 
 class QuestionBody extends ValueObject<String> {
   @override
@@ -96,6 +97,10 @@ class QuestionType extends ValueObject<String> {
   bool get isMultiple {
     return value.fold(
         (l) => false, (r) => ['multiple', 'popupMultiple'].contains(r));
+  }
+
+  bool get isChoice {
+    return value.fold((l) => false, (r) => isSingle || isMultiple);
   }
 
   bool get isInput {
@@ -249,28 +254,32 @@ class AnswerBody extends ValueObject<dynamic> {
       if (r is List) {
         return r.contains(choiceId);
       } else {
-        return false;
+        return r == choiceId;
       }
     });
   }
 
-  const AnswerBody._(this.value);
-}
-
-class NoteBody extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory NoteBody(String input) {
-    assert(input != null);
-    return NoteBody._(
-      right(input),
-    );
+  bool get isNotEmpty {
+    return value.fold((l) => false, (r) {
+      if (r is List) {
+        return r.isNotEmpty;
+      } else {
+        return r != '';
+      }
+    });
   }
 
-  factory NoteBody.empty() => NoteBody('');
+  // bool get hasNote {
+  //   return value.fold((l) => false, (r) {
+  //     if (r is Choice) {
+  //       return r.asNote;
+  //     } else {
+  //       return false;
+  //     }
+  //   });
+  // }
 
-  const NoteBody._(this.value);
+  const AnswerBody._(this.value);
 }
 
 class AnswerStatusType extends ValueObject<String> {
@@ -286,9 +295,25 @@ class AnswerStatusType extends ValueObject<String> {
 
   factory AnswerStatusType.answered() => AnswerStatusType('answered');
   factory AnswerStatusType.unanswered() => AnswerStatusType('unanswered');
-  factory AnswerStatusType.wrongAnswered() => AnswerStatusType('wrongAnswered');
+  factory AnswerStatusType.wrongAnswered() => AnswerStatusType('invalid');
   factory AnswerStatusType.hidden() => AnswerStatusType('hidden');
   factory AnswerStatusType.empty() => AnswerStatusType('');
+
+  bool get isAnswered {
+    return value.fold((l) => false, (r) => r == 'answered');
+  }
+
+  bool get isInvalid {
+    return value.fold((l) => false, (r) => r == 'invalid');
+  }
+
+  bool get isHidden {
+    return value.fold((l) => false, (r) => r == 'hidden');
+  }
+
+  bool get isCompleted {
+    return isAnswered || isHidden;
+  }
 
   const AnswerStatusType._(this.value);
 }

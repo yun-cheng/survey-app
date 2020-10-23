@@ -37,7 +37,7 @@ abstract class AnswerDto implements _$AnswerDto {
       body: AnswerBody(answerBody),
       noteMap: KtMutableMap.from(noteMap)
           .mapKeys((entry) => ChoiceId(entry.key))
-          .mapValues((entry) => NoteBody(entry.value)),
+          .mapValues((entry) => AnswerBody(entry.value)),
     );
   }
 

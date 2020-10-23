@@ -8,6 +8,7 @@ import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bl
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/i_respondent_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_status_algorithm.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_survey_repository.dart';
 import 'package:interviewer_quiz_flutter_app/injection.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
@@ -46,6 +47,7 @@ class AppWidget extends StatelessWidget {
         BlocProvider(
             create: (context) => AnswerBloc(
                   getIt<IAnswerAlgorithm>(),
+                  getIt<IAnswerStatusAlgorithm>(),
                 )),
       ],
       child: MaterialApp(

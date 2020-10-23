@@ -25,12 +25,16 @@ abstract class AnswerStatus implements _$AnswerStatus {
         noteMap: KtMutableMap<ChoiceId, AnswerStatusType>.empty(),
       );
 
-  bool get isCompleted {
-    return true;
+  bool get isAnswered {
+    return type.isAnswered && noteMap.all((key, value) => value.isCompleted);
   }
 
-   bool get isAnswered {
-    return true;
+  bool get isHidden {
+    return type.isHidden;
+  }
+
+  bool get isCompleted {
+    return isAnswered || isHidden;
   }
 
   Option<ValueFailure<dynamic>> get failureOption {

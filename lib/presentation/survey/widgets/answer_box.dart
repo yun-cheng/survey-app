@@ -48,10 +48,14 @@ class AnswerBox extends StatelessWidget {
                       choice.body.getOrCrash(),
                       style: const TextStyle(fontSize: 18),
                     ),
-                    if (choice.asNote) ...[
+                    if (choice.asNote &&
+                        thisAnswer.body.contains(choice.id)) ...[
                       NoteBox(
                         question: question,
                         choice: choice,
+                        note: thisAnswer.noteMap
+                            .getOrDefault(choice.id, AnswerBody.empty())
+                            .getOrCrash() as String,
                       ),
                     ]
                   ],
@@ -62,8 +66,7 @@ class AnswerBox extends StatelessWidget {
                   context.bloc<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           question: question,
-                          body: choice.id,
-                          asSingle: choice.asSingle,
+                          body: choice,
                         ),
                       );
                 },
@@ -79,10 +82,14 @@ class AnswerBox extends StatelessWidget {
                       choice.body.getOrCrash(),
                       style: const TextStyle(fontSize: 18),
                     ),
-                    if (choice.asNote) ...[
+                    if (choice.asNote &&
+                        thisAnswer.body.contains(choice.id)) ...[
                       NoteBox(
                         question: question,
                         choice: choice,
+                        note: thisAnswer.noteMap
+                            .getOrDefault(choice.id, AnswerBody.empty())
+                            .getOrCrash() as String,
                       ),
                     ]
                   ],
@@ -92,7 +99,7 @@ class AnswerBox extends StatelessWidget {
                   context.bloc<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           question: question,
-                          body: choice.id,
+                          body: choice,
                           toggle: true,
                         ),
                       );

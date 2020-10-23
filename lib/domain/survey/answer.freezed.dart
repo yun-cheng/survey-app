@@ -18,7 +18,7 @@ class _$AnswerTearOff {
       {@required QuestionId id,
       @required SerialNumber serialNumber,
       AnswerBody body,
-      KtMutableMap<ChoiceId, NoteBody> noteMap}) {
+      KtMutableMap<ChoiceId, AnswerBody> noteMap}) {
     return _Answer(
       id: id,
       serialNumber: serialNumber,
@@ -37,7 +37,7 @@ mixin _$Answer {
   QuestionId get id;
   SerialNumber get serialNumber;
   AnswerBody get body;
-  KtMutableMap<ChoiceId, NoteBody> get noteMap;
+  KtMutableMap<ChoiceId, AnswerBody> get noteMap;
 
   $AnswerCopyWith<Answer> get copyWith;
 }
@@ -50,7 +50,7 @@ abstract class $AnswerCopyWith<$Res> {
       {QuestionId id,
       SerialNumber serialNumber,
       AnswerBody body,
-      KtMutableMap<ChoiceId, NoteBody> noteMap});
+      KtMutableMap<ChoiceId, AnswerBody> noteMap});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ class _$AnswerCopyWithImpl<$Res> implements $AnswerCopyWith<$Res> {
       body: body == freezed ? _value.body : body as AnswerBody,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMutableMap<ChoiceId, NoteBody>,
+          : noteMap as KtMutableMap<ChoiceId, AnswerBody>,
     ));
   }
 }
@@ -90,7 +90,7 @@ abstract class _$AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       {QuestionId id,
       SerialNumber serialNumber,
       AnswerBody body,
-      KtMutableMap<ChoiceId, NoteBody> noteMap});
+      KtMutableMap<ChoiceId, AnswerBody> noteMap});
 }
 
 /// @nodoc
@@ -117,7 +117,7 @@ class __$AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res>
       body: body == freezed ? _value.body : body as AnswerBody,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMutableMap<ChoiceId, NoteBody>,
+          : noteMap as KtMutableMap<ChoiceId, AnswerBody>,
     ));
   }
 }
@@ -137,7 +137,7 @@ class _$_Answer extends _Answer {
   @override
   final AnswerBody body;
   @override
-  final KtMutableMap<ChoiceId, NoteBody> noteMap;
+  final KtMutableMap<ChoiceId, AnswerBody> noteMap;
 
   @override
   String toString() {
@@ -178,7 +178,7 @@ abstract class _Answer extends Answer {
       {@required QuestionId id,
       @required SerialNumber serialNumber,
       AnswerBody body,
-      KtMutableMap<ChoiceId, NoteBody> noteMap}) = _$_Answer;
+      KtMutableMap<ChoiceId, AnswerBody> noteMap}) = _$_Answer;
 
   @override
   QuestionId get id;
@@ -187,7 +187,7 @@ abstract class _Answer extends Answer {
   @override
   AnswerBody get body;
   @override
-  KtMutableMap<ChoiceId, NoteBody> get noteMap;
+  KtMutableMap<ChoiceId, AnswerBody> get noteMap;
   @override
   _$AnswerCopyWith<_Answer> get copyWith;
 }
