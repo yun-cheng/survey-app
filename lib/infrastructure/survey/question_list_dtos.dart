@@ -1,41 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/survey/full_expression_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'question_list_dtos.freezed.dart';
 part 'question_list_dtos.g.dart';
-
-// @freezed
-// abstract class QuestionListDto implements _$QuestionListDto {
-//   const QuestionListDto._();
-
-//   const factory QuestionListDto({
-//     @required List<QuestionDto> list,
-//   }) = _QuestionListDto;
-
-//   factory QuestionListDto.fromDomain(KtList<Question> questionList) {
-//     return QuestionListDto(
-//       list: questionList
-//           .map((question) => QuestionDto.fromDomain(question))
-//           .asList(),
-//     );
-//   }
-
-//   KtList<Question> toDomain() {
-//     return list.map((dto) => dto.toDomain()).toImmutableList();
-//   }
-
-//   factory QuestionListDto.fromJson(Map<String, dynamic> json) =>
-//       _$QuestionListDtoFromJson(json);
-
-//   factory QuestionListDto.fromFirestore(DocumentSnapshot doc) {
-//     return QuestionListDto.fromJson(doc.data());
-//   }
-// }
 
 @freezed
 abstract class QuestionDto implements _$QuestionDto {
@@ -48,11 +20,11 @@ abstract class QuestionDto implements _$QuestionDto {
     @required String questionBody,
     @required String questionNote,
     @required String questionType,
-    @required String showQuestion,
+    @required FullExpressionDto showQuestion,
     @required List<ChoiceDto> choiceList,
     @required List<ChoiceDto> specialAnswerList,
     @required bool hasSpecialAnswer,
-    @required String validateAnswer,
+    @required FullExpressionDto validateAnswer,
     @required String upperQuestionId,
     @required int pageNumber,
   }) = _QuestionDto;
@@ -65,7 +37,7 @@ abstract class QuestionDto implements _$QuestionDto {
       questionBody: question.body.getOrCrash(),
       questionNote: question.note.getOrCrash(),
       questionType: question.type.getOrCrash(),
-      showQuestion: question.show.getOrCrash(),
+      showQuestion: FullExpressionDto.fromDomain(question.show),
       choiceList: question.choiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .asList(),
@@ -73,7 +45,7 @@ abstract class QuestionDto implements _$QuestionDto {
           .map((choice) => ChoiceDto.fromDomain(choice))
           .asList(),
       hasSpecialAnswer: question.hasSpecialAnswer,
-      validateAnswer: question.validateAnswer.getOrCrash(),
+      validateAnswer: FullExpressionDto.fromDomain(question.validateAnswer),
       upperQuestionId: question.upperQuestionId.getOrCrash(),
       pageNumber: question.pageNumber.getOrCrash(),
     );
@@ -87,12 +59,12 @@ abstract class QuestionDto implements _$QuestionDto {
       body: QuestionBody(questionBody),
       note: QuestionNote(questionNote),
       type: QuestionType(questionType),
-      show: ShowQuestion(showQuestion),
+      show: showQuestion.toDomain(),
       choiceList: choiceList.map((dto) => dto.toDomain()).toImmutableList(),
       specialAnswerList:
           specialAnswerList.map((dto) => dto.toDomain()).toImmutableList(),
       hasSpecialAnswer: hasSpecialAnswer,
-      validateAnswer: ValidateAnswer(validateAnswer),
+      validateAnswer: validateAnswer.toDomain(),
       upperQuestionId: QuestionId(upperQuestionId),
       pageNumber: PageNumber(pageNumber),
     );

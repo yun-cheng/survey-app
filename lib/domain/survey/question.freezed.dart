@@ -21,11 +21,11 @@ class _$QuestionTearOff {
       @required QuestionBody body,
       @required QuestionNote note,
       @required QuestionType type,
-      @required ShowQuestion show,
+      @required FullExpression show,
       @required KtList<Choice> choiceList,
       @required KtList<Choice> specialAnswerList,
       @required bool hasSpecialAnswer,
-      @required ValidateAnswer validateAnswer,
+      @required FullExpression validateAnswer,
       @required QuestionId upperQuestionId,
       @required PageNumber pageNumber}) {
     return _Question(
@@ -58,11 +58,11 @@ mixin _$Question {
   QuestionBody get body;
   QuestionNote get note;
   QuestionType get type;
-  ShowQuestion get show;
+  FullExpression get show;
   KtList<Choice> get choiceList;
   KtList<Choice> get specialAnswerList;
   bool get hasSpecialAnswer;
-  ValidateAnswer get validateAnswer;
+  FullExpression get validateAnswer;
   QuestionId get upperQuestionId;
   PageNumber get pageNumber;
 
@@ -80,13 +80,16 @@ abstract class $QuestionCopyWith<$Res> {
       QuestionBody body,
       QuestionNote note,
       QuestionType type,
-      ShowQuestion show,
+      FullExpression show,
       KtList<Choice> choiceList,
       KtList<Choice> specialAnswerList,
       bool hasSpecialAnswer,
-      ValidateAnswer validateAnswer,
+      FullExpression validateAnswer,
       QuestionId upperQuestionId,
       PageNumber pageNumber});
+
+  $FullExpressionCopyWith<$Res> get show;
+  $FullExpressionCopyWith<$Res> get validateAnswer;
 }
 
 /// @nodoc
@@ -122,7 +125,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       body: body == freezed ? _value.body : body as QuestionBody,
       note: note == freezed ? _value.note : note as QuestionNote,
       type: type == freezed ? _value.type : type as QuestionType,
-      show: show == freezed ? _value.show : show as ShowQuestion,
+      show: show == freezed ? _value.show : show as FullExpression,
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList as KtList<Choice>,
@@ -134,13 +137,33 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           : hasSpecialAnswer as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as ValidateAnswer,
+          : validateAnswer as FullExpression,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
           : upperQuestionId as QuestionId,
       pageNumber:
           pageNumber == freezed ? _value.pageNumber : pageNumber as PageNumber,
     ));
+  }
+
+  @override
+  $FullExpressionCopyWith<$Res> get show {
+    if (_value.show == null) {
+      return null;
+    }
+    return $FullExpressionCopyWith<$Res>(_value.show, (value) {
+      return _then(_value.copyWith(show: value));
+    });
+  }
+
+  @override
+  $FullExpressionCopyWith<$Res> get validateAnswer {
+    if (_value.validateAnswer == null) {
+      return null;
+    }
+    return $FullExpressionCopyWith<$Res>(_value.validateAnswer, (value) {
+      return _then(_value.copyWith(validateAnswer: value));
+    });
   }
 }
 
@@ -156,13 +179,18 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       QuestionBody body,
       QuestionNote note,
       QuestionType type,
-      ShowQuestion show,
+      FullExpression show,
       KtList<Choice> choiceList,
       KtList<Choice> specialAnswerList,
       bool hasSpecialAnswer,
-      ValidateAnswer validateAnswer,
+      FullExpression validateAnswer,
       QuestionId upperQuestionId,
       PageNumber pageNumber});
+
+  @override
+  $FullExpressionCopyWith<$Res> get show;
+  @override
+  $FullExpressionCopyWith<$Res> get validateAnswer;
 }
 
 /// @nodoc
@@ -199,7 +227,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       body: body == freezed ? _value.body : body as QuestionBody,
       note: note == freezed ? _value.note : note as QuestionNote,
       type: type == freezed ? _value.type : type as QuestionType,
-      show: show == freezed ? _value.show : show as ShowQuestion,
+      show: show == freezed ? _value.show : show as FullExpression,
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList as KtList<Choice>,
@@ -211,7 +239,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           : hasSpecialAnswer as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as ValidateAnswer,
+          : validateAnswer as FullExpression,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
           : upperQuestionId as QuestionId,
@@ -265,7 +293,7 @@ class _$_Question extends _Question {
   @override
   final QuestionType type;
   @override
-  final ShowQuestion show;
+  final FullExpression show;
   @override
   final KtList<Choice> choiceList;
   @override
@@ -273,7 +301,7 @@ class _$_Question extends _Question {
   @override
   final bool hasSpecialAnswer;
   @override
-  final ValidateAnswer validateAnswer;
+  final FullExpression validateAnswer;
   @override
   final QuestionId upperQuestionId;
   @override
@@ -354,11 +382,11 @@ abstract class _Question extends Question {
       @required QuestionBody body,
       @required QuestionNote note,
       @required QuestionType type,
-      @required ShowQuestion show,
+      @required FullExpression show,
       @required KtList<Choice> choiceList,
       @required KtList<Choice> specialAnswerList,
       @required bool hasSpecialAnswer,
-      @required ValidateAnswer validateAnswer,
+      @required FullExpression validateAnswer,
       @required QuestionId upperQuestionId,
       @required PageNumber pageNumber}) = _$_Question;
 
@@ -375,7 +403,7 @@ abstract class _Question extends Question {
   @override
   QuestionType get type;
   @override
-  ShowQuestion get show;
+  FullExpression get show;
   @override
   KtList<Choice> get choiceList;
   @override
@@ -383,7 +411,7 @@ abstract class _Question extends Question {
   @override
   bool get hasSpecialAnswer;
   @override
-  ValidateAnswer get validateAnswer;
+  FullExpression get validateAnswer;
   @override
   QuestionId get upperQuestionId;
   @override

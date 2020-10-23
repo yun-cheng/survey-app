@@ -14,7 +14,10 @@ _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
     questionBody: json['questionBody'] as String,
     questionNote: json['questionNote'] as String,
     questionType: json['questionType'] as String,
-    showQuestion: json['showQuestion'] as String,
+    showQuestion: json['showQuestion'] == null
+        ? null
+        : FullExpressionDto.fromJson(
+            json['showQuestion'] as Map<String, dynamic>),
     choiceList: (json['choiceList'] as List)
         ?.map((e) =>
             e == null ? null : ChoiceDto.fromJson(e as Map<String, dynamic>))
@@ -24,7 +27,10 @@ _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
             e == null ? null : ChoiceDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
     hasSpecialAnswer: json['hasSpecialAnswer'] as bool,
-    validateAnswer: json['validateAnswer'] as String,
+    validateAnswer: json['validateAnswer'] == null
+        ? null
+        : FullExpressionDto.fromJson(
+            json['validateAnswer'] as Map<String, dynamic>),
     upperQuestionId: json['upperQuestionId'] as String,
     pageNumber: json['pageNumber'] as int,
   );
@@ -38,12 +44,12 @@ Map<String, dynamic> _$_$_QuestionDtoToJson(_$_QuestionDto instance) =>
       'questionBody': instance.questionBody,
       'questionNote': instance.questionNote,
       'questionType': instance.questionType,
-      'showQuestion': instance.showQuestion,
+      'showQuestion': instance.showQuestion?.toJson(),
       'choiceList': instance.choiceList?.map((e) => e?.toJson())?.toList(),
       'specialAnswerList':
           instance.specialAnswerList?.map((e) => e?.toJson())?.toList(),
       'hasSpecialAnswer': instance.hasSpecialAnswer,
-      'validateAnswer': instance.validateAnswer,
+      'validateAnswer': instance.validateAnswer?.toJson(),
       'upperQuestionId': instance.upperQuestionId,
       'pageNumber': instance.pageNumber,
     };

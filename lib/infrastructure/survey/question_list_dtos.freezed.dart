@@ -24,11 +24,11 @@ class _$QuestionDtoTearOff {
       @required String questionBody,
       @required String questionNote,
       @required String questionType,
-      @required String showQuestion,
+      @required FullExpressionDto showQuestion,
       @required List<ChoiceDto> choiceList,
       @required List<ChoiceDto> specialAnswerList,
       @required bool hasSpecialAnswer,
-      @required String validateAnswer,
+      @required FullExpressionDto validateAnswer,
       @required String upperQuestionId,
       @required int pageNumber}) {
     return _QuestionDto(
@@ -66,11 +66,11 @@ mixin _$QuestionDto {
   String get questionBody;
   String get questionNote;
   String get questionType;
-  String get showQuestion;
+  FullExpressionDto get showQuestion;
   List<ChoiceDto> get choiceList;
   List<ChoiceDto> get specialAnswerList;
   bool get hasSpecialAnswer;
-  String get validateAnswer;
+  FullExpressionDto get validateAnswer;
   String get upperQuestionId;
   int get pageNumber;
 
@@ -90,13 +90,16 @@ abstract class $QuestionDtoCopyWith<$Res> {
       String questionBody,
       String questionNote,
       String questionType,
-      String showQuestion,
+      FullExpressionDto showQuestion,
       List<ChoiceDto> choiceList,
       List<ChoiceDto> specialAnswerList,
       bool hasSpecialAnswer,
-      String validateAnswer,
+      FullExpressionDto validateAnswer,
       String upperQuestionId,
       int pageNumber});
+
+  $FullExpressionDtoCopyWith<$Res> get showQuestion;
+  $FullExpressionDtoCopyWith<$Res> get validateAnswer;
 }
 
 /// @nodoc
@@ -142,7 +145,7 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
           : questionType as String,
       showQuestion: showQuestion == freezed
           ? _value.showQuestion
-          : showQuestion as String,
+          : showQuestion as FullExpressionDto,
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList as List<ChoiceDto>,
@@ -154,12 +157,32 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
           : hasSpecialAnswer as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as String,
+          : validateAnswer as FullExpressionDto,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
           : upperQuestionId as String,
       pageNumber: pageNumber == freezed ? _value.pageNumber : pageNumber as int,
     ));
+  }
+
+  @override
+  $FullExpressionDtoCopyWith<$Res> get showQuestion {
+    if (_value.showQuestion == null) {
+      return null;
+    }
+    return $FullExpressionDtoCopyWith<$Res>(_value.showQuestion, (value) {
+      return _then(_value.copyWith(showQuestion: value));
+    });
+  }
+
+  @override
+  $FullExpressionDtoCopyWith<$Res> get validateAnswer {
+    if (_value.validateAnswer == null) {
+      return null;
+    }
+    return $FullExpressionDtoCopyWith<$Res>(_value.validateAnswer, (value) {
+      return _then(_value.copyWith(validateAnswer: value));
+    });
   }
 }
 
@@ -177,13 +200,18 @@ abstract class _$QuestionDtoCopyWith<$Res>
       String questionBody,
       String questionNote,
       String questionType,
-      String showQuestion,
+      FullExpressionDto showQuestion,
       List<ChoiceDto> choiceList,
       List<ChoiceDto> specialAnswerList,
       bool hasSpecialAnswer,
-      String validateAnswer,
+      FullExpressionDto validateAnswer,
       String upperQuestionId,
       int pageNumber});
+
+  @override
+  $FullExpressionDtoCopyWith<$Res> get showQuestion;
+  @override
+  $FullExpressionDtoCopyWith<$Res> get validateAnswer;
 }
 
 /// @nodoc
@@ -231,7 +259,7 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
           : questionType as String,
       showQuestion: showQuestion == freezed
           ? _value.showQuestion
-          : showQuestion as String,
+          : showQuestion as FullExpressionDto,
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList as List<ChoiceDto>,
@@ -243,7 +271,7 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
           : hasSpecialAnswer as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as String,
+          : validateAnswer as FullExpressionDto,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
           : upperQuestionId as String,
@@ -301,7 +329,7 @@ class _$_QuestionDto extends _QuestionDto {
   @override
   final String questionType;
   @override
-  final String showQuestion;
+  final FullExpressionDto showQuestion;
   @override
   final List<ChoiceDto> choiceList;
   @override
@@ -309,7 +337,7 @@ class _$_QuestionDto extends _QuestionDto {
   @override
   final bool hasSpecialAnswer;
   @override
-  final String validateAnswer;
+  final FullExpressionDto validateAnswer;
   @override
   final String upperQuestionId;
   @override
@@ -401,11 +429,11 @@ abstract class _QuestionDto extends QuestionDto {
       @required String questionBody,
       @required String questionNote,
       @required String questionType,
-      @required String showQuestion,
+      @required FullExpressionDto showQuestion,
       @required List<ChoiceDto> choiceList,
       @required List<ChoiceDto> specialAnswerList,
       @required bool hasSpecialAnswer,
-      @required String validateAnswer,
+      @required FullExpressionDto validateAnswer,
       @required String upperQuestionId,
       @required int pageNumber}) = _$_QuestionDto;
 
@@ -425,7 +453,7 @@ abstract class _QuestionDto extends QuestionDto {
   @override
   String get questionType;
   @override
-  String get showQuestion;
+  FullExpressionDto get showQuestion;
   @override
   List<ChoiceDto> get choiceList;
   @override
@@ -433,7 +461,7 @@ abstract class _QuestionDto extends QuestionDto {
   @override
   bool get hasSpecialAnswer;
   @override
-  String get validateAnswer;
+  FullExpressionDto get validateAnswer;
   @override
   String get upperQuestionId;
   @override

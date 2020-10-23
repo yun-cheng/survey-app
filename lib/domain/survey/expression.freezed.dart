@@ -15,7 +15,7 @@ class _$ExpressionTearOff {
 
 // ignore: unused_element
   _Expression call(
-      {@required dynamic field,
+      {@required QuestionId field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -62,7 +62,7 @@ const $Expression = _$ExpressionTearOff();
 
 /// @nodoc
 mixin _$Expression {
-  dynamic get field;
+  QuestionId get field;
   AnswerBody get isEqualTo;
   AnswerBody get notEqualTo;
   AnswerBody get isLessThan;
@@ -90,7 +90,7 @@ abstract class $ExpressionCopyWith<$Res> {
           Expression value, $Res Function(Expression) then) =
       _$ExpressionCopyWithImpl<$Res>;
   $Res call(
-      {dynamic field,
+      {QuestionId field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -140,7 +140,7 @@ class _$ExpressionCopyWithImpl<$Res> implements $ExpressionCopyWith<$Res> {
     Object isType = freezed,
   }) {
     return _then(_value.copyWith(
-      field: field == freezed ? _value.field : field as dynamic,
+      field: field == freezed ? _value.field : field as QuestionId,
       isEqualTo:
           isEqualTo == freezed ? _value.isEqualTo : isEqualTo as AnswerBody,
       notEqualTo:
@@ -191,7 +191,7 @@ abstract class _$ExpressionCopyWith<$Res> implements $ExpressionCopyWith<$Res> {
       __$ExpressionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {dynamic field,
+      {QuestionId field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -243,7 +243,7 @@ class __$ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
     Object isType = freezed,
   }) {
     return _then(_Expression(
-      field: field == freezed ? _value.field : field as dynamic,
+      field: field == freezed ? _value.field : field as QuestionId,
       isEqualTo:
           isEqualTo == freezed ? _value.isEqualTo : isEqualTo as AnswerBody,
       notEqualTo:
@@ -312,7 +312,7 @@ class _$_Expression extends _Expression {
         super._();
 
   @override
-  final dynamic field;
+  final QuestionId field;
   @override
   final AnswerBody isEqualTo;
   @override
@@ -439,7 +439,7 @@ class _$_Expression extends _Expression {
 abstract class _Expression extends Expression {
   const _Expression._() : super._();
   const factory _Expression(
-      {@required dynamic field,
+      {@required QuestionId field,
       AnswerBody isEqualTo,
       AnswerBody notEqualTo,
       AnswerBody isLessThan,
@@ -459,7 +459,7 @@ abstract class _Expression extends Expression {
       AnswerBody isType}) = _$_Expression;
 
   @override
-  dynamic get field;
+  QuestionId get field;
   @override
   AnswerBody get isEqualTo;
   @override

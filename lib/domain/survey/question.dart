@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/full_expression.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -19,11 +20,11 @@ abstract class Question implements _$Question {
     @required QuestionBody body,
     @required QuestionNote note,
     @required QuestionType type,
-    @required ShowQuestion show,
+    @required FullExpression show,
     @required KtList<Choice> choiceList,
     @required KtList<Choice> specialAnswerList,
     @required bool hasSpecialAnswer,
-    @required ValidateAnswer validateAnswer,
+    @required FullExpression validateAnswer,
     @required QuestionId upperQuestionId,
     @required PageNumber pageNumber,
   }) = _Question;
@@ -38,8 +39,8 @@ abstract class Question implements _$Question {
         choiceList: emptyList<Choice>(),
         specialAnswerList: emptyList<Choice>(),
         hasSpecialAnswer: false,
-        show: ShowQuestion.empty(),
-        validateAnswer: ValidateAnswer.empty(),
+        show: FullExpression.empty(),
+        validateAnswer: FullExpression.empty(),
         upperQuestionId: QuestionId.empty(),
         pageNumber: PageNumber(0),
       );
@@ -50,8 +51,8 @@ abstract class Question implements _$Question {
         .andThen(body.failureOrUnit)
         .andThen(note.failureOrUnit)
         .andThen(type.failureOrUnit)
-        .andThen(show.failureOrUnit)
-        .andThen(validateAnswer.failureOrUnit)
+        // .andThen(show.failureOrUnit)
+        // .andThen(validateAnswer.failureOrUnit)
         .andThen(upperQuestionId.failureOrUnit)
         .andThen(pageNumber.failureOrUnit)
         .andThen(
