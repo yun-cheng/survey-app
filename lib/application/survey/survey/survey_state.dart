@@ -8,13 +8,13 @@ abstract class SurveyListState with _$SurveyListState {
   const factory SurveyListState.loadSuccess() = SurveyListLoadSuccess;
 }
 
-@freezed
-abstract class AnswerState with _$AnswerState {
-  const factory AnswerState.initial() = _AnswerInitial;
-  const factory AnswerState.inProgress() = _AnswerInProgress;
-  const factory AnswerState.failure() = AnswerFailure;
-  const factory AnswerState.success() = AnswerSuccess;
-}
+// @freezed
+// abstract class AnswerState with _$AnswerState {
+//   const factory AnswerState.initial() = _AnswerInitial;
+//   const factory AnswerState.inProgress() = _AnswerInProgress;
+//   const factory AnswerState.failure() = AnswerFailure;
+//   const factory AnswerState.success() = AnswerSuccess;
+// }
 
 @freezed
 abstract class SurveyState with _$SurveyState {
@@ -22,7 +22,7 @@ abstract class SurveyState with _$SurveyState {
     @required SurveyListState surveyListState,
     @required KtList<Survey> surveyList,
     @required Survey survey,
-    @required AnswerState answerState,
+    // @required AnswerState answerState,
     @required bool useSpecialAnswer,
     @required Option<SurveyFailure> surveyFailure,
   }) = _SurveyState;
@@ -31,7 +31,7 @@ abstract class SurveyState with _$SurveyState {
         surveyListState: const SurveyListState.initial(),
         surveyList: const KtList<Survey>.empty(),
         survey: Survey.empty(),
-        answerState: const AnswerState.initial(),
+        // answerState: const AnswerState.initial(),
         useSpecialAnswer: false,
         surveyFailure: none(),
       );

@@ -9,6 +9,7 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
 import 'infrastructure/survey/answer_algorithm.dart';
+import 'application/survey/answer/answer_bloc.dart';
 import 'infrastructure/survey/answer_status_algorithm.dart';
 import 'application/auth/auth_bloc.dart';
 import 'infrastructure/core/firebase_injectable_module.dart';
@@ -60,13 +61,15 @@ GetIt $initGetIt(
   gh.factory<QuestionListBloc>(() => QuestionListBloc(get<IQuizRepository>()));
   gh.factory<QuestionPageBloc>(() => QuestionPageBloc(get<QuestionListBloc>()));
   gh.factory<QuizListBloc>(() => QuizListBloc(get<IQuizListRepository>()));
-  gh.factory<SurveyPageBloc>(() => SurveyPageBloc());
+  gh.factory<AnswerBloc>(
+      () => AnswerBloc(get<IAnswerAlgorithm>(), get<IAnswerStatusAlgorithm>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
   gh.factory<QuestionBloc>(() => QuestionBloc(
         get<IQuizRepository>(),
         get<QuestionListBloc>(),
         get<QuestionPageBloc>(),
       ));
+  gh.factory<SurveyPageBloc>(() => SurveyPageBloc(get<AnswerBloc>()));
   return get;
 }
 

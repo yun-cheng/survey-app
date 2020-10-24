@@ -5,7 +5,9 @@ abstract class SurveyPageState with _$SurveyPageState {
   const factory SurveyPageState({
     @required PageNumber page,
     @required KtList<Question> questionList,
-    @required KtList<SerialNumber> serialNumberList,
+    @required KtList<Question> pageQuestionList,
+    @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    // @required KtList<SerialNumber> serialNumberList,
     @required bool isLastPage,
     // @required KtList<Response> responseList,
   }) = _SurveyPageState;
@@ -13,7 +15,9 @@ abstract class SurveyPageState with _$SurveyPageState {
   factory SurveyPageState.initial() => SurveyPageState(
         page: PageNumber(0),
         questionList: const KtList<Question>.empty(),
-        serialNumberList: const KtList<SerialNumber>.empty(),
+        pageQuestionList: const KtList<Question>.empty(),
+        answerStatusMap: KtMutableMap<QuestionId, AnswerStatus>.empty(),
+        // serialNumberList: const KtList<SerialNumber>.empty(),
         isLastPage: false,
         // responseList: const KtList<Response>.empty(),
       );

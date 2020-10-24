@@ -5,6 +5,7 @@ import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/i_respondent_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
@@ -45,35 +46,41 @@ class AppWidget extends StatelessWidget {
             ),
         ),
         BlocProvider(
-            create: (context) => AnswerBloc(
-                  getIt<IAnswerAlgorithm>(),
-                  getIt<IAnswerStatusAlgorithm>(),
-                )),
+          create: (context) => AnswerBloc(
+            getIt<IAnswerAlgorithm>(),
+            getIt<IAnswerStatusAlgorithm>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => SurveyPageBloc(
+           BlocProvider.of<AnswerBloc>(context),
+          ),
+        ),
       ],
       child: MaterialApp(
-        title: '訪員測驗',
-        debugShowCheckedModeBanner: false,
-        builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
-        theme: ThemeData.light().copyWith(
-          textTheme:
-              ThemeData.light().textTheme.apply(fontFamily: 'NotoSansTC'),
-          primaryTextTheme: ThemeData.light()
-              .primaryTextTheme
-              .apply(fontFamily: 'NotoSansTC'),
-          accentTextTheme:
-              ThemeData.light().accentTextTheme.apply(fontFamily: 'NotoSansTC'),
-          primaryColor: Colors.blueAccent,
-          accentColor: Colors.blueAccent,
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Colors.blue[900],
-          ),
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
+          title: '訪員測驗',
+          debugShowCheckedModeBanner: false,
+          builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
+          theme: ThemeData.light().copyWith(
+            textTheme:
+        ThemeData.light().textTheme.apply(fontFamily: 'NotoSansTC'),
+            primaryTextTheme: ThemeData.light()
+        .primaryTextTheme
+        .apply(fontFamily: 'NotoSansTC'),
+            accentTextTheme:
+        ThemeData.light().accentTextTheme.apply(fontFamily: 'NotoSansTC'),
+            primaryColor: Colors.blueAccent,
+            accentColor: Colors.blueAccent,
+            floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: Colors.blue[900],
+            ),
+            inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
             ),
           ),
         ),
-      ),
     );
   }
 }

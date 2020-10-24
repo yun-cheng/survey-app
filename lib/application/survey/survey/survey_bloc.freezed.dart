@@ -1002,494 +1002,6 @@ abstract class SurveyListLoadSuccess implements SurveyListState {
 }
 
 /// @nodoc
-class _$AnswerStateTearOff {
-  const _$AnswerStateTearOff();
-
-// ignore: unused_element
-  _AnswerInitial initial() {
-    return const _AnswerInitial();
-  }
-
-// ignore: unused_element
-  _AnswerInProgress inProgress() {
-    return const _AnswerInProgress();
-  }
-
-// ignore: unused_element
-  AnswerFailure failure() {
-    return const AnswerFailure();
-  }
-
-// ignore: unused_element
-  AnswerSuccess success() {
-    return const AnswerSuccess();
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $AnswerState = _$AnswerStateTearOff();
-
-/// @nodoc
-mixin _$AnswerState {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  });
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_AnswerInitial value),
-    @required Result inProgress(_AnswerInProgress value),
-    @required Result failure(AnswerFailure value),
-    @required Result success(AnswerSuccess value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_AnswerInitial value),
-    Result inProgress(_AnswerInProgress value),
-    Result failure(AnswerFailure value),
-    Result success(AnswerSuccess value),
-    @required Result orElse(),
-  });
-}
-
-/// @nodoc
-abstract class $AnswerStateCopyWith<$Res> {
-  factory $AnswerStateCopyWith(
-          AnswerState value, $Res Function(AnswerState) then) =
-      _$AnswerStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
-  _$AnswerStateCopyWithImpl(this._value, this._then);
-
-  final AnswerState _value;
-  // ignore: unused_field
-  final $Res Function(AnswerState) _then;
-}
-
-/// @nodoc
-abstract class _$AnswerInitialCopyWith<$Res> {
-  factory _$AnswerInitialCopyWith(
-          _AnswerInitial value, $Res Function(_AnswerInitial) then) =
-      __$AnswerInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$AnswerInitialCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
-    implements _$AnswerInitialCopyWith<$Res> {
-  __$AnswerInitialCopyWithImpl(
-      _AnswerInitial _value, $Res Function(_AnswerInitial) _then)
-      : super(_value, (v) => _then(v as _AnswerInitial));
-
-  @override
-  _AnswerInitial get _value => super._value as _AnswerInitial;
-}
-
-/// @nodoc
-class _$_AnswerInitial implements _AnswerInitial {
-  const _$_AnswerInitial();
-
-  @override
-  String toString() {
-    return 'AnswerState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AnswerInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_AnswerInitial value),
-    @required Result inProgress(_AnswerInProgress value),
-    @required Result failure(AnswerFailure value),
-    @required Result success(AnswerSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_AnswerInitial value),
-    Result inProgress(_AnswerInProgress value),
-    Result failure(AnswerFailure value),
-    Result success(AnswerSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AnswerInitial implements AnswerState {
-  const factory _AnswerInitial() = _$_AnswerInitial;
-}
-
-/// @nodoc
-abstract class _$AnswerInProgressCopyWith<$Res> {
-  factory _$AnswerInProgressCopyWith(
-          _AnswerInProgress value, $Res Function(_AnswerInProgress) then) =
-      __$AnswerInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$AnswerInProgressCopyWithImpl<$Res>
-    extends _$AnswerStateCopyWithImpl<$Res>
-    implements _$AnswerInProgressCopyWith<$Res> {
-  __$AnswerInProgressCopyWithImpl(
-      _AnswerInProgress _value, $Res Function(_AnswerInProgress) _then)
-      : super(_value, (v) => _then(v as _AnswerInProgress));
-
-  @override
-  _AnswerInProgress get _value => super._value as _AnswerInProgress;
-}
-
-/// @nodoc
-class _$_AnswerInProgress implements _AnswerInProgress {
-  const _$_AnswerInProgress();
-
-  @override
-  String toString() {
-    return 'AnswerState.inProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AnswerInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return inProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (inProgress != null) {
-      return inProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_AnswerInitial value),
-    @required Result inProgress(_AnswerInProgress value),
-    @required Result failure(AnswerFailure value),
-    @required Result success(AnswerSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return inProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_AnswerInitial value),
-    Result inProgress(_AnswerInProgress value),
-    Result failure(AnswerFailure value),
-    Result success(AnswerSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (inProgress != null) {
-      return inProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AnswerInProgress implements AnswerState {
-  const factory _AnswerInProgress() = _$_AnswerInProgress;
-}
-
-/// @nodoc
-abstract class $AnswerFailureCopyWith<$Res> {
-  factory $AnswerFailureCopyWith(
-          AnswerFailure value, $Res Function(AnswerFailure) then) =
-      _$AnswerFailureCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$AnswerFailureCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
-    implements $AnswerFailureCopyWith<$Res> {
-  _$AnswerFailureCopyWithImpl(
-      AnswerFailure _value, $Res Function(AnswerFailure) _then)
-      : super(_value, (v) => _then(v as AnswerFailure));
-
-  @override
-  AnswerFailure get _value => super._value as AnswerFailure;
-}
-
-/// @nodoc
-class _$AnswerFailure implements AnswerFailure {
-  const _$AnswerFailure();
-
-  @override
-  String toString() {
-    return 'AnswerState.failure()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AnswerFailure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return failure();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (failure != null) {
-      return failure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_AnswerInitial value),
-    @required Result inProgress(_AnswerInProgress value),
-    @required Result failure(AnswerFailure value),
-    @required Result success(AnswerSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_AnswerInitial value),
-    Result inProgress(_AnswerInProgress value),
-    Result failure(AnswerFailure value),
-    Result success(AnswerSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AnswerFailure implements AnswerState {
-  const factory AnswerFailure() = _$AnswerFailure;
-}
-
-/// @nodoc
-abstract class $AnswerSuccessCopyWith<$Res> {
-  factory $AnswerSuccessCopyWith(
-          AnswerSuccess value, $Res Function(AnswerSuccess) then) =
-      _$AnswerSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$AnswerSuccessCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
-    implements $AnswerSuccessCopyWith<$Res> {
-  _$AnswerSuccessCopyWithImpl(
-      AnswerSuccess _value, $Res Function(AnswerSuccess) _then)
-      : super(_value, (v) => _then(v as AnswerSuccess));
-
-  @override
-  AnswerSuccess get _value => super._value as AnswerSuccess;
-}
-
-/// @nodoc
-class _$AnswerSuccess implements AnswerSuccess {
-  const _$AnswerSuccess();
-
-  @override
-  String toString() {
-    return 'AnswerState.success()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is AnswerSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_AnswerInitial value),
-    @required Result inProgress(_AnswerInProgress value),
-    @required Result failure(AnswerFailure value),
-    @required Result success(AnswerSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_AnswerInitial value),
-    Result inProgress(_AnswerInProgress value),
-    Result failure(AnswerFailure value),
-    Result success(AnswerSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AnswerSuccess implements AnswerState {
-  const factory AnswerSuccess() = _$AnswerSuccess;
-}
-
-/// @nodoc
 class _$SurveyStateTearOff {
   const _$SurveyStateTearOff();
 
@@ -1498,14 +1010,12 @@ class _$SurveyStateTearOff {
       {@required SurveyListState surveyListState,
       @required KtList<Survey> surveyList,
       @required Survey survey,
-      @required AnswerState answerState,
       @required bool useSpecialAnswer,
       @required Option<SurveyFailure> surveyFailure}) {
     return _SurveyState(
       surveyListState: surveyListState,
       surveyList: surveyList,
       survey: survey,
-      answerState: answerState,
       useSpecialAnswer: useSpecialAnswer,
       surveyFailure: surveyFailure,
     );
@@ -1520,8 +1030,7 @@ const $SurveyState = _$SurveyStateTearOff();
 mixin _$SurveyState {
   SurveyListState get surveyListState;
   KtList<Survey> get surveyList;
-  Survey get survey;
-  AnswerState get answerState;
+  Survey get survey; // @required AnswerState answerState,
   bool get useSpecialAnswer;
   Option<SurveyFailure> get surveyFailure;
 
@@ -1537,13 +1046,11 @@ abstract class $SurveyStateCopyWith<$Res> {
       {SurveyListState surveyListState,
       KtList<Survey> surveyList,
       Survey survey,
-      AnswerState answerState,
       bool useSpecialAnswer,
       Option<SurveyFailure> surveyFailure});
 
   $SurveyListStateCopyWith<$Res> get surveyListState;
   $SurveyCopyWith<$Res> get survey;
-  $AnswerStateCopyWith<$Res> get answerState;
 }
 
 /// @nodoc
@@ -1559,7 +1066,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
     Object surveyListState = freezed,
     Object surveyList = freezed,
     Object survey = freezed,
-    Object answerState = freezed,
     Object useSpecialAnswer = freezed,
     Object surveyFailure = freezed,
   }) {
@@ -1571,9 +1077,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
           ? _value.surveyList
           : surveyList as KtList<Survey>,
       survey: survey == freezed ? _value.survey : survey as Survey,
-      answerState: answerState == freezed
-          ? _value.answerState
-          : answerState as AnswerState,
       useSpecialAnswer: useSpecialAnswer == freezed
           ? _value.useSpecialAnswer
           : useSpecialAnswer as bool,
@@ -1602,16 +1105,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
       return _then(_value.copyWith(survey: value));
     });
   }
-
-  @override
-  $AnswerStateCopyWith<$Res> get answerState {
-    if (_value.answerState == null) {
-      return null;
-    }
-    return $AnswerStateCopyWith<$Res>(_value.answerState, (value) {
-      return _then(_value.copyWith(answerState: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -1625,7 +1118,6 @@ abstract class _$SurveyStateCopyWith<$Res>
       {SurveyListState surveyListState,
       KtList<Survey> surveyList,
       Survey survey,
-      AnswerState answerState,
       bool useSpecialAnswer,
       Option<SurveyFailure> surveyFailure});
 
@@ -1633,8 +1125,6 @@ abstract class _$SurveyStateCopyWith<$Res>
   $SurveyListStateCopyWith<$Res> get surveyListState;
   @override
   $SurveyCopyWith<$Res> get survey;
-  @override
-  $AnswerStateCopyWith<$Res> get answerState;
 }
 
 /// @nodoc
@@ -1652,7 +1142,6 @@ class __$SurveyStateCopyWithImpl<$Res> extends _$SurveyStateCopyWithImpl<$Res>
     Object surveyListState = freezed,
     Object surveyList = freezed,
     Object survey = freezed,
-    Object answerState = freezed,
     Object useSpecialAnswer = freezed,
     Object surveyFailure = freezed,
   }) {
@@ -1664,9 +1153,6 @@ class __$SurveyStateCopyWithImpl<$Res> extends _$SurveyStateCopyWithImpl<$Res>
           ? _value.surveyList
           : surveyList as KtList<Survey>,
       survey: survey == freezed ? _value.survey : survey as Survey,
-      answerState: answerState == freezed
-          ? _value.answerState
-          : answerState as AnswerState,
       useSpecialAnswer: useSpecialAnswer == freezed
           ? _value.useSpecialAnswer
           : useSpecialAnswer as bool,
@@ -1683,13 +1169,11 @@ class _$_SurveyState implements _SurveyState {
       {@required this.surveyListState,
       @required this.surveyList,
       @required this.survey,
-      @required this.answerState,
       @required this.useSpecialAnswer,
       @required this.surveyFailure})
       : assert(surveyListState != null),
         assert(surveyList != null),
         assert(survey != null),
-        assert(answerState != null),
         assert(useSpecialAnswer != null),
         assert(surveyFailure != null);
 
@@ -1699,16 +1183,14 @@ class _$_SurveyState implements _SurveyState {
   final KtList<Survey> surveyList;
   @override
   final Survey survey;
-  @override
-  final AnswerState answerState;
-  @override
+  @override // @required AnswerState answerState,
   final bool useSpecialAnswer;
   @override
   final Option<SurveyFailure> surveyFailure;
 
   @override
   String toString() {
-    return 'SurveyState(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, answerState: $answerState, useSpecialAnswer: $useSpecialAnswer, surveyFailure: $surveyFailure)';
+    return 'SurveyState(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, useSpecialAnswer: $useSpecialAnswer, surveyFailure: $surveyFailure)';
   }
 
   @override
@@ -1723,9 +1205,6 @@ class _$_SurveyState implements _SurveyState {
                     .equals(other.surveyList, surveyList)) &&
             (identical(other.survey, survey) ||
                 const DeepCollectionEquality().equals(other.survey, survey)) &&
-            (identical(other.answerState, answerState) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerState, answerState)) &&
             (identical(other.useSpecialAnswer, useSpecialAnswer) ||
                 const DeepCollectionEquality()
                     .equals(other.useSpecialAnswer, useSpecialAnswer)) &&
@@ -1740,7 +1219,6 @@ class _$_SurveyState implements _SurveyState {
       const DeepCollectionEquality().hash(surveyListState) ^
       const DeepCollectionEquality().hash(surveyList) ^
       const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(answerState) ^
       const DeepCollectionEquality().hash(useSpecialAnswer) ^
       const DeepCollectionEquality().hash(surveyFailure);
 
@@ -1754,7 +1232,6 @@ abstract class _SurveyState implements SurveyState {
       {@required SurveyListState surveyListState,
       @required KtList<Survey> surveyList,
       @required Survey survey,
-      @required AnswerState answerState,
       @required bool useSpecialAnswer,
       @required Option<SurveyFailure> surveyFailure}) = _$_SurveyState;
 
@@ -1764,9 +1241,7 @@ abstract class _SurveyState implements SurveyState {
   KtList<Survey> get surveyList;
   @override
   Survey get survey;
-  @override
-  AnswerState get answerState;
-  @override
+  @override // @required AnswerState answerState,
   bool get useSpecialAnswer;
   @override
   Option<SurveyFailure> get surveyFailure;

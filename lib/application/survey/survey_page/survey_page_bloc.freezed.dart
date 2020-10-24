@@ -24,8 +24,32 @@ class _$SurveyPageEventTearOff {
   }
 
 // ignore: unused_element
-  _WentToPage wentToPage() {
-    return const _WentToPage();
+  _PageUpdated pageUpdated({@required Direction direction}) {
+    return _PageUpdated(
+      direction: direction,
+    );
+  }
+
+// ignore: unused_element
+  _WentToPage wentToPage(PageNumber page) {
+    return _WentToPage(
+      page,
+    );
+  }
+
+// ignore: unused_element
+  _CheckIsLastPage checkIsLastPage() {
+    return const _CheckIsLastPage();
+  }
+
+// ignore: unused_element
+  _AnswerBlocUpdated answerBlocUpdated(
+      {@required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required KtList<Question> questionList}) {
+    return _AnswerBlocUpdated(
+      answerStatusMap: answerStatusMap,
+      questionList: questionList,
+    );
   }
 }
 
@@ -39,26 +63,43 @@ mixin _$SurveyPageEvent {
   Result when<Result extends Object>({
     @required Result nextPagePressed(),
     @required Result previousPagePressed(),
-    @required Result wentToPage(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result checkIsLastPage(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result nextPagePressed(),
     Result previousPagePressed(),
-    Result wentToPage(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result checkIsLastPage(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     @required Result orElse(),
   });
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result nextPagePressed(_NextPagePressed value),
     @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result nextPagePressed(_NextPagePressed value),
     Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   });
 }
@@ -121,11 +162,20 @@ class _$_NextPagePressed implements _NextPagePressed {
   Result when<Result extends Object>({
     @required Result nextPagePressed(),
     @required Result previousPagePressed(),
-    @required Result wentToPage(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result checkIsLastPage(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
+    assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
     return nextPagePressed();
   }
 
@@ -134,7 +184,12 @@ class _$_NextPagePressed implements _NextPagePressed {
   Result maybeWhen<Result extends Object>({
     Result nextPagePressed(),
     Result previousPagePressed(),
-    Result wentToPage(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result checkIsLastPage(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -149,11 +204,17 @@ class _$_NextPagePressed implements _NextPagePressed {
   Result map<Result extends Object>({
     @required Result nextPagePressed(_NextPagePressed value),
     @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
+    assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
     return nextPagePressed(this);
   }
 
@@ -162,7 +223,10 @@ class _$_NextPagePressed implements _NextPagePressed {
   Result maybeMap<Result extends Object>({
     Result nextPagePressed(_NextPagePressed value),
     Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -218,11 +282,20 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
   Result when<Result extends Object>({
     @required Result nextPagePressed(),
     @required Result previousPagePressed(),
-    @required Result wentToPage(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result checkIsLastPage(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
+    assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
     return previousPagePressed();
   }
 
@@ -231,7 +304,12 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
   Result maybeWhen<Result extends Object>({
     Result nextPagePressed(),
     Result previousPagePressed(),
-    Result wentToPage(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result checkIsLastPage(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -246,11 +324,17 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
   Result map<Result extends Object>({
     @required Result nextPagePressed(_NextPagePressed value),
     @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
+    assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
     return previousPagePressed(this);
   }
 
@@ -259,7 +343,10 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
   Result maybeMap<Result extends Object>({
     Result nextPagePressed(_NextPagePressed value),
     Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -275,10 +362,157 @@ abstract class _PreviousPagePressed implements SurveyPageEvent {
 }
 
 /// @nodoc
+abstract class _$PageUpdatedCopyWith<$Res> {
+  factory _$PageUpdatedCopyWith(
+          _PageUpdated value, $Res Function(_PageUpdated) then) =
+      __$PageUpdatedCopyWithImpl<$Res>;
+  $Res call({Direction direction});
+}
+
+/// @nodoc
+class __$PageUpdatedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$PageUpdatedCopyWith<$Res> {
+  __$PageUpdatedCopyWithImpl(
+      _PageUpdated _value, $Res Function(_PageUpdated) _then)
+      : super(_value, (v) => _then(v as _PageUpdated));
+
+  @override
+  _PageUpdated get _value => super._value as _PageUpdated;
+
+  @override
+  $Res call({
+    Object direction = freezed,
+  }) {
+    return _then(_PageUpdated(
+      direction:
+          direction == freezed ? _value.direction : direction as Direction,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_PageUpdated implements _PageUpdated {
+  const _$_PageUpdated({@required this.direction}) : assert(direction != null);
+
+  @override
+  final Direction direction;
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.pageUpdated(direction: $direction)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _PageUpdated &&
+            (identical(other.direction, direction) ||
+                const DeepCollectionEquality()
+                    .equals(other.direction, direction)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(direction);
+
+  @override
+  _$PageUpdatedCopyWith<_PageUpdated> get copyWith =>
+      __$PageUpdatedCopyWithImpl<_PageUpdated>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result previousPagePressed(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result checkIsLastPage(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
+    return pageUpdated(direction);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result previousPagePressed(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result checkIsLastPage(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (pageUpdated != null) {
+      return pageUpdated(direction);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
+    @required Result wentToPage(_WentToPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
+    return pageUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
+    Result wentToPage(_WentToPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (pageUpdated != null) {
+      return pageUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PageUpdated implements SurveyPageEvent {
+  const factory _PageUpdated({@required Direction direction}) = _$_PageUpdated;
+
+  Direction get direction;
+  _$PageUpdatedCopyWith<_PageUpdated> get copyWith;
+}
+
+/// @nodoc
 abstract class _$WentToPageCopyWith<$Res> {
   factory _$WentToPageCopyWith(
           _WentToPage value, $Res Function(_WentToPage) then) =
       __$WentToPageCopyWithImpl<$Res>;
+  $Res call({PageNumber page});
 }
 
 /// @nodoc
@@ -291,36 +525,65 @@ class __$WentToPageCopyWithImpl<$Res>
 
   @override
   _WentToPage get _value => super._value as _WentToPage;
+
+  @override
+  $Res call({
+    Object page = freezed,
+  }) {
+    return _then(_WentToPage(
+      page == freezed ? _value.page : page as PageNumber,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_WentToPage implements _WentToPage {
-  const _$_WentToPage();
+  const _$_WentToPage(this.page) : assert(page != null);
+
+  @override
+  final PageNumber page;
 
   @override
   String toString() {
-    return 'SurveyPageEvent.wentToPage()';
+    return 'SurveyPageEvent.wentToPage(page: $page)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WentToPage);
+    return identical(this, other) ||
+        (other is _WentToPage &&
+            (identical(other.page, page) ||
+                const DeepCollectionEquality().equals(other.page, page)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(page);
+
+  @override
+  _$WentToPageCopyWith<_WentToPage> get copyWith =>
+      __$WentToPageCopyWithImpl<_WentToPage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result nextPagePressed(),
     @required Result previousPagePressed(),
-    @required Result wentToPage(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result checkIsLastPage(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
+    assert(pageUpdated != null);
     assert(wentToPage != null);
-    return wentToPage();
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
+    return wentToPage(page);
   }
 
   @override
@@ -328,12 +591,17 @@ class _$_WentToPage implements _WentToPage {
   Result maybeWhen<Result extends Object>({
     Result nextPagePressed(),
     Result previousPagePressed(),
-    Result wentToPage(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result checkIsLastPage(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (wentToPage != null) {
-      return wentToPage();
+      return wentToPage(page);
     }
     return orElse();
   }
@@ -343,11 +611,17 @@ class _$_WentToPage implements _WentToPage {
   Result map<Result extends Object>({
     @required Result nextPagePressed(_NextPagePressed value),
     @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
+    assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
     return wentToPage(this);
   }
 
@@ -356,7 +630,10 @@ class _$_WentToPage implements _WentToPage {
   Result maybeMap<Result extends Object>({
     Result nextPagePressed(_NextPagePressed value),
     Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -368,7 +645,296 @@ class _$_WentToPage implements _WentToPage {
 }
 
 abstract class _WentToPage implements SurveyPageEvent {
-  const factory _WentToPage() = _$_WentToPage;
+  const factory _WentToPage(PageNumber page) = _$_WentToPage;
+
+  PageNumber get page;
+  _$WentToPageCopyWith<_WentToPage> get copyWith;
+}
+
+/// @nodoc
+abstract class _$CheckIsLastPageCopyWith<$Res> {
+  factory _$CheckIsLastPageCopyWith(
+          _CheckIsLastPage value, $Res Function(_CheckIsLastPage) then) =
+      __$CheckIsLastPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$CheckIsLastPageCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$CheckIsLastPageCopyWith<$Res> {
+  __$CheckIsLastPageCopyWithImpl(
+      _CheckIsLastPage _value, $Res Function(_CheckIsLastPage) _then)
+      : super(_value, (v) => _then(v as _CheckIsLastPage));
+
+  @override
+  _CheckIsLastPage get _value => super._value as _CheckIsLastPage;
+}
+
+/// @nodoc
+class _$_CheckIsLastPage implements _CheckIsLastPage {
+  const _$_CheckIsLastPage();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.checkIsLastPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _CheckIsLastPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result previousPagePressed(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result checkIsLastPage(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
+    return checkIsLastPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result previousPagePressed(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result checkIsLastPage(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (checkIsLastPage != null) {
+      return checkIsLastPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
+    @required Result wentToPage(_WentToPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
+    return checkIsLastPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
+    Result wentToPage(_WentToPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (checkIsLastPage != null) {
+      return checkIsLastPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckIsLastPage implements SurveyPageEvent {
+  const factory _CheckIsLastPage() = _$_CheckIsLastPage;
+}
+
+/// @nodoc
+abstract class _$AnswerBlocUpdatedCopyWith<$Res> {
+  factory _$AnswerBlocUpdatedCopyWith(
+          _AnswerBlocUpdated value, $Res Function(_AnswerBlocUpdated) then) =
+      __$AnswerBlocUpdatedCopyWithImpl<$Res>;
+  $Res call(
+      {KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtList<Question> questionList});
+}
+
+/// @nodoc
+class __$AnswerBlocUpdatedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$AnswerBlocUpdatedCopyWith<$Res> {
+  __$AnswerBlocUpdatedCopyWithImpl(
+      _AnswerBlocUpdated _value, $Res Function(_AnswerBlocUpdated) _then)
+      : super(_value, (v) => _then(v as _AnswerBlocUpdated));
+
+  @override
+  _AnswerBlocUpdated get _value => super._value as _AnswerBlocUpdated;
+
+  @override
+  $Res call({
+    Object answerStatusMap = freezed,
+    Object questionList = freezed,
+  }) {
+    return _then(_AnswerBlocUpdated(
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as KtList<Question>,
+    ));
+  }
+}
+
+/// @nodoc
+class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
+  const _$_AnswerBlocUpdated(
+      {@required this.answerStatusMap, @required this.questionList})
+      : assert(answerStatusMap != null),
+        assert(questionList != null);
+
+  @override
+  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  @override
+  final KtList<Question> questionList;
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.answerBlocUpdated(answerStatusMap: $answerStatusMap, questionList: $questionList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AnswerBlocUpdated &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)) &&
+            (identical(other.questionList, questionList) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionList, questionList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(answerStatusMap) ^
+      const DeepCollectionEquality().hash(questionList);
+
+  @override
+  _$AnswerBlocUpdatedCopyWith<_AnswerBlocUpdated> get copyWith =>
+      __$AnswerBlocUpdatedCopyWithImpl<_AnswerBlocUpdated>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result previousPagePressed(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result checkIsLastPage(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
+    return answerBlocUpdated(answerStatusMap, questionList);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result previousPagePressed(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result checkIsLastPage(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (answerBlocUpdated != null) {
+      return answerBlocUpdated(answerStatusMap, questionList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
+    @required Result wentToPage(_WentToPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(checkIsLastPage != null);
+    assert(answerBlocUpdated != null);
+    return answerBlocUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
+    Result wentToPage(_WentToPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (answerBlocUpdated != null) {
+      return answerBlocUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AnswerBlocUpdated implements SurveyPageEvent {
+  const factory _AnswerBlocUpdated(
+      {@required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required KtList<Question> questionList}) = _$_AnswerBlocUpdated;
+
+  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtList<Question> get questionList;
+  _$AnswerBlocUpdatedCopyWith<_AnswerBlocUpdated> get copyWith;
 }
 
 /// @nodoc
@@ -379,12 +945,14 @@ class _$SurveyPageStateTearOff {
   _SurveyPageState call(
       {@required PageNumber page,
       @required KtList<Question> questionList,
-      @required KtList<SerialNumber> serialNumberList,
+      @required KtList<Question> pageQuestionList,
+      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       @required bool isLastPage}) {
     return _SurveyPageState(
       page: page,
       questionList: questionList,
-      serialNumberList: serialNumberList,
+      pageQuestionList: pageQuestionList,
+      answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
     );
   }
@@ -398,7 +966,9 @@ const $SurveyPageState = _$SurveyPageStateTearOff();
 mixin _$SurveyPageState {
   PageNumber get page;
   KtList<Question> get questionList;
-  KtList<SerialNumber> get serialNumberList;
+  KtList<Question> get pageQuestionList;
+  KtMutableMap<QuestionId, AnswerStatus>
+      get answerStatusMap; // @required KtList<SerialNumber> serialNumberList,
   bool get isLastPage;
 
   $SurveyPageStateCopyWith<SurveyPageState> get copyWith;
@@ -412,7 +982,8 @@ abstract class $SurveyPageStateCopyWith<$Res> {
   $Res call(
       {PageNumber page,
       KtList<Question> questionList,
-      KtList<SerialNumber> serialNumberList,
+      KtList<Question> pageQuestionList,
+      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       bool isLastPage});
 }
 
@@ -429,7 +1000,8 @@ class _$SurveyPageStateCopyWithImpl<$Res>
   $Res call({
     Object page = freezed,
     Object questionList = freezed,
-    Object serialNumberList = freezed,
+    Object pageQuestionList = freezed,
+    Object answerStatusMap = freezed,
     Object isLastPage = freezed,
   }) {
     return _then(_value.copyWith(
@@ -437,9 +1009,12 @@ class _$SurveyPageStateCopyWithImpl<$Res>
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
-      serialNumberList: serialNumberList == freezed
-          ? _value.serialNumberList
-          : serialNumberList as KtList<SerialNumber>,
+      pageQuestionList: pageQuestionList == freezed
+          ? _value.pageQuestionList
+          : pageQuestionList as KtList<Question>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
       isLastPage:
           isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
     ));
@@ -456,7 +1031,8 @@ abstract class _$SurveyPageStateCopyWith<$Res>
   $Res call(
       {PageNumber page,
       KtList<Question> questionList,
-      KtList<SerialNumber> serialNumberList,
+      KtList<Question> pageQuestionList,
+      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       bool isLastPage});
 }
 
@@ -475,7 +1051,8 @@ class __$SurveyPageStateCopyWithImpl<$Res>
   $Res call({
     Object page = freezed,
     Object questionList = freezed,
-    Object serialNumberList = freezed,
+    Object pageQuestionList = freezed,
+    Object answerStatusMap = freezed,
     Object isLastPage = freezed,
   }) {
     return _then(_SurveyPageState(
@@ -483,9 +1060,12 @@ class __$SurveyPageStateCopyWithImpl<$Res>
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
-      serialNumberList: serialNumberList == freezed
-          ? _value.serialNumberList
-          : serialNumberList as KtList<SerialNumber>,
+      pageQuestionList: pageQuestionList == freezed
+          ? _value.pageQuestionList
+          : pageQuestionList as KtList<Question>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
       isLastPage:
           isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
     ));
@@ -497,11 +1077,13 @@ class _$_SurveyPageState implements _SurveyPageState {
   const _$_SurveyPageState(
       {@required this.page,
       @required this.questionList,
-      @required this.serialNumberList,
+      @required this.pageQuestionList,
+      @required this.answerStatusMap,
       @required this.isLastPage})
       : assert(page != null),
         assert(questionList != null),
-        assert(serialNumberList != null),
+        assert(pageQuestionList != null),
+        assert(answerStatusMap != null),
         assert(isLastPage != null);
 
   @override
@@ -509,13 +1091,15 @@ class _$_SurveyPageState implements _SurveyPageState {
   @override
   final KtList<Question> questionList;
   @override
-  final KtList<SerialNumber> serialNumberList;
+  final KtList<Question> pageQuestionList;
   @override
+  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  @override // @required KtList<SerialNumber> serialNumberList,
   final bool isLastPage;
 
   @override
   String toString() {
-    return 'SurveyPageState(page: $page, questionList: $questionList, serialNumberList: $serialNumberList, isLastPage: $isLastPage)';
+    return 'SurveyPageState(page: $page, questionList: $questionList, pageQuestionList: $pageQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage)';
   }
 
   @override
@@ -527,9 +1111,12 @@ class _$_SurveyPageState implements _SurveyPageState {
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionList, questionList)) &&
-            (identical(other.serialNumberList, serialNumberList) ||
+            (identical(other.pageQuestionList, pageQuestionList) ||
                 const DeepCollectionEquality()
-                    .equals(other.serialNumberList, serialNumberList)) &&
+                    .equals(other.pageQuestionList, pageQuestionList)) &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)) &&
             (identical(other.isLastPage, isLastPage) ||
                 const DeepCollectionEquality()
                     .equals(other.isLastPage, isLastPage)));
@@ -540,7 +1127,8 @@ class _$_SurveyPageState implements _SurveyPageState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(page) ^
       const DeepCollectionEquality().hash(questionList) ^
-      const DeepCollectionEquality().hash(serialNumberList) ^
+      const DeepCollectionEquality().hash(pageQuestionList) ^
+      const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage);
 
   @override
@@ -552,7 +1140,8 @@ abstract class _SurveyPageState implements SurveyPageState {
   const factory _SurveyPageState(
       {@required PageNumber page,
       @required KtList<Question> questionList,
-      @required KtList<SerialNumber> serialNumberList,
+      @required KtList<Question> pageQuestionList,
+      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       @required bool isLastPage}) = _$_SurveyPageState;
 
   @override
@@ -560,8 +1149,10 @@ abstract class _SurveyPageState implements SurveyPageState {
   @override
   KtList<Question> get questionList;
   @override
-  KtList<SerialNumber> get serialNumberList;
+  KtList<Question> get pageQuestionList;
   @override
+  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  @override // @required KtList<SerialNumber> serialNumberList,
   bool get isLastPage;
   @override
   _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith;

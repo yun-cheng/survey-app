@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
@@ -16,6 +17,7 @@ part 'answer_event.dart';
 part 'answer_state.dart';
 part 'answer_bloc.freezed.dart';
 
+@injectable
 class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
   final IAnswerAlgorithm _answerAlgorithm;
   final IAnswerStatusAlgorithm _answerStatusAlgorithm;
