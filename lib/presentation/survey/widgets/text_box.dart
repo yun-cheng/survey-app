@@ -41,6 +41,9 @@ class TextBox extends HookWidget {
             counterText: '',
           ),
           maxLines: null,
+          keyboardType: question.type.isNumber
+              ? TextInputType.number
+              : TextInputType.text,
           // autocorrect: false,
           onChanged: (value) {
             context.bloc<AnswerBloc>().add(

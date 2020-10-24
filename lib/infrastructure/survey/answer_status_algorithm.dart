@@ -2,6 +2,7 @@ import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/full_expression.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_status_algorithm.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
@@ -14,6 +15,7 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     KtMutableMap<QuestionId, Answer> answerMap,
     KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
     Question question,
+    KtList<Question> questionList,
   }) {
     KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap;
 
@@ -30,6 +32,44 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
         question: question,
       );
     }
+
+    newAnswerStatusMap = updateShowQuestion(
+      answerMap: answerMap,
+      answerStatusMap: answerStatusMap,
+      questionList: questionList,
+    );
+
+    return newAnswerStatusMap;
+  }
+
+  KtMutableMap<QuestionId, AnswerStatus> updateShowQuestion({
+    KtMutableMap<QuestionId, Answer> answerMap,
+    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    KtList<Question> questionList,
+  }) {
+    final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
+        KtMutableMap.from(answerStatusMap.asMap());
+
+    final showQuestionList = questionList
+        .filter((question) => question.show != FullExpression.empty());
+
+    showQuestionList.forEach((question) {
+      AnswerStatusType newAnswerStatusType;
+
+      final bool showQuestion = question.show.evaluate(answerMap);
+      if (showQuestion && answerStatusMap[question.id].isHidden) {
+        newAnswerStatusType = AnswerStatusType.unanswered();
+      } else if (!showQuestion && !answerStatusMap[question.id].isHidden) {
+        newAnswerStatusType = AnswerStatusType.hidden();
+      } else {
+        newAnswerStatusType = answerStatusMap[question.id].type;
+      }
+
+      newAnswerStatusMap[question.id] =
+          newAnswerStatusMap[question.id].copyWith(
+        type: newAnswerStatusType,
+      );
+    });
 
     return newAnswerStatusMap;
   }

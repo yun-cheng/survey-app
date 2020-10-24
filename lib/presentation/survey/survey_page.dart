@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/responsive_layout.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/tap_out_dismiss_keyboard.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/survey_body.dart';
 
 class SurveyPage extends StatelessWidget {
@@ -9,8 +10,10 @@ class SurveyPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Survey Page'),
       ),
-      body: ResponsiveLayout(
-        child: SurveyBody(),
+      body: TapOutDismissKeyboard(
+              child: ResponsiveLayout(
+          child: SurveyBody(),
+        ),
       ),
     );
   }

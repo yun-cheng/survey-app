@@ -23,8 +23,7 @@ class AnswerBox extends StatelessWidget {
       // FIXME 在題目出現在頁面時 listen
       // buildWhen:  (p, c) => p.question != c.isSaving,
       builder: (context, state) {
-        final thisAnswer =
-            state.answerMap.getOrDefault(question.id, Answer.empty());
+        final thisAnswer = state.answerMap[question.id];
 
         // TODO 根據 isSpecialAnswer 來丟選項
         // return ListView.builder(

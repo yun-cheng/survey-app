@@ -9,7 +9,8 @@ class SurveyBody extends StatelessWidget {
     // TODO 根據 AnswerBloc 中的 answerStatusMap 來決定是否呈現該題
     // TODO 根據 SurveyPageBloc 中的 ? 來決定呈現哪些題目
     return BlocBuilder<AnswerBloc, AnswerState>(
-      buildWhen: (p, c) => p.survey != c.survey,
+      buildWhen: (p, c) =>
+          p.survey != c.survey || p.answerStatusMap != c.answerStatusMap,
       builder: (context, state) {
         print('SurveyBody rebuild!!!');
         // TODO show error when survey failed!!

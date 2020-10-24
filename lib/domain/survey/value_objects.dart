@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_validators.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 
 class QuestionBody extends ValueObject<String> {
   @override
@@ -107,24 +106,11 @@ class QuestionType extends ValueObject<String> {
     return value.fold((l) => false, (r) => ['number', 'text'].contains(r));
   }
 
-  const QuestionType._(this.value);
-}
-
-// TODO 可能要改
-class ShowQuestion extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ShowQuestion(String input) {
-    assert(input != null);
-    return ShowQuestion._(
-      right(input),
-    );
+  bool get isNumber {
+    return value.fold((l) => false, (r) => r == 'number');
   }
 
-  factory ShowQuestion.empty() => ShowQuestion('');
-
-  const ShowQuestion._(this.value);
+  const QuestionType._(this.value);
 }
 
 class PageNumber extends ValueObject<int> {
@@ -187,23 +173,6 @@ class ChoiceGroup extends ValueObject<String> {
   factory ChoiceGroup.empty() => ChoiceGroup('');
 
   const ChoiceGroup._(this.value);
-}
-
-// TODO 可能要改
-class ValidateAnswer extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ValidateAnswer(String input) {
-    assert(input != null);
-    return ValidateAnswer._(
-      right(input),
-    );
-  }
-
-  factory ValidateAnswer.empty() => ValidateAnswer('');
-
-  const ValidateAnswer._(this.value);
 }
 
 class AnswerBody extends ValueObject<dynamic> {

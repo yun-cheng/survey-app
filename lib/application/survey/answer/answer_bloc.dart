@@ -51,15 +51,20 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
           answerMap: newAnswerMap,
           answerStatusMap: state.answerStatusMap,
           question: e.question,
+          questionList: state.survey.questionList,
         );
 
         yield state.copyWith(
           answerMap: newAnswerMap,
           answerStatusMap: newAnswerStatusMap,
         );
+        print(
+            '********************     [ answer ]    **************************');
         print(newAnswerMap[e.question.id]);
+        print(
+            '********************     [ answerStatus ]    **************************');
         print(newAnswerStatusMap[e.question.id]);
-        print(e.question.show);
+        // print(e.question.show);
       },
       surveySelected: (e) async* {
         yield state.copyWith(
