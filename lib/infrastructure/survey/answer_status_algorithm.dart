@@ -19,25 +19,54 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
   }) {
     KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap;
 
-    if (question.type.isChoice) {
-      newAnswerStatusMap = updateChoiceAnswerStatus(
-        answerMap: answerMap,
-        answerStatusMap: answerStatusMap,
-        question: question,
-      );
-    } else {
-      newAnswerStatusMap = updateInputAnswerStatus(
-        answerMap: answerMap,
-        answerStatusMap: answerStatusMap,
-        question: question,
-      );
+    if (question != null) {
+      if (question.type.isChoice) {
+        newAnswerStatusMap = updateChoiceAnswerStatus(
+          answerMap: answerMap,
+          answerStatusMap: answerStatusMap,
+          question: question,
+        );
+      } else {
+        newAnswerStatusMap = updateInputAnswerStatus(
+          answerMap: answerMap,
+          answerStatusMap: answerStatusMap,
+          question: question,
+        );
+      }
     }
 
     newAnswerStatusMap = updateShowQuestion(
       answerMap: answerMap,
-      answerStatusMap: answerStatusMap,
+      answerStatusMap: question != null ? newAnswerStatusMap : answerStatusMap,
       questionList: questionList,
     );
+
+    newAnswerStatusMap = validateAnswer(
+      answerMap: answerMap,
+      answerStatusMap: newAnswerStatusMap,
+      questionList: questionList,
+    );
+
+    return newAnswerStatusMap;
+  }
+
+  KtMutableMap<QuestionId, AnswerStatus> validateAnswer({
+    KtMutableMap<QuestionId, Answer> answerMap,
+    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    KtList<Question> questionList,
+  }) {
+    final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
+        KtMutableMap.from(answerStatusMap.asMap());
+
+    questionList.forEach((question) {
+      final newWarning =
+          answerStatusMap[question.id].getWarning(question.pageNumber);
+
+      newAnswerStatusMap[question.id] =
+          newAnswerStatusMap[question.id].copyWith(
+        warning: newWarning,
+      );
+    });
 
     return newAnswerStatusMap;
   }

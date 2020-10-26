@@ -3,6 +3,7 @@ part of 'answer_bloc.dart';
 @freezed
 abstract class AnswerEvent with _$AnswerEvent {
   const factory AnswerEvent.answerRestored() = _AnswerRestored;
+  const factory AnswerEvent.answerStatusInitialized() = _AnswerStatusInitialized;
 
   const factory AnswerEvent.answerChanged({
     @required Question question,

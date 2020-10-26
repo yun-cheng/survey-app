@@ -39,6 +39,17 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
           answerStatusMap: answerStatusMap,
         );
       },
+      answerStatusInitialized: (e) async* {
+        final newAnswerStatusMap = _answerStatusAlgorithm.updateAnswerStatus(
+          answerMap: state.answerMap,
+          answerStatusMap: state.answerStatusMap,
+          questionList: state.survey.questionList,
+        );
+
+        yield state.copyWith(
+          answerStatusMap: newAnswerStatusMap,
+        );
+      },
       answerChanged: (e) async* {
         final newAnswerMap = _answerAlgorithm.updateAnswer(
           answerMap: state.answerMap,
@@ -66,6 +77,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         print(
             '********************     [ answerStatus ]    **************************');
         print(newAnswerStatusMap[e.question.id]);
+
         // print(e.question.show);
       },
       surveySelected: (e) async* {
@@ -78,6 +90,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
           respondent: e.respondent,
         );
         add(const AnswerEvent.answerRestored());
+        add(const AnswerEvent.answerStatusInitialized());
       },
     );
   }

@@ -15,8 +15,11 @@ class DropdownBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AnswerBloc, AnswerState>(
+      // NOTE 答案有變更時才要 rebuild
+      buildWhen: (p, c) => p.answerMap[question.id] != c.answerMap[question.id],
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
+        print('DropdownBox rebuild!!!');
 
         return DropdownButton(
           // NOTE 雖然不確定背後是什麼問題，但這樣就解決無法呈現選擇的選項的問題

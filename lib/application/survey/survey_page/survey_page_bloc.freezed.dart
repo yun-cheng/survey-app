@@ -38,8 +38,23 @@ class _$SurveyPageEventTearOff {
   }
 
 // ignore: unused_element
+  _WentToNewestPage wentToNewestPage() {
+    return const _WentToNewestPage();
+  }
+
+// ignore: unused_element
   _CheckIsLastPage checkIsLastPage() {
     return const _CheckIsLastPage();
+  }
+
+// ignore: unused_element
+  _FirstWarningUpdated firstWarningUpdated() {
+    return const _FirstWarningUpdated();
+  }
+
+// ignore: unused_element
+  _ShowWarningUpdated showWarningUpdated() {
+    return const _ShowWarningUpdated();
   }
 
 // ignore: unused_element
@@ -65,7 +80,10 @@ mixin _$SurveyPageEvent {
     @required Result previousPagePressed(),
     @required Result pageUpdated(Direction direction),
     @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
     @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
     @required
         Result answerBlocUpdated(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -77,7 +95,10 @@ mixin _$SurveyPageEvent {
     Result previousPagePressed(),
     Result pageUpdated(Direction direction),
     Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
     Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
     Result answerBlocUpdated(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
@@ -89,7 +110,10 @@ mixin _$SurveyPageEvent {
     @required Result previousPagePressed(_PreviousPagePressed value),
     @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
     @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
     @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   });
   @optionalTypeArgs
@@ -98,7 +122,10 @@ mixin _$SurveyPageEvent {
     Result previousPagePressed(_PreviousPagePressed value),
     Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
     Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
     Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   });
@@ -164,7 +191,10 @@ class _$_NextPagePressed implements _NextPagePressed {
     @required Result previousPagePressed(),
     @required Result pageUpdated(Direction direction),
     @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
     @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
     @required
         Result answerBlocUpdated(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -174,7 +204,10 @@ class _$_NextPagePressed implements _NextPagePressed {
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return nextPagePressed();
   }
@@ -186,7 +219,10 @@ class _$_NextPagePressed implements _NextPagePressed {
     Result previousPagePressed(),
     Result pageUpdated(Direction direction),
     Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
     Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
     Result answerBlocUpdated(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
@@ -206,14 +242,20 @@ class _$_NextPagePressed implements _NextPagePressed {
     @required Result previousPagePressed(_PreviousPagePressed value),
     @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
     @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
     @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return nextPagePressed(this);
   }
@@ -225,7 +267,10 @@ class _$_NextPagePressed implements _NextPagePressed {
     Result previousPagePressed(_PreviousPagePressed value),
     Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
     Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
     Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
@@ -284,7 +329,10 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     @required Result previousPagePressed(),
     @required Result pageUpdated(Direction direction),
     @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
     @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
     @required
         Result answerBlocUpdated(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -294,7 +342,10 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return previousPagePressed();
   }
@@ -306,7 +357,10 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     Result previousPagePressed(),
     Result pageUpdated(Direction direction),
     Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
     Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
     Result answerBlocUpdated(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
@@ -326,14 +380,20 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     @required Result previousPagePressed(_PreviousPagePressed value),
     @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
     @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
     @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return previousPagePressed(this);
   }
@@ -345,7 +405,10 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     Result previousPagePressed(_PreviousPagePressed value),
     Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
     Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
     Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
@@ -427,7 +490,10 @@ class _$_PageUpdated implements _PageUpdated {
     @required Result previousPagePressed(),
     @required Result pageUpdated(Direction direction),
     @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
     @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
     @required
         Result answerBlocUpdated(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -437,7 +503,10 @@ class _$_PageUpdated implements _PageUpdated {
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return pageUpdated(direction);
   }
@@ -449,7 +518,10 @@ class _$_PageUpdated implements _PageUpdated {
     Result previousPagePressed(),
     Result pageUpdated(Direction direction),
     Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
     Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
     Result answerBlocUpdated(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
@@ -469,14 +541,20 @@ class _$_PageUpdated implements _PageUpdated {
     @required Result previousPagePressed(_PreviousPagePressed value),
     @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
     @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
     @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return pageUpdated(this);
   }
@@ -488,7 +566,10 @@ class _$_PageUpdated implements _PageUpdated {
     Result previousPagePressed(_PreviousPagePressed value),
     Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
     Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
     Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
@@ -571,7 +652,10 @@ class _$_WentToPage implements _WentToPage {
     @required Result previousPagePressed(),
     @required Result pageUpdated(Direction direction),
     @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
     @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
     @required
         Result answerBlocUpdated(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -581,7 +665,10 @@ class _$_WentToPage implements _WentToPage {
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return wentToPage(page);
   }
@@ -593,7 +680,10 @@ class _$_WentToPage implements _WentToPage {
     Result previousPagePressed(),
     Result pageUpdated(Direction direction),
     Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
     Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
     Result answerBlocUpdated(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
@@ -613,14 +703,20 @@ class _$_WentToPage implements _WentToPage {
     @required Result previousPagePressed(_PreviousPagePressed value),
     @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
     @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
     @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return wentToPage(this);
   }
@@ -632,7 +728,10 @@ class _$_WentToPage implements _WentToPage {
     Result previousPagePressed(_PreviousPagePressed value),
     Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
     Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
     Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
@@ -649,6 +748,144 @@ abstract class _WentToPage implements SurveyPageEvent {
 
   PageNumber get page;
   _$WentToPageCopyWith<_WentToPage> get copyWith;
+}
+
+/// @nodoc
+abstract class _$WentToNewestPageCopyWith<$Res> {
+  factory _$WentToNewestPageCopyWith(
+          _WentToNewestPage value, $Res Function(_WentToNewestPage) then) =
+      __$WentToNewestPageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$WentToNewestPageCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$WentToNewestPageCopyWith<$Res> {
+  __$WentToNewestPageCopyWithImpl(
+      _WentToNewestPage _value, $Res Function(_WentToNewestPage) _then)
+      : super(_value, (v) => _then(v as _WentToNewestPage));
+
+  @override
+  _WentToNewestPage get _value => super._value as _WentToNewestPage;
+}
+
+/// @nodoc
+class _$_WentToNewestPage implements _WentToNewestPage {
+  const _$_WentToNewestPage();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.wentToNewestPage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _WentToNewestPage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result previousPagePressed(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
+    @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(wentToNewestPage != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(answerBlocUpdated != null);
+    return wentToNewestPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result previousPagePressed(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
+    Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (wentToNewestPage != null) {
+      return wentToNewestPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
+    @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(wentToNewestPage != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(answerBlocUpdated != null);
+    return wentToNewestPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
+    Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (wentToNewestPage != null) {
+      return wentToNewestPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WentToNewestPage implements SurveyPageEvent {
+  const factory _WentToNewestPage() = _$_WentToNewestPage;
 }
 
 /// @nodoc
@@ -694,7 +931,10 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
     @required Result previousPagePressed(),
     @required Result pageUpdated(Direction direction),
     @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
     @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
     @required
         Result answerBlocUpdated(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -704,7 +944,10 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return checkIsLastPage();
   }
@@ -716,7 +959,10 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
     Result previousPagePressed(),
     Result pageUpdated(Direction direction),
     Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
     Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
     Result answerBlocUpdated(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
@@ -736,14 +982,20 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
     @required Result previousPagePressed(_PreviousPagePressed value),
     @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
     @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
     @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return checkIsLastPage(this);
   }
@@ -755,7 +1007,10 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
     Result previousPagePressed(_PreviousPagePressed value),
     Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
     Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
     Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
@@ -769,6 +1024,282 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
 
 abstract class _CheckIsLastPage implements SurveyPageEvent {
   const factory _CheckIsLastPage() = _$_CheckIsLastPage;
+}
+
+/// @nodoc
+abstract class _$FirstWarningUpdatedCopyWith<$Res> {
+  factory _$FirstWarningUpdatedCopyWith(_FirstWarningUpdated value,
+          $Res Function(_FirstWarningUpdated) then) =
+      __$FirstWarningUpdatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$FirstWarningUpdatedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$FirstWarningUpdatedCopyWith<$Res> {
+  __$FirstWarningUpdatedCopyWithImpl(
+      _FirstWarningUpdated _value, $Res Function(_FirstWarningUpdated) _then)
+      : super(_value, (v) => _then(v as _FirstWarningUpdated));
+
+  @override
+  _FirstWarningUpdated get _value => super._value as _FirstWarningUpdated;
+}
+
+/// @nodoc
+class _$_FirstWarningUpdated implements _FirstWarningUpdated {
+  const _$_FirstWarningUpdated();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.firstWarningUpdated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _FirstWarningUpdated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result previousPagePressed(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
+    @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(wentToNewestPage != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(answerBlocUpdated != null);
+    return firstWarningUpdated();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result previousPagePressed(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
+    Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (firstWarningUpdated != null) {
+      return firstWarningUpdated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
+    @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(wentToNewestPage != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(answerBlocUpdated != null);
+    return firstWarningUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
+    Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (firstWarningUpdated != null) {
+      return firstWarningUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FirstWarningUpdated implements SurveyPageEvent {
+  const factory _FirstWarningUpdated() = _$_FirstWarningUpdated;
+}
+
+/// @nodoc
+abstract class _$ShowWarningUpdatedCopyWith<$Res> {
+  factory _$ShowWarningUpdatedCopyWith(
+          _ShowWarningUpdated value, $Res Function(_ShowWarningUpdated) then) =
+      __$ShowWarningUpdatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$ShowWarningUpdatedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$ShowWarningUpdatedCopyWith<$Res> {
+  __$ShowWarningUpdatedCopyWithImpl(
+      _ShowWarningUpdated _value, $Res Function(_ShowWarningUpdated) _then)
+      : super(_value, (v) => _then(v as _ShowWarningUpdated));
+
+  @override
+  _ShowWarningUpdated get _value => super._value as _ShowWarningUpdated;
+}
+
+/// @nodoc
+class _$_ShowWarningUpdated implements _ShowWarningUpdated {
+  const _$_ShowWarningUpdated();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.showWarningUpdated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _ShowWarningUpdated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result nextPagePressed(),
+    @required Result previousPagePressed(),
+    @required Result pageUpdated(Direction direction),
+    @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
+    @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
+    @required
+        Result answerBlocUpdated(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(wentToNewestPage != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(answerBlocUpdated != null);
+    return showWarningUpdated();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result nextPagePressed(),
+    Result previousPagePressed(),
+    Result pageUpdated(Direction direction),
+    Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
+    Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
+    Result answerBlocUpdated(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (showWarningUpdated != null) {
+      return showWarningUpdated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result nextPagePressed(_NextPagePressed value),
+    @required Result previousPagePressed(_PreviousPagePressed value),
+    @required Result pageUpdated(_PageUpdated value),
+    @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
+    @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
+    @required Result answerBlocUpdated(_AnswerBlocUpdated value),
+  }) {
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(pageUpdated != null);
+    assert(wentToPage != null);
+    assert(wentToNewestPage != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(answerBlocUpdated != null);
+    return showWarningUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result nextPagePressed(_NextPagePressed value),
+    Result previousPagePressed(_PreviousPagePressed value),
+    Result pageUpdated(_PageUpdated value),
+    Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
+    Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
+    Result answerBlocUpdated(_AnswerBlocUpdated value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (showWarningUpdated != null) {
+      return showWarningUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowWarningUpdated implements SurveyPageEvent {
+  const factory _ShowWarningUpdated() = _$_ShowWarningUpdated;
 }
 
 /// @nodoc
@@ -854,7 +1385,10 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
     @required Result previousPagePressed(),
     @required Result pageUpdated(Direction direction),
     @required Result wentToPage(PageNumber page),
+    @required Result wentToNewestPage(),
     @required Result checkIsLastPage(),
+    @required Result firstWarningUpdated(),
+    @required Result showWarningUpdated(),
     @required
         Result answerBlocUpdated(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -864,7 +1398,10 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return answerBlocUpdated(answerStatusMap, questionList);
   }
@@ -876,7 +1413,10 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
     Result previousPagePressed(),
     Result pageUpdated(Direction direction),
     Result wentToPage(PageNumber page),
+    Result wentToNewestPage(),
     Result checkIsLastPage(),
+    Result firstWarningUpdated(),
+    Result showWarningUpdated(),
     Result answerBlocUpdated(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
@@ -896,14 +1436,20 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
     @required Result previousPagePressed(_PreviousPagePressed value),
     @required Result pageUpdated(_PageUpdated value),
     @required Result wentToPage(_WentToPage value),
+    @required Result wentToNewestPage(_WentToNewestPage value),
     @required Result checkIsLastPage(_CheckIsLastPage value),
+    @required Result firstWarningUpdated(_FirstWarningUpdated value),
+    @required Result showWarningUpdated(_ShowWarningUpdated value),
     @required Result answerBlocUpdated(_AnswerBlocUpdated value),
   }) {
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(pageUpdated != null);
     assert(wentToPage != null);
+    assert(wentToNewestPage != null);
     assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
     assert(answerBlocUpdated != null);
     return answerBlocUpdated(this);
   }
@@ -915,7 +1461,10 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
     Result previousPagePressed(_PreviousPagePressed value),
     Result pageUpdated(_PageUpdated value),
     Result wentToPage(_WentToPage value),
+    Result wentToNewestPage(_WentToNewestPage value),
     Result checkIsLastPage(_CheckIsLastPage value),
+    Result firstWarningUpdated(_FirstWarningUpdated value),
+    Result showWarningUpdated(_ShowWarningUpdated value),
     Result answerBlocUpdated(_AnswerBlocUpdated value),
     @required Result orElse(),
   }) {
@@ -944,16 +1493,22 @@ class _$SurveyPageStateTearOff {
 // ignore: unused_element
   _SurveyPageState call(
       {@required PageNumber page,
+      @required PageNumber newestPage,
       @required KtList<Question> questionList,
       @required KtList<Question> pageQuestionList,
       @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required bool isLastPage}) {
+      @required bool isLastPage,
+      @required Warning warning,
+      @required bool showWarning}) {
     return _SurveyPageState(
       page: page,
+      newestPage: newestPage,
       questionList: questionList,
       pageQuestionList: pageQuestionList,
       answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
+      warning: warning,
+      showWarning: showWarning,
     );
   }
 }
@@ -965,11 +1520,13 @@ const $SurveyPageState = _$SurveyPageStateTearOff();
 /// @nodoc
 mixin _$SurveyPageState {
   PageNumber get page;
+  PageNumber get newestPage;
   KtList<Question> get questionList;
   KtList<Question> get pageQuestionList;
-  KtMutableMap<QuestionId, AnswerStatus>
-      get answerStatusMap; // @required KtList<SerialNumber> serialNumberList,
+  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
   bool get isLastPage;
+  Warning get warning;
+  bool get showWarning;
 
   $SurveyPageStateCopyWith<SurveyPageState> get copyWith;
 }
@@ -981,10 +1538,15 @@ abstract class $SurveyPageStateCopyWith<$Res> {
       _$SurveyPageStateCopyWithImpl<$Res>;
   $Res call(
       {PageNumber page,
+      PageNumber newestPage,
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
       KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      bool isLastPage});
+      bool isLastPage,
+      Warning warning,
+      bool showWarning});
+
+  $WarningCopyWith<$Res> get warning;
 }
 
 /// @nodoc
@@ -999,13 +1561,18 @@ class _$SurveyPageStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object page = freezed,
+    Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
+    Object warning = freezed,
+    Object showWarning = freezed,
   }) {
     return _then(_value.copyWith(
       page: page == freezed ? _value.page : page as PageNumber,
+      newestPage:
+          newestPage == freezed ? _value.newestPage : newestPage as PageNumber,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
@@ -1017,7 +1584,20 @@ class _$SurveyPageStateCopyWithImpl<$Res>
           : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
       isLastPage:
           isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
+      warning: warning == freezed ? _value.warning : warning as Warning,
+      showWarning:
+          showWarning == freezed ? _value.showWarning : showWarning as bool,
     ));
+  }
+
+  @override
+  $WarningCopyWith<$Res> get warning {
+    if (_value.warning == null) {
+      return null;
+    }
+    return $WarningCopyWith<$Res>(_value.warning, (value) {
+      return _then(_value.copyWith(warning: value));
+    });
   }
 }
 
@@ -1030,10 +1610,16 @@ abstract class _$SurveyPageStateCopyWith<$Res>
   @override
   $Res call(
       {PageNumber page,
+      PageNumber newestPage,
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
       KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      bool isLastPage});
+      bool isLastPage,
+      Warning warning,
+      bool showWarning});
+
+  @override
+  $WarningCopyWith<$Res> get warning;
 }
 
 /// @nodoc
@@ -1050,13 +1636,18 @@ class __$SurveyPageStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object page = freezed,
+    Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
+    Object warning = freezed,
+    Object showWarning = freezed,
   }) {
     return _then(_SurveyPageState(
       page: page == freezed ? _value.page : page as PageNumber,
+      newestPage:
+          newestPage == freezed ? _value.newestPage : newestPage as PageNumber,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
@@ -1068,6 +1659,9 @@ class __$SurveyPageStateCopyWithImpl<$Res>
           : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
       isLastPage:
           isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
+      warning: warning == freezed ? _value.warning : warning as Warning,
+      showWarning:
+          showWarning == freezed ? _value.showWarning : showWarning as bool,
     ));
   }
 }
@@ -1076,30 +1670,42 @@ class __$SurveyPageStateCopyWithImpl<$Res>
 class _$_SurveyPageState implements _SurveyPageState {
   const _$_SurveyPageState(
       {@required this.page,
+      @required this.newestPage,
       @required this.questionList,
       @required this.pageQuestionList,
       @required this.answerStatusMap,
-      @required this.isLastPage})
+      @required this.isLastPage,
+      @required this.warning,
+      @required this.showWarning})
       : assert(page != null),
+        assert(newestPage != null),
         assert(questionList != null),
         assert(pageQuestionList != null),
         assert(answerStatusMap != null),
-        assert(isLastPage != null);
+        assert(isLastPage != null),
+        assert(warning != null),
+        assert(showWarning != null);
 
   @override
   final PageNumber page;
+  @override
+  final PageNumber newestPage;
   @override
   final KtList<Question> questionList;
   @override
   final KtList<Question> pageQuestionList;
   @override
   final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
-  @override // @required KtList<SerialNumber> serialNumberList,
+  @override
   final bool isLastPage;
+  @override
+  final Warning warning;
+  @override
+  final bool showWarning;
 
   @override
   String toString() {
-    return 'SurveyPageState(page: $page, questionList: $questionList, pageQuestionList: $pageQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage)';
+    return 'SurveyPageState(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning)';
   }
 
   @override
@@ -1108,6 +1714,9 @@ class _$_SurveyPageState implements _SurveyPageState {
         (other is _SurveyPageState &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)) &&
+            (identical(other.newestPage, newestPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.newestPage, newestPage)) &&
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionList, questionList)) &&
@@ -1119,17 +1728,26 @@ class _$_SurveyPageState implements _SurveyPageState {
                     .equals(other.answerStatusMap, answerStatusMap)) &&
             (identical(other.isLastPage, isLastPage) ||
                 const DeepCollectionEquality()
-                    .equals(other.isLastPage, isLastPage)));
+                    .equals(other.isLastPage, isLastPage)) &&
+            (identical(other.warning, warning) ||
+                const DeepCollectionEquality()
+                    .equals(other.warning, warning)) &&
+            (identical(other.showWarning, showWarning) ||
+                const DeepCollectionEquality()
+                    .equals(other.showWarning, showWarning)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(page) ^
+      const DeepCollectionEquality().hash(newestPage) ^
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(isLastPage);
+      const DeepCollectionEquality().hash(isLastPage) ^
+      const DeepCollectionEquality().hash(warning) ^
+      const DeepCollectionEquality().hash(showWarning);
 
   @override
   _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith =>
@@ -1139,21 +1757,30 @@ class _$_SurveyPageState implements _SurveyPageState {
 abstract class _SurveyPageState implements SurveyPageState {
   const factory _SurveyPageState(
       {@required PageNumber page,
+      @required PageNumber newestPage,
       @required KtList<Question> questionList,
       @required KtList<Question> pageQuestionList,
       @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required bool isLastPage}) = _$_SurveyPageState;
+      @required bool isLastPage,
+      @required Warning warning,
+      @required bool showWarning}) = _$_SurveyPageState;
 
   @override
   PageNumber get page;
+  @override
+  PageNumber get newestPage;
   @override
   KtList<Question> get questionList;
   @override
   KtList<Question> get pageQuestionList;
   @override
   KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
-  @override // @required KtList<SerialNumber> serialNumberList,
+  @override
   bool get isLastPage;
+  @override
+  Warning get warning;
+  @override
+  bool get showWarning;
   @override
   _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith;
 }

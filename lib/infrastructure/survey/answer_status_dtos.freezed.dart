@@ -21,11 +21,13 @@ class _$AnswerStatusDtoTearOff {
       {@required String questionId,
       @required int serialNumber,
       @required String answerStatusType,
+      WarningDto warning,
       @required Map<String, String> noteMap}) {
     return _AnswerStatusDto(
       questionId: questionId,
       serialNumber: serialNumber,
       answerStatusType: answerStatusType,
+      warning: warning,
       noteMap: noteMap,
     );
   }
@@ -45,6 +47,7 @@ mixin _$AnswerStatusDto {
   String get questionId;
   int get serialNumber;
   String get answerStatusType;
+  WarningDto get warning;
   Map<String, String> get noteMap;
 
   Map<String, dynamic> toJson();
@@ -60,7 +63,10 @@ abstract class $AnswerStatusDtoCopyWith<$Res> {
       {String questionId,
       int serialNumber,
       String answerStatusType,
+      WarningDto warning,
       Map<String, String> noteMap});
+
+  $WarningDtoCopyWith<$Res> get warning;
 }
 
 /// @nodoc
@@ -77,6 +83,7 @@ class _$AnswerStatusDtoCopyWithImpl<$Res>
     Object questionId = freezed,
     Object serialNumber = freezed,
     Object answerStatusType = freezed,
+    Object warning = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_value.copyWith(
@@ -87,9 +94,20 @@ class _$AnswerStatusDtoCopyWithImpl<$Res>
       answerStatusType: answerStatusType == freezed
           ? _value.answerStatusType
           : answerStatusType as String,
+      warning: warning == freezed ? _value.warning : warning as WarningDto,
       noteMap:
           noteMap == freezed ? _value.noteMap : noteMap as Map<String, String>,
     ));
+  }
+
+  @override
+  $WarningDtoCopyWith<$Res> get warning {
+    if (_value.warning == null) {
+      return null;
+    }
+    return $WarningDtoCopyWith<$Res>(_value.warning, (value) {
+      return _then(_value.copyWith(warning: value));
+    });
   }
 }
 
@@ -104,7 +122,11 @@ abstract class _$AnswerStatusDtoCopyWith<$Res>
       {String questionId,
       int serialNumber,
       String answerStatusType,
+      WarningDto warning,
       Map<String, String> noteMap});
+
+  @override
+  $WarningDtoCopyWith<$Res> get warning;
 }
 
 /// @nodoc
@@ -123,6 +145,7 @@ class __$AnswerStatusDtoCopyWithImpl<$Res>
     Object questionId = freezed,
     Object serialNumber = freezed,
     Object answerStatusType = freezed,
+    Object warning = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_AnswerStatusDto(
@@ -133,6 +156,7 @@ class __$AnswerStatusDtoCopyWithImpl<$Res>
       answerStatusType: answerStatusType == freezed
           ? _value.answerStatusType
           : answerStatusType as String,
+      warning: warning == freezed ? _value.warning : warning as WarningDto,
       noteMap:
           noteMap == freezed ? _value.noteMap : noteMap as Map<String, String>,
     ));
@@ -147,6 +171,7 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
       {@required this.questionId,
       @required this.serialNumber,
       @required this.answerStatusType,
+      this.warning,
       @required this.noteMap})
       : assert(questionId != null),
         assert(serialNumber != null),
@@ -164,11 +189,13 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
   @override
   final String answerStatusType;
   @override
+  final WarningDto warning;
+  @override
   final Map<String, String> noteMap;
 
   @override
   String toString() {
-    return 'AnswerStatusDto(questionId: $questionId, serialNumber: $serialNumber, answerStatusType: $answerStatusType, noteMap: $noteMap)';
+    return 'AnswerStatusDto(questionId: $questionId, serialNumber: $serialNumber, answerStatusType: $answerStatusType, warning: $warning, noteMap: $noteMap)';
   }
 
   @override
@@ -184,6 +211,9 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
             (identical(other.answerStatusType, answerStatusType) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusType, answerStatusType)) &&
+            (identical(other.warning, warning) ||
+                const DeepCollectionEquality()
+                    .equals(other.warning, warning)) &&
             (identical(other.noteMap, noteMap) ||
                 const DeepCollectionEquality().equals(other.noteMap, noteMap)));
   }
@@ -194,6 +224,7 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
       const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(serialNumber) ^
       const DeepCollectionEquality().hash(answerStatusType) ^
+      const DeepCollectionEquality().hash(warning) ^
       const DeepCollectionEquality().hash(noteMap);
 
   @override
@@ -212,6 +243,7 @@ abstract class _AnswerStatusDto extends AnswerStatusDto {
       {@required String questionId,
       @required int serialNumber,
       @required String answerStatusType,
+      WarningDto warning,
       @required Map<String, String> noteMap}) = _$_AnswerStatusDto;
 
   factory _AnswerStatusDto.fromJson(Map<String, dynamic> json) =
@@ -223,6 +255,8 @@ abstract class _AnswerStatusDto extends AnswerStatusDto {
   int get serialNumber;
   @override
   String get answerStatusType;
+  @override
+  WarningDto get warning;
   @override
   Map<String, String> get noteMap;
   @override

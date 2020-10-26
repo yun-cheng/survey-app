@@ -9,7 +9,7 @@ abstract class IAnswerStatusAlgorithm {
   KtMutableMap<QuestionId, AnswerStatus> updateAnswerStatus({
     @required KtMutableMap<QuestionId, Answer> answerMap,
     @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-    @required Question question,
+    Question question,
     @required KtList<Question> questionList,
   });
 }

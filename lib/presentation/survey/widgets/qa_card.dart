@@ -5,6 +5,7 @@ import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/answer_
 import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/dropdown_box.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/question_box.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/text_box.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/warning_box.dart';
 
 class QaCard extends StatelessWidget {
   final Question question;
@@ -18,6 +19,8 @@ class QaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      // BUG 有 rebuild 卻會出現不同頁面的作答!?
+      key: Key(question.id.getOrCrash()),
       color: Colors.teal[200],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
@@ -29,6 +32,7 @@ class QaCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             QuestionBox(question: question),
+            WarningBox(question: question),
             // TODO 新增一個切換是否使用 specialAnswer 的 switch
             if (question.type.isValid()) ...[
               if (question.type == QuestionType.popupSingle()) ...[

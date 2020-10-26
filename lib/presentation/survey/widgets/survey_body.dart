@@ -7,6 +7,7 @@ class SurveyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
+      // NOTE 該頁題目有變更時才要 rebuild
       buildWhen: (p, c) => p.pageQuestionList != c.pageQuestionList,
       builder: (context, state) {
         print('SurveyBody rebuild!!!');

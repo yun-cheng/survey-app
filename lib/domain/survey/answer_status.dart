@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/warning.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'answer_status.freezed.dart';
@@ -15,6 +16,7 @@ abstract class AnswerStatus implements _$AnswerStatus {
     @required QuestionId id,
     @required SerialNumber serialNumber,
     @required AnswerStatusType type,
+    @required Warning warning,
     KtMutableMap<ChoiceId, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
@@ -22,11 +24,35 @@ abstract class AnswerStatus implements _$AnswerStatus {
         id: QuestionId.empty(),
         serialNumber: SerialNumber.initial(),
         type: AnswerStatusType.empty(),
+        warning: Warning.empty(),
         noteMap: KtMutableMap<ChoiceId, AnswerStatusType>.empty(),
       );
 
+  Warning getWarning(PageNumber pageNumber) {
+    WarningType _type;
+    if (!type.isAnswered) {
+      _type = WarningType.unanswered();
+    } else if (type.isInvalid) {
+      _type = WarningType.invalid();
+    } else if (!noteIsAnswered) {
+      _type = WarningType.noteUnanswered();
+    } else {
+      _type = WarningType.empty();
+    }
+    return Warning(
+      id: this.id,
+      serialNumber: serialNumber,
+      type: _type,
+      pageNumber: pageNumber,
+    );
+  }
+
+  bool get noteIsAnswered {
+    return noteMap.all((key, value) => value.isCompleted);
+  }
+
   bool get isAnswered {
-    return type.isAnswered && noteMap.all((key, value) => value.isCompleted);
+    return type.isAnswered && noteIsAnswered;
   }
 
   bool get isHidden {

@@ -8,7 +8,10 @@ abstract class SurveyPageEvent with _$SurveyPageEvent {
     @required Direction direction,
   }) = _PageUpdated;
   const factory SurveyPageEvent.wentToPage(PageNumber page) = _WentToPage;
+  const factory SurveyPageEvent.wentToNewestPage() = _WentToNewestPage;
   const factory SurveyPageEvent.checkIsLastPage() = _CheckIsLastPage;
+  const factory SurveyPageEvent.firstWarningUpdated() = _FirstWarningUpdated;
+  const factory SurveyPageEvent.showWarningUpdated() = _ShowWarningUpdated;
   const factory SurveyPageEvent.answerBlocUpdated({
     @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
     @required KtList<Question> questionList,

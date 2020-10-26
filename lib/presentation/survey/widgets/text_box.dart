@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 
-class TextBox extends HookWidget {
+class TextBox extends StatelessWidget {
   final Question question;
 
   const TextBox({
@@ -15,47 +15,44 @@ class TextBox extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textEditingController = useTextEditingController();
-
-    return BlocListener<AnswerBloc, AnswerState>(
-      // HIGHLIGHT 只有在第一次 build 時需要 textEditingController 給出之前儲存的資料，
-      // HIGHLIGHT 後續在編輯時則不用 listen
-      // FIXME 在題目出現在頁面時 listen
-      listenWhen: (p, c) => false,
-      listener: (context, state) {
-        final note = (context.bloc<AnswerBloc>().state)
-            .answerMap
-            .getOrDefault(question.id, Answer.empty())
-            .body
-            .getOrCrash()
-            .toString();
-
-        textEditingController.text = note;
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: TextFormField(
-          controller: textEditingController,
-          decoration: const InputDecoration(
-            labelText: '',
-            counterText: '',
-          ),
-          maxLines: null,
-          keyboardType: question.type.isNumber
-              ? TextInputType.number
-              : TextInputType.text,
-          // autocorrect: false,
-          onChanged: (value) {
-            context.bloc<AnswerBloc>().add(
-                  AnswerEvent.answerChangedWith(
-                    question: question,
-                    body: value,
-                  ),
-                );
-          },
-          // validator: (_) {},
-        ),
-      ),
-    );
+    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
+        // HIGHLIGHT 該頁題目有變更，且包含該題時，才要 rebuild，答案變更時則不須 rebuild
+        buildWhen: (p, c) =>
+            c.pageQuestionList.contains(question) &&
+            p.pageQuestionList != c.pageQuestionList,
+        builder: (context, state) {
+          print('TextBox rebuild!!');
+          final note = (context.bloc<AnswerBloc>().state)
+              .answerMap
+              .getOrDefault(question.id, Answer.empty())
+              .body
+              .getOrCrash()
+              .toString();
+          print(note);
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: TextFormField(
+              initialValue: note,
+              decoration: const InputDecoration(
+                labelText: '',
+                counterText: '',
+              ),
+              maxLines: null,
+              keyboardType: question.type.isNumber
+                  ? TextInputType.number
+                  : TextInputType.text,
+              // autocorrect: false,
+              onChanged: (value) {
+                context.bloc<AnswerBloc>().add(
+                      AnswerEvent.answerChangedWith(
+                        question: question,
+                        body: value,
+                      ),
+                    );
+              },
+              // validator: (_) {},
+            ),
+          );
+        });
   }
 }

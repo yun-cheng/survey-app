@@ -40,7 +40,7 @@ abstract class FullExpression implements _$FullExpression {
       (entry) => entry.value.evaluate(answerMap[entry.value.field].body),
     );
 
-    print(newExpressionMap);
+    // print(newExpressionMap);
 
     // H_ 上面結果合併進 body
     String fullExpressionBody = body.getOrCrash();
@@ -49,7 +49,7 @@ abstract class FullExpression implements _$FullExpression {
       fullExpressionBody =
           fullExpressionBody.replaceAll(key.getOrCrash(), value.toString());
     });
-    print(fullExpressionBody);
+    // print(fullExpressionBody);
 
     final expressionGrammarDefinition =
         expression_parser.ExpressionGrammarParser({});

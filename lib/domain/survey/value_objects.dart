@@ -264,7 +264,7 @@ class AnswerStatusType extends ValueObject<String> {
 
   factory AnswerStatusType.answered() => AnswerStatusType('answered');
   factory AnswerStatusType.unanswered() => AnswerStatusType('unanswered');
-  factory AnswerStatusType.wrongAnswered() => AnswerStatusType('invalid');
+  factory AnswerStatusType.invalid() => AnswerStatusType('invalid');
   factory AnswerStatusType.hidden() => AnswerStatusType('hidden');
   factory AnswerStatusType.empty() => AnswerStatusType('');
 
@@ -285,6 +285,29 @@ class AnswerStatusType extends ValueObject<String> {
   }
 
   const AnswerStatusType._(this.value);
+}
+
+class WarningType extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory WarningType(String input) {
+    assert(input != null);
+    return WarningType._(
+      right(input),
+    );
+  }
+
+  factory WarningType.unanswered() => WarningType('尚未作答！');
+  factory WarningType.noteUnanswered() => WarningType('選項說明尚未填寫！');
+  factory WarningType.invalid() => WarningType('作答不符合格式！');
+  factory WarningType.empty() => WarningType('');
+
+  bool get isEmpty {
+    return value.fold((l) => false, (r) => r == '');
+  }
+
+  const WarningType._(this.value);
 }
 
 class FullExpressionBody extends ValueObject<String> {

@@ -19,6 +19,11 @@ class _$AnswerEventTearOff {
   }
 
 // ignore: unused_element
+  _AnswerStatusInitialized answerStatusInitialized() {
+    return const _AnswerStatusInitialized();
+  }
+
+// ignore: unused_element
   _AnswerChanged answerChanged(
       {@required Question question,
       @required dynamic body,
@@ -58,6 +63,7 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result answerRestored(),
+    @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
@@ -67,6 +73,7 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result answerRestored(),
+    Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
     Result surveySelected(Survey survey),
@@ -76,6 +83,7 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result answerRestored(_AnswerRestored value),
+    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
     @required Result surveySelected(_SurveySelected value),
     @required Result respondentSelected(_RespondentSelected value),
@@ -83,6 +91,7 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result answerRestored(_AnswerRestored value),
+    Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
     Result surveySelected(_SurveySelected value),
     Result respondentSelected(_RespondentSelected value),
@@ -146,6 +155,7 @@ class _$_AnswerRestored implements _AnswerRestored {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result answerRestored(),
+    @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
@@ -153,6 +163,7 @@ class _$_AnswerRestored implements _AnswerRestored {
     @required Result respondentSelected(Respondent respondent),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -163,6 +174,7 @@ class _$_AnswerRestored implements _AnswerRestored {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result answerRestored(),
+    Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
     Result surveySelected(Survey survey),
@@ -180,11 +192,13 @@ class _$_AnswerRestored implements _AnswerRestored {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result answerRestored(_AnswerRestored value),
+    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
     @required Result surveySelected(_SurveySelected value),
     @required Result respondentSelected(_RespondentSelected value),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -195,6 +209,7 @@ class _$_AnswerRestored implements _AnswerRestored {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result answerRestored(_AnswerRestored value),
+    Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
     Result surveySelected(_SurveySelected value),
     Result respondentSelected(_RespondentSelected value),
@@ -210,6 +225,119 @@ class _$_AnswerRestored implements _AnswerRestored {
 
 abstract class _AnswerRestored implements AnswerEvent {
   const factory _AnswerRestored() = _$_AnswerRestored;
+}
+
+/// @nodoc
+abstract class _$AnswerStatusInitializedCopyWith<$Res> {
+  factory _$AnswerStatusInitializedCopyWith(_AnswerStatusInitialized value,
+          $Res Function(_AnswerStatusInitialized) then) =
+      __$AnswerStatusInitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$AnswerStatusInitializedCopyWithImpl<$Res>
+    extends _$AnswerEventCopyWithImpl<$Res>
+    implements _$AnswerStatusInitializedCopyWith<$Res> {
+  __$AnswerStatusInitializedCopyWithImpl(_AnswerStatusInitialized _value,
+      $Res Function(_AnswerStatusInitialized) _then)
+      : super(_value, (v) => _then(v as _AnswerStatusInitialized));
+
+  @override
+  _AnswerStatusInitialized get _value =>
+      super._value as _AnswerStatusInitialized;
+}
+
+/// @nodoc
+class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
+  const _$_AnswerStatusInitialized();
+
+  @override
+  String toString() {
+    return 'AnswerEvent.answerStatusInitialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _AnswerStatusInitialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result answerRestored(),
+    @required Result answerStatusInitialized(),
+    @required
+        Result answerChanged(Question question, dynamic body, bool isNote,
+            bool toggle, ChoiceId noteOf),
+    @required Result surveySelected(Survey survey),
+    @required Result respondentSelected(Respondent respondent),
+  }) {
+    assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
+    assert(answerChanged != null);
+    assert(surveySelected != null);
+    assert(respondentSelected != null);
+    return answerStatusInitialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result answerRestored(),
+    Result answerStatusInitialized(),
+    Result answerChanged(Question question, dynamic body, bool isNote,
+        bool toggle, ChoiceId noteOf),
+    Result surveySelected(Survey survey),
+    Result respondentSelected(Respondent respondent),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (answerStatusInitialized != null) {
+      return answerStatusInitialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result answerRestored(_AnswerRestored value),
+    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
+    @required Result answerChanged(_AnswerChanged value),
+    @required Result surveySelected(_SurveySelected value),
+    @required Result respondentSelected(_RespondentSelected value),
+  }) {
+    assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
+    assert(answerChanged != null);
+    assert(surveySelected != null);
+    assert(respondentSelected != null);
+    return answerStatusInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result answerRestored(_AnswerRestored value),
+    Result answerStatusInitialized(_AnswerStatusInitialized value),
+    Result answerChanged(_AnswerChanged value),
+    Result surveySelected(_SurveySelected value),
+    Result respondentSelected(_RespondentSelected value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (answerStatusInitialized != null) {
+      return answerStatusInitialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AnswerStatusInitialized implements AnswerEvent {
+  const factory _AnswerStatusInitialized() = _$_AnswerStatusInitialized;
 }
 
 /// @nodoc
@@ -328,6 +456,7 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result answerRestored(),
+    @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
@@ -335,6 +464,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     @required Result respondentSelected(Respondent respondent),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -345,6 +475,7 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result answerRestored(),
+    Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
     Result surveySelected(Survey survey),
@@ -362,11 +493,13 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result answerRestored(_AnswerRestored value),
+    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
     @required Result surveySelected(_SurveySelected value),
     @required Result respondentSelected(_RespondentSelected value),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -377,6 +510,7 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result answerRestored(_AnswerRestored value),
+    Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
     Result surveySelected(_SurveySelected value),
     Result respondentSelected(_RespondentSelected value),
@@ -479,6 +613,7 @@ class _$_SurveySelected implements _SurveySelected {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result answerRestored(),
+    @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
@@ -486,6 +621,7 @@ class _$_SurveySelected implements _SurveySelected {
     @required Result respondentSelected(Respondent respondent),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -496,6 +632,7 @@ class _$_SurveySelected implements _SurveySelected {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result answerRestored(),
+    Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
     Result surveySelected(Survey survey),
@@ -513,11 +650,13 @@ class _$_SurveySelected implements _SurveySelected {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result answerRestored(_AnswerRestored value),
+    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
     @required Result surveySelected(_SurveySelected value),
     @required Result respondentSelected(_RespondentSelected value),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -528,6 +667,7 @@ class _$_SurveySelected implements _SurveySelected {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result answerRestored(_AnswerRestored value),
+    Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
     Result surveySelected(_SurveySelected value),
     Result respondentSelected(_RespondentSelected value),
@@ -624,6 +764,7 @@ class _$_RespondentSelected implements _RespondentSelected {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result answerRestored(),
+    @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
@@ -631,6 +772,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     @required Result respondentSelected(Respondent respondent),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -641,6 +783,7 @@ class _$_RespondentSelected implements _RespondentSelected {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result answerRestored(),
+    Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
     Result surveySelected(Survey survey),
@@ -658,11 +801,13 @@ class _$_RespondentSelected implements _RespondentSelected {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result answerRestored(_AnswerRestored value),
+    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
     @required Result surveySelected(_SurveySelected value),
     @required Result respondentSelected(_RespondentSelected value),
   }) {
     assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
     assert(answerChanged != null);
     assert(surveySelected != null);
     assert(respondentSelected != null);
@@ -673,6 +818,7 @@ class _$_RespondentSelected implements _RespondentSelected {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result answerRestored(_AnswerRestored value),
+    Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
     Result surveySelected(_SurveySelected value),
     Result respondentSelected(_RespondentSelected value),
