@@ -21,7 +21,7 @@ class _$ValueFailureTearOff {
   }
 
 // ignore: unused_element
-  UnexpectedAnswer<T> unexpectedAnswer<T>({@required T failedValue}) {
+  UnexpectedAnswer<T> unexpected<T>({@required T failedValue}) {
     return UnexpectedAnswer<T>(
       failedValue: failedValue,
     );
@@ -53,14 +53,14 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
-    @required Result unexpectedAnswer(T failedValue),
+    @required Result unexpected(T failedValue),
     @required Result notNaturalNumber(T failedValue),
     @required Result notBoolean(T failedValue),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
-    Result unexpectedAnswer(T failedValue),
+    Result unexpected(T failedValue),
     Result notNaturalNumber(T failedValue),
     Result notBoolean(T failedValue),
     @required Result orElse(),
@@ -68,14 +68,14 @@ mixin _$ValueFailure<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
-    @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    @required Result unexpected(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result notBoolean(NotBoolean<T> value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
-    Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    Result unexpected(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
     Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
@@ -174,12 +174,12 @@ class _$Empty<T> implements Empty<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
-    @required Result unexpectedAnswer(T failedValue),
+    @required Result unexpected(T failedValue),
     @required Result notNaturalNumber(T failedValue),
     @required Result notBoolean(T failedValue),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
     return empty(failedValue);
@@ -189,7 +189,7 @@ class _$Empty<T> implements Empty<T> {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
-    Result unexpectedAnswer(T failedValue),
+    Result unexpected(T failedValue),
     Result notNaturalNumber(T failedValue),
     Result notBoolean(T failedValue),
     @required Result orElse(),
@@ -205,12 +205,12 @@ class _$Empty<T> implements Empty<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
-    @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    @required Result unexpected(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result notBoolean(NotBoolean<T> value),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
     return empty(this);
@@ -220,7 +220,7 @@ class _$Empty<T> implements Empty<T> {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
-    Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    Result unexpected(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
     Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
@@ -284,7 +284,7 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
 
   @override
   String toString() {
-    return 'ValueFailure<$T>.unexpectedAnswer(failedValue: $failedValue)';
+    return 'ValueFailure<$T>.unexpected(failedValue: $failedValue)';
   }
 
   @override
@@ -308,29 +308,29 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
-    @required Result unexpectedAnswer(T failedValue),
+    @required Result unexpected(T failedValue),
     @required Result notNaturalNumber(T failedValue),
     @required Result notBoolean(T failedValue),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
-    return unexpectedAnswer(failedValue);
+    return unexpected(failedValue);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
-    Result unexpectedAnswer(T failedValue),
+    Result unexpected(T failedValue),
     Result notNaturalNumber(T failedValue),
     Result notBoolean(T failedValue),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (unexpectedAnswer != null) {
-      return unexpectedAnswer(failedValue);
+    if (unexpected != null) {
+      return unexpected(failedValue);
     }
     return orElse();
   }
@@ -339,29 +339,29 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
-    @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    @required Result unexpected(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result notBoolean(NotBoolean<T> value),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
-    return unexpectedAnswer(this);
+    return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
-    Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    Result unexpected(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
     Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
-    if (unexpectedAnswer != null) {
-      return unexpectedAnswer(this);
+    if (unexpected != null) {
+      return unexpected(this);
     }
     return orElse();
   }
@@ -443,12 +443,12 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
-    @required Result unexpectedAnswer(T failedValue),
+    @required Result unexpected(T failedValue),
     @required Result notNaturalNumber(T failedValue),
     @required Result notBoolean(T failedValue),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
     return notNaturalNumber(failedValue);
@@ -458,7 +458,7 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
-    Result unexpectedAnswer(T failedValue),
+    Result unexpected(T failedValue),
     Result notNaturalNumber(T failedValue),
     Result notBoolean(T failedValue),
     @required Result orElse(),
@@ -474,12 +474,12 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
-    @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    @required Result unexpected(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result notBoolean(NotBoolean<T> value),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
     return notNaturalNumber(this);
@@ -489,7 +489,7 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
-    Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    Result unexpected(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
     Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),
@@ -578,12 +578,12 @@ class _$NotBoolean<T> implements NotBoolean<T> {
   @optionalTypeArgs
   Result when<Result extends Object>({
     @required Result empty(T failedValue),
-    @required Result unexpectedAnswer(T failedValue),
+    @required Result unexpected(T failedValue),
     @required Result notNaturalNumber(T failedValue),
     @required Result notBoolean(T failedValue),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
     return notBoolean(failedValue);
@@ -593,7 +593,7 @@ class _$NotBoolean<T> implements NotBoolean<T> {
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
     Result empty(T failedValue),
-    Result unexpectedAnswer(T failedValue),
+    Result unexpected(T failedValue),
     Result notNaturalNumber(T failedValue),
     Result notBoolean(T failedValue),
     @required Result orElse(),
@@ -609,12 +609,12 @@ class _$NotBoolean<T> implements NotBoolean<T> {
   @optionalTypeArgs
   Result map<Result extends Object>({
     @required Result empty(Empty<T> value),
-    @required Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    @required Result unexpected(UnexpectedAnswer<T> value),
     @required Result notNaturalNumber(NotNaturalNumber<T> value),
     @required Result notBoolean(NotBoolean<T> value),
   }) {
     assert(empty != null);
-    assert(unexpectedAnswer != null);
+    assert(unexpected != null);
     assert(notNaturalNumber != null);
     assert(notBoolean != null);
     return notBoolean(this);
@@ -624,7 +624,7 @@ class _$NotBoolean<T> implements NotBoolean<T> {
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result empty(Empty<T> value),
-    Result unexpectedAnswer(UnexpectedAnswer<T> value),
+    Result unexpected(UnexpectedAnswer<T> value),
     Result notNaturalNumber(NotNaturalNumber<T> value),
     Result notBoolean(NotBoolean<T> value),
     @required Result orElse(),

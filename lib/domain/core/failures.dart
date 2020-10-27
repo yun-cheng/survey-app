@@ -8,7 +8,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     @required T failedValue,
   }) = Empty<T>;
 
-  const factory ValueFailure.unexpectedAnswer({
+  const factory ValueFailure.unexpected({
     @required T failedValue,
   }) = UnexpectedAnswer<T>;
 
@@ -19,4 +19,5 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.notBoolean({
     @required T failedValue,
   }) = NotBoolean<T>;
+  
 }

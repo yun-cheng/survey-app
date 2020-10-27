@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
@@ -28,7 +29,6 @@ class TextBox extends StatelessWidget {
               .body
               .getOrCrash()
               .toString();
-          print(note);
           return Padding(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
@@ -41,6 +41,12 @@ class TextBox extends StatelessWidget {
               keyboardType: question.type.isNumber
                   ? TextInputType.number
                   : TextInputType.text,
+              inputFormatters: question.type.isNumber
+                  ? <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly,
+                      // FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
+                    ]
+                  : null,
               // autocorrect: false,
               onChanged: (value) {
                 context.bloc<AnswerBloc>().add(

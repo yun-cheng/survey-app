@@ -30,7 +30,7 @@ abstract class AnswerStatus implements _$AnswerStatus {
 
   Warning getWarning(PageNumber pageNumber) {
     WarningType _type;
-    if (!type.isAnswered) {
+    if (type.isUnanswered) {
       _type = WarningType.unanswered();
     } else if (type.isInvalid) {
       _type = WarningType.invalid();

@@ -16,6 +16,10 @@ class InterviewerId extends ValueObject<String> {
 
   factory InterviewerId.empty() => InterviewerId('');
 
+  String getOrEmpty() {
+    return value.fold((l) => '', (r) => r);
+  }
+
   const InterviewerId._(this.value);
 }
 
@@ -31,6 +35,10 @@ class Password extends ValueObject<String> {
   }
 
   factory Password.empty() => Password('');
+
+  String getOrEmpty() {
+    return value.fold((l) => '', (r) => r);
+  }
 
   const Password._(this.value);
 }

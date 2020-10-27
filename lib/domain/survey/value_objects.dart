@@ -238,6 +238,16 @@ class AnswerBody extends ValueObject<dynamic> {
     });
   }
 
+  bool get isEmpty {
+    return value.fold((l) => true, (r) {
+      if (r is List) {
+        return r.isEmpty;
+      } else {
+        return r == '';
+      }
+    });
+  }
+
   // bool get hasNote {
   //   return value.fold((l) => false, (r) {
   //     if (r is Choice) {
@@ -270,6 +280,10 @@ class AnswerStatusType extends ValueObject<String> {
 
   bool get isAnswered {
     return value.fold((l) => false, (r) => r == 'answered');
+  }
+
+  bool get isUnanswered {
+    return value.fold((l) => false, (r) => r == 'unanswered');
   }
 
   bool get isInvalid {

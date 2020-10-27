@@ -11,7 +11,7 @@ Either<ValueFailure<String>, String> validateStringNotEmpty(String input) {
 }
 
 Either<ValueFailure<List<T>>, List<T>> validateListNotEmpty<T>(List<T> input) {
-  if (input.length > 0) {
+  if (input.isNotEmpty) {
     return right(input);
   } else {
     return left(ValueFailure.empty(failedValue: input));
@@ -21,7 +21,9 @@ Either<ValueFailure<List<T>>, List<T>> validateListNotEmpty<T>(List<T> input) {
 Either<ValueFailure<dynamic>, dynamic> validateNotEmpty<T>(dynamic input) {
   if (input is List) {
     return validateListNotEmpty(input);
-  } else {
+  } else if (input is String) {
     return validateStringNotEmpty(input);
+  } else {
+    return left(ValueFailure.unexpected(failedValue: input));
   }
 }

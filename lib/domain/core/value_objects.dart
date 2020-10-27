@@ -11,16 +11,14 @@ abstract class ValueObject<T> {
   const ValueObject();
   Either<ValueFailure<T>, T> get value;
 
-  // HIGHLIGHT 3 條斜線表示定義!
+  // NOTE 3 條斜線表示定義!
   /// Throws [UnexpectedValueError] containing the [ValueFailure]
   T getOrCrash() {
-    // HIGHLIGHT 特殊用法，id = identity - same as writing (right) => right
+    // NOTE 特殊用法，id = identity - same as writing (right) => right
     return value.fold((f) => throw UnexpectedValueError(f), id);
   }
 
-  // HIGHLIGHT left(), right() 是用來"產生" Either 物件
-  // HIGHLIGHT fold 是用來"處理" Either 物件，強迫處理成功/失敗兩種情境
-  // HIGHLIGHT 所以這邊估計是為了要在使用時繼續傳遞 Either 物件下去，才會如此包裝
+  // NOTE 傳遞 failure 時使用
   Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
     return value.fold(
       (l) => left(l),

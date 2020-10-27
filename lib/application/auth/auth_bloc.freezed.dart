@@ -1352,1499 +1352,19 @@ abstract class _SignOutPressed implements AuthEvent {
 }
 
 /// @nodoc
-class _$TeamListStateTearOff {
-  const _$TeamListStateTearOff();
-
-// ignore: unused_element
-  _TeamListInitial initial() {
-    return const _TeamListInitial();
-  }
-
-// ignore: unused_element
-  _TeamListLoadInProgress loadInProgress() {
-    return const _TeamListLoadInProgress();
-  }
-
-// ignore: unused_element
-  _TeamListLoadFailure loadFailure() {
-    return const _TeamListLoadFailure();
-  }
-
-// ignore: unused_element
-  TeamListLoadSuccess loadSuccess() {
-    return const TeamListLoadSuccess();
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $TeamListState = _$TeamListStateTearOff();
-
-/// @nodoc
-mixin _$TeamListState {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  });
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_TeamListInitial value),
-    @required Result loadInProgress(_TeamListLoadInProgress value),
-    @required Result loadFailure(_TeamListLoadFailure value),
-    @required Result loadSuccess(TeamListLoadSuccess value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_TeamListInitial value),
-    Result loadInProgress(_TeamListLoadInProgress value),
-    Result loadFailure(_TeamListLoadFailure value),
-    Result loadSuccess(TeamListLoadSuccess value),
-    @required Result orElse(),
-  });
-}
-
-/// @nodoc
-abstract class $TeamListStateCopyWith<$Res> {
-  factory $TeamListStateCopyWith(
-          TeamListState value, $Res Function(TeamListState) then) =
-      _$TeamListStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$TeamListStateCopyWithImpl<$Res>
-    implements $TeamListStateCopyWith<$Res> {
-  _$TeamListStateCopyWithImpl(this._value, this._then);
-
-  final TeamListState _value;
-  // ignore: unused_field
-  final $Res Function(TeamListState) _then;
-}
-
-/// @nodoc
-abstract class _$TeamListInitialCopyWith<$Res> {
-  factory _$TeamListInitialCopyWith(
-          _TeamListInitial value, $Res Function(_TeamListInitial) then) =
-      __$TeamListInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$TeamListInitialCopyWithImpl<$Res>
-    extends _$TeamListStateCopyWithImpl<$Res>
-    implements _$TeamListInitialCopyWith<$Res> {
-  __$TeamListInitialCopyWithImpl(
-      _TeamListInitial _value, $Res Function(_TeamListInitial) _then)
-      : super(_value, (v) => _then(v as _TeamListInitial));
-
-  @override
-  _TeamListInitial get _value => super._value as _TeamListInitial;
-}
-
-/// @nodoc
-class _$_TeamListInitial implements _TeamListInitial {
-  const _$_TeamListInitial();
-
-  @override
-  String toString() {
-    return 'TeamListState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TeamListInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_TeamListInitial value),
-    @required Result loadInProgress(_TeamListLoadInProgress value),
-    @required Result loadFailure(_TeamListLoadFailure value),
-    @required Result loadSuccess(TeamListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_TeamListInitial value),
-    Result loadInProgress(_TeamListLoadInProgress value),
-    Result loadFailure(_TeamListLoadFailure value),
-    Result loadSuccess(TeamListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TeamListInitial implements TeamListState {
-  const factory _TeamListInitial() = _$_TeamListInitial;
-}
-
-/// @nodoc
-abstract class _$TeamListLoadInProgressCopyWith<$Res> {
-  factory _$TeamListLoadInProgressCopyWith(_TeamListLoadInProgress value,
-          $Res Function(_TeamListLoadInProgress) then) =
-      __$TeamListLoadInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$TeamListLoadInProgressCopyWithImpl<$Res>
-    extends _$TeamListStateCopyWithImpl<$Res>
-    implements _$TeamListLoadInProgressCopyWith<$Res> {
-  __$TeamListLoadInProgressCopyWithImpl(_TeamListLoadInProgress _value,
-      $Res Function(_TeamListLoadInProgress) _then)
-      : super(_value, (v) => _then(v as _TeamListLoadInProgress));
-
-  @override
-  _TeamListLoadInProgress get _value => super._value as _TeamListLoadInProgress;
-}
-
-/// @nodoc
-class _$_TeamListLoadInProgress implements _TeamListLoadInProgress {
-  const _$_TeamListLoadInProgress();
-
-  @override
-  String toString() {
-    return 'TeamListState.loadInProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TeamListLoadInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadInProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadInProgress != null) {
-      return loadInProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_TeamListInitial value),
-    @required Result loadInProgress(_TeamListLoadInProgress value),
-    @required Result loadFailure(_TeamListLoadFailure value),
-    @required Result loadSuccess(TeamListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadInProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_TeamListInitial value),
-    Result loadInProgress(_TeamListLoadInProgress value),
-    Result loadFailure(_TeamListLoadFailure value),
-    Result loadSuccess(TeamListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadInProgress != null) {
-      return loadInProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TeamListLoadInProgress implements TeamListState {
-  const factory _TeamListLoadInProgress() = _$_TeamListLoadInProgress;
-}
-
-/// @nodoc
-abstract class _$TeamListLoadFailureCopyWith<$Res> {
-  factory _$TeamListLoadFailureCopyWith(_TeamListLoadFailure value,
-          $Res Function(_TeamListLoadFailure) then) =
-      __$TeamListLoadFailureCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$TeamListLoadFailureCopyWithImpl<$Res>
-    extends _$TeamListStateCopyWithImpl<$Res>
-    implements _$TeamListLoadFailureCopyWith<$Res> {
-  __$TeamListLoadFailureCopyWithImpl(
-      _TeamListLoadFailure _value, $Res Function(_TeamListLoadFailure) _then)
-      : super(_value, (v) => _then(v as _TeamListLoadFailure));
-
-  @override
-  _TeamListLoadFailure get _value => super._value as _TeamListLoadFailure;
-}
-
-/// @nodoc
-class _$_TeamListLoadFailure implements _TeamListLoadFailure {
-  const _$_TeamListLoadFailure();
-
-  @override
-  String toString() {
-    return 'TeamListState.loadFailure()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TeamListLoadFailure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadFailure();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadFailure != null) {
-      return loadFailure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_TeamListInitial value),
-    @required Result loadInProgress(_TeamListLoadInProgress value),
-    @required Result loadFailure(_TeamListLoadFailure value),
-    @required Result loadSuccess(TeamListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_TeamListInitial value),
-    Result loadInProgress(_TeamListLoadInProgress value),
-    Result loadFailure(_TeamListLoadFailure value),
-    Result loadSuccess(TeamListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadFailure != null) {
-      return loadFailure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TeamListLoadFailure implements TeamListState {
-  const factory _TeamListLoadFailure() = _$_TeamListLoadFailure;
-}
-
-/// @nodoc
-abstract class $TeamListLoadSuccessCopyWith<$Res> {
-  factory $TeamListLoadSuccessCopyWith(
-          TeamListLoadSuccess value, $Res Function(TeamListLoadSuccess) then) =
-      _$TeamListLoadSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$TeamListLoadSuccessCopyWithImpl<$Res>
-    extends _$TeamListStateCopyWithImpl<$Res>
-    implements $TeamListLoadSuccessCopyWith<$Res> {
-  _$TeamListLoadSuccessCopyWithImpl(
-      TeamListLoadSuccess _value, $Res Function(TeamListLoadSuccess) _then)
-      : super(_value, (v) => _then(v as TeamListLoadSuccess));
-
-  @override
-  TeamListLoadSuccess get _value => super._value as TeamListLoadSuccess;
-}
-
-/// @nodoc
-class _$TeamListLoadSuccess implements TeamListLoadSuccess {
-  const _$TeamListLoadSuccess();
-
-  @override
-  String toString() {
-    return 'TeamListState.loadSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is TeamListLoadSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadSuccess != null) {
-      return loadSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_TeamListInitial value),
-    @required Result loadInProgress(_TeamListLoadInProgress value),
-    @required Result loadFailure(_TeamListLoadFailure value),
-    @required Result loadSuccess(TeamListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_TeamListInitial value),
-    Result loadInProgress(_TeamListLoadInProgress value),
-    Result loadFailure(_TeamListLoadFailure value),
-    Result loadSuccess(TeamListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadSuccess != null) {
-      return loadSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class TeamListLoadSuccess implements TeamListState {
-  const factory TeamListLoadSuccess() = _$TeamListLoadSuccess;
-}
-
-/// @nodoc
-class _$InterviewerListStateTearOff {
-  const _$InterviewerListStateTearOff();
-
-// ignore: unused_element
-  _InterviewerListInitial initial() {
-    return const _InterviewerListInitial();
-  }
-
-// ignore: unused_element
-  _InterviewerListLoadInProgress loadInProgress() {
-    return const _InterviewerListLoadInProgress();
-  }
-
-// ignore: unused_element
-  _InterviewerListLoadFailure loadFailure() {
-    return const _InterviewerListLoadFailure();
-  }
-
-// ignore: unused_element
-  InterviewerListLoadSuccess loadSuccess() {
-    return const InterviewerListLoadSuccess();
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $InterviewerListState = _$InterviewerListStateTearOff();
-
-/// @nodoc
-mixin _$InterviewerListState {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  });
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InterviewerListInitial value),
-    @required Result loadInProgress(_InterviewerListLoadInProgress value),
-    @required Result loadFailure(_InterviewerListLoadFailure value),
-    @required Result loadSuccess(InterviewerListLoadSuccess value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InterviewerListInitial value),
-    Result loadInProgress(_InterviewerListLoadInProgress value),
-    Result loadFailure(_InterviewerListLoadFailure value),
-    Result loadSuccess(InterviewerListLoadSuccess value),
-    @required Result orElse(),
-  });
-}
-
-/// @nodoc
-abstract class $InterviewerListStateCopyWith<$Res> {
-  factory $InterviewerListStateCopyWith(InterviewerListState value,
-          $Res Function(InterviewerListState) then) =
-      _$InterviewerListStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$InterviewerListStateCopyWithImpl<$Res>
-    implements $InterviewerListStateCopyWith<$Res> {
-  _$InterviewerListStateCopyWithImpl(this._value, this._then);
-
-  final InterviewerListState _value;
-  // ignore: unused_field
-  final $Res Function(InterviewerListState) _then;
-}
-
-/// @nodoc
-abstract class _$InterviewerListInitialCopyWith<$Res> {
-  factory _$InterviewerListInitialCopyWith(_InterviewerListInitial value,
-          $Res Function(_InterviewerListInitial) then) =
-      __$InterviewerListInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InterviewerListInitialCopyWithImpl<$Res>
-    extends _$InterviewerListStateCopyWithImpl<$Res>
-    implements _$InterviewerListInitialCopyWith<$Res> {
-  __$InterviewerListInitialCopyWithImpl(_InterviewerListInitial _value,
-      $Res Function(_InterviewerListInitial) _then)
-      : super(_value, (v) => _then(v as _InterviewerListInitial));
-
-  @override
-  _InterviewerListInitial get _value => super._value as _InterviewerListInitial;
-}
-
-/// @nodoc
-class _$_InterviewerListInitial implements _InterviewerListInitial {
-  const _$_InterviewerListInitial();
-
-  @override
-  String toString() {
-    return 'InterviewerListState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InterviewerListInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InterviewerListInitial value),
-    @required Result loadInProgress(_InterviewerListLoadInProgress value),
-    @required Result loadFailure(_InterviewerListLoadFailure value),
-    @required Result loadSuccess(InterviewerListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InterviewerListInitial value),
-    Result loadInProgress(_InterviewerListLoadInProgress value),
-    Result loadFailure(_InterviewerListLoadFailure value),
-    Result loadSuccess(InterviewerListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InterviewerListInitial implements InterviewerListState {
-  const factory _InterviewerListInitial() = _$_InterviewerListInitial;
-}
-
-/// @nodoc
-abstract class _$InterviewerListLoadInProgressCopyWith<$Res> {
-  factory _$InterviewerListLoadInProgressCopyWith(
-          _InterviewerListLoadInProgress value,
-          $Res Function(_InterviewerListLoadInProgress) then) =
-      __$InterviewerListLoadInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InterviewerListLoadInProgressCopyWithImpl<$Res>
-    extends _$InterviewerListStateCopyWithImpl<$Res>
-    implements _$InterviewerListLoadInProgressCopyWith<$Res> {
-  __$InterviewerListLoadInProgressCopyWithImpl(
-      _InterviewerListLoadInProgress _value,
-      $Res Function(_InterviewerListLoadInProgress) _then)
-      : super(_value, (v) => _then(v as _InterviewerListLoadInProgress));
-
-  @override
-  _InterviewerListLoadInProgress get _value =>
-      super._value as _InterviewerListLoadInProgress;
-}
-
-/// @nodoc
-class _$_InterviewerListLoadInProgress
-    implements _InterviewerListLoadInProgress {
-  const _$_InterviewerListLoadInProgress();
-
-  @override
-  String toString() {
-    return 'InterviewerListState.loadInProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InterviewerListLoadInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadInProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadInProgress != null) {
-      return loadInProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InterviewerListInitial value),
-    @required Result loadInProgress(_InterviewerListLoadInProgress value),
-    @required Result loadFailure(_InterviewerListLoadFailure value),
-    @required Result loadSuccess(InterviewerListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadInProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InterviewerListInitial value),
-    Result loadInProgress(_InterviewerListLoadInProgress value),
-    Result loadFailure(_InterviewerListLoadFailure value),
-    Result loadSuccess(InterviewerListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadInProgress != null) {
-      return loadInProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InterviewerListLoadInProgress implements InterviewerListState {
-  const factory _InterviewerListLoadInProgress() =
-      _$_InterviewerListLoadInProgress;
-}
-
-/// @nodoc
-abstract class _$InterviewerListLoadFailureCopyWith<$Res> {
-  factory _$InterviewerListLoadFailureCopyWith(
-          _InterviewerListLoadFailure value,
-          $Res Function(_InterviewerListLoadFailure) then) =
-      __$InterviewerListLoadFailureCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$InterviewerListLoadFailureCopyWithImpl<$Res>
-    extends _$InterviewerListStateCopyWithImpl<$Res>
-    implements _$InterviewerListLoadFailureCopyWith<$Res> {
-  __$InterviewerListLoadFailureCopyWithImpl(_InterviewerListLoadFailure _value,
-      $Res Function(_InterviewerListLoadFailure) _then)
-      : super(_value, (v) => _then(v as _InterviewerListLoadFailure));
-
-  @override
-  _InterviewerListLoadFailure get _value =>
-      super._value as _InterviewerListLoadFailure;
-}
-
-/// @nodoc
-class _$_InterviewerListLoadFailure implements _InterviewerListLoadFailure {
-  const _$_InterviewerListLoadFailure();
-
-  @override
-  String toString() {
-    return 'InterviewerListState.loadFailure()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _InterviewerListLoadFailure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadFailure();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadFailure != null) {
-      return loadFailure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InterviewerListInitial value),
-    @required Result loadInProgress(_InterviewerListLoadInProgress value),
-    @required Result loadFailure(_InterviewerListLoadFailure value),
-    @required Result loadSuccess(InterviewerListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadFailure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InterviewerListInitial value),
-    Result loadInProgress(_InterviewerListLoadInProgress value),
-    Result loadFailure(_InterviewerListLoadFailure value),
-    Result loadSuccess(InterviewerListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadFailure != null) {
-      return loadFailure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _InterviewerListLoadFailure implements InterviewerListState {
-  const factory _InterviewerListLoadFailure() = _$_InterviewerListLoadFailure;
-}
-
-/// @nodoc
-abstract class $InterviewerListLoadSuccessCopyWith<$Res> {
-  factory $InterviewerListLoadSuccessCopyWith(InterviewerListLoadSuccess value,
-          $Res Function(InterviewerListLoadSuccess) then) =
-      _$InterviewerListLoadSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$InterviewerListLoadSuccessCopyWithImpl<$Res>
-    extends _$InterviewerListStateCopyWithImpl<$Res>
-    implements $InterviewerListLoadSuccessCopyWith<$Res> {
-  _$InterviewerListLoadSuccessCopyWithImpl(InterviewerListLoadSuccess _value,
-      $Res Function(InterviewerListLoadSuccess) _then)
-      : super(_value, (v) => _then(v as InterviewerListLoadSuccess));
-
-  @override
-  InterviewerListLoadSuccess get _value =>
-      super._value as InterviewerListLoadSuccess;
-}
-
-/// @nodoc
-class _$InterviewerListLoadSuccess implements InterviewerListLoadSuccess {
-  const _$InterviewerListLoadSuccess();
-
-  @override
-  String toString() {
-    return 'InterviewerListState.loadSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is InterviewerListLoadSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(),
-    @required Result loadSuccess(),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(),
-    Result loadSuccess(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadSuccess != null) {
-      return loadSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_InterviewerListInitial value),
-    @required Result loadInProgress(_InterviewerListLoadInProgress value),
-    @required Result loadFailure(_InterviewerListLoadFailure value),
-    @required Result loadSuccess(InterviewerListLoadSuccess value),
-  }) {
-    assert(initial != null);
-    assert(loadInProgress != null);
-    assert(loadFailure != null);
-    assert(loadSuccess != null);
-    return loadSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_InterviewerListInitial value),
-    Result loadInProgress(_InterviewerListLoadInProgress value),
-    Result loadFailure(_InterviewerListLoadFailure value),
-    Result loadSuccess(InterviewerListLoadSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (loadSuccess != null) {
-      return loadSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class InterviewerListLoadSuccess implements InterviewerListState {
-  const factory InterviewerListLoadSuccess() = _$InterviewerListLoadSuccess;
-}
-
-/// @nodoc
-class _$SignInStateTearOff {
-  const _$SignInStateTearOff();
-
-// ignore: unused_element
-  _SignInInitial initial() {
-    return const _SignInInitial();
-  }
-
-// ignore: unused_element
-  _SignInInProgress inProgress() {
-    return const _SignInInProgress();
-  }
-
-// ignore: unused_element
-  SignInFailure failure() {
-    return const SignInFailure();
-  }
-
-// ignore: unused_element
-  SignInSuccess success() {
-    return const SignInSuccess();
-  }
-}
-
-/// @nodoc
-// ignore: unused_element
-const $SignInState = _$SignInStateTearOff();
-
-/// @nodoc
-mixin _$SignInState {
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  });
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  });
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_SignInInitial value),
-    @required Result inProgress(_SignInInProgress value),
-    @required Result failure(SignInFailure value),
-    @required Result success(SignInSuccess value),
-  });
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_SignInInitial value),
-    Result inProgress(_SignInInProgress value),
-    Result failure(SignInFailure value),
-    Result success(SignInSuccess value),
-    @required Result orElse(),
-  });
-}
-
-/// @nodoc
-abstract class $SignInStateCopyWith<$Res> {
-  factory $SignInStateCopyWith(
-          SignInState value, $Res Function(SignInState) then) =
-      _$SignInStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$SignInStateCopyWithImpl<$Res> implements $SignInStateCopyWith<$Res> {
-  _$SignInStateCopyWithImpl(this._value, this._then);
-
-  final SignInState _value;
-  // ignore: unused_field
-  final $Res Function(SignInState) _then;
-}
-
-/// @nodoc
-abstract class _$SignInInitialCopyWith<$Res> {
-  factory _$SignInInitialCopyWith(
-          _SignInInitial value, $Res Function(_SignInInitial) then) =
-      __$SignInInitialCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$SignInInitialCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements _$SignInInitialCopyWith<$Res> {
-  __$SignInInitialCopyWithImpl(
-      _SignInInitial _value, $Res Function(_SignInInitial) _then)
-      : super(_value, (v) => _then(v as _SignInInitial));
-
-  @override
-  _SignInInitial get _value => super._value as _SignInInitial;
-}
-
-/// @nodoc
-class _$_SignInInitial implements _SignInInitial {
-  const _$_SignInInitial();
-
-  @override
-  String toString() {
-    return 'SignInState.initial()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SignInInitial);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return initial();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_SignInInitial value),
-    @required Result inProgress(_SignInInProgress value),
-    @required Result failure(SignInFailure value),
-    @required Result success(SignInSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return initial(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_SignInInitial value),
-    Result inProgress(_SignInInProgress value),
-    Result failure(SignInFailure value),
-    Result success(SignInSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (initial != null) {
-      return initial(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SignInInitial implements SignInState {
-  const factory _SignInInitial() = _$_SignInInitial;
-}
-
-/// @nodoc
-abstract class _$SignInInProgressCopyWith<$Res> {
-  factory _$SignInInProgressCopyWith(
-          _SignInInProgress value, $Res Function(_SignInInProgress) then) =
-      __$SignInInProgressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$SignInInProgressCopyWithImpl<$Res>
-    extends _$SignInStateCopyWithImpl<$Res>
-    implements _$SignInInProgressCopyWith<$Res> {
-  __$SignInInProgressCopyWithImpl(
-      _SignInInProgress _value, $Res Function(_SignInInProgress) _then)
-      : super(_value, (v) => _then(v as _SignInInProgress));
-
-  @override
-  _SignInInProgress get _value => super._value as _SignInInProgress;
-}
-
-/// @nodoc
-class _$_SignInInProgress implements _SignInInProgress {
-  const _$_SignInInProgress();
-
-  @override
-  String toString() {
-    return 'SignInState.inProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SignInInProgress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return inProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (inProgress != null) {
-      return inProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_SignInInitial value),
-    @required Result inProgress(_SignInInProgress value),
-    @required Result failure(SignInFailure value),
-    @required Result success(SignInSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return inProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_SignInInitial value),
-    Result inProgress(_SignInInProgress value),
-    Result failure(SignInFailure value),
-    Result success(SignInSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (inProgress != null) {
-      return inProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SignInInProgress implements SignInState {
-  const factory _SignInInProgress() = _$_SignInInProgress;
-}
-
-/// @nodoc
-abstract class $SignInFailureCopyWith<$Res> {
-  factory $SignInFailureCopyWith(
-          SignInFailure value, $Res Function(SignInFailure) then) =
-      _$SignInFailureCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$SignInFailureCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements $SignInFailureCopyWith<$Res> {
-  _$SignInFailureCopyWithImpl(
-      SignInFailure _value, $Res Function(SignInFailure) _then)
-      : super(_value, (v) => _then(v as SignInFailure));
-
-  @override
-  SignInFailure get _value => super._value as SignInFailure;
-}
-
-/// @nodoc
-class _$SignInFailure implements SignInFailure {
-  const _$SignInFailure();
-
-  @override
-  String toString() {
-    return 'SignInState.failure()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignInFailure);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return failure();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (failure != null) {
-      return failure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_SignInInitial value),
-    @required Result inProgress(_SignInInProgress value),
-    @required Result failure(SignInFailure value),
-    @required Result success(SignInSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_SignInInitial value),
-    Result inProgress(_SignInInProgress value),
-    Result failure(SignInFailure value),
-    Result success(SignInSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SignInFailure implements SignInState {
-  const factory SignInFailure() = _$SignInFailure;
-}
-
-/// @nodoc
-abstract class $SignInSuccessCopyWith<$Res> {
-  factory $SignInSuccessCopyWith(
-          SignInSuccess value, $Res Function(SignInSuccess) then) =
-      _$SignInSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$SignInSuccessCopyWithImpl<$Res> extends _$SignInStateCopyWithImpl<$Res>
-    implements $SignInSuccessCopyWith<$Res> {
-  _$SignInSuccessCopyWithImpl(
-      SignInSuccess _value, $Res Function(SignInSuccess) _then)
-      : super(_value, (v) => _then(v as SignInSuccess));
-
-  @override
-  SignInSuccess get _value => super._value as SignInSuccess;
-}
-
-/// @nodoc
-class _$SignInSuccess implements SignInSuccess {
-  const _$SignInSuccess();
-
-  @override
-  String toString() {
-    return 'SignInState.success()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is SignInSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result inProgress(),
-    @required Result failure(),
-    @required Result success(),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return success();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result inProgress(),
-    Result failure(),
-    Result success(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (success != null) {
-      return success();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_SignInInitial value),
-    @required Result inProgress(_SignInInProgress value),
-    @required Result failure(SignInFailure value),
-    @required Result success(SignInSuccess value),
-  }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_SignInInitial value),
-    Result inProgress(_SignInInProgress value),
-    Result failure(SignInFailure value),
-    Result success(SignInSuccess value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class SignInSuccess implements SignInState {
-  const factory SignInSuccess() = _$SignInSuccess;
-}
-
-/// @nodoc
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
 // ignore: unused_element
   _AuthState call(
-      {@required TeamListState teamListState,
+      {@required LoadState teamListState,
       @required KtList<Team> teamList,
       @required Team team,
-      @required InterviewerListState interviewerListState,
+      @required LoadState interviewerListState,
       @required KtList<Interviewer> interviewerList,
       @required InterviewerId id,
       @required Password password,
-      @required SignInState signInState,
+      @required LoadState signInState,
       @required Interviewer interviewer,
       @required Option<AuthFailure> authFailure,
       @required bool showErrorMessages}) {
@@ -2870,14 +1390,14 @@ const $AuthState = _$AuthStateTearOff();
 
 /// @nodoc
 mixin _$AuthState {
-  TeamListState get teamListState;
+  LoadState get teamListState;
   KtList<Team> get teamList;
   Team get team;
-  InterviewerListState get interviewerListState;
+  LoadState get interviewerListState;
   KtList<Interviewer> get interviewerList;
   InterviewerId get id;
   Password get password;
-  SignInState get signInState;
+  LoadState get signInState;
   Interviewer get interviewer;
   Option<AuthFailure> get authFailure;
   bool get showErrorMessages;
@@ -2890,22 +1410,22 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
   $Res call(
-      {TeamListState teamListState,
+      {LoadState teamListState,
       KtList<Team> teamList,
       Team team,
-      InterviewerListState interviewerListState,
+      LoadState interviewerListState,
       KtList<Interviewer> interviewerList,
       InterviewerId id,
       Password password,
-      SignInState signInState,
+      LoadState signInState,
       Interviewer interviewer,
       Option<AuthFailure> authFailure,
       bool showErrorMessages});
 
-  $TeamListStateCopyWith<$Res> get teamListState;
+  $LoadStateCopyWith<$Res> get teamListState;
   $TeamCopyWith<$Res> get team;
-  $InterviewerListStateCopyWith<$Res> get interviewerListState;
-  $SignInStateCopyWith<$Res> get signInState;
+  $LoadStateCopyWith<$Res> get interviewerListState;
+  $LoadStateCopyWith<$Res> get signInState;
   $InterviewerCopyWith<$Res> get interviewer;
 }
 
@@ -2934,13 +1454,13 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     return _then(_value.copyWith(
       teamListState: teamListState == freezed
           ? _value.teamListState
-          : teamListState as TeamListState,
+          : teamListState as LoadState,
       teamList:
           teamList == freezed ? _value.teamList : teamList as KtList<Team>,
       team: team == freezed ? _value.team : team as Team,
       interviewerListState: interviewerListState == freezed
           ? _value.interviewerListState
-          : interviewerListState as InterviewerListState,
+          : interviewerListState as LoadState,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList as KtList<Interviewer>,
@@ -2948,7 +1468,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
       password: password == freezed ? _value.password : password as Password,
       signInState: signInState == freezed
           ? _value.signInState
-          : signInState as SignInState,
+          : signInState as LoadState,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer as Interviewer,
@@ -2962,11 +1482,11 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   }
 
   @override
-  $TeamListStateCopyWith<$Res> get teamListState {
+  $LoadStateCopyWith<$Res> get teamListState {
     if (_value.teamListState == null) {
       return null;
     }
-    return $TeamListStateCopyWith<$Res>(_value.teamListState, (value) {
+    return $LoadStateCopyWith<$Res>(_value.teamListState, (value) {
       return _then(_value.copyWith(teamListState: value));
     });
   }
@@ -2982,22 +1502,21 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   }
 
   @override
-  $InterviewerListStateCopyWith<$Res> get interviewerListState {
+  $LoadStateCopyWith<$Res> get interviewerListState {
     if (_value.interviewerListState == null) {
       return null;
     }
-    return $InterviewerListStateCopyWith<$Res>(_value.interviewerListState,
-        (value) {
+    return $LoadStateCopyWith<$Res>(_value.interviewerListState, (value) {
       return _then(_value.copyWith(interviewerListState: value));
     });
   }
 
   @override
-  $SignInStateCopyWith<$Res> get signInState {
+  $LoadStateCopyWith<$Res> get signInState {
     if (_value.signInState == null) {
       return null;
     }
-    return $SignInStateCopyWith<$Res>(_value.signInState, (value) {
+    return $LoadStateCopyWith<$Res>(_value.signInState, (value) {
       return _then(_value.copyWith(signInState: value));
     });
   }
@@ -3020,26 +1539,26 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       __$AuthStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {TeamListState teamListState,
+      {LoadState teamListState,
       KtList<Team> teamList,
       Team team,
-      InterviewerListState interviewerListState,
+      LoadState interviewerListState,
       KtList<Interviewer> interviewerList,
       InterviewerId id,
       Password password,
-      SignInState signInState,
+      LoadState signInState,
       Interviewer interviewer,
       Option<AuthFailure> authFailure,
       bool showErrorMessages});
 
   @override
-  $TeamListStateCopyWith<$Res> get teamListState;
+  $LoadStateCopyWith<$Res> get teamListState;
   @override
   $TeamCopyWith<$Res> get team;
   @override
-  $InterviewerListStateCopyWith<$Res> get interviewerListState;
+  $LoadStateCopyWith<$Res> get interviewerListState;
   @override
-  $SignInStateCopyWith<$Res> get signInState;
+  $LoadStateCopyWith<$Res> get signInState;
   @override
   $InterviewerCopyWith<$Res> get interviewer;
 }
@@ -3070,13 +1589,13 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     return _then(_AuthState(
       teamListState: teamListState == freezed
           ? _value.teamListState
-          : teamListState as TeamListState,
+          : teamListState as LoadState,
       teamList:
           teamList == freezed ? _value.teamList : teamList as KtList<Team>,
       team: team == freezed ? _value.team : team as Team,
       interviewerListState: interviewerListState == freezed
           ? _value.interviewerListState
-          : interviewerListState as InterviewerListState,
+          : interviewerListState as LoadState,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList as KtList<Interviewer>,
@@ -3084,7 +1603,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       password: password == freezed ? _value.password : password as Password,
       signInState: signInState == freezed
           ? _value.signInState
-          : signInState as SignInState,
+          : signInState as LoadState,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer as Interviewer,
@@ -3125,13 +1644,13 @@ class _$_AuthState implements _AuthState {
         assert(showErrorMessages != null);
 
   @override
-  final TeamListState teamListState;
+  final LoadState teamListState;
   @override
   final KtList<Team> teamList;
   @override
   final Team team;
   @override
-  final InterviewerListState interviewerListState;
+  final LoadState interviewerListState;
   @override
   final KtList<Interviewer> interviewerList;
   @override
@@ -3139,7 +1658,7 @@ class _$_AuthState implements _AuthState {
   @override
   final Password password;
   @override
-  final SignInState signInState;
+  final LoadState signInState;
   @override
   final Interviewer interviewer;
   @override
@@ -3211,26 +1730,26 @@ class _$_AuthState implements _AuthState {
 
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
-      {@required TeamListState teamListState,
+      {@required LoadState teamListState,
       @required KtList<Team> teamList,
       @required Team team,
-      @required InterviewerListState interviewerListState,
+      @required LoadState interviewerListState,
       @required KtList<Interviewer> interviewerList,
       @required InterviewerId id,
       @required Password password,
-      @required SignInState signInState,
+      @required LoadState signInState,
       @required Interviewer interviewer,
       @required Option<AuthFailure> authFailure,
       @required bool showErrorMessages}) = _$_AuthState;
 
   @override
-  TeamListState get teamListState;
+  LoadState get teamListState;
   @override
   KtList<Team> get teamList;
   @override
   Team get team;
   @override
-  InterviewerListState get interviewerListState;
+  LoadState get interviewerListState;
   @override
   KtList<Interviewer> get interviewerList;
   @override
@@ -3238,7 +1757,7 @@ abstract class _AuthState implements AuthState {
   @override
   Password get password;
   @override
-  SignInState get signInState;
+  LoadState get signInState;
   @override
   Interviewer get interviewer;
   @override

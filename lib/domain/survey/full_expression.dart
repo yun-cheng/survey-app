@@ -24,6 +24,10 @@ abstract class FullExpression implements _$FullExpression {
         expressionMap: const KtMap<ExpressionId, Expression>.empty(),
       );
 
+  bool get isEmpty {
+    return body == FullExpressionBody.empty();
+  }
+
   Option<ValueFailure<dynamic>> get failureOption {
     return (body.failureOrUnit).fold((f) => some(f), (_) => none());
   }

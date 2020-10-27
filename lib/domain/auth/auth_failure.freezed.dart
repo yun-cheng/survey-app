@@ -8,6 +8,21 @@ part of 'auth_failure.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+AuthFailure _$AuthFailureFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType'] as String) {
+    case 'serverError':
+      return ServerError.fromJson(json);
+    case 'insufficientPermission':
+      return _InsufficientPermission.fromJson(json);
+    case 'unexpected':
+      return _Unexpected.fromJson(json);
+    case 'invalidIdAndPasswordCombination':
+      return InvalidIdAndPasswordCombination.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
+}
 
 /// @nodoc
 class _$AuthFailureTearOff {
@@ -31,6 +46,11 @@ class _$AuthFailureTearOff {
 // ignore: unused_element
   InvalidIdAndPasswordCombination invalidIdAndPasswordCombination() {
     return const InvalidIdAndPasswordCombination();
+  }
+
+// ignore: unused_element
+  AuthFailure fromJson(Map<String, Object> json) {
+    return AuthFailure.fromJson(json);
   }
 }
 
@@ -73,6 +93,7 @@ mixin _$AuthFailure {
         InvalidIdAndPasswordCombination value),
     @required Result orElse(),
   });
+  Map<String, dynamic> toJson();
 }
 
 /// @nodoc
@@ -109,9 +130,14 @@ class _$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   ServerError get _value => super._value as ServerError;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$ServerError implements ServerError {
   const _$ServerError();
+
+  factory _$ServerError.fromJson(Map<String, dynamic> json) =>
+      _$_$ServerErrorFromJson(json);
 
   @override
   String toString() {
@@ -190,10 +216,18 @@ class _$ServerError implements ServerError {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$ServerErrorToJson(this)..['runtimeType'] = 'serverError';
+  }
 }
 
 abstract class ServerError implements AuthFailure {
   const factory ServerError() = _$ServerError;
+
+  factory ServerError.fromJson(Map<String, dynamic> json) =
+      _$ServerError.fromJson;
 }
 
 /// @nodoc
@@ -215,9 +249,14 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
   _InsufficientPermission get _value => super._value as _InsufficientPermission;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
+
+  factory _$_InsufficientPermission.fromJson(Map<String, dynamic> json) =>
+      _$_$_InsufficientPermissionFromJson(json);
 
   @override
   String toString() {
@@ -296,10 +335,19 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_InsufficientPermissionToJson(this)
+      ..['runtimeType'] = 'insufficientPermission';
+  }
 }
 
 abstract class _InsufficientPermission implements AuthFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
+
+  factory _InsufficientPermission.fromJson(Map<String, dynamic> json) =
+      _$_InsufficientPermission.fromJson;
 }
 
 /// @nodoc
@@ -320,9 +368,14 @@ class __$UnexpectedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   _Unexpected get _value => super._value as _Unexpected;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
+
+  factory _$_Unexpected.fromJson(Map<String, dynamic> json) =>
+      _$_$_UnexpectedFromJson(json);
 
   @override
   String toString() {
@@ -401,10 +454,18 @@ class _$_Unexpected implements _Unexpected {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_UnexpectedToJson(this)..['runtimeType'] = 'unexpected';
+  }
 }
 
 abstract class _Unexpected implements AuthFailure {
   const factory _Unexpected() = _$_Unexpected;
+
+  factory _Unexpected.fromJson(Map<String, dynamic> json) =
+      _$_Unexpected.fromJson;
 }
 
 /// @nodoc
@@ -429,10 +490,16 @@ class _$InvalidIdAndPasswordCombinationCopyWithImpl<$Res>
       super._value as InvalidIdAndPasswordCombination;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$InvalidIdAndPasswordCombination
     implements InvalidIdAndPasswordCombination {
   const _$InvalidIdAndPasswordCombination();
+
+  factory _$InvalidIdAndPasswordCombination.fromJson(
+          Map<String, dynamic> json) =>
+      _$_$InvalidIdAndPasswordCombinationFromJson(json);
 
   @override
   String toString() {
@@ -511,9 +578,18 @@ class _$InvalidIdAndPasswordCombination
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$InvalidIdAndPasswordCombinationToJson(this)
+      ..['runtimeType'] = 'invalidIdAndPasswordCombination';
+  }
 }
 
 abstract class InvalidIdAndPasswordCombination implements AuthFailure {
   const factory InvalidIdAndPasswordCombination() =
       _$InvalidIdAndPasswordCombination;
+
+  factory InvalidIdAndPasswordCombination.fromJson(Map<String, dynamic> json) =
+      _$InvalidIdAndPasswordCombination.fromJson;
 }

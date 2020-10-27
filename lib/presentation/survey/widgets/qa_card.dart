@@ -19,7 +19,7 @@ class QaCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      // BUG 有 rebuild 卻會出現不同頁面的作答!?
+      // NOTE 避免 widget 沒有刷新的問題
       key: Key(question.id.getOrCrash()),
       color: Colors.teal[200],
       shape: RoundedRectangleBorder(

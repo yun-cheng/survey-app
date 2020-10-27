@@ -8,7 +8,7 @@ Either<ValueFailure<String>, String> validateAnswer(String input) {
   if (input == 'O' || input == 'X' || input == '') {
     return right(input);
   } else {
-    return left(ValueFailure.unexpectedAnswer(failedValue: input));
+    return left(ValueFailure.unexpected(failedValue: input));
   }
 }
 

@@ -1,14 +1,16 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/auth_failure.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/team.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/auth/auth_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
@@ -18,7 +20,7 @@ part 'auth_state.dart';
 part 'auth_bloc.freezed.dart';
 
 @injectable
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
+class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
   StreamSubscription<Either<AuthFailure, KtList<Team>>> _teamListSubscription;
   StreamSubscription<Either<AuthFailure, KtList<Interviewer>>>
@@ -33,7 +35,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     yield* event.map(
       watchTeamListStarted: (e) async* {
         yield state.copyWith(
-          teamListState: const TeamListState.loadInProgress(),
+          teamListState: const LoadState.inProgress(),
           authFailure: none(),
         );
         await _teamListSubscription?.cancel();
@@ -45,11 +47,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       teamListReceived: (e) async* {
         yield e.failureOrTeamList.fold(
           (f) => state.copyWith(
-            teamListState: const TeamListState.loadFailure(),
+            teamListState: const LoadState.failure(),
             authFailure: some(f),
           ),
           (teamList) => state.copyWith(
-            teamListState: const TeamListState.loadSuccess(),
+            teamListState: const LoadState.success(),
             teamList: teamList,
             authFailure: none(),
           ),
@@ -58,7 +60,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       teamSelected: (e) async* {
         yield state.copyWith(
           team: e.team,
-          interviewerListState: const InterviewerListState.loadInProgress(),
+          interviewerListState: const LoadState.inProgress(),
           authFailure: none(),
         );
         await _interviewerListSubscription?.cancel();
@@ -72,11 +74,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       interviewerListReceived: (e) async* {
         yield e.failureOrInterviewerList.fold(
           (f) => state.copyWith(
-            interviewerListState: const InterviewerListState.loadFailure(),
+            interviewerListState: const LoadState.failure(),
             authFailure: some(f),
           ),
           (interviewerList) => state.copyWith(
-            interviewerListState: const InterviewerListState.loadSuccess(),
+            interviewerListState: const LoadState.success(),
             interviewerList: interviewerList,
             authFailure: none(),
           ),
@@ -85,20 +87,20 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       idChanged: (e) async* {
         yield state.copyWith(
           id: InterviewerId(e.idStr),
-          signInState: const SignInState.initial(),
+          signInState: const LoadState.initial(),
           authFailure: none(),
         );
       },
       passwordChanged: (e) async* {
         yield state.copyWith(
           password: Password(e.passwordStr),
-          signInState: const SignInState.initial(),
+          signInState: const LoadState.initial(),
           authFailure: none(),
         );
       },
       signInPressed: (e) async* {
         yield state.copyWith(
-          signInState: const SignInState.inProgress(),
+          signInState: const LoadState.inProgress(),
           authFailure: none(),
         );
 
@@ -114,12 +116,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
           yield failureOrInterviewer.fold(
             (f) => state.copyWith(
-              signInState: const SignInState.failure(),
+              signInState: const LoadState.failure(),
               authFailure: some(f),
               showErrorMessages: true,
             ),
             (interviewer) => state.copyWith(
-              signInState: const SignInState.success(),
+              signInState: const LoadState.success(),
               authFailure: none(),
               interviewer: interviewer,
             ),
@@ -136,5 +138,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> close() {
     _teamListSubscription?.cancel();
     return super.close();
+  }
+
+  @override
+  AuthState fromJson(Map<String, dynamic> json) {
+    try {
+      return AuthStateDto.fromJson(json).toDomain();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(AuthState state) {
+    if (state.signInState is LoadSuccess) {
+      return AuthStateDto.fromDomain(state).toJson();
+    } else {
+      return null;
+    }
   }
 }

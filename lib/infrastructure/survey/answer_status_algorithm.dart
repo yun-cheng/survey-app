@@ -2,7 +2,6 @@ import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/full_expression.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_status_algorithm.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
@@ -68,6 +67,8 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       );
     });
 
+    print(newAnswerStatusMap[QuestionId('B2')].warning);
+
     return newAnswerStatusMap;
   }
 
@@ -79,8 +80,8 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
         KtMutableMap.from(answerStatusMap.asMap());
 
-    final showQuestionList = questionList
-        .filter((question) => question.show != FullExpression.empty());
+    final showQuestionList =
+        questionList.filter((question) => !question.show.isEmpty);
 
     showQuestionList.forEach((question) {
       AnswerStatusType newAnswerStatusType;
@@ -177,10 +178,14 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     AnswerStatusType newAnswerStatusType;
     final newAnswer = answerMap[question.id].body;
 
-    if (newAnswer.isNotEmpty) {
-      newAnswerStatusType = AnswerStatusType.answered();
-    } else {
+    if (newAnswer.isEmpty) {
       newAnswerStatusType = AnswerStatusType.unanswered();
+    } else {
+      final bool validateAnswer = question.validateAnswer.evaluate(answerMap);
+
+      newAnswerStatusType = validateAnswer
+          ? AnswerStatusType.answered()
+          : AnswerStatusType.invalid();
     }
 
     newAnswerStatusMap[question.id] =
