@@ -23,9 +23,11 @@ class Routes {
   static const String quizListPage = '/quiz-list-page';
   static const String quizPage = '/quiz-page';
   static const String finishedPage = '/finished-page';
-  static const String overviewPage = '/overview-page';
-  static const String respondentListPage = '/respondent-list-page';
-  static const String surveyPage = '/survey-page';
+  static const String overviewPage = '/overview';
+  static const String respondentListPage = '/respondent';
+  static const String _surveyPage = '/respondent/:respondentId';
+  static String surveyPage({@required dynamic respondentId}) =>
+      '/respondent/$respondentId';
   static const all = <String>{
     signInPage,
     quizListPage,
@@ -33,7 +35,7 @@ class Routes {
     finishedPage,
     overviewPage,
     respondentListPage,
-    surveyPage,
+    _surveyPage,
   };
 }
 
@@ -47,7 +49,7 @@ class AutoRouter extends RouterBase {
     RouteDef(Routes.finishedPage, page: FinishedPage),
     RouteDef(Routes.overviewPage, page: OverviewPage),
     RouteDef(Routes.respondentListPage, page: RespondentListPage),
-    RouteDef(Routes.surveyPage, page: SurveyPage),
+    RouteDef(Routes._surveyPage, page: SurveyPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -125,8 +127,6 @@ extension AutoRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushRespondentListPage() =>
       push<dynamic>(Routes.respondentListPage);
-
-  Future<dynamic> pushSurveyPage() => push<dynamic>(Routes.surveyPage);
 }
 
 /// ************************************************************************

@@ -41,7 +41,7 @@ class SurveyPage extends HookWidget {
                   alignment: Alignment.center,
                   child: ConstrainedBox(
                     constraints: const BoxConstraints.expand(width: 800.0),
-                    child: PageControlBar(),
+                    child: const PageControlBar(),
                   ),
                 ),
               ),

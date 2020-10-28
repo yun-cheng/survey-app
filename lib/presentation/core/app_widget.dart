@@ -53,34 +53,33 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SurveyPageBloc(
-           BlocProvider.of<AnswerBloc>(context),
+            BlocProvider.of<AnswerBloc>(context),
           ),
         ),
       ],
       child: MaterialApp(
-          title: '訪員測驗',
-          debugShowCheckedModeBanner: false,
-          builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
-          theme: ThemeData.light().copyWith(
-            textTheme:
-        ThemeData.light().textTheme.apply(fontFamily: 'NotoSansTC'),
-            primaryTextTheme: ThemeData.light()
-        .primaryTextTheme
-        .apply(fontFamily: 'NotoSansTC'),
-            accentTextTheme:
-        ThemeData.light().accentTextTheme.apply(fontFamily: 'NotoSansTC'),
-            primaryColor: Colors.blueAccent,
-            accentColor: Colors.blueAccent,
-            floatingActionButtonTheme: FloatingActionButtonThemeData(
-      backgroundColor: Colors.blue[900],
-            ),
-            inputDecorationTheme: InputDecorationTheme(
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8),
-      ),
+        title: '訪員測驗',
+        debugShowCheckedModeBanner: false,
+        builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
+        theme: ThemeData.light().copyWith(
+          textTheme:
+              ThemeData.light().textTheme.apply(fontFamily: 'NotoSansTC'),
+          primaryTextTheme: (ThemeData.light().primaryTextTheme)
+              .apply(fontFamily: 'NotoSansTC'),
+          accentTextTheme:
+              ThemeData.light().accentTextTheme.apply(fontFamily: 'NotoSansTC'),
+          primaryColor: Colors.blueAccent,
+          accentColor: Colors.blueAccent,
+          floatingActionButtonTheme: FloatingActionButtonThemeData(
+            backgroundColor: Colors.blue[900],
+          ),
+          inputDecorationTheme: InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
             ),
           ),
         ),
+      ),
     );
   }
 }

@@ -16,9 +16,9 @@ import 'package:interviewer_quiz_flutter_app/presentation/survey/survey_page.dar
     MaterialRoute(page: QuizListPage),
     MaterialRoute(page: QuizPage),
     MaterialRoute(page: FinishedPage),
-    MaterialRoute(page: OverviewPage),
-    MaterialRoute(page: RespondentListPage),
-    MaterialRoute(page: SurveyPage),
+    MaterialRoute(page: OverviewPage, path: '/overview'),
+    MaterialRoute(page: RespondentListPage, path: '/respondent'),
+    MaterialRoute(page: SurveyPage, path: '/respondent/:respondentId'),
   ],
 )
 class $AutoRouter {}

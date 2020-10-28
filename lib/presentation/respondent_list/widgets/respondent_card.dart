@@ -30,7 +30,8 @@ class RespondentCard extends StatelessWidget {
           context
               .bloc<AnswerBloc>()
               .add(AnswerEvent.respondentSelected(respondent: respondent));
-          ExtendedNavigator.of(context).pushSurveyPage();
+          ExtendedNavigator.of(context)
+              .push('/respondent/${respondent.id.getOrCrash()}');
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),
