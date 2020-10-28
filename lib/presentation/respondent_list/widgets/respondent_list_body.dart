@@ -11,11 +11,11 @@ class RespondentListBody extends StatelessWidget {
       builder: (context, state) {
         return state.respondentListListState.map(
           initial: (_) => Container(),
-          loadInProgress: (_) => const Center(
+          inProgress: (_) => const Center(
             child: CircularProgressIndicator(),
           ),
-          loadFailure: (_) => Container(),
-          loadSuccess: (_) {
+          failure: (_) => Container(),
+          success: (_) {
             return ListView.builder(
               shrinkWrap: true,
               padding: const EdgeInsets.symmetric(

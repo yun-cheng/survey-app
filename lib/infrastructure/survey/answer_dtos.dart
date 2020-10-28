@@ -25,7 +25,7 @@ abstract class AnswerDto implements _$AnswerDto {
       answerBody: answer.body.getOrCrash(),
       noteMap: answer.noteMap
           .mapKeys((entry) => entry.key.getOrCrash())
-          .mapValues((entry) => entry.value.getOrCrash())
+          .mapValues((entry) => entry.value.getOrCrash() as String)
           .asMap(),
     );
   }

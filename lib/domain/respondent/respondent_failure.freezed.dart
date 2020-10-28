@@ -8,6 +8,19 @@ part of 'respondent_failure.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+RespondentFailure _$RespondentFailureFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType'] as String) {
+    case 'serverError':
+      return ServerError.fromJson(json);
+    case 'insufficientPermission':
+      return _InsufficientPermission.fromJson(json);
+    case 'unexpected':
+      return _Unexpected.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
+}
 
 /// @nodoc
 class _$RespondentFailureTearOff {
@@ -26,6 +39,11 @@ class _$RespondentFailureTearOff {
 // ignore: unused_element
   _Unexpected unexpected() {
     return const _Unexpected();
+  }
+
+// ignore: unused_element
+  RespondentFailure fromJson(Map<String, Object> json) {
+    return RespondentFailure.fromJson(json);
   }
 }
 
@@ -61,6 +79,7 @@ mixin _$RespondentFailure {
     Result unexpected(_Unexpected value),
     @required Result orElse(),
   });
+  Map<String, dynamic> toJson();
 }
 
 /// @nodoc
@@ -99,9 +118,14 @@ class _$ServerErrorCopyWithImpl<$Res>
   ServerError get _value => super._value as ServerError;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$ServerError implements ServerError {
   const _$ServerError();
+
+  factory _$ServerError.fromJson(Map<String, dynamic> json) =>
+      _$_$ServerErrorFromJson(json);
 
   @override
   String toString() {
@@ -171,10 +195,18 @@ class _$ServerError implements ServerError {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$ServerErrorToJson(this)..['runtimeType'] = 'serverError';
+  }
 }
 
 abstract class ServerError implements RespondentFailure {
   const factory ServerError() = _$ServerError;
+
+  factory ServerError.fromJson(Map<String, dynamic> json) =
+      _$ServerError.fromJson;
 }
 
 /// @nodoc
@@ -196,9 +228,14 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
   _InsufficientPermission get _value => super._value as _InsufficientPermission;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
+
+  factory _$_InsufficientPermission.fromJson(Map<String, dynamic> json) =>
+      _$_$_InsufficientPermissionFromJson(json);
 
   @override
   String toString() {
@@ -268,10 +305,19 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_InsufficientPermissionToJson(this)
+      ..['runtimeType'] = 'insufficientPermission';
+  }
 }
 
 abstract class _InsufficientPermission implements RespondentFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
+
+  factory _InsufficientPermission.fromJson(Map<String, dynamic> json) =
+      _$_InsufficientPermission.fromJson;
 }
 
 /// @nodoc
@@ -293,9 +339,14 @@ class __$UnexpectedCopyWithImpl<$Res>
   _Unexpected get _value => super._value as _Unexpected;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
+
+  factory _$_Unexpected.fromJson(Map<String, dynamic> json) =>
+      _$_$_UnexpectedFromJson(json);
 
   @override
   String toString() {
@@ -365,8 +416,16 @@ class _$_Unexpected implements _Unexpected {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_UnexpectedToJson(this)..['runtimeType'] = 'unexpected';
+  }
 }
 
 abstract class _Unexpected implements RespondentFailure {
   const factory _Unexpected() = _$_Unexpected;
+
+  factory _Unexpected.fromJson(Map<String, dynamic> json) =
+      _$_Unexpected.fromJson;
 }

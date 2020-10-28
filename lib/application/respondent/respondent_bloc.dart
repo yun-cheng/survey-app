@@ -1,21 +1,23 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
 import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/i_respondent_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent_failure.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent_list.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/respondent/respondent_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'respondent_event.dart';
 part 'respondent_state.dart';
 part 'respondent_bloc.freezed.dart';
 
-class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
+class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
   final IRespondentRepository _respondentRepository;
   StreamSubscription<Either<RespondentFailure, KtList<RespondentList>>>
       _respondentListListSubscription;
@@ -29,8 +31,7 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
     yield* event.map(
       watchRespondentListListStarted: (e) async* {
         yield state.copyWith(
-          respondentListListState:
-              const RespondentListListState.loadInProgress(),
+          respondentListListState: const LoadState.inProgress(),
           respondentFailure: none(),
         );
         await _respondentListListSubscription?.cancel();
@@ -48,13 +49,11 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
       respondentListListReceived: (e) async* {
         yield e.failureOrRespondentListList.fold(
           (f) => state.copyWith(
-            respondentListListState:
-                const RespondentListListState.loadFailure(),
+            respondentListListState: const LoadState.failure(),
             respondentFailure: some(f),
           ),
           (respondentListList) => state.copyWith(
-            respondentListListState:
-                const RespondentListListState.loadSuccess(),
+            respondentListListState: const LoadState.success(),
             respondentListList: respondentListList,
             respondentFailure: none(),
           ),
@@ -92,5 +91,27 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
   Future<void> close() {
     _respondentListListSubscription?.cancel();
     return super.close();
+  }
+
+  @override
+  RespondentState fromJson(Map<String, dynamic> json) {
+    try {
+      return RespondentStateDto.fromJson(json).toDomain();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(RespondentState state) {
+    // try {
+    if (state.survey != Survey.empty()) {
+      return RespondentStateDto.fromDomain(state).toJson();
+    } else {
+      return null;
+    }
+    // } catch (_) {
+    //   return null;
+    // }
   }
 }

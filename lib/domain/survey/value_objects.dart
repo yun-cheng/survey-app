@@ -26,7 +26,7 @@ class QuestionNote extends ValueObject<String> {
   factory QuestionNote(String input) {
     assert(input != null);
     return QuestionNote._(
-      validateStringNotEmpty(input),
+      right(input),
     );
   }
 

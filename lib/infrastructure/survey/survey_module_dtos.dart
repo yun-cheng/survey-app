@@ -1,4 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/survey/answer_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/survey/answer_status_dtos.dart';
@@ -20,14 +23,16 @@ abstract class SurveyModuleDto implements _$SurveyModuleDto {
 
   factory SurveyModuleDto.fromDomain(Map<String, dynamic> surveyModule) {
     return SurveyModuleDto(
-      questionList: surveyModule['questionList']
+      questionList: (surveyModule['questionList'] as KtList<Question>)
           .map((question) => QuestionDto.fromDomain(question))
           .asList(),
-      initialAnswerList: surveyModule['initialAnswerList']
-          .mapKeys((entry) => entry.key.getOrCrash())
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      initialAnswerStatusList: surveyModule['initialAnswerStatusList']
+      initialAnswerList:
+          (surveyModule['initialAnswerList'] as KtMap<QuestionId, Answer>)
+              .mapKeys((entry) => entry.key.getOrCrash())
+              .mapValues((entry) => AnswerDto.fromDomain(entry.value))
+              .asMap(),
+      initialAnswerStatusList: (surveyModule['initialAnswerStatusList']
+              as KtMap<QuestionId, AnswerStatus>)
           .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
