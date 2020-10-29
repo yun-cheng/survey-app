@@ -12,4 +12,6 @@ abstract class SurveyEvent with _$SurveyEvent {
   const factory SurveyEvent.surveySelected({
     @required Survey survey,
   }) = _SurveySelected;
+  const factory SurveyEvent.pagePopped() = _PagePopped;
+  const factory SurveyEvent.pagePushed() = _PagePushed;
 }

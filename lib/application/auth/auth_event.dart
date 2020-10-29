@@ -14,4 +14,5 @@ abstract class AuthEvent with _$AuthEvent {
       _PasswordChanged;
   const factory AuthEvent.signInPressed() = _SignInPressed;
   const factory AuthEvent.signOutPressed() = _SignOutPressed;
+  const factory AuthEvent.pagePushed() = _PagePushed;
 }

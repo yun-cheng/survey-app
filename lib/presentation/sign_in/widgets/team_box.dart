@@ -14,7 +14,10 @@ class Teambox extends StatelessWidget {
       buildWhen: (p, c) => p.teamList != c.teamList,
       builder: (context, state) {
         return DropdownButtonFormField(
-          value: state.team.failureOption.isNone() ? state.team : null,
+          value: state.team.failureOption.isNone() &&
+                  state.teamList.contains(state.team)
+              ? state.team
+              : null,
           items: state.teamList
               .map(
                 (team) => DropdownMenuItem(

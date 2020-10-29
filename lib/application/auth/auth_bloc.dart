@@ -10,6 +10,7 @@ import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/team.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/page_state.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/auth_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
@@ -63,6 +64,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
           interviewerListState: const LoadState.inProgress(),
           authFailure: none(),
         );
+        // BUG 如果從 hydratedBloc 回復會沒有訂閱
         await _interviewerListSubscription?.cancel();
         _interviewerListSubscription = _authFacade
             .watchInterviewerList(teamId: e.team.id)
@@ -124,12 +126,18 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
               signInState: const LoadState.success(),
               authFailure: none(),
               interviewer: interviewer,
+              pageState: const PageState.push(),
             ),
           );
         }
       },
       signOutPressed: (e) async* {
         yield AuthState.initial();
+      },
+      pagePushed: (e) async* {
+        yield state.copyWith(
+          pageState: const PageState.push(),
+        );
       },
     );
   }
@@ -143,7 +151,9 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   @override
   AuthState fromJson(Map<String, dynamic> json) {
     try {
-      return AuthStateDto.fromJson(json).toDomain();
+      return AuthStateDto.fromJson(json).toDomain().copyWith(
+            pageState: const PageState.initial(),
+          );
     } catch (_) {
       return null;
     }

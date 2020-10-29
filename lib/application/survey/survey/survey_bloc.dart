@@ -1,19 +1,22 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/page_state.dart';
 import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_survey_repository.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/survey_failure.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'survey_event.dart';
 part 'survey_state.dart';
 part 'survey_bloc.freezed.dart';
 
-class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
+class SurveyBloc extends HydratedBloc<SurveyEvent, SurveyState> {
   final ISurveyRepository _surveyRepository;
   StreamSubscription<Either<SurveyFailure, KtList<Survey>>>
       _surveyListSubscription;
@@ -27,7 +30,7 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
     yield* event.map(
       watchSurveyListStarted: (e) async* {
         yield state.copyWith(
-          surveyListState: const SurveyListState.loadInProgress(),
+          surveyListState: const LoadState.inProgress(),
           surveyFailure: none(),
         );
         await _surveyListSubscription?.cancel();
@@ -44,11 +47,11 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       surveyListReceived: (e) async* {
         yield e.failureOrSurveyList.fold(
           (f) => state.copyWith(
-            surveyListState: const SurveyListState.loadFailure(),
+            surveyListState: const LoadState.failure(),
             surveyFailure: some(f),
           ),
           (surveyList) => state.copyWith(
-            surveyListState: const SurveyListState.loadSuccess(),
+            surveyListState: const LoadState.success(),
             surveyList: surveyList,
             surveyFailure: none(),
           ),
@@ -57,7 +60,20 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
       surveySelected: (e) async* {
         yield state.copyWith(
           survey: e.survey,
+          pageState: const PageState.push(),
           surveyFailure: none(),
+        );
+      },
+      pagePopped: (e) async* {
+        yield state.copyWith(
+          pageState: const PageState.initial(),
+          survey: Survey.empty(),
+          surveyFailure: none(),
+        );
+      },
+      pagePushed: (e) async* {
+        yield state.copyWith(
+          pageState: const PageState.push(),
         );
       },
     );
@@ -67,5 +83,29 @@ class SurveyBloc extends Bloc<SurveyEvent, SurveyState> {
   Future<void> close() {
     _surveyListSubscription?.cancel();
     return super.close();
+  }
+
+  @override
+  SurveyState fromJson(Map<String, dynamic> json) {
+    try {
+      return SurveyStateDto.fromJson(json).toDomain().copyWith(
+            pageState: const PageState.initial(),
+          );
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(SurveyState state) {
+    // try {
+    if (state.surveyListState is LoadSuccess) {
+      return SurveyStateDto.fromDomain(state).toJson();
+    } else {
+      return null;
+    }
+    // } catch (_) {
+    //   return null;
+    // }
   }
 }

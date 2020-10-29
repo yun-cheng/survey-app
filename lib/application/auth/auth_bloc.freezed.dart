@@ -64,6 +64,11 @@ class _$AuthEventTearOff {
   _SignOutPressed signOutPressed() {
     return const _SignOutPressed();
   }
+
+// ignore: unused_element
+  _PagePushed pagePushed() {
+    return const _PagePushed();
+  }
 }
 
 /// @nodoc
@@ -86,6 +91,7 @@ mixin _$AuthEvent {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -99,6 +105,7 @@ mixin _$AuthEvent {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -111,6 +118,7 @@ mixin _$AuthEvent {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
@@ -122,6 +130,7 @@ mixin _$AuthEvent {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   });
 }
@@ -192,6 +201,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -201,6 +211,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return watchTeamListStarted();
   }
 
@@ -217,6 +228,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -237,6 +249,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -246,6 +259,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return watchTeamListStarted(this);
   }
 
@@ -260,6 +274,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -351,6 +366,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -360,6 +376,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return teamListReceived(failureOrTeamList);
   }
 
@@ -376,6 +393,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -396,6 +414,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -405,6 +424,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return teamListReceived(this);
   }
 
@@ -419,6 +439,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -521,6 +542,7 @@ class _$_TeamSelected implements _TeamSelected {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -530,6 +552,7 @@ class _$_TeamSelected implements _TeamSelected {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return teamSelected(team);
   }
 
@@ -546,6 +569,7 @@ class _$_TeamSelected implements _TeamSelected {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -566,6 +590,7 @@ class _$_TeamSelected implements _TeamSelected {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -575,6 +600,7 @@ class _$_TeamSelected implements _TeamSelected {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return teamSelected(this);
   }
 
@@ -589,6 +615,7 @@ class _$_TeamSelected implements _TeamSelected {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -688,6 +715,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -697,6 +725,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return interviewerListReceived(failureOrInterviewerList);
   }
 
@@ -713,6 +742,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -733,6 +763,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -742,6 +773,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return interviewerListReceived(this);
   }
 
@@ -756,6 +788,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -845,6 +878,7 @@ class _$_IdChanged implements _IdChanged {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -854,6 +888,7 @@ class _$_IdChanged implements _IdChanged {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return idChanged(idStr);
   }
 
@@ -870,6 +905,7 @@ class _$_IdChanged implements _IdChanged {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -890,6 +926,7 @@ class _$_IdChanged implements _IdChanged {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -899,6 +936,7 @@ class _$_IdChanged implements _IdChanged {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return idChanged(this);
   }
 
@@ -913,6 +951,7 @@ class _$_IdChanged implements _IdChanged {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1002,6 +1041,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -1011,6 +1051,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return passwordChanged(passwordStr);
   }
 
@@ -1027,6 +1068,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1047,6 +1089,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -1056,6 +1099,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return passwordChanged(this);
   }
 
@@ -1070,6 +1114,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1137,6 +1182,7 @@ class _$_SignInPressed implements _SignInPressed {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -1146,6 +1192,7 @@ class _$_SignInPressed implements _SignInPressed {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return signInPressed();
   }
 
@@ -1162,6 +1209,7 @@ class _$_SignInPressed implements _SignInPressed {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1182,6 +1230,7 @@ class _$_SignInPressed implements _SignInPressed {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -1191,6 +1240,7 @@ class _$_SignInPressed implements _SignInPressed {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return signInPressed(this);
   }
 
@@ -1205,6 +1255,7 @@ class _$_SignInPressed implements _SignInPressed {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1269,6 +1320,7 @@ class _$_SignOutPressed implements _SignOutPressed {
     @required Result passwordChanged(String passwordStr),
     @required Result signInPressed(),
     @required Result signOutPressed(),
+    @required Result pagePushed(),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -1278,6 +1330,7 @@ class _$_SignOutPressed implements _SignOutPressed {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return signOutPressed();
   }
 
@@ -1294,6 +1347,7 @@ class _$_SignOutPressed implements _SignOutPressed {
     Result passwordChanged(String passwordStr),
     Result signInPressed(),
     Result signOutPressed(),
+    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1314,6 +1368,7 @@ class _$_SignOutPressed implements _SignOutPressed {
     @required Result passwordChanged(_PasswordChanged value),
     @required Result signInPressed(_SignInPressed value),
     @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchTeamListStarted != null);
     assert(teamListReceived != null);
@@ -1323,6 +1378,7 @@ class _$_SignOutPressed implements _SignOutPressed {
     assert(passwordChanged != null);
     assert(signInPressed != null);
     assert(signOutPressed != null);
+    assert(pagePushed != null);
     return signOutPressed(this);
   }
 
@@ -1337,6 +1393,7 @@ class _$_SignOutPressed implements _SignOutPressed {
     Result passwordChanged(_PasswordChanged value),
     Result signInPressed(_SignInPressed value),
     Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -1349,6 +1406,144 @@ class _$_SignOutPressed implements _SignOutPressed {
 
 abstract class _SignOutPressed implements AuthEvent {
   const factory _SignOutPressed() = _$_SignOutPressed;
+}
+
+/// @nodoc
+abstract class _$PagePushedCopyWith<$Res> {
+  factory _$PagePushedCopyWith(
+          _PagePushed value, $Res Function(_PagePushed) then) =
+      __$PagePushedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$PagePushedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$PagePushedCopyWith<$Res> {
+  __$PagePushedCopyWithImpl(
+      _PagePushed _value, $Res Function(_PagePushed) _then)
+      : super(_value, (v) => _then(v as _PagePushed));
+
+  @override
+  _PagePushed get _value => super._value as _PagePushed;
+}
+
+/// @nodoc
+class _$_PagePushed implements _PagePushed {
+  const _$_PagePushed();
+
+  @override
+  String toString() {
+    return 'AuthEvent.pagePushed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _PagePushed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  Result when<Result extends Object>({
+    @required Result watchTeamListStarted(),
+    @required
+        Result teamListReceived(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList),
+    @required Result teamSelected(Team team),
+    @required
+        Result interviewerListReceived(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
+    @required Result idChanged(String idStr),
+    @required Result passwordChanged(String passwordStr),
+    @required Result signInPressed(),
+    @required Result signOutPressed(),
+    @required Result pagePushed(),
+  }) {
+    assert(watchTeamListStarted != null);
+    assert(teamListReceived != null);
+    assert(teamSelected != null);
+    assert(interviewerListReceived != null);
+    assert(idChanged != null);
+    assert(passwordChanged != null);
+    assert(signInPressed != null);
+    assert(signOutPressed != null);
+    assert(pagePushed != null);
+    return pagePushed();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeWhen<Result extends Object>({
+    Result watchTeamListStarted(),
+    Result teamListReceived(
+        Either<AuthFailure, KtList<Team>> failureOrTeamList),
+    Result teamSelected(Team team),
+    Result interviewerListReceived(
+        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
+    Result idChanged(String idStr),
+    Result passwordChanged(String passwordStr),
+    Result signInPressed(),
+    Result signOutPressed(),
+    Result pagePushed(),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (pagePushed != null) {
+      return pagePushed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  Result map<Result extends Object>({
+    @required Result watchTeamListStarted(_WatchTeamListStarted value),
+    @required Result teamListReceived(_TeamListReceived value),
+    @required Result teamSelected(_TeamSelected value),
+    @required Result interviewerListReceived(_InterviewerListReceived value),
+    @required Result idChanged(_IdChanged value),
+    @required Result passwordChanged(_PasswordChanged value),
+    @required Result signInPressed(_SignInPressed value),
+    @required Result signOutPressed(_SignOutPressed value),
+    @required Result pagePushed(_PagePushed value),
+  }) {
+    assert(watchTeamListStarted != null);
+    assert(teamListReceived != null);
+    assert(teamSelected != null);
+    assert(interviewerListReceived != null);
+    assert(idChanged != null);
+    assert(passwordChanged != null);
+    assert(signInPressed != null);
+    assert(signOutPressed != null);
+    assert(pagePushed != null);
+    return pagePushed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  Result maybeMap<Result extends Object>({
+    Result watchTeamListStarted(_WatchTeamListStarted value),
+    Result teamListReceived(_TeamListReceived value),
+    Result teamSelected(_TeamSelected value),
+    Result interviewerListReceived(_InterviewerListReceived value),
+    Result idChanged(_IdChanged value),
+    Result passwordChanged(_PasswordChanged value),
+    Result signInPressed(_SignInPressed value),
+    Result signOutPressed(_SignOutPressed value),
+    Result pagePushed(_PagePushed value),
+    @required Result orElse(),
+  }) {
+    assert(orElse != null);
+    if (pagePushed != null) {
+      return pagePushed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PagePushed implements AuthEvent {
+  const factory _PagePushed() = _$_PagePushed;
 }
 
 /// @nodoc
@@ -1367,7 +1562,8 @@ class _$AuthStateTearOff {
       @required LoadState signInState,
       @required Interviewer interviewer,
       @required Option<AuthFailure> authFailure,
-      @required bool showErrorMessages}) {
+      @required bool showErrorMessages,
+      @required PageState pageState}) {
     return _AuthState(
       teamListState: teamListState,
       teamList: teamList,
@@ -1380,6 +1576,7 @@ class _$AuthStateTearOff {
       interviewer: interviewer,
       authFailure: authFailure,
       showErrorMessages: showErrorMessages,
+      pageState: pageState,
     );
   }
 }
@@ -1401,6 +1598,7 @@ mixin _$AuthState {
   Interviewer get interviewer;
   Option<AuthFailure> get authFailure;
   bool get showErrorMessages;
+  PageState get pageState;
 
   $AuthStateCopyWith<AuthState> get copyWith;
 }
@@ -1420,13 +1618,15 @@ abstract class $AuthStateCopyWith<$Res> {
       LoadState signInState,
       Interviewer interviewer,
       Option<AuthFailure> authFailure,
-      bool showErrorMessages});
+      bool showErrorMessages,
+      PageState pageState});
 
   $LoadStateCopyWith<$Res> get teamListState;
   $TeamCopyWith<$Res> get team;
   $LoadStateCopyWith<$Res> get interviewerListState;
   $LoadStateCopyWith<$Res> get signInState;
   $InterviewerCopyWith<$Res> get interviewer;
+  $PageStateCopyWith<$Res> get pageState;
 }
 
 /// @nodoc
@@ -1450,6 +1650,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object interviewer = freezed,
     Object authFailure = freezed,
     Object showErrorMessages = freezed,
+    Object pageState = freezed,
   }) {
     return _then(_value.copyWith(
       teamListState: teamListState == freezed
@@ -1478,6 +1679,8 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
+      pageState:
+          pageState == freezed ? _value.pageState : pageState as PageState,
     ));
   }
 
@@ -1530,6 +1733,16 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
       return _then(_value.copyWith(interviewer: value));
     });
   }
+
+  @override
+  $PageStateCopyWith<$Res> get pageState {
+    if (_value.pageState == null) {
+      return null;
+    }
+    return $PageStateCopyWith<$Res>(_value.pageState, (value) {
+      return _then(_value.copyWith(pageState: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1549,7 +1762,8 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       LoadState signInState,
       Interviewer interviewer,
       Option<AuthFailure> authFailure,
-      bool showErrorMessages});
+      bool showErrorMessages,
+      PageState pageState});
 
   @override
   $LoadStateCopyWith<$Res> get teamListState;
@@ -1561,6 +1775,8 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   $LoadStateCopyWith<$Res> get signInState;
   @override
   $InterviewerCopyWith<$Res> get interviewer;
+  @override
+  $PageStateCopyWith<$Res> get pageState;
 }
 
 /// @nodoc
@@ -1585,6 +1801,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object interviewer = freezed,
     Object authFailure = freezed,
     Object showErrorMessages = freezed,
+    Object pageState = freezed,
   }) {
     return _then(_AuthState(
       teamListState: teamListState == freezed
@@ -1613,6 +1830,8 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
+      pageState:
+          pageState == freezed ? _value.pageState : pageState as PageState,
     ));
   }
 }
@@ -1630,7 +1849,8 @@ class _$_AuthState implements _AuthState {
       @required this.signInState,
       @required this.interviewer,
       @required this.authFailure,
-      @required this.showErrorMessages})
+      @required this.showErrorMessages,
+      @required this.pageState})
       : assert(teamListState != null),
         assert(teamList != null),
         assert(team != null),
@@ -1641,7 +1861,8 @@ class _$_AuthState implements _AuthState {
         assert(signInState != null),
         assert(interviewer != null),
         assert(authFailure != null),
-        assert(showErrorMessages != null);
+        assert(showErrorMessages != null),
+        assert(pageState != null);
 
   @override
   final LoadState teamListState;
@@ -1665,10 +1886,12 @@ class _$_AuthState implements _AuthState {
   final Option<AuthFailure> authFailure;
   @override
   final bool showErrorMessages;
+  @override
+  final PageState pageState;
 
   @override
   String toString() {
-    return 'AuthState(teamListState: $teamListState, teamList: $teamList, team: $team, interviewerListState: $interviewerListState, interviewerList: $interviewerList, id: $id, password: $password, signInState: $signInState, interviewer: $interviewer, authFailure: $authFailure, showErrorMessages: $showErrorMessages)';
+    return 'AuthState(teamListState: $teamListState, teamList: $teamList, team: $team, interviewerListState: $interviewerListState, interviewerList: $interviewerList, id: $id, password: $password, signInState: $signInState, interviewer: $interviewer, authFailure: $authFailure, showErrorMessages: $showErrorMessages, pageState: $pageState)';
   }
 
   @override
@@ -1705,7 +1928,10 @@ class _$_AuthState implements _AuthState {
                     .equals(other.authFailure, authFailure)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)));
+                    .equals(other.showErrorMessages, showErrorMessages)) &&
+            (identical(other.pageState, pageState) ||
+                const DeepCollectionEquality()
+                    .equals(other.pageState, pageState)));
   }
 
   @override
@@ -1721,7 +1947,8 @@ class _$_AuthState implements _AuthState {
       const DeepCollectionEquality().hash(signInState) ^
       const DeepCollectionEquality().hash(interviewer) ^
       const DeepCollectionEquality().hash(authFailure) ^
-      const DeepCollectionEquality().hash(showErrorMessages);
+      const DeepCollectionEquality().hash(showErrorMessages) ^
+      const DeepCollectionEquality().hash(pageState);
 
   @override
   _$AuthStateCopyWith<_AuthState> get copyWith =>
@@ -1740,7 +1967,8 @@ abstract class _AuthState implements AuthState {
       @required LoadState signInState,
       @required Interviewer interviewer,
       @required Option<AuthFailure> authFailure,
-      @required bool showErrorMessages}) = _$_AuthState;
+      @required bool showErrorMessages,
+      @required PageState pageState}) = _$_AuthState;
 
   @override
   LoadState get teamListState;
@@ -1764,6 +1992,8 @@ abstract class _AuthState implements AuthState {
   Option<AuthFailure> get authFailure;
   @override
   bool get showErrorMessages;
+  @override
+  PageState get pageState;
   @override
   _$AuthStateCopyWith<_AuthState> get copyWith;
 }

@@ -34,7 +34,7 @@ class SurveyCard extends StatelessWidget {
           context
               .bloc<AnswerBloc>()
               .add(AnswerEvent.surveySelected(survey: survey));
-          ExtendedNavigator.of(context).pushRespondentListPage();
+          // ExtendedNavigator.of(context).pushRespondentListPage();
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),

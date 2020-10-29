@@ -14,6 +14,7 @@ abstract class AuthState with _$AuthState {
     @required Interviewer interviewer,
     @required Option<AuthFailure> authFailure,
     @required bool showErrorMessages,
+    @required PageState pageState,
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(
@@ -30,5 +31,6 @@ abstract class AuthState with _$AuthState {
         interviewer: Interviewer.empty(),
         authFailure: none(),
         showErrorMessages: false,
+        pageState: const PageState.initial(),
       );
 }

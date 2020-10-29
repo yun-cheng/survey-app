@@ -8,6 +8,21 @@ part of 'survey_failure.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+SurveyFailure _$SurveyFailureFromJson(Map<String, dynamic> json) {
+  switch (json['runtimeType'] as String) {
+    case 'serverError':
+      return _ServerError.fromJson(json);
+    case 'unexpected':
+      return _Unexpected.fromJson(json);
+    case 'insufficientPermission':
+      return _InsufficientPermission.fromJson(json);
+    case 'unableToGet':
+      return _UnableToGet.fromJson(json);
+
+    default:
+      throw FallThroughError();
+  }
+}
 
 /// @nodoc
 class _$SurveyFailureTearOff {
@@ -31,6 +46,11 @@ class _$SurveyFailureTearOff {
 // ignore: unused_element
   _UnableToGet unableToGet() {
     return const _UnableToGet();
+  }
+
+// ignore: unused_element
+  SurveyFailure fromJson(Map<String, Object> json) {
+    return SurveyFailure.fromJson(json);
   }
 }
 
@@ -70,6 +90,7 @@ mixin _$SurveyFailure {
     Result unableToGet(_UnableToGet value),
     @required Result orElse(),
   });
+  Map<String, dynamic> toJson();
 }
 
 /// @nodoc
@@ -107,9 +128,14 @@ class __$ServerErrorCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
   _ServerError get _value => super._value as _ServerError;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_ServerError implements _ServerError {
   const _$_ServerError();
+
+  factory _$_ServerError.fromJson(Map<String, dynamic> json) =>
+      _$_$_ServerErrorFromJson(json);
 
   @override
   String toString() {
@@ -185,10 +211,18 @@ class _$_ServerError implements _ServerError {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_ServerErrorToJson(this)..['runtimeType'] = 'serverError';
+  }
 }
 
 abstract class _ServerError implements SurveyFailure {
   const factory _ServerError() = _$_ServerError;
+
+  factory _ServerError.fromJson(Map<String, dynamic> json) =
+      _$_ServerError.fromJson;
 }
 
 /// @nodoc
@@ -209,9 +243,14 @@ class __$UnexpectedCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
   _Unexpected get _value => super._value as _Unexpected;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
+
+  factory _$_Unexpected.fromJson(Map<String, dynamic> json) =>
+      _$_$_UnexpectedFromJson(json);
 
   @override
   String toString() {
@@ -287,10 +326,18 @@ class _$_Unexpected implements _Unexpected {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_UnexpectedToJson(this)..['runtimeType'] = 'unexpected';
+  }
 }
 
 abstract class _Unexpected implements SurveyFailure {
   const factory _Unexpected() = _$_Unexpected;
+
+  factory _Unexpected.fromJson(Map<String, dynamic> json) =
+      _$_Unexpected.fromJson;
 }
 
 /// @nodoc
@@ -312,9 +359,14 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
   _InsufficientPermission get _value => super._value as _InsufficientPermission;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
+
+  factory _$_InsufficientPermission.fromJson(Map<String, dynamic> json) =>
+      _$_$_InsufficientPermissionFromJson(json);
 
   @override
   String toString() {
@@ -390,10 +442,19 @@ class _$_InsufficientPermission implements _InsufficientPermission {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_InsufficientPermissionToJson(this)
+      ..['runtimeType'] = 'insufficientPermission';
+  }
 }
 
 abstract class _InsufficientPermission implements SurveyFailure {
   const factory _InsufficientPermission() = _$_InsufficientPermission;
+
+  factory _InsufficientPermission.fromJson(Map<String, dynamic> json) =
+      _$_InsufficientPermission.fromJson;
 }
 
 /// @nodoc
@@ -414,9 +475,14 @@ class __$UnableToGetCopyWithImpl<$Res> extends _$SurveyFailureCopyWithImpl<$Res>
   _UnableToGet get _value => super._value as _UnableToGet;
 }
 
+@JsonSerializable()
+
 /// @nodoc
 class _$_UnableToGet implements _UnableToGet {
   const _$_UnableToGet();
+
+  factory _$_UnableToGet.fromJson(Map<String, dynamic> json) =>
+      _$_$_UnableToGetFromJson(json);
 
   @override
   String toString() {
@@ -492,8 +558,16 @@ class _$_UnableToGet implements _UnableToGet {
     }
     return orElse();
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_UnableToGetToJson(this)..['runtimeType'] = 'unableToGet';
+  }
 }
 
 abstract class _UnableToGet implements SurveyFailure {
   const factory _UnableToGet() = _$_UnableToGet;
+
+  factory _UnableToGet.fromJson(Map<String, dynamic> json) =
+      _$_UnableToGet.fromJson;
 }
