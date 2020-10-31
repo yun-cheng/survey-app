@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
 import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
@@ -34,7 +36,12 @@ class SurveyCard extends StatelessWidget {
           context
               .bloc<AnswerBloc>()
               .add(AnswerEvent.surveySelected(survey: survey));
-          // ExtendedNavigator.of(context).pushRespondentListPage();
+          context.bloc<NavigationBloc>().add(
+                const NavigationEvent.pageChanged(
+                  page: NavigationPage.respondent(),
+                ),
+              );
+          context.navigator.push(Routes.respondentListPage);
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),

@@ -17,7 +17,6 @@ _$_SurveyStateDto _$_$_SurveyStateDtoFromJson(Map<String, dynamic> json) {
         ? null
         : SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
     surveyFailure: json['surveyFailure'] as Map<String, dynamic>,
-    pageState: json['pageState'] as Map<String, dynamic>,
   );
 }
 
@@ -27,5 +26,4 @@ Map<String, dynamic> _$_$_SurveyStateDtoToJson(_$_SurveyStateDto instance) =>
       'surveyList': instance.surveyList?.map((e) => e?.toJson())?.toList(),
       'survey': instance.survey?.toJson(),
       'surveyFailure': instance.surveyFailure,
-      'pageState': instance.pageState,
     };

@@ -28,8 +28,7 @@ class _$AuthStateDtoTearOff {
       @required Map<String, dynamic> signInState,
       @required InterviewerDto interviewer,
       Map<String, dynamic> authFailure,
-      @required bool showErrorMessages,
-      @required Map<String, dynamic> pageState}) {
+      @required bool showErrorMessages}) {
     return _AuthStateDto(
       teamListState: teamListState,
       teamList: teamList,
@@ -42,7 +41,6 @@ class _$AuthStateDtoTearOff {
       interviewer: interviewer,
       authFailure: authFailure,
       showErrorMessages: showErrorMessages,
-      pageState: pageState,
     );
   }
 
@@ -69,7 +67,6 @@ mixin _$AuthStateDto {
   InterviewerDto get interviewer;
   Map<String, dynamic> get authFailure;
   bool get showErrorMessages;
-  Map<String, dynamic> get pageState;
 
   Map<String, dynamic> toJson();
   $AuthStateDtoCopyWith<AuthStateDto> get copyWith;
@@ -91,8 +88,7 @@ abstract class $AuthStateDtoCopyWith<$Res> {
       Map<String, dynamic> signInState,
       InterviewerDto interviewer,
       Map<String, dynamic> authFailure,
-      bool showErrorMessages,
-      Map<String, dynamic> pageState});
+      bool showErrorMessages});
 
   $TeamDtoCopyWith<$Res> get team;
   $InterviewerDtoCopyWith<$Res> get interviewer;
@@ -119,7 +115,6 @@ class _$AuthStateDtoCopyWithImpl<$Res> implements $AuthStateDtoCopyWith<$Res> {
     Object interviewer = freezed,
     Object authFailure = freezed,
     Object showErrorMessages = freezed,
-    Object pageState = freezed,
   }) {
     return _then(_value.copyWith(
       teamListState: teamListState == freezed
@@ -148,9 +143,6 @@ class _$AuthStateDtoCopyWithImpl<$Res> implements $AuthStateDtoCopyWith<$Res> {
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
-      pageState: pageState == freezed
-          ? _value.pageState
-          : pageState as Map<String, dynamic>,
     ));
   }
 
@@ -193,8 +185,7 @@ abstract class _$AuthStateDtoCopyWith<$Res>
       Map<String, dynamic> signInState,
       InterviewerDto interviewer,
       Map<String, dynamic> authFailure,
-      bool showErrorMessages,
-      Map<String, dynamic> pageState});
+      bool showErrorMessages});
 
   @override
   $TeamDtoCopyWith<$Res> get team;
@@ -225,7 +216,6 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
     Object interviewer = freezed,
     Object authFailure = freezed,
     Object showErrorMessages = freezed,
-    Object pageState = freezed,
   }) {
     return _then(_AuthStateDto(
       teamListState: teamListState == freezed
@@ -254,9 +244,6 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages as bool,
-      pageState: pageState == freezed
-          ? _value.pageState
-          : pageState as Map<String, dynamic>,
     ));
   }
 }
@@ -276,8 +263,7 @@ class _$_AuthStateDto extends _AuthStateDto {
       @required this.signInState,
       @required this.interviewer,
       this.authFailure,
-      @required this.showErrorMessages,
-      @required this.pageState})
+      @required this.showErrorMessages})
       : assert(teamListState != null),
         assert(teamList != null),
         assert(team != null),
@@ -288,7 +274,6 @@ class _$_AuthStateDto extends _AuthStateDto {
         assert(signInState != null),
         assert(interviewer != null),
         assert(showErrorMessages != null),
-        assert(pageState != null),
         super._();
 
   factory _$_AuthStateDto.fromJson(Map<String, dynamic> json) =>
@@ -316,12 +301,10 @@ class _$_AuthStateDto extends _AuthStateDto {
   final Map<String, dynamic> authFailure;
   @override
   final bool showErrorMessages;
-  @override
-  final Map<String, dynamic> pageState;
 
   @override
   String toString() {
-    return 'AuthStateDto(teamListState: $teamListState, teamList: $teamList, team: $team, interviewerListState: $interviewerListState, interviewerList: $interviewerList, id: $id, password: $password, signInState: $signInState, interviewer: $interviewer, authFailure: $authFailure, showErrorMessages: $showErrorMessages, pageState: $pageState)';
+    return 'AuthStateDto(teamListState: $teamListState, teamList: $teamList, team: $team, interviewerListState: $interviewerListState, interviewerList: $interviewerList, id: $id, password: $password, signInState: $signInState, interviewer: $interviewer, authFailure: $authFailure, showErrorMessages: $showErrorMessages)';
   }
 
   @override
@@ -358,10 +341,7 @@ class _$_AuthStateDto extends _AuthStateDto {
                     .equals(other.authFailure, authFailure)) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
                 const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)) &&
-            (identical(other.pageState, pageState) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageState, pageState)));
+                    .equals(other.showErrorMessages, showErrorMessages)));
   }
 
   @override
@@ -377,8 +357,7 @@ class _$_AuthStateDto extends _AuthStateDto {
       const DeepCollectionEquality().hash(signInState) ^
       const DeepCollectionEquality().hash(interviewer) ^
       const DeepCollectionEquality().hash(authFailure) ^
-      const DeepCollectionEquality().hash(showErrorMessages) ^
-      const DeepCollectionEquality().hash(pageState);
+      const DeepCollectionEquality().hash(showErrorMessages);
 
   @override
   _$AuthStateDtoCopyWith<_AuthStateDto> get copyWith =>
@@ -403,8 +382,7 @@ abstract class _AuthStateDto extends AuthStateDto {
       @required Map<String, dynamic> signInState,
       @required InterviewerDto interviewer,
       Map<String, dynamic> authFailure,
-      @required bool showErrorMessages,
-      @required Map<String, dynamic> pageState}) = _$_AuthStateDto;
+      @required bool showErrorMessages}) = _$_AuthStateDto;
 
   factory _AuthStateDto.fromJson(Map<String, dynamic> json) =
       _$_AuthStateDto.fromJson;
@@ -431,8 +409,6 @@ abstract class _AuthStateDto extends AuthStateDto {
   Map<String, dynamic> get authFailure;
   @override
   bool get showErrorMessages;
-  @override
-  Map<String, dynamic> get pageState;
   @override
   _$AuthStateDtoCopyWith<_AuthStateDto> get copyWith;
 }

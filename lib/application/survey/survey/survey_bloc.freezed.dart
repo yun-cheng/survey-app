@@ -36,16 +36,6 @@ class _$SurveyEventTearOff {
       survey: survey,
     );
   }
-
-// ignore: unused_element
-  _PagePopped pagePopped() {
-    return const _PagePopped();
-  }
-
-// ignore: unused_element
-  _PagePushed pagePushed() {
-    return const _PagePushed();
-  }
 }
 
 /// @nodoc
@@ -63,8 +53,6 @@ mixin _$SurveyEvent {
         Result surveyListReceived(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     @required Result surveySelected(Survey survey),
-    @required Result pagePopped(),
-    @required Result pagePushed(),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
@@ -72,8 +60,6 @@ mixin _$SurveyEvent {
     Result surveyListReceived(
         Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     Result surveySelected(Survey survey),
-    Result pagePopped(),
-    Result pagePushed(),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -81,16 +67,12 @@ mixin _$SurveyEvent {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required Result surveySelected(_SurveySelected value),
-    @required Result pagePopped(_PagePopped value),
-    @required Result pagePushed(_PagePushed value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
     Result surveySelected(_SurveySelected value),
-    Result pagePopped(_PagePopped value),
-    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   });
 }
@@ -193,14 +175,10 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
         Result surveyListReceived(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     @required Result surveySelected(Survey survey),
-    @required Result pagePopped(),
-    @required Result pagePushed(),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
     assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
     return watchSurveyListStarted(teamId, interviewerId);
   }
 
@@ -211,8 +189,6 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     Result surveyListReceived(
         Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     Result surveySelected(Survey survey),
-    Result pagePopped(),
-    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -228,14 +204,10 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required Result surveySelected(_SurveySelected value),
-    @required Result pagePopped(_PagePopped value),
-    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
     assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
     return watchSurveyListStarted(this);
   }
 
@@ -245,8 +217,6 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
     Result surveySelected(_SurveySelected value),
-    Result pagePopped(_PagePopped value),
-    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -339,14 +309,10 @@ class _$_SurveyListReceived implements _SurveyListReceived {
         Result surveyListReceived(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     @required Result surveySelected(Survey survey),
-    @required Result pagePopped(),
-    @required Result pagePushed(),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
     assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
     return surveyListReceived(failureOrSurveyList);
   }
 
@@ -357,8 +323,6 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     Result surveyListReceived(
         Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     Result surveySelected(Survey survey),
-    Result pagePopped(),
-    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -374,14 +338,10 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required Result surveySelected(_SurveySelected value),
-    @required Result pagePopped(_PagePopped value),
-    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
     assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
     return surveyListReceived(this);
   }
 
@@ -391,8 +351,6 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
     Result surveySelected(_SurveySelected value),
-    Result pagePopped(_PagePopped value),
-    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -491,14 +449,10 @@ class _$_SurveySelected implements _SurveySelected {
         Result surveyListReceived(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     @required Result surveySelected(Survey survey),
-    @required Result pagePopped(),
-    @required Result pagePushed(),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
     assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
     return surveySelected(survey);
   }
 
@@ -509,8 +463,6 @@ class _$_SurveySelected implements _SurveySelected {
     Result surveyListReceived(
         Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
     Result surveySelected(Survey survey),
-    Result pagePopped(),
-    Result pagePushed(),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -526,14 +478,10 @@ class _$_SurveySelected implements _SurveySelected {
     @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
     @required Result surveyListReceived(_SurveyListReceived value),
     @required Result surveySelected(_SurveySelected value),
-    @required Result pagePopped(_PagePopped value),
-    @required Result pagePushed(_PagePushed value),
   }) {
     assert(watchSurveyListStarted != null);
     assert(surveyListReceived != null);
     assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
     return surveySelected(this);
   }
 
@@ -543,8 +491,6 @@ class _$_SurveySelected implements _SurveySelected {
     Result watchSurveyListStarted(_WatchSurveyListStarted value),
     Result surveyListReceived(_SurveyListReceived value),
     Result surveySelected(_SurveySelected value),
-    Result pagePopped(_PagePopped value),
-    Result pagePushed(_PagePushed value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -563,232 +509,6 @@ abstract class _SurveySelected implements SurveyEvent {
 }
 
 /// @nodoc
-abstract class _$PagePoppedCopyWith<$Res> {
-  factory _$PagePoppedCopyWith(
-          _PagePopped value, $Res Function(_PagePopped) then) =
-      __$PagePoppedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PagePoppedCopyWithImpl<$Res> extends _$SurveyEventCopyWithImpl<$Res>
-    implements _$PagePoppedCopyWith<$Res> {
-  __$PagePoppedCopyWithImpl(
-      _PagePopped _value, $Res Function(_PagePopped) _then)
-      : super(_value, (v) => _then(v as _PagePopped));
-
-  @override
-  _PagePopped get _value => super._value as _PagePopped;
-}
-
-/// @nodoc
-class _$_PagePopped implements _PagePopped {
-  const _$_PagePopped();
-
-  @override
-  String toString() {
-    return 'SurveyEvent.pagePopped()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PagePopped);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required
-        Result watchSurveyListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        Result surveyListReceived(
-            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
-    @required Result surveySelected(Survey survey),
-    @required Result pagePopped(),
-    @required Result pagePushed(),
-  }) {
-    assert(watchSurveyListStarted != null);
-    assert(surveyListReceived != null);
-    assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
-    return pagePopped();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchSurveyListStarted(TeamId teamId, InterviewerId interviewerId),
-    Result surveyListReceived(
-        Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
-    Result surveySelected(Survey survey),
-    Result pagePopped(),
-    Result pagePushed(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (pagePopped != null) {
-      return pagePopped();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
-    @required Result surveyListReceived(_SurveyListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result pagePopped(_PagePopped value),
-    @required Result pagePushed(_PagePushed value),
-  }) {
-    assert(watchSurveyListStarted != null);
-    assert(surveyListReceived != null);
-    assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
-    return pagePopped(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchSurveyListStarted(_WatchSurveyListStarted value),
-    Result surveyListReceived(_SurveyListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result pagePopped(_PagePopped value),
-    Result pagePushed(_PagePushed value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (pagePopped != null) {
-      return pagePopped(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PagePopped implements SurveyEvent {
-  const factory _PagePopped() = _$_PagePopped;
-}
-
-/// @nodoc
-abstract class _$PagePushedCopyWith<$Res> {
-  factory _$PagePushedCopyWith(
-          _PagePushed value, $Res Function(_PagePushed) then) =
-      __$PagePushedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PagePushedCopyWithImpl<$Res> extends _$SurveyEventCopyWithImpl<$Res>
-    implements _$PagePushedCopyWith<$Res> {
-  __$PagePushedCopyWithImpl(
-      _PagePushed _value, $Res Function(_PagePushed) _then)
-      : super(_value, (v) => _then(v as _PagePushed));
-
-  @override
-  _PagePushed get _value => super._value as _PagePushed;
-}
-
-/// @nodoc
-class _$_PagePushed implements _PagePushed {
-  const _$_PagePushed();
-
-  @override
-  String toString() {
-    return 'SurveyEvent.pagePushed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PagePushed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required
-        Result watchSurveyListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        Result surveyListReceived(
-            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
-    @required Result surveySelected(Survey survey),
-    @required Result pagePopped(),
-    @required Result pagePushed(),
-  }) {
-    assert(watchSurveyListStarted != null);
-    assert(surveyListReceived != null);
-    assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
-    return pagePushed();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchSurveyListStarted(TeamId teamId, InterviewerId interviewerId),
-    Result surveyListReceived(
-        Either<SurveyFailure, KtList<Survey>> failureOrSurveyList),
-    Result surveySelected(Survey survey),
-    Result pagePopped(),
-    Result pagePushed(),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (pagePushed != null) {
-      return pagePushed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchSurveyListStarted(_WatchSurveyListStarted value),
-    @required Result surveyListReceived(_SurveyListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result pagePopped(_PagePopped value),
-    @required Result pagePushed(_PagePushed value),
-  }) {
-    assert(watchSurveyListStarted != null);
-    assert(surveyListReceived != null);
-    assert(surveySelected != null);
-    assert(pagePopped != null);
-    assert(pagePushed != null);
-    return pagePushed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchSurveyListStarted(_WatchSurveyListStarted value),
-    Result surveyListReceived(_SurveyListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result pagePopped(_PagePopped value),
-    Result pagePushed(_PagePushed value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (pagePushed != null) {
-      return pagePushed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PagePushed implements SurveyEvent {
-  const factory _PagePushed() = _$_PagePushed;
-}
-
-/// @nodoc
 class _$SurveyStateTearOff {
   const _$SurveyStateTearOff();
 
@@ -797,14 +517,12 @@ class _$SurveyStateTearOff {
       {@required LoadState surveyListState,
       @required KtList<Survey> surveyList,
       @required Survey survey,
-      @required Option<SurveyFailure> surveyFailure,
-      @required PageState pageState}) {
+      @required Option<SurveyFailure> surveyFailure}) {
     return _SurveyState(
       surveyListState: surveyListState,
       surveyList: surveyList,
       survey: survey,
       surveyFailure: surveyFailure,
-      pageState: pageState,
     );
   }
 }
@@ -819,7 +537,6 @@ mixin _$SurveyState {
   KtList<Survey> get surveyList;
   Survey get survey;
   Option<SurveyFailure> get surveyFailure;
-  PageState get pageState;
 
   $SurveyStateCopyWith<SurveyState> get copyWith;
 }
@@ -833,12 +550,10 @@ abstract class $SurveyStateCopyWith<$Res> {
       {LoadState surveyListState,
       KtList<Survey> surveyList,
       Survey survey,
-      Option<SurveyFailure> surveyFailure,
-      PageState pageState});
+      Option<SurveyFailure> surveyFailure});
 
   $LoadStateCopyWith<$Res> get surveyListState;
   $SurveyCopyWith<$Res> get survey;
-  $PageStateCopyWith<$Res> get pageState;
 }
 
 /// @nodoc
@@ -855,7 +570,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
     Object surveyList = freezed,
     Object survey = freezed,
     Object surveyFailure = freezed,
-    Object pageState = freezed,
   }) {
     return _then(_value.copyWith(
       surveyListState: surveyListState == freezed
@@ -868,8 +582,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure as Option<SurveyFailure>,
-      pageState:
-          pageState == freezed ? _value.pageState : pageState as PageState,
     ));
   }
 
@@ -892,16 +604,6 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
       return _then(_value.copyWith(survey: value));
     });
   }
-
-  @override
-  $PageStateCopyWith<$Res> get pageState {
-    if (_value.pageState == null) {
-      return null;
-    }
-    return $PageStateCopyWith<$Res>(_value.pageState, (value) {
-      return _then(_value.copyWith(pageState: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -915,15 +617,12 @@ abstract class _$SurveyStateCopyWith<$Res>
       {LoadState surveyListState,
       KtList<Survey> surveyList,
       Survey survey,
-      Option<SurveyFailure> surveyFailure,
-      PageState pageState});
+      Option<SurveyFailure> surveyFailure});
 
   @override
   $LoadStateCopyWith<$Res> get surveyListState;
   @override
   $SurveyCopyWith<$Res> get survey;
-  @override
-  $PageStateCopyWith<$Res> get pageState;
 }
 
 /// @nodoc
@@ -942,7 +641,6 @@ class __$SurveyStateCopyWithImpl<$Res> extends _$SurveyStateCopyWithImpl<$Res>
     Object surveyList = freezed,
     Object survey = freezed,
     Object surveyFailure = freezed,
-    Object pageState = freezed,
   }) {
     return _then(_SurveyState(
       surveyListState: surveyListState == freezed
@@ -955,8 +653,6 @@ class __$SurveyStateCopyWithImpl<$Res> extends _$SurveyStateCopyWithImpl<$Res>
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure as Option<SurveyFailure>,
-      pageState:
-          pageState == freezed ? _value.pageState : pageState as PageState,
     ));
   }
 }
@@ -967,13 +663,11 @@ class _$_SurveyState implements _SurveyState {
       {@required this.surveyListState,
       @required this.surveyList,
       @required this.survey,
-      @required this.surveyFailure,
-      @required this.pageState})
+      @required this.surveyFailure})
       : assert(surveyListState != null),
         assert(surveyList != null),
         assert(survey != null),
-        assert(surveyFailure != null),
-        assert(pageState != null);
+        assert(surveyFailure != null);
 
   @override
   final LoadState surveyListState;
@@ -983,12 +677,10 @@ class _$_SurveyState implements _SurveyState {
   final Survey survey;
   @override
   final Option<SurveyFailure> surveyFailure;
-  @override
-  final PageState pageState;
 
   @override
   String toString() {
-    return 'SurveyState(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, surveyFailure: $surveyFailure, pageState: $pageState)';
+    return 'SurveyState(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, surveyFailure: $surveyFailure)';
   }
 
   @override
@@ -1005,10 +697,7 @@ class _$_SurveyState implements _SurveyState {
                 const DeepCollectionEquality().equals(other.survey, survey)) &&
             (identical(other.surveyFailure, surveyFailure) ||
                 const DeepCollectionEquality()
-                    .equals(other.surveyFailure, surveyFailure)) &&
-            (identical(other.pageState, pageState) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageState, pageState)));
+                    .equals(other.surveyFailure, surveyFailure)));
   }
 
   @override
@@ -1017,8 +706,7 @@ class _$_SurveyState implements _SurveyState {
       const DeepCollectionEquality().hash(surveyListState) ^
       const DeepCollectionEquality().hash(surveyList) ^
       const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(surveyFailure) ^
-      const DeepCollectionEquality().hash(pageState);
+      const DeepCollectionEquality().hash(surveyFailure);
 
   @override
   _$SurveyStateCopyWith<_SurveyState> get copyWith =>
@@ -1030,8 +718,7 @@ abstract class _SurveyState implements SurveyState {
       {@required LoadState surveyListState,
       @required KtList<Survey> surveyList,
       @required Survey survey,
-      @required Option<SurveyFailure> surveyFailure,
-      @required PageState pageState}) = _$_SurveyState;
+      @required Option<SurveyFailure> surveyFailure}) = _$_SurveyState;
 
   @override
   LoadState get surveyListState;
@@ -1041,8 +728,6 @@ abstract class _SurveyState implements SurveyState {
   Survey get survey;
   @override
   Option<SurveyFailure> get surveyFailure;
-  @override
-  PageState get pageState;
   @override
   _$SurveyStateCopyWith<_SurveyState> get copyWith;
 }

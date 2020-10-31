@@ -30,7 +30,6 @@ _$_AuthStateDto _$_$_AuthStateDtoFromJson(Map<String, dynamic> json) {
         : InterviewerDto.fromJson(json['interviewer'] as Map<String, dynamic>),
     authFailure: json['authFailure'] as Map<String, dynamic>,
     showErrorMessages: json['showErrorMessages'] as bool,
-    pageState: json['pageState'] as Map<String, dynamic>,
   );
 }
 
@@ -48,5 +47,4 @@ Map<String, dynamic> _$_$_AuthStateDtoToJson(_$_AuthStateDto instance) =>
       'interviewer': instance.interviewer?.toJson(),
       'authFailure': instance.authFailure,
       'showErrorMessages': instance.showErrorMessages,
-      'pageState': instance.pageState,
     };

@@ -105,7 +105,7 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
   @override
   Map<String, dynamic> toJson(RespondentState state) {
     // try {
-    if (state.survey != Survey.empty()) {
+    if (state.respondentListListState is LoadSuccess) {
       return RespondentStateDto.fromDomain(state).toJson();
     } else {
       return null;

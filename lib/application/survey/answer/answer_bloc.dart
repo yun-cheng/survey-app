@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
@@ -11,6 +11,7 @@ import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.da
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_status_algorithm.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/survey/answer_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'answer_event.dart';
@@ -18,7 +19,7 @@ part 'answer_state.dart';
 part 'answer_bloc.freezed.dart';
 
 @injectable
-class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
+class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
   final IAnswerAlgorithm _answerAlgorithm;
   final IAnswerStatusAlgorithm _answerStatusAlgorithm;
 
@@ -93,5 +94,27 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
         add(const AnswerEvent.answerStatusInitialized());
       },
     );
+  }
+
+  @override
+  AnswerState fromJson(Map<String, dynamic> json) {
+    try {
+      return AnswerStateDto.fromJson(json).toDomain();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(AnswerState state) {
+    // try {
+    if (state.answerMap.isNotEmpty()) {
+      return AnswerStateDto.fromDomain(state).toJson();
+    } else {
+      return null;
+    }
+    // } catch (_) {
+    //   return null;
+    // }
   }
 }

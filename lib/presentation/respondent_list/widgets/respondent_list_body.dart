@@ -7,7 +7,9 @@ class RespondentListBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(
-      buildWhen: (p, c) => p.respondentList != c.respondentList,
+      buildWhen: (p, c) =>
+          p.respondentListListState != c.respondentListListState ||
+          p.respondentList != c.respondentList,
       builder: (context, state) {
         return state.respondentListListState.map(
           initial: (_) => Container(),

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
@@ -21,29 +22,22 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
+          create: (context) => NavigationBloc(),
+        ),
+        BlocProvider(
           create: (context) => AuthBloc(
             getIt<IAuthFacade>(),
-          )..add(const AuthEvent.watchTeamListStarted()),
+          ),
         ),
         BlocProvider(
           create: (context) => SurveyBloc(
             getIt<ISurveyRepository>(),
-          )..add(
-              SurveyEvent.watchSurveyListStarted(
-                teamId: context.bloc<AuthBloc>().state.team.id,
-                interviewerId: context.bloc<AuthBloc>().state.interviewer.id,
-              ),
-            ),
+          ),
         ),
         BlocProvider(
           create: (context) => RespondentBloc(
             getIt<IRespondentRepository>(),
-          )..add(
-              RespondentEvent.watchRespondentListListStarted(
-                teamId: context.bloc<AuthBloc>().state.team.id,
-                interviewerId: context.bloc<AuthBloc>().state.interviewer.id,
-              ),
-            ),
+          ),
         ),
         BlocProvider(
           create: (context) => AnswerBloc(
@@ -58,7 +52,7 @@ class AppWidget extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: '訪員測驗',
+        title: '問卷',
         debugShowCheckedModeBanner: false,
         builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
         theme: ThemeData.light().copyWith(

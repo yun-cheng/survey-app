@@ -16,10 +16,12 @@ import '../quiz/quiz_page.dart';
 import '../quiz_list/quiz_list_page.dart';
 import '../respondent_list/respondent_list_page.dart';
 import '../sign_in/sign_in_page.dart';
+import '../splash/splash_page.dart';
 import '../survey/survey_page.dart';
 
 class Routes {
-  static const String signInPage = '/';
+  static const String splashPage = '/';
+  static const String signInPage = '/sign-in-page';
   static const String quizListPage = '/quiz-list-page';
   static const String quizPage = '/quiz-page';
   static const String finishedPage = '/finished-page';
@@ -29,6 +31,7 @@ class Routes {
   static String surveyPage({@required dynamic respondentId}) =>
       '/respondent/$respondentId';
   static const all = <String>{
+    splashPage,
     signInPage,
     quizListPage,
     quizPage,
@@ -43,6 +46,7 @@ class AutoRouter extends RouterBase {
   @override
   List<RouteDef> get routes => _routes;
   final _routes = <RouteDef>[
+    RouteDef(Routes.splashPage, page: SplashPage),
     RouteDef(Routes.signInPage, page: SignInPage),
     RouteDef(Routes.quizListPage, page: QuizListPage),
     RouteDef(Routes.quizPage, page: QuizPage),
@@ -54,6 +58,12 @@ class AutoRouter extends RouterBase {
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
   final _pagesMap = <Type, AutoRouteFactory>{
+    SplashPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => SplashPage(),
+        settings: data,
+      );
+    },
     SignInPage: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => SignInPage(),
@@ -108,6 +118,8 @@ class AutoRouter extends RouterBase {
 /// *************************************************************************
 
 extension AutoRouterExtendedNavigatorStateX on ExtendedNavigatorState {
+  Future<dynamic> pushSplashPage() => push<dynamic>(Routes.splashPage);
+
   Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
 
   Future<dynamic> pushQuizListPage() => push<dynamic>(Routes.quizListPage);

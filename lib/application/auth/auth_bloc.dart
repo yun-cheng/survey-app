@@ -10,7 +10,6 @@ import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/team.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/page_state.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/auth/auth_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
@@ -27,7 +26,10 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   StreamSubscription<Either<AuthFailure, KtList<Interviewer>>>
       _interviewerListSubscription;
 
-  AuthBloc(this._authFacade) : super(AuthState.initial());
+  AuthBloc(this._authFacade) : super(AuthState.initial()) {
+    add(const AuthEvent.watchTeamListStarted());
+    add(const AuthEvent.watchInterviewerListStarted());
+  }
 
   @override
   Stream<AuthState> mapEventToState(
@@ -61,17 +63,24 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       teamSelected: (e) async* {
         yield state.copyWith(
           team: e.team,
-          interviewerListState: const LoadState.inProgress(),
           authFailure: none(),
         );
-        // BUG 如果從 hydratedBloc 回復會沒有訂閱
-        await _interviewerListSubscription?.cancel();
-        _interviewerListSubscription = _authFacade
-            .watchInterviewerList(teamId: e.team.id)
-            .listen(
-              (failureOrInterviewerList) => add(
-                  AuthEvent.interviewerListReceived(failureOrInterviewerList)),
-            );
+        add(const AuthEvent.watchInterviewerListStarted());
+      },
+      watchInterviewerListStarted: (e) async* {
+        if (state.team.id.isValid()) {
+          yield state.copyWith(
+            interviewerListState: const LoadState.inProgress(),
+            authFailure: none(),
+          );
+          await _interviewerListSubscription?.cancel();
+          _interviewerListSubscription =
+              _authFacade.watchInterviewerList(teamId: state.team.id).listen(
+                    (failureOrInterviewerList) => add(
+                        AuthEvent.interviewerListReceived(
+                            failureOrInterviewerList)),
+                  );
+        }
       },
       interviewerListReceived: (e) async* {
         yield e.failureOrInterviewerList.fold(
@@ -126,18 +135,12 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
               signInState: const LoadState.success(),
               authFailure: none(),
               interviewer: interviewer,
-              pageState: const PageState.push(),
             ),
           );
         }
       },
       signOutPressed: (e) async* {
         yield AuthState.initial();
-      },
-      pagePushed: (e) async* {
-        yield state.copyWith(
-          pageState: const PageState.push(),
-        );
       },
     );
   }
@@ -151,9 +154,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   @override
   AuthState fromJson(Map<String, dynamic> json) {
     try {
-      return AuthStateDto.fromJson(json).toDomain().copyWith(
-            pageState: const PageState.initial(),
-          );
+      return AuthStateDto.fromJson(json).toDomain();
     } catch (_) {
       return null;
     }

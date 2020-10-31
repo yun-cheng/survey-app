@@ -2,6 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
+import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
+import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent_failure.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/respondent/respondent_dtos.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/respondent/respondent_list_dtos.dart';
@@ -18,9 +20,9 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
   const factory RespondentStateDto({
     @required Map<String, dynamic> respondentListListState,
     @required List<RespondentListDto> respondentListList,
-    @required SurveyDto survey,
+    SurveyDto survey,
     @required List<RespondentDto> respondentList,
-    @required RespondentDto respondent,
+    RespondentDto respondent,
     Map<String, dynamic> respondentFailure,
   }) = _RespondentStateDto;
 
@@ -30,11 +32,15 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
       respondentListList: respondentState.respondentListList
           .map((e) => RespondentListDto.fromDomain(e))
           .asList(),
-      survey: SurveyDto.fromDomain(respondentState.survey),
+      survey: respondentState.survey != Survey.empty()
+          ? SurveyDto.fromDomain(respondentState.survey)
+          : null,
       respondentList: respondentState.respondentList
           .map((e) => RespondentDto.fromDomain(e))
           .asList(),
-      respondent: RespondentDto.fromDomain(respondentState.respondent),
+      respondent: respondentState.respondent != Respondent.empty()
+          ? RespondentDto.fromDomain(respondentState.respondent)
+          : null,
       respondentFailure: respondentState.respondentFailure
           .fold(() => null, (some) => some.toJson()),
     );
@@ -43,11 +49,13 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
   RespondentState toDomain() {
     return RespondentState.initial().copyWith(
       respondentListListState: LoadState.fromJson(respondentListListState),
-      respondentListList: respondentListList.map((dto) => dto.toDomain()).toImmutableList(),
-      survey: survey.toDomain(),
+      respondentListList:
+          respondentListList.map((dto) => dto.toDomain()).toImmutableList(),
+      survey: survey != null ? survey.toDomain() : Survey.empty(),
       respondentList:
           respondentList.map((dto) => dto.toDomain()).toImmutableList(),
-      respondent: respondent.toDomain(),
+      respondent:
+          respondent != null ? respondent.toDomain() : Respondent.empty(),
       respondentFailure: optionOf(respondentFailure)
           .map((some) => RespondentFailure.fromJson(some)),
     );

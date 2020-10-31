@@ -67,7 +67,7 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       );
     });
 
-    print(newAnswerStatusMap[QuestionId('B2')].warning);
+    // print(newAnswerStatusMap[QuestionId('B2')].warning);
 
     return newAnswerStatusMap;
   }

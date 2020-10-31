@@ -3,8 +3,9 @@ import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/page_state.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/account_box.dart';
@@ -37,19 +38,18 @@ class SignInForm extends StatelessWidget {
           },
         ),
         BlocListener<AuthBloc, AuthState>(
-          // NOTE 兩種情形要 push，一是初次登入，二是重新啟動時自動登入
           listenWhen: (p, c) =>
-              c.signInState is LoadSuccess &&
-              ((p.pageState is InitialPage && c.pageState is PushPage) ||
-                  c.pageState is InitialPage),
+              c.signInState is LoadSuccess && p.signInState != c.signInState,
           listener: (context, state) {
-            print('SignInForm listening!!');
-            ExtendedNavigator.of(context).pushAndRemoveUntil(
-              Routes.overviewPage,
-              (route) => false,
-            );
-            // NOTE 讓 recover 的 Bloc 改變 pageState
-            context.bloc<AuthBloc>().add(const AuthEvent.pagePushed());
+            print('Push to OverviewPage!!');
+
+            context.navigator.push(Routes.overviewPage);
+
+            context.bloc<NavigationBloc>().add(
+                  const NavigationEvent.pageChanged(
+                    page: NavigationPage.overview(),
+                  ),
+                );
           },
         ),
       ],

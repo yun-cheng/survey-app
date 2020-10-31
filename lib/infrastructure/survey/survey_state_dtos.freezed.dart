@@ -21,14 +21,12 @@ class _$SurveyStateDtoTearOff {
       {@required Map<String, dynamic> surveyListState,
       @required List<SurveyDto> surveyList,
       SurveyDto survey,
-      Map<String, dynamic> surveyFailure,
-      @required Map<String, dynamic> pageState}) {
+      Map<String, dynamic> surveyFailure}) {
     return _SurveyStateDto(
       surveyListState: surveyListState,
       surveyList: surveyList,
       survey: survey,
       surveyFailure: surveyFailure,
-      pageState: pageState,
     );
   }
 
@@ -48,7 +46,6 @@ mixin _$SurveyStateDto {
   List<SurveyDto> get surveyList;
   SurveyDto get survey;
   Map<String, dynamic> get surveyFailure;
-  Map<String, dynamic> get pageState;
 
   Map<String, dynamic> toJson();
   $SurveyStateDtoCopyWith<SurveyStateDto> get copyWith;
@@ -63,8 +60,7 @@ abstract class $SurveyStateDtoCopyWith<$Res> {
       {Map<String, dynamic> surveyListState,
       List<SurveyDto> surveyList,
       SurveyDto survey,
-      Map<String, dynamic> surveyFailure,
-      Map<String, dynamic> pageState});
+      Map<String, dynamic> surveyFailure});
 
   $SurveyDtoCopyWith<$Res> get survey;
 }
@@ -84,7 +80,6 @@ class _$SurveyStateDtoCopyWithImpl<$Res>
     Object surveyList = freezed,
     Object survey = freezed,
     Object surveyFailure = freezed,
-    Object pageState = freezed,
   }) {
     return _then(_value.copyWith(
       surveyListState: surveyListState == freezed
@@ -97,9 +92,6 @@ class _$SurveyStateDtoCopyWithImpl<$Res>
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure as Map<String, dynamic>,
-      pageState: pageState == freezed
-          ? _value.pageState
-          : pageState as Map<String, dynamic>,
     ));
   }
 
@@ -125,8 +117,7 @@ abstract class _$SurveyStateDtoCopyWith<$Res>
       {Map<String, dynamic> surveyListState,
       List<SurveyDto> surveyList,
       SurveyDto survey,
-      Map<String, dynamic> surveyFailure,
-      Map<String, dynamic> pageState});
+      Map<String, dynamic> surveyFailure});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
@@ -149,7 +140,6 @@ class __$SurveyStateDtoCopyWithImpl<$Res>
     Object surveyList = freezed,
     Object survey = freezed,
     Object surveyFailure = freezed,
-    Object pageState = freezed,
   }) {
     return _then(_SurveyStateDto(
       surveyListState: surveyListState == freezed
@@ -162,9 +152,6 @@ class __$SurveyStateDtoCopyWithImpl<$Res>
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure as Map<String, dynamic>,
-      pageState: pageState == freezed
-          ? _value.pageState
-          : pageState as Map<String, dynamic>,
     ));
   }
 }
@@ -177,11 +164,9 @@ class _$_SurveyStateDto extends _SurveyStateDto {
       {@required this.surveyListState,
       @required this.surveyList,
       this.survey,
-      this.surveyFailure,
-      @required this.pageState})
+      this.surveyFailure})
       : assert(surveyListState != null),
         assert(surveyList != null),
-        assert(pageState != null),
         super._();
 
   factory _$_SurveyStateDto.fromJson(Map<String, dynamic> json) =>
@@ -195,12 +180,10 @@ class _$_SurveyStateDto extends _SurveyStateDto {
   final SurveyDto survey;
   @override
   final Map<String, dynamic> surveyFailure;
-  @override
-  final Map<String, dynamic> pageState;
 
   @override
   String toString() {
-    return 'SurveyStateDto(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, surveyFailure: $surveyFailure, pageState: $pageState)';
+    return 'SurveyStateDto(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, surveyFailure: $surveyFailure)';
   }
 
   @override
@@ -217,10 +200,7 @@ class _$_SurveyStateDto extends _SurveyStateDto {
                 const DeepCollectionEquality().equals(other.survey, survey)) &&
             (identical(other.surveyFailure, surveyFailure) ||
                 const DeepCollectionEquality()
-                    .equals(other.surveyFailure, surveyFailure)) &&
-            (identical(other.pageState, pageState) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageState, pageState)));
+                    .equals(other.surveyFailure, surveyFailure)));
   }
 
   @override
@@ -229,8 +209,7 @@ class _$_SurveyStateDto extends _SurveyStateDto {
       const DeepCollectionEquality().hash(surveyListState) ^
       const DeepCollectionEquality().hash(surveyList) ^
       const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(surveyFailure) ^
-      const DeepCollectionEquality().hash(pageState);
+      const DeepCollectionEquality().hash(surveyFailure);
 
   @override
   _$SurveyStateDtoCopyWith<_SurveyStateDto> get copyWith =>
@@ -248,8 +227,7 @@ abstract class _SurveyStateDto extends SurveyStateDto {
       {@required Map<String, dynamic> surveyListState,
       @required List<SurveyDto> surveyList,
       SurveyDto survey,
-      Map<String, dynamic> surveyFailure,
-      @required Map<String, dynamic> pageState}) = _$_SurveyStateDto;
+      Map<String, dynamic> surveyFailure}) = _$_SurveyStateDto;
 
   factory _SurveyStateDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyStateDto.fromJson;
@@ -262,8 +240,6 @@ abstract class _SurveyStateDto extends SurveyStateDto {
   SurveyDto get survey;
   @override
   Map<String, dynamic> get surveyFailure;
-  @override
-  Map<String, dynamic> get pageState;
   @override
   _$SurveyStateDtoCopyWith<_SurveyStateDto> get copyWith;
 }
