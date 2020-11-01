@@ -20,8 +20,8 @@ class _$AnswerDtoTearOff {
   _AnswerDto call(
       {@required String questionId,
       @required int serialNumber,
-      @required String answerBody,
-      @required Map<String, String> noteMap}) {
+      AnswerBodyDto answerBody,
+      Map<String, String> noteMap}) {
     return _AnswerDto(
       questionId: questionId,
       serialNumber: serialNumber,
@@ -44,7 +44,7 @@ const $AnswerDto = _$AnswerDtoTearOff();
 mixin _$AnswerDto {
   String get questionId;
   int get serialNumber;
-  String get answerBody;
+  AnswerBodyDto get answerBody;
   Map<String, String> get noteMap;
 
   Map<String, dynamic> toJson();
@@ -58,8 +58,10 @@ abstract class $AnswerDtoCopyWith<$Res> {
   $Res call(
       {String questionId,
       int serialNumber,
-      String answerBody,
+      AnswerBodyDto answerBody,
       Map<String, String> noteMap});
+
+  $AnswerBodyDtoCopyWith<$Res> get answerBody;
 }
 
 /// @nodoc
@@ -82,11 +84,22 @@ class _$AnswerDtoCopyWithImpl<$Res> implements $AnswerDtoCopyWith<$Res> {
           questionId == freezed ? _value.questionId : questionId as String,
       serialNumber:
           serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      answerBody:
-          answerBody == freezed ? _value.answerBody : answerBody as String,
+      answerBody: answerBody == freezed
+          ? _value.answerBody
+          : answerBody as AnswerBodyDto,
       noteMap:
           noteMap == freezed ? _value.noteMap : noteMap as Map<String, String>,
     ));
+  }
+
+  @override
+  $AnswerBodyDtoCopyWith<$Res> get answerBody {
+    if (_value.answerBody == null) {
+      return null;
+    }
+    return $AnswerBodyDtoCopyWith<$Res>(_value.answerBody, (value) {
+      return _then(_value.copyWith(answerBody: value));
+    });
   }
 }
 
@@ -99,8 +112,11 @@ abstract class _$AnswerDtoCopyWith<$Res> implements $AnswerDtoCopyWith<$Res> {
   $Res call(
       {String questionId,
       int serialNumber,
-      String answerBody,
+      AnswerBodyDto answerBody,
       Map<String, String> noteMap});
+
+  @override
+  $AnswerBodyDtoCopyWith<$Res> get answerBody;
 }
 
 /// @nodoc
@@ -124,8 +140,9 @@ class __$AnswerDtoCopyWithImpl<$Res> extends _$AnswerDtoCopyWithImpl<$Res>
           questionId == freezed ? _value.questionId : questionId as String,
       serialNumber:
           serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      answerBody:
-          answerBody == freezed ? _value.answerBody : answerBody as String,
+      answerBody: answerBody == freezed
+          ? _value.answerBody
+          : answerBody as AnswerBodyDto,
       noteMap:
           noteMap == freezed ? _value.noteMap : noteMap as Map<String, String>,
     ));
@@ -139,12 +156,10 @@ class _$_AnswerDto extends _AnswerDto {
   const _$_AnswerDto(
       {@required this.questionId,
       @required this.serialNumber,
-      @required this.answerBody,
-      @required this.noteMap})
+      this.answerBody,
+      this.noteMap})
       : assert(questionId != null),
         assert(serialNumber != null),
-        assert(answerBody != null),
-        assert(noteMap != null),
         super._();
 
   factory _$_AnswerDto.fromJson(Map<String, dynamic> json) =>
@@ -155,7 +170,7 @@ class _$_AnswerDto extends _AnswerDto {
   @override
   final int serialNumber;
   @override
-  final String answerBody;
+  final AnswerBodyDto answerBody;
   @override
   final Map<String, String> noteMap;
 
@@ -204,8 +219,8 @@ abstract class _AnswerDto extends AnswerDto {
   const factory _AnswerDto(
       {@required String questionId,
       @required int serialNumber,
-      @required String answerBody,
-      @required Map<String, String> noteMap}) = _$_AnswerDto;
+      AnswerBodyDto answerBody,
+      Map<String, String> noteMap}) = _$_AnswerDto;
 
   factory _AnswerDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerDto.fromJson;
@@ -215,9 +230,155 @@ abstract class _AnswerDto extends AnswerDto {
   @override
   int get serialNumber;
   @override
-  String get answerBody;
+  AnswerBodyDto get answerBody;
   @override
   Map<String, String> get noteMap;
   @override
   _$AnswerDtoCopyWith<_AnswerDto> get copyWith;
+}
+
+AnswerBodyDto _$AnswerBodyDtoFromJson(Map<String, dynamic> json) {
+  return _AnswerBodyDto.fromJson(json);
+}
+
+/// @nodoc
+class _$AnswerBodyDtoTearOff {
+  const _$AnswerBodyDtoTearOff();
+
+// ignore: unused_element
+  _AnswerBodyDto call({@required Map<String, dynamic> value}) {
+    return _AnswerBodyDto(
+      value: value,
+    );
+  }
+
+// ignore: unused_element
+  AnswerBodyDto fromJson(Map<String, Object> json) {
+    return AnswerBodyDto.fromJson(json);
+  }
+}
+
+/// @nodoc
+// ignore: unused_element
+const $AnswerBodyDto = _$AnswerBodyDtoTearOff();
+
+/// @nodoc
+mixin _$AnswerBodyDto {
+  Map<String, dynamic> get value;
+
+  Map<String, dynamic> toJson();
+  $AnswerBodyDtoCopyWith<AnswerBodyDto> get copyWith;
+}
+
+/// @nodoc
+abstract class $AnswerBodyDtoCopyWith<$Res> {
+  factory $AnswerBodyDtoCopyWith(
+          AnswerBodyDto value, $Res Function(AnswerBodyDto) then) =
+      _$AnswerBodyDtoCopyWithImpl<$Res>;
+  $Res call({Map<String, dynamic> value});
+}
+
+/// @nodoc
+class _$AnswerBodyDtoCopyWithImpl<$Res>
+    implements $AnswerBodyDtoCopyWith<$Res> {
+  _$AnswerBodyDtoCopyWithImpl(this._value, this._then);
+
+  final AnswerBodyDto _value;
+  // ignore: unused_field
+  final $Res Function(AnswerBodyDto) _then;
+
+  @override
+  $Res call({
+    Object value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed ? _value.value : value as Map<String, dynamic>,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$AnswerBodyDtoCopyWith<$Res>
+    implements $AnswerBodyDtoCopyWith<$Res> {
+  factory _$AnswerBodyDtoCopyWith(
+          _AnswerBodyDto value, $Res Function(_AnswerBodyDto) then) =
+      __$AnswerBodyDtoCopyWithImpl<$Res>;
+  @override
+  $Res call({Map<String, dynamic> value});
+}
+
+/// @nodoc
+class __$AnswerBodyDtoCopyWithImpl<$Res>
+    extends _$AnswerBodyDtoCopyWithImpl<$Res>
+    implements _$AnswerBodyDtoCopyWith<$Res> {
+  __$AnswerBodyDtoCopyWithImpl(
+      _AnswerBodyDto _value, $Res Function(_AnswerBodyDto) _then)
+      : super(_value, (v) => _then(v as _AnswerBodyDto));
+
+  @override
+  _AnswerBodyDto get _value => super._value as _AnswerBodyDto;
+
+  @override
+  $Res call({
+    Object value = freezed,
+  }) {
+    return _then(_AnswerBodyDto(
+      value: value == freezed ? _value.value : value as Map<String, dynamic>,
+    ));
+  }
+}
+
+@JsonSerializable()
+
+/// @nodoc
+class _$_AnswerBodyDto extends _AnswerBodyDto {
+  const _$_AnswerBodyDto({@required this.value})
+      : assert(value != null),
+        super._();
+
+  factory _$_AnswerBodyDto.fromJson(Map<String, dynamic> json) =>
+      _$_$_AnswerBodyDtoFromJson(json);
+
+  @override
+  final Map<String, dynamic> value;
+
+  @override
+  String toString() {
+    return 'AnswerBodyDto(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AnswerBodyDto &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @override
+  _$AnswerBodyDtoCopyWith<_AnswerBodyDto> get copyWith =>
+      __$AnswerBodyDtoCopyWithImpl<_AnswerBodyDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_AnswerBodyDtoToJson(this);
+  }
+}
+
+abstract class _AnswerBodyDto extends AnswerBodyDto {
+  const _AnswerBodyDto._() : super._();
+  const factory _AnswerBodyDto({@required Map<String, dynamic> value}) =
+      _$_AnswerBodyDto;
+
+  factory _AnswerBodyDto.fromJson(Map<String, dynamic> json) =
+      _$_AnswerBodyDto.fromJson;
+
+  @override
+  Map<String, dynamic> get value;
+  @override
+  _$AnswerBodyDtoCopyWith<_AnswerBodyDto> get copyWith;
 }

@@ -22,7 +22,7 @@ class _$AnswerStatusDtoTearOff {
       @required int serialNumber,
       @required String answerStatusType,
       WarningDto warning,
-      @required Map<String, String> noteMap}) {
+      Map<String, String> noteMap}) {
     return _AnswerStatusDto(
       questionId: questionId,
       serialNumber: serialNumber,
@@ -172,11 +172,10 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
       @required this.serialNumber,
       @required this.answerStatusType,
       this.warning,
-      @required this.noteMap})
+      this.noteMap})
       : assert(questionId != null),
         assert(serialNumber != null),
         assert(answerStatusType != null),
-        assert(noteMap != null),
         super._();
 
   factory _$_AnswerStatusDto.fromJson(Map<String, dynamic> json) =>
@@ -244,7 +243,7 @@ abstract class _AnswerStatusDto extends AnswerStatusDto {
       @required int serialNumber,
       @required String answerStatusType,
       WarningDto warning,
-      @required Map<String, String> noteMap}) = _$_AnswerStatusDto;
+      Map<String, String> noteMap}) = _$_AnswerStatusDto;
 
   factory _AnswerStatusDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerStatusDto.fromJson;

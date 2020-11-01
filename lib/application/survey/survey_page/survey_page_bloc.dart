@@ -1,13 +1,14 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/warning.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_page_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'survey_page_event.dart';
@@ -15,7 +16,7 @@ part 'survey_page_state.dart';
 part 'survey_page_bloc.freezed.dart';
 
 @injectable
-class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
+class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
   final AnswerBloc _answerBloc;
   StreamSubscription _answersSubscription;
 
@@ -174,5 +175,27 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
   Future<void> close() {
     _answersSubscription.cancel();
     return super.close();
+  }
+
+  @override
+  SurveyPageState fromJson(Map<String, dynamic> json) {
+    try {
+      return SurveyPageStateDto.fromJson(json).toDomain();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  @override
+  Map<String, dynamic> toJson(SurveyPageState state) {
+    // try {
+    if (state.questionList.isNotEmpty() && state.answerStatusMap.isNotEmpty()) {
+      return SurveyPageStateDto.fromDomain(state).toJson();
+    } else {
+      return null;
+    }
+    // } catch (_) {
+    //   return null;
+    // }
   }
 }

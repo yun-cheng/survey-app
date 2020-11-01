@@ -18,7 +18,7 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
     @required int serialNumber,
     @required String answerStatusType,
     WarningDto warning,
-    @required Map<String, String> noteMap,
+    Map<String, String> noteMap,
   }) = _AnswerStatusDto;
 
   factory AnswerStatusDto.fromDomain(AnswerStatus answerStatus) {
@@ -27,10 +27,13 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
       serialNumber: answerStatus.serialNumber.getOrCrash(),
       answerStatusType: answerStatus.type.getOrCrash(),
       warning: WarningDto.fromDomain(answerStatus.warning),
-      noteMap: answerStatus.noteMap
-          .mapKeys((entry) => entry.key.getOrCrash())
-          .mapValues((entry) => entry.value.getOrCrash())
-          .asMap(),
+      noteMap: answerStatus.noteMap !=
+              KtMutableMap<ChoiceId, AnswerStatusType>.empty()
+          ? answerStatus.noteMap
+              .mapKeys((entry) => entry.key.getOrCrash())
+              .mapValues((entry) => entry.value.getOrCrash())
+              .asMap()
+          : null,
     );
   }
 
@@ -40,9 +43,11 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
       serialNumber: SerialNumber(serialNumber),
       type: AnswerStatusType(answerStatusType),
       warning: warning == null ? Warning.empty() : warning.toDomain(),
-      noteMap: KtMutableMap.from(noteMap)
-          .mapKeys((entry) => ChoiceId(entry.key))
-          .mapValues((entry) => AnswerStatusType(entry.value)),
+      noteMap: noteMap != null
+          ? KtMutableMap.from(noteMap)
+              .mapKeys((entry) => ChoiceId(entry.key))
+              .mapValues((entry) => AnswerStatusType(entry.value))
+          : KtMutableMap<ChoiceId, AnswerStatusType>.empty(),
     );
   }
 

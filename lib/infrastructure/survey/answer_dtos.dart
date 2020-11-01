@@ -14,19 +14,23 @@ abstract class AnswerDto implements _$AnswerDto {
   const factory AnswerDto({
     @required String questionId,
     @required int serialNumber,
-    @required String answerBody,
-    @required Map<String, String> noteMap,
+    AnswerBodyDto answerBody,
+    Map<String, String> noteMap,
   }) = _AnswerDto;
 
   factory AnswerDto.fromDomain(Answer answer) {
     return AnswerDto(
       questionId: answer.id.getOrCrash(),
       serialNumber: answer.serialNumber.getOrCrash(),
-      answerBody: answer.body.getOrCrash(),
-      noteMap: answer.noteMap
-          .mapKeys((entry) => entry.key.getOrCrash())
-          .mapValues((entry) => entry.value.getOrCrash() as String)
-          .asMap(),
+      answerBody: answer.body != AnswerBody.empty()
+          ? AnswerBodyDto.fromDomain(answer.body)
+          : null,
+      noteMap: answer.noteMap != KtMutableMap<ChoiceId, AnswerBody>.empty()
+          ? answer.noteMap
+              .mapKeys((entry) => entry.key.getOrCrash())
+              .mapValues((entry) => entry.value.getOrCrash() as String)
+              .asMap()
+          : null,
     );
   }
 
@@ -34,13 +38,63 @@ abstract class AnswerDto implements _$AnswerDto {
     return Answer(
       id: QuestionId(questionId),
       serialNumber: SerialNumber(serialNumber),
-      body: AnswerBody(answerBody),
-      noteMap: KtMutableMap.from(noteMap)
-          .mapKeys((entry) => ChoiceId(entry.key))
-          .mapValues((entry) => AnswerBody(entry.value)),
+      body: answerBody != null ? answerBody.toDomain() : AnswerBody.empty(),
+      noteMap: noteMap != null
+          ? KtMutableMap.from(noteMap)
+              .mapKeys((entry) => ChoiceId(entry.key))
+              .mapValues((entry) => AnswerBody(entry.value))
+          : KtMutableMap<ChoiceId, AnswerBody>.empty(),
     );
   }
 
   factory AnswerDto.fromJson(Map<String, dynamic> json) =>
       _$AnswerDtoFromJson(json);
+}
+
+@freezed
+abstract class AnswerBodyDto implements _$AnswerBodyDto {
+  const AnswerBodyDto._();
+
+  const factory AnswerBodyDto({
+    @required Map<String, dynamic> value,
+  }) = _AnswerBodyDto;
+
+  factory AnswerBodyDto.fromDomain(AnswerBody answerbody) {
+    final value = answerbody.getOrCrash();
+    Map<String, dynamic> dtoValue;
+
+    if (value is ChoiceId) {
+      dtoValue = {
+        'type': 'ChoiceId',
+        'value': value.getOrCrash(),
+      };
+    } else if (value is List<ChoiceId>) {
+      dtoValue = {
+        'type': 'List<ChoiceId>',
+        'value': value.map((e) => e.getOrCrash()),
+      };
+    } else {
+      dtoValue = {
+        'type': 'Others',
+        'value': value,
+      };
+    }
+
+    return AnswerBodyDto(
+      value: dtoValue,
+    );
+  }
+
+  AnswerBody toDomain() {
+    if (value['type'] == 'ChoiceId') {
+      return AnswerBody(ChoiceId(value['value']));
+    } else if (value['type'] == 'List<ChoiceId>') {
+      return AnswerBody(value.values.first.map((e) => ChoiceId(e)));
+    } else {
+      return AnswerBody(value['value']);
+    }
+  }
+
+  factory AnswerBodyDto.fromJson(Map<String, dynamic> json) =>
+      _$AnswerBodyDtoFromJson(json);
 }
