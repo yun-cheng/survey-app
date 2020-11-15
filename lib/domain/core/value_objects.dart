@@ -26,6 +26,11 @@ abstract class ValueObject<T> {
     );
   }
 
+  // NOTE 無論是否 failure 都取得 value，用在 dto 或還不須驗證資料時使用
+  T getValueAnyway() {
+    return value.fold((l) => l.failedValue, id);
+  }
+
   bool isValid() => value.isRight();
 
   @override

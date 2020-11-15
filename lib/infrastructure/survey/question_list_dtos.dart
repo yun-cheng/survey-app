@@ -31,12 +31,12 @@ abstract class QuestionDto implements _$QuestionDto {
 
   factory QuestionDto.fromDomain(Question question) {
     return QuestionDto(
-      questionId: question.id.getOrCrash(),
+      questionId: question.id.getValueAnyway(),
       hideQuestionId: question.hideId,
-      serialNumber: question.serialNumber.getOrCrash(),
-      questionBody: question.body.getOrCrash(),
-      questionNote: question.note.getOrCrash(),
-      questionType: question.type.getOrCrash(),
+      serialNumber: question.serialNumber.getValueAnyway(),
+      questionBody: question.body.getValueAnyway(),
+      questionNote: question.note.getValueAnyway(),
+      questionType: question.type.getValueAnyway(),
       showQuestion: FullExpressionDto.fromDomain(question.show),
       choiceList: question.choiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
@@ -46,8 +46,8 @@ abstract class QuestionDto implements _$QuestionDto {
           .asList(),
       hasSpecialAnswer: question.hasSpecialAnswer,
       validateAnswer: FullExpressionDto.fromDomain(question.validateAnswer),
-      upperQuestionId: question.upperQuestionId.getOrCrash(),
-      pageNumber: question.pageNumber.getOrCrash(),
+      upperQuestionId: question.upperQuestionId.getValueAnyway(),
+      pageNumber: question.pageNumber.getValueAnyway(),
     );
   }
 
@@ -90,13 +90,13 @@ abstract class ChoiceDto implements _$ChoiceDto {
 
   factory ChoiceDto.fromDomain(Choice choice) {
     return ChoiceDto(
-      serialNumber: choice.serialNumber.getOrCrash(),
-      choiceId: choice.id.getOrCrash(),
-      choiceBody: choice.body.getOrCrash(),
+      serialNumber: choice.serialNumber.getValueAnyway(),
+      choiceId: choice.id.getValueAnyway(),
+      choiceBody: choice.body.getValueAnyway(),
       asNote: choice.asNote,
       asSingle: choice.asSingle,
-      choiceGroup: choice.group.getOrCrash(),
-      upperChoiceId: choice.upperChoiceId.getOrCrash(),
+      choiceGroup: choice.group.getValueAnyway(),
+      upperChoiceId: choice.upperChoiceId.getValueAnyway(),
     );
   }
 

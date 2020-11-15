@@ -20,7 +20,7 @@ class _$SurveyStateDtoTearOff {
   _SurveyStateDto call(
       {@required Map<String, dynamic> surveyListState,
       @required List<SurveyDto> surveyList,
-      SurveyDto survey,
+      @required SurveyDto survey,
       Map<String, dynamic> surveyFailure}) {
     return _SurveyStateDto(
       surveyListState: surveyListState,
@@ -163,10 +163,11 @@ class _$_SurveyStateDto extends _SurveyStateDto {
   const _$_SurveyStateDto(
       {@required this.surveyListState,
       @required this.surveyList,
-      this.survey,
+      @required this.survey,
       this.surveyFailure})
       : assert(surveyListState != null),
         assert(surveyList != null),
+        assert(survey != null),
         super._();
 
   factory _$_SurveyStateDto.fromJson(Map<String, dynamic> json) =>
@@ -226,7 +227,7 @@ abstract class _SurveyStateDto extends SurveyStateDto {
   const factory _SurveyStateDto(
       {@required Map<String, dynamic> surveyListState,
       @required List<SurveyDto> surveyList,
-      SurveyDto survey,
+      @required SurveyDto survey,
       Map<String, dynamic> surveyFailure}) = _$_SurveyStateDto;
 
   factory _SurveyStateDto.fromJson(Map<String, dynamic> json) =

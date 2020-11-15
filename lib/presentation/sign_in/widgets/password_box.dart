@@ -14,7 +14,7 @@ class PasswordBox extends StatelessWidget {
       buildWhen: (p, c) => p.signInState != c.signInState,
       builder: (context, state) {
         return TextFormField(
-          initialValue: state.password.getOrEmpty(),
+          initialValue: state.password.value.fold((l) => l.failedValue, (r) => r),
           onChanged: (value) =>
               context.bloc<AuthBloc>().add(AuthEvent.passwordChanged(value)),
           validator: (_) => signInValidator(

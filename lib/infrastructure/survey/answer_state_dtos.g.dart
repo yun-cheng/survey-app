@@ -19,12 +19,10 @@ _$_AnswerStateDto _$_$_AnswerStateDtoFromJson(Map<String, dynamic> json) {
               ? null
               : AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
-    survey: json['survey'] == null
-        ? null
-        : SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
-    respondent: json['respondent'] == null
-        ? null
-        : RespondentDto.fromJson(json['respondent'] as Map<String, dynamic>),
+    questionList: (json['questionList'] as List)
+        ?.map((e) =>
+            e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -33,6 +31,5 @@ Map<String, dynamic> _$_$_AnswerStateDtoToJson(_$_AnswerStateDto instance) =>
       'answerMap': instance.answerMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'answerStatusMap':
           instance.answerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),
-      'survey': instance.survey?.toJson(),
-      'respondent': instance.respondent?.toJson(),
+      'questionList': instance.questionList?.map((e) => e?.toJson())?.toList(),
     };

@@ -25,7 +25,9 @@ class _$SurveyPageStateDtoTearOff {
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required bool isLastPage,
       @required WarningDto warning,
-      @required bool showWarning}) {
+      @required bool showWarning,
+      @required Map<String, dynamic> loadState,
+      @required Map<String, dynamic> restoreState}) {
     return _SurveyPageStateDto(
       page: page,
       newestPage: newestPage,
@@ -35,6 +37,8 @@ class _$SurveyPageStateDtoTearOff {
       isLastPage: isLastPage,
       warning: warning,
       showWarning: showWarning,
+      loadState: loadState,
+      restoreState: restoreState,
     );
   }
 
@@ -58,6 +62,8 @@ mixin _$SurveyPageStateDto {
   bool get isLastPage;
   WarningDto get warning;
   bool get showWarning;
+  Map<String, dynamic> get loadState;
+  Map<String, dynamic> get restoreState;
 
   Map<String, dynamic> toJson();
   $SurveyPageStateDtoCopyWith<SurveyPageStateDto> get copyWith;
@@ -76,7 +82,9 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
       WarningDto warning,
-      bool showWarning});
+      bool showWarning,
+      Map<String, dynamic> loadState,
+      Map<String, dynamic> restoreState});
 
   $WarningDtoCopyWith<$Res> get warning;
 }
@@ -100,6 +108,8 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
     Object isLastPage = freezed,
     Object warning = freezed,
     Object showWarning = freezed,
+    Object loadState = freezed,
+    Object restoreState = freezed,
   }) {
     return _then(_value.copyWith(
       page: page == freezed ? _value.page : page as int,
@@ -118,6 +128,12 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
       warning: warning == freezed ? _value.warning : warning as WarningDto,
       showWarning:
           showWarning == freezed ? _value.showWarning : showWarning as bool,
+      loadState: loadState == freezed
+          ? _value.loadState
+          : loadState as Map<String, dynamic>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState as Map<String, dynamic>,
     ));
   }
 
@@ -147,7 +163,9 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
       WarningDto warning,
-      bool showWarning});
+      bool showWarning,
+      Map<String, dynamic> loadState,
+      Map<String, dynamic> restoreState});
 
   @override
   $WarningDtoCopyWith<$Res> get warning;
@@ -174,6 +192,8 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
     Object isLastPage = freezed,
     Object warning = freezed,
     Object showWarning = freezed,
+    Object loadState = freezed,
+    Object restoreState = freezed,
   }) {
     return _then(_SurveyPageStateDto(
       page: page == freezed ? _value.page : page as int,
@@ -192,6 +212,12 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
       warning: warning == freezed ? _value.warning : warning as WarningDto,
       showWarning:
           showWarning == freezed ? _value.showWarning : showWarning as bool,
+      loadState: loadState == freezed
+          ? _value.loadState
+          : loadState as Map<String, dynamic>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState as Map<String, dynamic>,
     ));
   }
 }
@@ -208,7 +234,9 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       @required this.answerStatusMap,
       @required this.isLastPage,
       @required this.warning,
-      @required this.showWarning})
+      @required this.showWarning,
+      @required this.loadState,
+      @required this.restoreState})
       : assert(page != null),
         assert(newestPage != null),
         assert(questionList != null),
@@ -217,6 +245,8 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
         assert(isLastPage != null),
         assert(warning != null),
         assert(showWarning != null),
+        assert(loadState != null),
+        assert(restoreState != null),
         super._();
 
   factory _$_SurveyPageStateDto.fromJson(Map<String, dynamic> json) =>
@@ -238,10 +268,14 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   final WarningDto warning;
   @override
   final bool showWarning;
+  @override
+  final Map<String, dynamic> loadState;
+  @override
+  final Map<String, dynamic> restoreState;
 
   @override
   String toString() {
-    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning)';
+    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState)';
   }
 
   @override
@@ -270,7 +304,13 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
                     .equals(other.warning, warning)) &&
             (identical(other.showWarning, showWarning) ||
                 const DeepCollectionEquality()
-                    .equals(other.showWarning, showWarning)));
+                    .equals(other.showWarning, showWarning)) &&
+            (identical(other.loadState, loadState) ||
+                const DeepCollectionEquality()
+                    .equals(other.loadState, loadState)) &&
+            (identical(other.restoreState, restoreState) ||
+                const DeepCollectionEquality()
+                    .equals(other.restoreState, restoreState)));
   }
 
   @override
@@ -283,7 +323,9 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage) ^
       const DeepCollectionEquality().hash(warning) ^
-      const DeepCollectionEquality().hash(showWarning);
+      const DeepCollectionEquality().hash(showWarning) ^
+      const DeepCollectionEquality().hash(loadState) ^
+      const DeepCollectionEquality().hash(restoreState);
 
   @override
   _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith =>
@@ -305,7 +347,9 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required bool isLastPage,
       @required WarningDto warning,
-      @required bool showWarning}) = _$_SurveyPageStateDto;
+      @required bool showWarning,
+      @required Map<String, dynamic> loadState,
+      @required Map<String, dynamic> restoreState}) = _$_SurveyPageStateDto;
 
   factory _SurveyPageStateDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyPageStateDto.fromJson;
@@ -326,6 +370,10 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   WarningDto get warning;
   @override
   bool get showWarning;
+  @override
+  Map<String, dynamic> get loadState;
+  @override
+  Map<String, dynamic> get restoreState;
   @override
   _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith;
 }

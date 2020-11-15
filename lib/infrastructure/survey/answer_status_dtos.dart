@@ -23,17 +23,14 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
 
   factory AnswerStatusDto.fromDomain(AnswerStatus answerStatus) {
     return AnswerStatusDto(
-      questionId: answerStatus.id.getOrCrash(),
-      serialNumber: answerStatus.serialNumber.getOrCrash(),
-      answerStatusType: answerStatus.type.getOrCrash(),
+      questionId: answerStatus.id.getValueAnyway(),
+      serialNumber: answerStatus.serialNumber.getValueAnyway(),
+      answerStatusType: answerStatus.type.getValueAnyway(),
       warning: WarningDto.fromDomain(answerStatus.warning),
-      noteMap: answerStatus.noteMap !=
-              KtMutableMap<ChoiceId, AnswerStatusType>.empty()
-          ? answerStatus.noteMap
-              .mapKeys((entry) => entry.key.getOrCrash())
-              .mapValues((entry) => entry.value.getOrCrash())
-              .asMap()
-          : null,
+      noteMap: answerStatus.noteMap
+          .mapKeys((entry) => entry.key.getValueAnyway())
+          .mapValues((entry) => entry.value.getValueAnyway())
+          .asMap(),
     );
   }
 
@@ -42,7 +39,7 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
       id: QuestionId(questionId),
       serialNumber: SerialNumber(serialNumber),
       type: AnswerStatusType(answerStatusType),
-      warning: warning == null ? Warning.empty() : warning.toDomain(),
+      warning: warning != null ? warning.toDomain() : Warning.empty(),
       noteMap: noteMap != null
           ? KtMutableMap.from(noteMap)
               .mapKeys((entry) => ChoiceId(entry.key))

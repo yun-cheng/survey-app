@@ -46,8 +46,8 @@ abstract class TeamDto implements _$TeamDto {
 
   factory TeamDto.fromDomain(Team team) {
     return TeamDto(
-      teamId: team.id.getOrCrash(),
-      teamName: team.name.getOrCrash(),
+      teamId: team.id.getValueAnyway(),
+      teamName: team.name.getValueAnyway(),
     );
   }
 

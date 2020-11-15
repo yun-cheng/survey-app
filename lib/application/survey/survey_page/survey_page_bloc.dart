@@ -3,9 +3,10 @@ import 'dart:async';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/simple_survey_page_state.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/warning.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_page_state_dtos.dart';
@@ -17,78 +18,30 @@ part 'survey_page_bloc.freezed.dart';
 
 @injectable
 class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
-  final AnswerBloc _answerBloc;
-  StreamSubscription _answersSubscription;
-
-  SurveyPageBloc(
-    this._answerBloc,
-  ) : super(SurveyPageState.initial()) {
-    // HIGHLIGHT 如果訂閱的 Bloc 不在同一層 Consumer/Listener/Builder，
-    // HIGHLIGHT 就需要先取一次當前狀態，之後再 listen
-    final answerStatusMap = _answerBloc.state.answerStatusMap;
-    final questionList = _answerBloc.state.survey.questionList;
-
-    add(SurveyPageEvent.answerBlocUpdated(
-      answerStatusMap: answerStatusMap,
-      questionList: questionList,
-    ));
-
-    _answersSubscription = _answerBloc.listen((state) {
-      add(SurveyPageEvent.answerBlocUpdated(
-        answerStatusMap: state.answerStatusMap,
-        questionList: state.survey.questionList,
-      ));
-    });
-  }
-
+  SurveyPageBloc() : super(SurveyPageState.initial());
   @override
   Stream<SurveyPageState> mapEventToState(
     SurveyPageEvent event,
   ) async* {
     yield* event.map(
-      nextPagePressed: (e) async* {
-        // NOTE 不是在最新一頁，或沒有 warning
-        if (state.page != state.newestPage) {
-          add(const SurveyPageEvent.pageUpdated(direction: Direction.next));
-        } else if (state.warning.isEmpty) {
-          add(const SurveyPageEvent.wentToNewestPage());
-        } else {
-          yield state.copyWith(
-            showWarning: true,
-          );
-        }
-      },
-      wentToNewestPage: (e) async* {
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.next));
+      // H_1 從 response 恢復 surveyPageState
+      stateRestored: (e) async* {
         yield state.copyWith(
-          showWarning: false,
+          restoreState: const LoadState.inProgress(),
         );
-        add(const SurveyPageEvent.firstWarningUpdated());
-      },
-      previousPagePressed: (e) async* {
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.previous));
-      },
-      wentToPage: (e) async* {
         yield state.copyWith(
-          page: e.page,
-        );
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.current));
-      },
-      // NOTE 作答有變更時，更新該頁面，並檢查是否有未完成的題目
-      answerBlocUpdated: (e) async* {
-        yield state.copyWith(
-          answerStatusMap: e.answerStatusMap,
+          page: e.surveyPageState.page,
+          newestPage: e.surveyPageState.newestPage,
+          isLastPage: e.surveyPageState.isLastPage,
+          warning: e.surveyPageState.warning,
+          showWarning: e.surveyPageState.showWarning,
+          loadState: e.surveyPageState.loadState,
           questionList: e.questionList,
+          restoreState: const LoadState.success(),
         );
-
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.current));
-        add(const SurveyPageEvent.checkIsLastPage());
-        add(const SurveyPageEvent.firstWarningUpdated());
-        if (state.page != state.newestPage) {
-          add(const SurveyPageEvent.showWarningUpdated());
-        }
       },
-      // NOTE 單存更新頁數、該頁題目
+      // H_2 切換頁面
+      // NOTE 單純更新頁數、該頁題目
       pageUpdated: (e) async* {
         Question firstQuestion;
         if (e.direction == Direction.current) {
@@ -120,8 +73,66 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
           );
         }
       },
+      nextPagePressed: (e) async* {
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
+
+        // H_c1 不是在最新一頁
+        if (state.page != state.newestPage) {
+          add(const SurveyPageEvent.pageUpdated(direction: Direction.next));
+          add(const SurveyPageEvent.checkIsLastPage());
+          add(const SurveyPageEvent.stateLoadSuccess());
+          // H_c2 在最新一頁，沒有 warning
+          // NOTE stateLoadSuccess event 要放在 wentToNewestPage 裡面，才不會提早執行
+        } else if (state.warning.isEmpty) {
+          add(const SurveyPageEvent.wentToNewestPage());
+          // H_c2 在最新一頁，有 warning
+        } else {
+          yield state.copyWith(
+            showWarning: true,
+          );
+          add(const SurveyPageEvent.stateLoadSuccess());
+        }
+      },
+      previousPagePressed: (e) async* {
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
+
+        add(const SurveyPageEvent.pageUpdated(direction: Direction.previous));
+        add(const SurveyPageEvent.checkIsLastPage());
+
+        add(const SurveyPageEvent.stateLoadSuccess());
+      },
+      wentToNewestPage: (e) async* {
+        yield state.copyWith(
+          showWarning: false,
+          loadState: const LoadState.inProgress(),
+        );
+
+        add(const SurveyPageEvent.pageUpdated(direction: Direction.next));
+        add(const SurveyPageEvent.checkIsLastPage());
+        add(const SurveyPageEvent.firstWarningUpdated());
+
+        add(const SurveyPageEvent.stateLoadSuccess());
+      },
+      wentToPage: (e) async* {
+        yield state.copyWith(
+          page: e.page,
+          loadState: const LoadState.inProgress(),
+        );
+
+        add(const SurveyPageEvent.pageUpdated(direction: Direction.current));
+        add(const SurveyPageEvent.checkIsLastPage());
+
+        add(const SurveyPageEvent.stateLoadSuccess());
+      },
+      // H_3
       checkIsLastPage: (e) async* {
         Question firstQuestion;
+
+        // NOTE 篩出第一題不是隱藏的題目
         firstQuestion = state.questionList.firstOrNull((question) =>
             question.pageNumber.getOrCrash() > state.page.getOrCrash() &&
             !state.answerStatusMap[question.id].isHidden);
@@ -168,13 +179,29 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
           }
         }
       },
-    );
-  }
+      // H_4 接收更新的作答
+      // NOTE 作答有變更時，更新該頁面，並檢查是否有未完成的題目
+      stateChanged: (e) async* {
+        yield state.copyWith(
+          answerStatusMap: e.answerStatusMap,
+          loadState: const LoadState.inProgress(),
+        );
 
-  @override
-  Future<void> close() {
-    _answersSubscription.cancel();
-    return super.close();
+        add(const SurveyPageEvent.pageUpdated(direction: Direction.current));
+        add(const SurveyPageEvent.checkIsLastPage());
+        add(const SurveyPageEvent.firstWarningUpdated());
+        if (state.page != state.newestPage) {
+          add(const SurveyPageEvent.showWarningUpdated());
+        }
+
+        add(const SurveyPageEvent.stateLoadSuccess());
+      },
+      stateLoadSuccess: (e) async* {
+        yield state.copyWith(
+          loadState: const LoadState.success(),
+        );
+      },
+    );
   }
 
   @override
@@ -189,11 +216,7 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
   @override
   Map<String, dynamic> toJson(SurveyPageState state) {
     // try {
-    if (state.questionList.isNotEmpty() && state.answerStatusMap.isNotEmpty()) {
-      return SurveyPageStateDto.fromDomain(state).toJson();
-    } else {
-      return null;
-    }
+    return SurveyPageStateDto.fromDomain(state).toJson();
     // } catch (_) {
     //   return null;
     // }

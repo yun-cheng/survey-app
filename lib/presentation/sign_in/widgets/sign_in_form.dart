@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
@@ -41,7 +42,7 @@ class SignInForm extends StatelessWidget {
           listenWhen: (p, c) =>
               c.signInState is LoadSuccess && p.signInState != c.signInState,
           listener: (context, state) {
-            print('Push to OverviewPage!!');
+            LoggerService.simple.i('Push to OverviewPage!!');
 
             context.navigator.push(Routes.overviewPage);
 

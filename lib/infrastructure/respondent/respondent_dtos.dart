@@ -18,10 +18,10 @@ abstract class RespondentDto implements _$RespondentDto {
 
   factory RespondentDto.fromDomain(Respondent respondent) {
     return RespondentDto(
-      respondentId: respondent.id.getOrCrash(),
-      countyTown: respondent.countyTown.getOrCrash(),
-      village: respondent.village.getOrCrash(),
-      remainAddress: respondent.remainAddress.getOrCrash(),
+      respondentId: respondent.id.getValueAnyway(),
+      countyTown: respondent.countyTown.getValueAnyway(),
+      village: respondent.village.getValueAnyway(),
+      remainAddress: respondent.remainAddress.getValueAnyway(),
     );
   }
 

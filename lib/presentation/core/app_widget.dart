@@ -5,6 +5,7 @@ import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/response/response_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
@@ -40,15 +41,18 @@ class AppWidget extends StatelessWidget {
           ),
         ),
         BlocProvider(
+          create: (context) => ResponseBloc(
+            getIt<ISurveyRepository>(),
+          ),
+        ),
+        BlocProvider(
           create: (context) => AnswerBloc(
             getIt<IAnswerAlgorithm>(),
             getIt<IAnswerStatusAlgorithm>(),
           ),
         ),
         BlocProvider(
-          create: (context) => SurveyPageBloc(
-            BlocProvider.of<AnswerBloc>(context),
-          ),
+          create: (context) => SurveyPageBloc(),
         ),
       ],
       child: MaterialApp(

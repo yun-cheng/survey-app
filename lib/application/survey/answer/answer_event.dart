@@ -2,9 +2,17 @@ part of 'answer_bloc.dart';
 
 @freezed
 abstract class AnswerEvent with _$AnswerEvent {
-  const factory AnswerEvent.answerRestored() = _AnswerRestored;
-  const factory AnswerEvent.answerStatusInitialized() = _AnswerStatusInitialized;
+  // H_1 從 response 恢復 answerState
+  const factory AnswerEvent.answerRestored({
+    @required KtMutableMap<QuestionId, Answer> answerMap,
+    @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    @required KtList<Question> questionList,
+  }) = _AnswerRestored;
+  
+  const factory AnswerEvent.answerStatusInitialized() =
+      _AnswerStatusInitialized;
 
+  // H_2 變更作答
   const factory AnswerEvent.answerChanged({
     @required Question question,
     @required dynamic body,
@@ -27,12 +35,4 @@ abstract class AnswerEvent with _$AnswerEvent {
         toggle: toggle ?? false,
         noteOf: noteOf,
       );
-
-  const factory AnswerEvent.surveySelected({
-    @required Survey survey,
-  }) = _SurveySelected;
-
-  const factory AnswerEvent.respondentSelected({
-    @required Respondent respondent,
-  }) = _RespondentSelected;
 }

@@ -14,8 +14,15 @@ class _$AnswerEventTearOff {
   const _$AnswerEventTearOff();
 
 // ignore: unused_element
-  _AnswerRestored answerRestored() {
-    return const _AnswerRestored();
+  _AnswerRestored answerRestored(
+      {@required KtMutableMap<QuestionId, Answer> answerMap,
+      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required KtList<Question> questionList}) {
+    return _AnswerRestored(
+      answerMap: answerMap,
+      answerStatusMap: answerStatusMap,
+      questionList: questionList,
+    );
   }
 
 // ignore: unused_element
@@ -38,20 +45,6 @@ class _$AnswerEventTearOff {
       noteOf: noteOf,
     );
   }
-
-// ignore: unused_element
-  _SurveySelected surveySelected({@required Survey survey}) {
-    return _SurveySelected(
-      survey: survey,
-    );
-  }
-
-// ignore: unused_element
-  _RespondentSelected respondentSelected({@required Respondent respondent}) {
-    return _RespondentSelected(
-      respondent: respondent,
-    );
-  }
 }
 
 /// @nodoc
@@ -62,22 +55,25 @@ const $AnswerEvent = _$AnswerEventTearOff();
 mixin _$AnswerEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result answerRestored(),
+    @required
+        Result answerRestored(
+            KtMutableMap<QuestionId, Answer> answerMap,
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
     @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result answerRestored(),
+    Result answerRestored(
+        KtMutableMap<QuestionId, Answer> answerMap,
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
     @required Result orElse(),
   });
   @optionalTypeArgs
@@ -85,16 +81,12 @@ mixin _$AnswerEvent {
     @required Result answerRestored(_AnswerRestored value),
     @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
   });
   @optionalTypeArgs
   Result maybeMap<Result extends Object>({
     Result answerRestored(_AnswerRestored value),
     Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
     @required Result orElse(),
   });
 }
@@ -120,6 +112,10 @@ abstract class _$AnswerRestoredCopyWith<$Res> {
   factory _$AnswerRestoredCopyWith(
           _AnswerRestored value, $Res Function(_AnswerRestored) then) =
       __$AnswerRestoredCopyWithImpl<$Res>;
+  $Res call(
+      {KtMutableMap<QuestionId, Answer> answerMap,
+      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtList<Question> questionList});
 }
 
 /// @nodoc
@@ -132,58 +128,109 @@ class __$AnswerRestoredCopyWithImpl<$Res>
 
   @override
   _AnswerRestored get _value => super._value as _AnswerRestored;
+
+  @override
+  $Res call({
+    Object answerMap = freezed,
+    Object answerStatusMap = freezed,
+    Object questionList = freezed,
+  }) {
+    return _then(_AnswerRestored(
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap as KtMutableMap<QuestionId, Answer>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as KtList<Question>,
+    ));
+  }
 }
 
 /// @nodoc
 class _$_AnswerRestored implements _AnswerRestored {
-  const _$_AnswerRestored();
+  const _$_AnswerRestored(
+      {@required this.answerMap,
+      @required this.answerStatusMap,
+      @required this.questionList})
+      : assert(answerMap != null),
+        assert(answerStatusMap != null),
+        assert(questionList != null);
+
+  @override
+  final KtMutableMap<QuestionId, Answer> answerMap;
+  @override
+  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  @override
+  final KtList<Question> questionList;
 
   @override
   String toString() {
-    return 'AnswerEvent.answerRestored()';
+    return 'AnswerEvent.answerRestored(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList)';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AnswerRestored);
+    return identical(this, other) ||
+        (other is _AnswerRestored &&
+            (identical(other.answerMap, answerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerMap, answerMap)) &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)) &&
+            (identical(other.questionList, questionList) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionList, questionList)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(answerMap) ^
+      const DeepCollectionEquality().hash(answerStatusMap) ^
+      const DeepCollectionEquality().hash(questionList);
+
+  @override
+  _$AnswerRestoredCopyWith<_AnswerRestored> get copyWith =>
+      __$AnswerRestoredCopyWithImpl<_AnswerRestored>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result answerRestored(),
+    @required
+        Result answerRestored(
+            KtMutableMap<QuestionId, Answer> answerMap,
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
     @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
-    return answerRestored();
+    return answerRestored(answerMap, answerStatusMap, questionList);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result answerRestored(),
+    Result answerRestored(
+        KtMutableMap<QuestionId, Answer> answerMap,
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
     @required Result orElse(),
   }) {
     assert(orElse != null);
     if (answerRestored != null) {
-      return answerRestored();
+      return answerRestored(answerMap, answerStatusMap, questionList);
     }
     return orElse();
   }
@@ -194,14 +241,10 @@ class _$_AnswerRestored implements _AnswerRestored {
     @required Result answerRestored(_AnswerRestored value),
     @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
     return answerRestored(this);
   }
 
@@ -211,8 +254,6 @@ class _$_AnswerRestored implements _AnswerRestored {
     Result answerRestored(_AnswerRestored value),
     Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -224,7 +265,15 @@ class _$_AnswerRestored implements _AnswerRestored {
 }
 
 abstract class _AnswerRestored implements AnswerEvent {
-  const factory _AnswerRestored() = _$_AnswerRestored;
+  const factory _AnswerRestored(
+      {@required KtMutableMap<QuestionId, Answer> answerMap,
+      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required KtList<Question> questionList}) = _$_AnswerRestored;
+
+  KtMutableMap<QuestionId, Answer> get answerMap;
+  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtList<Question> get questionList;
+  _$AnswerRestoredCopyWith<_AnswerRestored> get copyWith;
 }
 
 /// @nodoc
@@ -267,31 +316,32 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result answerRestored(),
+    @required
+        Result answerRestored(
+            KtMutableMap<QuestionId, Answer> answerMap,
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
     @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
     return answerStatusInitialized();
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result answerRestored(),
+    Result answerRestored(
+        KtMutableMap<QuestionId, Answer> answerMap,
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -307,14 +357,10 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
     @required Result answerRestored(_AnswerRestored value),
     @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
     return answerStatusInitialized(this);
   }
 
@@ -324,8 +370,6 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
     Result answerRestored(_AnswerRestored value),
     Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -455,31 +499,32 @@ class _$_AnswerChanged implements _AnswerChanged {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result answerRestored(),
+    @required
+        Result answerRestored(
+            KtMutableMap<QuestionId, Answer> answerMap,
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
     @required Result answerStatusInitialized(),
     @required
         Result answerChanged(Question question, dynamic body, bool isNote,
             bool toggle, ChoiceId noteOf),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
     return answerChanged(question, body, isNote, toggle, noteOf);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result answerRestored(),
+    Result answerRestored(
+        KtMutableMap<QuestionId, Answer> answerMap,
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
     Result answerStatusInitialized(),
     Result answerChanged(Question question, dynamic body, bool isNote,
         bool toggle, ChoiceId noteOf),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -495,14 +540,10 @@ class _$_AnswerChanged implements _AnswerChanged {
     @required Result answerRestored(_AnswerRestored value),
     @required Result answerStatusInitialized(_AnswerStatusInitialized value),
     @required Result answerChanged(_AnswerChanged value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
     return answerChanged(this);
   }
 
@@ -512,8 +553,6 @@ class _$_AnswerChanged implements _AnswerChanged {
     Result answerRestored(_AnswerRestored value),
     Result answerStatusInitialized(_AnswerStatusInitialized value),
     Result answerChanged(_AnswerChanged value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
     @required Result orElse(),
   }) {
     assert(orElse != null);
@@ -541,306 +580,6 @@ abstract class _AnswerChanged implements AnswerEvent {
 }
 
 /// @nodoc
-abstract class _$SurveySelectedCopyWith<$Res> {
-  factory _$SurveySelectedCopyWith(
-          _SurveySelected value, $Res Function(_SurveySelected) then) =
-      __$SurveySelectedCopyWithImpl<$Res>;
-  $Res call({Survey survey});
-
-  $SurveyCopyWith<$Res> get survey;
-}
-
-/// @nodoc
-class __$SurveySelectedCopyWithImpl<$Res>
-    extends _$AnswerEventCopyWithImpl<$Res>
-    implements _$SurveySelectedCopyWith<$Res> {
-  __$SurveySelectedCopyWithImpl(
-      _SurveySelected _value, $Res Function(_SurveySelected) _then)
-      : super(_value, (v) => _then(v as _SurveySelected));
-
-  @override
-  _SurveySelected get _value => super._value as _SurveySelected;
-
-  @override
-  $Res call({
-    Object survey = freezed,
-  }) {
-    return _then(_SurveySelected(
-      survey: survey == freezed ? _value.survey : survey as Survey,
-    ));
-  }
-
-  @override
-  $SurveyCopyWith<$Res> get survey {
-    if (_value.survey == null) {
-      return null;
-    }
-    return $SurveyCopyWith<$Res>(_value.survey, (value) {
-      return _then(_value.copyWith(survey: value));
-    });
-  }
-}
-
-/// @nodoc
-class _$_SurveySelected implements _SurveySelected {
-  const _$_SurveySelected({@required this.survey}) : assert(survey != null);
-
-  @override
-  final Survey survey;
-
-  @override
-  String toString() {
-    return 'AnswerEvent.surveySelected(survey: $survey)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _SurveySelected &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(survey);
-
-  @override
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
-      __$SurveySelectedCopyWithImpl<_SurveySelected>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result answerRestored(),
-    @required Result answerStatusInitialized(),
-    @required
-        Result answerChanged(Question question, dynamic body, bool isNote,
-            bool toggle, ChoiceId noteOf),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-  }) {
-    assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
-    assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
-    return surveySelected(survey);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result answerRestored(),
-    Result answerStatusInitialized(),
-    Result answerChanged(Question question, dynamic body, bool isNote,
-        bool toggle, ChoiceId noteOf),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (surveySelected != null) {
-      return surveySelected(survey);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result answerRestored(_AnswerRestored value),
-    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
-    @required Result answerChanged(_AnswerChanged value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-  }) {
-    assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
-    assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
-    return surveySelected(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result answerRestored(_AnswerRestored value),
-    Result answerStatusInitialized(_AnswerStatusInitialized value),
-    Result answerChanged(_AnswerChanged value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (surveySelected != null) {
-      return surveySelected(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SurveySelected implements AnswerEvent {
-  const factory _SurveySelected({@required Survey survey}) = _$_SurveySelected;
-
-  Survey get survey;
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith;
-}
-
-/// @nodoc
-abstract class _$RespondentSelectedCopyWith<$Res> {
-  factory _$RespondentSelectedCopyWith(
-          _RespondentSelected value, $Res Function(_RespondentSelected) then) =
-      __$RespondentSelectedCopyWithImpl<$Res>;
-  $Res call({Respondent respondent});
-
-  $RespondentCopyWith<$Res> get respondent;
-}
-
-/// @nodoc
-class __$RespondentSelectedCopyWithImpl<$Res>
-    extends _$AnswerEventCopyWithImpl<$Res>
-    implements _$RespondentSelectedCopyWith<$Res> {
-  __$RespondentSelectedCopyWithImpl(
-      _RespondentSelected _value, $Res Function(_RespondentSelected) _then)
-      : super(_value, (v) => _then(v as _RespondentSelected));
-
-  @override
-  _RespondentSelected get _value => super._value as _RespondentSelected;
-
-  @override
-  $Res call({
-    Object respondent = freezed,
-  }) {
-    return _then(_RespondentSelected(
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
-    ));
-  }
-
-  @override
-  $RespondentCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
-    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
-      return _then(_value.copyWith(respondent: value));
-    });
-  }
-}
-
-/// @nodoc
-class _$_RespondentSelected implements _RespondentSelected {
-  const _$_RespondentSelected({@required this.respondent})
-      : assert(respondent != null);
-
-  @override
-  final Respondent respondent;
-
-  @override
-  String toString() {
-    return 'AnswerEvent.respondentSelected(respondent: $respondent)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _RespondentSelected &&
-            (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(respondent);
-
-  @override
-  _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
-      __$RespondentSelectedCopyWithImpl<_RespondentSelected>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result answerRestored(),
-    @required Result answerStatusInitialized(),
-    @required
-        Result answerChanged(Question question, dynamic body, bool isNote,
-            bool toggle, ChoiceId noteOf),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-  }) {
-    assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
-    assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
-    return respondentSelected(respondent);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result answerRestored(),
-    Result answerStatusInitialized(),
-    Result answerChanged(Question question, dynamic body, bool isNote,
-        bool toggle, ChoiceId noteOf),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (respondentSelected != null) {
-      return respondentSelected(respondent);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result answerRestored(_AnswerRestored value),
-    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
-    @required Result answerChanged(_AnswerChanged value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-  }) {
-    assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
-    assert(answerChanged != null);
-    assert(surveySelected != null);
-    assert(respondentSelected != null);
-    return respondentSelected(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result answerRestored(_AnswerRestored value),
-    Result answerStatusInitialized(_AnswerStatusInitialized value),
-    Result answerChanged(_AnswerChanged value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
-  }) {
-    assert(orElse != null);
-    if (respondentSelected != null) {
-      return respondentSelected(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RespondentSelected implements AnswerEvent {
-  const factory _RespondentSelected({@required Respondent respondent}) =
-      _$_RespondentSelected;
-
-  Respondent get respondent;
-  _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith;
-}
-
-/// @nodoc
 class _$AnswerStateTearOff {
   const _$AnswerStateTearOff();
 
@@ -848,13 +587,11 @@ class _$AnswerStateTearOff {
   _AnswerState call(
       {@required KtMutableMap<QuestionId, Answer> answerMap,
       @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required Survey survey,
-      @required Respondent respondent}) {
+      @required KtList<Question> questionList}) {
     return _AnswerState(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
-      survey: survey,
-      respondent: respondent,
+      questionList: questionList,
     );
   }
 }
@@ -867,8 +604,7 @@ const $AnswerState = _$AnswerStateTearOff();
 mixin _$AnswerState {
   KtMutableMap<QuestionId, Answer> get answerMap;
   KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
-  Survey get survey;
-  Respondent get respondent;
+  KtList<Question> get questionList;
 
   $AnswerStateCopyWith<AnswerState> get copyWith;
 }
@@ -881,11 +617,7 @@ abstract class $AnswerStateCopyWith<$Res> {
   $Res call(
       {KtMutableMap<QuestionId, Answer> answerMap,
       KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      Survey survey,
-      Respondent respondent});
-
-  $SurveyCopyWith<$Res> get survey;
-  $RespondentCopyWith<$Res> get respondent;
+      KtList<Question> questionList});
 }
 
 /// @nodoc
@@ -900,8 +632,7 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
   $Res call({
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
-    Object survey = freezed,
-    Object respondent = freezed,
+    Object questionList = freezed,
   }) {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
@@ -910,30 +641,10 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
-      survey: survey == freezed ? _value.survey : survey as Survey,
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as KtList<Question>,
     ));
-  }
-
-  @override
-  $SurveyCopyWith<$Res> get survey {
-    if (_value.survey == null) {
-      return null;
-    }
-    return $SurveyCopyWith<$Res>(_value.survey, (value) {
-      return _then(_value.copyWith(survey: value));
-    });
-  }
-
-  @override
-  $RespondentCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
-    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
-      return _then(_value.copyWith(respondent: value));
-    });
   }
 }
 
@@ -947,13 +658,7 @@ abstract class _$AnswerStateCopyWith<$Res>
   $Res call(
       {KtMutableMap<QuestionId, Answer> answerMap,
       KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      Survey survey,
-      Respondent respondent});
-
-  @override
-  $SurveyCopyWith<$Res> get survey;
-  @override
-  $RespondentCopyWith<$Res> get respondent;
+      KtList<Question> questionList});
 }
 
 /// @nodoc
@@ -970,8 +675,7 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
   $Res call({
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
-    Object survey = freezed,
-    Object respondent = freezed,
+    Object questionList = freezed,
   }) {
     return _then(_AnswerState(
       answerMap: answerMap == freezed
@@ -980,9 +684,9 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
-      survey: survey == freezed ? _value.survey : survey as Survey,
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as KtList<Question>,
     ));
   }
 }
@@ -992,25 +696,21 @@ class _$_AnswerState implements _AnswerState {
   const _$_AnswerState(
       {@required this.answerMap,
       @required this.answerStatusMap,
-      @required this.survey,
-      @required this.respondent})
+      @required this.questionList})
       : assert(answerMap != null),
         assert(answerStatusMap != null),
-        assert(survey != null),
-        assert(respondent != null);
+        assert(questionList != null);
 
   @override
   final KtMutableMap<QuestionId, Answer> answerMap;
   @override
   final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
-  final Survey survey;
-  @override
-  final Respondent respondent;
+  final KtList<Question> questionList;
 
   @override
   String toString() {
-    return 'AnswerState(answerMap: $answerMap, answerStatusMap: $answerStatusMap, survey: $survey, respondent: $respondent)';
+    return 'AnswerState(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList)';
   }
 
   @override
@@ -1023,11 +723,9 @@ class _$_AnswerState implements _AnswerState {
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
-            (identical(other.respondent, respondent) ||
+            (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)));
+                    .equals(other.questionList, questionList)));
   }
 
   @override
@@ -1035,8 +733,7 @@ class _$_AnswerState implements _AnswerState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(respondent);
+      const DeepCollectionEquality().hash(questionList);
 
   @override
   _$AnswerStateCopyWith<_AnswerState> get copyWith =>
@@ -1047,17 +744,14 @@ abstract class _AnswerState implements AnswerState {
   const factory _AnswerState(
       {@required KtMutableMap<QuestionId, Answer> answerMap,
       @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required Survey survey,
-      @required Respondent respondent}) = _$_AnswerState;
+      @required KtList<Question> questionList}) = _$_AnswerState;
 
   @override
   KtMutableMap<QuestionId, Answer> get answerMap;
   @override
   KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
   @override
-  Survey get survey;
-  @override
-  Respondent get respondent;
+  KtList<Question> get questionList;
   @override
   _$AnswerStateCopyWith<_AnswerState> get copyWith;
 }

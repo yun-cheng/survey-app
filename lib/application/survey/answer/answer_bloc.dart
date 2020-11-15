@@ -3,8 +3,7 @@ import 'dart:async';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
@@ -23,34 +22,38 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
   final IAnswerAlgorithm _answerAlgorithm;
   final IAnswerStatusAlgorithm _answerStatusAlgorithm;
 
-  AnswerBloc(this._answerAlgorithm, this._answerStatusAlgorithm)
-      : super(AnswerState.initial());
+  AnswerBloc(
+    this._answerAlgorithm,
+    this._answerStatusAlgorithm,
+  ) : super(AnswerState.initial());
 
   @override
   Stream<AnswerState> mapEventToState(
     AnswerEvent event,
   ) async* {
     yield* event.map(
+      // H_1 從 response 恢復 answerState
       answerRestored: (e) async* {
-        final answerMap = state.survey.answerMap.toMutableMap();
-        final answerStatusMap = state.survey.answerStatusMap.toMutableMap();
-
         yield state.copyWith(
-          answerMap: answerMap,
-          answerStatusMap: answerStatusMap,
+          answerMap: e.answerMap,
+          answerStatusMap: e.answerStatusMap,
+          questionList: e.questionList,
         );
+
+        add(const AnswerEvent.answerStatusInitialized());
       },
       answerStatusInitialized: (e) async* {
         final newAnswerStatusMap = _answerStatusAlgorithm.updateAnswerStatus(
           answerMap: state.answerMap,
           answerStatusMap: state.answerStatusMap,
-          questionList: state.survey.questionList,
+          questionList: state.questionList,
         );
 
         yield state.copyWith(
           answerStatusMap: newAnswerStatusMap,
         );
       },
+      // H_2 變更作答
       answerChanged: (e) async* {
         final newAnswerMap = _answerAlgorithm.updateAnswer(
           answerMap: state.answerMap,
@@ -65,33 +68,16 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
           answerMap: newAnswerMap,
           answerStatusMap: state.answerStatusMap,
           question: e.question,
-          questionList: state.survey.questionList,
+          questionList: state.questionList,
         );
 
         yield state.copyWith(
           answerMap: newAnswerMap,
           answerStatusMap: newAnswerStatusMap,
         );
-        print(
-            '********************     [ answer ]    **************************');
-        print(newAnswerMap[e.question.id]);
-        print(
-            '********************     [ answerStatus ]    **************************');
-        print(newAnswerStatusMap[e.question.id]);
 
-        // print(e.question.show);
-      },
-      surveySelected: (e) async* {
-        yield state.copyWith(
-          survey: e.survey,
-        );
-      },
-      respondentSelected: (e) async* {
-        yield state.copyWith(
-          respondent: e.respondent,
-        );
-        add(const AnswerEvent.answerRestored());
-        add(const AnswerEvent.answerStatusInitialized());
+        // LoggerService.simple.d(newAnswerMap[e.question.id]);
+        // LoggerService.simple.d(newAnswerStatusMap[e.question.id]);
       },
     );
   }

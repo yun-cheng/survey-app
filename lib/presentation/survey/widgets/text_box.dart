@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 
@@ -22,7 +23,7 @@ class TextBox extends StatelessWidget {
             c.pageQuestionList.contains(question) &&
             p.pageQuestionList != c.pageQuestionList,
         builder: (context, state) {
-          print('TextBox rebuild!!');
+          LoggerService.simple.i('TextBox rebuild!!');
           final note = (context.bloc<AnswerBloc>().state)
               .answerMap
               .getOrDefault(question.id, Answer.empty())

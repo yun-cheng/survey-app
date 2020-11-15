@@ -53,10 +53,10 @@ abstract class RespondentListDto implements _$RespondentListDto {
 
   factory RespondentListDto.fromDomain(RespondentList respondentList) {
     return RespondentListDto(
-      surveyId: respondentList.surveyId.getOrCrash(),
-      interviewerId: respondentList.interviewerId.getOrCrash(),
-      teamId: respondentList.teamId.getOrCrash(),
-      projectId: respondentList.projectId.getOrCrash(),
+      surveyId: respondentList.surveyId.getValueAnyway(),
+      interviewerId: respondentList.interviewerId.getValueAnyway(),
+      teamId: respondentList.teamId.getValueAnyway(),
+      projectId: respondentList.projectId.getValueAnyway(),
       respondentList: respondentList.respondentList
           .map((respondent) => RespondentDto.fromDomain(respondent))
           .asList(),

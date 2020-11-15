@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/survey_failure.dart';
 import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
@@ -17,7 +16,7 @@ abstract class SurveyStateDto implements _$SurveyStateDto {
   const factory SurveyStateDto({
     @required Map<String, dynamic> surveyListState,
     @required List<SurveyDto> surveyList,
-    SurveyDto survey,
+    @required SurveyDto survey,
     Map<String, dynamic> surveyFailure,
   }) = _SurveyStateDto;
 
@@ -26,9 +25,7 @@ abstract class SurveyStateDto implements _$SurveyStateDto {
       surveyListState: surveyState.surveyListState.toJson(),
       surveyList:
           surveyState.surveyList.map((e) => SurveyDto.fromDomain(e)).asList(),
-      survey: surveyState.survey != Survey.empty()
-          ? SurveyDto.fromDomain(surveyState.survey)
-          : null,
+      survey: SurveyDto.fromDomain(surveyState.survey),
       surveyFailure:
           surveyState.surveyFailure.fold(() => null, (some) => some.toJson()),
     );
@@ -38,7 +35,7 @@ abstract class SurveyStateDto implements _$SurveyStateDto {
     return SurveyState.initial().copyWith(
       surveyListState: LoadState.fromJson(surveyListState),
       surveyList: surveyList.map((dto) => dto.toDomain()).toImmutableList(),
-      survey: survey != null ? survey.toDomain() : Survey.empty(),
+      survey: survey.toDomain(),
       surveyFailure:
           optionOf(surveyFailure).map((some) => SurveyFailure.fromJson(some)),
     );

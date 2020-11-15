@@ -19,10 +19,10 @@ abstract class WarningDto implements _$WarningDto {
 
   factory WarningDto.fromDomain(Warning warning) {
     return WarningDto(
-      questionId: warning.id.getOrCrash(),
-      serialNumber: warning.serialNumber.getOrCrash(),
-      pageNumber: warning.pageNumber.getOrCrash(),
-      warningType: warning.type.getOrCrash(),
+      questionId: warning.id.getValueAnyway(),
+      serialNumber: warning.serialNumber.getValueAnyway(),
+      pageNumber: warning.pageNumber.getValueAnyway(),
+      warningType: warning.type.getValueAnyway(),
     );
   }
 

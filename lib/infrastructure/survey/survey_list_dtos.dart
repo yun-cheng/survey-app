@@ -57,23 +57,23 @@ abstract class SurveyDto implements _$SurveyDto {
 
   factory SurveyDto.fromDomain(Survey survey) {
     return SurveyDto(
-      surveyId: survey.id.getOrCrash(),
-      surveyName: survey.name.getOrCrash(),
-      teamId: survey.teamId.getOrCrash(),
-      projectId: survey.projectId.getOrCrash(),
+      surveyId: survey.id.getValueAnyway(),
+      surveyName: survey.name.getValueAnyway(),
+      teamId: survey.teamId.getValueAnyway(),
+      projectId: survey.projectId.getValueAnyway(),
       module: survey.module
-          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => SurveyModuleDto.fromDomain(entry.value))
           .asMap(),
       questionList: survey.questionList
           .map((question) => QuestionDto.fromDomain(question))
           .asList(),
       initialAnswerList: survey.answerMap
-          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       initialAnswerStatusList: survey.answerStatusMap
-          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
     );

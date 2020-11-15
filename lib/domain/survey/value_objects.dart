@@ -369,6 +369,59 @@ class ModuleType extends ValueObject<String> {
 
   factory ModuleType.visitAddress() => ModuleType('visitAddress');
   factory ModuleType.inHouseSampling() => ModuleType('inHouseSampling');
+  factory ModuleType.empty() => ModuleType('');
 
   const ModuleType._(this.value);
+}
+
+class StageId extends ValueObject<int> {
+  @override
+  final Either<ValueFailure<int>, int> value;
+
+  factory StageId(int input) {
+    assert(input != null);
+    return StageId._(
+      right(input),
+    );
+  }
+
+  factory StageId.initial() => StageId(0);
+
+  const StageId._(this.value);
+}
+
+class UploadType extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory UploadType(String input) {
+    assert(input != null);
+    return UploadType._(
+      right(input),
+    );
+  }
+
+  factory UploadType.sync() => UploadType('sync');
+  factory UploadType.stage() => UploadType('stage');
+  factory UploadType.empty() => UploadType('');
+
+  const UploadType._(this.value);
+}
+
+class DeviceTimeStamp extends ValueObject<DateTime> {
+  @override
+  final Either<ValueFailure<DateTime>, DateTime> value;
+
+  factory DeviceTimeStamp(DateTime input) {
+    assert(input != null);
+    return DeviceTimeStamp._(
+      right(input),
+    );
+  }
+
+  factory DeviceTimeStamp.initial() =>
+      DeviceTimeStamp(DateTime.parse('1900-01-01'));
+  factory DeviceTimeStamp.now() => DeviceTimeStamp(DateTime.now());
+
+  const DeviceTimeStamp._(this.value);
 }

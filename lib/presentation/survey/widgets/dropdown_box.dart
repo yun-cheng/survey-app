@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -19,7 +20,7 @@ class DropdownBox extends StatelessWidget {
       buildWhen: (p, c) => p.answerMap[question.id] != c.answerMap[question.id],
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
-        print('DropdownBox rebuild!!!');
+        LoggerService.simple.i('DropdownBox rebuild!!!');
 
         return DropdownButton(
           // NOTE 雖然不確定背後是什麼問題，但這樣就解決無法呈現選擇的選項的問題

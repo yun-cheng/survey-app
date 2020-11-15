@@ -31,6 +31,8 @@ _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
         ? null
         : WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
     showWarning: json['showWarning'] as bool,
+    loadState: json['loadState'] as Map<String, dynamic>,
+    restoreState: json['restoreState'] as Map<String, dynamic>,
   );
 }
 
@@ -47,4 +49,6 @@ Map<String, dynamic> _$_$_SurveyPageStateDtoToJson(
       'isLastPage': instance.isLastPage,
       'warning': instance.warning?.toJson(),
       'showWarning': instance.showWarning,
+      'loadState': instance.loadState,
+      'restoreState': instance.restoreState,
     };

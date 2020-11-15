@@ -14,7 +14,7 @@ class AccountBox extends StatelessWidget {
       buildWhen: (p, c) => p.signInState != c.signInState,
       builder: (context, state) {
         return TextFormField(
-          initialValue: state.id.getOrEmpty(),
+          initialValue: state.id.value.fold((l) => l.failedValue, (r) => r),
           onChanged: (value) =>
               context.bloc<AuthBloc>().add(AuthEvent.idChanged(value)),
           // HIGHLIGHT 必須要使用完整的 context.bloc<AuthBloc>().state，

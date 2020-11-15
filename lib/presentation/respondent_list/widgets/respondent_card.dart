@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/application/survey/response/response_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
 import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
 
@@ -29,8 +29,8 @@ class RespondentCard extends StatelessWidget {
               .bloc<RespondentBloc>()
               .add(RespondentEvent.respondentSelected(respondent: respondent));
           context
-              .bloc<AnswerBloc>()
-              .add(AnswerEvent.respondentSelected(respondent: respondent));
+              .bloc<ResponseBloc>()
+              .add(ResponseEvent.respondentSelected(respondent: respondent));
           context.bloc<NavigationBloc>().add(
                 NavigationEvent.pageChanged(
                   page: const NavigationPage.survey(),

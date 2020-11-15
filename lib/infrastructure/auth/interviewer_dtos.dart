@@ -48,9 +48,9 @@ abstract class InterviewerDto implements _$InterviewerDto {
 
   factory InterviewerDto.fromDomain(Interviewer interviewer) {
     return InterviewerDto(
-      interviewerId: interviewer.id.getOrCrash(),
-      interviewerName: interviewer.name.getOrCrash(),
-      interviewerPassword: interviewer.password.getOrCrash(),
+      interviewerId: interviewer.id.getValueAnyway(),
+      interviewerName: interviewer.name.getValueAnyway(),
+      interviewerPassword: interviewer.password.getValueAnyway(),
     );
   }
 

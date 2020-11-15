@@ -28,12 +28,12 @@ abstract class SurveyModuleDto implements _$SurveyModuleDto {
           .asList(),
       initialAnswerList:
           (surveyModule['initialAnswerList'] as KtMap<QuestionId, Answer>)
-              .mapKeys((entry) => entry.key.getOrCrash())
+              .mapKeys((entry) => entry.key.getValueAnyway())
               .mapValues((entry) => AnswerDto.fromDomain(entry.value))
               .asMap(),
       initialAnswerStatusList: (surveyModule['initialAnswerStatusList']
               as KtMap<QuestionId, AnswerStatus>)
-          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
     );

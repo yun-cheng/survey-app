@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/note_box.dart';
@@ -23,7 +24,7 @@ class AnswerBox extends StatelessWidget {
       buildWhen: (p, c) => p.answerMap[question.id]!=c.answerMap[question.id],
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
-        print('AnswerBox rebuild!!!');
+        LoggerService.simple.i('AnswerBox rebuild!!!');
         // TODO 根據 isSpecialAnswer 來丟選項
         // return ListView.builder(
         return StaggeredGridView.countBuilder(

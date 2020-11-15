@@ -38,8 +38,8 @@ abstract class AuthStateDto implements _$AuthStateDto {
       interviewerList: authState.interviewerList
           .map((e) => InterviewerDto.fromDomain(e))
           .asList(),
-      id: authState.id.getOrCrash(),
-      password: authState.password.getOrCrash(),
+      id: authState.id.getValueAnyway(),
+      password: authState.password.getValueAnyway(),
       signInState: authState.signInState.toJson(),
       interviewer: InterviewerDto.fromDomain(authState.interviewer),
       authFailure:

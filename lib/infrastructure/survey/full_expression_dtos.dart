@@ -18,9 +18,9 @@ abstract class FullExpressionDto implements _$FullExpressionDto {
 
   factory FullExpressionDto.fromDomain(FullExpression fullExpression) {
     return FullExpressionDto(
-      fullExpressionBody: fullExpression.body.getOrCrash(),
+      fullExpressionBody: fullExpression.body.getValueAnyway(),
       expressionMap: fullExpression.expressionMap
-          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => ExpressionDto.fromDomain(entry.value))
           .asMap(),
     );
@@ -66,24 +66,24 @@ abstract class ExpressionDto implements _$ExpressionDto {
 
   factory ExpressionDto.fromDomain(Expression expression) {
     return ExpressionDto(
-      field: expression.field.getOrCrash(),
-      isEqualTo: expression.isEqualTo.getOrCrash(),
-      notEqualTo: expression.notEqualTo.getOrCrash(),
-      isLessThan: expression.isLessThan.getOrCrash(),
-      isLessThanOrEqualTo: expression.isLessThanOrEqualTo.getOrCrash(),
-      isGreaterThan: expression.isGreaterThan.getOrCrash(),
-      isGreaterThanOrEqualTo: expression.isGreaterThanOrEqualTo.getOrCrash(),
-      isSameList: expression.isSameList.getOrCrash(),
-      notSameList: expression.notSameList.getOrCrash(),
-      isIn: expression.isIn.getOrCrash(),
-      notIn: expression.notIn.getOrCrash(),
-      contains: expression.contains.getOrCrash(),
-      notContains: expression.notContains.getOrCrash(),
-      containsAny: expression.containsAny.getOrCrash(),
-      notContainsAny: expression.notContainsAny.getOrCrash(),
-      containsAll: expression.containsAll.getOrCrash(),
-      notContainsAll: expression.notContainsAll.getOrCrash(),
-      isType: expression.isType.getOrCrash(),
+      field: expression.field.getValueAnyway(),
+      isEqualTo: expression.isEqualTo.getValueAnyway(),
+      notEqualTo: expression.notEqualTo.getValueAnyway(),
+      isLessThan: expression.isLessThan.getValueAnyway(),
+      isLessThanOrEqualTo: expression.isLessThanOrEqualTo.getValueAnyway(),
+      isGreaterThan: expression.isGreaterThan.getValueAnyway(),
+      isGreaterThanOrEqualTo: expression.isGreaterThanOrEqualTo.getValueAnyway(),
+      isSameList: expression.isSameList.getValueAnyway(),
+      notSameList: expression.notSameList.getValueAnyway(),
+      isIn: expression.isIn.getValueAnyway(),
+      notIn: expression.notIn.getValueAnyway(),
+      contains: expression.contains.getValueAnyway(),
+      notContains: expression.notContains.getValueAnyway(),
+      containsAny: expression.containsAny.getValueAnyway(),
+      notContainsAny: expression.notContainsAny.getValueAnyway(),
+      containsAll: expression.containsAll.getValueAnyway(),
+      notContainsAll: expression.notContainsAll.getValueAnyway(),
+      isType: expression.isType.getValueAnyway(),
     );
   }
 

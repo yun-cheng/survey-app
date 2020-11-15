@@ -20,17 +20,13 @@ abstract class AnswerDto implements _$AnswerDto {
 
   factory AnswerDto.fromDomain(Answer answer) {
     return AnswerDto(
-      questionId: answer.id.getOrCrash(),
-      serialNumber: answer.serialNumber.getOrCrash(),
-      answerBody: answer.body != AnswerBody.empty()
-          ? AnswerBodyDto.fromDomain(answer.body)
-          : null,
-      noteMap: answer.noteMap != KtMutableMap<ChoiceId, AnswerBody>.empty()
-          ? answer.noteMap
-              .mapKeys((entry) => entry.key.getOrCrash())
-              .mapValues((entry) => entry.value.getOrCrash() as String)
-              .asMap()
-          : null,
+      questionId: answer.id.getValueAnyway(),
+      serialNumber: answer.serialNumber.getValueAnyway(),
+      answerBody: AnswerBodyDto.fromDomain(answer.body),
+      noteMap: answer.noteMap
+          .mapKeys((entry) => entry.key.getValueAnyway())
+          .mapValues((entry) => entry.value.getValueAnyway() as String)
+          .asMap(),
     );
   }
 
@@ -60,18 +56,19 @@ abstract class AnswerBodyDto implements _$AnswerBodyDto {
   }) = _AnswerBodyDto;
 
   factory AnswerBodyDto.fromDomain(AnswerBody answerbody) {
-    final value = answerbody.getOrCrash();
+    final value = answerbody.getValueAnyway();
     Map<String, dynamic> dtoValue;
 
     if (value is ChoiceId) {
       dtoValue = {
         'type': 'ChoiceId',
-        'value': value.getOrCrash(),
+        'value': value.getValueAnyway(),
       };
-    } else if (value is List<ChoiceId>) {
+      // FIXME 之後可能需要在 domain 調整成 List<ChoiceId>
+    } else if (value is List<dynamic>) {
       dtoValue = {
         'type': 'List<ChoiceId>',
-        'value': value.map((e) => e.getOrCrash()),
+        'value': value.map((e) => (e as ChoiceId).getValueAnyway()).toList(),
       };
     } else {
       dtoValue = {
@@ -89,7 +86,7 @@ abstract class AnswerBodyDto implements _$AnswerBodyDto {
     if (value['type'] == 'ChoiceId') {
       return AnswerBody(ChoiceId(value['value']));
     } else if (value['type'] == 'List<ChoiceId>') {
-      return AnswerBody(value.values.first.map((e) => ChoiceId(e)));
+      return AnswerBody(value['value'].map((e) => ChoiceId(e)).toList());
     } else {
       return AnswerBody(value['value']);
     }

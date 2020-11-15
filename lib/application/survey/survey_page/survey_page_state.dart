@@ -11,8 +11,8 @@ abstract class SurveyPageState with _$SurveyPageState {
     @required bool isLastPage,
     @required Warning warning,
     @required bool showWarning,
-    // @required KtList<SerialNumber> serialNumberList,
-    // @required KtList<Response> responseList,
+    @required LoadState loadState,
+    @required LoadState restoreState,
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
@@ -24,7 +24,7 @@ abstract class SurveyPageState with _$SurveyPageState {
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
-        // serialNumberList: const KtList<SerialNumber>.empty(),
-        // responseList: const KtList<Response>.empty(),
+        loadState: const LoadState.initial(),
+        restoreState: const LoadState.initial(),
       );
 }
