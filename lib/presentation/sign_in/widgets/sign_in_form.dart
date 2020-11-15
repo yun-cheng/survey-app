@@ -46,7 +46,7 @@ class SignInForm extends StatelessWidget {
 
             context.navigator.push(Routes.overviewPage);
 
-            context.bloc<NavigationBloc>().add(
+            context.read<NavigationBloc>().add(
                   const NavigationEvent.pageChanged(
                     page: NavigationPage.overview(),
                   ),
@@ -90,7 +90,7 @@ class SignInForm extends StatelessWidget {
                   title: '登入',
                   color: Colors.lightBlueAccent[400],
                   onPressed: () => context
-                      .bloc<AuthBloc>()
+                      .read<AuthBloc>()
                       .add(const AuthEvent.signInPressed()),
                 ),
               ],

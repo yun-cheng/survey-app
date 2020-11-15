@@ -64,7 +64,7 @@ class QuizPage extends StatelessWidget {
                         color: Colors.lightBlueAccent[400],
                         onPressed: () {
                           context
-                              .bloc<QuestionBloc>()
+                              .read<QuestionBloc>()
                               .add(const QuestionEvent.quizResultUploaded());
                           Navigator.of(context).pop();
                         },
@@ -137,7 +137,7 @@ class QuizPage extends StatelessWidget {
                                                       .isAnswered
                                                   ? () {
                                                       context
-                                                          .bloc<QuestionBloc>()
+                                                          .read<QuestionBloc>()
                                                           .add(
                                                               const AnswerSelected(
                                                                   'O'));
@@ -162,7 +162,7 @@ class QuizPage extends StatelessWidget {
                                                       .isAnswered
                                                   ? () {
                                                       context
-                                                          .bloc<QuestionBloc>()
+                                                          .read<QuestionBloc>()
                                                           .add(
                                                               const AnswerSelected(
                                                                   'X'));
@@ -231,7 +231,7 @@ class QuizPage extends StatelessWidget {
                                       onPressed: questionState.isAnswered
                                           ? () {
                                               context
-                                                  .bloc<QuestionPageBloc>()
+                                                  .read<QuestionPageBloc>()
                                                   .add(const QuestionPageEvent
                                                       .nextPagePressed());
                                             }
@@ -242,7 +242,7 @@ class QuizPage extends StatelessWidget {
                                       '結束測驗',
                                       onPressed: questionState.isAnswered
                                           ? () {
-                                              context.bloc<QuestionBloc>().add(
+                                              context.read<QuestionBloc>().add(
                                                   const QuestionEvent
                                                       .quizResultUploaded());
                                             }

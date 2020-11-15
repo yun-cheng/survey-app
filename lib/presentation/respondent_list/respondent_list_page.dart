@@ -16,7 +16,7 @@ class RespondentListPage extends StatelessWidget {
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              context.bloc<NavigationBloc>().add(
+              context.read<NavigationBloc>().add(
                     const NavigationEvent.pageChanged(
                       page: NavigationPage.overview(),
                     ),

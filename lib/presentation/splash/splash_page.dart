@@ -26,7 +26,7 @@ class SplashPage extends StatelessWidget {
           listener: (context, state) {
             LoggerService.simple.i('NavigationBloc page listening!!');
 
-            context.bloc<NavigationBloc>().add(
+            context.read<NavigationBloc>().add(
                   const NavigationEvent.pagePushed(),
                 );
 
@@ -55,19 +55,19 @@ class SplashPage extends StatelessWidget {
           listener: (context, state) {
             LoggerService.simple.i('AuthBloc listening!!');
 
-            context.bloc<SurveyBloc>().add(
+            context.read<SurveyBloc>().add(
                   SurveyEvent.watchSurveyListStarted(
                     teamId: state.team.id,
                     interviewerId: state.interviewer.id,
                   ),
                 );
-            context.bloc<RespondentBloc>().add(
+            context.read<RespondentBloc>().add(
                   RespondentEvent.watchRespondentListListStarted(
                     teamId: state.team.id,
                     interviewerId: state.interviewer.id,
                   ),
                 );
-            context.bloc<ResponseBloc>().add(
+            context.read<ResponseBloc>().add(
                   ResponseEvent.watchResponseListStarted(
                     teamId: state.team.id,
                     interviewer: state.interviewer,
@@ -84,7 +84,7 @@ class SplashPage extends StatelessWidget {
             LoggerService.simple.i('AnswerBloc listening!!');
 
             // H_3-2 存回 response
-            context.bloc<ResponseBloc>().add(
+            context.read<ResponseBloc>().add(
                   ResponseEvent.responseUpdated(
                     answerMap: state.answerMap,
                     answerStatusMap: state.answerStatusMap,
@@ -93,7 +93,7 @@ class SplashPage extends StatelessWidget {
                 );
 
             // H_3-1 調整 survey page state
-            context.bloc<SurveyPageBloc>().add(
+            context.read<SurveyPageBloc>().add(
                   SurveyPageEvent.stateChanged(
                     answerStatusMap: state.answerStatusMap,
                   ),
@@ -108,7 +108,7 @@ class SplashPage extends StatelessWidget {
             LoggerService.simple.i('SurveyPageBloc listening!!');
 
             // H_4-1 存回 response
-            context.bloc<ResponseBloc>().add(
+            context.read<ResponseBloc>().add(
                   ResponseEvent.responseUpdated(
                     surveyPageState: SimpleSurveyPageState(
                       page: state.page,
@@ -131,14 +131,14 @@ class SplashPage extends StatelessWidget {
           listener: (context, state) {
             LoggerService.simple.i('ResponseBloc listening!!');
 
-            context.bloc<AnswerBloc>().add(
+            context.read<AnswerBloc>().add(
                   AnswerEvent.answerRestored(
                     answerMap: state.response.answerMap,
                     answerStatusMap: state.response.answerStatusMap,
                     questionList: state.survey.questionList,
                   ),
                 );
-            context.bloc<SurveyPageBloc>().add(
+            context.read<SurveyPageBloc>().add(
                   SurveyPageEvent.stateRestored(
                     surveyPageState: state.response.surveyPageState,
                     questionList: state.survey.questionList,

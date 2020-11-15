@@ -7,7 +7,7 @@ class SimpleBlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc bloc, Object event) {
     super.onEvent(bloc, event);
-    // LoggerService.simple.d(event);
+    LoggerService.simple.d(event);
   }
 
   @override

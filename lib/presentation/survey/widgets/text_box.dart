@@ -24,7 +24,7 @@ class TextBox extends StatelessWidget {
             p.pageQuestionList != c.pageQuestionList,
         builder: (context, state) {
           LoggerService.simple.i('TextBox rebuild!!');
-          final note = (context.bloc<AnswerBloc>().state)
+          final note = (context.watch<AnswerBloc>().state)
               .answerMap
               .getOrDefault(question.id, Answer.empty())
               .body
@@ -50,7 +50,7 @@ class TextBox extends StatelessWidget {
                   : null,
               // autocorrect: false,
               onChanged: (value) {
-                context.bloc<AnswerBloc>().add(
+                context.read<AnswerBloc>().add(
                       AnswerEvent.answerChangedWith(
                         question: question,
                         body: value,

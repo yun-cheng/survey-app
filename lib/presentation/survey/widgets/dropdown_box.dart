@@ -56,7 +56,7 @@ class DropdownBox extends StatelessWidget {
               )
               .asList(),
           onChanged: (value) {
-            context.bloc<AnswerBloc>().add(
+            context.read<AnswerBloc>().add(
                   AnswerEvent.answerChangedWith(
                     question: question,
                     body: question.choiceList

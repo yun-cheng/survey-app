@@ -21,7 +21,7 @@ class AnswerBox extends StatelessWidget {
 
     return BlocBuilder<AnswerBloc, AnswerState>(
       // NOTE 答案有變更時才要 rebuild
-      buildWhen: (p, c) => p.answerMap[question.id]!=c.answerMap[question.id],
+      buildWhen: (p, c) => p.answerMap[question.id] != c.answerMap[question.id],
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
         LoggerService.simple.i('AnswerBox rebuild!!!');
@@ -62,7 +62,7 @@ class AnswerBox extends StatelessWidget {
                 value: choice.id,
                 groupValue: thisAnswer.body.getOrCrash(),
                 onChanged: (_) {
-                  context.bloc<AnswerBloc>().add(
+                  context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           question: question,
                           body: choice,
@@ -95,7 +95,7 @@ class AnswerBox extends StatelessWidget {
                 ),
                 value: thisAnswer.body.contains(choice.id),
                 onChanged: (_) {
-                  context.bloc<AnswerBloc>().add(
+                  context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           question: question,
                           body: choice,

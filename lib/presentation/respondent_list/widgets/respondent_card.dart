@@ -26,12 +26,12 @@ class RespondentCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           context
-              .bloc<RespondentBloc>()
+              .read<RespondentBloc>()
               .add(RespondentEvent.respondentSelected(respondent: respondent));
           context
-              .bloc<ResponseBloc>()
+              .read<ResponseBloc>()
               .add(ResponseEvent.respondentSelected(respondent: respondent));
-          context.bloc<NavigationBloc>().add(
+          context.read<NavigationBloc>().add(
                 NavigationEvent.pageChanged(
                   page: const NavigationPage.survey(),
                   respondentId: respondent.id,

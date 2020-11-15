@@ -28,7 +28,7 @@ class NoteBox extends StatelessWidget {
         ),
         maxLines: null,
         onChanged: (value) {
-          context.bloc<AnswerBloc>().add(
+          context.read<AnswerBloc>().add(
                 AnswerEvent.answerChangedWith(
                   question: question,
                   body: value,

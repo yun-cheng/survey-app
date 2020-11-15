@@ -16,13 +16,13 @@ class AccountBox extends StatelessWidget {
         return TextFormField(
           initialValue: state.id.value.fold((l) => l.failedValue, (r) => r),
           onChanged: (value) =>
-              context.bloc<AuthBloc>().add(AuthEvent.idChanged(value)),
-          // HIGHLIGHT 必須要使用完整的 context.bloc<AuthBloc>().state，
+              context.read<AuthBloc>().add(AuthEvent.idChanged(value)),
+          // HIGHLIGHT 必須要使用完整的 context.watch<AuthBloc>().state，
           // HIGHLIGHT 才不會只驗證上一個動作的結果
           validator: (_) => signInValidator(
-            signInState: context.bloc<AuthBloc>().state.signInState,
+            signInState: context.watch<AuthBloc>().state.signInState,
             field: '帳號',
-            value: context.bloc<AuthBloc>().state.id.value,
+            value: context.watch<AuthBloc>().state.id.value,
           ),
           autocorrect: false,
           style: const TextStyle(fontSize: 20.0),

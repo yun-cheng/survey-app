@@ -23,7 +23,7 @@ class PageControlBar extends StatelessWidget {
               child: PageControlButton(
                 '上一頁',
                 onPressed: () {
-                  context.bloc<SurveyPageBloc>().add(
+                  context.read<SurveyPageBloc>().add(
                         const SurveyPageEvent.previousPagePressed(),
                       );
                 },
@@ -37,7 +37,7 @@ class PageControlBar extends StatelessWidget {
               child: PageControlButton(
                 '下一頁',
                 onPressed: () {
-                  context.bloc<SurveyPageBloc>().add(
+                  context.read<SurveyPageBloc>().add(
                         const SurveyPageEvent.nextPagePressed(),
                       );
                 },

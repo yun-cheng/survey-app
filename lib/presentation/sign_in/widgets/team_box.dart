@@ -29,7 +29,7 @@ class Teambox extends StatelessWidget {
               )
               .asList(),
           onChanged: (value) {
-            context.bloc<AuthBloc>().add(AuthEvent.teamSelected(value));
+            context.read<AuthBloc>().add(AuthEvent.teamSelected(value));
           },
           style: const TextStyle(
             color: Colors.black,
