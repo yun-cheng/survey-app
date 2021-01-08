@@ -23,36 +23,36 @@ class AppWidget extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => NavigationBloc(),
+          create: (_) => NavigationBloc(),
         ),
         BlocProvider(
-          create: (context) => AuthBloc(
+          create: (_) => AuthBloc(
             getIt<IAuthFacade>(),
           ),
         ),
         BlocProvider(
-          create: (context) => SurveyBloc(
+          create: (_) => SurveyBloc(
             getIt<ISurveyRepository>(),
           ),
         ),
         BlocProvider(
-          create: (context) => RespondentBloc(
+          create: (_) => RespondentBloc(
             getIt<IRespondentRepository>(),
           ),
         ),
         BlocProvider(
-          create: (context) => ResponseBloc(
+          create: (_) => ResponseBloc(
             getIt<ISurveyRepository>(),
           ),
         ),
         BlocProvider(
-          create: (context) => AnswerBloc(
+          create: (_) => AnswerBloc(
             getIt<IAnswerAlgorithm>(),
             getIt<IAnswerStatusAlgorithm>(),
           ),
         ),
         BlocProvider(
-          create: (context) => SurveyPageBloc(),
+          create: (_) => SurveyPageBloc(),
         ),
       ],
       child: MaterialApp(

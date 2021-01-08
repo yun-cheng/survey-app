@@ -81,63 +81,64 @@ const $ResponseEvent = _$ResponseEventTearOff();
 /// @nodoc
 mixin _$ResponseEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   });
 }
 
@@ -245,19 +246,20 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -276,21 +278,21 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchResponseListStarted != null) {
@@ -301,15 +303,15 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -324,16 +326,16 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchResponseListStarted != null) {
@@ -418,19 +420,20 @@ class _$_ResponseListReceived implements _ResponseListReceived {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -449,21 +452,21 @@ class _$_ResponseListReceived implements _ResponseListReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseListReceived != null) {
@@ -474,15 +477,15 @@ class _$_ResponseListReceived implements _ResponseListReceived {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -497,16 +500,16 @@ class _$_ResponseListReceived implements _ResponseListReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseListReceived != null) {
@@ -563,19 +566,20 @@ class _$_ResponseListRestored implements _ResponseListRestored {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -594,21 +598,21 @@ class _$_ResponseListRestored implements _ResponseListRestored {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseListRestored != null) {
@@ -619,15 +623,15 @@ class _$_ResponseListRestored implements _ResponseListRestored {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -642,16 +646,16 @@ class _$_ResponseListRestored implements _ResponseListRestored {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseListRestored != null) {
@@ -703,19 +707,20 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -734,21 +739,21 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseListUploaded != null) {
@@ -759,15 +764,15 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -782,16 +787,16 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseListUploaded != null) {
@@ -876,19 +881,20 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -907,21 +913,21 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (surveySelected != null) {
@@ -932,15 +938,15 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -955,16 +961,16 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (surveySelected != null) {
@@ -1055,19 +1061,20 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -1086,21 +1093,21 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentSelected != null) {
@@ -1111,15 +1118,15 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1134,16 +1141,16 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentSelected != null) {
@@ -1199,19 +1206,20 @@ class _$_ResponseRestored implements _ResponseRestored {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -1230,21 +1238,21 @@ class _$_ResponseRestored implements _ResponseRestored {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseRestored != null) {
@@ -1255,15 +1263,15 @@ class _$_ResponseRestored implements _ResponseRestored {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1278,16 +1286,16 @@ class _$_ResponseRestored implements _ResponseRestored {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseRestored != null) {
@@ -1415,19 +1423,20 @@ class _$_ResponseUpdated implements _ResponseUpdated {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
     @required
-        Result responseListReceived(
+        TResult responseListReceived(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    @required Result responseListRestored(),
-    @required Result responseListUploaded(),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentSelected(Respondent respondent),
-    @required Result responseRestored(),
+    @required TResult responseListRestored(),
+    @required TResult responseListUploaded(),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentSelected(Respondent respondent),
+    @required TResult responseRestored(),
     @required
-        Result responseUpdated(
+        TResult responseUpdated(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
@@ -1447,21 +1456,21 @@ class _$_ResponseUpdated implements _ResponseUpdated {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchResponseListStarted(TeamId teamId, Interviewer interviewer),
-    Result responseListReceived(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
         Either<SurveyFailure, KtList<Response>> failureOrResponseList),
-    Result responseListRestored(),
-    Result responseListUploaded(),
-    Result surveySelected(Survey survey),
-    Result respondentSelected(Respondent respondent),
-    Result responseRestored(),
-    Result responseUpdated(
+    TResult responseListRestored(),
+    TResult responseListUploaded(),
+    TResult surveySelected(Survey survey),
+    TResult respondentSelected(Respondent respondent),
+    TResult responseRestored(),
+    TResult responseUpdated(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
-    @required Result orElse(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseUpdated != null) {
@@ -1473,15 +1482,15 @@ class _$_ResponseUpdated implements _ResponseUpdated {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result watchResponseListStarted(_WatchResponseListStarted value),
-    @required Result responseListReceived(_ResponseListReceived value),
-    @required Result responseListRestored(_ResponseListRestored value),
-    @required Result responseListUploaded(_ResponseListUploaded value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentSelected(_RespondentSelected value),
-    @required Result responseRestored(_ResponseRestored value),
-    @required Result responseUpdated(_ResponseUpdated value),
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListRestored(_ResponseListRestored value),
+    @required TResult responseListUploaded(_ResponseListUploaded value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentSelected(_RespondentSelected value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1496,16 +1505,16 @@ class _$_ResponseUpdated implements _ResponseUpdated {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchResponseListStarted(_WatchResponseListStarted value),
-    Result responseListReceived(_ResponseListReceived value),
-    Result responseListRestored(_ResponseListRestored value),
-    Result responseListUploaded(_ResponseListUploaded value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentSelected(_RespondentSelected value),
-    Result responseRestored(_ResponseRestored value),
-    Result responseUpdated(_ResponseUpdated value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListRestored(_ResponseListRestored value),
+    TResult responseListUploaded(_ResponseListUploaded value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentSelected(_RespondentSelected value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (responseUpdated != null) {

@@ -40,31 +40,31 @@ const $NavigationEvent = _$NavigationEventTearOff();
 /// @nodoc
 mixin _$NavigationEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result pageChanged(NavigationPage page, RespondentId respondentId),
-    @required Result pagePushed(),
-    @required Result pageInitialized(),
+        TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    @required TResult pagePushed(),
+    @required TResult pageInitialized(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result pageChanged(NavigationPage page, RespondentId respondentId),
-    Result pagePushed(),
-    Result pageInitialized(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    TResult pagePushed(),
+    TResult pageInitialized(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result pageChanged(_PageChanged value),
-    @required Result pagePushed(_PagePushed value),
-    @required Result pageInitialized(_PageInitialized value),
+  TResult map<TResult extends Object>({
+    @required TResult pageChanged(_PageChanged value),
+    @required TResult pagePushed(_PagePushed value),
+    @required TResult pageInitialized(_PageInitialized value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result pageChanged(_PageChanged value),
-    Result pagePushed(_PagePushed value),
-    Result pageInitialized(_PageInitialized value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult pageChanged(_PageChanged value),
+    TResult pagePushed(_PagePushed value),
+    TResult pageInitialized(_PageInitialized value),
+    @required TResult orElse(),
   });
 }
 
@@ -168,11 +168,11 @@ class _$_PageChanged implements _PageChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result pageChanged(NavigationPage page, RespondentId respondentId),
-    @required Result pagePushed(),
-    @required Result pageInitialized(),
+        TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    @required TResult pagePushed(),
+    @required TResult pageInitialized(),
   }) {
     assert(pageChanged != null);
     assert(pagePushed != null);
@@ -182,11 +182,11 @@ class _$_PageChanged implements _PageChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result pageChanged(NavigationPage page, RespondentId respondentId),
-    Result pagePushed(),
-    Result pageInitialized(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    TResult pagePushed(),
+    TResult pageInitialized(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pageChanged != null) {
@@ -197,10 +197,10 @@ class _$_PageChanged implements _PageChanged {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result pageChanged(_PageChanged value),
-    @required Result pagePushed(_PagePushed value),
-    @required Result pageInitialized(_PageInitialized value),
+  TResult map<TResult extends Object>({
+    @required TResult pageChanged(_PageChanged value),
+    @required TResult pagePushed(_PagePushed value),
+    @required TResult pageInitialized(_PageInitialized value),
   }) {
     assert(pageChanged != null);
     assert(pagePushed != null);
@@ -210,11 +210,11 @@ class _$_PageChanged implements _PageChanged {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result pageChanged(_PageChanged value),
-    Result pagePushed(_PagePushed value),
-    Result pageInitialized(_PageInitialized value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult pageChanged(_PageChanged value),
+    TResult pagePushed(_PagePushed value),
+    TResult pageInitialized(_PageInitialized value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pageChanged != null) {
@@ -272,11 +272,11 @@ class _$_PagePushed implements _PagePushed {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result pageChanged(NavigationPage page, RespondentId respondentId),
-    @required Result pagePushed(),
-    @required Result pageInitialized(),
+        TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    @required TResult pagePushed(),
+    @required TResult pageInitialized(),
   }) {
     assert(pageChanged != null);
     assert(pagePushed != null);
@@ -286,11 +286,11 @@ class _$_PagePushed implements _PagePushed {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result pageChanged(NavigationPage page, RespondentId respondentId),
-    Result pagePushed(),
-    Result pageInitialized(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    TResult pagePushed(),
+    TResult pageInitialized(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pagePushed != null) {
@@ -301,10 +301,10 @@ class _$_PagePushed implements _PagePushed {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result pageChanged(_PageChanged value),
-    @required Result pagePushed(_PagePushed value),
-    @required Result pageInitialized(_PageInitialized value),
+  TResult map<TResult extends Object>({
+    @required TResult pageChanged(_PageChanged value),
+    @required TResult pagePushed(_PagePushed value),
+    @required TResult pageInitialized(_PageInitialized value),
   }) {
     assert(pageChanged != null);
     assert(pagePushed != null);
@@ -314,11 +314,11 @@ class _$_PagePushed implements _PagePushed {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result pageChanged(_PageChanged value),
-    Result pagePushed(_PagePushed value),
-    Result pageInitialized(_PageInitialized value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult pageChanged(_PageChanged value),
+    TResult pagePushed(_PagePushed value),
+    TResult pageInitialized(_PageInitialized value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pagePushed != null) {
@@ -370,11 +370,11 @@ class _$_PageInitialized implements _PageInitialized {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result pageChanged(NavigationPage page, RespondentId respondentId),
-    @required Result pagePushed(),
-    @required Result pageInitialized(),
+        TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    @required TResult pagePushed(),
+    @required TResult pageInitialized(),
   }) {
     assert(pageChanged != null);
     assert(pagePushed != null);
@@ -384,11 +384,11 @@ class _$_PageInitialized implements _PageInitialized {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result pageChanged(NavigationPage page, RespondentId respondentId),
-    Result pagePushed(),
-    Result pageInitialized(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult pageChanged(NavigationPage page, RespondentId respondentId),
+    TResult pagePushed(),
+    TResult pageInitialized(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pageInitialized != null) {
@@ -399,10 +399,10 @@ class _$_PageInitialized implements _PageInitialized {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result pageChanged(_PageChanged value),
-    @required Result pagePushed(_PagePushed value),
-    @required Result pageInitialized(_PageInitialized value),
+  TResult map<TResult extends Object>({
+    @required TResult pageChanged(_PageChanged value),
+    @required TResult pagePushed(_PagePushed value),
+    @required TResult pageInitialized(_PageInitialized value),
   }) {
     assert(pageChanged != null);
     assert(pagePushed != null);
@@ -412,11 +412,11 @@ class _$_PageInitialized implements _PageInitialized {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result pageChanged(_PageChanged value),
-    Result pagePushed(_PagePushed value),
-    Result pageInitialized(_PageInitialized value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult pageChanged(_PageChanged value),
+    TResult pagePushed(_PagePushed value),
+    TResult pageInitialized(_PageInitialized value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pageInitialized != null) {

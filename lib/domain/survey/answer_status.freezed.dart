@@ -19,12 +19,14 @@ class _$AnswerStatusTearOff {
       @required SerialNumber serialNumber,
       @required AnswerStatusType type,
       @required Warning warning,
+      @required bool isSpecialAnswer,
       KtMutableMap<ChoiceId, AnswerStatusType> noteMap}) {
     return _AnswerStatus(
       id: id,
       serialNumber: serialNumber,
       type: type,
       warning: warning,
+      isSpecialAnswer: isSpecialAnswer,
       noteMap: noteMap,
     );
   }
@@ -40,6 +42,7 @@ mixin _$AnswerStatus {
   SerialNumber get serialNumber;
   AnswerStatusType get type;
   Warning get warning;
+  bool get isSpecialAnswer;
   KtMutableMap<ChoiceId, AnswerStatusType> get noteMap;
 
   $AnswerStatusCopyWith<AnswerStatus> get copyWith;
@@ -55,6 +58,7 @@ abstract class $AnswerStatusCopyWith<$Res> {
       SerialNumber serialNumber,
       AnswerStatusType type,
       Warning warning,
+      bool isSpecialAnswer,
       KtMutableMap<ChoiceId, AnswerStatusType> noteMap});
 
   $WarningCopyWith<$Res> get warning;
@@ -74,6 +78,7 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
     Object serialNumber = freezed,
     Object type = freezed,
     Object warning = freezed,
+    Object isSpecialAnswer = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_value.copyWith(
@@ -83,6 +88,9 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
           : serialNumber as SerialNumber,
       type: type == freezed ? _value.type : type as AnswerStatusType,
       warning: warning == freezed ? _value.warning : warning as Warning,
+      isSpecialAnswer: isSpecialAnswer == freezed
+          ? _value.isSpecialAnswer
+          : isSpecialAnswer as bool,
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap as KtMutableMap<ChoiceId, AnswerStatusType>,
@@ -112,6 +120,7 @@ abstract class _$AnswerStatusCopyWith<$Res>
       SerialNumber serialNumber,
       AnswerStatusType type,
       Warning warning,
+      bool isSpecialAnswer,
       KtMutableMap<ChoiceId, AnswerStatusType> noteMap});
 
   @override
@@ -134,6 +143,7 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
     Object serialNumber = freezed,
     Object type = freezed,
     Object warning = freezed,
+    Object isSpecialAnswer = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_AnswerStatus(
@@ -143,6 +153,9 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
           : serialNumber as SerialNumber,
       type: type == freezed ? _value.type : type as AnswerStatusType,
       warning: warning == freezed ? _value.warning : warning as Warning,
+      isSpecialAnswer: isSpecialAnswer == freezed
+          ? _value.isSpecialAnswer
+          : isSpecialAnswer as bool,
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap as KtMutableMap<ChoiceId, AnswerStatusType>,
@@ -157,11 +170,13 @@ class _$_AnswerStatus extends _AnswerStatus {
       @required this.serialNumber,
       @required this.type,
       @required this.warning,
+      @required this.isSpecialAnswer,
       this.noteMap})
       : assert(id != null),
         assert(serialNumber != null),
         assert(type != null),
         assert(warning != null),
+        assert(isSpecialAnswer != null),
         super._();
 
   @override
@@ -173,11 +188,13 @@ class _$_AnswerStatus extends _AnswerStatus {
   @override
   final Warning warning;
   @override
+  final bool isSpecialAnswer;
+  @override
   final KtMutableMap<ChoiceId, AnswerStatusType> noteMap;
 
   @override
   String toString() {
-    return 'AnswerStatus(id: $id, serialNumber: $serialNumber, type: $type, warning: $warning, noteMap: $noteMap)';
+    return 'AnswerStatus(id: $id, serialNumber: $serialNumber, type: $type, warning: $warning, isSpecialAnswer: $isSpecialAnswer, noteMap: $noteMap)';
   }
 
   @override
@@ -194,6 +211,9 @@ class _$_AnswerStatus extends _AnswerStatus {
             (identical(other.warning, warning) ||
                 const DeepCollectionEquality()
                     .equals(other.warning, warning)) &&
+            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
             (identical(other.noteMap, noteMap) ||
                 const DeepCollectionEquality().equals(other.noteMap, noteMap)));
   }
@@ -205,6 +225,7 @@ class _$_AnswerStatus extends _AnswerStatus {
       const DeepCollectionEquality().hash(serialNumber) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(warning) ^
+      const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(noteMap);
 
   @override
@@ -219,6 +240,7 @@ abstract class _AnswerStatus extends AnswerStatus {
       @required SerialNumber serialNumber,
       @required AnswerStatusType type,
       @required Warning warning,
+      @required bool isSpecialAnswer,
       KtMutableMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
 
   @override
@@ -229,6 +251,8 @@ abstract class _AnswerStatus extends AnswerStatus {
   AnswerStatusType get type;
   @override
   Warning get warning;
+  @override
+  bool get isSpecialAnswer;
   @override
   KtMutableMap<ChoiceId, AnswerStatusType> get noteMap;
   @override

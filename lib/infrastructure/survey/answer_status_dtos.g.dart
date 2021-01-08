@@ -14,6 +14,7 @@ _$_AnswerStatusDto _$_$_AnswerStatusDtoFromJson(Map<String, dynamic> json) {
     warning: json['warning'] == null
         ? null
         : WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
+    isSpecialAnswer: json['isSpecialAnswer'] as bool,
     noteMap: (json['noteMap'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(k, e as String),
     ),
@@ -26,5 +27,6 @@ Map<String, dynamic> _$_$_AnswerStatusDtoToJson(_$_AnswerStatusDto instance) =>
       'serialNumber': instance.serialNumber,
       'answerStatusType': instance.answerStatusType,
       'warning': instance.warning?.toJson(),
+      'isSpecialAnswer': instance.isSpecialAnswer,
       'noteMap': instance.noteMap,
     };

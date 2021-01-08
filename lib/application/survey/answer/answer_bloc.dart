@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
@@ -43,14 +42,15 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
         add(const AnswerEvent.answerStatusInitialized());
       },
       answerStatusInitialized: (e) async* {
-        final newAnswerStatusMap = _answerStatusAlgorithm.updateAnswerStatus(
+        final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
           answerMap: state.answerMap,
           answerStatusMap: state.answerStatusMap,
           questionList: state.questionList,
+          answerAlgorithm: _answerAlgorithm,
         );
 
         yield state.copyWith(
-          answerStatusMap: newAnswerStatusMap,
+          answerStatusMap: tupleResult.item1,
         );
       },
       // H_2 變更作答
@@ -62,22 +62,54 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
           toggle: e.toggle,
           isNote: e.isNote,
           noteOf: e.noteOf,
+          isSpecialAnswer: e.isSpecialAnswer,
         );
 
-        final newAnswerStatusMap = _answerStatusAlgorithm.updateAnswerStatus(
+        final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
           answerMap: newAnswerMap,
           answerStatusMap: state.answerStatusMap,
           question: e.question,
           questionList: state.questionList,
+          answerAlgorithm: _answerAlgorithm,
         );
 
         yield state.copyWith(
-          answerMap: newAnswerMap,
-          answerStatusMap: newAnswerStatusMap,
+          answerMap: tupleResult.item2,
+          answerStatusMap: tupleResult.item1,
         );
 
-        // LoggerService.simple.d(newAnswerMap[e.question.id]);
+        // LoggerService.simple.e(e.body);
         // LoggerService.simple.d(newAnswerStatusMap[e.question.id]);
+      },
+      // H_3 切換特殊作答
+      specialAnswerSwitched: (e) async* {
+        KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
+            KtMutableMap.from(state.answerStatusMap.asMap());
+
+        final newAnswerStatus =
+            newAnswerStatusMap[e.question.id].switchSpecialAnswer();
+
+        newAnswerStatusMap[e.question.id] = newAnswerStatus;
+
+        // S_ 清空該題作答
+        final newAnswerMap = _answerAlgorithm.clearAnswer(
+          answerMap: state.answerMap,
+          question: e.question,
+        );
+
+        // S_ 更新 answer status
+        final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
+          answerMap: newAnswerMap,
+          answerStatusMap: newAnswerStatusMap,
+          question: e.question,
+          questionList: state.questionList,
+          answerAlgorithm: _answerAlgorithm,
+        );
+
+        yield state.copyWith(
+          answerMap: tupleResult.item2,
+          answerStatusMap: tupleResult.item1,
+        );
       },
     );
   }

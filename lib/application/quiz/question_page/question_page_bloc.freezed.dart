@@ -31,26 +31,26 @@ const $QuestionPageEvent = _$QuestionPageEventTearOff();
 /// @nodoc
 mixin _$QuestionPageEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result nextPagePressed(),
-    @required Result loadQuestionList(),
+  TResult when<TResult extends Object>({
+    @required TResult nextPagePressed(),
+    @required TResult loadQuestionList(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result nextPagePressed(),
-    Result loadQuestionList(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult nextPagePressed(),
+    TResult loadQuestionList(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result nextPagePressed(_NextPagePressed value),
-    @required Result loadQuestionList(_LoadQuestionList value),
+  TResult map<TResult extends Object>({
+    @required TResult nextPagePressed(_NextPagePressed value),
+    @required TResult loadQuestionList(_LoadQuestionList value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result nextPagePressed(_NextPagePressed value),
-    Result loadQuestionList(_LoadQuestionList value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult nextPagePressed(_NextPagePressed value),
+    TResult loadQuestionList(_LoadQuestionList value),
+    @required TResult orElse(),
   });
 }
 
@@ -118,9 +118,9 @@ class _$_NextPagePressed
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result nextPagePressed(),
-    @required Result loadQuestionList(),
+  TResult when<TResult extends Object>({
+    @required TResult nextPagePressed(),
+    @required TResult loadQuestionList(),
   }) {
     assert(nextPagePressed != null);
     assert(loadQuestionList != null);
@@ -129,10 +129,10 @@ class _$_NextPagePressed
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result nextPagePressed(),
-    Result loadQuestionList(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult nextPagePressed(),
+    TResult loadQuestionList(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (nextPagePressed != null) {
@@ -143,9 +143,9 @@ class _$_NextPagePressed
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result nextPagePressed(_NextPagePressed value),
-    @required Result loadQuestionList(_LoadQuestionList value),
+  TResult map<TResult extends Object>({
+    @required TResult nextPagePressed(_NextPagePressed value),
+    @required TResult loadQuestionList(_LoadQuestionList value),
   }) {
     assert(nextPagePressed != null);
     assert(loadQuestionList != null);
@@ -154,10 +154,10 @@ class _$_NextPagePressed
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result nextPagePressed(_NextPagePressed value),
-    Result loadQuestionList(_LoadQuestionList value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult nextPagePressed(_NextPagePressed value),
+    TResult loadQuestionList(_LoadQuestionList value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (nextPagePressed != null) {
@@ -218,9 +218,9 @@ class _$_LoadQuestionList
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result nextPagePressed(),
-    @required Result loadQuestionList(),
+  TResult when<TResult extends Object>({
+    @required TResult nextPagePressed(),
+    @required TResult loadQuestionList(),
   }) {
     assert(nextPagePressed != null);
     assert(loadQuestionList != null);
@@ -229,10 +229,10 @@ class _$_LoadQuestionList
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result nextPagePressed(),
-    Result loadQuestionList(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult nextPagePressed(),
+    TResult loadQuestionList(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadQuestionList != null) {
@@ -243,9 +243,9 @@ class _$_LoadQuestionList
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result nextPagePressed(_NextPagePressed value),
-    @required Result loadQuestionList(_LoadQuestionList value),
+  TResult map<TResult extends Object>({
+    @required TResult nextPagePressed(_NextPagePressed value),
+    @required TResult loadQuestionList(_LoadQuestionList value),
   }) {
     assert(nextPagePressed != null);
     assert(loadQuestionList != null);
@@ -254,10 +254,10 @@ class _$_LoadQuestionList
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result nextPagePressed(_NextPagePressed value),
-    Result loadQuestionList(_LoadQuestionList value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult nextPagePressed(_NextPagePressed value),
+    TResult loadQuestionList(_LoadQuestionList value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadQuestionList != null) {

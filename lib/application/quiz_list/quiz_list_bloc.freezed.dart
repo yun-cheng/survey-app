@@ -26,22 +26,22 @@ const $QuizListEvent = _$QuizListEventTearOff();
 /// @nodoc
 mixin _$QuizListEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result quizListLoaded(),
+  TResult when<TResult extends Object>({
+    @required TResult quizListLoaded(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result quizListLoaded(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult quizListLoaded(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result quizListLoaded(_QuizListLoaded value),
+  TResult map<TResult extends Object>({
+    @required TResult quizListLoaded(_QuizListLoaded value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result quizListLoaded(_QuizListLoaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult quizListLoaded(_QuizListLoaded value),
+    @required TResult orElse(),
   });
 }
 
@@ -109,8 +109,8 @@ class _$_QuizListLoaded
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result quizListLoaded(),
+  TResult when<TResult extends Object>({
+    @required TResult quizListLoaded(),
   }) {
     assert(quizListLoaded != null);
     return quizListLoaded();
@@ -118,9 +118,9 @@ class _$_QuizListLoaded
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result quizListLoaded(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult quizListLoaded(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (quizListLoaded != null) {
@@ -131,8 +131,8 @@ class _$_QuizListLoaded
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result quizListLoaded(_QuizListLoaded value),
+  TResult map<TResult extends Object>({
+    @required TResult quizListLoaded(_QuizListLoaded value),
   }) {
     assert(quizListLoaded != null);
     return quizListLoaded(this);
@@ -140,9 +140,9 @@ class _$_QuizListLoaded
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result quizListLoaded(_QuizListLoaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult quizListLoaded(_QuizListLoaded value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (quizListLoaded != null) {
@@ -192,34 +192,34 @@ const $QuizListState = _$QuizListStateTearOff();
 /// @nodoc
 mixin _$QuizListState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizListFailure quizListFailure),
-    @required Result loadSuccess(KtList<Quiz> quizList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizListFailure quizListFailure),
+    @required TResult loadSuccess(KtList<Quiz> quizList),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizListFailure quizListFailure),
-    Result loadSuccess(KtList<Quiz> quizList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizListFailure quizListFailure),
+    TResult loadSuccess(KtList<Quiz> quizList),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(LoadSuccess value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(LoadSuccess value),
+    @required TResult orElse(),
   });
 }
 
@@ -281,11 +281,11 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizListFailure quizListFailure),
-    @required Result loadSuccess(KtList<Quiz> quizList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizListFailure quizListFailure),
+    @required TResult loadSuccess(KtList<Quiz> quizList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -296,12 +296,12 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizListFailure quizListFailure),
-    Result loadSuccess(KtList<Quiz> quizList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizListFailure quizListFailure),
+    TResult loadSuccess(KtList<Quiz> quizList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -312,11 +312,11 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(LoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -327,12 +327,12 @@ class _$_Initial with DiagnosticableTreeMixin implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(LoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -393,11 +393,11 @@ class _$_LoadInProgress
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizListFailure quizListFailure),
-    @required Result loadSuccess(KtList<Quiz> quizList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizListFailure quizListFailure),
+    @required TResult loadSuccess(KtList<Quiz> quizList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -408,12 +408,12 @@ class _$_LoadInProgress
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizListFailure quizListFailure),
-    Result loadSuccess(KtList<Quiz> quizList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizListFailure quizListFailure),
+    TResult loadSuccess(KtList<Quiz> quizList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -424,11 +424,11 @@ class _$_LoadInProgress
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(LoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -439,12 +439,12 @@ class _$_LoadInProgress
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(LoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -540,11 +540,11 @@ class _$_LoadFailure with DiagnosticableTreeMixin implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizListFailure quizListFailure),
-    @required Result loadSuccess(KtList<Quiz> quizList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizListFailure quizListFailure),
+    @required TResult loadSuccess(KtList<Quiz> quizList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -555,12 +555,12 @@ class _$_LoadFailure with DiagnosticableTreeMixin implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizListFailure quizListFailure),
-    Result loadSuccess(KtList<Quiz> quizList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizListFailure quizListFailure),
+    TResult loadSuccess(KtList<Quiz> quizList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {
@@ -571,11 +571,11 @@ class _$_LoadFailure with DiagnosticableTreeMixin implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(LoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -586,12 +586,12 @@ class _$_LoadFailure with DiagnosticableTreeMixin implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(LoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {
@@ -675,11 +675,11 @@ class _$LoadSuccess with DiagnosticableTreeMixin implements LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizListFailure quizListFailure),
-    @required Result loadSuccess(KtList<Quiz> quizList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizListFailure quizListFailure),
+    @required TResult loadSuccess(KtList<Quiz> quizList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -690,12 +690,12 @@ class _$LoadSuccess with DiagnosticableTreeMixin implements LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizListFailure quizListFailure),
-    Result loadSuccess(KtList<Quiz> quizList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizListFailure quizListFailure),
+    TResult loadSuccess(KtList<Quiz> quizList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
@@ -706,11 +706,11 @@ class _$LoadSuccess with DiagnosticableTreeMixin implements LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(LoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(LoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -721,12 +721,12 @@ class _$LoadSuccess with DiagnosticableTreeMixin implements LoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(LoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(LoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {

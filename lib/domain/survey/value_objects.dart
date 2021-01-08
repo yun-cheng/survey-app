@@ -102,6 +102,10 @@ class QuestionType extends ValueObject<String> {
     return value.fold((l) => false, (r) => isSingle || isMultiple);
   }
 
+  bool get isNormalChoice {
+    return value.fold((l) => false, (r) => ['single', 'multiple'].contains(r));
+  }
+
   bool get isInput {
     return value.fold((l) => false, (r) => ['number', 'text'].contains(r));
   }

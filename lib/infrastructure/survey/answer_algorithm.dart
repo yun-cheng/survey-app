@@ -13,6 +13,7 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     KtMutableMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
+    bool isSpecialAnswer,
     bool toggle,
     bool isNote,
     ChoiceId noteOf,
@@ -26,7 +27,7 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
         answerBody: answerBody,
         noteOf: noteOf,
       );
-    } else if (question.type.isSingle) {
+    } else if (question.type.isSingle || isSpecialAnswer) {
       newAnswerMap = updateSingleAnswer(
         answerMap: answerMap,
         question: question,
@@ -110,9 +111,30 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     dynamic answerBody,
     ChoiceId noteOf,
   }) {
+    final newAnswerMap = KtMutableMap.from(answerMap.toMap().asMap());
+
+    final newNoteMap =
+        KtMutableMap.from(newAnswerMap[question.id].noteMap.toMap().asMap());
+    newNoteMap.put(noteOf, AnswerBody(answerBody));
+
+    // HIGHLIGHT 必須要用 copyWith 的方式修改 noteMap，而不能直接 put
+    newAnswerMap[question.id] =
+        newAnswerMap[question.id].copyWith(noteMap: newNoteMap);
+
+    return newAnswerMap;
+  }
+
+  @override
+  KtMutableMap<QuestionId, Answer> clearAnswer({
+    KtMutableMap<QuestionId, Answer> answerMap,
+    Question question,
+  }) {
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
 
-    newAnswerMap[question.id].noteMap.put(noteOf, AnswerBody(answerBody));
+    newAnswerMap[question.id] = newAnswerMap[question.id].copyWith(
+      body: AnswerBody.empty(),
+      noteMap: KtMutableMap<ChoiceId, AnswerBody>.empty(),
+    );
 
     return newAnswerMap;
   }

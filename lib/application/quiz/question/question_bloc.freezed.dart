@@ -40,30 +40,30 @@ const $QuestionEvent = _$QuestionEventTearOff();
 /// @nodoc
 mixin _$QuestionEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result newQuestionEntered(Question question),
-    @required Result answerSelected(String answerStr),
-    @required Result quizResultUploaded(),
+  TResult when<TResult extends Object>({
+    @required TResult newQuestionEntered(Question question),
+    @required TResult answerSelected(String answerStr),
+    @required TResult quizResultUploaded(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result newQuestionEntered(Question question),
-    Result answerSelected(String answerStr),
-    Result quizResultUploaded(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult newQuestionEntered(Question question),
+    TResult answerSelected(String answerStr),
+    TResult quizResultUploaded(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result newQuestionEntered(_NewQuestionEntered value),
-    @required Result answerSelected(AnswerSelected value),
-    @required Result quizResultUploaded(QuizResultUploaded value),
+  TResult map<TResult extends Object>({
+    @required TResult newQuestionEntered(_NewQuestionEntered value),
+    @required TResult answerSelected(AnswerSelected value),
+    @required TResult quizResultUploaded(QuizResultUploaded value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result newQuestionEntered(_NewQuestionEntered value),
-    Result answerSelected(AnswerSelected value),
-    Result quizResultUploaded(QuizResultUploaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult newQuestionEntered(_NewQuestionEntered value),
+    TResult answerSelected(AnswerSelected value),
+    TResult quizResultUploaded(QuizResultUploaded value),
+    @required TResult orElse(),
   });
 }
 
@@ -166,10 +166,10 @@ class _$_NewQuestionEntered
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result newQuestionEntered(Question question),
-    @required Result answerSelected(String answerStr),
-    @required Result quizResultUploaded(),
+  TResult when<TResult extends Object>({
+    @required TResult newQuestionEntered(Question question),
+    @required TResult answerSelected(String answerStr),
+    @required TResult quizResultUploaded(),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
@@ -179,11 +179,11 @@ class _$_NewQuestionEntered
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result newQuestionEntered(Question question),
-    Result answerSelected(String answerStr),
-    Result quizResultUploaded(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult newQuestionEntered(Question question),
+    TResult answerSelected(String answerStr),
+    TResult quizResultUploaded(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (newQuestionEntered != null) {
@@ -194,10 +194,10 @@ class _$_NewQuestionEntered
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result newQuestionEntered(_NewQuestionEntered value),
-    @required Result answerSelected(AnswerSelected value),
-    @required Result quizResultUploaded(QuizResultUploaded value),
+  TResult map<TResult extends Object>({
+    @required TResult newQuestionEntered(_NewQuestionEntered value),
+    @required TResult answerSelected(AnswerSelected value),
+    @required TResult quizResultUploaded(QuizResultUploaded value),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
@@ -207,11 +207,11 @@ class _$_NewQuestionEntered
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result newQuestionEntered(_NewQuestionEntered value),
-    Result answerSelected(AnswerSelected value),
-    Result quizResultUploaded(QuizResultUploaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult newQuestionEntered(_NewQuestionEntered value),
+    TResult answerSelected(AnswerSelected value),
+    TResult quizResultUploaded(QuizResultUploaded value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (newQuestionEntered != null) {
@@ -296,10 +296,10 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result newQuestionEntered(Question question),
-    @required Result answerSelected(String answerStr),
-    @required Result quizResultUploaded(),
+  TResult when<TResult extends Object>({
+    @required TResult newQuestionEntered(Question question),
+    @required TResult answerSelected(String answerStr),
+    @required TResult quizResultUploaded(),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
@@ -309,11 +309,11 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result newQuestionEntered(Question question),
-    Result answerSelected(String answerStr),
-    Result quizResultUploaded(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult newQuestionEntered(Question question),
+    TResult answerSelected(String answerStr),
+    TResult quizResultUploaded(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerSelected != null) {
@@ -324,10 +324,10 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result newQuestionEntered(_NewQuestionEntered value),
-    @required Result answerSelected(AnswerSelected value),
-    @required Result quizResultUploaded(QuizResultUploaded value),
+  TResult map<TResult extends Object>({
+    @required TResult newQuestionEntered(_NewQuestionEntered value),
+    @required TResult answerSelected(AnswerSelected value),
+    @required TResult quizResultUploaded(QuizResultUploaded value),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
@@ -337,11 +337,11 @@ class _$AnswerSelected with DiagnosticableTreeMixin implements AnswerSelected {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result newQuestionEntered(_NewQuestionEntered value),
-    Result answerSelected(AnswerSelected value),
-    Result quizResultUploaded(QuizResultUploaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult newQuestionEntered(_NewQuestionEntered value),
+    TResult answerSelected(AnswerSelected value),
+    TResult quizResultUploaded(QuizResultUploaded value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerSelected != null) {
@@ -405,10 +405,10 @@ class _$QuizResultUploaded
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result newQuestionEntered(Question question),
-    @required Result answerSelected(String answerStr),
-    @required Result quizResultUploaded(),
+  TResult when<TResult extends Object>({
+    @required TResult newQuestionEntered(Question question),
+    @required TResult answerSelected(String answerStr),
+    @required TResult quizResultUploaded(),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
@@ -418,11 +418,11 @@ class _$QuizResultUploaded
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result newQuestionEntered(Question question),
-    Result answerSelected(String answerStr),
-    Result quizResultUploaded(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult newQuestionEntered(Question question),
+    TResult answerSelected(String answerStr),
+    TResult quizResultUploaded(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (quizResultUploaded != null) {
@@ -433,10 +433,10 @@ class _$QuizResultUploaded
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result newQuestionEntered(_NewQuestionEntered value),
-    @required Result answerSelected(AnswerSelected value),
-    @required Result quizResultUploaded(QuizResultUploaded value),
+  TResult map<TResult extends Object>({
+    @required TResult newQuestionEntered(_NewQuestionEntered value),
+    @required TResult answerSelected(AnswerSelected value),
+    @required TResult quizResultUploaded(QuizResultUploaded value),
   }) {
     assert(newQuestionEntered != null);
     assert(answerSelected != null);
@@ -446,11 +446,11 @@ class _$QuizResultUploaded
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result newQuestionEntered(_NewQuestionEntered value),
-    Result answerSelected(AnswerSelected value),
-    Result quizResultUploaded(QuizResultUploaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult newQuestionEntered(_NewQuestionEntered value),
+    TResult answerSelected(AnswerSelected value),
+    TResult quizResultUploaded(QuizResultUploaded value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (quizResultUploaded != null) {

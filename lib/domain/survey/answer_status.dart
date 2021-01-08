@@ -17,6 +17,7 @@ abstract class AnswerStatus implements _$AnswerStatus {
     @required SerialNumber serialNumber,
     @required AnswerStatusType type,
     @required Warning warning,
+    @required bool isSpecialAnswer,
     KtMutableMap<ChoiceId, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
@@ -25,6 +26,7 @@ abstract class AnswerStatus implements _$AnswerStatus {
         serialNumber: SerialNumber.initial(),
         type: AnswerStatusType.empty(),
         warning: Warning.empty(),
+        isSpecialAnswer: false,
         noteMap: KtMutableMap<ChoiceId, AnswerStatusType>.empty(),
       );
 
@@ -46,6 +48,9 @@ abstract class AnswerStatus implements _$AnswerStatus {
       pageNumber: pageNumber,
     );
   }
+
+  AnswerStatus switchSpecialAnswer() =>
+      copyWith(isSpecialAnswer: !isSpecialAnswer);
 
   bool get noteIsAnswered {
     return noteMap.all((key, value) => value.isCompleted);

@@ -61,34 +61,34 @@ const $NavigationPage = _$NavigationPageTearOff();
 /// @nodoc
 mixin _$NavigationPage {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result signIn(),
-    @required Result overview(),
-    @required Result respondent(),
-    @required Result survey(),
+  TResult when<TResult extends Object>({
+    @required TResult signIn(),
+    @required TResult overview(),
+    @required TResult respondent(),
+    @required TResult survey(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result signIn(),
-    Result overview(),
-    Result respondent(),
-    Result survey(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult signIn(),
+    TResult overview(),
+    TResult respondent(),
+    TResult survey(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result signIn(NavSignInPage value),
-    @required Result overview(NavOverviewPage value),
-    @required Result respondent(NavRespondentListPage value),
-    @required Result survey(NavSurveyPage value),
+  TResult map<TResult extends Object>({
+    @required TResult signIn(NavSignInPage value),
+    @required TResult overview(NavOverviewPage value),
+    @required TResult respondent(NavRespondentListPage value),
+    @required TResult survey(NavSurveyPage value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result signIn(NavSignInPage value),
-    Result overview(NavOverviewPage value),
-    Result respondent(NavRespondentListPage value),
-    Result survey(NavSurveyPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult signIn(NavSignInPage value),
+    TResult overview(NavOverviewPage value),
+    TResult respondent(NavRespondentListPage value),
+    TResult survey(NavSurveyPage value),
+    @required TResult orElse(),
   });
   Map<String, dynamic> toJson();
 }
@@ -153,11 +153,11 @@ class _$NavSignInPage implements NavSignInPage {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result signIn(),
-    @required Result overview(),
-    @required Result respondent(),
-    @required Result survey(),
+  TResult when<TResult extends Object>({
+    @required TResult signIn(),
+    @required TResult overview(),
+    @required TResult respondent(),
+    @required TResult survey(),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -168,12 +168,12 @@ class _$NavSignInPage implements NavSignInPage {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result signIn(),
-    Result overview(),
-    Result respondent(),
-    Result survey(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult signIn(),
+    TResult overview(),
+    TResult respondent(),
+    TResult survey(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (signIn != null) {
@@ -184,11 +184,11 @@ class _$NavSignInPage implements NavSignInPage {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result signIn(NavSignInPage value),
-    @required Result overview(NavOverviewPage value),
-    @required Result respondent(NavRespondentListPage value),
-    @required Result survey(NavSurveyPage value),
+  TResult map<TResult extends Object>({
+    @required TResult signIn(NavSignInPage value),
+    @required TResult overview(NavOverviewPage value),
+    @required TResult respondent(NavRespondentListPage value),
+    @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -199,12 +199,12 @@ class _$NavSignInPage implements NavSignInPage {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result signIn(NavSignInPage value),
-    Result overview(NavOverviewPage value),
-    Result respondent(NavRespondentListPage value),
-    Result survey(NavSurveyPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult signIn(NavSignInPage value),
+    TResult overview(NavOverviewPage value),
+    TResult respondent(NavRespondentListPage value),
+    TResult survey(NavSurveyPage value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (signIn != null) {
@@ -269,11 +269,11 @@ class _$NavOverviewPage implements NavOverviewPage {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result signIn(),
-    @required Result overview(),
-    @required Result respondent(),
-    @required Result survey(),
+  TResult when<TResult extends Object>({
+    @required TResult signIn(),
+    @required TResult overview(),
+    @required TResult respondent(),
+    @required TResult survey(),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -284,12 +284,12 @@ class _$NavOverviewPage implements NavOverviewPage {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result signIn(),
-    Result overview(),
-    Result respondent(),
-    Result survey(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult signIn(),
+    TResult overview(),
+    TResult respondent(),
+    TResult survey(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (overview != null) {
@@ -300,11 +300,11 @@ class _$NavOverviewPage implements NavOverviewPage {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result signIn(NavSignInPage value),
-    @required Result overview(NavOverviewPage value),
-    @required Result respondent(NavRespondentListPage value),
-    @required Result survey(NavSurveyPage value),
+  TResult map<TResult extends Object>({
+    @required TResult signIn(NavSignInPage value),
+    @required TResult overview(NavOverviewPage value),
+    @required TResult respondent(NavRespondentListPage value),
+    @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -315,12 +315,12 @@ class _$NavOverviewPage implements NavOverviewPage {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result signIn(NavSignInPage value),
-    Result overview(NavOverviewPage value),
-    Result respondent(NavRespondentListPage value),
-    Result survey(NavSurveyPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult signIn(NavSignInPage value),
+    TResult overview(NavOverviewPage value),
+    TResult respondent(NavRespondentListPage value),
+    TResult survey(NavSurveyPage value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (overview != null) {
@@ -385,11 +385,11 @@ class _$NavRespondentListPage implements NavRespondentListPage {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result signIn(),
-    @required Result overview(),
-    @required Result respondent(),
-    @required Result survey(),
+  TResult when<TResult extends Object>({
+    @required TResult signIn(),
+    @required TResult overview(),
+    @required TResult respondent(),
+    @required TResult survey(),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -400,12 +400,12 @@ class _$NavRespondentListPage implements NavRespondentListPage {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result signIn(),
-    Result overview(),
-    Result respondent(),
-    Result survey(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult signIn(),
+    TResult overview(),
+    TResult respondent(),
+    TResult survey(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondent != null) {
@@ -416,11 +416,11 @@ class _$NavRespondentListPage implements NavRespondentListPage {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result signIn(NavSignInPage value),
-    @required Result overview(NavOverviewPage value),
-    @required Result respondent(NavRespondentListPage value),
-    @required Result survey(NavSurveyPage value),
+  TResult map<TResult extends Object>({
+    @required TResult signIn(NavSignInPage value),
+    @required TResult overview(NavOverviewPage value),
+    @required TResult respondent(NavRespondentListPage value),
+    @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -431,12 +431,12 @@ class _$NavRespondentListPage implements NavRespondentListPage {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result signIn(NavSignInPage value),
-    Result overview(NavOverviewPage value),
-    Result respondent(NavRespondentListPage value),
-    Result survey(NavSurveyPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult signIn(NavSignInPage value),
+    TResult overview(NavOverviewPage value),
+    TResult respondent(NavRespondentListPage value),
+    TResult survey(NavSurveyPage value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondent != null) {
@@ -502,11 +502,11 @@ class _$NavSurveyPage implements NavSurveyPage {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result signIn(),
-    @required Result overview(),
-    @required Result respondent(),
-    @required Result survey(),
+  TResult when<TResult extends Object>({
+    @required TResult signIn(),
+    @required TResult overview(),
+    @required TResult respondent(),
+    @required TResult survey(),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -517,12 +517,12 @@ class _$NavSurveyPage implements NavSurveyPage {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result signIn(),
-    Result overview(),
-    Result respondent(),
-    Result survey(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult signIn(),
+    TResult overview(),
+    TResult respondent(),
+    TResult survey(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (survey != null) {
@@ -533,11 +533,11 @@ class _$NavSurveyPage implements NavSurveyPage {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result signIn(NavSignInPage value),
-    @required Result overview(NavOverviewPage value),
-    @required Result respondent(NavRespondentListPage value),
-    @required Result survey(NavSurveyPage value),
+  TResult map<TResult extends Object>({
+    @required TResult signIn(NavSignInPage value),
+    @required TResult overview(NavOverviewPage value),
+    @required TResult respondent(NavRespondentListPage value),
+    @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
     assert(overview != null);
@@ -548,12 +548,12 @@ class _$NavSurveyPage implements NavSurveyPage {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result signIn(NavSignInPage value),
-    Result overview(NavOverviewPage value),
-    Result respondent(NavRespondentListPage value),
-    Result survey(NavSurveyPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult signIn(NavSignInPage value),
+    TResult overview(NavOverviewPage value),
+    TResult respondent(NavRespondentListPage value),
+    TResult survey(NavSurveyPage value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (survey != null) {

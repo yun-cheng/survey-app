@@ -10,6 +10,7 @@ abstract class IAnswerAlgorithm {
     @required KtMutableMap<QuestionId, Answer> answerMap,
     @required Question question,
     @required dynamic answerBody,
+    @required bool isSpecialAnswer,
     @required bool toggle,
     @required bool isNote,
     ChoiceId noteOf,
@@ -39,5 +40,10 @@ abstract class IAnswerAlgorithm {
     @required Question question,
     @required dynamic answerBody,
     @required ChoiceId noteOf,
+  });
+
+   KtMutableMap<QuestionId, Answer> clearAnswer({
+    @required KtMutableMap<QuestionId, Answer> answerMap,
+    @required Question question,
   });
 }

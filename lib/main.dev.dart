@@ -7,10 +7,13 @@ import 'package:interviewer_quiz_flutter_app/injection.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/core/app_widget.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  HydratedBloc.storage = await HydratedStorage.build();
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: await getApplicationDocumentsDirectory(),
+  );
   configureInjection(Environment.dev);
   Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp();

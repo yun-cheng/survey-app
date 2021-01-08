@@ -54,30 +54,30 @@ const $PageState = _$PageStateTearOff();
 /// @nodoc
 mixin _$PageState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result push(),
-    @required Result pop(),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult push(),
+    @required TResult pop(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result push(),
-    Result pop(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult push(),
+    TResult pop(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(InitialPage value),
-    @required Result push(PushPage value),
-    @required Result pop(PopPage value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialPage value),
+    @required TResult push(PushPage value),
+    @required TResult pop(PopPage value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(InitialPage value),
-    Result push(PushPage value),
-    Result pop(PopPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialPage value),
+    TResult push(PushPage value),
+    TResult pop(PopPage value),
+    @required TResult orElse(),
   });
   Map<String, dynamic> toJson();
 }
@@ -139,10 +139,10 @@ class _$InitialPage implements InitialPage {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result push(),
-    @required Result pop(),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult push(),
+    @required TResult pop(),
   }) {
     assert(initial != null);
     assert(push != null);
@@ -152,11 +152,11 @@ class _$InitialPage implements InitialPage {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result push(),
-    Result pop(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult push(),
+    TResult pop(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -167,10 +167,10 @@ class _$InitialPage implements InitialPage {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(InitialPage value),
-    @required Result push(PushPage value),
-    @required Result pop(PopPage value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialPage value),
+    @required TResult push(PushPage value),
+    @required TResult pop(PopPage value),
   }) {
     assert(initial != null);
     assert(push != null);
@@ -180,11 +180,11 @@ class _$InitialPage implements InitialPage {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(InitialPage value),
-    Result push(PushPage value),
-    Result pop(PopPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialPage value),
+    TResult push(PushPage value),
+    TResult pop(PopPage value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -246,10 +246,10 @@ class _$PushPage implements PushPage {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result push(),
-    @required Result pop(),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult push(),
+    @required TResult pop(),
   }) {
     assert(initial != null);
     assert(push != null);
@@ -259,11 +259,11 @@ class _$PushPage implements PushPage {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result push(),
-    Result pop(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult push(),
+    TResult pop(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (push != null) {
@@ -274,10 +274,10 @@ class _$PushPage implements PushPage {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(InitialPage value),
-    @required Result push(PushPage value),
-    @required Result pop(PopPage value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialPage value),
+    @required TResult push(PushPage value),
+    @required TResult pop(PopPage value),
   }) {
     assert(initial != null);
     assert(push != null);
@@ -287,11 +287,11 @@ class _$PushPage implements PushPage {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(InitialPage value),
-    Result push(PushPage value),
-    Result pop(PopPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialPage value),
+    TResult push(PushPage value),
+    TResult pop(PopPage value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (push != null) {
@@ -352,10 +352,10 @@ class _$PopPage implements PopPage {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result push(),
-    @required Result pop(),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult push(),
+    @required TResult pop(),
   }) {
     assert(initial != null);
     assert(push != null);
@@ -365,11 +365,11 @@ class _$PopPage implements PopPage {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result push(),
-    Result pop(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult push(),
+    TResult pop(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pop != null) {
@@ -380,10 +380,10 @@ class _$PopPage implements PopPage {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(InitialPage value),
-    @required Result push(PushPage value),
-    @required Result pop(PopPage value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(InitialPage value),
+    @required TResult push(PushPage value),
+    @required TResult pop(PopPage value),
   }) {
     assert(initial != null);
     assert(push != null);
@@ -393,11 +393,11 @@ class _$PopPage implements PopPage {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(InitialPage value),
-    Result push(PushPage value),
-    Result pop(PopPage value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(InitialPage value),
+    TResult push(PushPage value),
+    TResult pop(PopPage value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (pop != null) {

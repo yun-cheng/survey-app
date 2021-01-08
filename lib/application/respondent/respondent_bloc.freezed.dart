@@ -58,50 +58,50 @@ const $RespondentEvent = _$RespondentEventTearOff();
 /// @nodoc
 mixin _$RespondentEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListListReceived(
+        TResult respondentListListReceived(
             Either<RespondentFailure, KtList<RespondentList>>
                 failureOrRespondentListList),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentListLoaded(),
-    @required Result respondentSelected(Respondent respondent),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentListLoaded(),
+    @required TResult respondentSelected(Respondent respondent),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         TeamId teamId, InterviewerId interviewerId),
-    Result respondentListListReceived(
+    TResult respondentListListReceived(
         Either<RespondentFailure, KtList<RespondentList>>
             failureOrRespondentListList),
-    Result surveySelected(Survey survey),
-    Result respondentListLoaded(),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
+    TResult surveySelected(Survey survey),
+    TResult respondentListLoaded(),
+    TResult respondentSelected(Respondent respondent),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             _WatchRespondentListListStarted value),
     @required
-        Result respondentListListReceived(_RespondentListListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentListLoaded(_RespondentListLoaded value),
-    @required Result respondentSelected(_RespondentSelected value),
+        TResult respondentListListReceived(_RespondentListListReceived value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentListLoaded(_RespondentListLoaded value),
+    @required TResult respondentSelected(_RespondentSelected value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeMap<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         _WatchRespondentListListStarted value),
-    Result respondentListListReceived(_RespondentListListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentListLoaded(_RespondentListLoaded value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
+    TResult respondentListListReceived(_RespondentListListReceived value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentListLoaded(_RespondentListLoaded value),
+    TResult respondentSelected(_RespondentSelected value),
+    @required TResult orElse(),
   });
 }
 
@@ -200,17 +200,17 @@ class _$_WatchRespondentListListStarted
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListListReceived(
+        TResult respondentListListReceived(
             Either<RespondentFailure, KtList<RespondentList>>
                 failureOrRespondentListList),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentListLoaded(),
-    @required Result respondentSelected(Respondent respondent),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentListLoaded(),
+    @required TResult respondentSelected(Respondent respondent),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -222,16 +222,16 @@ class _$_WatchRespondentListListStarted
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         TeamId teamId, InterviewerId interviewerId),
-    Result respondentListListReceived(
+    TResult respondentListListReceived(
         Either<RespondentFailure, KtList<RespondentList>>
             failureOrRespondentListList),
-    Result surveySelected(Survey survey),
-    Result respondentListLoaded(),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
+    TResult surveySelected(Survey survey),
+    TResult respondentListLoaded(),
+    TResult respondentSelected(Respondent respondent),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchRespondentListListStarted != null) {
@@ -242,15 +242,15 @@ class _$_WatchRespondentListListStarted
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             _WatchRespondentListListStarted value),
     @required
-        Result respondentListListReceived(_RespondentListListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentListLoaded(_RespondentListLoaded value),
-    @required Result respondentSelected(_RespondentSelected value),
+        TResult respondentListListReceived(_RespondentListListReceived value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentListLoaded(_RespondentListLoaded value),
+    @required TResult respondentSelected(_RespondentSelected value),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -262,14 +262,14 @@ class _$_WatchRespondentListListStarted
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeMap<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         _WatchRespondentListListStarted value),
-    Result respondentListListReceived(_RespondentListListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentListLoaded(_RespondentListLoaded value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
+    TResult respondentListListReceived(_RespondentListListReceived value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentListLoaded(_RespondentListLoaded value),
+    TResult respondentSelected(_RespondentSelected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (watchRespondentListListStarted != null) {
@@ -363,17 +363,17 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListListReceived(
+        TResult respondentListListReceived(
             Either<RespondentFailure, KtList<RespondentList>>
                 failureOrRespondentListList),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentListLoaded(),
-    @required Result respondentSelected(Respondent respondent),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentListLoaded(),
+    @required TResult respondentSelected(Respondent respondent),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -385,16 +385,16 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         TeamId teamId, InterviewerId interviewerId),
-    Result respondentListListReceived(
+    TResult respondentListListReceived(
         Either<RespondentFailure, KtList<RespondentList>>
             failureOrRespondentListList),
-    Result surveySelected(Survey survey),
-    Result respondentListLoaded(),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
+    TResult surveySelected(Survey survey),
+    TResult respondentListLoaded(),
+    TResult respondentSelected(Respondent respondent),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentListListReceived != null) {
@@ -405,15 +405,15 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             _WatchRespondentListListStarted value),
     @required
-        Result respondentListListReceived(_RespondentListListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentListLoaded(_RespondentListLoaded value),
-    @required Result respondentSelected(_RespondentSelected value),
+        TResult respondentListListReceived(_RespondentListListReceived value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentListLoaded(_RespondentListLoaded value),
+    @required TResult respondentSelected(_RespondentSelected value),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -425,14 +425,14 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeMap<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         _WatchRespondentListListStarted value),
-    Result respondentListListReceived(_RespondentListListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentListLoaded(_RespondentListLoaded value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
+    TResult respondentListListReceived(_RespondentListListReceived value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentListLoaded(_RespondentListLoaded value),
+    TResult respondentSelected(_RespondentSelected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentListListReceived != null) {
@@ -524,17 +524,17 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListListReceived(
+        TResult respondentListListReceived(
             Either<RespondentFailure, KtList<RespondentList>>
                 failureOrRespondentListList),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentListLoaded(),
-    @required Result respondentSelected(Respondent respondent),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentListLoaded(),
+    @required TResult respondentSelected(Respondent respondent),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -546,16 +546,16 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         TeamId teamId, InterviewerId interviewerId),
-    Result respondentListListReceived(
+    TResult respondentListListReceived(
         Either<RespondentFailure, KtList<RespondentList>>
             failureOrRespondentListList),
-    Result surveySelected(Survey survey),
-    Result respondentListLoaded(),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
+    TResult surveySelected(Survey survey),
+    TResult respondentListLoaded(),
+    TResult respondentSelected(Respondent respondent),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (surveySelected != null) {
@@ -566,15 +566,15 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             _WatchRespondentListListStarted value),
     @required
-        Result respondentListListReceived(_RespondentListListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentListLoaded(_RespondentListLoaded value),
-    @required Result respondentSelected(_RespondentSelected value),
+        TResult respondentListListReceived(_RespondentListListReceived value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentListLoaded(_RespondentListLoaded value),
+    @required TResult respondentSelected(_RespondentSelected value),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -586,14 +586,14 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeMap<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         _WatchRespondentListListStarted value),
-    Result respondentListListReceived(_RespondentListListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentListLoaded(_RespondentListLoaded value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
+    TResult respondentListListReceived(_RespondentListListReceived value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentListLoaded(_RespondentListLoaded value),
+    TResult respondentSelected(_RespondentSelected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (surveySelected != null) {
@@ -648,17 +648,17 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListListReceived(
+        TResult respondentListListReceived(
             Either<RespondentFailure, KtList<RespondentList>>
                 failureOrRespondentListList),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentListLoaded(),
-    @required Result respondentSelected(Respondent respondent),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentListLoaded(),
+    @required TResult respondentSelected(Respondent respondent),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -670,16 +670,16 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         TeamId teamId, InterviewerId interviewerId),
-    Result respondentListListReceived(
+    TResult respondentListListReceived(
         Either<RespondentFailure, KtList<RespondentList>>
             failureOrRespondentListList),
-    Result surveySelected(Survey survey),
-    Result respondentListLoaded(),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
+    TResult surveySelected(Survey survey),
+    TResult respondentListLoaded(),
+    TResult respondentSelected(Respondent respondent),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentListLoaded != null) {
@@ -690,15 +690,15 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             _WatchRespondentListListStarted value),
     @required
-        Result respondentListListReceived(_RespondentListListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentListLoaded(_RespondentListLoaded value),
-    @required Result respondentSelected(_RespondentSelected value),
+        TResult respondentListListReceived(_RespondentListListReceived value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentListLoaded(_RespondentListLoaded value),
+    @required TResult respondentSelected(_RespondentSelected value),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -710,14 +710,14 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeMap<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         _WatchRespondentListListStarted value),
-    Result respondentListListReceived(_RespondentListListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentListLoaded(_RespondentListLoaded value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
+    TResult respondentListListReceived(_RespondentListListReceived value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentListLoaded(_RespondentListLoaded value),
+    TResult respondentSelected(_RespondentSelected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentListLoaded != null) {
@@ -805,17 +805,17 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             TeamId teamId, InterviewerId interviewerId),
     @required
-        Result respondentListListReceived(
+        TResult respondentListListReceived(
             Either<RespondentFailure, KtList<RespondentList>>
                 failureOrRespondentListList),
-    @required Result surveySelected(Survey survey),
-    @required Result respondentListLoaded(),
-    @required Result respondentSelected(Respondent respondent),
+    @required TResult surveySelected(Survey survey),
+    @required TResult respondentListLoaded(),
+    @required TResult respondentSelected(Respondent respondent),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -827,16 +827,16 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         TeamId teamId, InterviewerId interviewerId),
-    Result respondentListListReceived(
+    TResult respondentListListReceived(
         Either<RespondentFailure, KtList<RespondentList>>
             failureOrRespondentListList),
-    Result surveySelected(Survey survey),
-    Result respondentListLoaded(),
-    Result respondentSelected(Respondent respondent),
-    @required Result orElse(),
+    TResult surveySelected(Survey survey),
+    TResult respondentListLoaded(),
+    TResult respondentSelected(Respondent respondent),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentSelected != null) {
@@ -847,15 +847,15 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
+  TResult map<TResult extends Object>({
     @required
-        Result watchRespondentListListStarted(
+        TResult watchRespondentListListStarted(
             _WatchRespondentListListStarted value),
     @required
-        Result respondentListListReceived(_RespondentListListReceived value),
-    @required Result surveySelected(_SurveySelected value),
-    @required Result respondentListLoaded(_RespondentListLoaded value),
-    @required Result respondentSelected(_RespondentSelected value),
+        TResult respondentListListReceived(_RespondentListListReceived value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult respondentListLoaded(_RespondentListLoaded value),
+    @required TResult respondentSelected(_RespondentSelected value),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -867,14 +867,14 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result watchRespondentListListStarted(
+  TResult maybeMap<TResult extends Object>({
+    TResult watchRespondentListListStarted(
         _WatchRespondentListListStarted value),
-    Result respondentListListReceived(_RespondentListListReceived value),
-    Result surveySelected(_SurveySelected value),
-    Result respondentListLoaded(_RespondentListLoaded value),
-    Result respondentSelected(_RespondentSelected value),
-    @required Result orElse(),
+    TResult respondentListListReceived(_RespondentListListReceived value),
+    TResult surveySelected(_SurveySelected value),
+    TResult respondentListLoaded(_RespondentListLoaded value),
+    TResult respondentSelected(_RespondentSelected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentSelected != null) {

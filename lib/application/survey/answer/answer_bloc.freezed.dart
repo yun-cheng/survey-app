@@ -35,14 +35,23 @@ class _$AnswerEventTearOff {
       {@required Question question,
       @required dynamic body,
       @required bool isNote,
+      @required bool isSpecialAnswer,
       @required bool toggle,
       ChoiceId noteOf}) {
     return _AnswerChanged(
       question: question,
       body: body,
       isNote: isNote,
+      isSpecialAnswer: isSpecialAnswer,
       toggle: toggle,
       noteOf: noteOf,
+    );
+  }
+
+// ignore: unused_element
+  _SpecialAnswerSwitched specialAnswerSwitched({@required Question question}) {
+    return _SpecialAnswerSwitched(
+      question: question,
     );
   }
 }
@@ -54,40 +63,44 @@ const $AnswerEvent = _$AnswerEventTearOff();
 /// @nodoc
 mixin _$AnswerEvent {
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result answerRestored(
+        TResult answerRestored(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
-    @required Result answerStatusInitialized(),
+    @required TResult answerStatusInitialized(),
     @required
-        Result answerChanged(Question question, dynamic body, bool isNote,
-            bool toggle, ChoiceId noteOf),
+        TResult answerChanged(Question question, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    @required TResult specialAnswerSwitched(Question question),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result answerRestored(
+  TResult maybeWhen<TResult extends Object>({
+    TResult answerRestored(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
-    Result answerStatusInitialized(),
-    Result answerChanged(Question question, dynamic body, bool isNote,
-        bool toggle, ChoiceId noteOf),
-    @required Result orElse(),
+    TResult answerStatusInitialized(),
+    TResult answerChanged(Question question, dynamic body, bool isNote,
+        bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    TResult specialAnswerSwitched(Question question),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result answerRestored(_AnswerRestored value),
-    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
-    @required Result answerChanged(_AnswerChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult answerRestored(_AnswerRestored value),
+    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerChanged(_AnswerChanged value),
+    @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result answerRestored(_AnswerRestored value),
-    Result answerStatusInitialized(_AnswerStatusInitialized value),
-    Result answerChanged(_AnswerChanged value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult answerRestored(_AnswerRestored value),
+    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerChanged(_AnswerChanged value),
+    TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
+    @required TResult orElse(),
   });
 }
 
@@ -199,34 +212,37 @@ class _$_AnswerRestored implements _AnswerRestored {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result answerRestored(
+        TResult answerRestored(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
-    @required Result answerStatusInitialized(),
+    @required TResult answerStatusInitialized(),
     @required
-        Result answerChanged(Question question, dynamic body, bool isNote,
-            bool toggle, ChoiceId noteOf),
+        TResult answerChanged(Question question, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    @required TResult specialAnswerSwitched(Question question),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
+    assert(specialAnswerSwitched != null);
     return answerRestored(answerMap, answerStatusMap, questionList);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result answerRestored(
+  TResult maybeWhen<TResult extends Object>({
+    TResult answerRestored(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
-    Result answerStatusInitialized(),
-    Result answerChanged(Question question, dynamic body, bool isNote,
-        bool toggle, ChoiceId noteOf),
-    @required Result orElse(),
+    TResult answerStatusInitialized(),
+    TResult answerChanged(Question question, dynamic body, bool isNote,
+        bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    TResult specialAnswerSwitched(Question question),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerRestored != null) {
@@ -237,24 +253,27 @@ class _$_AnswerRestored implements _AnswerRestored {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result answerRestored(_AnswerRestored value),
-    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
-    @required Result answerChanged(_AnswerChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult answerRestored(_AnswerRestored value),
+    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerChanged(_AnswerChanged value),
+    @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
+    assert(specialAnswerSwitched != null);
     return answerRestored(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result answerRestored(_AnswerRestored value),
-    Result answerStatusInitialized(_AnswerStatusInitialized value),
-    Result answerChanged(_AnswerChanged value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult answerRestored(_AnswerRestored value),
+    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerChanged(_AnswerChanged value),
+    TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerRestored != null) {
@@ -315,34 +334,37 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result answerRestored(
+        TResult answerRestored(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
-    @required Result answerStatusInitialized(),
+    @required TResult answerStatusInitialized(),
     @required
-        Result answerChanged(Question question, dynamic body, bool isNote,
-            bool toggle, ChoiceId noteOf),
+        TResult answerChanged(Question question, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    @required TResult specialAnswerSwitched(Question question),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
+    assert(specialAnswerSwitched != null);
     return answerStatusInitialized();
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result answerRestored(
+  TResult maybeWhen<TResult extends Object>({
+    TResult answerRestored(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
-    Result answerStatusInitialized(),
-    Result answerChanged(Question question, dynamic body, bool isNote,
-        bool toggle, ChoiceId noteOf),
-    @required Result orElse(),
+    TResult answerStatusInitialized(),
+    TResult answerChanged(Question question, dynamic body, bool isNote,
+        bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    TResult specialAnswerSwitched(Question question),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerStatusInitialized != null) {
@@ -353,24 +375,27 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result answerRestored(_AnswerRestored value),
-    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
-    @required Result answerChanged(_AnswerChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult answerRestored(_AnswerRestored value),
+    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerChanged(_AnswerChanged value),
+    @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
+    assert(specialAnswerSwitched != null);
     return answerStatusInitialized(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result answerRestored(_AnswerRestored value),
-    Result answerStatusInitialized(_AnswerStatusInitialized value),
-    Result answerChanged(_AnswerChanged value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult answerRestored(_AnswerRestored value),
+    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerChanged(_AnswerChanged value),
+    TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerStatusInitialized != null) {
@@ -393,6 +418,7 @@ abstract class _$AnswerChangedCopyWith<$Res> {
       {Question question,
       dynamic body,
       bool isNote,
+      bool isSpecialAnswer,
       bool toggle,
       ChoiceId noteOf});
 
@@ -414,6 +440,7 @@ class __$AnswerChangedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
     Object question = freezed,
     Object body = freezed,
     Object isNote = freezed,
+    Object isSpecialAnswer = freezed,
     Object toggle = freezed,
     Object noteOf = freezed,
   }) {
@@ -421,6 +448,9 @@ class __$AnswerChangedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
       question: question == freezed ? _value.question : question as Question,
       body: body == freezed ? _value.body : body as dynamic,
       isNote: isNote == freezed ? _value.isNote : isNote as bool,
+      isSpecialAnswer: isSpecialAnswer == freezed
+          ? _value.isSpecialAnswer
+          : isSpecialAnswer as bool,
       toggle: toggle == freezed ? _value.toggle : toggle as bool,
       noteOf: noteOf == freezed ? _value.noteOf : noteOf as ChoiceId,
     ));
@@ -443,11 +473,13 @@ class _$_AnswerChanged implements _AnswerChanged {
       {@required this.question,
       @required this.body,
       @required this.isNote,
+      @required this.isSpecialAnswer,
       @required this.toggle,
       this.noteOf})
       : assert(question != null),
         assert(body != null),
         assert(isNote != null),
+        assert(isSpecialAnswer != null),
         assert(toggle != null);
 
   @override
@@ -457,13 +489,15 @@ class _$_AnswerChanged implements _AnswerChanged {
   @override
   final bool isNote;
   @override
+  final bool isSpecialAnswer;
+  @override
   final bool toggle;
   @override
   final ChoiceId noteOf;
 
   @override
   String toString() {
-    return 'AnswerEvent.answerChanged(question: $question, body: $body, isNote: $isNote, toggle: $toggle, noteOf: $noteOf)';
+    return 'AnswerEvent.answerChanged(question: $question, body: $body, isNote: $isNote, isSpecialAnswer: $isSpecialAnswer, toggle: $toggle, noteOf: $noteOf)';
   }
 
   @override
@@ -477,6 +511,9 @@ class _$_AnswerChanged implements _AnswerChanged {
                 const DeepCollectionEquality().equals(other.body, body)) &&
             (identical(other.isNote, isNote) ||
                 const DeepCollectionEquality().equals(other.isNote, isNote)) &&
+            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
             (identical(other.toggle, toggle) ||
                 const DeepCollectionEquality().equals(other.toggle, toggle)) &&
             (identical(other.noteOf, noteOf) ||
@@ -489,6 +526,7 @@ class _$_AnswerChanged implements _AnswerChanged {
       const DeepCollectionEquality().hash(question) ^
       const DeepCollectionEquality().hash(body) ^
       const DeepCollectionEquality().hash(isNote) ^
+      const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(toggle) ^
       const DeepCollectionEquality().hash(noteOf);
 
@@ -498,62 +536,70 @@ class _$_AnswerChanged implements _AnswerChanged {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
+  TResult when<TResult extends Object>({
     @required
-        Result answerRestored(
+        TResult answerRestored(
             KtMutableMap<QuestionId, Answer> answerMap,
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
-    @required Result answerStatusInitialized(),
+    @required TResult answerStatusInitialized(),
     @required
-        Result answerChanged(Question question, dynamic body, bool isNote,
-            bool toggle, ChoiceId noteOf),
+        TResult answerChanged(Question question, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    @required TResult specialAnswerSwitched(Question question),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
-    return answerChanged(question, body, isNote, toggle, noteOf);
+    assert(specialAnswerSwitched != null);
+    return answerChanged(
+        question, body, isNote, isSpecialAnswer, toggle, noteOf);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result answerRestored(
+  TResult maybeWhen<TResult extends Object>({
+    TResult answerRestored(
         KtMutableMap<QuestionId, Answer> answerMap,
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
-    Result answerStatusInitialized(),
-    Result answerChanged(Question question, dynamic body, bool isNote,
-        bool toggle, ChoiceId noteOf),
-    @required Result orElse(),
+    TResult answerStatusInitialized(),
+    TResult answerChanged(Question question, dynamic body, bool isNote,
+        bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    TResult specialAnswerSwitched(Question question),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerChanged != null) {
-      return answerChanged(question, body, isNote, toggle, noteOf);
+      return answerChanged(
+          question, body, isNote, isSpecialAnswer, toggle, noteOf);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result answerRestored(_AnswerRestored value),
-    @required Result answerStatusInitialized(_AnswerStatusInitialized value),
-    @required Result answerChanged(_AnswerChanged value),
+  TResult map<TResult extends Object>({
+    @required TResult answerRestored(_AnswerRestored value),
+    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerChanged(_AnswerChanged value),
+    @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
   }) {
     assert(answerRestored != null);
     assert(answerStatusInitialized != null);
     assert(answerChanged != null);
+    assert(specialAnswerSwitched != null);
     return answerChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result answerRestored(_AnswerRestored value),
-    Result answerStatusInitialized(_AnswerStatusInitialized value),
-    Result answerChanged(_AnswerChanged value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult answerRestored(_AnswerRestored value),
+    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerChanged(_AnswerChanged value),
+    TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (answerChanged != null) {
@@ -568,15 +614,170 @@ abstract class _AnswerChanged implements AnswerEvent {
       {@required Question question,
       @required dynamic body,
       @required bool isNote,
+      @required bool isSpecialAnswer,
       @required bool toggle,
       ChoiceId noteOf}) = _$_AnswerChanged;
 
   Question get question;
   dynamic get body;
   bool get isNote;
+  bool get isSpecialAnswer;
   bool get toggle;
   ChoiceId get noteOf;
   _$AnswerChangedCopyWith<_AnswerChanged> get copyWith;
+}
+
+/// @nodoc
+abstract class _$SpecialAnswerSwitchedCopyWith<$Res> {
+  factory _$SpecialAnswerSwitchedCopyWith(_SpecialAnswerSwitched value,
+          $Res Function(_SpecialAnswerSwitched) then) =
+      __$SpecialAnswerSwitchedCopyWithImpl<$Res>;
+  $Res call({Question question});
+
+  $QuestionCopyWith<$Res> get question;
+}
+
+/// @nodoc
+class __$SpecialAnswerSwitchedCopyWithImpl<$Res>
+    extends _$AnswerEventCopyWithImpl<$Res>
+    implements _$SpecialAnswerSwitchedCopyWith<$Res> {
+  __$SpecialAnswerSwitchedCopyWithImpl(_SpecialAnswerSwitched _value,
+      $Res Function(_SpecialAnswerSwitched) _then)
+      : super(_value, (v) => _then(v as _SpecialAnswerSwitched));
+
+  @override
+  _SpecialAnswerSwitched get _value => super._value as _SpecialAnswerSwitched;
+
+  @override
+  $Res call({
+    Object question = freezed,
+  }) {
+    return _then(_SpecialAnswerSwitched(
+      question: question == freezed ? _value.question : question as Question,
+    ));
+  }
+
+  @override
+  $QuestionCopyWith<$Res> get question {
+    if (_value.question == null) {
+      return null;
+    }
+    return $QuestionCopyWith<$Res>(_value.question, (value) {
+      return _then(_value.copyWith(question: value));
+    });
+  }
+}
+
+/// @nodoc
+class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
+  const _$_SpecialAnswerSwitched({@required this.question})
+      : assert(question != null);
+
+  @override
+  final Question question;
+
+  @override
+  String toString() {
+    return 'AnswerEvent.specialAnswerSwitched(question: $question)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SpecialAnswerSwitched &&
+            (identical(other.question, question) ||
+                const DeepCollectionEquality()
+                    .equals(other.question, question)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(question);
+
+  @override
+  _$SpecialAnswerSwitchedCopyWith<_SpecialAnswerSwitched> get copyWith =>
+      __$SpecialAnswerSwitchedCopyWithImpl<_SpecialAnswerSwitched>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required
+        TResult answerRestored(
+            KtMutableMap<QuestionId, Answer> answerMap,
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtList<Question> questionList),
+    @required TResult answerStatusInitialized(),
+    @required
+        TResult answerChanged(Question question, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    @required TResult specialAnswerSwitched(Question question),
+  }) {
+    assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
+    assert(answerChanged != null);
+    assert(specialAnswerSwitched != null);
+    return specialAnswerSwitched(question);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult answerRestored(
+        KtMutableMap<QuestionId, Answer> answerMap,
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtList<Question> questionList),
+    TResult answerStatusInitialized(),
+    TResult answerChanged(Question question, dynamic body, bool isNote,
+        bool isSpecialAnswer, bool toggle, ChoiceId noteOf),
+    TResult specialAnswerSwitched(Question question),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (specialAnswerSwitched != null) {
+      return specialAnswerSwitched(question);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult answerRestored(_AnswerRestored value),
+    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerChanged(_AnswerChanged value),
+    @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
+  }) {
+    assert(answerRestored != null);
+    assert(answerStatusInitialized != null);
+    assert(answerChanged != null);
+    assert(specialAnswerSwitched != null);
+    return specialAnswerSwitched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult answerRestored(_AnswerRestored value),
+    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerChanged(_AnswerChanged value),
+    TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (specialAnswerSwitched != null) {
+      return specialAnswerSwitched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SpecialAnswerSwitched implements AnswerEvent {
+  const factory _SpecialAnswerSwitched({@required Question question}) =
+      _$_SpecialAnswerSwitched;
+
+  Question get question;
+  _$SpecialAnswerSwitchedCopyWith<_SpecialAnswerSwitched> get copyWith;
 }
 
 /// @nodoc

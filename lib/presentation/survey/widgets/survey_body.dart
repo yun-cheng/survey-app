@@ -17,6 +17,7 @@ class SurveyBody extends StatelessWidget {
         LoggerService.simple.i('SurveyBody rebuild!!!');
         // TODO show error when survey failed!!
         return ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(
             vertical: 10.0,

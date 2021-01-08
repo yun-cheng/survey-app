@@ -36,30 +36,30 @@ const $OverviewFailure = _$OverviewFailureTearOff();
 /// @nodoc
 mixin _$OverviewFailure {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverError(),
-    @required Result insufficientPermission(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult serverError(),
+    @required TResult insufficientPermission(),
+    @required TResult unexpected(),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverError(),
-    Result insufficientPermission(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult serverError(),
+    TResult insufficientPermission(),
+    TResult unexpected(),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverError(ServerError value),
-    @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unexpected(_Unexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult serverError(ServerError value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
+    @required TResult unexpected(_Unexpected value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverError(ServerError value),
-    Result insufficientPermission(_InsufficientPermission value),
-    Result unexpected(_Unexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult serverError(ServerError value),
+    TResult insufficientPermission(_InsufficientPermission value),
+    TResult unexpected(_Unexpected value),
+    @required TResult orElse(),
   });
 }
 
@@ -118,10 +118,10 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverError(),
-    @required Result insufficientPermission(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult serverError(),
+    @required TResult insufficientPermission(),
+    @required TResult unexpected(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
@@ -131,11 +131,11 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverError(),
-    Result insufficientPermission(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult serverError(),
+    TResult insufficientPermission(),
+    TResult unexpected(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serverError != null) {
@@ -146,10 +146,10 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverError(ServerError value),
-    @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unexpected(_Unexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult serverError(ServerError value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
+    @required TResult unexpected(_Unexpected value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
@@ -159,11 +159,11 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverError(ServerError value),
-    Result insufficientPermission(_InsufficientPermission value),
-    Result unexpected(_Unexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult serverError(ServerError value),
+    TResult insufficientPermission(_InsufficientPermission value),
+    TResult unexpected(_Unexpected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (serverError != null) {
@@ -215,10 +215,10 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverError(),
-    @required Result insufficientPermission(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult serverError(),
+    @required TResult insufficientPermission(),
+    @required TResult unexpected(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
@@ -228,11 +228,11 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverError(),
-    Result insufficientPermission(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult serverError(),
+    TResult insufficientPermission(),
+    TResult unexpected(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (insufficientPermission != null) {
@@ -243,10 +243,10 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverError(ServerError value),
-    @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unexpected(_Unexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult serverError(ServerError value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
+    @required TResult unexpected(_Unexpected value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
@@ -256,11 +256,11 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverError(ServerError value),
-    Result insufficientPermission(_InsufficientPermission value),
-    Result unexpected(_Unexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult serverError(ServerError value),
+    TResult insufficientPermission(_InsufficientPermission value),
+    TResult unexpected(_Unexpected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (insufficientPermission != null) {
@@ -312,10 +312,10 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result serverError(),
-    @required Result insufficientPermission(),
-    @required Result unexpected(),
+  TResult when<TResult extends Object>({
+    @required TResult serverError(),
+    @required TResult insufficientPermission(),
+    @required TResult unexpected(),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
@@ -325,11 +325,11 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result serverError(),
-    Result insufficientPermission(),
-    Result unexpected(),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult serverError(),
+    TResult insufficientPermission(),
+    TResult unexpected(),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unexpected != null) {
@@ -340,10 +340,10 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result serverError(ServerError value),
-    @required Result insufficientPermission(_InsufficientPermission value),
-    @required Result unexpected(_Unexpected value),
+  TResult map<TResult extends Object>({
+    @required TResult serverError(ServerError value),
+    @required TResult insufficientPermission(_InsufficientPermission value),
+    @required TResult unexpected(_Unexpected value),
   }) {
     assert(serverError != null);
     assert(insufficientPermission != null);
@@ -353,11 +353,11 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result serverError(ServerError value),
-    Result insufficientPermission(_InsufficientPermission value),
-    Result unexpected(_Unexpected value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult serverError(ServerError value),
+    TResult insufficientPermission(_InsufficientPermission value),
+    TResult unexpected(_Unexpected value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (unexpected != null) {

@@ -30,22 +30,22 @@ mixin _$QuestionListEvent {
   QuizId get quizId;
 
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result questionListLoaded(QuizId quizId),
+  TResult when<TResult extends Object>({
+    @required TResult questionListLoaded(QuizId quizId),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result questionListLoaded(QuizId quizId),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult questionListLoaded(QuizId quizId),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result questionListLoaded(_QuestionListLoaded value),
+  TResult map<TResult extends Object>({
+    @required TResult questionListLoaded(_QuestionListLoaded value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result questionListLoaded(_QuestionListLoaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult questionListLoaded(_QuestionListLoaded value),
+    @required TResult orElse(),
   });
 
   $QuestionListEventCopyWith<QuestionListEvent> get copyWith;
@@ -139,8 +139,8 @@ class _$_QuestionListLoaded implements _QuestionListLoaded {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result questionListLoaded(QuizId quizId),
+  TResult when<TResult extends Object>({
+    @required TResult questionListLoaded(QuizId quizId),
   }) {
     assert(questionListLoaded != null);
     return questionListLoaded(quizId);
@@ -148,9 +148,9 @@ class _$_QuestionListLoaded implements _QuestionListLoaded {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result questionListLoaded(QuizId quizId),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult questionListLoaded(QuizId quizId),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (questionListLoaded != null) {
@@ -161,8 +161,8 @@ class _$_QuestionListLoaded implements _QuestionListLoaded {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result questionListLoaded(_QuestionListLoaded value),
+  TResult map<TResult extends Object>({
+    @required TResult questionListLoaded(_QuestionListLoaded value),
   }) {
     assert(questionListLoaded != null);
     return questionListLoaded(this);
@@ -170,9 +170,9 @@ class _$_QuestionListLoaded implements _QuestionListLoaded {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result questionListLoaded(_QuestionListLoaded value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult questionListLoaded(_QuestionListLoaded value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (questionListLoaded != null) {
@@ -229,34 +229,34 @@ const $QuestionListState = _$QuestionListStateTearOff();
 /// @nodoc
 mixin _$QuestionListState {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizFailure quizFailure),
+    @required TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
   });
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizFailure quizFailure),
+    TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
+    @required TResult orElse(),
   });
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(QuestionListLoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(QuestionListLoadSuccess value),
   });
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(QuestionListLoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(QuestionListLoadSuccess value),
+    @required TResult orElse(),
   });
 }
 
@@ -312,11 +312,11 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizFailure quizFailure),
+    @required TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -327,12 +327,12 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizFailure quizFailure),
+    TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -343,11 +343,11 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(QuestionListLoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -358,12 +358,12 @@ class _$_Initial implements _Initial {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(QuestionListLoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(QuestionListLoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (initial != null) {
@@ -415,11 +415,11 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizFailure quizFailure),
+    @required TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -430,12 +430,12 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizFailure quizFailure),
+    TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -446,11 +446,11 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(QuestionListLoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -461,12 +461,12 @@ class _$_LoadInProgress implements _LoadInProgress {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(QuestionListLoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(QuestionListLoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadInProgress != null) {
@@ -552,11 +552,11 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizFailure quizFailure),
+    @required TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -567,12 +567,12 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizFailure quizFailure),
+    TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {
@@ -583,11 +583,11 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(QuestionListLoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -598,12 +598,12 @@ class _$_LoadFailure implements _LoadFailure {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(QuestionListLoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(QuestionListLoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadFailure != null) {
@@ -694,11 +694,11 @@ class _$QuestionListLoadSuccess implements QuestionListLoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result initial(),
-    @required Result loadInProgress(),
-    @required Result loadFailure(QuizFailure quizFailure),
-    @required Result loadSuccess(QuizId quizId, KtList<Question> questionList),
+  TResult when<TResult extends Object>({
+    @required TResult initial(),
+    @required TResult loadInProgress(),
+    @required TResult loadFailure(QuizFailure quizFailure),
+    @required TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -709,12 +709,12 @@ class _$QuestionListLoadSuccess implements QuestionListLoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result initial(),
-    Result loadInProgress(),
-    Result loadFailure(QuizFailure quizFailure),
-    Result loadSuccess(QuizId quizId, KtList<Question> questionList),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object>({
+    TResult initial(),
+    TResult loadInProgress(),
+    TResult loadFailure(QuizFailure quizFailure),
+    TResult loadSuccess(QuizId quizId, KtList<Question> questionList),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {
@@ -725,11 +725,11 @@ class _$QuestionListLoadSuccess implements QuestionListLoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result initial(_Initial value),
-    @required Result loadInProgress(_LoadInProgress value),
-    @required Result loadFailure(_LoadFailure value),
-    @required Result loadSuccess(QuestionListLoadSuccess value),
+  TResult map<TResult extends Object>({
+    @required TResult initial(_Initial value),
+    @required TResult loadInProgress(_LoadInProgress value),
+    @required TResult loadFailure(_LoadFailure value),
+    @required TResult loadSuccess(QuestionListLoadSuccess value),
   }) {
     assert(initial != null);
     assert(loadInProgress != null);
@@ -740,12 +740,12 @@ class _$QuestionListLoadSuccess implements QuestionListLoadSuccess {
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result initial(_Initial value),
-    Result loadInProgress(_LoadInProgress value),
-    Result loadFailure(_LoadFailure value),
-    Result loadSuccess(QuestionListLoadSuccess value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object>({
+    TResult initial(_Initial value),
+    TResult loadInProgress(_LoadInProgress value),
+    TResult loadFailure(_LoadFailure value),
+    TResult loadSuccess(QuestionListLoadSuccess value),
+    @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (loadSuccess != null) {

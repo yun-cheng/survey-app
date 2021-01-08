@@ -18,6 +18,7 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
     @required int serialNumber,
     @required String answerStatusType,
     WarningDto warning,
+    bool isSpecialAnswer,
     Map<String, String> noteMap,
   }) = _AnswerStatusDto;
 
@@ -27,6 +28,7 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
       serialNumber: answerStatus.serialNumber.getValueAnyway(),
       answerStatusType: answerStatus.type.getValueAnyway(),
       warning: WarningDto.fromDomain(answerStatus.warning),
+      isSpecialAnswer: answerStatus.isSpecialAnswer,
       noteMap: answerStatus.noteMap
           .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => entry.value.getValueAnyway())
@@ -40,6 +42,7 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
       serialNumber: SerialNumber(serialNumber),
       type: AnswerStatusType(answerStatusType),
       warning: warning != null ? warning.toDomain() : Warning.empty(),
+      isSpecialAnswer: isSpecialAnswer ?? false,
       noteMap: noteMap != null
           ? KtMutableMap.from(noteMap)
               .mapKeys((entry) => ChoiceId(entry.key))

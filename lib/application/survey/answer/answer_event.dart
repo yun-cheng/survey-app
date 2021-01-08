@@ -8,7 +8,7 @@ abstract class AnswerEvent with _$AnswerEvent {
     @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
     @required KtList<Question> questionList,
   }) = _AnswerRestored;
-  
+
   const factory AnswerEvent.answerStatusInitialized() =
       _AnswerStatusInitialized;
 
@@ -17,6 +17,7 @@ abstract class AnswerEvent with _$AnswerEvent {
     @required Question question,
     @required dynamic body,
     @required bool isNote,
+    @required bool isSpecialAnswer,
     @required bool toggle,
     ChoiceId noteOf,
   }) = _AnswerChanged;
@@ -24,6 +25,7 @@ abstract class AnswerEvent with _$AnswerEvent {
   factory AnswerEvent.answerChangedWith({
     @required Question question,
     @required dynamic body,
+    bool isSpecialAnswer,
     bool isNote,
     bool toggle,
     ChoiceId noteOf,
@@ -31,8 +33,14 @@ abstract class AnswerEvent with _$AnswerEvent {
       _AnswerChanged(
         question: question,
         body: body,
+        isSpecialAnswer: isSpecialAnswer ?? false,
         isNote: isNote ?? false,
         toggle: toggle ?? false,
         noteOf: noteOf,
       );
+
+  // H_3 切換特殊作答
+  const factory AnswerEvent.specialAnswerSwitched({
+    @required Question question,
+  }) = _SpecialAnswerSwitched;
 }

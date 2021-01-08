@@ -225,7 +225,10 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
         );
       },
       // H_5 接收更新的作答
+      // NOTE 每次更新作答會觸發兩次 responseUpdated，一次是更新 answerMap、answerStatusMap，
+      //  另一次是更新 surveyPageState
       responseUpdated: (e) async* {
+        // S_1 newResponse
         final newResponse = state.response.copyWith(
           answerMap: e.answerMap ?? state.response.answerMap,
           answerStatusMap: e.answerStatusMap ?? state.response.answerStatusMap,
@@ -233,7 +236,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           deviceTimeStamp: DeviceTimeStamp.now(),
         );
 
-        // H_5-2 在 survey page state 也更新完成時再更新 responseList
+        // S_2 在 surveyPageState 也更新完成時再更新 responseList
         if (e.isFinished) {
           KtList<Response> newResponseList = state.responseList.filterNot(
               (response) =>

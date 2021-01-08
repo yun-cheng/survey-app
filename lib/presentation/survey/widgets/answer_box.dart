@@ -17,17 +17,23 @@ class AnswerBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = question.choiceList.size;
-
     return BlocBuilder<AnswerBloc, AnswerState>(
       // NOTE 答案有變更時才要 rebuild
-      buildWhen: (p, c) => p.answerMap[question.id] != c.answerMap[question.id],
+      buildWhen: (p, c) =>
+          p.answerMap[question.id] != c.answerMap[question.id] ||
+          p.answerStatusMap[question.id] != c.answerStatusMap[question.id],
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
+        final isSpecialAnswer =
+            state.answerStatusMap[question.id].isSpecialAnswer;
+        final thisChoiceList =
+            isSpecialAnswer ? question.specialAnswerList : question.choiceList;
+        final size = isSpecialAnswer
+            ? question.specialAnswerList.size
+            : question.choiceList.size;
         LoggerService.simple.i('AnswerBox rebuild!!!');
-        // TODO 根據 isSpecialAnswer 來丟選項
-        // return ListView.builder(
         return StaggeredGridView.countBuilder(
+          physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
           shrinkWrap: true,
           itemCount: size,
@@ -36,9 +42,11 @@ class AnswerBox extends StatelessWidget {
           itemBuilder: (context, int index) {
             final int newIndex =
                 index.isEven ? index ~/ 2 : (index + size) ~/ 2;
-            final choice = question.choiceList[size < 4 ? index : newIndex];
+            final choice = thisChoiceList[size < 4 ? index : newIndex];
 
-            if ((question.type == QuestionType.single()) || choice.asSingle) {
+            if ((question.type == QuestionType.single()) ||
+                choice.asSingle ||
+                isSpecialAnswer) {
               return RadioListTile(
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,6 +74,7 @@ class AnswerBox extends StatelessWidget {
                         AnswerEvent.answerChangedWith(
                           question: question,
                           body: choice,
+                          isSpecialAnswer: isSpecialAnswer,
                         ),
                       );
                 },
