@@ -13,7 +13,6 @@ import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/page_state.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/simple_survey_page_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
 
 class SplashPage extends StatelessWidget {
@@ -145,14 +144,6 @@ class SplashPage extends StatelessWidget {
                     questionList: state.survey.questionList,
                   ),
                 );
-          },
-        ),
-        // TEST
-        BlocListener<ResponseBloc, ResponseState>(
-          listener: (context, state) {
-            // LoggerService.simple.i('Debugging!!');
-
-            // LoggerService.simple.e(state.survey.answerMap[QuestionId('A2a')]);
           },
         ),
       ],

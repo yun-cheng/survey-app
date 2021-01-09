@@ -20,7 +20,7 @@ class _$AnswerStatusTearOff {
       @required AnswerStatusType type,
       @required Warning warning,
       @required bool isSpecialAnswer,
-      KtMutableMap<ChoiceId, AnswerStatusType> noteMap}) {
+      KtMap<ChoiceId, AnswerStatusType> noteMap}) {
     return _AnswerStatus(
       id: id,
       serialNumber: serialNumber,
@@ -43,7 +43,7 @@ mixin _$AnswerStatus {
   AnswerStatusType get type;
   Warning get warning;
   bool get isSpecialAnswer;
-  KtMutableMap<ChoiceId, AnswerStatusType> get noteMap;
+  KtMap<ChoiceId, AnswerStatusType> get noteMap;
 
   $AnswerStatusCopyWith<AnswerStatus> get copyWith;
 }
@@ -59,7 +59,7 @@ abstract class $AnswerStatusCopyWith<$Res> {
       AnswerStatusType type,
       Warning warning,
       bool isSpecialAnswer,
-      KtMutableMap<ChoiceId, AnswerStatusType> noteMap});
+      KtMap<ChoiceId, AnswerStatusType> noteMap});
 
   $WarningCopyWith<$Res> get warning;
 }
@@ -93,7 +93,7 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
           : isSpecialAnswer as bool,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMutableMap<ChoiceId, AnswerStatusType>,
+          : noteMap as KtMap<ChoiceId, AnswerStatusType>,
     ));
   }
 
@@ -121,7 +121,7 @@ abstract class _$AnswerStatusCopyWith<$Res>
       AnswerStatusType type,
       Warning warning,
       bool isSpecialAnswer,
-      KtMutableMap<ChoiceId, AnswerStatusType> noteMap});
+      KtMap<ChoiceId, AnswerStatusType> noteMap});
 
   @override
   $WarningCopyWith<$Res> get warning;
@@ -158,7 +158,7 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
           : isSpecialAnswer as bool,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMutableMap<ChoiceId, AnswerStatusType>,
+          : noteMap as KtMap<ChoiceId, AnswerStatusType>,
     ));
   }
 }
@@ -190,7 +190,7 @@ class _$_AnswerStatus extends _AnswerStatus {
   @override
   final bool isSpecialAnswer;
   @override
-  final KtMutableMap<ChoiceId, AnswerStatusType> noteMap;
+  final KtMap<ChoiceId, AnswerStatusType> noteMap;
 
   @override
   String toString() {
@@ -241,7 +241,7 @@ abstract class _AnswerStatus extends AnswerStatus {
       @required AnswerStatusType type,
       @required Warning warning,
       @required bool isSpecialAnswer,
-      KtMutableMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
+      KtMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
 
   @override
   QuestionId get id;
@@ -254,7 +254,7 @@ abstract class _AnswerStatus extends AnswerStatus {
   @override
   bool get isSpecialAnswer;
   @override
-  KtMutableMap<ChoiceId, AnswerStatusType> get noteMap;
+  KtMap<ChoiceId, AnswerStatusType> get noteMap;
   @override
   _$AnswerStatusCopyWith<_AnswerStatus> get copyWith;
 }

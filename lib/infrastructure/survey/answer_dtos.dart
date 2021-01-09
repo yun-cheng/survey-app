@@ -36,10 +36,10 @@ abstract class AnswerDto implements _$AnswerDto {
       serialNumber: SerialNumber(serialNumber),
       body: answerBody != null ? answerBody.toDomain() : AnswerBody.empty(),
       noteMap: noteMap != null
-          ? KtMutableMap.from(noteMap)
+          ? KtMap.from(noteMap)
               .mapKeys((entry) => ChoiceId(entry.key))
               .mapValues((entry) => AnswerBody(entry.value))
-          : KtMutableMap<ChoiceId, AnswerBody>.empty(),
+          : const KtMap<ChoiceId, AnswerBody>.empty(),
     );
   }
 

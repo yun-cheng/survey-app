@@ -9,8 +9,8 @@ import 'package:kt_dart/collection.dart';
 @LazySingleton(as: IAnswerAlgorithm)
 class AnswerAlgorithm implements IAnswerAlgorithm {
   @override
-  KtMutableMap<QuestionId, Answer> updateAnswer({
-    KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateAnswer({
+    KtMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
     bool isSpecialAnswer,
@@ -18,7 +18,7 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     bool isNote,
     ChoiceId noteOf,
   }) {
-    KtMutableMap<QuestionId, Answer> newAnswerMap;
+    KtMap<QuestionId, Answer> newAnswerMap;
 
     if (isNote) {
       newAnswerMap = updateNoteAnswer(
@@ -52,8 +52,8 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
   }
 
   @override
-  KtMutableMap<QuestionId, Answer> updateSingleAnswer({
-    KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateSingleAnswer({
+    KtMap<QuestionId, Answer> answerMap,
     Question question,
     Choice choice,
   }) {
@@ -63,12 +63,12 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     newAnswerMap[question.id] =
         answerMap[question.id].copyWith(body: AnswerBody(choice.id));
 
-    return newAnswerMap;
+    return newAnswerMap.toMap();
   }
 
   @override
-  KtMutableMap<QuestionId, Answer> updateInputAnswer({
-    KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateInputAnswer({
+    KtMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
   }) {
@@ -77,12 +77,12 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     newAnswerMap[question.id] =
         answerMap[question.id].copyWith(body: AnswerBody(answerBody));
 
-    return newAnswerMap;
+    return newAnswerMap.toMap();
   }
 
   @override
-  KtMutableMap<QuestionId, Answer> updateMultipleAnswer({
-    KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateMultipleAnswer({
+    KtMap<QuestionId, Answer> answerMap,
     Question question,
     Choice choice,
     bool toggle,
@@ -101,41 +101,40 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
 
     newAnswerMap[question.id] = oldAnswer.copyWith(body: newAnswerBody);
 
-    return newAnswerMap;
+    return newAnswerMap.toMap();
   }
 
   @override
-  KtMutableMap<QuestionId, Answer> updateNoteAnswer({
-    KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateNoteAnswer({
+    KtMap<QuestionId, Answer> answerMap,
     Question question,
     dynamic answerBody,
     ChoiceId noteOf,
   }) {
-    final newAnswerMap = KtMutableMap.from(answerMap.toMap().asMap());
-
+    final newAnswerMap = KtMutableMap.from(answerMap.asMap());
     final newNoteMap =
-        KtMutableMap.from(newAnswerMap[question.id].noteMap.toMap().asMap());
+        KtMutableMap.from(answerMap[question.id].noteMap.asMap());
     newNoteMap.put(noteOf, AnswerBody(answerBody));
 
     // HIGHLIGHT 必須要用 copyWith 的方式修改 noteMap，而不能直接 put
     newAnswerMap[question.id] =
-        newAnswerMap[question.id].copyWith(noteMap: newNoteMap);
+        newAnswerMap[question.id].copyWith(noteMap: newNoteMap.toMap());
 
-    return newAnswerMap;
+    return newAnswerMap.toMap();
   }
 
   @override
-  KtMutableMap<QuestionId, Answer> clearAnswer({
-    KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> clearAnswer({
+    KtMap<QuestionId, Answer> answerMap,
     Question question,
   }) {
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
 
     newAnswerMap[question.id] = newAnswerMap[question.id].copyWith(
       body: AnswerBody.empty(),
-      noteMap: KtMutableMap<ChoiceId, AnswerBody>.empty(),
+      noteMap: const KtMap<ChoiceId, AnswerBody>.empty(),
     );
 
-    return newAnswerMap;
+    return newAnswerMap.toMap();
   }
 }

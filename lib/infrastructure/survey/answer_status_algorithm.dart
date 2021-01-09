@@ -12,15 +12,15 @@ import 'package:tuple/tuple.dart';
 @LazySingleton(as: IAnswerStatusAlgorithm)
 class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
   @override
-  Tuple2<KtMutableMap<QuestionId, AnswerStatus>,
-      KtMutableMap<QuestionId, Answer>> updateAnswerStatus({
-    KtMutableMap<QuestionId, Answer> answerMap,
-    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+  Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
+      updateAnswerStatus({
+    KtMap<QuestionId, Answer> answerMap,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
     Question question,
     KtList<Question> questionList,
     IAnswerAlgorithm answerAlgorithm,
   }) {
-    KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap;
+    KtMap<QuestionId, AnswerStatus> newAnswerStatusMap;
 
     // S_1 先看是否為指定題目
     if (question != null) {
@@ -59,9 +59,9 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     return Tuple2(newAnswerStatusMap, tupleResult.item2);
   }
 
-  KtMutableMap<QuestionId, AnswerStatus> updateWarning({
-    KtMutableMap<QuestionId, Answer> answerMap,
-    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+  KtMap<QuestionId, AnswerStatus> updateWarning({
+    KtMap<QuestionId, Answer> answerMap,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
     KtList<Question> questionList,
   }) {
     final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
@@ -79,22 +79,21 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       );
     });
 
-    return newAnswerStatusMap;
+    return newAnswerStatusMap.toMap();
   }
 
   @injectable
-  Tuple2<KtMutableMap<QuestionId, AnswerStatus>,
-      KtMutableMap<QuestionId, Answer>> evaluateShowQuestionExpression({
-    KtMutableMap<QuestionId, Answer> answerMap,
-    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+  Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
+      evaluateShowQuestionExpression({
+    KtMap<QuestionId, Answer> answerMap,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
     KtList<Question> questionList,
     IAnswerAlgorithm answerAlgorithm,
   }) {
     final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
         KtMutableMap.from(answerStatusMap.asMap());
 
-    KtMutableMap<QuestionId, Answer> newAnswerMap =
-        KtMutableMap.from(answerMap.asMap());
+    KtMap<QuestionId, Answer> newAnswerMap = answerMap;
 
     // S_1 篩出有 show question expression 的題目
     final showQuestionList =
@@ -112,7 +111,7 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       } else if (!showQuestion && !answerStatusMap[question.id].isHidden) {
         newAnswerStatusType = AnswerStatusType.hidden();
         newAnswerMap = answerAlgorithm.clearAnswer(
-          answerMap: newAnswerMap,
+          answerMap: answerMap,
           question: question,
         );
       } else {
@@ -125,12 +124,12 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       );
     });
 
-    return Tuple2(newAnswerStatusMap, newAnswerMap);
+    return Tuple2(newAnswerStatusMap.toMap(), newAnswerMap);
   }
 
-  KtMutableMap<QuestionId, AnswerStatus> updateAnswerStatusTypeOfChoice({
-    KtMutableMap<QuestionId, Answer> answerMap,
-    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+  KtMap<QuestionId, AnswerStatus> updateAnswerStatusTypeOfChoice({
+    KtMap<QuestionId, Answer> answerMap,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
     Question question,
   }) {
     final newAnswerStatusMap = KtMutableMap.from(answerStatusMap.asMap());
@@ -158,10 +157,10 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       noteMap: newNoteMap,
     );
 
-    return newAnswerStatusMap;
+    return newAnswerStatusMap.toMap();
   }
 
-  KtMutableMap<ChoiceId, AnswerStatusType> updateNoteMap({
+  KtMap<ChoiceId, AnswerStatusType> updateNoteMap({
     Answer answer,
     KtList<Choice> choiceList,
   }) {
@@ -189,7 +188,7 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       }
     }
 
-    return newNoteMap;
+    return newNoteMap.toMap();
   }
 
   AnswerStatusType updateAnswerStatusTypeOfNote(
@@ -206,9 +205,9 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     return answerStatusType;
   }
 
-  KtMutableMap<QuestionId, AnswerStatus> updateAnswerStatusTypeOfInput({
-    KtMutableMap<QuestionId, Answer> answerMap,
-    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+  KtMap<QuestionId, AnswerStatus> updateAnswerStatusTypeOfInput({
+    KtMap<QuestionId, Answer> answerMap,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
     Question question,
   }) {
     final newAnswerStatusMap = KtMutableMap.from(answerStatusMap.asMap());
@@ -231,6 +230,6 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     newAnswerStatusMap[question.id] =
         answerStatusMap[question.id].copyWith(type: newAnswerStatusType);
 
-    return newAnswerStatusMap;
+    return newAnswerStatusMap.toMap();
   }
 }

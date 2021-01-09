@@ -61,8 +61,8 @@ class _$ResponseEventTearOff {
 
 // ignore: unused_element
   _ResponseUpdated responseUpdated(
-      {KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState,
       @required bool isFinished}) {
     return _ResponseUpdated(
@@ -95,8 +95,8 @@ mixin _$ResponseEvent {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   });
@@ -111,8 +111,8 @@ mixin _$ResponseEvent {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -260,8 +260,8 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -288,8 +288,8 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -434,8 +434,8 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -462,8 +462,8 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -580,8 +580,8 @@ class _$_ResponseListRestored implements _ResponseListRestored {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -608,8 +608,8 @@ class _$_ResponseListRestored implements _ResponseListRestored {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -721,8 +721,8 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -749,8 +749,8 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -895,8 +895,8 @@ class _$_SurveySelected implements _SurveySelected {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -923,8 +923,8 @@ class _$_SurveySelected implements _SurveySelected {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -1075,8 +1075,8 @@ class _$_RespondentSelected implements _RespondentSelected {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -1103,8 +1103,8 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -1220,8 +1220,8 @@ class _$_ResponseRestored implements _ResponseRestored {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -1248,8 +1248,8 @@ class _$_ResponseRestored implements _ResponseRestored {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -1315,8 +1315,8 @@ abstract class _$ResponseUpdatedCopyWith<$Res> {
           _ResponseUpdated value, $Res Function(_ResponseUpdated) then) =
       __$ResponseUpdatedCopyWithImpl<$Res>;
   $Res call(
-      {KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState,
       bool isFinished});
 
@@ -1344,10 +1344,10 @@ class __$ResponseUpdatedCopyWithImpl<$Res>
     return _then(_ResponseUpdated(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<QuestionId, Answer>,
+          : answerMap as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState as SimpleSurveyPageState,
@@ -1378,9 +1378,9 @@ class _$_ResponseUpdated implements _ResponseUpdated {
       : assert(isFinished != null);
 
   @override
-  final KtMutableMap<QuestionId, Answer> answerMap;
+  final KtMap<QuestionId, Answer> answerMap;
   @override
-  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
   final SimpleSurveyPageState surveyPageState;
   @override
@@ -1437,8 +1437,8 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     @required TResult responseRestored(),
     @required
         TResult responseUpdated(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
   }) {
@@ -1466,8 +1466,8 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult respondentSelected(Respondent respondent),
     TResult responseRestored(),
     TResult responseUpdated(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     @required TResult orElse(),
@@ -1526,13 +1526,13 @@ class _$_ResponseUpdated implements _ResponseUpdated {
 
 abstract class _ResponseUpdated implements ResponseEvent {
   const factory _ResponseUpdated(
-      {KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState,
       @required bool isFinished}) = _$_ResponseUpdated;
 
-  KtMutableMap<QuestionId, Answer> get answerMap;
-  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   SimpleSurveyPageState get surveyPageState;
   bool get isFinished;
   _$ResponseUpdatedCopyWith<_ResponseUpdated> get copyWith;

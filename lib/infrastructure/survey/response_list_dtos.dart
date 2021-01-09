@@ -109,10 +109,10 @@ abstract class ResponseDto implements _$ResponseDto {
       lastSyncStageId: StageId(lastSyncStageId),
       branch: UniqueId.fromUniqueString(branch),
       isMainBranch: isMainBranch,
-      answerMap: KtMutableMap.from(answerMap)
+      answerMap: KtMap.from(answerMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMutableMap.from(answerStatusMap)
+      answerStatusMap: KtMap.from(answerStatusMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       surveyPageState: surveyPageState.toDomain(),

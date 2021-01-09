@@ -4,8 +4,8 @@ part of 'answer_bloc.dart';
 abstract class AnswerEvent with _$AnswerEvent {
   // H_1 從 response 恢復 answerState
   const factory AnswerEvent.answerRestored({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
-    @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    @required KtMap<QuestionId, Answer> answerMap,
+    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
     @required KtList<Question> questionList,
   }) = _AnswerRestored;
 

@@ -18,7 +18,7 @@ abstract class AnswerStatus implements _$AnswerStatus {
     @required AnswerStatusType type,
     @required Warning warning,
     @required bool isSpecialAnswer,
-    KtMutableMap<ChoiceId, AnswerStatusType> noteMap,
+    KtMap<ChoiceId, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
   factory AnswerStatus.empty() => AnswerStatus(
@@ -27,7 +27,7 @@ abstract class AnswerStatus implements _$AnswerStatus {
         type: AnswerStatusType.empty(),
         warning: Warning.empty(),
         isSpecialAnswer: false,
-        noteMap: KtMutableMap<ChoiceId, AnswerStatusType>.empty(),
+        noteMap: const KtMap<ChoiceId, AnswerStatusType>.empty(),
       );
 
   Warning getWarning(PageNumber pageNumber) {

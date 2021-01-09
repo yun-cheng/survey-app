@@ -32,8 +32,8 @@ abstract class ResponseEvent with _$ResponseEvent {
 
   // H_5 接收更新的作答
   const factory ResponseEvent.responseUpdated({
-    KtMutableMap<QuestionId, Answer> answerMap,
-    KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    KtMap<QuestionId, Answer> answerMap,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
     SimpleSurveyPageState surveyPageState,
     @required bool isFinished,
   }) = _ResponseUpdated;

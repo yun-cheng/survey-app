@@ -27,8 +27,8 @@ class _$ResponseTearOff {
       @required StageId lastSyncStageId,
       @required UniqueId branch,
       @required bool isMainBranch,
-      @required KtMutableMap<QuestionId, Answer> answerMap,
-      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required KtMap<QuestionId, Answer> answerMap,
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required SimpleSurveyPageState surveyPageState,
       @required DeviceTimeStamp deviceTimeStamp}) {
     return _Response(
@@ -70,8 +70,8 @@ mixin _$Response {
   StageId get lastSyncStageId;
   UniqueId get branch;
   bool get isMainBranch;
-  KtMutableMap<QuestionId, Answer> get answerMap;
-  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   SimpleSurveyPageState get surveyPageState;
   DeviceTimeStamp get deviceTimeStamp;
 
@@ -95,8 +95,8 @@ abstract class $ResponseCopyWith<$Res> {
       StageId lastSyncStageId,
       UniqueId branch,
       bool isMainBranch,
-      KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState,
       DeviceTimeStamp deviceTimeStamp});
 
@@ -156,10 +156,10 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
           isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<QuestionId, Answer>,
+          : answerMap as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState as SimpleSurveyPageState,
@@ -199,8 +199,8 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
       StageId lastSyncStageId,
       UniqueId branch,
       bool isMainBranch,
-      KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState,
       DeviceTimeStamp deviceTimeStamp});
 
@@ -262,10 +262,10 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
           isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<QuestionId, Answer>,
+          : answerMap as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState as SimpleSurveyPageState,
@@ -338,9 +338,9 @@ class _$_Response extends _Response {
   @override
   final bool isMainBranch;
   @override
-  final KtMutableMap<QuestionId, Answer> answerMap;
+  final KtMap<QuestionId, Answer> answerMap;
   @override
-  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
   final SimpleSurveyPageState surveyPageState;
   @override
@@ -443,8 +443,8 @@ abstract class _Response extends Response {
       @required StageId lastSyncStageId,
       @required UniqueId branch,
       @required bool isMainBranch,
-      @required KtMutableMap<QuestionId, Answer> answerMap,
-      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required KtMap<QuestionId, Answer> answerMap,
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required SimpleSurveyPageState surveyPageState,
       @required DeviceTimeStamp deviceTimeStamp}) = _$_Response;
 
@@ -473,9 +473,9 @@ abstract class _Response extends Response {
   @override
   bool get isMainBranch;
   @override
-  KtMutableMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, Answer> get answerMap;
   @override
-  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   @override
   SimpleSurveyPageState get surveyPageState;
   @override

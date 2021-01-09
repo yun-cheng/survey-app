@@ -83,13 +83,15 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
       },
       // H_3 切換特殊作答
       specialAnswerSwitched: (e) async* {
-        KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
+        final answerStatusMap1 =
             KtMutableMap.from(state.answerStatusMap.asMap());
 
         final newAnswerStatus =
-            newAnswerStatusMap[e.question.id].switchSpecialAnswer();
+            answerStatusMap1[e.question.id].switchSpecialAnswer();
 
-        newAnswerStatusMap[e.question.id] = newAnswerStatus;
+        answerStatusMap1[e.question.id] = newAnswerStatus;
+
+        final answerStatusMap2 = answerStatusMap1.toMap();
 
         // S_ 清空該題作答
         final newAnswerMap = _answerAlgorithm.clearAnswer(
@@ -100,7 +102,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
         // S_ 更新 answer status
         final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
           answerMap: newAnswerMap,
-          answerStatusMap: newAnswerStatusMap,
+          answerStatusMap: answerStatusMap2,
           question: e.question,
           questionList: state.questionList,
           answerAlgorithm: _answerAlgorithm,

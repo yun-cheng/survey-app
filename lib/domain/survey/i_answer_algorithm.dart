@@ -6,8 +6,8 @@ import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
 abstract class IAnswerAlgorithm {
-  KtMutableMap<QuestionId, Answer> updateAnswer({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateAnswer({
+    @required KtMap<QuestionId, Answer> answerMap,
     @required Question question,
     @required dynamic answerBody,
     @required bool isSpecialAnswer,
@@ -16,34 +16,34 @@ abstract class IAnswerAlgorithm {
     ChoiceId noteOf,
   });
 
-  KtMutableMap<QuestionId, Answer> updateSingleAnswer({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateSingleAnswer({
+    @required KtMap<QuestionId, Answer> answerMap,
     @required Question question,
     @required Choice choice,
   });
 
-  KtMutableMap<QuestionId, Answer> updateInputAnswer({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateInputAnswer({
+    @required KtMap<QuestionId, Answer> answerMap,
     @required Question question,
     @required dynamic answerBody,
   });
 
-  KtMutableMap<QuestionId, Answer> updateMultipleAnswer({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateMultipleAnswer({
+    @required KtMap<QuestionId, Answer> answerMap,
     @required Question question,
     @required Choice choice,
     @required bool toggle,
   });
 
-  KtMutableMap<QuestionId, Answer> updateNoteAnswer({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
+  KtMap<QuestionId, Answer> updateNoteAnswer({
+    @required KtMap<QuestionId, Answer> answerMap,
     @required Question question,
     @required dynamic answerBody,
     @required ChoiceId noteOf,
   });
 
-   KtMutableMap<QuestionId, Answer> clearAnswer({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
+   KtMap<QuestionId, Answer> clearAnswer({
+    @required KtMap<QuestionId, Answer> answerMap,
     @required Question question,
   });
 }

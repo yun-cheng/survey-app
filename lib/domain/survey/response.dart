@@ -28,8 +28,8 @@ abstract class Response implements _$Response {
     @required StageId lastSyncStageId,
     @required UniqueId branch,
     @required bool isMainBranch,
-    @required KtMutableMap<QuestionId, Answer> answerMap,
-    @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    @required KtMap<QuestionId, Answer> answerMap,
+    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
     @required SimpleSurveyPageState surveyPageState,
     @required DeviceTimeStamp deviceTimeStamp,
   }) = _Response;
@@ -47,8 +47,8 @@ abstract class Response implements _$Response {
         branch: UniqueId(),
         isMainBranch: true,
         lastSyncStageId: StageId.initial(),
-        answerMap: KtMutableMap<QuestionId, Answer>.empty(),
-        answerStatusMap: KtMutableMap<QuestionId, AnswerStatus>.empty(),
+        answerMap: const KtMap<QuestionId, Answer>.empty(),
+        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
         surveyPageState: SimpleSurveyPageState.empty(),
         deviceTimeStamp: DeviceTimeStamp.initial(),
       );

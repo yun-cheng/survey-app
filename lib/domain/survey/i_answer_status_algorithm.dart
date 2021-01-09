@@ -8,10 +8,10 @@ import 'package:kt_dart/collection.dart';
 import 'package:tuple/tuple.dart';
 
 abstract class IAnswerStatusAlgorithm {
-  Tuple2<KtMutableMap<QuestionId, AnswerStatus>,
-      KtMutableMap<QuestionId, Answer>> updateAnswerStatus({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
-    @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+  Tuple2<KtMap<QuestionId, AnswerStatus>,
+      KtMap<QuestionId, Answer>> updateAnswerStatus({
+    @required KtMap<QuestionId, Answer> answerMap,
+    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
     Question question,
     @required KtList<Question> questionList,
     @required IAnswerAlgorithm answerAlgorithm,

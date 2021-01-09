@@ -214,8 +214,8 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           surveyType: SurveyType.main(),
           moduleType: ModuleType.empty(),
           uploadType: UploadType.sync(),
-          answerMap: state.survey.answerMap.toMutableMap(),
-          answerStatusMap: state.survey.answerStatusMap.toMutableMap(),
+          answerMap: state.survey.answerMap,
+          answerStatusMap: state.survey.answerStatusMap,
           deviceTimeStamp: DeviceTimeStamp.now(),
         );
 

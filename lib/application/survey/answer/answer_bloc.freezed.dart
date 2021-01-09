@@ -15,8 +15,8 @@ class _$AnswerEventTearOff {
 
 // ignore: unused_element
   _AnswerRestored answerRestored(
-      {@required KtMutableMap<QuestionId, Answer> answerMap,
-      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {@required KtMap<QuestionId, Answer> answerMap,
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required KtList<Question> questionList}) {
     return _AnswerRestored(
       answerMap: answerMap,
@@ -66,8 +66,8 @@ mixin _$AnswerEvent {
   TResult when<TResult extends Object>({
     @required
         TResult answerRestored(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
     @required TResult answerStatusInitialized(),
     @required
@@ -78,8 +78,8 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult answerRestored(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
     TResult answerStatusInitialized(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
@@ -126,8 +126,8 @@ abstract class _$AnswerRestoredCopyWith<$Res> {
           _AnswerRestored value, $Res Function(_AnswerRestored) then) =
       __$AnswerRestoredCopyWithImpl<$Res>;
   $Res call(
-      {KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       KtList<Question> questionList});
 }
 
@@ -151,10 +151,10 @@ class __$AnswerRestoredCopyWithImpl<$Res>
     return _then(_AnswerRestored(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<QuestionId, Answer>,
+          : answerMap as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
@@ -173,9 +173,9 @@ class _$_AnswerRestored implements _AnswerRestored {
         assert(questionList != null);
 
   @override
-  final KtMutableMap<QuestionId, Answer> answerMap;
+  final KtMap<QuestionId, Answer> answerMap;
   @override
-  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
   final KtList<Question> questionList;
 
@@ -215,8 +215,8 @@ class _$_AnswerRestored implements _AnswerRestored {
   TResult when<TResult extends Object>({
     @required
         TResult answerRestored(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
     @required TResult answerStatusInitialized(),
     @required
@@ -235,8 +235,8 @@ class _$_AnswerRestored implements _AnswerRestored {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult answerRestored(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
     TResult answerStatusInitialized(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
@@ -285,12 +285,12 @@ class _$_AnswerRestored implements _AnswerRestored {
 
 abstract class _AnswerRestored implements AnswerEvent {
   const factory _AnswerRestored(
-      {@required KtMutableMap<QuestionId, Answer> answerMap,
-      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {@required KtMap<QuestionId, Answer> answerMap,
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required KtList<Question> questionList}) = _$_AnswerRestored;
 
-  KtMutableMap<QuestionId, Answer> get answerMap;
-  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   KtList<Question> get questionList;
   _$AnswerRestoredCopyWith<_AnswerRestored> get copyWith;
 }
@@ -337,8 +337,8 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
   TResult when<TResult extends Object>({
     @required
         TResult answerRestored(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
     @required TResult answerStatusInitialized(),
     @required
@@ -357,8 +357,8 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult answerRestored(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
     TResult answerStatusInitialized(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
@@ -539,8 +539,8 @@ class _$_AnswerChanged implements _AnswerChanged {
   TResult when<TResult extends Object>({
     @required
         TResult answerRestored(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
     @required TResult answerStatusInitialized(),
     @required
@@ -560,8 +560,8 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult answerRestored(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
     TResult answerStatusInitialized(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
@@ -704,8 +704,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
   TResult when<TResult extends Object>({
     @required
         TResult answerRestored(
-            KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
             KtList<Question> questionList),
     @required TResult answerStatusInitialized(),
     @required
@@ -724,8 +724,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
     TResult answerRestored(
-        KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
         KtList<Question> questionList),
     TResult answerStatusInitialized(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
@@ -786,8 +786,8 @@ class _$AnswerStateTearOff {
 
 // ignore: unused_element
   _AnswerState call(
-      {@required KtMutableMap<QuestionId, Answer> answerMap,
-      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {@required KtMap<QuestionId, Answer> answerMap,
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required KtList<Question> questionList}) {
     return _AnswerState(
       answerMap: answerMap,
@@ -803,8 +803,8 @@ const $AnswerState = _$AnswerStateTearOff();
 
 /// @nodoc
 mixin _$AnswerState {
-  KtMutableMap<QuestionId, Answer> get answerMap;
-  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   KtList<Question> get questionList;
 
   $AnswerStateCopyWith<AnswerState> get copyWith;
@@ -816,8 +816,8 @@ abstract class $AnswerStateCopyWith<$Res> {
           AnswerState value, $Res Function(AnswerState) then) =
       _$AnswerStateCopyWithImpl<$Res>;
   $Res call(
-      {KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       KtList<Question> questionList});
 }
 
@@ -838,10 +838,10 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<QuestionId, Answer>,
+          : answerMap as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
@@ -857,8 +857,8 @@ abstract class _$AnswerStateCopyWith<$Res>
       __$AnswerStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
       KtList<Question> questionList});
 }
 
@@ -881,10 +881,10 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
     return _then(_AnswerState(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<QuestionId, Answer>,
+          : answerMap as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
@@ -903,9 +903,9 @@ class _$_AnswerState implements _AnswerState {
         assert(questionList != null);
 
   @override
-  final KtMutableMap<QuestionId, Answer> answerMap;
+  final KtMap<QuestionId, Answer> answerMap;
   @override
-  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
   final KtList<Question> questionList;
 
@@ -943,14 +943,14 @@ class _$_AnswerState implements _AnswerState {
 
 abstract class _AnswerState implements AnswerState {
   const factory _AnswerState(
-      {@required KtMutableMap<QuestionId, Answer> answerMap,
-      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+      {@required KtMap<QuestionId, Answer> answerMap,
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required KtList<Question> questionList}) = _$_AnswerState;
 
   @override
-  KtMutableMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, Answer> get answerMap;
   @override
-  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   @override
   KtList<Question> get questionList;
   @override
