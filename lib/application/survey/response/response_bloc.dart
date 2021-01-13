@@ -3,26 +3,27 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_survey_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/response.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/simple_survey_page_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/survey_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/response_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
+import '../../../domain/auth/interviewer.dart';
+import '../../../domain/auth/value_objects.dart';
+import '../../../domain/core/load_state.dart';
+import '../../../domain/core/value_objects.dart';
+import '../../../domain/overview/survey.dart';
+import '../../../domain/overview/value_objects.dart';
+import '../../../domain/respondent/respondent.dart';
+import '../../../domain/survey/answer.dart';
+import '../../../domain/survey/answer_status.dart';
+import '../../../domain/survey/i_survey_repository.dart';
+import '../../../domain/survey/response.dart';
+import '../../../domain/survey/simple_survey_page_state.dart';
+import '../../../domain/survey/survey_failure.dart';
+import '../../../domain/survey/value_objects.dart';
+import '../../../infrastructure/survey/response_state_dtos.dart';
+
+part 'response_bloc.freezed.dart';
 part 'response_event.dart';
 part 'response_state.dart';
-part 'response_bloc.freezed.dart';
 
 class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
   final ISurveyRepository _surveyRepository;

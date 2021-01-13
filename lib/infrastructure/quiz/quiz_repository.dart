@@ -2,18 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/quiz_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/quiz/question_list_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/quiz/quiz_result_dtos.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/auth/interviewer.dart';
+import '../../domain/overview/value_objects.dart';
+import '../../domain/quiz/i_quiz_repository.dart';
+import '../../domain/quiz/question.dart';
+import '../../domain/quiz/quiz_failure.dart';
+import '../../domain/quiz/score.dart';
+import '../../domain/quiz/value_objects.dart';
+import '../../domain/quiz_list/value_objects.dart';
+import '../core/firestore_helpers.dart';
+import 'question_list_dtos.dart';
+import 'quiz_result_dtos.dart';
 
 // TODO 看要移去哪裡
 // NOTE 必須要先 toMutableList 才能改變

@@ -1,10 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/full_expression_dtos.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/core/value_objects.dart';
+import '../../domain/survey/choice.dart';
+import '../../domain/survey/question.dart';
+import '../../domain/survey/value_objects.dart';
+import 'full_expression_dtos.dart';
 
 part 'question_list_dtos.freezed.dart';
 part 'question_list_dtos.g.dart';

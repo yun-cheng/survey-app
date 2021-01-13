@@ -4,20 +4,20 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/auth_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/team.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/auth/auth_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
-part 'auth_event.dart';
-part 'auth_state.dart';
+import '../../domain/auth/auth_failure.dart';
+import '../../domain/auth/i_auth_facade.dart';
+import '../../domain/auth/interviewer.dart';
+import '../../domain/auth/team.dart';
+import '../../domain/auth/value_objects.dart';
+import '../../domain/core/load_state.dart';
+import '../../infrastructure/auth/auth_state_dtos.dart';
 
 part 'auth_bloc.freezed.dart';
+part 'auth_event.dart';
+part 'auth_state.dart';
 
 @injectable
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {

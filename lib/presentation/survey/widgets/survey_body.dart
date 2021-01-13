@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz_list/quiz_list_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/qa_card.dart';
+
+import '../../../application/quiz_list/quiz_list_bloc.dart';
+import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../domain/core/logger.dart';
+import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
   @override

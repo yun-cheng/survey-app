@@ -3,17 +3,18 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_survey_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/survey_failure.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
+import '../../../domain/auth/value_objects.dart';
+import '../../../domain/core/load_state.dart';
+import '../../../domain/overview/survey.dart';
+import '../../../domain/survey/i_survey_repository.dart';
+import '../../../domain/survey/survey_failure.dart';
+import '../../../infrastructure/survey/survey_state_dtos.dart';
+
+part 'survey_bloc.freezed.dart';
 part 'survey_event.dart';
 part 'survey_state.dart';
-part 'survey_bloc.freezed.dart';
 
 class SurveyBloc extends HydratedBloc<SurveyEvent, SurveyState> {
   final ISurveyRepository _surveyRepository;

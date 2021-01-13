@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../../application/auth/auth_bloc.dart';
 
 class Teambox extends StatelessWidget {
   const Teambox({

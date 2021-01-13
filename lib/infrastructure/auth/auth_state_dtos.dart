@@ -1,12 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/auth_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/auth/team_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../application/auth/auth_bloc.dart';
+import '../../domain/auth/auth_failure.dart';
+import '../../domain/auth/value_objects.dart';
+import '../../domain/core/load_state.dart';
+import 'interviewer_dtos.dart';
+import 'team_list_dtos.dart';
 
 part 'auth_state_dtos.freezed.dart';
 part 'auth_state_dtos.g.dart';

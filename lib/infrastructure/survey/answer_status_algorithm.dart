@@ -1,14 +1,14 @@
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_status_algorithm.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:tuple/tuple.dart';
+
+import '../../domain/survey/answer.dart';
+import '../../domain/survey/answer_status.dart';
+import '../../domain/survey/choice.dart';
+import '../../domain/survey/i_answer_algorithm.dart';
+import '../../domain/survey/i_answer_status_algorithm.dart';
+import '../../domain/survey/question.dart';
+import '../../domain/survey/value_objects.dart';
 
 @LazySingleton(as: IAnswerStatusAlgorithm)
 class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
@@ -129,9 +129,8 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
 
         //  S_3L-2 如果下層已答且比對不符亦非特殊作答
         if (lowerChoice != null &&
-            lowerChoice.upperChoiceId !=
-                upperAnswerChoiceId &&
-                    !newAnswerStatusMap[_question.id].isSpecialAnswer) {
+            lowerChoice.upperChoiceId != upperAnswerChoiceId &&
+            !newAnswerStatusMap[_question.id].isSpecialAnswer) {
           // S_3L-2-1 清除作答
           newAnswerMap = answerAlgorithm.clearAnswer(
             answerMap: newAnswerMap,

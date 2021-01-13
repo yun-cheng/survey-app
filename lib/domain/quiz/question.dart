@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
+
+import '../core/failures.dart';
+import 'value_objects.dart';
 
 part 'question.freezed.dart';
 

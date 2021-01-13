@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
+
+import '../../../domain/survey/question.dart';
 
 class QuestionBox extends StatelessWidget {
   final Question question;

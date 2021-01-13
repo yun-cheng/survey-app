@@ -1,7 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/warning.dart';
+
+import '../core/load_state.dart';
+import 'value_objects.dart';
+import 'warning.dart';
 
 part 'simple_survey_page_state.freezed.dart';
 

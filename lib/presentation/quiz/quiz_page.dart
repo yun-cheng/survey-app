@@ -1,14 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz/question/question_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/injection.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
+
+import '../../application/quiz/question/question_bloc.dart';
+import '../../application/quiz/question_list/question_list_bloc.dart';
+import '../../application/quiz/question_page/question_page_bloc.dart';
+import '../../domain/quiz/i_quiz_repository.dart';
+import '../../domain/quiz_list/value_objects.dart';
+import '../../injection.dart';
+import '../core/widgets/rounded_button.dart';
+import '../routes/router.gr.dart';
 
 class QuizPage extends StatelessWidget {
   final QuizId quizId;

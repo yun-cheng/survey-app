@@ -1,13 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/simple_survey_page_state.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../auth/value_objects.dart';
+import '../core/value_objects.dart';
+import '../overview/value_objects.dart';
+import '../respondent/value_objects.dart';
+import 'answer.dart';
+import 'answer_status.dart';
+import 'simple_survey_page_state.dart';
+import 'value_objects.dart';
 
 part 'response.freezed.dart';
 

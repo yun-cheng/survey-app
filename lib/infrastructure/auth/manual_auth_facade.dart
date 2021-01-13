@@ -2,16 +2,17 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/auth_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/team.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/auth/team_list_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../domain/auth/auth_failure.dart';
+import '../../domain/auth/i_auth_facade.dart';
+import '../../domain/auth/interviewer.dart';
+import '../../domain/auth/team.dart';
+import '../../domain/auth/value_objects.dart';
+import '../core/firestore_helpers.dart';
+import 'interviewer_dtos.dart';
+import 'team_list_dtos.dart';
 
 @LazySingleton(as: IAuthFacade)
 class ManualAuthFacade implements IAuthFacade {

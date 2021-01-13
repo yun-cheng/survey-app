@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz_list/quiz_list_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/quiz_list/widgets/quiz_card.dart';
+
+import '../../../application/quiz_list/quiz_list_bloc.dart';
+import 'quiz_card.dart';
 
 class QuizListBody extends StatelessWidget {
   @override

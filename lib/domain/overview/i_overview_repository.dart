@@ -1,11 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/overview_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/project.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/quiz.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../auth/value_objects.dart';
+import '../quiz_list/quiz.dart';
+import 'overview_failure.dart';
+import 'project.dart';
+import 'value_objects.dart';
 
 abstract class IOverviewRepository {
   // NOTE 取得專案名稱

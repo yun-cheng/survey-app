@@ -1,7 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
+
+import '../../../domain/core/failures.dart';
+import '../../../domain/core/load_state.dart';
 
 String signInValidator({
   @required LoadState signInState,

@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../auth/value_objects.dart';
+import '../core/failures.dart';
+import '../overview/value_objects.dart';
+import 'respondent.dart';
 
 part 'respondent_list.freezed.dart';
 

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/page_control_button.dart';
+
+import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import 'page_control_button.dart';
 
 class PageControlBar extends StatelessWidget {
   const PageControlBar({

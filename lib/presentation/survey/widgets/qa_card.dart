@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/answer_box.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/dropdown_box.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/question_box.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/special_answer_switch.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/text_box.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/warning_box.dart';
+
+import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../domain/survey/question.dart';
+import '../../../domain/survey/value_objects.dart';
+import 'answer_box.dart';
+import 'dropdown_box.dart';
+import 'question_box.dart';
+import 'special_answer_switch.dart';
+import 'text_box.dart';
+import 'warning_box.dart';
 
 class QaCard extends StatelessWidget {
   final Question question;

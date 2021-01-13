@@ -1,17 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_survey_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/response.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/survey_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/response_list_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
+
+import '../../domain/auth/value_objects.dart';
+import '../../domain/overview/survey.dart';
+import '../../domain/survey/i_survey_repository.dart';
+import '../../domain/survey/response.dart';
+import '../../domain/survey/survey_failure.dart';
+import '../../domain/survey/value_objects.dart';
+import '../core/firestore_helpers.dart';
+import 'response_list_dtos.dart';
+import 'survey_list_dtos.dart';
 
 @LazySingleton(as: ISurveyRepository)
 class SurveyRepository implements ISurveyRepository {

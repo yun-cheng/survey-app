@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
+
+import 'answer.dart';
+import 'choice.dart';
+import 'question.dart';
+import 'value_objects.dart';
 
 abstract class IAnswerAlgorithm {
   KtMap<QuestionId, Answer> updateAnswer({

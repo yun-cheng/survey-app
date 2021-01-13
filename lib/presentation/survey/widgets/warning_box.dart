@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
+
+import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../domain/survey/question.dart';
 
 class WarningBox extends StatelessWidget {
   final Question question;

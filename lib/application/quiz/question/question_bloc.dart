@@ -2,25 +2,25 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
-import 'package:injectable/injectable.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz/question_page/question_page_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/interviewer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/i_quiz_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/score.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/value_objects.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
-part 'question_event.dart';
-part 'question_state.dart';
+import '../../../domain/auth/interviewer.dart';
+import '../../../domain/overview/value_objects.dart';
+import '../../../domain/quiz/i_quiz_repository.dart';
+import '../../../domain/quiz/question.dart';
+import '../../../domain/quiz/score.dart';
+import '../../../domain/quiz/value_objects.dart';
+import '../../../domain/quiz_list/value_objects.dart';
+import '../question_list/question_list_bloc.dart';
+import '../question_page/question_page_bloc.dart';
 
 part 'question_bloc.freezed.dart';
+part 'question_event.dart';
+part 'question_state.dart';
 
 @injectable
 class QuestionBloc extends Bloc<QuestionEvent, QuestionState> {

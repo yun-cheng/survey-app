@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/overview/widgets/survey_card.dart';
+
+import '../../../application/survey/survey/survey_bloc.dart';
+import 'survey_card.dart';
 
 class OverviewBody extends StatelessWidget {
   @override

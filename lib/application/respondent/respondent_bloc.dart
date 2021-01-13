@@ -3,19 +3,20 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/i_respondent_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/respondent_list.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/respondent/respondent_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
+import '../../domain/auth/value_objects.dart';
+import '../../domain/core/load_state.dart';
+import '../../domain/overview/survey.dart';
+import '../../domain/respondent/i_respondent_repository.dart';
+import '../../domain/respondent/respondent.dart';
+import '../../domain/respondent/respondent_failure.dart';
+import '../../domain/respondent/respondent_list.dart';
+import '../../infrastructure/respondent/respondent_state_dtos.dart';
+
+part 'respondent_bloc.freezed.dart';
 part 'respondent_event.dart';
 part 'respondent_state.dart';
-part 'respondent_bloc.freezed.dart';
 
 class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
   final IRespondentRepository _respondentRepository;

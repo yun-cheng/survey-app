@@ -3,18 +3,19 @@ import 'dart:async';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/simple_survey_page_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/warning.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_page_state_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
+import '../../../domain/core/load_state.dart';
+import '../../../domain/survey/answer_status.dart';
+import '../../../domain/survey/question.dart';
+import '../../../domain/survey/simple_survey_page_state.dart';
+import '../../../domain/survey/value_objects.dart';
+import '../../../domain/survey/warning.dart';
+import '../../../infrastructure/survey/survey_page_state_dtos.dart';
+
+part 'survey_page_bloc.freezed.dart';
 part 'survey_page_event.dart';
 part 'survey_page_state.dart';
-part 'survey_page_bloc.freezed.dart';
 
 @injectable
 class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {

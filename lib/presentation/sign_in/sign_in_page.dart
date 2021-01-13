@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/responsive_layout.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/tap_out_dismiss_keyboard.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/sign_in_form.dart';
+
+import '../core/widgets/responsive_layout.dart';
+import '../core/widgets/tap_out_dismiss_keyboard.dart';
+import 'widgets/sign_in_form.dart';
 
 class SignInPage extends StatelessWidget {
   @override

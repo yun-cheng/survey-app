@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:tuple/tuple.dart';
+
+import 'answer.dart';
+import 'answer_status.dart';
+import 'i_answer_algorithm.dart';
+import 'question.dart';
+import 'value_objects.dart';
 
 abstract class IAnswerStatusAlgorithm {
   Tuple2<KtMap<QuestionId, AnswerStatus>,

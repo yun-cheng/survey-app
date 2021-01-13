@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../domain/core/logger.dart';
+import '../../../domain/survey/choice.dart';
+import '../../../domain/survey/question.dart';
 
 class DropdownBox extends StatelessWidget {
   final Question question;
@@ -34,7 +35,7 @@ class DropdownBox extends StatelessWidget {
               choice.upperChoiceId == upperAnswer.body.getValueAnyway());
           thisChoiceList = subsetChoiceList;
         }
-        
+
         LoggerService.simple.i('DropdownBox rebuild!!!');
 
         return DropdownButton(

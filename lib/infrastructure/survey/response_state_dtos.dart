@@ -1,15 +1,16 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/response/response_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/survey_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/auth/interviewer_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/respondent/respondent_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/response_list_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../application/survey/response/response_bloc.dart';
+import '../../domain/core/load_state.dart';
+import '../../domain/overview/value_objects.dart';
+import '../../domain/survey/survey_failure.dart';
+import '../../domain/survey/value_objects.dart';
+import '../auth/interviewer_dtos.dart';
+import '../respondent/respondent_dtos.dart';
+import 'response_list_dtos.dart';
+import 'survey_list_dtos.dart';
 
 part 'response_state_dtos.freezed.dart';
 part 'response_state_dtos.g.dart';

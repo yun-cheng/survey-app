@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/quiz/question.dart';
+import '../../domain/quiz/value_objects.dart';
 
 part 'question_list_dtos.freezed.dart';
 part 'question_list_dtos.g.dart';

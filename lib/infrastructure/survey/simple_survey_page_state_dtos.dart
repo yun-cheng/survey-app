@@ -1,8 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/simple_survey_page_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/warning_dtos.dart';
+
+import '../../domain/core/load_state.dart';
+import '../../domain/survey/simple_survey_page_state.dart';
+import '../../domain/survey/value_objects.dart';
+import 'warning_dtos.dart';
 
 part 'simple_survey_page_state_dtos.freezed.dart';
 part 'simple_survey_page_state_dtos.g.dart';

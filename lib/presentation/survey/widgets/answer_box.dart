@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/note_box.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../domain/core/logger.dart';
+import '../../../domain/survey/choice.dart';
+import '../../../domain/survey/question.dart';
+import '../../../domain/survey/value_objects.dart';
+import 'note_box.dart';
 
 class AnswerBox extends StatelessWidget {
   final Question question;
@@ -41,7 +42,7 @@ class AnswerBox extends StatelessWidget {
         thisChoiceList =
             isSpecialAnswer ? question.specialAnswerList : thisChoiceList;
         final size = thisChoiceList.size;
-        
+
         LoggerService.simple.i('AnswerBox rebuild!!!');
         return StaggeredGridView.countBuilder(
           physics: const NeverScrollableScrollPhysics(),

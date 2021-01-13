@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_validators.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_validators.dart';
+
+import '../core/failures.dart';
+import '../core/value_objects.dart';
+import '../core/value_validators.dart';
+import 'value_validators.dart';
 
 class QuestionBody extends ValueObject<String> {
   @override

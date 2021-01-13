@@ -1,11 +1,12 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/responsive_layout.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/respondent_list/widgets/respondent_list_body.dart';
+
+import '../../application/navigation/navigation_bloc.dart';
+import '../../application/survey/answer/answer_bloc.dart';
+import '../../domain/core/navigation_page.dart';
+import '../core/widgets/responsive_layout.dart';
+import 'widgets/respondent_list_body.dart';
 
 class RespondentListPage extends StatelessWidget {
   @override

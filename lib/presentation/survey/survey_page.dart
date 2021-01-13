@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/tap_out_dismiss_keyboard.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/page_control_bar.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/survey_body.dart';
+
+import '../../application/navigation/navigation_bloc.dart';
+import '../../domain/core/navigation_page.dart';
+import '../core/widgets/tap_out_dismiss_keyboard.dart';
+import 'widgets/page_control_bar.dart';
+import 'widgets/survey_body.dart';
 
 class SurveyPage extends HookWidget {
   @override

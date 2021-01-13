@@ -1,8 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/expression.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/full_expression.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/survey/expression.dart';
+import '../../domain/survey/full_expression.dart';
+import '../../domain/survey/value_objects.dart';
 
 part 'full_expression_dtos.freezed.dart';
 part 'full_expression_dtos.g.dart';

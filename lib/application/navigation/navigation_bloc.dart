@@ -2,13 +2,14 @@ import 'dart:async';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/page_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/value_objects.dart';
 
+import '../../domain/core/navigation_page.dart';
+import '../../domain/core/page_state.dart';
+import '../../domain/respondent/value_objects.dart';
+
+part 'navigation_bloc.freezed.dart';
 part 'navigation_event.dart';
 part 'navigation_state.dart';
-part 'navigation_bloc.freezed.dart';
 
 class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   NavigationBloc() : super(NavigationState.initial()) {

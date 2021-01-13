@@ -1,8 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/responsive_layout.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
+
+import '../core/widgets/responsive_layout.dart';
+import '../core/widgets/rounded_button.dart';
+import '../routes/router.gr.dart';
 
 class FinishedPage extends StatelessWidget {
   @override

@@ -2,16 +2,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/navigation_page.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/widgets/rounded_button.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/account_box.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/password_box.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/sign_in/widgets/team_box.dart';
+
+import '../../../application/auth/auth_bloc.dart';
+import '../../../application/navigation/navigation_bloc.dart';
+import '../../../domain/core/load_state.dart';
+import '../../../domain/core/logger.dart';
+import '../../../domain/core/navigation_page.dart';
+import '../../core/widgets/rounded_button.dart';
+import '../../routes/router.gr.dart';
+import 'account_box.dart';
+import 'password_box.dart';
+import 'team_box.dart';
 
 class SignInForm extends StatelessWidget {
   @override

@@ -1,15 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/i_overview_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/quiz.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/project.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/overview_failure.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:rxdart/rxdart.dart';
+
+import '../../domain/auth/value_objects.dart';
+import '../../domain/overview/i_overview_repository.dart';
+import '../../domain/overview/overview_failure.dart';
+import '../../domain/overview/project.dart';
+import '../../domain/overview/value_objects.dart';
+import '../../domain/quiz_list/quiz.dart';
 
 @LazySingleton(as: IOverviewRepository)
 class OverviewRepository implements IOverviewRepository {

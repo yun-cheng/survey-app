@@ -1,19 +1,19 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:injectable/injectable.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
-import 'package:interviewer_quiz_flutter_app/application/quiz/question_list/question_list_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/question.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz/value_objects.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
-part 'question_page_event.dart';
-part 'question_page_state.dart';
+import '../../../domain/quiz/question.dart';
+import '../../../domain/quiz/value_objects.dart';
+import '../question_list/question_list_bloc.dart';
 
 part 'question_page_bloc.freezed.dart';
+part 'question_page_event.dart';
+part 'question_page_state.dart';
 
 @injectable
 class QuestionPageBloc extends Bloc<QuestionPageEvent, QuestionPageState> {

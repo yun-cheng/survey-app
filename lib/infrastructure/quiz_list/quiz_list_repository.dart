@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/quiz.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/quiz_list_failure.dart';
-import 'package:interviewer_quiz_flutter_app/domain/quiz_list/i_quiz_list_repository.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/core/firestore_helpers.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/quiz_list/quiz_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/auth/value_objects.dart';
+import '../../domain/overview/value_objects.dart';
+import '../../domain/quiz_list/i_quiz_list_repository.dart';
+import '../../domain/quiz_list/quiz.dart';
+import '../../domain/quiz_list/quiz_list_failure.dart';
+import '../core/firestore_helpers.dart';
+import 'quiz_list_dtos.dart';
 
 @LazySingleton(as: IQuizListRepository)
 class QuizListRepository implements IQuizListRepository {

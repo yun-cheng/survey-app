@@ -1,4 +1,4 @@
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
+import 'failures.dart';
 
 class UnexpectedValueError extends Error {
   final ValueFailure valueFailure;

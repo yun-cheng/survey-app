@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/survey_failure.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../application/survey/survey/survey_bloc.dart';
+import '../../domain/core/load_state.dart';
+import '../../domain/survey/survey_failure.dart';
+import 'survey_list_dtos.dart';
 
 part 'survey_state_dtos.freezed.dart';
 part 'survey_state_dtos.g.dart';

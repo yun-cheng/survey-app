@@ -1,20 +1,21 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/auth/auth_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/navigation/navigation_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/respondent/respondent_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/response/response_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/survey/survey_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/application/survey/survey_page/survey_page_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/i_auth_facade.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/i_respondent_repository.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_algorithm.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_answer_status_algorithm.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/i_survey_repository.dart';
-import 'package:interviewer_quiz_flutter_app/injection.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/routes/router.gr.dart';
+
+import '../../application/auth/auth_bloc.dart';
+import '../../application/navigation/navigation_bloc.dart';
+import '../../application/respondent/respondent_bloc.dart';
+import '../../application/survey/answer/answer_bloc.dart';
+import '../../application/survey/response/response_bloc.dart';
+import '../../application/survey/survey/survey_bloc.dart';
+import '../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../domain/auth/i_auth_facade.dart';
+import '../../domain/respondent/i_respondent_repository.dart';
+import '../../domain/survey/i_answer_algorithm.dart';
+import '../../domain/survey/i_answer_status_algorithm.dart';
+import '../../domain/survey/i_survey_repository.dart';
+import '../../injection.dart';
+import '../routes/router.gr.dart';
 
 class AppWidget extends StatelessWidget {
   @override

@@ -1,14 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/auth/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/survey.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/answer_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/answer_status_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/question_list_dtos.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/survey_module_dtos.dart';
 import 'package:kt_dart/collection.dart';
+
+import '../../domain/auth/value_objects.dart';
+import '../../domain/overview/survey.dart';
+import '../../domain/overview/value_objects.dart';
+import '../../domain/survey/value_objects.dart';
+import 'answer_dtos.dart';
+import 'answer_status_dtos.dart';
+import 'question_list_dtos.dart';
+import 'survey_module_dtos.dart';
 
 part 'survey_list_dtos.freezed.dart';
 part 'survey_list_dtos.g.dart';
