@@ -3,9 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/presentation/survey/widgets/note_box.dart';
+import 'package:kt_dart/collection.dart';
 
 class AnswerBox extends StatelessWidget {
   final Question question;
@@ -21,16 +23,25 @@ class AnswerBox extends StatelessWidget {
       // NOTE 答案有變更時才要 rebuild
       buildWhen: (p, c) =>
           p.answerMap[question.id] != c.answerMap[question.id] ||
-          p.answerStatusMap[question.id] != c.answerStatusMap[question.id],
+          p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
+          p.answerMap[question.upperQuestionId] !=
+              c.answerMap[question.upperQuestionId],
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
         final isSpecialAnswer =
             state.answerStatusMap[question.id].isSpecialAnswer;
-        final thisChoiceList =
-            isSpecialAnswer ? question.specialAnswerList : question.choiceList;
-        final size = isSpecialAnswer
-            ? question.specialAnswerList.size
-            : question.choiceList.size;
+        KtList<Choice> thisChoiceList = question.choiceList;
+
+        // H_ 如果是連鎖題下層要篩選選項
+        if (question.upperQuestionId.isNotEmpty) {
+          final upperAnswer = state.answerMap[question.upperQuestionId];
+          thisChoiceList = question.choiceList.filter((choice) =>
+              choice.upperChoiceId == upperAnswer.body.getValueAnyway());
+        }
+        thisChoiceList =
+            isSpecialAnswer ? question.specialAnswerList : thisChoiceList;
+        final size = thisChoiceList.size;
+        
         LoggerService.simple.i('AnswerBox rebuild!!!');
         return StaggeredGridView.countBuilder(
           physics: const NeverScrollableScrollPhysics(),

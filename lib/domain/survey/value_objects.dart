@@ -48,6 +48,10 @@ class QuestionId extends ValueObject<String> {
 
   factory QuestionId.empty() => QuestionId('');
 
+  bool get isNotEmpty {
+    return value.fold((l) => false, (r) => r != '');
+  }
+
   const QuestionId._(this.value);
 }
 

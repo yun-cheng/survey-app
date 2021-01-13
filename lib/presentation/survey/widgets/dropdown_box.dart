@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/application/survey/answer/answer_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -17,9 +18,23 @@ class DropdownBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AnswerBloc, AnswerState>(
       // NOTE 答案有變更時才要 rebuild
-      buildWhen: (p, c) => p.answerMap[question.id] != c.answerMap[question.id],
+      buildWhen: (p, c) =>
+          p.answerMap[question.id] != c.answerMap[question.id] ||
+          p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
+          p.answerMap[question.upperQuestionId] !=
+              c.answerMap[question.upperQuestionId],
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
+        KtList<Choice> thisChoiceList = question.choiceList;
+
+        // H_ 如果是連鎖題下層要篩選選項
+        if (question.upperQuestionId.isNotEmpty) {
+          final upperAnswer = state.answerMap[question.upperQuestionId];
+          final subsetChoiceList = question.choiceList.filter((choice) =>
+              choice.upperChoiceId == upperAnswer.body.getValueAnyway());
+          thisChoiceList = subsetChoiceList;
+        }
+        
         LoggerService.simple.i('DropdownBox rebuild!!!');
 
         return DropdownButton(
@@ -45,7 +60,7 @@ class DropdownBox extends StatelessWidget {
           //       )
           //       .asList();
           // },
-          items: question.choiceList
+          items: thisChoiceList
               .map(
                 (choice) => DropdownMenuItem(
                   value: choice.id,
@@ -59,8 +74,7 @@ class DropdownBox extends StatelessWidget {
             context.read<AnswerBloc>().add(
                   AnswerEvent.answerChangedWith(
                     question: question,
-                    body: question.choiceList
-                        .first((choice) => choice.id == value),
+                    body: thisChoiceList.first((choice) => choice.id == value),
                     // asSingle: choice.asSingle,
                   ),
                 );

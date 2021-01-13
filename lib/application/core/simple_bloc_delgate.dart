@@ -6,14 +6,20 @@ import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 class SimpleBlocObserver extends BlocObserver {
   @override
   void onEvent(Bloc bloc, Object event) {
-    super.onEvent(bloc, event);
     // LoggerService.simple.d(event);
+    super.onEvent(bloc, event);
+  }
+
+  @override
+  void onChange(Cubit cubit, Change change) {
+    // LoggerService.simple.d(change);
+    super.onChange(cubit, change);
   }
 
   @override
   void onTransition(Bloc bloc, Transition transition) {
-    super.onTransition(bloc, transition);
     // LoggerService.simple.d(transition.nextState);
+    super.onTransition(bloc, transition);
   }
 
   @override

@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
@@ -21,17 +22,19 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     IAnswerAlgorithm answerAlgorithm,
   }) {
     KtMap<QuestionId, AnswerStatus> newAnswerStatusMap;
+    Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
+        tupleResult;
 
     // S_1 先看是否為指定題目
     if (question != null) {
-      // S_1-c1 若為 choice answer
+      // S_1-1-c1 若為 choice answer
       if (question.type.isChoice) {
         newAnswerStatusMap = updateAnswerStatusTypeOfChoice(
           answerMap: answerMap,
           answerStatusMap: answerStatusMap,
           question: question,
         );
-        // S_1-c2 若為 input answer
+        // S_1-1-c2 若為 input answer
       } else {
         newAnswerStatusMap = updateAnswerStatusTypeOfInput(
           answerMap: answerMap,
@@ -39,24 +42,33 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
           question: question,
         );
       }
+
+      // S_1-2 更新連鎖題的答案及答題狀況
+      tupleResult = updateChainQuestion(
+        answerMap: answerMap,
+        answerStatusMap: newAnswerStatusMap,
+        question: question,
+        questionList: questionList,
+        answerAlgorithm: answerAlgorithm,
+      );
     }
 
     // S_2 更新題目是否出現
-    final tupleResult = evaluateShowQuestionExpression(
-      answerMap: answerMap,
-      answerStatusMap: question != null ? newAnswerStatusMap : answerStatusMap,
+    final tupleResult1 = evaluateShowQuestionExpression(
+      answerMap: question == null ? answerMap : tupleResult.item2,
+      answerStatusMap: question == null ? answerStatusMap : tupleResult.item1,
       questionList: questionList,
       answerAlgorithm: answerAlgorithm,
     );
 
     // S_3 validate answer
     newAnswerStatusMap = updateWarning(
-      answerMap: tupleResult.item2,
-      answerStatusMap: tupleResult.item1,
+      answerMap: tupleResult1.item2,
+      answerStatusMap: tupleResult1.item1,
       questionList: questionList,
     );
 
-    return Tuple2(newAnswerStatusMap, tupleResult.item2);
+    return Tuple2(newAnswerStatusMap, tupleResult1.item2);
   }
 
   KtMap<QuestionId, AnswerStatus> updateWarning({
@@ -80,6 +92,67 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     });
 
     return newAnswerStatusMap.toMap();
+  }
+
+  @injectable
+  Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
+      updateChainQuestion({
+    KtMap<QuestionId, Answer> answerMap,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    Question question,
+    KtList<Question> questionList,
+    IAnswerAlgorithm answerAlgorithm,
+  }) {
+    KtMap<QuestionId, AnswerStatus> newAnswerStatusMap = answerStatusMap;
+    KtMap<QuestionId, Answer> newAnswerMap = answerMap;
+
+    // S_1 有改變的連鎖題上層 questionIdList
+    KtList<QuestionId> changedQuestionIdList = const KtList<QuestionId>.empty();
+    changedQuestionIdList = changedQuestionIdList.plusElement(question.id);
+
+    // NOTE 因為有可能連鎖再連鎖，所以必須檢查所有連鎖題
+    // S_2 篩出是連鎖題下層的題目
+    final chainQuestionList = questionList
+        .filter((_question) => _question.upperQuestionId.isNotEmpty);
+
+    // S_3L 迴圈篩出的題目
+    chainQuestionList.forEach((_question) {
+      // S_3L-0 如果該題的 upperQuestionId 在 changedQuestionIdList 中
+      if (changedQuestionIdList.contains(_question.upperQuestionId)) {
+        // S_3L-1 準備比對上層的答案跟下層答案選項的 upperChoiceId
+        final upperAnswerChoiceId =
+            newAnswerMap[_question.upperQuestionId].body.getValueAnyway();
+        final lowerAnswerChoiceId =
+            newAnswerMap[_question.id].body.getValueAnyway();
+        final lowerChoice = _question.choiceList
+            .firstOrNull((_choice) => _choice.id == lowerAnswerChoiceId);
+
+        //  S_3L-2 如果下層已答且比對不符亦非特殊作答
+        if (lowerChoice != null &&
+            lowerChoice.upperChoiceId !=
+                upperAnswerChoiceId &&
+                    !newAnswerStatusMap[_question.id].isSpecialAnswer) {
+          // S_3L-2-1 清除作答
+          newAnswerMap = answerAlgorithm.clearAnswer(
+            answerMap: newAnswerMap,
+            question: _question,
+          );
+
+          // S_3L-2-2 重置答題狀況
+          newAnswerStatusMap = updateAnswerStatusTypeOfChoice(
+            answerMap: newAnswerMap,
+            answerStatusMap: newAnswerStatusMap,
+            question: _question,
+          );
+
+          // S_3L-2-3 將該題 questionId 加入 changedQuestionIdList
+          changedQuestionIdList =
+              changedQuestionIdList.plusElement(_question.id);
+        }
+      }
+    });
+
+    return Tuple2(newAnswerStatusMap, newAnswerMap);
   }
 
   @injectable
