@@ -5,6 +5,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
+import '../../application/respondent/respondent_bloc.dart';
+import '../../domain/core/logger.dart';
 import '../../domain/core/navigation_page.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
 import 'widgets/page_control_bar.dart';
@@ -13,14 +15,20 @@ import 'widgets/survey_body.dart';
 class SurveyPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    bool isKeyboardVisible = KeyboardVisibility.isVisible;
-    KeyboardVisibility.onChange.listen((bool visible) {
+    final keyboardVisibilityController = KeyboardVisibilityController();
+    bool isKeyboardVisible = keyboardVisibilityController.isVisible;
+    keyboardVisibilityController.onChange.listen((bool visible) {
       isKeyboardVisible = visible;
     });
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Survey Page'),
+        title: Builder(builder: (context) {
+          final respondent = context.select((RespondentBloc respondentBloc) =>
+              respondentBloc.state.respondent);
+          LoggerService.simple.i('SurveyPage title changed!!');
+          return Text(respondent.remainAddress.getValueAnyway());
+        }),
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {

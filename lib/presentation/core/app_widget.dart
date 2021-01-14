@@ -46,11 +46,14 @@ class AppWidget extends StatelessWidget {
             getIt<ISurveyRepository>(),
           ),
         ),
+        // HIGHLIGHT lazy: false 用來在 app 啟動時就觸發這個 bloc，
+        //  其他 bloc 不需要是因為都在 SplashPage 啟動了
         BlocProvider(
           create: (_) => AnswerBloc(
             getIt<IAnswerAlgorithm>(),
             getIt<IAnswerStatusAlgorithm>(),
           ),
+          lazy: false,
         ),
         BlocProvider(
           create: (_) => SurveyPageBloc(),

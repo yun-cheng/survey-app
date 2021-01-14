@@ -8,9 +8,9 @@ abstract class AnswerState with _$AnswerState {
     @required KtList<Question> questionList,
   }) = _AnswerState;
 
-  factory AnswerState.initial() => AnswerState(
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
-        questionList: const KtList<Question>.empty(),
+  factory AnswerState.initial() => const AnswerState(
+        answerMap: KtMap<QuestionId, Answer>.empty(),
+        answerStatusMap: KtMap<QuestionId, AnswerStatus>.empty(),
+        questionList: KtList<Question>.empty(),
       );
 }
