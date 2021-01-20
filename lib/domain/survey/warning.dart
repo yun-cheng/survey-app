@@ -30,7 +30,7 @@ abstract class Warning implements _$Warning {
   }
 
   String toFullText() {
-    return '${this.id.getOrCrash()} ${type.getOrCrash()}';
+    return '${this.id.getOrCrash()} 須修正';
   }
 
   bool get isEmpty {

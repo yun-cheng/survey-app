@@ -61,16 +61,22 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
 
         if (firstQuestion != null) {
           final newPage = firstQuestion.pageNumber;
+          final newestPage =
+              newPage.getOrCrash() > state.newestPage.getOrCrash()
+                  ? newPage
+                  : state.newestPage;
           final pageQuestionList = state.questionList.filter((question) =>
               question.pageNumber == newPage &&
               !state.answerStatusMap[question.id].isHidden);
+          final contentQuestionList = state.questionList.filter((question) =>
+              !state.answerStatusMap[question.id].isHidden &&
+              question.pageNumber.getOrCrash() <= newestPage.getOrCrash());
 
           yield state.copyWith(
             page: newPage,
-            newestPage: newPage.getOrCrash() > state.newestPage.getOrCrash()
-                ? newPage
-                : state.newestPage,
+            newestPage: newestPage,
             pageQuestionList: pageQuestionList,
+            contentQuestionList: contentQuestionList,
           );
         }
       },

@@ -20,6 +20,7 @@ abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
     @required int newestPage,
     @required List<QuestionDto> questionList,
     @required List<QuestionDto> pageQuestionList,
+    @required List<QuestionDto> contentQuestionList,
     @required Map<String, AnswerStatusDto> answerStatusMap,
     @required bool isLastPage,
     @required WarningDto warning,
@@ -36,6 +37,9 @@ abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
       pageQuestionList: surveyPageState.pageQuestionList
+          .map((e) => QuestionDto.fromDomain(e))
+          .asList(),
+      contentQuestionList: surveyPageState.contentQuestionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
       answerStatusMap: surveyPageState.answerStatusMap
@@ -57,6 +61,8 @@ abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
       pageQuestionList:
           pageQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
+      contentQuestionList:
+          contentQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
       answerStatusMap: KtMap.from(answerStatusMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),

@@ -17,6 +17,7 @@ import '../quiz_list/quiz_list_page.dart';
 import '../respondent_list/respondent_list_page.dart';
 import '../sign_in/sign_in_page.dart';
 import '../splash/splash_page.dart';
+import '../survey/survey_content_page.dart';
 import '../survey/survey_page.dart';
 
 class Routes {
@@ -30,6 +31,7 @@ class Routes {
   static const String _surveyPage = '/respondent/:respondentId';
   static String surveyPage({@required dynamic respondentId}) =>
       '/respondent/$respondentId';
+  static const String surveyContentPage = '/survey-content-page';
   static const all = <String>{
     splashPage,
     signInPage,
@@ -39,6 +41,7 @@ class Routes {
     overviewPage,
     respondentListPage,
     _surveyPage,
+    surveyContentPage,
   };
 }
 
@@ -54,6 +57,7 @@ class AutoRouter extends RouterBase {
     RouteDef(Routes.overviewPage, page: OverviewPage),
     RouteDef(Routes.respondentListPage, page: RespondentListPage),
     RouteDef(Routes._surveyPage, page: SurveyPage),
+    RouteDef(Routes.surveyContentPage, page: SurveyContentPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -110,6 +114,12 @@ class AutoRouter extends RouterBase {
         settings: data,
       );
     },
+    SurveyContentPage: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => SurveyContentPage(),
+        settings: data,
+      );
+    },
   };
 }
 
@@ -139,6 +149,9 @@ extension AutoRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushRespondentListPage() =>
       push<dynamic>(Routes.respondentListPage);
+
+  Future<dynamic> pushSurveyContentPage() =>
+      push<dynamic>(Routes.surveyContentPage);
 }
 
 /// ************************************************************************

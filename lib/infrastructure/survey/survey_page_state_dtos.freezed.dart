@@ -22,6 +22,7 @@ class _$SurveyPageStateDtoTearOff {
       @required int newestPage,
       @required List<QuestionDto> questionList,
       @required List<QuestionDto> pageQuestionList,
+      @required List<QuestionDto> contentQuestionList,
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required bool isLastPage,
       @required WarningDto warning,
@@ -33,6 +34,7 @@ class _$SurveyPageStateDtoTearOff {
       newestPage: newestPage,
       questionList: questionList,
       pageQuestionList: pageQuestionList,
+      contentQuestionList: contentQuestionList,
       answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
       warning: warning,
@@ -58,6 +60,7 @@ mixin _$SurveyPageStateDto {
   int get newestPage;
   List<QuestionDto> get questionList;
   List<QuestionDto> get pageQuestionList;
+  List<QuestionDto> get contentQuestionList;
   Map<String, AnswerStatusDto> get answerStatusMap;
   bool get isLastPage;
   WarningDto get warning;
@@ -79,6 +82,7 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
       int newestPage,
       List<QuestionDto> questionList,
       List<QuestionDto> pageQuestionList,
+      List<QuestionDto> contentQuestionList,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
       WarningDto warning,
@@ -104,6 +108,7 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
     Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
+    Object contentQuestionList = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
     Object warning = freezed,
@@ -120,6 +125,9 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList as List<QuestionDto>,
+      contentQuestionList: contentQuestionList == freezed
+          ? _value.contentQuestionList
+          : contentQuestionList as List<QuestionDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as Map<String, AnswerStatusDto>,
@@ -160,6 +168,7 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       int newestPage,
       List<QuestionDto> questionList,
       List<QuestionDto> pageQuestionList,
+      List<QuestionDto> contentQuestionList,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
       WarningDto warning,
@@ -188,6 +197,7 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
     Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
+    Object contentQuestionList = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
     Object warning = freezed,
@@ -204,6 +214,9 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList as List<QuestionDto>,
+      contentQuestionList: contentQuestionList == freezed
+          ? _value.contentQuestionList
+          : contentQuestionList as List<QuestionDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as Map<String, AnswerStatusDto>,
@@ -231,6 +244,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       @required this.newestPage,
       @required this.questionList,
       @required this.pageQuestionList,
+      @required this.contentQuestionList,
       @required this.answerStatusMap,
       @required this.isLastPage,
       @required this.warning,
@@ -241,6 +255,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
         assert(newestPage != null),
         assert(questionList != null),
         assert(pageQuestionList != null),
+        assert(contentQuestionList != null),
         assert(answerStatusMap != null),
         assert(isLastPage != null),
         assert(warning != null),
@@ -261,6 +276,8 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   @override
   final List<QuestionDto> pageQuestionList;
   @override
+  final List<QuestionDto> contentQuestionList;
+  @override
   final Map<String, AnswerStatusDto> answerStatusMap;
   @override
   final bool isLastPage;
@@ -275,7 +292,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
 
   @override
   String toString() {
-    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState)';
+    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState)';
   }
 
   @override
@@ -293,6 +310,9 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
             (identical(other.pageQuestionList, pageQuestionList) ||
                 const DeepCollectionEquality()
                     .equals(other.pageQuestionList, pageQuestionList)) &&
+            (identical(other.contentQuestionList, contentQuestionList) ||
+                const DeepCollectionEquality()
+                    .equals(other.contentQuestionList, contentQuestionList)) &&
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
@@ -320,6 +340,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       const DeepCollectionEquality().hash(newestPage) ^
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
+      const DeepCollectionEquality().hash(contentQuestionList) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage) ^
       const DeepCollectionEquality().hash(warning) ^
@@ -344,6 +365,7 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
       @required int newestPage,
       @required List<QuestionDto> questionList,
       @required List<QuestionDto> pageQuestionList,
+      @required List<QuestionDto> contentQuestionList,
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required bool isLastPage,
       @required WarningDto warning,
@@ -362,6 +384,8 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   List<QuestionDto> get questionList;
   @override
   List<QuestionDto> get pageQuestionList;
+  @override
+  List<QuestionDto> get contentQuestionList;
   @override
   Map<String, AnswerStatusDto> get answerStatusMap;
   @override

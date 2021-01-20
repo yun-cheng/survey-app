@@ -19,6 +19,10 @@ _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
         ?.map((e) =>
             e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    contentQuestionList: (json['contentQuestionList'] as List)
+        ?.map((e) =>
+            e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
     answerStatusMap: (json['answerStatusMap'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(
           k,
@@ -44,6 +48,8 @@ Map<String, dynamic> _$_$_SurveyPageStateDtoToJson(
       'questionList': instance.questionList?.map((e) => e?.toJson())?.toList(),
       'pageQuestionList':
           instance.pageQuestionList?.map((e) => e?.toJson())?.toList(),
+      'contentQuestionList':
+          instance.contentQuestionList?.map((e) => e?.toJson())?.toList(),
       'answerStatusMap':
           instance.answerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'isLastPage': instance.isLastPage,

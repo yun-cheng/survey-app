@@ -46,6 +46,10 @@ abstract class Question implements _$Question {
         pageNumber: PageNumber(0),
       );
 
+  String get contentText {
+    return '${this.id.getValueAnyway()}. ${body.getValueAnyway()}';
+  }
+
   Option<ValueFailure<dynamic>> get failureOption {
     return (this.id.failureOrUnit)
         .andThen(serialNumber.failureOrUnit)

@@ -1980,6 +1980,7 @@ class _$SurveyPageStateTearOff {
       @required PageNumber newestPage,
       @required KtList<Question> questionList,
       @required KtList<Question> pageQuestionList,
+      @required KtList<Question> contentQuestionList,
       @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       @required bool isLastPage,
       @required Warning warning,
@@ -1991,6 +1992,7 @@ class _$SurveyPageStateTearOff {
       newestPage: newestPage,
       questionList: questionList,
       pageQuestionList: pageQuestionList,
+      contentQuestionList: contentQuestionList,
       answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
       warning: warning,
@@ -2011,6 +2013,7 @@ mixin _$SurveyPageState {
   PageNumber get newestPage;
   KtList<Question> get questionList;
   KtList<Question> get pageQuestionList;
+  KtList<Question> get contentQuestionList;
   KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
   bool get isLastPage;
   Warning get warning;
@@ -2031,6 +2034,7 @@ abstract class $SurveyPageStateCopyWith<$Res> {
       PageNumber newestPage,
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
+      KtList<Question> contentQuestionList,
       KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       bool isLastPage,
       Warning warning,
@@ -2058,6 +2062,7 @@ class _$SurveyPageStateCopyWithImpl<$Res>
     Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
+    Object contentQuestionList = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
     Object warning = freezed,
@@ -2075,6 +2080,9 @@ class _$SurveyPageStateCopyWithImpl<$Res>
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList as KtList<Question>,
+      contentQuestionList: contentQuestionList == freezed
+          ? _value.contentQuestionList
+          : contentQuestionList as KtList<Question>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
@@ -2134,6 +2142,7 @@ abstract class _$SurveyPageStateCopyWith<$Res>
       PageNumber newestPage,
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
+      KtList<Question> contentQuestionList,
       KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       bool isLastPage,
       Warning warning,
@@ -2166,6 +2175,7 @@ class __$SurveyPageStateCopyWithImpl<$Res>
     Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
+    Object contentQuestionList = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
     Object warning = freezed,
@@ -2183,6 +2193,9 @@ class __$SurveyPageStateCopyWithImpl<$Res>
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList as KtList<Question>,
+      contentQuestionList: contentQuestionList == freezed
+          ? _value.contentQuestionList
+          : contentQuestionList as KtList<Question>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
@@ -2207,6 +2220,7 @@ class _$_SurveyPageState implements _SurveyPageState {
       @required this.newestPage,
       @required this.questionList,
       @required this.pageQuestionList,
+      @required this.contentQuestionList,
       @required this.answerStatusMap,
       @required this.isLastPage,
       @required this.warning,
@@ -2217,6 +2231,7 @@ class _$_SurveyPageState implements _SurveyPageState {
         assert(newestPage != null),
         assert(questionList != null),
         assert(pageQuestionList != null),
+        assert(contentQuestionList != null),
         assert(answerStatusMap != null),
         assert(isLastPage != null),
         assert(warning != null),
@@ -2233,6 +2248,8 @@ class _$_SurveyPageState implements _SurveyPageState {
   @override
   final KtList<Question> pageQuestionList;
   @override
+  final KtList<Question> contentQuestionList;
+  @override
   final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
   final bool isLastPage;
@@ -2247,7 +2264,7 @@ class _$_SurveyPageState implements _SurveyPageState {
 
   @override
   String toString() {
-    return 'SurveyPageState(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState)';
+    return 'SurveyPageState(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState)';
   }
 
   @override
@@ -2265,6 +2282,9 @@ class _$_SurveyPageState implements _SurveyPageState {
             (identical(other.pageQuestionList, pageQuestionList) ||
                 const DeepCollectionEquality()
                     .equals(other.pageQuestionList, pageQuestionList)) &&
+            (identical(other.contentQuestionList, contentQuestionList) ||
+                const DeepCollectionEquality()
+                    .equals(other.contentQuestionList, contentQuestionList)) &&
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
@@ -2292,6 +2312,7 @@ class _$_SurveyPageState implements _SurveyPageState {
       const DeepCollectionEquality().hash(newestPage) ^
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
+      const DeepCollectionEquality().hash(contentQuestionList) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage) ^
       const DeepCollectionEquality().hash(warning) ^
@@ -2310,6 +2331,7 @@ abstract class _SurveyPageState implements SurveyPageState {
       @required PageNumber newestPage,
       @required KtList<Question> questionList,
       @required KtList<Question> pageQuestionList,
+      @required KtList<Question> contentQuestionList,
       @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
       @required bool isLastPage,
       @required Warning warning,
@@ -2325,6 +2347,8 @@ abstract class _SurveyPageState implements SurveyPageState {
   KtList<Question> get questionList;
   @override
   KtList<Question> get pageQuestionList;
+  @override
+  KtList<Question> get contentQuestionList;
   @override
   KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
   @override
