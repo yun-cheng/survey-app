@@ -8,7 +8,9 @@ import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/navigation_page.dart';
+import '../core/constants.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
+import '../routes/router.gr.dart';
 import 'widgets/page_control_bar.dart';
 import 'widgets/survey_body.dart';
 
@@ -39,6 +41,13 @@ class SurveyPage extends HookWidget {
                   );
               context.navigator.maybePop();
             }),
+        actions: [
+          IconButton(
+              icon: const Icon(Icons.format_list_bulleted),
+              onPressed: () {
+                context.navigator.push(Routes.surveyContentPage);
+              }),
+        ],
       ),
       body: SafeArea(
         child: TapOutDismissKeyboard(
@@ -59,7 +68,7 @@ class SurveyPage extends HookWidget {
                 visible: !isKeyboardVisible,
                 maintainState: true,
                 child: Container(
-                  color: Colors.grey[900],
+                  color: kDarkestColor,
                   height: 100.0,
                   alignment: Alignment.center,
                   child: ConstrainedBox(

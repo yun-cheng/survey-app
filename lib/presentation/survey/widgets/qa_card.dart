@@ -28,7 +28,6 @@ class QaCard extends StatelessWidget {
     return Card(
       // NOTE 避免 widget 沒有刷新的問題
       key: Key(question.id.getOrCrash()),
-      color: Colors.teal[200],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../core/constants.dart';
 
 class SurveyContentBody extends StatelessWidget {
   @override
@@ -30,18 +31,18 @@ class SurveyContentBody extends StatelessWidget {
             if (state.answerStatusMap[question.id].isAnswered) {
               leadingIcon = const Icon(
                 Icons.done,
-                color: Colors.green,
+                color: kCardGreenTextColor,
               );
             } else if (!state.answerStatusMap[question.id].warning.isEmpty &&
                 state.showWarning) {
               leadingIcon = const Icon(
                 Icons.close,
-                color: Colors.red,
+                color: kCardRedTextColor,
               );
             } else {
               leadingIcon = const Icon(
                 Icons.remove,
-                color: Colors.blue,
+                color: kCardBlueTextColor,
               );
             }
 
@@ -50,7 +51,7 @@ class SurveyContentBody extends StatelessWidget {
                 leading: leadingIcon,
                 title: Text(
                   question.contentText,
-                  style: const TextStyle(fontSize: 20),
+                  style: kH4TextStyle,
                   maxLines: 1,
                   overflow: TextOverflow.fade,
                   softWrap: false,

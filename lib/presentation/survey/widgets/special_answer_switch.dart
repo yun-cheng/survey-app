@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/survey/question.dart';
+import '../../core/constants.dart';
 
 class SpecialAnswerSwitch extends StatelessWidget {
   final Question question;
@@ -28,9 +29,7 @@ class SpecialAnswerSwitch extends StatelessWidget {
               ),
               const Text(
                 '切換特殊作答',
-                style: TextStyle(
-                  fontSize: 18,
-                ),
+                style: kPTextStyle,
               ),
             ],
           ),

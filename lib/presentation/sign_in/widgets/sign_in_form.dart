@@ -8,6 +8,7 @@ import '../../../application/navigation/navigation_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/navigation_page.dart';
+import '../../core/constants.dart';
 import '../../core/widgets/rounded_button.dart';
 import '../../routes/router.gr.dart';
 import 'account_box.dart';
@@ -67,20 +68,14 @@ class SignInForm extends StatelessWidget {
               children: <Widget>[
                 const Text(
                   '請選擇單位',
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    fontFamily: 'NotoSansTC',
-                  ),
+                  style: kH2TextStyle,
                 ),
                 const SizedBox(height: 24.0),
                 const Teambox(),
                 const SizedBox(height: 24.0),
                 const Text(
                   '登入',
-                  style: TextStyle(
-                    fontSize: 28.0,
-                    fontFamily: 'NotoSansTC',
-                  ),
+                  style: kH2TextStyle,
                 ),
                 const SizedBox(height: 24.0),
                 const AccountBox(),

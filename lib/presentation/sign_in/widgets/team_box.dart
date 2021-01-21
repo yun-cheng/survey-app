@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/auth/auth_bloc.dart';
+import '../../core/constants.dart';
 
 class Teambox extends StatelessWidget {
   const Teambox({
@@ -32,9 +33,8 @@ class Teambox extends StatelessWidget {
           onChanged: (value) {
             context.read<AuthBloc>().add(AuthEvent.teamSelected(value));
           },
-          style: const TextStyle(
+          style: kPTextStyle.copyWith(
             color: Colors.black,
-            fontSize: 20.0,
           ),
           iconSize: 40.0,
           isExpanded: true,

@@ -16,6 +16,7 @@ import '../../domain/survey/i_answer_status_algorithm.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../injection.dart';
 import '../routes/router.gr.dart';
+import 'themes.dart';
 
 class AppWidget extends StatelessWidget {
   @override
@@ -63,24 +64,7 @@ class AppWidget extends StatelessWidget {
         title: '問卷',
         debugShowCheckedModeBanner: false,
         builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
-        theme: ThemeData.light().copyWith(
-          textTheme:
-              ThemeData.light().textTheme.apply(fontFamily: 'NotoSansTC'),
-          primaryTextTheme: (ThemeData.light().primaryTextTheme)
-              .apply(fontFamily: 'NotoSansTC'),
-          accentTextTheme:
-              ThemeData.light().accentTextTheme.apply(fontFamily: 'NotoSansTC'),
-          primaryColor: Colors.blueAccent,
-          accentColor: Colors.blueAccent,
-          floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Colors.blue[900],
-          ),
-          inputDecorationTheme: InputDecorationTheme(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-          ),
-        ),
+        theme: kLightTheme,
       ),
     );
   }

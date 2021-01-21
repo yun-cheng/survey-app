@@ -7,6 +7,7 @@ import '../../../application/respondent/respondent_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../domain/core/navigation_page.dart';
 import '../../../domain/respondent/respondent.dart';
+import '../../core/constants.dart';
 
 class RespondentCard extends StatelessWidget {
   final Respondent respondent;
@@ -19,7 +20,6 @@ class RespondentCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.lightBlueAccent[400],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
@@ -47,17 +47,11 @@ class RespondentCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 respondent.id.getOrCrash(),
-                style: const TextStyle(
-                  fontSize: 32.0,
-                  color: Colors.white,
-                ),
+                style: kCardTextStyle,
               ),
               Text(
                 respondent.remainAddress.getOrCrash(),
-                style: const TextStyle(
-                  fontSize: 32.0,
-                  color: Colors.white,
-                ),
+                style: kCardTextStyle,
               ),
             ],
           ),

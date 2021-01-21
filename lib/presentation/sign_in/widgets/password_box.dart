@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/auth_bloc.dart';
+import '../../core/constants.dart';
 import 'sign_in_validator.dart';
 
 class PasswordBox extends StatelessWidget {
@@ -26,11 +27,11 @@ class PasswordBox extends StatelessWidget {
           ),
           obscureText: true,
           autocorrect: false,
-          style: const TextStyle(fontSize: 20.0),
+          style: kPTextStyle,
           decoration: const InputDecoration(
             prefixIcon: Icon(Icons.person),
             labelText: '密碼',
-            labelStyle: TextStyle(fontSize: 20.0),
+            labelStyle: kPTextStyle,
             errorStyle: TextStyle(fontSize: 16.0),
           ),
         );

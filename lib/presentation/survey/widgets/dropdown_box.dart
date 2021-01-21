@@ -6,6 +6,7 @@ import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/question.dart';
+import '../../core/constants.dart';
 
 class DropdownBox extends StatelessWidget {
   final Question question;
@@ -43,9 +44,8 @@ class DropdownBox extends StatelessWidget {
           value: thisAnswer.body.getOrCrash() == ''
               ? null
               : thisAnswer.body.getOrCrash(),
-          style: const TextStyle(
+          style: kPTextStyle.copyWith(
             color: Colors.black,
-            fontSize: 20.0,
           ),
           // elevation: 16,
           focusColor: Colors.red,

@@ -8,6 +8,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../core/constants.dart';
 import 'note_box.dart';
 
 class AnswerBox extends StatelessWidget {
@@ -65,7 +66,7 @@ class AnswerBox extends StatelessWidget {
                   children: [
                     Text(
                       choice.body.getOrCrash(),
-                      style: const TextStyle(fontSize: 18),
+                      style: kPTextStyle,
                     ),
                     if (choice.asNote &&
                         thisAnswer.body.contains(choice.id)) ...[
@@ -100,7 +101,7 @@ class AnswerBox extends StatelessWidget {
                   children: [
                     Text(
                       choice.body.getOrCrash(),
-                      style: const TextStyle(fontSize: 18),
+                      style: kPTextStyle,
                     ),
                     if (choice.asNote &&
                         thisAnswer.body.contains(choice.id)) ...[

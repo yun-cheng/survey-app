@@ -8,6 +8,7 @@ import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/survey/survey_bloc.dart';
 import '../../../domain/core/navigation_page.dart';
 import '../../../domain/overview/survey.dart';
+import '../../core/constants.dart';
 import '../../routes/router.gr.dart';
 
 class SurveyCard extends StatelessWidget {
@@ -21,7 +22,6 @@ class SurveyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.lightBlueAccent[400],
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
@@ -51,17 +51,11 @@ class SurveyCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 survey.projectId.getOrCrash(),
-                style: const TextStyle(
-                  fontSize: 32.0,
-                  color: Colors.white,
-                ),
+                style: kCardTextStyle,
               ),
               Text(
                 survey.name.getOrCrash(),
-                style: const TextStyle(
-                  fontSize: 32.0,
-                  color: Colors.white,
-                ),
+                style: kCardTextStyle,
               ),
             ],
           ),

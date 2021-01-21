@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/survey/question.dart';
+import '../../core/constants.dart';
 
 class WarningBox extends StatelessWidget {
   final Question question;
@@ -21,9 +22,8 @@ class WarningBox extends StatelessWidget {
           visible: state.showWarning && !warning.isEmpty,
           child: Text(
             warning.toText(),
-            style: const TextStyle(
-              fontSize: 22,
-              color: Colors.red,
+            style: kH4TextStyle.copyWith(
+              color: kCardRedTextColor,
               fontWeight: FontWeight.bold,
             ),
           ),

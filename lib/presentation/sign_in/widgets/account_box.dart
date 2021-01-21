@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/auth_bloc.dart';
+import '../../core/constants.dart';
 import 'sign_in_validator.dart';
 
 class AccountBox extends StatelessWidget {
@@ -26,11 +27,11 @@ class AccountBox extends StatelessWidget {
             value: context.watch<AuthBloc>().state.id.value,
           ),
           autocorrect: false,
-          style: const TextStyle(fontSize: 20.0),
+          style: kPTextStyle,
           decoration: const InputDecoration(
             prefixIcon: Icon(Icons.assignment_ind),
             labelText: '帳號',
-            labelStyle: TextStyle(fontSize: 20.0),
+            labelStyle: kPTextStyle,
             errorStyle: TextStyle(fontSize: 16.0),
           ),
         );
