@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
 import 'respondent_card.dart';
 
-class RespondentListBody extends StatelessWidget {
+class RespondentsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(

@@ -7,7 +7,7 @@ part 'navigation_page.g.dart';
 abstract class NavigationPage with _$NavigationPage {
   const factory NavigationPage.signIn() = NavSignInPage;
   const factory NavigationPage.overview() = NavOverviewPage;
-  const factory NavigationPage.respondent() = NavRespondentListPage;
+  const factory NavigationPage.respondent() = NavRespondentsPage;
   const factory NavigationPage.survey() = NavSurveyPage;
 
   factory NavigationPage.fromJson(Map<String, dynamic> json) =>

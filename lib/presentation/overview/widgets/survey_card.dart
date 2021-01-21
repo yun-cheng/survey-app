@@ -42,7 +42,7 @@ class SurveyCard extends StatelessWidget {
                   page: NavigationPage.respondent(),
                 ),
               );
-          context.navigator.push(Routes.respondentListPage);
+          context.navigator.push(Routes.respondentsPage);
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),

@@ -15,7 +15,7 @@ NavigationPage _$NavigationPageFromJson(Map<String, dynamic> json) {
     case 'overview':
       return NavOverviewPage.fromJson(json);
     case 'respondent':
-      return NavRespondentListPage.fromJson(json);
+      return NavRespondentsPage.fromJson(json);
     case 'survey':
       return NavSurveyPage.fromJson(json);
 
@@ -39,8 +39,8 @@ class _$NavigationPageTearOff {
   }
 
 // ignore: unused_element
-  NavRespondentListPage respondent() {
-    return const NavRespondentListPage();
+  NavRespondentsPage respondent() {
+    return const NavRespondentsPage();
   }
 
 // ignore: unused_element
@@ -79,14 +79,14 @@ mixin _$NavigationPage {
   TResult map<TResult extends Object>({
     @required TResult signIn(NavSignInPage value),
     @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentListPage value),
+    @required TResult respondent(NavRespondentsPage value),
     @required TResult survey(NavSurveyPage value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult signIn(NavSignInPage value),
     TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentListPage value),
+    TResult respondent(NavRespondentsPage value),
     TResult survey(NavSurveyPage value),
     @required TResult orElse(),
   });
@@ -187,7 +187,7 @@ class _$NavSignInPage implements NavSignInPage {
   TResult map<TResult extends Object>({
     @required TResult signIn(NavSignInPage value),
     @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentListPage value),
+    @required TResult respondent(NavRespondentsPage value),
     @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
@@ -202,7 +202,7 @@ class _$NavSignInPage implements NavSignInPage {
   TResult maybeMap<TResult extends Object>({
     TResult signIn(NavSignInPage value),
     TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentListPage value),
+    TResult respondent(NavRespondentsPage value),
     TResult survey(NavSurveyPage value),
     @required TResult orElse(),
   }) {
@@ -303,7 +303,7 @@ class _$NavOverviewPage implements NavOverviewPage {
   TResult map<TResult extends Object>({
     @required TResult signIn(NavSignInPage value),
     @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentListPage value),
+    @required TResult respondent(NavRespondentsPage value),
     @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
@@ -318,7 +318,7 @@ class _$NavOverviewPage implements NavOverviewPage {
   TResult maybeMap<TResult extends Object>({
     TResult signIn(NavSignInPage value),
     TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentListPage value),
+    TResult respondent(NavRespondentsPage value),
     TResult survey(NavSurveyPage value),
     @required TResult orElse(),
   }) {
@@ -343,32 +343,32 @@ abstract class NavOverviewPage implements NavigationPage {
 }
 
 /// @nodoc
-abstract class $NavRespondentListPageCopyWith<$Res> {
-  factory $NavRespondentListPageCopyWith(NavRespondentListPage value,
-          $Res Function(NavRespondentListPage) then) =
-      _$NavRespondentListPageCopyWithImpl<$Res>;
+abstract class $NavRespondentsPageCopyWith<$Res> {
+  factory $NavRespondentsPageCopyWith(
+          NavRespondentsPage value, $Res Function(NavRespondentsPage) then) =
+      _$NavRespondentsPageCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$NavRespondentListPageCopyWithImpl<$Res>
+class _$NavRespondentsPageCopyWithImpl<$Res>
     extends _$NavigationPageCopyWithImpl<$Res>
-    implements $NavRespondentListPageCopyWith<$Res> {
-  _$NavRespondentListPageCopyWithImpl(
-      NavRespondentListPage _value, $Res Function(NavRespondentListPage) _then)
-      : super(_value, (v) => _then(v as NavRespondentListPage));
+    implements $NavRespondentsPageCopyWith<$Res> {
+  _$NavRespondentsPageCopyWithImpl(
+      NavRespondentsPage _value, $Res Function(NavRespondentsPage) _then)
+      : super(_value, (v) => _then(v as NavRespondentsPage));
 
   @override
-  NavRespondentListPage get _value => super._value as NavRespondentListPage;
+  NavRespondentsPage get _value => super._value as NavRespondentsPage;
 }
 
 @JsonSerializable()
 
 /// @nodoc
-class _$NavRespondentListPage implements NavRespondentListPage {
-  const _$NavRespondentListPage();
+class _$NavRespondentsPage implements NavRespondentsPage {
+  const _$NavRespondentsPage();
 
-  factory _$NavRespondentListPage.fromJson(Map<String, dynamic> json) =>
-      _$_$NavRespondentListPageFromJson(json);
+  factory _$NavRespondentsPage.fromJson(Map<String, dynamic> json) =>
+      _$_$NavRespondentsPageFromJson(json);
 
   @override
   String toString() {
@@ -377,7 +377,7 @@ class _$NavRespondentListPage implements NavRespondentListPage {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is NavRespondentListPage);
+    return identical(this, other) || (other is NavRespondentsPage);
   }
 
   @override
@@ -419,7 +419,7 @@ class _$NavRespondentListPage implements NavRespondentListPage {
   TResult map<TResult extends Object>({
     @required TResult signIn(NavSignInPage value),
     @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentListPage value),
+    @required TResult respondent(NavRespondentsPage value),
     @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
@@ -434,7 +434,7 @@ class _$NavRespondentListPage implements NavRespondentListPage {
   TResult maybeMap<TResult extends Object>({
     TResult signIn(NavSignInPage value),
     TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentListPage value),
+    TResult respondent(NavRespondentsPage value),
     TResult survey(NavSurveyPage value),
     @required TResult orElse(),
   }) {
@@ -447,16 +447,15 @@ class _$NavRespondentListPage implements NavRespondentListPage {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$NavRespondentListPageToJson(this)
-      ..['runtimeType'] = 'respondent';
+    return _$_$NavRespondentsPageToJson(this)..['runtimeType'] = 'respondent';
   }
 }
 
-abstract class NavRespondentListPage implements NavigationPage {
-  const factory NavRespondentListPage() = _$NavRespondentListPage;
+abstract class NavRespondentsPage implements NavigationPage {
+  const factory NavRespondentsPage() = _$NavRespondentsPage;
 
-  factory NavRespondentListPage.fromJson(Map<String, dynamic> json) =
-      _$NavRespondentListPage.fromJson;
+  factory NavRespondentsPage.fromJson(Map<String, dynamic> json) =
+      _$NavRespondentsPage.fromJson;
 }
 
 /// @nodoc
@@ -536,7 +535,7 @@ class _$NavSurveyPage implements NavSurveyPage {
   TResult map<TResult extends Object>({
     @required TResult signIn(NavSignInPage value),
     @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentListPage value),
+    @required TResult respondent(NavRespondentsPage value),
     @required TResult survey(NavSurveyPage value),
   }) {
     assert(signIn != null);
@@ -551,7 +550,7 @@ class _$NavSurveyPage implements NavSurveyPage {
   TResult maybeMap<TResult extends Object>({
     TResult signIn(NavSignInPage value),
     TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentListPage value),
+    TResult respondent(NavRespondentsPage value),
     TResult survey(NavSurveyPage value),
     @required TResult orElse(),
   }) {

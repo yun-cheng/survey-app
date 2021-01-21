@@ -5,14 +5,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../domain/core/navigation_page.dart';
 import '../core/widgets/responsive_layout.dart';
-import 'widgets/respondent_list_body.dart';
+import 'widgets/respondents_body.dart';
 
-class RespondentListPage extends StatelessWidget {
+class RespondentsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Respondent List Page'),
+        title: const Text('受訪者頁面'),
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
@@ -25,7 +25,7 @@ class RespondentListPage extends StatelessWidget {
             }),
       ),
       body: ResponsiveLayout(
-        child: RespondentListBody(),
+        child: RespondentsBody(),
       ),
     );
   }

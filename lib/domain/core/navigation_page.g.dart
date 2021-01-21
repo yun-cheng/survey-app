@@ -20,13 +20,12 @@ _$NavOverviewPage _$_$NavOverviewPageFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$_$NavOverviewPageToJson(_$NavOverviewPage instance) =>
     <String, dynamic>{};
 
-_$NavRespondentListPage _$_$NavRespondentListPageFromJson(
-    Map<String, dynamic> json) {
-  return _$NavRespondentListPage();
+_$NavRespondentsPage _$_$NavRespondentsPageFromJson(Map<String, dynamic> json) {
+  return _$NavRespondentsPage();
 }
 
-Map<String, dynamic> _$_$NavRespondentListPageToJson(
-        _$NavRespondentListPage instance) =>
+Map<String, dynamic> _$_$NavRespondentsPageToJson(
+        _$NavRespondentsPage instance) =>
     <String, dynamic>{};
 
 _$NavSurveyPage _$_$NavSurveyPageFromJson(Map<String, dynamic> json) {

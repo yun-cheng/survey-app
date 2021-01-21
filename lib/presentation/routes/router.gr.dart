@@ -14,7 +14,7 @@ import '../finished/finished_page.dart';
 import '../overview/overview_page.dart';
 import '../quiz/quiz_page.dart';
 import '../quiz_list/quiz_list_page.dart';
-import '../respondent_list/respondent_list_page.dart';
+import '../respondent_list/respondents_page.dart';
 import '../sign_in/sign_in_page.dart';
 import '../splash/splash_page.dart';
 import '../survey/survey_content_page.dart';
@@ -27,7 +27,7 @@ class Routes {
   static const String quizPage = '/quiz-page';
   static const String finishedPage = '/finished-page';
   static const String overviewPage = '/overview';
-  static const String respondentListPage = '/respondent';
+  static const String respondentsPage = '/respondents';
   static const String _surveyPage = '/respondent/:respondentId';
   static String surveyPage({@required dynamic respondentId}) =>
       '/respondent/$respondentId';
@@ -39,7 +39,7 @@ class Routes {
     quizPage,
     finishedPage,
     overviewPage,
-    respondentListPage,
+    respondentsPage,
     _surveyPage,
     surveyContentPage,
   };
@@ -55,7 +55,7 @@ class AutoRouter extends RouterBase {
     RouteDef(Routes.quizPage, page: QuizPage),
     RouteDef(Routes.finishedPage, page: FinishedPage),
     RouteDef(Routes.overviewPage, page: OverviewPage),
-    RouteDef(Routes.respondentListPage, page: RespondentListPage),
+    RouteDef(Routes.respondentsPage, page: RespondentsPage),
     RouteDef(Routes._surveyPage, page: SurveyPage),
     RouteDef(Routes.surveyContentPage, page: SurveyContentPage),
   ];
@@ -102,9 +102,9 @@ class AutoRouter extends RouterBase {
         settings: data,
       );
     },
-    RespondentListPage: (data) {
+    RespondentsPage: (data) {
       return MaterialPageRoute<dynamic>(
-        builder: (context) => RespondentListPage(),
+        builder: (context) => RespondentsPage(),
         settings: data,
       );
     },
@@ -147,8 +147,8 @@ extension AutoRouterExtendedNavigatorStateX on ExtendedNavigatorState {
 
   Future<dynamic> pushOverviewPage() => push<dynamic>(Routes.overviewPage);
 
-  Future<dynamic> pushRespondentListPage() =>
-      push<dynamic>(Routes.respondentListPage);
+  Future<dynamic> pushRespondentsPage() =>
+      push<dynamic>(Routes.respondentsPage);
 
   Future<dynamic> pushSurveyContentPage() =>
       push<dynamic>(Routes.surveyContentPage);

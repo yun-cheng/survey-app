@@ -41,8 +41,8 @@ class SplashPage extends StatelessWidget {
               return;
             }
 
-            context.navigator.push(Routes.respondentListPage);
-            if (state.page is NavRespondentListPage) {
+            context.navigator.push(Routes.respondentsPage);
+            if (state.page is NavRespondentsPage) {
               return;
             }
 
