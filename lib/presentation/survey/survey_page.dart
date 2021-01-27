@@ -5,7 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
-import '../../application/respondent/respondent_bloc.dart';
+import '../../application/survey/response/response_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/navigation_page.dart';
 import '../core/constants.dart';
@@ -26,8 +26,8 @@ class SurveyPage extends HookWidget {
     return Scaffold(
       appBar: AppBar(
         title: Builder(builder: (context) {
-          final respondent = context.select((RespondentBloc respondentBloc) =>
-              respondentBloc.state.respondent);
+          final respondent = context.select(
+              (ResponseBloc responseBloc) => responseBloc.state.respondent);
           LoggerService.simple.i('SurveyPage title changed!!');
           return Text(respondent.remainAddress.getValueAnyway());
         }),
@@ -43,10 +43,11 @@ class SurveyPage extends HookWidget {
             }),
         actions: [
           IconButton(
-              icon: const Icon(Icons.format_list_bulleted),
-              onPressed: () {
-                context.navigator.push(Routes.surveyContentPage);
-              }),
+            icon: const Icon(Icons.format_list_bulleted),
+            onPressed: () {
+              context.navigator.push(Routes.surveyContentPage);
+            },
+          ),
         ],
       ),
       body: SafeArea(

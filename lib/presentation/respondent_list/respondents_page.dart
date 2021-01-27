@@ -23,6 +23,12 @@ class RespondentsPage extends StatelessWidget {
                   );
               context.navigator.maybePop();
             }),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: ResponsiveLayout(
         child: RespondentsBody(),

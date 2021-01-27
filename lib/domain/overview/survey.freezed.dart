@@ -19,7 +19,7 @@ class _$SurveyTearOff {
       @required SurveyName name,
       @required TeamId teamId,
       @required ProjectId projectId,
-      @required KtMap<ModuleType, dynamic> module,
+      @required KtMap<ModuleType, SurveyModule> module,
       @required KtList<Question> questionList,
       @required KtMap<QuestionId, Answer> answerMap,
       @required KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
@@ -46,7 +46,7 @@ mixin _$Survey {
   SurveyName get name;
   TeamId get teamId;
   ProjectId get projectId;
-  KtMap<ModuleType, dynamic> get module;
+  KtMap<ModuleType, SurveyModule> get module;
   KtList<Question> get questionList;
   KtMap<QuestionId, Answer> get answerMap;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap;
@@ -63,7 +63,7 @@ abstract class $SurveyCopyWith<$Res> {
       SurveyName name,
       TeamId teamId,
       ProjectId projectId,
-      KtMap<ModuleType, dynamic> module,
+      KtMap<ModuleType, SurveyModule> module,
       KtList<Question> questionList,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap});
@@ -96,7 +96,7 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
           projectId == freezed ? _value.projectId : projectId as ProjectId,
       module: module == freezed
           ? _value.module
-          : module as KtMap<ModuleType, dynamic>,
+          : module as KtMap<ModuleType, SurveyModule>,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
@@ -120,7 +120,7 @@ abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
       SurveyName name,
       TeamId teamId,
       ProjectId projectId,
-      KtMap<ModuleType, dynamic> module,
+      KtMap<ModuleType, SurveyModule> module,
       KtList<Question> questionList,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap});
@@ -154,7 +154,7 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
           projectId == freezed ? _value.projectId : projectId as ProjectId,
       module: module == freezed
           ? _value.module
-          : module as KtMap<ModuleType, dynamic>,
+          : module as KtMap<ModuleType, SurveyModule>,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
@@ -198,7 +198,7 @@ class _$_Survey extends _Survey {
   @override
   final ProjectId projectId;
   @override
-  final KtMap<ModuleType, dynamic> module;
+  final KtMap<ModuleType, SurveyModule> module;
   @override
   final KtList<Question> questionList;
   @override
@@ -256,7 +256,7 @@ abstract class _Survey extends Survey {
       @required SurveyName name,
       @required TeamId teamId,
       @required ProjectId projectId,
-      @required KtMap<ModuleType, dynamic> module,
+      @required KtMap<ModuleType, SurveyModule> module,
       @required KtList<Question> questionList,
       @required KtMap<QuestionId, Answer> answerMap,
       @required KtMap<QuestionId, AnswerStatus> answerStatusMap}) = _$_Survey;
@@ -270,7 +270,7 @@ abstract class _Survey extends Survey {
   @override
   ProjectId get projectId;
   @override
-  KtMap<ModuleType, dynamic> get module;
+  KtMap<ModuleType, SurveyModule> get module;
   @override
   KtList<Question> get questionList;
   @override

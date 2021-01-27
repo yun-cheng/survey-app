@@ -12,6 +12,7 @@ import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/respondent/respondent.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/respondent_list.dart';
+import '../../domain/respondent/value_objects.dart';
 import '../../infrastructure/respondent/respondent_state_dtos.dart';
 
 part 'respondent_bloc.freezed.dart';
@@ -81,7 +82,9 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
       },
       respondentSelected: (e) async* {
         yield state.copyWith(
-          respondent: e.respondent,
+          selectedRespondentId: state.selectedRespondentId == e.respondentId
+              ? RespondentId.empty()
+              : e.respondentId,
           respondentFailure: none(),
         );
       },

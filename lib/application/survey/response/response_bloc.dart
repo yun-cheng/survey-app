@@ -8,6 +8,7 @@ import 'package:kt_dart/collection.dart';
 import '../../../domain/auth/interviewer.dart';
 import '../../../domain/auth/value_objects.dart';
 import '../../../domain/core/load_state.dart';
+import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/overview/survey.dart';
 import '../../../domain/overview/value_objects.dart';
@@ -15,6 +16,7 @@ import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/i_survey_repository.dart';
+import '../../../domain/survey/question.dart';
 import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
@@ -86,11 +88,15 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           // S_3 迴圈
           for (final response in syncResponseList.iter) {
             // S_3-1 篩出 local 端同 respondent 的資料
-            final mainResponse = newResponseList.firstOrNull((_response) =>
-                _response.respondentId == response.respondentId &&
-                _response.surveyId == response.surveyId &&
-                _response.uploadType == UploadType.sync() &&
-                _response.isMainBranch);
+            final mainResponse = newResponseList.firstOrNull(
+              (_response) =>
+                  _response.respondentId == response.respondentId &&
+                  _response.surveyId == response.surveyId &&
+                  _response.surveyType == state.surveyType &&
+                  _response.moduleType == state.moduleType &&
+                  _response.uploadType == UploadType.sync() &&
+                  _response.isMainBranch,
+            );
 
             // S_3-2-c1 如果 branch 不同，表示不是 main branch
             if (mainResponse != null &&
@@ -188,9 +194,11 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           survey: e.survey,
         );
       },
-      respondentSelected: (e) async* {
+      responseStarted: (e) async* {
         yield state.copyWith(
           respondent: e.respondent,
+          surveyType: e.surveyType,
+          moduleType: e.moduleType,
         );
 
         add(const ResponseEvent.responseRestored());
@@ -200,11 +208,56 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           responseRestoreState: const LoadState.inProgress(),
         );
 
-        Response response = state.responseList.firstOrNull((response) =>
-            response.respondentId == state.respondent.id &&
-            response.surveyId == state.survey.id &&
-            response.uploadType == UploadType.sync() &&
-            response.isMainBranch);
+        // S_1 篩出不區分 ticketId 的 responses
+        final subsetResponseList = state.responseList
+            .filter(
+              (_response) =>
+                  _response.respondentId == state.respondent.id &&
+                  _response.surveyId == state.survey.id &&
+                  _response.surveyType == state.surveyType &&
+                  _response.moduleType == state.moduleType &&
+                  _response.uploadType == UploadType.sync() &&
+                  _response.isMainBranch,
+            )
+            .sortedBy(
+              (_response) => _response.ticketId.getValueAnyway(),
+            );
+
+        // S_2-1 若最後一筆 ticketId 在 answering，則回復該 response
+        // TODO ticketId + 1
+        final maxTicketIdResponse = subsetResponseList.maxBy(
+          (_response) => _response.ticketId.getValueAnyway(),
+        );
+
+        final maxTicketId = maxTicketIdResponse != null
+            ? maxTicketIdResponse.ticketId.getValueAnyway()
+            : 0;
+
+        Response response = subsetResponseList.lastOrNull(
+          (_response) =>
+              _response.ticketId.getValueAnyway() == maxTicketId &&
+              _response.responseStatus == ResponseStatus.answering(),
+        );
+
+        LoggerService.simple.e(subsetResponseList.size);
+        LoggerService.simple.e(response);
+
+        // S_2-2 否則新創一個 response
+        KtMap<QuestionId, Answer> emptyAnswerMap;
+        KtMap<QuestionId, AnswerStatus> emptyAnswerStatusMap;
+        KtList<Question> restoredQuestionList;
+
+        if (state.moduleType == ModuleType.empty()) {
+          emptyAnswerMap = state.survey.answerMap;
+          emptyAnswerStatusMap = state.survey.answerStatusMap;
+          restoredQuestionList = state.survey.questionList;
+        } else {
+          emptyAnswerMap = state.survey.module.get(state.moduleType).answerMap;
+          emptyAnswerStatusMap =
+              state.survey.module.get(state.moduleType).answerStatusMap;
+          restoredQuestionList =
+              state.survey.module.get(state.moduleType).questionList;
+        }
 
         response ??= Response.empty().copyWith(
           surveyId: state.survey.id,
@@ -212,16 +265,18 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           projectId: state.survey.projectId,
           interviewerId: state.interviewer.id,
           respondentId: state.respondent.id,
-          surveyType: SurveyType.main(),
-          moduleType: ModuleType.empty(),
+          surveyType: state.surveyType,
+          moduleType: state.moduleType,
           uploadType: UploadType.sync(),
-          answerMap: state.survey.answerMap,
-          answerStatusMap: state.survey.answerStatusMap,
+          answerMap: emptyAnswerMap,
+          answerStatusMap: emptyAnswerStatusMap,
+          responseStatus: ResponseStatus.answering(),
           deviceTimeStamp: DeviceTimeStamp.now(),
         );
 
         yield state.copyWith(
           response: response,
+          questionList: restoredQuestionList,
           responseRestoreState: const LoadState.success(),
         );
       },
@@ -240,11 +295,14 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
         // S_2 在 surveyPageState 也更新完成時再更新 responseList
         if (e.isFinished) {
           KtList<Response> newResponseList = state.responseList.filterNot(
-              (response) =>
-                  response.respondentId == state.respondent.id &&
-                  response.surveyId == state.survey.id &&
-                  response.uploadType == UploadType.sync() &&
-                  response.isMainBranch);
+            (_response) =>
+                _response.respondentId == state.respondent.id &&
+                _response.surveyId == state.survey.id &&
+                _response.surveyType == state.surveyType &&
+                _response.moduleType == state.moduleType &&
+                _response.uploadType == UploadType.sync() &&
+                _response.isMainBranch,
+          );
 
           newResponseList = newResponseList.plusElement(newResponse);
 

@@ -19,14 +19,17 @@ abstract class ResponseEvent with _$ResponseEvent {
   // H_3 比對 responseList 並上傳新的 response
   const factory ResponseEvent.responseListUploaded() = _ResponseListUploaded;
 
-  // H_4 使用者選擇時篩選
+  // H_4 使用者選擇問卷
   const factory ResponseEvent.surveySelected({
     @required Survey survey,
   }) = _SurveySelected;
 
-  const factory ResponseEvent.respondentSelected({
+  // H_ 使用者選擇開始主問卷或問卷模組
+  const factory ResponseEvent.responseStarted({
     @required Respondent respondent,
-  }) = _RespondentSelected;
+    @required SurveyType surveyType,
+    @required ModuleType moduleType,
+  }) = _ResponseStarted;
 
   const factory ResponseEvent.responseRestored() = _ResponseRestored;
 

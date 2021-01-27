@@ -399,6 +399,40 @@ class StageId extends ValueObject<int> {
   const StageId._(this.value);
 }
 
+class TicketId extends ValueObject<int> {
+  @override
+  final Either<ValueFailure<int>, int> value;
+
+  factory TicketId(int input) {
+    assert(input != null);
+    return TicketId._(
+      right(input),
+    );
+  }
+
+  factory TicketId.initial() => TicketId(0);
+
+  const TicketId._(this.value);
+}
+
+class ResponseStatus extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ResponseStatus(String input) {
+    assert(input != null);
+    return ResponseStatus._(
+      right(input),
+    );
+  }
+
+  factory ResponseStatus.answering() => ResponseStatus('answering');
+  factory ResponseStatus.finished() => ResponseStatus('finished');
+  factory ResponseStatus.empty() => ResponseStatus('');
+
+  const ResponseStatus._(this.value);
+}
+
 class UploadType extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;

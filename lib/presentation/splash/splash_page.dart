@@ -132,17 +132,19 @@ class SplashPage extends StatelessWidget {
           listener: (context, state) {
             LoggerService.simple.i('ResponseBloc listening!!');
 
+            // TODO 需支援 survey module
             context.read<AnswerBloc>().add(
                   AnswerEvent.answerRestored(
                     answerMap: state.response.answerMap,
                     answerStatusMap: state.response.answerStatusMap,
-                    questionList: state.survey.questionList,
+                    questionList: state.questionList,
                   ),
                 );
+            // TODO 需支援 survey module
             context.read<SurveyPageBloc>().add(
                   SurveyPageEvent.stateRestored(
                     surveyPageState: state.response.surveyPageState,
-                    questionList: state.survey.questionList,
+                    questionList: state.questionList,
                   ),
                 );
           },

@@ -59,8 +59,10 @@ abstract class ResponseDto implements _$ResponseDto {
     @required String uploadType,
     @required int stageId,
     @required int lastSyncStageId,
+    @required int ticketId,
     @required String branch,
     @required bool isMainBranch,
+    @required String responseStatus,
     @required Map<String, AnswerDto> answerMap,
     @required Map<String, AnswerStatusDto> answerStatusMap,
     @required SimpleSurveyPageStateDto surveyPageState,
@@ -79,8 +81,10 @@ abstract class ResponseDto implements _$ResponseDto {
       uploadType: response.uploadType.getValueAnyway(),
       stageId: response.stageId.getValueAnyway(),
       lastSyncStageId: response.lastSyncStageId.getValueAnyway(),
+      ticketId: response.ticketId.getValueAnyway(),
       branch: response.branch.getValueAnyway(),
       isMainBranch: response.isMainBranch,
+      responseStatus: response.responseStatus.getValueAnyway(),
       answerMap: response.answerMap
           .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
@@ -108,8 +112,10 @@ abstract class ResponseDto implements _$ResponseDto {
       uploadType: UploadType(uploadType),
       stageId: StageId(stageId),
       lastSyncStageId: StageId(lastSyncStageId),
+      ticketId: TicketId(ticketId),
       branch: UniqueId.fromUniqueString(branch),
       isMainBranch: isMainBranch,
+      responseStatus: ResponseStatus(responseStatus),
       answerMap: KtMap.from(answerMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),

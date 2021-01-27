@@ -25,8 +25,10 @@ class _$ResponseTearOff {
       @required UploadType uploadType,
       @required StageId stageId,
       @required StageId lastSyncStageId,
+      @required TicketId ticketId,
       @required UniqueId branch,
       @required bool isMainBranch,
+      @required ResponseStatus responseStatus,
       @required KtMap<QuestionId, Answer> answerMap,
       @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required SimpleSurveyPageState surveyPageState,
@@ -42,8 +44,10 @@ class _$ResponseTearOff {
       uploadType: uploadType,
       stageId: stageId,
       lastSyncStageId: lastSyncStageId,
+      ticketId: ticketId,
       branch: branch,
       isMainBranch: isMainBranch,
+      responseStatus: responseStatus,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       surveyPageState: surveyPageState,
@@ -68,8 +72,10 @@ mixin _$Response {
   UploadType get uploadType;
   StageId get stageId;
   StageId get lastSyncStageId;
+  TicketId get ticketId;
   UniqueId get branch;
   bool get isMainBranch;
+  ResponseStatus get responseStatus;
   KtMap<QuestionId, Answer> get answerMap;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   SimpleSurveyPageState get surveyPageState;
@@ -93,8 +99,10 @@ abstract class $ResponseCopyWith<$Res> {
       UploadType uploadType,
       StageId stageId,
       StageId lastSyncStageId,
+      TicketId ticketId,
       UniqueId branch,
       bool isMainBranch,
+      ResponseStatus responseStatus,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState,
@@ -123,8 +131,10 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
     Object uploadType = freezed,
     Object stageId = freezed,
     Object lastSyncStageId = freezed,
+    Object ticketId = freezed,
     Object branch = freezed,
     Object isMainBranch = freezed,
+    Object responseStatus = freezed,
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object surveyPageState = freezed,
@@ -151,9 +161,13 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
       lastSyncStageId: lastSyncStageId == freezed
           ? _value.lastSyncStageId
           : lastSyncStageId as StageId,
+      ticketId: ticketId == freezed ? _value.ticketId : ticketId as TicketId,
       branch: branch == freezed ? _value.branch : branch as UniqueId,
       isMainBranch:
           isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
+      responseStatus: responseStatus == freezed
+          ? _value.responseStatus
+          : responseStatus as ResponseStatus,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as KtMap<QuestionId, Answer>,
@@ -197,8 +211,10 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
       UploadType uploadType,
       StageId stageId,
       StageId lastSyncStageId,
+      TicketId ticketId,
       UniqueId branch,
       bool isMainBranch,
+      ResponseStatus responseStatus,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState,
@@ -229,8 +245,10 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
     Object uploadType = freezed,
     Object stageId = freezed,
     Object lastSyncStageId = freezed,
+    Object ticketId = freezed,
     Object branch = freezed,
     Object isMainBranch = freezed,
+    Object responseStatus = freezed,
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object surveyPageState = freezed,
@@ -257,9 +275,13 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
       lastSyncStageId: lastSyncStageId == freezed
           ? _value.lastSyncStageId
           : lastSyncStageId as StageId,
+      ticketId: ticketId == freezed ? _value.ticketId : ticketId as TicketId,
       branch: branch == freezed ? _value.branch : branch as UniqueId,
       isMainBranch:
           isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
+      responseStatus: responseStatus == freezed
+          ? _value.responseStatus
+          : responseStatus as ResponseStatus,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as KtMap<QuestionId, Answer>,
@@ -289,8 +311,10 @@ class _$_Response extends _Response {
       @required this.uploadType,
       @required this.stageId,
       @required this.lastSyncStageId,
+      @required this.ticketId,
       @required this.branch,
       @required this.isMainBranch,
+      @required this.responseStatus,
       @required this.answerMap,
       @required this.answerStatusMap,
       @required this.surveyPageState,
@@ -305,8 +329,10 @@ class _$_Response extends _Response {
         assert(uploadType != null),
         assert(stageId != null),
         assert(lastSyncStageId != null),
+        assert(ticketId != null),
         assert(branch != null),
         assert(isMainBranch != null),
+        assert(responseStatus != null),
         assert(answerMap != null),
         assert(answerStatusMap != null),
         assert(surveyPageState != null),
@@ -334,9 +360,13 @@ class _$_Response extends _Response {
   @override
   final StageId lastSyncStageId;
   @override
+  final TicketId ticketId;
+  @override
   final UniqueId branch;
   @override
   final bool isMainBranch;
+  @override
+  final ResponseStatus responseStatus;
   @override
   final KtMap<QuestionId, Answer> answerMap;
   @override
@@ -348,7 +378,7 @@ class _$_Response extends _Response {
 
   @override
   String toString() {
-    return 'Response(surveyId: $surveyId, teamId: $teamId, projectId: $projectId, interviewerId: $interviewerId, respondentId: $respondentId, surveyType: $surveyType, moduleType: $moduleType, uploadType: $uploadType, stageId: $stageId, lastSyncStageId: $lastSyncStageId, branch: $branch, isMainBranch: $isMainBranch, answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState, deviceTimeStamp: $deviceTimeStamp)';
+    return 'Response(surveyId: $surveyId, teamId: $teamId, projectId: $projectId, interviewerId: $interviewerId, respondentId: $respondentId, surveyType: $surveyType, moduleType: $moduleType, uploadType: $uploadType, stageId: $stageId, lastSyncStageId: $lastSyncStageId, ticketId: $ticketId, branch: $branch, isMainBranch: $isMainBranch, responseStatus: $responseStatus, answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState, deviceTimeStamp: $deviceTimeStamp)';
   }
 
   @override
@@ -384,11 +414,17 @@ class _$_Response extends _Response {
             (identical(other.lastSyncStageId, lastSyncStageId) ||
                 const DeepCollectionEquality()
                     .equals(other.lastSyncStageId, lastSyncStageId)) &&
+            (identical(other.ticketId, ticketId) ||
+                const DeepCollectionEquality()
+                    .equals(other.ticketId, ticketId)) &&
             (identical(other.branch, branch) ||
                 const DeepCollectionEquality().equals(other.branch, branch)) &&
             (identical(other.isMainBranch, isMainBranch) ||
                 const DeepCollectionEquality()
                     .equals(other.isMainBranch, isMainBranch)) &&
+            (identical(other.responseStatus, responseStatus) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseStatus, responseStatus)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -416,8 +452,10 @@ class _$_Response extends _Response {
       const DeepCollectionEquality().hash(uploadType) ^
       const DeepCollectionEquality().hash(stageId) ^
       const DeepCollectionEquality().hash(lastSyncStageId) ^
+      const DeepCollectionEquality().hash(ticketId) ^
       const DeepCollectionEquality().hash(branch) ^
       const DeepCollectionEquality().hash(isMainBranch) ^
+      const DeepCollectionEquality().hash(responseStatus) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(surveyPageState) ^
@@ -441,8 +479,10 @@ abstract class _Response extends Response {
       @required UploadType uploadType,
       @required StageId stageId,
       @required StageId lastSyncStageId,
+      @required TicketId ticketId,
       @required UniqueId branch,
       @required bool isMainBranch,
+      @required ResponseStatus responseStatus,
       @required KtMap<QuestionId, Answer> answerMap,
       @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required SimpleSurveyPageState surveyPageState,
@@ -469,9 +509,13 @@ abstract class _Response extends Response {
   @override
   StageId get lastSyncStageId;
   @override
+  TicketId get ticketId;
+  @override
   UniqueId get branch;
   @override
   bool get isMainBranch;
+  @override
+  ResponseStatus get responseStatus;
   @override
   KtMap<QuestionId, Answer> get answerMap;
   @override

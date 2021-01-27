@@ -24,9 +24,7 @@ _$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
             ? null
             : RespondentDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
-    respondent: json['respondent'] == null
-        ? null
-        : RespondentDto.fromJson(json['respondent'] as Map<String, dynamic>),
+    selectedRespondentId: json['selectedRespondentId'] as String,
     respondentFailure: json['respondentFailure'] as Map<String, dynamic>,
   );
 }
@@ -40,6 +38,6 @@ Map<String, dynamic> _$_$_RespondentStateDtoToJson(
       'survey': instance.survey?.toJson(),
       'respondentList':
           instance.respondentList?.map((e) => e?.toJson())?.toList(),
-      'respondent': instance.respondent?.toJson(),
+      'selectedRespondentId': instance.selectedRespondentId,
       'respondentFailure': instance.respondentFailure,
     };

@@ -7,6 +7,7 @@ import '../core/failures.dart';
 import '../survey/answer.dart';
 import '../survey/answer_status.dart';
 import '../survey/question.dart';
+import '../survey/survey_module.dart';
 import '../survey/value_objects.dart';
 import 'value_objects.dart';
 
@@ -21,7 +22,7 @@ abstract class Survey implements _$Survey {
     @required SurveyName name,
     @required TeamId teamId,
     @required ProjectId projectId,
-    @required KtMap<ModuleType, dynamic> module,
+    @required KtMap<ModuleType, SurveyModule> module,
     @required KtList<Question> questionList,
     @required KtMap<QuestionId, Answer> answerMap,
     @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -32,7 +33,7 @@ abstract class Survey implements _$Survey {
         name: SurveyName.empty(),
         teamId: TeamId.empty(),
         projectId: ProjectId.empty(),
-        module: const KtMap<ModuleType, dynamic>.empty(),
+        module: const KtMap<ModuleType, SurveyModule>.empty(),
         questionList: const KtList<Question>.empty(),
         answerMap: const KtMap<QuestionId, Answer>.empty(),
         answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),

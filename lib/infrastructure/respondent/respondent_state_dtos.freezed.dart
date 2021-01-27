@@ -22,14 +22,14 @@ class _$RespondentStateDtoTearOff {
       @required List<RespondentListDto> respondentListList,
       @required SurveyDto survey,
       @required List<RespondentDto> respondentList,
-      @required RespondentDto respondent,
+      @required String selectedRespondentId,
       Map<String, dynamic> respondentFailure}) {
     return _RespondentStateDto(
       respondentListListState: respondentListListState,
       respondentListList: respondentListList,
       survey: survey,
       respondentList: respondentList,
-      respondent: respondent,
+      selectedRespondentId: selectedRespondentId,
       respondentFailure: respondentFailure,
     );
   }
@@ -50,7 +50,7 @@ mixin _$RespondentStateDto {
   List<RespondentListDto> get respondentListList;
   SurveyDto get survey;
   List<RespondentDto> get respondentList;
-  RespondentDto get respondent;
+  String get selectedRespondentId;
   Map<String, dynamic> get respondentFailure;
 
   Map<String, dynamic> toJson();
@@ -67,11 +67,10 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
       List<RespondentListDto> respondentListList,
       SurveyDto survey,
       List<RespondentDto> respondentList,
-      RespondentDto respondent,
+      String selectedRespondentId,
       Map<String, dynamic> respondentFailure});
 
   $SurveyDtoCopyWith<$Res> get survey;
-  $RespondentDtoCopyWith<$Res> get respondent;
 }
 
 /// @nodoc
@@ -89,7 +88,7 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
     Object respondentListList = freezed,
     Object survey = freezed,
     Object respondentList = freezed,
-    Object respondent = freezed,
+    Object selectedRespondentId = freezed,
     Object respondentFailure = freezed,
   }) {
     return _then(_value.copyWith(
@@ -103,9 +102,9 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
       respondentList: respondentList == freezed
           ? _value.respondentList
           : respondentList as List<RespondentDto>,
-      respondent: respondent == freezed
-          ? _value.respondent
-          : respondent as RespondentDto,
+      selectedRespondentId: selectedRespondentId == freezed
+          ? _value.selectedRespondentId
+          : selectedRespondentId as String,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure as Map<String, dynamic>,
@@ -119,16 +118,6 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
     }
     return $SurveyDtoCopyWith<$Res>(_value.survey, (value) {
       return _then(_value.copyWith(survey: value));
-    });
-  }
-
-  @override
-  $RespondentDtoCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
-    return $RespondentDtoCopyWith<$Res>(_value.respondent, (value) {
-      return _then(_value.copyWith(respondent: value));
     });
   }
 }
@@ -145,13 +134,11 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       List<RespondentListDto> respondentListList,
       SurveyDto survey,
       List<RespondentDto> respondentList,
-      RespondentDto respondent,
+      String selectedRespondentId,
       Map<String, dynamic> respondentFailure});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
-  @override
-  $RespondentDtoCopyWith<$Res> get respondent;
 }
 
 /// @nodoc
@@ -171,7 +158,7 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
     Object respondentListList = freezed,
     Object survey = freezed,
     Object respondentList = freezed,
-    Object respondent = freezed,
+    Object selectedRespondentId = freezed,
     Object respondentFailure = freezed,
   }) {
     return _then(_RespondentStateDto(
@@ -185,9 +172,9 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
       respondentList: respondentList == freezed
           ? _value.respondentList
           : respondentList as List<RespondentDto>,
-      respondent: respondent == freezed
-          ? _value.respondent
-          : respondent as RespondentDto,
+      selectedRespondentId: selectedRespondentId == freezed
+          ? _value.selectedRespondentId
+          : selectedRespondentId as String,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure as Map<String, dynamic>,
@@ -204,13 +191,13 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       @required this.respondentListList,
       @required this.survey,
       @required this.respondentList,
-      @required this.respondent,
+      @required this.selectedRespondentId,
       this.respondentFailure})
       : assert(respondentListListState != null),
         assert(respondentListList != null),
         assert(survey != null),
         assert(respondentList != null),
-        assert(respondent != null),
+        assert(selectedRespondentId != null),
         super._();
 
   factory _$_RespondentStateDto.fromJson(Map<String, dynamic> json) =>
@@ -225,13 +212,13 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   @override
   final List<RespondentDto> respondentList;
   @override
-  final RespondentDto respondent;
+  final String selectedRespondentId;
   @override
   final Map<String, dynamic> respondentFailure;
 
   @override
   String toString() {
-    return 'RespondentStateDto(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, respondent: $respondent, respondentFailure: $respondentFailure)';
+    return 'RespondentStateDto(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure)';
   }
 
   @override
@@ -250,9 +237,9 @@ class _$_RespondentStateDto extends _RespondentStateDto {
             (identical(other.respondentList, respondentList) ||
                 const DeepCollectionEquality()
                     .equals(other.respondentList, respondentList)) &&
-            (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+            (identical(other.selectedRespondentId, selectedRespondentId) ||
+                const DeepCollectionEquality().equals(
+                    other.selectedRespondentId, selectedRespondentId)) &&
             (identical(other.respondentFailure, respondentFailure) ||
                 const DeepCollectionEquality()
                     .equals(other.respondentFailure, respondentFailure)));
@@ -265,7 +252,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       const DeepCollectionEquality().hash(respondentListList) ^
       const DeepCollectionEquality().hash(survey) ^
       const DeepCollectionEquality().hash(respondentList) ^
-      const DeepCollectionEquality().hash(respondent) ^
+      const DeepCollectionEquality().hash(selectedRespondentId) ^
       const DeepCollectionEquality().hash(respondentFailure);
 
   @override
@@ -285,7 +272,7 @@ abstract class _RespondentStateDto extends RespondentStateDto {
       @required List<RespondentListDto> respondentListList,
       @required SurveyDto survey,
       @required List<RespondentDto> respondentList,
-      @required RespondentDto respondent,
+      @required String selectedRespondentId,
       Map<String, dynamic> respondentFailure}) = _$_RespondentStateDto;
 
   factory _RespondentStateDto.fromJson(Map<String, dynamic> json) =
@@ -300,7 +287,7 @@ abstract class _RespondentStateDto extends RespondentStateDto {
   @override
   List<RespondentDto> get respondentList;
   @override
-  RespondentDto get respondent;
+  String get selectedRespondentId;
   @override
   Map<String, dynamic> get respondentFailure;
   @override

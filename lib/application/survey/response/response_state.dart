@@ -14,6 +14,7 @@ abstract class ResponseState with _$ResponseState {
     @required Option<SurveyFailure> responseFailure,
     @required Response response,
     @required LoadState responseRestoreState,
+    @required KtList<Question> questionList,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
@@ -28,5 +29,6 @@ abstract class ResponseState with _$ResponseState {
         responseFailure: none(),
         response: Response.empty(),
         responseRestoreState: const LoadState.initial(),
+        questionList: const KtList<Question>.empty(),
       );
 }

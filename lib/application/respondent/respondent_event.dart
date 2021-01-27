@@ -19,6 +19,6 @@ abstract class RespondentEvent with _$RespondentEvent {
   const factory RespondentEvent.respondentListLoaded() = _RespondentListLoaded;
 
   const factory RespondentEvent.respondentSelected({
-    @required Respondent respondent,
+    @required RespondentId respondentId,
   }) = _RespondentSelected;
 }

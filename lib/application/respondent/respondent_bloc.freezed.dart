@@ -44,9 +44,10 @@ class _$RespondentEventTearOff {
   }
 
 // ignore: unused_element
-  _RespondentSelected respondentSelected({@required Respondent respondent}) {
+  _RespondentSelected respondentSelected(
+      {@required RespondentId respondentId}) {
     return _RespondentSelected(
-      respondent: respondent,
+      respondentId: respondentId,
     );
   }
 }
@@ -68,7 +69,7 @@ mixin _$RespondentEvent {
                 failureOrRespondentListList),
     @required TResult surveySelected(Survey survey),
     @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(Respondent respondent),
+    @required TResult respondentSelected(RespondentId respondentId),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -79,7 +80,7 @@ mixin _$RespondentEvent {
             failureOrRespondentListList),
     TResult surveySelected(Survey survey),
     TResult respondentListLoaded(),
-    TResult respondentSelected(Respondent respondent),
+    TResult respondentSelected(RespondentId respondentId),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -210,7 +211,7 @@ class _$_WatchRespondentListListStarted
                 failureOrRespondentListList),
     @required TResult surveySelected(Survey survey),
     @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(Respondent respondent),
+    @required TResult respondentSelected(RespondentId respondentId),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -230,7 +231,7 @@ class _$_WatchRespondentListListStarted
             failureOrRespondentListList),
     TResult surveySelected(Survey survey),
     TResult respondentListLoaded(),
-    TResult respondentSelected(Respondent respondent),
+    TResult respondentSelected(RespondentId respondentId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -373,7 +374,7 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
                 failureOrRespondentListList),
     @required TResult surveySelected(Survey survey),
     @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(Respondent respondent),
+    @required TResult respondentSelected(RespondentId respondentId),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -393,7 +394,7 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
             failureOrRespondentListList),
     TResult surveySelected(Survey survey),
     TResult respondentListLoaded(),
-    TResult respondentSelected(Respondent respondent),
+    TResult respondentSelected(RespondentId respondentId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -534,7 +535,7 @@ class _$_SurveySelected implements _SurveySelected {
                 failureOrRespondentListList),
     @required TResult surveySelected(Survey survey),
     @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(Respondent respondent),
+    @required TResult respondentSelected(RespondentId respondentId),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -554,7 +555,7 @@ class _$_SurveySelected implements _SurveySelected {
             failureOrRespondentListList),
     TResult surveySelected(Survey survey),
     TResult respondentListLoaded(),
-    TResult respondentSelected(Respondent respondent),
+    TResult respondentSelected(RespondentId respondentId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -658,7 +659,7 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
                 failureOrRespondentListList),
     @required TResult surveySelected(Survey survey),
     @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(Respondent respondent),
+    @required TResult respondentSelected(RespondentId respondentId),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
@@ -678,7 +679,7 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
             failureOrRespondentListList),
     TResult surveySelected(Survey survey),
     TResult respondentListLoaded(),
-    TResult respondentSelected(Respondent respondent),
+    TResult respondentSelected(RespondentId respondentId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -736,9 +737,7 @@ abstract class _$RespondentSelectedCopyWith<$Res> {
   factory _$RespondentSelectedCopyWith(
           _RespondentSelected value, $Res Function(_RespondentSelected) then) =
       __$RespondentSelectedCopyWithImpl<$Res>;
-  $Res call({Respondent respondent});
-
-  $RespondentCopyWith<$Res> get respondent;
+  $Res call({RespondentId respondentId});
 }
 
 /// @nodoc
@@ -754,50 +753,41 @@ class __$RespondentSelectedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondent = freezed,
+    Object respondentId = freezed,
   }) {
     return _then(_RespondentSelected(
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
+      respondentId: respondentId == freezed
+          ? _value.respondentId
+          : respondentId as RespondentId,
     ));
-  }
-
-  @override
-  $RespondentCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
-    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
-      return _then(_value.copyWith(respondent: value));
-    });
   }
 }
 
 /// @nodoc
 class _$_RespondentSelected implements _RespondentSelected {
-  const _$_RespondentSelected({@required this.respondent})
-      : assert(respondent != null);
+  const _$_RespondentSelected({@required this.respondentId})
+      : assert(respondentId != null);
 
   @override
-  final Respondent respondent;
+  final RespondentId respondentId;
 
   @override
   String toString() {
-    return 'RespondentEvent.respondentSelected(respondent: $respondent)';
+    return 'RespondentEvent.respondentSelected(respondentId: $respondentId)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RespondentSelected &&
-            (identical(other.respondent, respondent) ||
+            (identical(other.respondentId, respondentId) ||
                 const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)));
+                    .equals(other.respondentId, respondentId)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(respondent);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(respondentId);
 
   @override
   _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
@@ -815,14 +805,14 @@ class _$_RespondentSelected implements _RespondentSelected {
                 failureOrRespondentListList),
     @required TResult surveySelected(Survey survey),
     @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(Respondent respondent),
+    @required TResult respondentSelected(RespondentId respondentId),
   }) {
     assert(watchRespondentListListStarted != null);
     assert(respondentListListReceived != null);
     assert(surveySelected != null);
     assert(respondentListLoaded != null);
     assert(respondentSelected != null);
-    return respondentSelected(respondent);
+    return respondentSelected(respondentId);
   }
 
   @override
@@ -835,12 +825,12 @@ class _$_RespondentSelected implements _RespondentSelected {
             failureOrRespondentListList),
     TResult surveySelected(Survey survey),
     TResult respondentListLoaded(),
-    TResult respondentSelected(Respondent respondent),
+    TResult respondentSelected(RespondentId respondentId),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (respondentSelected != null) {
-      return respondentSelected(respondent);
+      return respondentSelected(respondentId);
     }
     return orElse();
   }
@@ -885,10 +875,10 @@ class _$_RespondentSelected implements _RespondentSelected {
 }
 
 abstract class _RespondentSelected implements RespondentEvent {
-  const factory _RespondentSelected({@required Respondent respondent}) =
+  const factory _RespondentSelected({@required RespondentId respondentId}) =
       _$_RespondentSelected;
 
-  Respondent get respondent;
+  RespondentId get respondentId;
   _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith;
 }
 
@@ -902,15 +892,15 @@ class _$RespondentStateTearOff {
       @required KtList<RespondentList> respondentListList,
       @required Survey survey,
       @required KtList<Respondent> respondentList,
-      @required Respondent respondent,
-      @required Option<RespondentFailure> respondentFailure}) {
+      @required Option<RespondentFailure> respondentFailure,
+      @required RespondentId selectedRespondentId}) {
     return _RespondentState(
       respondentListListState: respondentListListState,
       respondentListList: respondentListList,
       survey: survey,
       respondentList: respondentList,
-      respondent: respondent,
       respondentFailure: respondentFailure,
+      selectedRespondentId: selectedRespondentId,
     );
   }
 }
@@ -925,8 +915,8 @@ mixin _$RespondentState {
   KtList<RespondentList> get respondentListList;
   Survey get survey;
   KtList<Respondent> get respondentList;
-  Respondent get respondent;
   Option<RespondentFailure> get respondentFailure;
+  RespondentId get selectedRespondentId;
 
   $RespondentStateCopyWith<RespondentState> get copyWith;
 }
@@ -941,12 +931,11 @@ abstract class $RespondentStateCopyWith<$Res> {
       KtList<RespondentList> respondentListList,
       Survey survey,
       KtList<Respondent> respondentList,
-      Respondent respondent,
-      Option<RespondentFailure> respondentFailure});
+      Option<RespondentFailure> respondentFailure,
+      RespondentId selectedRespondentId});
 
   $LoadStateCopyWith<$Res> get respondentListListState;
   $SurveyCopyWith<$Res> get survey;
-  $RespondentCopyWith<$Res> get respondent;
 }
 
 /// @nodoc
@@ -964,8 +953,8 @@ class _$RespondentStateCopyWithImpl<$Res>
     Object respondentListList = freezed,
     Object survey = freezed,
     Object respondentList = freezed,
-    Object respondent = freezed,
     Object respondentFailure = freezed,
+    Object selectedRespondentId = freezed,
   }) {
     return _then(_value.copyWith(
       respondentListListState: respondentListListState == freezed
@@ -978,11 +967,12 @@ class _$RespondentStateCopyWithImpl<$Res>
       respondentList: respondentList == freezed
           ? _value.respondentList
           : respondentList as KtList<Respondent>,
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure as Option<RespondentFailure>,
+      selectedRespondentId: selectedRespondentId == freezed
+          ? _value.selectedRespondentId
+          : selectedRespondentId as RespondentId,
     ));
   }
 
@@ -1005,16 +995,6 @@ class _$RespondentStateCopyWithImpl<$Res>
       return _then(_value.copyWith(survey: value));
     });
   }
-
-  @override
-  $RespondentCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
-    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
-      return _then(_value.copyWith(respondent: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -1029,15 +1009,13 @@ abstract class _$RespondentStateCopyWith<$Res>
       KtList<RespondentList> respondentListList,
       Survey survey,
       KtList<Respondent> respondentList,
-      Respondent respondent,
-      Option<RespondentFailure> respondentFailure});
+      Option<RespondentFailure> respondentFailure,
+      RespondentId selectedRespondentId});
 
   @override
   $LoadStateCopyWith<$Res> get respondentListListState;
   @override
   $SurveyCopyWith<$Res> get survey;
-  @override
-  $RespondentCopyWith<$Res> get respondent;
 }
 
 /// @nodoc
@@ -1057,8 +1035,8 @@ class __$RespondentStateCopyWithImpl<$Res>
     Object respondentListList = freezed,
     Object survey = freezed,
     Object respondentList = freezed,
-    Object respondent = freezed,
     Object respondentFailure = freezed,
+    Object selectedRespondentId = freezed,
   }) {
     return _then(_RespondentState(
       respondentListListState: respondentListListState == freezed
@@ -1071,11 +1049,12 @@ class __$RespondentStateCopyWithImpl<$Res>
       respondentList: respondentList == freezed
           ? _value.respondentList
           : respondentList as KtList<Respondent>,
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure as Option<RespondentFailure>,
+      selectedRespondentId: selectedRespondentId == freezed
+          ? _value.selectedRespondentId
+          : selectedRespondentId as RespondentId,
     ));
   }
 }
@@ -1087,14 +1066,14 @@ class _$_RespondentState implements _RespondentState {
       @required this.respondentListList,
       @required this.survey,
       @required this.respondentList,
-      @required this.respondent,
-      @required this.respondentFailure})
+      @required this.respondentFailure,
+      @required this.selectedRespondentId})
       : assert(respondentListListState != null),
         assert(respondentListList != null),
         assert(survey != null),
         assert(respondentList != null),
-        assert(respondent != null),
-        assert(respondentFailure != null);
+        assert(respondentFailure != null),
+        assert(selectedRespondentId != null);
 
   @override
   final LoadState respondentListListState;
@@ -1105,13 +1084,13 @@ class _$_RespondentState implements _RespondentState {
   @override
   final KtList<Respondent> respondentList;
   @override
-  final Respondent respondent;
-  @override
   final Option<RespondentFailure> respondentFailure;
+  @override
+  final RespondentId selectedRespondentId;
 
   @override
   String toString() {
-    return 'RespondentState(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, respondent: $respondent, respondentFailure: $respondentFailure)';
+    return 'RespondentState(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, respondentFailure: $respondentFailure, selectedRespondentId: $selectedRespondentId)';
   }
 
   @override
@@ -1130,12 +1109,12 @@ class _$_RespondentState implements _RespondentState {
             (identical(other.respondentList, respondentList) ||
                 const DeepCollectionEquality()
                     .equals(other.respondentList, respondentList)) &&
-            (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
             (identical(other.respondentFailure, respondentFailure) ||
                 const DeepCollectionEquality()
-                    .equals(other.respondentFailure, respondentFailure)));
+                    .equals(other.respondentFailure, respondentFailure)) &&
+            (identical(other.selectedRespondentId, selectedRespondentId) ||
+                const DeepCollectionEquality()
+                    .equals(other.selectedRespondentId, selectedRespondentId)));
   }
 
   @override
@@ -1145,8 +1124,8 @@ class _$_RespondentState implements _RespondentState {
       const DeepCollectionEquality().hash(respondentListList) ^
       const DeepCollectionEquality().hash(survey) ^
       const DeepCollectionEquality().hash(respondentList) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(respondentFailure);
+      const DeepCollectionEquality().hash(respondentFailure) ^
+      const DeepCollectionEquality().hash(selectedRespondentId);
 
   @override
   _$RespondentStateCopyWith<_RespondentState> get copyWith =>
@@ -1155,13 +1134,12 @@ class _$_RespondentState implements _RespondentState {
 
 abstract class _RespondentState implements RespondentState {
   const factory _RespondentState(
-          {@required LoadState respondentListListState,
-          @required KtList<RespondentList> respondentListList,
-          @required Survey survey,
-          @required KtList<Respondent> respondentList,
-          @required Respondent respondent,
-          @required Option<RespondentFailure> respondentFailure}) =
-      _$_RespondentState;
+      {@required LoadState respondentListListState,
+      @required KtList<RespondentList> respondentListList,
+      @required Survey survey,
+      @required KtList<Respondent> respondentList,
+      @required Option<RespondentFailure> respondentFailure,
+      @required RespondentId selectedRespondentId}) = _$_RespondentState;
 
   @override
   LoadState get respondentListListState;
@@ -1172,9 +1150,9 @@ abstract class _RespondentState implements RespondentState {
   @override
   KtList<Respondent> get respondentList;
   @override
-  Respondent get respondent;
-  @override
   Option<RespondentFailure> get respondentFailure;
+  @override
+  RespondentId get selectedRespondentId;
   @override
   _$RespondentStateCopyWith<_RespondentState> get copyWith;
 }

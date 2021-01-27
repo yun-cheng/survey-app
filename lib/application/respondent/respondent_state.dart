@@ -7,8 +7,8 @@ abstract class RespondentState with _$RespondentState {
     @required KtList<RespondentList> respondentListList,
     @required Survey survey,
     @required KtList<Respondent> respondentList,
-    @required Respondent respondent,
     @required Option<RespondentFailure> respondentFailure,
+    @required RespondentId selectedRespondentId,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(
@@ -16,7 +16,7 @@ abstract class RespondentState with _$RespondentState {
         respondentListListState: const LoadState.initial(),
         respondentListList: const KtList<RespondentList>.empty(),
         respondentList: const KtList<Respondent>.empty(),
-        respondent: Respondent.empty(),
         respondentFailure: none(),
+        selectedRespondentId: RespondentId.empty(),
       );
 }

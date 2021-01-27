@@ -174,8 +174,10 @@ class _$ResponseDtoTearOff {
       @required String uploadType,
       @required int stageId,
       @required int lastSyncStageId,
+      @required int ticketId,
       @required String branch,
       @required bool isMainBranch,
+      @required String responseStatus,
       @required Map<String, AnswerDto> answerMap,
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required SimpleSurveyPageStateDto surveyPageState,
@@ -191,8 +193,10 @@ class _$ResponseDtoTearOff {
       uploadType: uploadType,
       stageId: stageId,
       lastSyncStageId: lastSyncStageId,
+      ticketId: ticketId,
       branch: branch,
       isMainBranch: isMainBranch,
+      responseStatus: responseStatus,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       surveyPageState: surveyPageState,
@@ -222,8 +226,10 @@ mixin _$ResponseDto {
   String get uploadType;
   int get stageId;
   int get lastSyncStageId;
+  int get ticketId;
   String get branch;
   bool get isMainBranch;
+  String get responseStatus;
   Map<String, AnswerDto> get answerMap;
   Map<String, AnswerStatusDto> get answerStatusMap;
   SimpleSurveyPageStateDto get surveyPageState;
@@ -249,8 +255,10 @@ abstract class $ResponseDtoCopyWith<$Res> {
       String uploadType,
       int stageId,
       int lastSyncStageId,
+      int ticketId,
       String branch,
       bool isMainBranch,
+      String responseStatus,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       SimpleSurveyPageStateDto surveyPageState,
@@ -279,8 +287,10 @@ class _$ResponseDtoCopyWithImpl<$Res> implements $ResponseDtoCopyWith<$Res> {
     Object uploadType = freezed,
     Object stageId = freezed,
     Object lastSyncStageId = freezed,
+    Object ticketId = freezed,
     Object branch = freezed,
     Object isMainBranch = freezed,
+    Object responseStatus = freezed,
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object surveyPageState = freezed,
@@ -306,9 +316,13 @@ class _$ResponseDtoCopyWithImpl<$Res> implements $ResponseDtoCopyWith<$Res> {
       lastSyncStageId: lastSyncStageId == freezed
           ? _value.lastSyncStageId
           : lastSyncStageId as int,
+      ticketId: ticketId == freezed ? _value.ticketId : ticketId as int,
       branch: branch == freezed ? _value.branch : branch as String,
       isMainBranch:
           isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
+      responseStatus: responseStatus == freezed
+          ? _value.responseStatus
+          : responseStatus as String,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as Map<String, AnswerDto>,
@@ -354,8 +368,10 @@ abstract class _$ResponseDtoCopyWith<$Res>
       String uploadType,
       int stageId,
       int lastSyncStageId,
+      int ticketId,
       String branch,
       bool isMainBranch,
+      String responseStatus,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       SimpleSurveyPageStateDto surveyPageState,
@@ -387,8 +403,10 @@ class __$ResponseDtoCopyWithImpl<$Res> extends _$ResponseDtoCopyWithImpl<$Res>
     Object uploadType = freezed,
     Object stageId = freezed,
     Object lastSyncStageId = freezed,
+    Object ticketId = freezed,
     Object branch = freezed,
     Object isMainBranch = freezed,
+    Object responseStatus = freezed,
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object surveyPageState = freezed,
@@ -414,9 +432,13 @@ class __$ResponseDtoCopyWithImpl<$Res> extends _$ResponseDtoCopyWithImpl<$Res>
       lastSyncStageId: lastSyncStageId == freezed
           ? _value.lastSyncStageId
           : lastSyncStageId as int,
+      ticketId: ticketId == freezed ? _value.ticketId : ticketId as int,
       branch: branch == freezed ? _value.branch : branch as String,
       isMainBranch:
           isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
+      responseStatus: responseStatus == freezed
+          ? _value.responseStatus
+          : responseStatus as String,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as Map<String, AnswerDto>,
@@ -448,8 +470,10 @@ class _$_ResponseDto extends _ResponseDto {
       @required this.uploadType,
       @required this.stageId,
       @required this.lastSyncStageId,
+      @required this.ticketId,
       @required this.branch,
       @required this.isMainBranch,
+      @required this.responseStatus,
       @required this.answerMap,
       @required this.answerStatusMap,
       @required this.surveyPageState,
@@ -464,8 +488,10 @@ class _$_ResponseDto extends _ResponseDto {
         assert(uploadType != null),
         assert(stageId != null),
         assert(lastSyncStageId != null),
+        assert(ticketId != null),
         assert(branch != null),
         assert(isMainBranch != null),
+        assert(responseStatus != null),
         assert(answerMap != null),
         assert(answerStatusMap != null),
         assert(surveyPageState != null),
@@ -496,9 +522,13 @@ class _$_ResponseDto extends _ResponseDto {
   @override
   final int lastSyncStageId;
   @override
+  final int ticketId;
+  @override
   final String branch;
   @override
   final bool isMainBranch;
+  @override
+  final String responseStatus;
   @override
   final Map<String, AnswerDto> answerMap;
   @override
@@ -510,7 +540,7 @@ class _$_ResponseDto extends _ResponseDto {
 
   @override
   String toString() {
-    return 'ResponseDto(surveyId: $surveyId, teamId: $teamId, projectId: $projectId, interviewerId: $interviewerId, respondentId: $respondentId, surveyType: $surveyType, moduleType: $moduleType, uploadType: $uploadType, stageId: $stageId, lastSyncStageId: $lastSyncStageId, branch: $branch, isMainBranch: $isMainBranch, answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState, deviceTimeStamp: $deviceTimeStamp)';
+    return 'ResponseDto(surveyId: $surveyId, teamId: $teamId, projectId: $projectId, interviewerId: $interviewerId, respondentId: $respondentId, surveyType: $surveyType, moduleType: $moduleType, uploadType: $uploadType, stageId: $stageId, lastSyncStageId: $lastSyncStageId, ticketId: $ticketId, branch: $branch, isMainBranch: $isMainBranch, responseStatus: $responseStatus, answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState, deviceTimeStamp: $deviceTimeStamp)';
   }
 
   @override
@@ -546,11 +576,17 @@ class _$_ResponseDto extends _ResponseDto {
             (identical(other.lastSyncStageId, lastSyncStageId) ||
                 const DeepCollectionEquality()
                     .equals(other.lastSyncStageId, lastSyncStageId)) &&
+            (identical(other.ticketId, ticketId) ||
+                const DeepCollectionEquality()
+                    .equals(other.ticketId, ticketId)) &&
             (identical(other.branch, branch) ||
                 const DeepCollectionEquality().equals(other.branch, branch)) &&
             (identical(other.isMainBranch, isMainBranch) ||
                 const DeepCollectionEquality()
                     .equals(other.isMainBranch, isMainBranch)) &&
+            (identical(other.responseStatus, responseStatus) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseStatus, responseStatus)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -578,8 +614,10 @@ class _$_ResponseDto extends _ResponseDto {
       const DeepCollectionEquality().hash(uploadType) ^
       const DeepCollectionEquality().hash(stageId) ^
       const DeepCollectionEquality().hash(lastSyncStageId) ^
+      const DeepCollectionEquality().hash(ticketId) ^
       const DeepCollectionEquality().hash(branch) ^
       const DeepCollectionEquality().hash(isMainBranch) ^
+      const DeepCollectionEquality().hash(responseStatus) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(surveyPageState) ^
@@ -608,8 +646,10 @@ abstract class _ResponseDto extends ResponseDto {
       @required String uploadType,
       @required int stageId,
       @required int lastSyncStageId,
+      @required int ticketId,
       @required String branch,
       @required bool isMainBranch,
+      @required String responseStatus,
       @required Map<String, AnswerDto> answerMap,
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required SimpleSurveyPageStateDto surveyPageState,
@@ -639,9 +679,13 @@ abstract class _ResponseDto extends ResponseDto {
   @override
   int get lastSyncStageId;
   @override
+  int get ticketId;
+  @override
   String get branch;
   @override
   bool get isMainBranch;
+  @override
+  String get responseStatus;
   @override
   Map<String, AnswerDto> get answerMap;
   @override

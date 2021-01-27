@@ -32,8 +32,10 @@ _$_ResponseDto _$_$_ResponseDtoFromJson(Map<String, dynamic> json) {
     uploadType: json['uploadType'] as String,
     stageId: json['stageId'] as int,
     lastSyncStageId: json['lastSyncStageId'] as int,
+    ticketId: json['ticketId'] as int,
     branch: json['branch'] as String,
     isMainBranch: json['isMainBranch'] as bool,
+    responseStatus: json['responseStatus'] as String,
     answerMap: (json['answerMap'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(
           k, e == null ? null : AnswerDto.fromJson(e as Map<String, dynamic>)),
@@ -65,8 +67,10 @@ Map<String, dynamic> _$_$_ResponseDtoToJson(_$_ResponseDto instance) =>
       'uploadType': instance.uploadType,
       'stageId': instance.stageId,
       'lastSyncStageId': instance.lastSyncStageId,
+      'ticketId': instance.ticketId,
       'branch': instance.branch,
       'isMainBranch': instance.isMainBranch,
+      'responseStatus': instance.responseStatus,
       'answerMap': instance.answerMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'answerStatusMap':
           instance.answerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),

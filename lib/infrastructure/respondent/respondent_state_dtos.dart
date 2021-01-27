@@ -5,6 +5,7 @@ import 'package:kt_dart/collection.dart';
 import '../../application/respondent/respondent_bloc.dart';
 import '../../domain/core/load_state.dart';
 import '../../domain/respondent/respondent_failure.dart';
+import '../../domain/respondent/value_objects.dart';
 import '../survey/survey_list_dtos.dart';
 import 'respondent_dtos.dart';
 import 'respondent_list_dtos.dart';
@@ -21,7 +22,7 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
     @required List<RespondentListDto> respondentListList,
     @required SurveyDto survey,
     @required List<RespondentDto> respondentList,
-    @required RespondentDto respondent,
+    @required String selectedRespondentId,
     Map<String, dynamic> respondentFailure,
   }) = _RespondentStateDto;
 
@@ -35,7 +36,8 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
       respondentList: respondentState.respondentList
           .map((e) => RespondentDto.fromDomain(e))
           .asList(),
-      respondent: RespondentDto.fromDomain(respondentState.respondent),
+      selectedRespondentId:
+          respondentState.selectedRespondentId.getValueAnyway(),
       respondentFailure: respondentState.respondentFailure
           .fold(() => null, (some) => some.toJson()),
     );
@@ -49,7 +51,7 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
       survey: survey.toDomain(),
       respondentList:
           respondentList.map((dto) => dto.toDomain()).toImmutableList(),
-      respondent: respondent.toDomain(),
+      selectedRespondentId: RespondentId(selectedRespondentId),
       respondentFailure: optionOf(respondentFailure)
           .map((some) => RespondentFailure.fromJson(some)),
     );
