@@ -23,9 +23,6 @@ abstract class Survey implements _$Survey {
     @required TeamId teamId,
     @required ProjectId projectId,
     @required KtMap<ModuleType, SurveyModule> module,
-    @required KtList<Question> questionList,
-    @required KtMap<QuestionId, Answer> answerMap,
-    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
   }) = _Survey;
 
   factory Survey.empty() => Survey(
@@ -34,9 +31,6 @@ abstract class Survey implements _$Survey {
         teamId: TeamId.empty(),
         projectId: ProjectId.empty(),
         module: const KtMap<ModuleType, SurveyModule>.empty(),
-        questionList: const KtList<Question>.empty(),
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
       );
 
   // TODO test questionList in module
@@ -61,13 +55,13 @@ abstract class Survey implements _$Survey {
         //       .filter((either) => either.isLeft())
         //       .getOrElse(0, (_) => right(unit)),
         // )
-        .andThen(
-          questionList
-              .map((question) => question.failureOption)
-              .filter((o) => o.isSome())
-              .getOrElse(0, (_) => none())
-              .fold(() => right(unit), (f) => left(f)),
-        )
+        // .andThen(
+        //   questionList
+        //       .map((question) => question.failureOption)
+        //       .filter((o) => o.isSome())
+        //       .getOrElse(0, (_) => none())
+        //       .fold(() => right(unit), (f) => left(f)),
+        // )
         .fold((f) => some(f), (_) => none());
   }
 

@@ -21,24 +21,28 @@ class _$ResponseStateDtoTearOff {
       {@required SurveyDto survey,
       @required RespondentDto respondent,
       @required InterviewerDto interviewer,
-      @required String surveyType,
       @required String moduleType,
       @required Map<String, dynamic> responseListState,
       @required List<ResponseDto> responseList,
       Map<String, dynamic> responseFailure,
       @required ResponseDto response,
-      @required Map<String, dynamic> responseRestoreState}) {
+      @required Map<String, dynamic> responseRestoreState,
+      @required List<QuestionDto> questionList,
+      @required bool withResponseId,
+      @required String responseId}) {
     return _ResponseStateDto(
       survey: survey,
       respondent: respondent,
       interviewer: interviewer,
-      surveyType: surveyType,
       moduleType: moduleType,
       responseListState: responseListState,
       responseList: responseList,
       responseFailure: responseFailure,
       response: response,
       responseRestoreState: responseRestoreState,
+      questionList: questionList,
+      withResponseId: withResponseId,
+      responseId: responseId,
     );
   }
 
@@ -54,16 +58,19 @@ const $ResponseStateDto = _$ResponseStateDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseStateDto {
+// NOTE downloadedResponseList 不須儲存
   SurveyDto get survey;
   RespondentDto get respondent;
   InterviewerDto get interviewer;
-  String get surveyType;
   String get moduleType;
   Map<String, dynamic> get responseListState;
   List<ResponseDto> get responseList;
   Map<String, dynamic> get responseFailure;
   ResponseDto get response;
   Map<String, dynamic> get responseRestoreState;
+  List<QuestionDto> get questionList;
+  bool get withResponseId;
+  String get responseId;
 
   Map<String, dynamic> toJson();
   $ResponseStateDtoCopyWith<ResponseStateDto> get copyWith;
@@ -78,13 +85,15 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       {SurveyDto survey,
       RespondentDto respondent,
       InterviewerDto interviewer,
-      String surveyType,
       String moduleType,
       Map<String, dynamic> responseListState,
       List<ResponseDto> responseList,
       Map<String, dynamic> responseFailure,
       ResponseDto response,
-      Map<String, dynamic> responseRestoreState});
+      Map<String, dynamic> responseRestoreState,
+      List<QuestionDto> questionList,
+      bool withResponseId,
+      String responseId});
 
   $SurveyDtoCopyWith<$Res> get survey;
   $RespondentDtoCopyWith<$Res> get respondent;
@@ -106,13 +115,15 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object survey = freezed,
     Object respondent = freezed,
     Object interviewer = freezed,
-    Object surveyType = freezed,
     Object moduleType = freezed,
     Object responseListState = freezed,
     Object responseList = freezed,
     Object responseFailure = freezed,
     Object response = freezed,
     Object responseRestoreState = freezed,
+    Object questionList = freezed,
+    Object withResponseId = freezed,
+    Object responseId = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed ? _value.survey : survey as SurveyDto,
@@ -122,8 +133,6 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer as InterviewerDto,
-      surveyType:
-          surveyType == freezed ? _value.surveyType : surveyType as String,
       moduleType:
           moduleType == freezed ? _value.moduleType : moduleType as String,
       responseListState: responseListState == freezed
@@ -139,6 +148,14 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       responseRestoreState: responseRestoreState == freezed
           ? _value.responseRestoreState
           : responseRestoreState as Map<String, dynamic>,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as List<QuestionDto>,
+      withResponseId: withResponseId == freezed
+          ? _value.withResponseId
+          : withResponseId as bool,
+      responseId:
+          responseId == freezed ? _value.responseId : responseId as String,
     ));
   }
 
@@ -194,13 +211,15 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       {SurveyDto survey,
       RespondentDto respondent,
       InterviewerDto interviewer,
-      String surveyType,
       String moduleType,
       Map<String, dynamic> responseListState,
       List<ResponseDto> responseList,
       Map<String, dynamic> responseFailure,
       ResponseDto response,
-      Map<String, dynamic> responseRestoreState});
+      Map<String, dynamic> responseRestoreState,
+      List<QuestionDto> questionList,
+      bool withResponseId,
+      String responseId});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
@@ -228,13 +247,15 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object survey = freezed,
     Object respondent = freezed,
     Object interviewer = freezed,
-    Object surveyType = freezed,
     Object moduleType = freezed,
     Object responseListState = freezed,
     Object responseList = freezed,
     Object responseFailure = freezed,
     Object response = freezed,
     Object responseRestoreState = freezed,
+    Object questionList = freezed,
+    Object withResponseId = freezed,
+    Object responseId = freezed,
   }) {
     return _then(_ResponseStateDto(
       survey: survey == freezed ? _value.survey : survey as SurveyDto,
@@ -244,8 +265,6 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer as InterviewerDto,
-      surveyType:
-          surveyType == freezed ? _value.surveyType : surveyType as String,
       moduleType:
           moduleType == freezed ? _value.moduleType : moduleType as String,
       responseListState: responseListState == freezed
@@ -261,6 +280,14 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
       responseRestoreState: responseRestoreState == freezed
           ? _value.responseRestoreState
           : responseRestoreState as Map<String, dynamic>,
+      questionList: questionList == freezed
+          ? _value.questionList
+          : questionList as List<QuestionDto>,
+      withResponseId: withResponseId == freezed
+          ? _value.withResponseId
+          : withResponseId as bool,
+      responseId:
+          responseId == freezed ? _value.responseId : responseId as String,
     ));
   }
 }
@@ -273,35 +300,37 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       {@required this.survey,
       @required this.respondent,
       @required this.interviewer,
-      @required this.surveyType,
       @required this.moduleType,
       @required this.responseListState,
       @required this.responseList,
       this.responseFailure,
       @required this.response,
-      @required this.responseRestoreState})
+      @required this.responseRestoreState,
+      @required this.questionList,
+      @required this.withResponseId,
+      @required this.responseId})
       : assert(survey != null),
         assert(respondent != null),
         assert(interviewer != null),
-        assert(surveyType != null),
         assert(moduleType != null),
         assert(responseListState != null),
         assert(responseList != null),
         assert(response != null),
         assert(responseRestoreState != null),
+        assert(questionList != null),
+        assert(withResponseId != null),
+        assert(responseId != null),
         super._();
 
   factory _$_ResponseStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ResponseStateDtoFromJson(json);
 
-  @override
+  @override // NOTE downloadedResponseList 不須儲存
   final SurveyDto survey;
   @override
   final RespondentDto respondent;
   @override
   final InterviewerDto interviewer;
-  @override
-  final String surveyType;
   @override
   final String moduleType;
   @override
@@ -314,10 +343,16 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   final ResponseDto response;
   @override
   final Map<String, dynamic> responseRestoreState;
+  @override
+  final List<QuestionDto> questionList;
+  @override
+  final bool withResponseId;
+  @override
+  final String responseId;
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, surveyType: $surveyType, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState)';
+    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId)';
   }
 
   @override
@@ -332,9 +367,6 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             (identical(other.interviewer, interviewer) ||
                 const DeepCollectionEquality()
                     .equals(other.interviewer, interviewer)) &&
-            (identical(other.surveyType, surveyType) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyType, surveyType)) &&
             (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleType, moduleType)) &&
@@ -351,8 +383,17 @@ class _$_ResponseStateDto extends _ResponseStateDto {
                 const DeepCollectionEquality()
                     .equals(other.response, response)) &&
             (identical(other.responseRestoreState, responseRestoreState) ||
+                const DeepCollectionEquality().equals(
+                    other.responseRestoreState, responseRestoreState)) &&
+            (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
-                    .equals(other.responseRestoreState, responseRestoreState)));
+                    .equals(other.questionList, questionList)) &&
+            (identical(other.withResponseId, withResponseId) ||
+                const DeepCollectionEquality()
+                    .equals(other.withResponseId, withResponseId)) &&
+            (identical(other.responseId, responseId) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseId, responseId)));
   }
 
   @override
@@ -361,13 +402,15 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(survey) ^
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(interviewer) ^
-      const DeepCollectionEquality().hash(surveyType) ^
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(responseListState) ^
       const DeepCollectionEquality().hash(responseList) ^
       const DeepCollectionEquality().hash(responseFailure) ^
       const DeepCollectionEquality().hash(response) ^
-      const DeepCollectionEquality().hash(responseRestoreState);
+      const DeepCollectionEquality().hash(responseRestoreState) ^
+      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(withResponseId) ^
+      const DeepCollectionEquality().hash(responseId);
 
   @override
   _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith =>
@@ -382,29 +425,28 @@ class _$_ResponseStateDto extends _ResponseStateDto {
 abstract class _ResponseStateDto extends ResponseStateDto {
   const _ResponseStateDto._() : super._();
   const factory _ResponseStateDto(
-          {@required SurveyDto survey,
-          @required RespondentDto respondent,
-          @required InterviewerDto interviewer,
-          @required String surveyType,
-          @required String moduleType,
-          @required Map<String, dynamic> responseListState,
-          @required List<ResponseDto> responseList,
-          Map<String, dynamic> responseFailure,
-          @required ResponseDto response,
-          @required Map<String, dynamic> responseRestoreState}) =
-      _$_ResponseStateDto;
+      {@required SurveyDto survey,
+      @required RespondentDto respondent,
+      @required InterviewerDto interviewer,
+      @required String moduleType,
+      @required Map<String, dynamic> responseListState,
+      @required List<ResponseDto> responseList,
+      Map<String, dynamic> responseFailure,
+      @required ResponseDto response,
+      @required Map<String, dynamic> responseRestoreState,
+      @required List<QuestionDto> questionList,
+      @required bool withResponseId,
+      @required String responseId}) = _$_ResponseStateDto;
 
   factory _ResponseStateDto.fromJson(Map<String, dynamic> json) =
       _$_ResponseStateDto.fromJson;
 
-  @override
+  @override // NOTE downloadedResponseList 不須儲存
   SurveyDto get survey;
   @override
   RespondentDto get respondent;
   @override
   InterviewerDto get interviewer;
-  @override
-  String get surveyType;
   @override
   String get moduleType;
   @override
@@ -417,6 +459,12 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   ResponseDto get response;
   @override
   Map<String, dynamic> get responseRestoreState;
+  @override
+  List<QuestionDto> get questionList;
+  @override
+  bool get withResponseId;
+  @override
+  String get responseId;
   @override
   _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith;
 }

@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'visit_record_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/respondent/respondent_bloc.dart';
@@ -24,6 +25,7 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
     @required List<RespondentDto> respondentList,
     @required String selectedRespondentId,
     Map<String, dynamic> respondentFailure,
+    @required Map<String, List<VisitRecordDto>> visitRecordsMap,
   }) = _RespondentStateDto;
 
   factory RespondentStateDto.fromDomain(RespondentState respondentState) {
@@ -40,6 +42,11 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
           respondentState.selectedRespondentId.getValueAnyway(),
       respondentFailure: respondentState.respondentFailure
           .fold(() => null, (some) => some.toJson()),
+      visitRecordsMap: respondentState.visitRecordsMap
+          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapValues((entry) =>
+              entry.value.map((e) => VisitRecordDto.fromDomain(e)).asList())
+          .asMap(),
     );
   }
 
@@ -54,6 +61,10 @@ abstract class RespondentStateDto implements _$RespondentStateDto {
       selectedRespondentId: RespondentId(selectedRespondentId),
       respondentFailure: optionOf(respondentFailure)
           .map((some) => RespondentFailure.fromJson(some)),
+      visitRecordsMap: KtMap.from(visitRecordsMap)
+          .mapKeys((entry) => RespondentId(entry.key))
+          .mapValues((entry) =>
+              entry.value.map((dto) => dto.toDomain()).toImmutableList()),
     );
   }
 

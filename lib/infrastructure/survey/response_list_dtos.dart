@@ -49,73 +49,96 @@ abstract class ResponseDto implements _$ResponseDto {
   const ResponseDto._();
 
   const factory ResponseDto({
-    @required String surveyId,
+    // H_ 區分不同 response
     @required String teamId,
     @required String projectId,
-    @required String interviewerId,
-    @required String respondentId,
-    @required String surveyType,
+    @required String surveyId,
     @required String moduleType,
-    @required String uploadType,
-    @required int stageId,
-    @required int lastSyncStageId,
-    @required int ticketId,
-    @required String branch,
-    @required bool isMainBranch,
+    @required String respondentId,
+    // H_ 區分 response 版本
+    @required String responseId,
+    @required String tempResponseId,
+    @required String ticketId,
+    @required bool editFinished,
+    @required String interviewerId,
+    @required String deviceId,
+    // H_ 狀態
+    @required int createdTimeStamp,
+    @required int sessionStartTimeStamp,
+    @required int sessionEndTimeStamp,
+    @required int lastChangedTimeStamp,
     @required String responseStatus,
+    @required bool isDeleted,
+    // H_ 內容
     @required Map<String, AnswerDto> answerMap,
     @required Map<String, AnswerStatusDto> answerStatusMap,
     @required SimpleSurveyPageStateDto surveyPageState,
-    @required int deviceTimeStamp,
   }) = _ResponseDto;
 
-  factory ResponseDto.fromDomain(Response response) {
+  factory ResponseDto.fromDomain(Response domain) {
     return ResponseDto(
-      surveyId: response.surveyId.getValueAnyway(),
-      teamId: response.teamId.getValueAnyway(),
-      projectId: response.projectId.getValueAnyway(),
-      interviewerId: response.interviewerId.getValueAnyway(),
-      respondentId: response.respondentId.getValueAnyway(),
-      surveyType: response.surveyType.getValueAnyway(),
-      moduleType: response.moduleType.getValueAnyway(),
-      uploadType: response.uploadType.getValueAnyway(),
-      stageId: response.stageId.getValueAnyway(),
-      lastSyncStageId: response.lastSyncStageId.getValueAnyway(),
-      ticketId: response.ticketId.getValueAnyway(),
-      branch: response.branch.getValueAnyway(),
-      isMainBranch: response.isMainBranch,
-      responseStatus: response.responseStatus.getValueAnyway(),
-      answerMap: response.answerMap
+      // H_ 區分不同 response
+      teamId: domain.teamId.getValueAnyway(),
+      projectId: domain.projectId.getValueAnyway(),
+      surveyId: domain.surveyId.getValueAnyway(),
+      moduleType: domain.moduleType.getValueAnyway(),
+      respondentId: domain.respondentId.getValueAnyway(),
+      // H_ 區分 response 版本
+      responseId: domain.responseId.getValueAnyway(),
+      tempResponseId: domain.tempResponseId.getValueAnyway(),
+      ticketId: domain.ticketId.getValueAnyway(),
+      editFinished: domain.editFinished,
+      interviewerId: domain.interviewerId.getValueAnyway(),
+      deviceId: domain.deviceId.getValueAnyway(),
+      // H_ 狀態
+      createdTimeStamp:
+          domain.createdTimeStamp.getValueAnyway().microsecondsSinceEpoch,
+      sessionStartTimeStamp: domain.sessionStartTimeStamp
+          .getValueAnyway()
+          .microsecondsSinceEpoch,
+      sessionEndTimeStamp:
+          domain.sessionEndTimeStamp.getValueAnyway().microsecondsSinceEpoch,
+      lastChangedTimeStamp:
+          domain.lastChangedTimeStamp.getValueAnyway().microsecondsSinceEpoch,
+      responseStatus: domain.responseStatus.getValueAnyway(),
+      isDeleted: domain.isDeleted,
+      // H_ 內容
+      answerMap: domain.answerMap
           .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
-      answerStatusMap: response.answerStatusMap
+      answerStatusMap: domain.answerStatusMap
           .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
       surveyPageState:
-          SimpleSurveyPageStateDto.fromDomain(response.surveyPageState),
-      deviceTimeStamp:
-          response.deviceTimeStamp.getValueAnyway().microsecondsSinceEpoch,
+          SimpleSurveyPageStateDto.fromDomain(domain.surveyPageState),
     );
   }
 
   Response toDomain() {
     return Response(
-      surveyId: SurveyId(surveyId),
+      // H_ 區分不同 response
       teamId: TeamId(teamId),
       projectId: ProjectId(projectId),
-      interviewerId: InterviewerId(interviewerId),
-      respondentId: RespondentId(respondentId),
-      surveyType: SurveyType(surveyType),
+      surveyId: SurveyId(surveyId),
       moduleType: ModuleType(moduleType),
-      uploadType: UploadType(uploadType),
-      stageId: StageId(stageId),
-      lastSyncStageId: StageId(lastSyncStageId),
-      ticketId: TicketId(ticketId),
-      branch: UniqueId.fromUniqueString(branch),
-      isMainBranch: isMainBranch,
+      respondentId: RespondentId(respondentId),
+      // H_ 區分 response 版本
+      responseId: UniqueId.fromUniqueString(responseId),
+      tempResponseId: UniqueId.fromUniqueString(tempResponseId),
+      ticketId: UniqueId.fromUniqueString(ticketId),
+      editFinished: editFinished,
+      interviewerId: InterviewerId(interviewerId),
+      deviceId: UniqueId.fromUniqueString(deviceId),
+      // H_ 狀態
+      createdTimeStamp: DeviceTimeStamp.fromInt(createdTimeStamp),
+      sessionStartTimeStamp: DeviceTimeStamp.fromInt(sessionStartTimeStamp),
+      sessionEndTimeStamp: DeviceTimeStamp.fromInt(sessionEndTimeStamp),
+      lastChangedTimeStamp: DeviceTimeStamp.fromInt(lastChangedTimeStamp),
       responseStatus: ResponseStatus(responseStatus),
+      isDeleted: isDeleted,
+      // H_ 內容
       answerMap: KtMap.from(answerMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
@@ -123,8 +146,6 @@ abstract class ResponseDto implements _$ResponseDto {
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       surveyPageState: surveyPageState.toDomain(),
-      deviceTimeStamp:
-          DeviceTimeStamp(DateTime.fromMicrosecondsSinceEpoch(deviceTimeStamp)),
     );
   }
 

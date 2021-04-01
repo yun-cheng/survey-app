@@ -8,10 +8,8 @@ import 'package:kt_dart/collection.dart';
 import '../../../domain/auth/interviewer.dart';
 import '../../../domain/auth/value_objects.dart';
 import '../../../domain/core/load_state.dart';
-import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/overview/survey.dart';
-import '../../../domain/overview/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
@@ -40,7 +38,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
     ResponseEvent event,
   ) async* {
     yield* event.map(
-      // H_1 下載 responseList
+      // H_1 開始監聽 responseList
       watchResponseListStarted: (e) async* {
         yield state.copyWith(
           interviewer: e.interviewer,
@@ -58,6 +56,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
                   ResponseEvent.responseListReceived(failureOrResponseList)),
             );
       },
+      // H_2 接收到 responseList
       responseListReceived: (e) async* {
         yield e.failureOrResponseList.fold(
           (f) => state.copyWith(
@@ -71,252 +70,175 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           ),
         );
 
-        add(const ResponseEvent.responseListUploaded());
-        add(const ResponseEvent.responseListRestored());
+        add(const ResponseEvent.responseListSynced());
       },
-      // H_2 從下載回復 responseList
-      responseListRestored: (e) async* {
-        KtList<Response> newResponseList = state.responseList;
-        Response newResponse;
+      // H_3 同步 responseList
+      responseListSynced: (e) async* {
+        // S_ 合併剛下載的 responseList 與當前的 responseList
+        //  如果同 responseId，則保留 lastChangedTimeStamp 較晚者
+        KtList<Response> newList =
+            state.responseList.plus(state.downloadedResponseList);
 
-        // S_1 篩出新下載的 responseList 中屬於 sync 類型的 response
-        final syncResponseList = state.downloadedResponseList
-            .minus(state.responseList)
-            .filter((response) => response.uploadType == UploadType.sync());
+        newList = newList
+            .groupBy((r) => r.responseId)
+            .mapValues(
+              (r) => r.value
+                  .sortedByDescending((r) => r.lastChangedTimeStamp.toInt())
+                  .getOrNull(0),
+            )
+            .toList()
+            .map((p) => p.second)
+            .toList();
 
-        if (syncResponseList.isNotEmpty()) {
-          // S_3 迴圈
-          for (final response in syncResponseList.iter) {
-            // S_3-1 篩出 local 端同 respondent 的資料
-            final mainResponse = newResponseList.firstOrNull(
-              (_response) =>
-                  _response.respondentId == response.respondentId &&
-                  _response.surveyId == response.surveyId &&
-                  _response.surveyType == state.surveyType &&
-                  _response.moduleType == state.moduleType &&
-                  _response.uploadType == UploadType.sync() &&
-                  _response.isMainBranch,
-            );
-
-            // S_3-2-c1 如果 branch 不同，表示不是 main branch
-            if (mainResponse != null &&
-                mainResponse.branch != response.branch) {
-              newResponse = response.copyWith(
-                isMainBranch: false,
-              );
-              // S_3-2-c2 如果新下載的 response timeStamp <= local，則維持 local response
-            } else if (mainResponse != null &&
-                (response.deviceTimeStamp.getOrCrash())
-                        .difference(mainResponse.deviceTimeStamp.getOrCrash())
-                        .inMicroseconds <=
-                    0) {
-              newResponse = mainResponse;
-            } else {
-              newResponse = response;
-            }
-
-            // S_3-3 篩掉 responseList 同 branch 屬於 sync 類型的資料
-            newResponseList = newResponseList.dropWhile((_response) =>
-                _response.branch == response.branch &&
-                _response.uploadType == UploadType.sync());
-
-            // S_3-4 將新的 response 加入 responseList
-            newResponseList = newResponseList.plusElement(newResponse);
-          }
-
-          yield state.copyWith(
-            responseList: newResponseList,
-          );
-        }
-      },
-      // H_3 比對 responseList 並上傳新的 response
-      responseListUploaded: (e) async* {
-        KtList<Response> uploadResponseList = const KtList<Response>.empty();
-        KtList<Response> subsetResponseList;
-        KtList<Response> newResponseList = state.responseList;
-
-        // S_1 篩出待上傳的 responseList
-        final diffResponseList =
-            state.responseList.minus(state.downloadedResponseList);
-
-        if (diffResponseList.isNotEmpty()) {
-          // S_2 篩出待上傳的 responseList 中屬於 sync 類型的 response
-          final syncResponseList = diffResponseList
-              .filter((response) => response.uploadType == UploadType.sync());
-
-          // S_3 迴圈
-          for (final response in syncResponseList.iter) {
-            // S_3-1 篩出下載資料中同 branch 屬於 sync 類型的 response
-            final downloadedSyncResponse = state.downloadedResponseList
-                .firstOrNull((firstResponse) =>
-                    firstResponse.branch == response.branch &&
-                    firstResponse.uploadType == UploadType.sync());
-
-            // S_3-2 篩出待上傳的 responseList 中同 branch 的 response
-            subsetResponseList = diffResponseList.filter((filteredResponse) =>
-                filteredResponse.branch == response.branch);
-
-            // S_3-3 若 downloadedSyncResponse 有新的 stageId，表示在其他設備已上傳了同
-            //  respondent 的更新資料，若此時 local 端也有新的資料，則會有資料衝突，
-            //  因此自動產生新的 branch，並套用至 subsetResponseList
-            if (downloadedSyncResponse != null &&
-                downloadedSyncResponse.stageId != response.lastSyncStageId &&
-                response.stageId != response.lastSyncStageId) {
-              final newBranch = UniqueId();
-
-              subsetResponseList = subsetResponseList.map(
-                (_response) => _response.copyWith(
-                  branch: newBranch,
-                ),
-              );
-            }
-
-            // S_3-4 加進 uploadResponseList
-            uploadResponseList = uploadResponseList.plus(subsetResponseList);
-          }
-
+        if (newList.isNotEmpty()) {
           final failureOrSuccess = await _surveyRepository.uploadResponseList(
-            responseList: uploadResponseList,
+            responseList: newList,
           );
 
-          // S_4 存回 responseList
-          // TODO 篩掉 stage type
-          newResponseList = newResponseList.minus(diffResponseList);
-          newResponseList = newResponseList.plus(uploadResponseList);
+          // S_ 存回 responseList
           yield state.copyWith(
-            responseList: newResponseList,
+            responseList: newList,
           );
         }
       },
-      // H_4 使用者選擇時篩選
+      // H_4 使用者選擇問卷
       surveySelected: (e) async* {
         yield state.copyWith(
           survey: e.survey,
         );
       },
+      // H_5 使用者選擇要開始進行的問卷模組
       responseStarted: (e) async* {
         yield state.copyWith(
           respondent: e.respondent,
-          surveyType: e.surveyType,
           moduleType: e.moduleType,
+          responseId: e.responseId,
+          withResponseId: e.withResponseId,
         );
 
         add(const ResponseEvent.responseRestored());
       },
+      // H_6 從 responseList 回復要進行的 response
       responseRestored: (e) async* {
         yield state.copyWith(
           responseRestoreState: const LoadState.inProgress(),
         );
 
-        // S_1 篩出不區分 ticketId 的 responses
-        final subsetResponseList = state.responseList
-            .filter(
-              (_response) =>
-                  _response.respondentId == state.respondent.id &&
-                  _response.surveyId == state.survey.id &&
-                  _response.surveyType == state.surveyType &&
-                  _response.moduleType == state.moduleType &&
-                  _response.uploadType == UploadType.sync() &&
-                  _response.isMainBranch,
-            )
-            .sortedBy(
-              (_response) => _response.ticketId.getValueAnyway(),
-            );
+        Response response;
+        if (state.withResponseId) {
+          response = state.responseList
+              .firstOrNull((r) => r.responseId == state.responseId);
+        } else if (state.moduleType != ModuleType.visitReport()) {
+          // S_1 篩出不區分 ticketId 的 responses
+          final subsetList = state.responseList
+              .filter(
+                (r) =>
+                    r.respondentId == state.respondent.id &&
+                    r.surveyId == state.survey.id &&
+                    r.moduleType == state.moduleType,
+              )
+              .sortedByDescending(
+                (r) => r.lastChangedTimeStamp.toInt(),
+              );
 
-        // S_2-1 若最後一筆 ticketId 在 answering，則回復該 response
-        // TODO ticketId + 1
-        final maxTicketIdResponse = subsetResponseList.maxBy(
-          (_response) => _response.ticketId.getValueAnyway(),
-        );
+          // S_2 篩出最近一筆 response
+          final lastResponse = subsetList.firstOrNull();
 
-        final maxTicketId = maxTicketIdResponse != null
-            ? maxTicketIdResponse.ticketId.getValueAnyway()
-            : 0;
-
-        Response response = subsetResponseList.lastOrNull(
-          (_response) =>
-              _response.ticketId.getValueAnyway() == maxTicketId &&
-              _response.responseStatus == ResponseStatus.answering(),
-        );
-
-        LoggerService.simple.e(subsetResponseList.size);
-        LoggerService.simple.e(response);
-
-        // S_2-2 否則新創一個 response
-        KtMap<QuestionId, Answer> emptyAnswerMap;
-        KtMap<QuestionId, AnswerStatus> emptyAnswerStatusMap;
-        KtList<Question> restoredQuestionList;
-
-        if (state.moduleType == ModuleType.empty()) {
-          emptyAnswerMap = state.survey.answerMap;
-          emptyAnswerStatusMap = state.survey.answerStatusMap;
-          restoredQuestionList = state.survey.questionList;
-        } else {
-          emptyAnswerMap = state.survey.module.get(state.moduleType).answerMap;
-          emptyAnswerStatusMap =
-              state.survey.module.get(state.moduleType).answerStatusMap;
-          restoredQuestionList =
-              state.survey.module.get(state.moduleType).questionList;
+          // S_3 若最近一筆在 answering，則回復該 response
+          if (lastResponse != null &&
+              lastResponse.responseStatus == ResponseStatus.answering()) {
+            response = lastResponse;
+          }
         }
 
+        // S_4 否則新創一個 response
+        final module = state.survey.module.get(state.moduleType);
         response ??= Response.empty().copyWith(
-          surveyId: state.survey.id,
           teamId: state.survey.teamId,
           projectId: state.survey.projectId,
-          interviewerId: state.interviewer.id,
-          respondentId: state.respondent.id,
-          surveyType: state.surveyType,
+          surveyId: state.survey.id,
           moduleType: state.moduleType,
-          uploadType: UploadType.sync(),
-          answerMap: emptyAnswerMap,
-          answerStatusMap: emptyAnswerStatusMap,
-          responseStatus: ResponseStatus.answering(),
-          deviceTimeStamp: DeviceTimeStamp.now(),
+          respondentId: state.respondent.id,
+          interviewerId: state.interviewer.id,
+          // TODO deviceId
+          answerMap: module.answerMap,
+          answerStatusMap: module.answerStatusMap,
+        );
+
+        // NOTE 無論是否是新的 response，都要產生新的 responseId、tempResponseId
+        final now = DeviceTimeStamp.now();
+        response = response.copyWith(
+          responseId: UniqueId(),
+          tempResponseId: UniqueId(),
+          editFinished: false,
+          sessionStartTimeStamp: now,
+          sessionEndTimeStamp: now,
+          lastChangedTimeStamp: now,
         );
 
         yield state.copyWith(
           response: response,
-          questionList: restoredQuestionList,
+          questionList: module.questionList,
           responseRestoreState: const LoadState.success(),
+          withResponseId: false,
         );
       },
-      // H_5 接收更新的作答
+      // H_7 接收更新的作答
       // NOTE 每次更新作答會觸發兩次 responseUpdated，一次是更新 answerMap、answerStatusMap，
       //  另一次是更新 surveyPageState
       responseUpdated: (e) async* {
         // S_1 newResponse
         final newResponse = state.response.copyWith(
+          tempResponseId: UniqueId(),
+          lastChangedTimeStamp: DeviceTimeStamp.now(),
           answerMap: e.answerMap ?? state.response.answerMap,
           answerStatusMap: e.answerStatusMap ?? state.response.answerStatusMap,
           surveyPageState: e.surveyPageState ?? state.response.surveyPageState,
-          deviceTimeStamp: DeviceTimeStamp.now(),
         );
 
         // S_2 在 surveyPageState 也更新完成時再更新 responseList
         if (e.isFinished) {
-          KtList<Response> newResponseList = state.responseList.filterNot(
-            (_response) =>
-                _response.respondentId == state.respondent.id &&
-                _response.surveyId == state.survey.id &&
-                _response.surveyType == state.surveyType &&
-                _response.moduleType == state.moduleType &&
-                _response.uploadType == UploadType.sync() &&
-                _response.isMainBranch,
-          );
+          KtList<Response> newList = state.responseList
+              .filterNot((r) => r.responseId == newResponse.responseId);
 
-          newResponseList = newResponseList.plusElement(newResponse);
+          newList = newList.plusElement(newResponse);
 
           yield state.copyWith(
             response: newResponse,
-            responseList: newResponseList,
+            responseList: newList,
           );
 
-          add(const ResponseEvent.responseListUploaded());
+          add(const ResponseEvent.responseListSynced());
         } else {
           yield state.copyWith(
             response: newResponse,
           );
         }
+      },
+      // H_8 使用者結束編輯這次的問卷回覆階段
+      editFinished: (e) async* {
+        // S_1 newResponse
+        final now = DeviceTimeStamp.now();
+        final newResponse = state.response.copyWith(
+          tempResponseId: state.response.responseId,
+          editFinished: true,
+          sessionEndTimeStamp: now,
+          lastChangedTimeStamp: now,
+          responseStatus: e.responseFinished
+              ? ResponseStatus.finished()
+              : ResponseStatus.answering(),
+        );
+
+        final newList = state.responseList
+            .minusElement(state.response)
+            .plusElement(newResponse);
+
+        yield state.copyWith(
+          response: newResponse,
+          responseList: newList,
+        );
+
+        add(const ResponseEvent.responseListSynced());
       },
     );
   }

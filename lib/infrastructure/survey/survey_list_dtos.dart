@@ -51,9 +51,6 @@ abstract class SurveyDto implements _$SurveyDto {
     @required String projectId,
     @required String teamId,
     @required Map<String, SurveyModuleDto> module,
-    @required List<QuestionDto> questionList,
-    @required Map<String, AnswerDto> initialAnswerList,
-    @required Map<String, AnswerStatusDto> initialAnswerStatusList,
   }) = _SurveyDto;
 
   factory SurveyDto.fromDomain(Survey survey) {
@@ -66,17 +63,6 @@ abstract class SurveyDto implements _$SurveyDto {
           .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => SurveyModuleDto.fromDomain(entry.value))
           .asMap(),
-      questionList: survey.questionList
-          .map((question) => QuestionDto.fromDomain(question))
-          .asList(),
-      initialAnswerList: survey.answerMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      initialAnswerStatusList: survey.answerStatusMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
     );
   }
 
@@ -88,13 +74,6 @@ abstract class SurveyDto implements _$SurveyDto {
       projectId: ProjectId(projectId),
       module: KtMap.from(module)
           .mapKeys((entry) => ModuleType(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
-      questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
-      answerMap: KtMap.from(initialAnswerList)
-          .mapKeys((entry) => QuestionId(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMap.from(initialAnswerStatusList)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
     );
   }

@@ -17,44 +17,65 @@ abstract class Response implements _$Response {
   const Response._();
 
   const factory Response({
-    @required SurveyId surveyId,
+    // H_ 區分不同 response
     @required TeamId teamId,
     @required ProjectId projectId,
-    @required InterviewerId interviewerId,
-    @required RespondentId respondentId,
-    @required SurveyType surveyType,
+    @required SurveyId surveyId,
     @required ModuleType moduleType,
-    @required UploadType uploadType,
-    @required StageId stageId,
-    @required StageId lastSyncStageId,
-    @required TicketId ticketId,
-    @required UniqueId branch,
-    @required bool isMainBranch,
+    @required RespondentId respondentId,
+    // H_ 區分 response 版本
+    @required UniqueId responseId,
+    @required UniqueId tempResponseId,
+    @required UniqueId ticketId,
+    @required bool editFinished,
+    @required InterviewerId interviewerId,
+    @required UniqueId deviceId,
+    // H_ 狀態
+    @required DeviceTimeStamp createdTimeStamp,
+    @required DeviceTimeStamp sessionStartTimeStamp,
+    @required DeviceTimeStamp sessionEndTimeStamp,
+    @required DeviceTimeStamp lastChangedTimeStamp,
     @required ResponseStatus responseStatus,
+    @required bool isDeleted,
+    // H_ 內容
     @required KtMap<QuestionId, Answer> answerMap,
     @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
     @required SimpleSurveyPageState surveyPageState,
-    @required DeviceTimeStamp deviceTimeStamp,
   }) = _Response;
 
-  factory Response.empty() => Response(
-        surveyId: SurveyId.empty(),
-        teamId: TeamId.empty(),
-        projectId: ProjectId.empty(),
-        interviewerId: InterviewerId.empty(),
-        respondentId: RespondentId.empty(),
-        surveyType: SurveyType.empty(),
-        moduleType: ModuleType.empty(),
-        uploadType: UploadType.empty(),
-        stageId: StageId.initial(),
-        ticketId: TicketId.initial(),
-        branch: UniqueId(),
-        isMainBranch: true,
-        responseStatus: ResponseStatus.empty(),
-        lastSyncStageId: StageId.initial(),
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
-        surveyPageState: SimpleSurveyPageState.empty(),
-        deviceTimeStamp: DeviceTimeStamp.initial(),
-      );
+  factory Response.empty() {
+    final now = DeviceTimeStamp.now();
+    return Response(
+      teamId: TeamId.empty(),
+      projectId: ProjectId.empty(),
+      surveyId: SurveyId.empty(),
+      moduleType: ModuleType.empty(),
+      respondentId: RespondentId.empty(),
+      responseId: UniqueId(),
+      tempResponseId: UniqueId(),
+      ticketId: UniqueId(),
+      editFinished: false,
+      interviewerId: InterviewerId.empty(),
+      deviceId: UniqueId(),
+      createdTimeStamp: now,
+      sessionStartTimeStamp: now,
+      sessionEndTimeStamp: now,
+      lastChangedTimeStamp: now,
+      responseStatus: ResponseStatus.answering(),
+      isDeleted: false,
+      answerMap: const KtMap<QuestionId, Answer>.empty(),
+      answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+      surveyPageState: SimpleSurveyPageState.empty(),
+    );
+  }
+
+  // NOTE 避免 print 太多東西出來
+  @override
+  String toString() {
+    return '''
+    Response(respondentId: $respondentId,
+    ticketId: $ticketId),
+    lastChangedTimeStamp: $lastChangedTimeStamp),\n
+    ''';
+  }
 }

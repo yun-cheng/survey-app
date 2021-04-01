@@ -41,7 +41,7 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
         choice: answerBody,
         toggle: toggle,
       );
-    } else if (question.type.isInput) {
+    } else if (question.type.isInput || question.type.isDateTime) {
       newAnswerMap = updateInputAnswer(
         answerMap: answerMap,
         question: question,

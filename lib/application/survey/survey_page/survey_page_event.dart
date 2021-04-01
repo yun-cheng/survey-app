@@ -3,9 +3,11 @@ part of 'survey_page_bloc.dart';
 @freezed
 abstract class SurveyPageEvent with _$SurveyPageEvent {
   // H_1 從 response 恢復 surveyPageState
+  const factory SurveyPageEvent.stateRestoring() = _StateRestoring;
   const factory SurveyPageEvent.stateRestored({
     @required SimpleSurveyPageState surveyPageState,
     @required KtList<Question> questionList,
+    KtMap<QuestionId, AnswerStatus> answerStatusMap,
   }) = _StateRestored;
 
   // H_2 切換頁面
@@ -16,6 +18,8 @@ abstract class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.previousPagePressed() = _PreviousPagePressed;
   const factory SurveyPageEvent.wentToNewestPage() = _WentToNewestPage;
   const factory SurveyPageEvent.wentToPage(PageNumber page) = _WentToPage;
+  const factory SurveyPageEvent.finishedButtonPressed() =
+      _FinishedButtonPressed;
 
   // H_3
   const factory SurveyPageEvent.checkIsLastPage() = _CheckIsLastPage;
@@ -29,6 +33,8 @@ abstract class SurveyPageEvent with _$SurveyPageEvent {
 
   const factory SurveyPageEvent.stateLoadSuccess() = _StateLoadSuccess;
 
+  // H_
+  const factory SurveyPageEvent.stateCleared() = _StateCleared;
 }
 
 enum Direction { current, next, previous }

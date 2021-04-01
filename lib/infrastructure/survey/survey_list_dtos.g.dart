@@ -33,22 +33,6 @@ _$_SurveyDto _$_$_SurveyDtoFromJson(Map<String, dynamic> json) {
               ? null
               : SurveyModuleDto.fromJson(e as Map<String, dynamic>)),
     ),
-    questionList: (json['questionList'] as List)
-        ?.map((e) =>
-            e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    initialAnswerList: (json['initialAnswerList'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k, e == null ? null : AnswerDto.fromJson(e as Map<String, dynamic>)),
-    ),
-    initialAnswerStatusList:
-        (json['initialAnswerStatusList'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k,
-          e == null
-              ? null
-              : AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
-    ),
   );
 }
 
@@ -59,9 +43,4 @@ Map<String, dynamic> _$_$_SurveyDtoToJson(_$_SurveyDto instance) =>
       'projectId': instance.projectId,
       'teamId': instance.teamId,
       'module': instance.module?.map((k, e) => MapEntry(k, e?.toJson())),
-      'questionList': instance.questionList?.map((e) => e?.toJson())?.toList(),
-      'initialAnswerList':
-          instance.initialAnswerList?.map((k, e) => MapEntry(k, e?.toJson())),
-      'initialAnswerStatusList': instance.initialAnswerStatusList
-          ?.map((k, e) => MapEntry(k, e?.toJson())),
     };

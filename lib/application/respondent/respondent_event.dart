@@ -21,4 +21,9 @@ abstract class RespondentEvent with _$RespondentEvent {
   const factory RespondentEvent.respondentSelected({
     @required RespondentId respondentId,
   }) = _RespondentSelected;
+
+  // H_ responseList 改變時，若包含 visitReport，則須更新
+  const factory RespondentEvent.visitReportUpdated({
+    @required KtList<Response> responseList,
+  }) = _VisitReportUpdated;
 }

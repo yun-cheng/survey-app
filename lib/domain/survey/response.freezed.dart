@@ -15,43 +15,47 @@ class _$ResponseTearOff {
 
 // ignore: unused_element
   _Response call(
-      {@required SurveyId surveyId,
-      @required TeamId teamId,
+      {@required TeamId teamId,
       @required ProjectId projectId,
-      @required InterviewerId interviewerId,
-      @required RespondentId respondentId,
-      @required SurveyType surveyType,
+      @required SurveyId surveyId,
       @required ModuleType moduleType,
-      @required UploadType uploadType,
-      @required StageId stageId,
-      @required StageId lastSyncStageId,
-      @required TicketId ticketId,
-      @required UniqueId branch,
-      @required bool isMainBranch,
+      @required RespondentId respondentId,
+      @required UniqueId responseId,
+      @required UniqueId tempResponseId,
+      @required UniqueId ticketId,
+      @required bool editFinished,
+      @required InterviewerId interviewerId,
+      @required UniqueId deviceId,
+      @required DeviceTimeStamp createdTimeStamp,
+      @required DeviceTimeStamp sessionStartTimeStamp,
+      @required DeviceTimeStamp sessionEndTimeStamp,
+      @required DeviceTimeStamp lastChangedTimeStamp,
       @required ResponseStatus responseStatus,
+      @required bool isDeleted,
       @required KtMap<QuestionId, Answer> answerMap,
       @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required SimpleSurveyPageState surveyPageState,
-      @required DeviceTimeStamp deviceTimeStamp}) {
+      @required SimpleSurveyPageState surveyPageState}) {
     return _Response(
-      surveyId: surveyId,
       teamId: teamId,
       projectId: projectId,
-      interviewerId: interviewerId,
-      respondentId: respondentId,
-      surveyType: surveyType,
+      surveyId: surveyId,
       moduleType: moduleType,
-      uploadType: uploadType,
-      stageId: stageId,
-      lastSyncStageId: lastSyncStageId,
+      respondentId: respondentId,
+      responseId: responseId,
+      tempResponseId: tempResponseId,
       ticketId: ticketId,
-      branch: branch,
-      isMainBranch: isMainBranch,
+      editFinished: editFinished,
+      interviewerId: interviewerId,
+      deviceId: deviceId,
+      createdTimeStamp: createdTimeStamp,
+      sessionStartTimeStamp: sessionStartTimeStamp,
+      sessionEndTimeStamp: sessionEndTimeStamp,
+      lastChangedTimeStamp: lastChangedTimeStamp,
       responseStatus: responseStatus,
+      isDeleted: isDeleted,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       surveyPageState: surveyPageState,
-      deviceTimeStamp: deviceTimeStamp,
     );
   }
 }
@@ -62,24 +66,27 @@ const $Response = _$ResponseTearOff();
 
 /// @nodoc
 mixin _$Response {
-  SurveyId get surveyId;
+// H_ 區分不同 response
   TeamId get teamId;
   ProjectId get projectId;
-  InterviewerId get interviewerId;
-  RespondentId get respondentId;
-  SurveyType get surveyType;
+  SurveyId get surveyId;
   ModuleType get moduleType;
-  UploadType get uploadType;
-  StageId get stageId;
-  StageId get lastSyncStageId;
-  TicketId get ticketId;
-  UniqueId get branch;
-  bool get isMainBranch;
+  RespondentId get respondentId; // H_ 區分 response 版本
+  UniqueId get responseId;
+  UniqueId get tempResponseId;
+  UniqueId get ticketId;
+  bool get editFinished;
+  InterviewerId get interviewerId;
+  UniqueId get deviceId; // H_ 狀態
+  DeviceTimeStamp get createdTimeStamp;
+  DeviceTimeStamp get sessionStartTimeStamp;
+  DeviceTimeStamp get sessionEndTimeStamp;
+  DeviceTimeStamp get lastChangedTimeStamp;
   ResponseStatus get responseStatus;
+  bool get isDeleted; // H_ 內容
   KtMap<QuestionId, Answer> get answerMap;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   SimpleSurveyPageState get surveyPageState;
-  DeviceTimeStamp get deviceTimeStamp;
 
   $ResponseCopyWith<Response> get copyWith;
 }
@@ -89,24 +96,26 @@ abstract class $ResponseCopyWith<$Res> {
   factory $ResponseCopyWith(Response value, $Res Function(Response) then) =
       _$ResponseCopyWithImpl<$Res>;
   $Res call(
-      {SurveyId surveyId,
-      TeamId teamId,
+      {TeamId teamId,
       ProjectId projectId,
-      InterviewerId interviewerId,
-      RespondentId respondentId,
-      SurveyType surveyType,
+      SurveyId surveyId,
       ModuleType moduleType,
-      UploadType uploadType,
-      StageId stageId,
-      StageId lastSyncStageId,
-      TicketId ticketId,
-      UniqueId branch,
-      bool isMainBranch,
+      RespondentId respondentId,
+      UniqueId responseId,
+      UniqueId tempResponseId,
+      UniqueId ticketId,
+      bool editFinished,
+      InterviewerId interviewerId,
+      UniqueId deviceId,
+      DeviceTimeStamp createdTimeStamp,
+      DeviceTimeStamp sessionStartTimeStamp,
+      DeviceTimeStamp sessionEndTimeStamp,
+      DeviceTimeStamp lastChangedTimeStamp,
       ResponseStatus responseStatus,
+      bool isDeleted,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      SimpleSurveyPageState surveyPageState,
-      DeviceTimeStamp deviceTimeStamp});
+      SimpleSurveyPageState surveyPageState});
 
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
 }
@@ -121,53 +130,65 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
 
   @override
   $Res call({
-    Object surveyId = freezed,
     Object teamId = freezed,
     Object projectId = freezed,
-    Object interviewerId = freezed,
-    Object respondentId = freezed,
-    Object surveyType = freezed,
+    Object surveyId = freezed,
     Object moduleType = freezed,
-    Object uploadType = freezed,
-    Object stageId = freezed,
-    Object lastSyncStageId = freezed,
+    Object respondentId = freezed,
+    Object responseId = freezed,
+    Object tempResponseId = freezed,
     Object ticketId = freezed,
-    Object branch = freezed,
-    Object isMainBranch = freezed,
+    Object editFinished = freezed,
+    Object interviewerId = freezed,
+    Object deviceId = freezed,
+    Object createdTimeStamp = freezed,
+    Object sessionStartTimeStamp = freezed,
+    Object sessionEndTimeStamp = freezed,
+    Object lastChangedTimeStamp = freezed,
     Object responseStatus = freezed,
+    Object isDeleted = freezed,
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object surveyPageState = freezed,
-    Object deviceTimeStamp = freezed,
   }) {
     return _then(_value.copyWith(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
       teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
       projectId:
           projectId == freezed ? _value.projectId : projectId as ProjectId,
-      interviewerId: interviewerId == freezed
-          ? _value.interviewerId
-          : interviewerId as InterviewerId,
+      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
+      moduleType:
+          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId as RespondentId,
-      surveyType:
-          surveyType == freezed ? _value.surveyType : surveyType as SurveyType,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
-      uploadType:
-          uploadType == freezed ? _value.uploadType : uploadType as UploadType,
-      stageId: stageId == freezed ? _value.stageId : stageId as StageId,
-      lastSyncStageId: lastSyncStageId == freezed
-          ? _value.lastSyncStageId
-          : lastSyncStageId as StageId,
-      ticketId: ticketId == freezed ? _value.ticketId : ticketId as TicketId,
-      branch: branch == freezed ? _value.branch : branch as UniqueId,
-      isMainBranch:
-          isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
+      responseId:
+          responseId == freezed ? _value.responseId : responseId as UniqueId,
+      tempResponseId: tempResponseId == freezed
+          ? _value.tempResponseId
+          : tempResponseId as UniqueId,
+      ticketId: ticketId == freezed ? _value.ticketId : ticketId as UniqueId,
+      editFinished:
+          editFinished == freezed ? _value.editFinished : editFinished as bool,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId as InterviewerId,
+      deviceId: deviceId == freezed ? _value.deviceId : deviceId as UniqueId,
+      createdTimeStamp: createdTimeStamp == freezed
+          ? _value.createdTimeStamp
+          : createdTimeStamp as DeviceTimeStamp,
+      sessionStartTimeStamp: sessionStartTimeStamp == freezed
+          ? _value.sessionStartTimeStamp
+          : sessionStartTimeStamp as DeviceTimeStamp,
+      sessionEndTimeStamp: sessionEndTimeStamp == freezed
+          ? _value.sessionEndTimeStamp
+          : sessionEndTimeStamp as DeviceTimeStamp,
+      lastChangedTimeStamp: lastChangedTimeStamp == freezed
+          ? _value.lastChangedTimeStamp
+          : lastChangedTimeStamp as DeviceTimeStamp,
       responseStatus: responseStatus == freezed
           ? _value.responseStatus
           : responseStatus as ResponseStatus,
+      isDeleted: isDeleted == freezed ? _value.isDeleted : isDeleted as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as KtMap<QuestionId, Answer>,
@@ -177,9 +198,6 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState as SimpleSurveyPageState,
-      deviceTimeStamp: deviceTimeStamp == freezed
-          ? _value.deviceTimeStamp
-          : deviceTimeStamp as DeviceTimeStamp,
     ));
   }
 
@@ -201,24 +219,26 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
       __$ResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SurveyId surveyId,
-      TeamId teamId,
+      {TeamId teamId,
       ProjectId projectId,
-      InterviewerId interviewerId,
-      RespondentId respondentId,
-      SurveyType surveyType,
+      SurveyId surveyId,
       ModuleType moduleType,
-      UploadType uploadType,
-      StageId stageId,
-      StageId lastSyncStageId,
-      TicketId ticketId,
-      UniqueId branch,
-      bool isMainBranch,
+      RespondentId respondentId,
+      UniqueId responseId,
+      UniqueId tempResponseId,
+      UniqueId ticketId,
+      bool editFinished,
+      InterviewerId interviewerId,
+      UniqueId deviceId,
+      DeviceTimeStamp createdTimeStamp,
+      DeviceTimeStamp sessionStartTimeStamp,
+      DeviceTimeStamp sessionEndTimeStamp,
+      DeviceTimeStamp lastChangedTimeStamp,
       ResponseStatus responseStatus,
+      bool isDeleted,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      SimpleSurveyPageState surveyPageState,
-      DeviceTimeStamp deviceTimeStamp});
+      SimpleSurveyPageState surveyPageState});
 
   @override
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
@@ -235,53 +255,65 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
     Object teamId = freezed,
     Object projectId = freezed,
-    Object interviewerId = freezed,
-    Object respondentId = freezed,
-    Object surveyType = freezed,
+    Object surveyId = freezed,
     Object moduleType = freezed,
-    Object uploadType = freezed,
-    Object stageId = freezed,
-    Object lastSyncStageId = freezed,
+    Object respondentId = freezed,
+    Object responseId = freezed,
+    Object tempResponseId = freezed,
     Object ticketId = freezed,
-    Object branch = freezed,
-    Object isMainBranch = freezed,
+    Object editFinished = freezed,
+    Object interviewerId = freezed,
+    Object deviceId = freezed,
+    Object createdTimeStamp = freezed,
+    Object sessionStartTimeStamp = freezed,
+    Object sessionEndTimeStamp = freezed,
+    Object lastChangedTimeStamp = freezed,
     Object responseStatus = freezed,
+    Object isDeleted = freezed,
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object surveyPageState = freezed,
-    Object deviceTimeStamp = freezed,
   }) {
     return _then(_Response(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
       teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
       projectId:
           projectId == freezed ? _value.projectId : projectId as ProjectId,
-      interviewerId: interviewerId == freezed
-          ? _value.interviewerId
-          : interviewerId as InterviewerId,
+      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
+      moduleType:
+          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId as RespondentId,
-      surveyType:
-          surveyType == freezed ? _value.surveyType : surveyType as SurveyType,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
-      uploadType:
-          uploadType == freezed ? _value.uploadType : uploadType as UploadType,
-      stageId: stageId == freezed ? _value.stageId : stageId as StageId,
-      lastSyncStageId: lastSyncStageId == freezed
-          ? _value.lastSyncStageId
-          : lastSyncStageId as StageId,
-      ticketId: ticketId == freezed ? _value.ticketId : ticketId as TicketId,
-      branch: branch == freezed ? _value.branch : branch as UniqueId,
-      isMainBranch:
-          isMainBranch == freezed ? _value.isMainBranch : isMainBranch as bool,
+      responseId:
+          responseId == freezed ? _value.responseId : responseId as UniqueId,
+      tempResponseId: tempResponseId == freezed
+          ? _value.tempResponseId
+          : tempResponseId as UniqueId,
+      ticketId: ticketId == freezed ? _value.ticketId : ticketId as UniqueId,
+      editFinished:
+          editFinished == freezed ? _value.editFinished : editFinished as bool,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId as InterviewerId,
+      deviceId: deviceId == freezed ? _value.deviceId : deviceId as UniqueId,
+      createdTimeStamp: createdTimeStamp == freezed
+          ? _value.createdTimeStamp
+          : createdTimeStamp as DeviceTimeStamp,
+      sessionStartTimeStamp: sessionStartTimeStamp == freezed
+          ? _value.sessionStartTimeStamp
+          : sessionStartTimeStamp as DeviceTimeStamp,
+      sessionEndTimeStamp: sessionEndTimeStamp == freezed
+          ? _value.sessionEndTimeStamp
+          : sessionEndTimeStamp as DeviceTimeStamp,
+      lastChangedTimeStamp: lastChangedTimeStamp == freezed
+          ? _value.lastChangedTimeStamp
+          : lastChangedTimeStamp as DeviceTimeStamp,
       responseStatus: responseStatus == freezed
           ? _value.responseStatus
           : responseStatus as ResponseStatus,
+      isDeleted: isDeleted == freezed ? _value.isDeleted : isDeleted as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap as KtMap<QuestionId, Answer>,
@@ -291,9 +323,6 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState as SimpleSurveyPageState,
-      deviceTimeStamp: deviceTimeStamp == freezed
-          ? _value.deviceTimeStamp
-          : deviceTimeStamp as DeviceTimeStamp,
     ));
   }
 }
@@ -301,130 +330,143 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
 /// @nodoc
 class _$_Response extends _Response {
   const _$_Response(
-      {@required this.surveyId,
-      @required this.teamId,
+      {@required this.teamId,
       @required this.projectId,
-      @required this.interviewerId,
-      @required this.respondentId,
-      @required this.surveyType,
+      @required this.surveyId,
       @required this.moduleType,
-      @required this.uploadType,
-      @required this.stageId,
-      @required this.lastSyncStageId,
+      @required this.respondentId,
+      @required this.responseId,
+      @required this.tempResponseId,
       @required this.ticketId,
-      @required this.branch,
-      @required this.isMainBranch,
+      @required this.editFinished,
+      @required this.interviewerId,
+      @required this.deviceId,
+      @required this.createdTimeStamp,
+      @required this.sessionStartTimeStamp,
+      @required this.sessionEndTimeStamp,
+      @required this.lastChangedTimeStamp,
       @required this.responseStatus,
+      @required this.isDeleted,
       @required this.answerMap,
       @required this.answerStatusMap,
-      @required this.surveyPageState,
-      @required this.deviceTimeStamp})
-      : assert(surveyId != null),
-        assert(teamId != null),
+      @required this.surveyPageState})
+      : assert(teamId != null),
         assert(projectId != null),
-        assert(interviewerId != null),
-        assert(respondentId != null),
-        assert(surveyType != null),
+        assert(surveyId != null),
         assert(moduleType != null),
-        assert(uploadType != null),
-        assert(stageId != null),
-        assert(lastSyncStageId != null),
+        assert(respondentId != null),
+        assert(responseId != null),
+        assert(tempResponseId != null),
         assert(ticketId != null),
-        assert(branch != null),
-        assert(isMainBranch != null),
+        assert(editFinished != null),
+        assert(interviewerId != null),
+        assert(deviceId != null),
+        assert(createdTimeStamp != null),
+        assert(sessionStartTimeStamp != null),
+        assert(sessionEndTimeStamp != null),
+        assert(lastChangedTimeStamp != null),
         assert(responseStatus != null),
+        assert(isDeleted != null),
         assert(answerMap != null),
         assert(answerStatusMap != null),
         assert(surveyPageState != null),
-        assert(deviceTimeStamp != null),
         super._();
 
-  @override
-  final SurveyId surveyId;
-  @override
+  @override // H_ 區分不同 response
   final TeamId teamId;
   @override
   final ProjectId projectId;
   @override
-  final InterviewerId interviewerId;
-  @override
-  final RespondentId respondentId;
-  @override
-  final SurveyType surveyType;
+  final SurveyId surveyId;
   @override
   final ModuleType moduleType;
   @override
-  final UploadType uploadType;
+  final RespondentId respondentId;
+  @override // H_ 區分 response 版本
+  final UniqueId responseId;
   @override
-  final StageId stageId;
+  final UniqueId tempResponseId;
   @override
-  final StageId lastSyncStageId;
+  final UniqueId ticketId;
   @override
-  final TicketId ticketId;
+  final bool editFinished;
   @override
-  final UniqueId branch;
+  final InterviewerId interviewerId;
   @override
-  final bool isMainBranch;
+  final UniqueId deviceId;
+  @override // H_ 狀態
+  final DeviceTimeStamp createdTimeStamp;
+  @override
+  final DeviceTimeStamp sessionStartTimeStamp;
+  @override
+  final DeviceTimeStamp sessionEndTimeStamp;
+  @override
+  final DeviceTimeStamp lastChangedTimeStamp;
   @override
   final ResponseStatus responseStatus;
   @override
+  final bool isDeleted;
+  @override // H_ 內容
   final KtMap<QuestionId, Answer> answerMap;
   @override
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
   final SimpleSurveyPageState surveyPageState;
-  @override
-  final DeviceTimeStamp deviceTimeStamp;
-
-  @override
-  String toString() {
-    return 'Response(surveyId: $surveyId, teamId: $teamId, projectId: $projectId, interviewerId: $interviewerId, respondentId: $respondentId, surveyType: $surveyType, moduleType: $moduleType, uploadType: $uploadType, stageId: $stageId, lastSyncStageId: $lastSyncStageId, ticketId: $ticketId, branch: $branch, isMainBranch: $isMainBranch, responseStatus: $responseStatus, answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState, deviceTimeStamp: $deviceTimeStamp)';
-  }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Response &&
-            (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
             (identical(other.teamId, teamId) ||
                 const DeepCollectionEquality().equals(other.teamId, teamId)) &&
             (identical(other.projectId, projectId) ||
                 const DeepCollectionEquality()
                     .equals(other.projectId, projectId)) &&
-            (identical(other.interviewerId, interviewerId) ||
+            (identical(other.surveyId, surveyId) ||
                 const DeepCollectionEquality()
-                    .equals(other.interviewerId, interviewerId)) &&
-            (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)) &&
-            (identical(other.surveyType, surveyType) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyType, surveyType)) &&
+                    .equals(other.surveyId, surveyId)) &&
             (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleType, moduleType)) &&
-            (identical(other.uploadType, uploadType) ||
+            (identical(other.respondentId, respondentId) ||
                 const DeepCollectionEquality()
-                    .equals(other.uploadType, uploadType)) &&
-            (identical(other.stageId, stageId) ||
+                    .equals(other.respondentId, respondentId)) &&
+            (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
-                    .equals(other.stageId, stageId)) &&
-            (identical(other.lastSyncStageId, lastSyncStageId) ||
+                    .equals(other.responseId, responseId)) &&
+            (identical(other.tempResponseId, tempResponseId) ||
                 const DeepCollectionEquality()
-                    .equals(other.lastSyncStageId, lastSyncStageId)) &&
+                    .equals(other.tempResponseId, tempResponseId)) &&
             (identical(other.ticketId, ticketId) ||
                 const DeepCollectionEquality()
                     .equals(other.ticketId, ticketId)) &&
-            (identical(other.branch, branch) ||
-                const DeepCollectionEquality().equals(other.branch, branch)) &&
-            (identical(other.isMainBranch, isMainBranch) ||
+            (identical(other.editFinished, editFinished) ||
                 const DeepCollectionEquality()
-                    .equals(other.isMainBranch, isMainBranch)) &&
+                    .equals(other.editFinished, editFinished)) &&
+            (identical(other.interviewerId, interviewerId) ||
+                const DeepCollectionEquality()
+                    .equals(other.interviewerId, interviewerId)) &&
+            (identical(other.deviceId, deviceId) ||
+                const DeepCollectionEquality()
+                    .equals(other.deviceId, deviceId)) &&
+            (identical(other.createdTimeStamp, createdTimeStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.createdTimeStamp, createdTimeStamp)) &&
+            (identical(other.sessionStartTimeStamp, sessionStartTimeStamp) ||
+                const DeepCollectionEquality().equals(
+                    other.sessionStartTimeStamp, sessionStartTimeStamp)) &&
+            (identical(other.sessionEndTimeStamp, sessionEndTimeStamp) ||
+                const DeepCollectionEquality()
+                    .equals(other.sessionEndTimeStamp, sessionEndTimeStamp)) &&
+            (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
+                const DeepCollectionEquality().equals(
+                    other.lastChangedTimeStamp, lastChangedTimeStamp)) &&
             (identical(other.responseStatus, responseStatus) ||
                 const DeepCollectionEquality()
                     .equals(other.responseStatus, responseStatus)) &&
+            (identical(other.isDeleted, isDeleted) ||
+                const DeepCollectionEquality()
+                    .equals(other.isDeleted, isDeleted)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -433,33 +475,32 @@ class _$_Response extends _Response {
                     .equals(other.answerStatusMap, answerStatusMap)) &&
             (identical(other.surveyPageState, surveyPageState) ||
                 const DeepCollectionEquality()
-                    .equals(other.surveyPageState, surveyPageState)) &&
-            (identical(other.deviceTimeStamp, deviceTimeStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.deviceTimeStamp, deviceTimeStamp)));
+                    .equals(other.surveyPageState, surveyPageState)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(projectId) ^
-      const DeepCollectionEquality().hash(interviewerId) ^
-      const DeepCollectionEquality().hash(respondentId) ^
-      const DeepCollectionEquality().hash(surveyType) ^
+      const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(uploadType) ^
-      const DeepCollectionEquality().hash(stageId) ^
-      const DeepCollectionEquality().hash(lastSyncStageId) ^
+      const DeepCollectionEquality().hash(respondentId) ^
+      const DeepCollectionEquality().hash(responseId) ^
+      const DeepCollectionEquality().hash(tempResponseId) ^
       const DeepCollectionEquality().hash(ticketId) ^
-      const DeepCollectionEquality().hash(branch) ^
-      const DeepCollectionEquality().hash(isMainBranch) ^
+      const DeepCollectionEquality().hash(editFinished) ^
+      const DeepCollectionEquality().hash(interviewerId) ^
+      const DeepCollectionEquality().hash(deviceId) ^
+      const DeepCollectionEquality().hash(createdTimeStamp) ^
+      const DeepCollectionEquality().hash(sessionStartTimeStamp) ^
+      const DeepCollectionEquality().hash(sessionEndTimeStamp) ^
+      const DeepCollectionEquality().hash(lastChangedTimeStamp) ^
       const DeepCollectionEquality().hash(responseStatus) ^
+      const DeepCollectionEquality().hash(isDeleted) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(surveyPageState) ^
-      const DeepCollectionEquality().hash(deviceTimeStamp);
+      const DeepCollectionEquality().hash(surveyPageState);
 
   @override
   _$ResponseCopyWith<_Response> get copyWith =>
@@ -469,61 +510,67 @@ class _$_Response extends _Response {
 abstract class _Response extends Response {
   const _Response._() : super._();
   const factory _Response(
-      {@required SurveyId surveyId,
-      @required TeamId teamId,
+      {@required TeamId teamId,
       @required ProjectId projectId,
-      @required InterviewerId interviewerId,
-      @required RespondentId respondentId,
-      @required SurveyType surveyType,
+      @required SurveyId surveyId,
       @required ModuleType moduleType,
-      @required UploadType uploadType,
-      @required StageId stageId,
-      @required StageId lastSyncStageId,
-      @required TicketId ticketId,
-      @required UniqueId branch,
-      @required bool isMainBranch,
+      @required RespondentId respondentId,
+      @required UniqueId responseId,
+      @required UniqueId tempResponseId,
+      @required UniqueId ticketId,
+      @required bool editFinished,
+      @required InterviewerId interviewerId,
+      @required UniqueId deviceId,
+      @required DeviceTimeStamp createdTimeStamp,
+      @required DeviceTimeStamp sessionStartTimeStamp,
+      @required DeviceTimeStamp sessionEndTimeStamp,
+      @required DeviceTimeStamp lastChangedTimeStamp,
       @required ResponseStatus responseStatus,
+      @required bool isDeleted,
       @required KtMap<QuestionId, Answer> answerMap,
       @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required SimpleSurveyPageState surveyPageState,
-      @required DeviceTimeStamp deviceTimeStamp}) = _$_Response;
+      @required SimpleSurveyPageState surveyPageState}) = _$_Response;
 
-  @override
-  SurveyId get surveyId;
-  @override
+  @override // H_ 區分不同 response
   TeamId get teamId;
   @override
   ProjectId get projectId;
   @override
-  InterviewerId get interviewerId;
-  @override
-  RespondentId get respondentId;
-  @override
-  SurveyType get surveyType;
+  SurveyId get surveyId;
   @override
   ModuleType get moduleType;
   @override
-  UploadType get uploadType;
+  RespondentId get respondentId;
+  @override // H_ 區分 response 版本
+  UniqueId get responseId;
   @override
-  StageId get stageId;
+  UniqueId get tempResponseId;
   @override
-  StageId get lastSyncStageId;
+  UniqueId get ticketId;
   @override
-  TicketId get ticketId;
+  bool get editFinished;
   @override
-  UniqueId get branch;
+  InterviewerId get interviewerId;
   @override
-  bool get isMainBranch;
+  UniqueId get deviceId;
+  @override // H_ 狀態
+  DeviceTimeStamp get createdTimeStamp;
+  @override
+  DeviceTimeStamp get sessionStartTimeStamp;
+  @override
+  DeviceTimeStamp get sessionEndTimeStamp;
+  @override
+  DeviceTimeStamp get lastChangedTimeStamp;
   @override
   ResponseStatus get responseStatus;
   @override
+  bool get isDeleted;
+  @override // H_ 內容
   KtMap<QuestionId, Answer> get answerMap;
   @override
   KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   @override
   SimpleSurveyPageState get surveyPageState;
-  @override
-  DeviceTimeStamp get deviceTimeStamp;
   @override
   _$ResponseCopyWith<_Response> get copyWith;
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
+import 'date_time_box.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/survey/question.dart';
@@ -22,6 +24,7 @@ class QaCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LoggerService.simple.i('QaCard rebuild');
     final isSpecialAnswer = context.select((AnswerBloc bloc) =>
         bloc.state.answerStatusMap[question.id].isSpecialAnswer);
 
@@ -48,6 +51,10 @@ class QaCard extends StatelessWidget {
               ] else if ([QuestionType.number(), QuestionType.text()]
                   .contains(question.type)) ...[
                 TextBox(
+                  question: question,
+                ),
+              ] else if (question.type.isDateTime) ...[
+                DateTimeBox(
                   question: question,
                 ),
               ]

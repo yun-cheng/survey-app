@@ -22,20 +22,23 @@ Map<String, dynamic> _$_$_ResponseListDtoToJson(_$_ResponseListDto instance) =>
 
 _$_ResponseDto _$_$_ResponseDtoFromJson(Map<String, dynamic> json) {
   return _$_ResponseDto(
-    surveyId: json['surveyId'] as String,
     teamId: json['teamId'] as String,
     projectId: json['projectId'] as String,
-    interviewerId: json['interviewerId'] as String,
-    respondentId: json['respondentId'] as String,
-    surveyType: json['surveyType'] as String,
+    surveyId: json['surveyId'] as String,
     moduleType: json['moduleType'] as String,
-    uploadType: json['uploadType'] as String,
-    stageId: json['stageId'] as int,
-    lastSyncStageId: json['lastSyncStageId'] as int,
-    ticketId: json['ticketId'] as int,
-    branch: json['branch'] as String,
-    isMainBranch: json['isMainBranch'] as bool,
+    respondentId: json['respondentId'] as String,
+    responseId: json['responseId'] as String,
+    tempResponseId: json['tempResponseId'] as String,
+    ticketId: json['ticketId'] as String,
+    editFinished: json['editFinished'] as bool,
+    interviewerId: json['interviewerId'] as String,
+    deviceId: json['deviceId'] as String,
+    createdTimeStamp: json['createdTimeStamp'] as int,
+    sessionStartTimeStamp: json['sessionStartTimeStamp'] as int,
+    sessionEndTimeStamp: json['sessionEndTimeStamp'] as int,
+    lastChangedTimeStamp: json['lastChangedTimeStamp'] as int,
     responseStatus: json['responseStatus'] as String,
+    isDeleted: json['isDeleted'] as bool,
     answerMap: (json['answerMap'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(
           k, e == null ? null : AnswerDto.fromJson(e as Map<String, dynamic>)),
@@ -51,29 +54,30 @@ _$_ResponseDto _$_$_ResponseDtoFromJson(Map<String, dynamic> json) {
         ? null
         : SimpleSurveyPageStateDto.fromJson(
             json['surveyPageState'] as Map<String, dynamic>),
-    deviceTimeStamp: json['deviceTimeStamp'] as int,
   );
 }
 
 Map<String, dynamic> _$_$_ResponseDtoToJson(_$_ResponseDto instance) =>
     <String, dynamic>{
-      'surveyId': instance.surveyId,
       'teamId': instance.teamId,
       'projectId': instance.projectId,
-      'interviewerId': instance.interviewerId,
-      'respondentId': instance.respondentId,
-      'surveyType': instance.surveyType,
+      'surveyId': instance.surveyId,
       'moduleType': instance.moduleType,
-      'uploadType': instance.uploadType,
-      'stageId': instance.stageId,
-      'lastSyncStageId': instance.lastSyncStageId,
+      'respondentId': instance.respondentId,
+      'responseId': instance.responseId,
+      'tempResponseId': instance.tempResponseId,
       'ticketId': instance.ticketId,
-      'branch': instance.branch,
-      'isMainBranch': instance.isMainBranch,
+      'editFinished': instance.editFinished,
+      'interviewerId': instance.interviewerId,
+      'deviceId': instance.deviceId,
+      'createdTimeStamp': instance.createdTimeStamp,
+      'sessionStartTimeStamp': instance.sessionStartTimeStamp,
+      'sessionEndTimeStamp': instance.sessionEndTimeStamp,
+      'lastChangedTimeStamp': instance.lastChangedTimeStamp,
       'responseStatus': instance.responseStatus,
+      'isDeleted': instance.isDeleted,
       'answerMap': instance.answerMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'answerStatusMap':
           instance.answerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'surveyPageState': instance.surveyPageState?.toJson(),
-      'deviceTimeStamp': instance.deviceTimeStamp,
     };

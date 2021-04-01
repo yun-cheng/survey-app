@@ -9,7 +9,6 @@ import '../../domain/overview/survey.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/survey_failure.dart';
-import '../../domain/survey/value_objects.dart';
 import '../core/firestore_helpers.dart';
 import 'response_list_dtos.dart';
 import 'survey_list_dtos.dart';
@@ -69,10 +68,7 @@ class SurveyRepository implements ISurveyRepository {
       final batch = _firestore.batch();
 
       for (final response in responseList.iter) {
-        batch.set(
-            response.uploadType == UploadType.sync()
-                ? responseCollection.doc(response.branch.getOrCrash())
-                : responseCollection.doc(),
+        batch.set(responseCollection.doc(response.responseId.getOrCrash()),
             ResponseDto.fromDomain(response).toJson());
       }
 

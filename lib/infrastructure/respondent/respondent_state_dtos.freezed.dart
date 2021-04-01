@@ -23,7 +23,8 @@ class _$RespondentStateDtoTearOff {
       @required SurveyDto survey,
       @required List<RespondentDto> respondentList,
       @required String selectedRespondentId,
-      Map<String, dynamic> respondentFailure}) {
+      Map<String, dynamic> respondentFailure,
+      @required Map<String, List<VisitRecordDto>> visitRecordsMap}) {
     return _RespondentStateDto(
       respondentListListState: respondentListListState,
       respondentListList: respondentListList,
@@ -31,6 +32,7 @@ class _$RespondentStateDtoTearOff {
       respondentList: respondentList,
       selectedRespondentId: selectedRespondentId,
       respondentFailure: respondentFailure,
+      visitRecordsMap: visitRecordsMap,
     );
   }
 
@@ -52,6 +54,7 @@ mixin _$RespondentStateDto {
   List<RespondentDto> get respondentList;
   String get selectedRespondentId;
   Map<String, dynamic> get respondentFailure;
+  Map<String, List<VisitRecordDto>> get visitRecordsMap;
 
   Map<String, dynamic> toJson();
   $RespondentStateDtoCopyWith<RespondentStateDto> get copyWith;
@@ -68,7 +71,8 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
       SurveyDto survey,
       List<RespondentDto> respondentList,
       String selectedRespondentId,
-      Map<String, dynamic> respondentFailure});
+      Map<String, dynamic> respondentFailure,
+      Map<String, List<VisitRecordDto>> visitRecordsMap});
 
   $SurveyDtoCopyWith<$Res> get survey;
 }
@@ -90,6 +94,7 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
     Object respondentList = freezed,
     Object selectedRespondentId = freezed,
     Object respondentFailure = freezed,
+    Object visitRecordsMap = freezed,
   }) {
     return _then(_value.copyWith(
       respondentListListState: respondentListListState == freezed
@@ -108,6 +113,9 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure as Map<String, dynamic>,
+      visitRecordsMap: visitRecordsMap == freezed
+          ? _value.visitRecordsMap
+          : visitRecordsMap as Map<String, List<VisitRecordDto>>,
     ));
   }
 
@@ -135,7 +143,8 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       SurveyDto survey,
       List<RespondentDto> respondentList,
       String selectedRespondentId,
-      Map<String, dynamic> respondentFailure});
+      Map<String, dynamic> respondentFailure,
+      Map<String, List<VisitRecordDto>> visitRecordsMap});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
@@ -160,6 +169,7 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
     Object respondentList = freezed,
     Object selectedRespondentId = freezed,
     Object respondentFailure = freezed,
+    Object visitRecordsMap = freezed,
   }) {
     return _then(_RespondentStateDto(
       respondentListListState: respondentListListState == freezed
@@ -178,6 +188,9 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure as Map<String, dynamic>,
+      visitRecordsMap: visitRecordsMap == freezed
+          ? _value.visitRecordsMap
+          : visitRecordsMap as Map<String, List<VisitRecordDto>>,
     ));
   }
 }
@@ -192,12 +205,14 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       @required this.survey,
       @required this.respondentList,
       @required this.selectedRespondentId,
-      this.respondentFailure})
+      this.respondentFailure,
+      @required this.visitRecordsMap})
       : assert(respondentListListState != null),
         assert(respondentListList != null),
         assert(survey != null),
         assert(respondentList != null),
         assert(selectedRespondentId != null),
+        assert(visitRecordsMap != null),
         super._();
 
   factory _$_RespondentStateDto.fromJson(Map<String, dynamic> json) =>
@@ -215,10 +230,12 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   final String selectedRespondentId;
   @override
   final Map<String, dynamic> respondentFailure;
+  @override
+  final Map<String, List<VisitRecordDto>> visitRecordsMap;
 
   @override
   String toString() {
-    return 'RespondentStateDto(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure)';
+    return 'RespondentStateDto(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure, visitRecordsMap: $visitRecordsMap)';
   }
 
   @override
@@ -242,7 +259,10 @@ class _$_RespondentStateDto extends _RespondentStateDto {
                     other.selectedRespondentId, selectedRespondentId)) &&
             (identical(other.respondentFailure, respondentFailure) ||
                 const DeepCollectionEquality()
-                    .equals(other.respondentFailure, respondentFailure)));
+                    .equals(other.respondentFailure, respondentFailure)) &&
+            (identical(other.visitRecordsMap, visitRecordsMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.visitRecordsMap, visitRecordsMap)));
   }
 
   @override
@@ -253,7 +273,8 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       const DeepCollectionEquality().hash(survey) ^
       const DeepCollectionEquality().hash(respondentList) ^
       const DeepCollectionEquality().hash(selectedRespondentId) ^
-      const DeepCollectionEquality().hash(respondentFailure);
+      const DeepCollectionEquality().hash(respondentFailure) ^
+      const DeepCollectionEquality().hash(visitRecordsMap);
 
   @override
   _$RespondentStateDtoCopyWith<_RespondentStateDto> get copyWith =>
@@ -268,12 +289,14 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 abstract class _RespondentStateDto extends RespondentStateDto {
   const _RespondentStateDto._() : super._();
   const factory _RespondentStateDto(
-      {@required Map<String, dynamic> respondentListListState,
-      @required List<RespondentListDto> respondentListList,
-      @required SurveyDto survey,
-      @required List<RespondentDto> respondentList,
-      @required String selectedRespondentId,
-      Map<String, dynamic> respondentFailure}) = _$_RespondentStateDto;
+          {@required Map<String, dynamic> respondentListListState,
+          @required List<RespondentListDto> respondentListList,
+          @required SurveyDto survey,
+          @required List<RespondentDto> respondentList,
+          @required String selectedRespondentId,
+          Map<String, dynamic> respondentFailure,
+          @required Map<String, List<VisitRecordDto>> visitRecordsMap}) =
+      _$_RespondentStateDto;
 
   factory _RespondentStateDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentStateDto.fromJson;
@@ -290,6 +313,8 @@ abstract class _RespondentStateDto extends RespondentStateDto {
   String get selectedRespondentId;
   @override
   Map<String, dynamic> get respondentFailure;
+  @override
+  Map<String, List<VisitRecordDto>> get visitRecordsMap;
   @override
   _$RespondentStateDtoCopyWith<_RespondentStateDto> get copyWith;
 }

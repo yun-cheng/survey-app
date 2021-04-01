@@ -26,6 +26,15 @@ _$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
         ?.toList(),
     selectedRespondentId: json['selectedRespondentId'] as String,
     respondentFailure: json['respondentFailure'] as Map<String, dynamic>,
+    visitRecordsMap: (json['visitRecordsMap'] as Map<String, dynamic>)?.map(
+      (k, e) => MapEntry(
+          k,
+          (e as List)
+              ?.map((e) => e == null
+                  ? null
+                  : VisitRecordDto.fromJson(e as Map<String, dynamic>))
+              ?.toList()),
+    ),
   );
 }
 
@@ -40,4 +49,6 @@ Map<String, dynamic> _$_$_RespondentStateDtoToJson(
           instance.respondentList?.map((e) => e?.toJson())?.toList(),
       'selectedRespondentId': instance.selectedRespondentId,
       'respondentFailure': instance.respondentFailure,
+      'visitRecordsMap': instance.visitRecordsMap
+          ?.map((k, e) => MapEntry(k, e?.map((e) => e?.toJson())?.toList())),
     };

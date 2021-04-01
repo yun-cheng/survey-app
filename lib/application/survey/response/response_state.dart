@@ -6,7 +6,6 @@ abstract class ResponseState with _$ResponseState {
     @required Survey survey,
     @required Respondent respondent,
     @required Interviewer interviewer,
-    @required SurveyType surveyType,
     @required ModuleType moduleType,
     @required LoadState responseListState,
     @required KtList<Response> responseList,
@@ -15,13 +14,14 @@ abstract class ResponseState with _$ResponseState {
     @required Response response,
     @required LoadState responseRestoreState,
     @required KtList<Question> questionList,
+    @required bool withResponseId,
+    @required UniqueId responseId,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
         survey: Survey.empty(),
         respondent: Respondent.empty(),
         interviewer: Interviewer.empty(),
-        surveyType: SurveyType.empty(),
         moduleType: ModuleType.empty(),
         responseListState: const LoadState.initial(),
         responseList: const KtList<Response>.empty(),
@@ -30,5 +30,7 @@ abstract class ResponseState with _$ResponseState {
         response: Response.empty(),
         responseRestoreState: const LoadState.initial(),
         questionList: const KtList<Question>.empty(),
+        withResponseId: false,
+        responseId: UniqueId(),
       );
 }

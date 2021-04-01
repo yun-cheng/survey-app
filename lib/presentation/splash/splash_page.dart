@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kt_dart/collection.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
@@ -14,6 +15,7 @@ import '../../domain/core/logger.dart';
 import '../../domain/core/navigation_page.dart';
 import '../../domain/core/page_state.dart';
 import '../../domain/survey/simple_survey_page_state.dart';
+import '../../domain/survey/value_objects.dart';
 import '../routes/router.gr.dart';
 
 class SplashPage extends StatelessWidget {
@@ -102,6 +104,7 @@ class SplashPage extends StatelessWidget {
           },
         ),
         // H_4 survey page state 有變更時
+        // NOTE 在完成問卷時不會觸發
         BlocListener<SurveyPageBloc, SurveyPageState>(
           listenWhen: (p, c) =>
               p.loadState != c.loadState && c.loadState is LoadSuccess,
@@ -127,24 +130,56 @@ class SplashPage extends StatelessWidget {
         // H_5 從 response 回復 answer/survey page state
         BlocListener<ResponseBloc, ResponseState>(
           listenWhen: (p, c) =>
-              p.responseRestoreState != c.responseRestoreState &&
-              c.responseRestoreState is LoadSuccess,
+              p.responseRestoreState != c.responseRestoreState,
           listener: (context, state) {
-            LoggerService.simple.i('ResponseBloc listening!!');
+            LoggerService.simple.i('ResponseRestore listening');
 
-            // TODO 需支援 survey module
-            context.read<AnswerBloc>().add(
-                  AnswerEvent.answerRestored(
-                    answerMap: state.response.answerMap,
-                    answerStatusMap: state.response.answerStatusMap,
-                    questionList: state.questionList,
-                  ),
-                );
-            // TODO 需支援 survey module
-            context.read<SurveyPageBloc>().add(
-                  SurveyPageEvent.stateRestored(
-                    surveyPageState: state.response.surveyPageState,
-                    questionList: state.questionList,
+            if (state.responseRestoreState is LoadInProgress) {
+              context.read<SurveyPageBloc>().add(
+                    const SurveyPageEvent.stateRestoring(),
+                  );
+            } else if (state.responseRestoreState is LoadSuccess) {
+              context.read<AnswerBloc>().add(
+                    AnswerEvent.answerRestored(
+                      answerMap: state.response.answerMap,
+                      answerStatusMap: state.response.answerStatusMap,
+                      questionList: state.questionList,
+                    ),
+                  );
+              context.read<SurveyPageBloc>().add(
+                    SurveyPageEvent.stateRestored(
+                      surveyPageState: state.response.surveyPageState,
+                      questionList: state.questionList,
+                      answerStatusMap: state.response.answerStatusMap,
+                    ),
+                  );
+            }
+          },
+        ),
+        // H_6 查址記錄有變更時
+        BlocListener<ResponseBloc, ResponseState>(
+          listenWhen: (p, c) {
+            if (p.survey != c.survey) {
+              return true;
+            } else if (p.responseList != c.responseList) {
+              final diffList = c.responseList.minus(p.responseList).filter(
+                    (r) =>
+                        r.surveyId == c.survey.id &&
+                        r.moduleType == ModuleType.visitReport(),
+                  );
+
+              if (diffList.isNotEmpty()) {
+                return true;
+              }
+            }
+            return false;
+          },
+          listener: (context, state) {
+            LoggerService.simple.i('VisitReport listening!!');
+
+            context.read<RespondentBloc>().add(
+                  RespondentEvent.visitReportUpdated(
+                    responseList: state.responseList,
                   ),
                 );
           },

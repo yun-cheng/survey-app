@@ -14,12 +14,19 @@ class _$SurveyPageEventTearOff {
   const _$SurveyPageEventTearOff();
 
 // ignore: unused_element
+  _StateRestoring stateRestoring() {
+    return const _StateRestoring();
+  }
+
+// ignore: unused_element
   _StateRestored stateRestored(
       {@required SimpleSurveyPageState surveyPageState,
-      @required KtList<Question> questionList}) {
+      @required KtList<Question> questionList,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
     return _StateRestored(
       surveyPageState: surveyPageState,
       questionList: questionList,
+      answerStatusMap: answerStatusMap,
     );
   }
 
@@ -53,6 +60,11 @@ class _$SurveyPageEventTearOff {
   }
 
 // ignore: unused_element
+  _FinishedButtonPressed finishedButtonPressed() {
+    return const _FinishedButtonPressed();
+  }
+
+// ignore: unused_element
   _CheckIsLastPage checkIsLastPage() {
     return const _CheckIsLastPage();
   }
@@ -79,6 +91,11 @@ class _$SurveyPageEventTearOff {
   _StateLoadSuccess stateLoadSuccess() {
     return const _StateLoadSuccess();
   }
+
+// ignore: unused_element
+  _StateCleared stateCleared() {
+    return const _StateCleared();
+  }
 }
 
 /// @nodoc
@@ -89,14 +106,18 @@ const $SurveyPageEvent = _$SurveyPageEventTearOff();
 mixin _$SurveyPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -104,51 +125,63 @@ mixin _$SurveyPageEvent {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   });
 }
@@ -171,12 +204,187 @@ class _$SurveyPageEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+abstract class _$StateRestoringCopyWith<$Res> {
+  factory _$StateRestoringCopyWith(
+          _StateRestoring value, $Res Function(_StateRestoring) then) =
+      __$StateRestoringCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$StateRestoringCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$StateRestoringCopyWith<$Res> {
+  __$StateRestoringCopyWithImpl(
+      _StateRestoring _value, $Res Function(_StateRestoring) _then)
+      : super(_value, (v) => _then(v as _StateRestoring));
+
+  @override
+  _StateRestoring get _value => super._value as _StateRestoring;
+}
+
+/// @nodoc
+class _$_StateRestoring implements _StateRestoring {
+  const _$_StateRestoring();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.stateRestoring()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _StateRestoring);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
+    @required
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+    @required TResult pageUpdated(Direction direction),
+    @required TResult nextPagePressed(),
+    @required TResult previousPagePressed(),
+    @required TResult wentToNewestPage(),
+    @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
+    @required TResult checkIsLastPage(),
+    @required TResult firstWarningUpdated(),
+    @required TResult showWarningUpdated(),
+    @required
+        TResult stateChanged(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
+    @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
+  }) {
+    assert(stateRestoring != null);
+    assert(stateRestored != null);
+    assert(pageUpdated != null);
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(wentToNewestPage != null);
+    assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(stateChanged != null);
+    assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
+    return stateRestoring();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
+    TResult stateRestored(
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+    TResult pageUpdated(Direction direction),
+    TResult nextPagePressed(),
+    TResult previousPagePressed(),
+    TResult wentToNewestPage(),
+    TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
+    TResult checkIsLastPage(),
+    TResult firstWarningUpdated(),
+    TResult showWarningUpdated(),
+    TResult stateChanged(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
+    TResult stateLoadSuccess(),
+    TResult stateCleared(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (stateRestoring != null) {
+      return stateRestoring();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
+    @required TResult stateRestored(_StateRestored value),
+    @required TResult pageUpdated(_PageUpdated value),
+    @required TResult nextPagePressed(_NextPagePressed value),
+    @required TResult previousPagePressed(_PreviousPagePressed value),
+    @required TResult wentToNewestPage(_WentToNewestPage value),
+    @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
+    @required TResult checkIsLastPage(_CheckIsLastPage value),
+    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
+    @required TResult showWarningUpdated(_ShowWarningUpdated value),
+    @required TResult stateChanged(_AnswerBlocUpdated value),
+    @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
+  }) {
+    assert(stateRestoring != null);
+    assert(stateRestored != null);
+    assert(pageUpdated != null);
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(wentToNewestPage != null);
+    assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(stateChanged != null);
+    assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
+    return stateRestoring(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
+    TResult stateRestored(_StateRestored value),
+    TResult pageUpdated(_PageUpdated value),
+    TResult nextPagePressed(_NextPagePressed value),
+    TResult previousPagePressed(_PreviousPagePressed value),
+    TResult wentToNewestPage(_WentToNewestPage value),
+    TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
+    TResult checkIsLastPage(_CheckIsLastPage value),
+    TResult firstWarningUpdated(_FirstWarningUpdated value),
+    TResult showWarningUpdated(_ShowWarningUpdated value),
+    TResult stateChanged(_AnswerBlocUpdated value),
+    TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (stateRestoring != null) {
+      return stateRestoring(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateRestoring implements SurveyPageEvent {
+  const factory _StateRestoring() = _$_StateRestoring;
+}
+
+/// @nodoc
 abstract class _$StateRestoredCopyWith<$Res> {
   factory _$StateRestoredCopyWith(
           _StateRestored value, $Res Function(_StateRestored) then) =
       __$StateRestoredCopyWithImpl<$Res>;
   $Res call(
-      {SimpleSurveyPageState surveyPageState, KtList<Question> questionList});
+      {SimpleSurveyPageState surveyPageState,
+      KtList<Question> questionList,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap});
 
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
 }
@@ -196,6 +404,7 @@ class __$StateRestoredCopyWithImpl<$Res>
   $Res call({
     Object surveyPageState = freezed,
     Object questionList = freezed,
+    Object answerStatusMap = freezed,
   }) {
     return _then(_StateRestored(
       surveyPageState: surveyPageState == freezed
@@ -204,6 +413,9 @@ class __$StateRestoredCopyWithImpl<$Res>
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 
@@ -222,7 +434,9 @@ class __$StateRestoredCopyWithImpl<$Res>
 /// @nodoc
 class _$_StateRestored implements _StateRestored {
   const _$_StateRestored(
-      {@required this.surveyPageState, @required this.questionList})
+      {@required this.surveyPageState,
+      @required this.questionList,
+      this.answerStatusMap})
       : assert(surveyPageState != null),
         assert(questionList != null);
 
@@ -230,10 +444,12 @@ class _$_StateRestored implements _StateRestored {
   final SimpleSurveyPageState surveyPageState;
   @override
   final KtList<Question> questionList;
+  @override
+  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
 
   @override
   String toString() {
-    return 'SurveyPageEvent.stateRestored(surveyPageState: $surveyPageState, questionList: $questionList)';
+    return 'SurveyPageEvent.stateRestored(surveyPageState: $surveyPageState, questionList: $questionList, answerStatusMap: $answerStatusMap)';
   }
 
   @override
@@ -245,14 +461,18 @@ class _$_StateRestored implements _StateRestored {
                     .equals(other.surveyPageState, surveyPageState)) &&
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)));
+                    .equals(other.questionList, questionList)) &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(surveyPageState) ^
-      const DeepCollectionEquality().hash(questionList);
+      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(answerStatusMap);
 
   @override
   _$StateRestoredCopyWith<_StateRestored> get copyWith =>
@@ -261,14 +481,18 @@ class _$_StateRestored implements _StateRestored {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -276,42 +500,51 @@ class _$_StateRestored implements _StateRestored {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
-    return stateRestored(surveyPageState, questionList);
+    assert(stateCleared != null);
+    return stateRestored(surveyPageState, questionList, answerStatusMap);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
     if (stateRestored != null) {
-      return stateRestored(surveyPageState, questionList);
+      return stateRestored(surveyPageState, questionList, answerStatusMap);
     }
     return orElse();
   }
@@ -319,46 +552,55 @@ class _$_StateRestored implements _StateRestored {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return stateRestored(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -372,10 +614,12 @@ class _$_StateRestored implements _StateRestored {
 abstract class _StateRestored implements SurveyPageEvent {
   const factory _StateRestored(
       {@required SimpleSurveyPageState surveyPageState,
-      @required KtList<Question> questionList}) = _$_StateRestored;
+      @required KtList<Question> questionList,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap}) = _$_StateRestored;
 
   SimpleSurveyPageState get surveyPageState;
   KtList<Question> get questionList;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   _$StateRestoredCopyWith<_StateRestored> get copyWith;
 }
 
@@ -441,14 +685,18 @@ class _$_PageUpdated implements _PageUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -456,37 +704,46 @@ class _$_PageUpdated implements _PageUpdated {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return pageUpdated(direction);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -499,46 +756,55 @@ class _$_PageUpdated implements _PageUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return pageUpdated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -595,14 +861,18 @@ class _$_NextPagePressed implements _NextPagePressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -610,37 +880,46 @@ class _$_NextPagePressed implements _NextPagePressed {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return nextPagePressed();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -653,46 +932,55 @@ class _$_NextPagePressed implements _NextPagePressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return nextPagePressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -746,14 +1034,18 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -761,37 +1053,46 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return previousPagePressed();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -804,46 +1105,55 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return previousPagePressed(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -897,14 +1207,18 @@ class _$_WentToNewestPage implements _WentToNewestPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -912,37 +1226,46 @@ class _$_WentToNewestPage implements _WentToNewestPage {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return wentToNewestPage();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -955,46 +1278,55 @@ class _$_WentToNewestPage implements _WentToNewestPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return wentToNewestPage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1069,14 +1401,18 @@ class _$_WentToPage implements _WentToPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -1084,37 +1420,46 @@ class _$_WentToPage implements _WentToPage {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return wentToPage(page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1127,46 +1472,55 @@ class _$_WentToPage implements _WentToPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return wentToPage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1182,6 +1536,179 @@ abstract class _WentToPage implements SurveyPageEvent {
 
   PageNumber get page;
   _$WentToPageCopyWith<_WentToPage> get copyWith;
+}
+
+/// @nodoc
+abstract class _$FinishedButtonPressedCopyWith<$Res> {
+  factory _$FinishedButtonPressedCopyWith(_FinishedButtonPressed value,
+          $Res Function(_FinishedButtonPressed) then) =
+      __$FinishedButtonPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$FinishedButtonPressedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$FinishedButtonPressedCopyWith<$Res> {
+  __$FinishedButtonPressedCopyWithImpl(_FinishedButtonPressed _value,
+      $Res Function(_FinishedButtonPressed) _then)
+      : super(_value, (v) => _then(v as _FinishedButtonPressed));
+
+  @override
+  _FinishedButtonPressed get _value => super._value as _FinishedButtonPressed;
+}
+
+/// @nodoc
+class _$_FinishedButtonPressed implements _FinishedButtonPressed {
+  const _$_FinishedButtonPressed();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.finishedButtonPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _FinishedButtonPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
+    @required
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+    @required TResult pageUpdated(Direction direction),
+    @required TResult nextPagePressed(),
+    @required TResult previousPagePressed(),
+    @required TResult wentToNewestPage(),
+    @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
+    @required TResult checkIsLastPage(),
+    @required TResult firstWarningUpdated(),
+    @required TResult showWarningUpdated(),
+    @required
+        TResult stateChanged(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
+    @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
+  }) {
+    assert(stateRestoring != null);
+    assert(stateRestored != null);
+    assert(pageUpdated != null);
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(wentToNewestPage != null);
+    assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(stateChanged != null);
+    assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
+    return finishedButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
+    TResult stateRestored(
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+    TResult pageUpdated(Direction direction),
+    TResult nextPagePressed(),
+    TResult previousPagePressed(),
+    TResult wentToNewestPage(),
+    TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
+    TResult checkIsLastPage(),
+    TResult firstWarningUpdated(),
+    TResult showWarningUpdated(),
+    TResult stateChanged(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
+    TResult stateLoadSuccess(),
+    TResult stateCleared(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (finishedButtonPressed != null) {
+      return finishedButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
+    @required TResult stateRestored(_StateRestored value),
+    @required TResult pageUpdated(_PageUpdated value),
+    @required TResult nextPagePressed(_NextPagePressed value),
+    @required TResult previousPagePressed(_PreviousPagePressed value),
+    @required TResult wentToNewestPage(_WentToNewestPage value),
+    @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
+    @required TResult checkIsLastPage(_CheckIsLastPage value),
+    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
+    @required TResult showWarningUpdated(_ShowWarningUpdated value),
+    @required TResult stateChanged(_AnswerBlocUpdated value),
+    @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
+  }) {
+    assert(stateRestoring != null);
+    assert(stateRestored != null);
+    assert(pageUpdated != null);
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(wentToNewestPage != null);
+    assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(stateChanged != null);
+    assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
+    return finishedButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
+    TResult stateRestored(_StateRestored value),
+    TResult pageUpdated(_PageUpdated value),
+    TResult nextPagePressed(_NextPagePressed value),
+    TResult previousPagePressed(_PreviousPagePressed value),
+    TResult wentToNewestPage(_WentToNewestPage value),
+    TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
+    TResult checkIsLastPage(_CheckIsLastPage value),
+    TResult firstWarningUpdated(_FirstWarningUpdated value),
+    TResult showWarningUpdated(_ShowWarningUpdated value),
+    TResult stateChanged(_AnswerBlocUpdated value),
+    TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (finishedButtonPressed != null) {
+      return finishedButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FinishedButtonPressed implements SurveyPageEvent {
+  const factory _FinishedButtonPressed() = _$_FinishedButtonPressed;
 }
 
 /// @nodoc
@@ -1223,14 +1750,18 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -1238,37 +1769,46 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return checkIsLastPage();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1281,46 +1821,55 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return checkIsLastPage(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1374,14 +1923,18 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -1389,37 +1942,46 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return firstWarningUpdated();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1432,46 +1994,55 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return firstWarningUpdated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1525,14 +2096,18 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -1540,37 +2115,46 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return showWarningUpdated();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1583,46 +2167,55 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return showWarningUpdated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1702,14 +2295,18 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -1717,37 +2314,46 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return stateChanged(answerStatusMap);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1760,46 +2366,55 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return stateChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1858,14 +2473,18 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
     @required
-        TResult stateRestored(SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList),
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
     @required TResult wentToNewestPage(),
     @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
     @required TResult checkIsLastPage(),
     @required TResult firstWarningUpdated(),
     @required TResult showWarningUpdated(),
@@ -1873,37 +2492,46 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
         TResult stateChanged(
             KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return stateLoadSuccess();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
     TResult stateRestored(
-        SimpleSurveyPageState surveyPageState, KtList<Question> questionList),
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
     TResult wentToNewestPage(),
     TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
     TResult checkIsLastPage(),
     TResult firstWarningUpdated(),
     TResult showWarningUpdated(),
     TResult stateChanged(
         KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
     TResult stateLoadSuccess(),
+    TResult stateCleared(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1916,46 +2544,55 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
     @required TResult stateRestored(_StateRestored value),
     @required TResult pageUpdated(_PageUpdated value),
     @required TResult nextPagePressed(_NextPagePressed value),
     @required TResult previousPagePressed(_PreviousPagePressed value),
     @required TResult wentToNewestPage(_WentToNewestPage value),
     @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
     @required TResult checkIsLastPage(_CheckIsLastPage value),
     @required TResult firstWarningUpdated(_FirstWarningUpdated value),
     @required TResult showWarningUpdated(_ShowWarningUpdated value),
     @required TResult stateChanged(_AnswerBlocUpdated value),
     @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
   }) {
+    assert(stateRestoring != null);
     assert(stateRestored != null);
     assert(pageUpdated != null);
     assert(nextPagePressed != null);
     assert(previousPagePressed != null);
     assert(wentToNewestPage != null);
     assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
     assert(checkIsLastPage != null);
     assert(firstWarningUpdated != null);
     assert(showWarningUpdated != null);
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
     return stateLoadSuccess(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
     TResult stateRestored(_StateRestored value),
     TResult pageUpdated(_PageUpdated value),
     TResult nextPagePressed(_NextPagePressed value),
     TResult previousPagePressed(_PreviousPagePressed value),
     TResult wentToNewestPage(_WentToNewestPage value),
     TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
     TResult checkIsLastPage(_CheckIsLastPage value),
     TResult firstWarningUpdated(_FirstWarningUpdated value),
     TResult showWarningUpdated(_ShowWarningUpdated value),
     TResult stateChanged(_AnswerBlocUpdated value),
     TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1968,6 +2605,179 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
 
 abstract class _StateLoadSuccess implements SurveyPageEvent {
   const factory _StateLoadSuccess() = _$_StateLoadSuccess;
+}
+
+/// @nodoc
+abstract class _$StateClearedCopyWith<$Res> {
+  factory _$StateClearedCopyWith(
+          _StateCleared value, $Res Function(_StateCleared) then) =
+      __$StateClearedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$StateClearedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$StateClearedCopyWith<$Res> {
+  __$StateClearedCopyWithImpl(
+      _StateCleared _value, $Res Function(_StateCleared) _then)
+      : super(_value, (v) => _then(v as _StateCleared));
+
+  @override
+  _StateCleared get _value => super._value as _StateCleared;
+}
+
+/// @nodoc
+class _$_StateCleared implements _StateCleared {
+  const _$_StateCleared();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.stateCleared()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _StateCleared);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required TResult stateRestoring(),
+    @required
+        TResult stateRestored(
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+    @required TResult pageUpdated(Direction direction),
+    @required TResult nextPagePressed(),
+    @required TResult previousPagePressed(),
+    @required TResult wentToNewestPage(),
+    @required TResult wentToPage(PageNumber page),
+    @required TResult finishedButtonPressed(),
+    @required TResult checkIsLastPage(),
+    @required TResult firstWarningUpdated(),
+    @required TResult showWarningUpdated(),
+    @required
+        TResult stateChanged(
+            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
+    @required TResult stateLoadSuccess(),
+    @required TResult stateCleared(),
+  }) {
+    assert(stateRestoring != null);
+    assert(stateRestored != null);
+    assert(pageUpdated != null);
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(wentToNewestPage != null);
+    assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(stateChanged != null);
+    assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
+    return stateCleared();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult stateRestoring(),
+    TResult stateRestored(
+        SimpleSurveyPageState surveyPageState,
+        KtList<Question> questionList,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+    TResult pageUpdated(Direction direction),
+    TResult nextPagePressed(),
+    TResult previousPagePressed(),
+    TResult wentToNewestPage(),
+    TResult wentToPage(PageNumber page),
+    TResult finishedButtonPressed(),
+    TResult checkIsLastPage(),
+    TResult firstWarningUpdated(),
+    TResult showWarningUpdated(),
+    TResult stateChanged(
+        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
+    TResult stateLoadSuccess(),
+    TResult stateCleared(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (stateCleared != null) {
+      return stateCleared();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult stateRestoring(_StateRestoring value),
+    @required TResult stateRestored(_StateRestored value),
+    @required TResult pageUpdated(_PageUpdated value),
+    @required TResult nextPagePressed(_NextPagePressed value),
+    @required TResult previousPagePressed(_PreviousPagePressed value),
+    @required TResult wentToNewestPage(_WentToNewestPage value),
+    @required TResult wentToPage(_WentToPage value),
+    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
+    @required TResult checkIsLastPage(_CheckIsLastPage value),
+    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
+    @required TResult showWarningUpdated(_ShowWarningUpdated value),
+    @required TResult stateChanged(_AnswerBlocUpdated value),
+    @required TResult stateLoadSuccess(_StateLoadSuccess value),
+    @required TResult stateCleared(_StateCleared value),
+  }) {
+    assert(stateRestoring != null);
+    assert(stateRestored != null);
+    assert(pageUpdated != null);
+    assert(nextPagePressed != null);
+    assert(previousPagePressed != null);
+    assert(wentToNewestPage != null);
+    assert(wentToPage != null);
+    assert(finishedButtonPressed != null);
+    assert(checkIsLastPage != null);
+    assert(firstWarningUpdated != null);
+    assert(showWarningUpdated != null);
+    assert(stateChanged != null);
+    assert(stateLoadSuccess != null);
+    assert(stateCleared != null);
+    return stateCleared(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult stateRestoring(_StateRestoring value),
+    TResult stateRestored(_StateRestored value),
+    TResult pageUpdated(_PageUpdated value),
+    TResult nextPagePressed(_NextPagePressed value),
+    TResult previousPagePressed(_PreviousPagePressed value),
+    TResult wentToNewestPage(_WentToNewestPage value),
+    TResult wentToPage(_WentToPage value),
+    TResult finishedButtonPressed(_FinishedButtonPressed value),
+    TResult checkIsLastPage(_CheckIsLastPage value),
+    TResult firstWarningUpdated(_FirstWarningUpdated value),
+    TResult showWarningUpdated(_ShowWarningUpdated value),
+    TResult stateChanged(_AnswerBlocUpdated value),
+    TResult stateLoadSuccess(_StateLoadSuccess value),
+    TResult stateCleared(_StateCleared value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (stateCleared != null) {
+      return stateCleared(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateCleared implements SurveyPageEvent {
+  const factory _StateCleared() = _$_StateCleared;
 }
 
 /// @nodoc

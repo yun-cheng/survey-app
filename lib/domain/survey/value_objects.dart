@@ -90,6 +90,7 @@ class QuestionType extends ValueObject<String> {
   factory QuestionType.text() => QuestionType('text');
   factory QuestionType.date() => QuestionType('date');
   factory QuestionType.time() => QuestionType('time');
+  factory QuestionType.dateTime() => QuestionType('dateTime');
   factory QuestionType.description() => QuestionType('description');
   factory QuestionType.empty() => QuestionType('');
 
@@ -117,6 +118,11 @@ class QuestionType extends ValueObject<String> {
 
   bool get isNumber {
     return value.fold((l) => false, (r) => r == 'number');
+  }
+
+  bool get isDateTime {
+    return value.fold(
+        (l) => false, (r) => ['date', 'time', 'dateTime'].contains(r));
   }
 
   const QuestionType._(this.value);
@@ -376,7 +382,9 @@ class ModuleType extends ValueObject<String> {
     );
   }
 
-  factory ModuleType.visitAddress() => ModuleType('visitAddress');
+  factory ModuleType.main() => ModuleType('main');
+  factory ModuleType.visitReport() => ModuleType('visitReport');
+  factory ModuleType.housingType() => ModuleType('housingType');
   factory ModuleType.inHouseSampling() => ModuleType('inHouseSampling');
   factory ModuleType.empty() => ModuleType('');
 
@@ -397,22 +405,6 @@ class StageId extends ValueObject<int> {
   factory StageId.initial() => StageId(0);
 
   const StageId._(this.value);
-}
-
-class TicketId extends ValueObject<int> {
-  @override
-  final Either<ValueFailure<int>, int> value;
-
-  factory TicketId(int input) {
-    assert(input != null);
-    return TicketId._(
-      right(input),
-    );
-  }
-
-  factory TicketId.initial() => TicketId(0);
-
-  const TicketId._(this.value);
 }
 
 class ResponseStatus extends ValueObject<String> {
@@ -464,7 +456,30 @@ class DeviceTimeStamp extends ValueObject<DateTime> {
 
   factory DeviceTimeStamp.initial() =>
       DeviceTimeStamp(DateTime.parse('1900-01-01'));
+
   factory DeviceTimeStamp.now() => DeviceTimeStamp(DateTime.now());
+
+  factory DeviceTimeStamp.fromString(String time) {
+    assert(time != null);
+    return DeviceTimeStamp._(
+      right(DateTime.parse(time)),
+    );
+  }
+
+  factory DeviceTimeStamp.fromInt(int time) {
+    assert(time != null);
+    return DeviceTimeStamp._(
+      right(DateTime.fromMicrosecondsSinceEpoch(time)),
+    );
+  }
+
+  int toInt() {
+    return value.fold((l) => 0, (r) => r.microsecondsSinceEpoch);
+  }
+
+  String toReadableString() {
+    return value.fold((l) => '', (r) => '${r.month}月${r.day}日${r.hour}時');
+  }
 
   const DeviceTimeStamp._(this.value);
 }

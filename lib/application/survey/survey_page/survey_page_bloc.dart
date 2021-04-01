@@ -26,18 +26,31 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
   ) async* {
     yield* event.map(
       // H_1 從 response 恢復 surveyPageState
-      stateRestored: (e) async* {
+      stateRestoring: (e) async* {
         yield state.copyWith(
           restoreState: const LoadState.inProgress(),
         );
+      },
+      stateRestored: (e) async* {
+        final thisPage = e.surveyPageState.page;
+        final newestPage = e.surveyPageState.newestPage;
+        final pageQuestionList = e.questionList.filter((question) =>
+            question.pageNumber == thisPage &&
+            !e.answerStatusMap[question.id].isHidden);
+        final contentQuestionList = e.questionList.filter((question) =>
+            !e.answerStatusMap[question.id].isHidden &&
+            question.pageNumber.getOrCrash() <= newestPage.getOrCrash());
         yield state.copyWith(
-          page: e.surveyPageState.page,
-          newestPage: e.surveyPageState.newestPage,
+          page: thisPage,
+          newestPage: newestPage,
           isLastPage: e.surveyPageState.isLastPage,
           warning: e.surveyPageState.warning,
           showWarning: e.surveyPageState.showWarning,
           loadState: e.surveyPageState.loadState,
           questionList: e.questionList,
+          answerStatusMap: e.answerStatusMap,
+          pageQuestionList: pageQuestionList,
+          contentQuestionList: contentQuestionList,
           restoreState: const LoadState.success(),
         );
       },
@@ -135,6 +148,11 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
 
         add(const SurveyPageEvent.stateLoadSuccess());
       },
+      finishedButtonPressed: (e) async* {
+        yield state.copyWith(
+          showWarning: !state.warning.isEmpty,
+        );
+      },
       // H_3
       checkIsLastPage: (e) async* {
         Question firstQuestion;
@@ -207,6 +225,9 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
         yield state.copyWith(
           loadState: const LoadState.success(),
         );
+      },
+      stateCleared: (e) async* {
+        yield SurveyPageState.initial();
       },
     );
   }

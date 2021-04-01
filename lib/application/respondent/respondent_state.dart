@@ -9,6 +9,7 @@ abstract class RespondentState with _$RespondentState {
     @required KtList<Respondent> respondentList,
     @required Option<RespondentFailure> respondentFailure,
     @required RespondentId selectedRespondentId,
+    @required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(
@@ -18,5 +19,6 @@ abstract class RespondentState with _$RespondentState {
         respondentList: const KtList<Respondent>.empty(),
         respondentFailure: none(),
         selectedRespondentId: RespondentId.empty(),
+        visitRecordsMap: const KtMap<RespondentId, KtList<VisitRecord>>.empty(),
       );
 }

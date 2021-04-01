@@ -13,6 +13,11 @@ import '../../domain/respondent/respondent.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/respondent_list.dart';
 import '../../domain/respondent/value_objects.dart';
+import '../../domain/respondent/visit_record.dart';
+import '../../domain/respondent/visit_time.dart';
+import '../../domain/survey/response.dart';
+import '../../domain/survey/value_objects.dart';
+import '../../infrastructure/core/date_time_extensions.dart';
 import '../../infrastructure/respondent/respondent_state_dtos.dart';
 
 part 'respondent_bloc.freezed.dart';
@@ -86,6 +91,55 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
               ? RespondentId.empty()
               : e.respondentId,
           respondentFailure: none(),
+        );
+      },
+      visitReportUpdated: (e) async* {
+        final choiceList = state
+            .survey.module[ModuleType.visitReport()].questionList
+            .firstOrNull((q) => q.id == QuestionId('V3'))
+            .choiceList;
+
+        final visitRecordsMap = e.responseList
+            .filter(
+              (r) =>
+                  r.surveyId == state.survey.id &&
+                  r.moduleType == ModuleType.visitReport(),
+            )
+            .sortedByDescending((r) => r.lastChangedTimeStamp.toInt())
+            .groupBy((r) => KtPair(r.respondentId, r.ticketId))
+            .mapValues((r) => r.value.getOrNull(0))
+            .toList()
+            .map((p) => p.second)
+            .map((r) {
+              final v3Answer = choiceList.firstOrNull((c) =>
+                  c.id == r.answerMap[QuestionId('V3')].body.getValueAnyway());
+
+              final v1Answer =
+                  r.answerMap[QuestionId('V1')].body.getValueAnyway();
+              final date = DateTimeX.fromDateTimeString(v1Answer);
+
+              final v2Answer =
+                  r.answerMap[QuestionId('V2')].body.getValueAnyway();
+              final v2AnswerStr =
+                  v2Answer is ChoiceId ? v2Answer.getValueAnyway() : '';
+
+              return VisitRecord(
+                respondentId: r.respondentId,
+                responseId: r.responseId,
+                visitTime: VisitTime(
+                  date: date,
+                  timeSession: v2AnswerStr,
+                ),
+                description:
+                    v3Answer != null ? v3Answer.body.getValueAnyway() : '',
+              );
+            })
+            .sortedByDescending((v) => v.visitTime.toInt())
+            .groupBy((r) => r.respondentId);
+
+        yield state.copyWith(
+          // NOTE 確保真的有轉成 KtMap
+          visitRecordsMap: KtMap.from(visitRecordsMap.asMap()),
         );
       },
     );

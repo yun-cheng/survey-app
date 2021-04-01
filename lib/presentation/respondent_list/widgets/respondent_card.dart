@@ -6,10 +6,10 @@ import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../domain/core/navigation_page.dart';
-import '../../../domain/overview/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
+import 'visit_history.dart';
 
 class RespondentCard extends StatelessWidget {
   final Respondent respondent;
@@ -50,13 +50,13 @@ class RespondentCard extends StatelessWidget {
                 respondent.remainAddress.getOrCrash(),
                 style: kCardTextStyle,
               ),
-              const SizedBox(height: 16),
               Visibility(
                 visible: isSelected,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Column(
+                    const SizedBox(height: 16),
+                    Row(
                       children: <Widget>[
                         FlatButton(
                           color: kCardRedTextColor,
@@ -65,10 +65,9 @@ class RespondentCard extends StatelessWidget {
                           ),
                           onPressed: () {
                             context.read<ResponseBloc>().add(
-                                  ResponseEvent.responseStarted(
+                                  ResponseEvent.responseStartedWith(
                                     respondent: respondent,
-                                    surveyType: SurveyType.main(),
-                                    moduleType: ModuleType.empty(),
+                                    moduleType: ModuleType.main(),
                                   ),
                                 );
                             context.read<NavigationBloc>().add(
@@ -81,13 +80,13 @@ class RespondentCard extends StatelessWidget {
                               '/respondent/${respondent.id.getOrCrash()}',
                             );
                           },
-                          child: Text(
+                          child: const Text(
                             '開始訪問',
                             style: kCardTextStyle,
                           ),
                         ),
-                        SizedBox(
-                          height: kH1FontSize,
+                        const SizedBox(
+                          width: kH1FontSize,
                         ),
                         FlatButton(
                           color: kCardBlueTextColor,
@@ -96,10 +95,9 @@ class RespondentCard extends StatelessWidget {
                           ),
                           onPressed: () {
                             context.read<ResponseBloc>().add(
-                                  ResponseEvent.responseStarted(
+                                  ResponseEvent.responseStartedWith(
                                     respondent: respondent,
-                                    surveyType: SurveyType.module(),
-                                    moduleType: ModuleType.visitAddress(),
+                                    moduleType: ModuleType.housingType(),
                                   ),
                                 );
                             context.read<NavigationBloc>().add(
@@ -112,29 +110,45 @@ class RespondentCard extends StatelessWidget {
                               '/respondent/${respondent.id.getOrCrash()}',
                             );
                           },
-                          child: Text(
+                          child: const Text(
+                            '住屋',
+                            style: kCardTextStyle,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: kH1FontSize,
+                        ),
+                        FlatButton(
+                          color: kCardBlueTextColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          onPressed: () {
+                            context.read<ResponseBloc>().add(
+                                  ResponseEvent.responseStartedWith(
+                                    respondent: respondent,
+                                    moduleType: ModuleType.visitReport(),
+                                  ),
+                                );
+                            context.read<NavigationBloc>().add(
+                                  NavigationEvent.pageChanged(
+                                    page: const NavigationPage.survey(),
+                                    respondentId: respondent.id,
+                                  ),
+                                );
+                            context.navigator.push(
+                              '/respondent/${respondent.id.getOrCrash()}',
+                            );
+                          },
+                          child: const Text(
                             '查址',
                             style: kCardTextStyle,
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Center(
-                            child: Text(
-                              '查址記錄',
-                              style: kCardTextStyle.copyWith(
-                                fontSize: kH3FontSize,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    const SizedBox(height: 16),
+                    VisitHistory(respondent: respondent),
                   ],
                 ),
               ),

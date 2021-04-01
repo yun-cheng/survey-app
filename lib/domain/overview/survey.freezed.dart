@@ -19,19 +19,13 @@ class _$SurveyTearOff {
       @required SurveyName name,
       @required TeamId teamId,
       @required ProjectId projectId,
-      @required KtMap<ModuleType, SurveyModule> module,
-      @required KtList<Question> questionList,
-      @required KtMap<QuestionId, Answer> answerMap,
-      @required KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
+      @required KtMap<ModuleType, SurveyModule> module}) {
     return _Survey(
       id: id,
       name: name,
       teamId: teamId,
       projectId: projectId,
       module: module,
-      questionList: questionList,
-      answerMap: answerMap,
-      answerStatusMap: answerStatusMap,
     );
   }
 }
@@ -47,9 +41,6 @@ mixin _$Survey {
   TeamId get teamId;
   ProjectId get projectId;
   KtMap<ModuleType, SurveyModule> get module;
-  KtList<Question> get questionList;
-  KtMap<QuestionId, Answer> get answerMap;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
 
   $SurveyCopyWith<Survey> get copyWith;
 }
@@ -63,10 +54,7 @@ abstract class $SurveyCopyWith<$Res> {
       SurveyName name,
       TeamId teamId,
       ProjectId projectId,
-      KtMap<ModuleType, SurveyModule> module,
-      KtList<Question> questionList,
-      KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap});
+      KtMap<ModuleType, SurveyModule> module});
 }
 
 /// @nodoc
@@ -84,9 +72,6 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
     Object teamId = freezed,
     Object projectId = freezed,
     Object module = freezed,
-    Object questionList = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as SurveyId,
@@ -97,15 +82,6 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
       module: module == freezed
           ? _value.module
           : module as KtMap<ModuleType, SurveyModule>,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList as KtList<Question>,
-      answerMap: answerMap == freezed
-          ? _value.answerMap
-          : answerMap as KtMap<QuestionId, Answer>,
-      answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
-          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 }
@@ -120,10 +96,7 @@ abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
       SurveyName name,
       TeamId teamId,
       ProjectId projectId,
-      KtMap<ModuleType, SurveyModule> module,
-      KtList<Question> questionList,
-      KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap});
+      KtMap<ModuleType, SurveyModule> module});
 }
 
 /// @nodoc
@@ -142,9 +115,6 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
     Object teamId = freezed,
     Object projectId = freezed,
     Object module = freezed,
-    Object questionList = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
   }) {
     return _then(_Survey(
       id: id == freezed ? _value.id : id as SurveyId,
@@ -155,15 +125,6 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
       module: module == freezed
           ? _value.module
           : module as KtMap<ModuleType, SurveyModule>,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList as KtList<Question>,
-      answerMap: answerMap == freezed
-          ? _value.answerMap
-          : answerMap as KtMap<QuestionId, Answer>,
-      answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
-          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 }
@@ -175,18 +136,12 @@ class _$_Survey extends _Survey {
       @required this.name,
       @required this.teamId,
       @required this.projectId,
-      @required this.module,
-      @required this.questionList,
-      @required this.answerMap,
-      @required this.answerStatusMap})
+      @required this.module})
       : assert(id != null),
         assert(name != null),
         assert(teamId != null),
         assert(projectId != null),
         assert(module != null),
-        assert(questionList != null),
-        assert(answerMap != null),
-        assert(answerStatusMap != null),
         super._();
 
   @override
@@ -199,12 +154,6 @@ class _$_Survey extends _Survey {
   final ProjectId projectId;
   @override
   final KtMap<ModuleType, SurveyModule> module;
-  @override
-  final KtList<Question> questionList;
-  @override
-  final KtMap<QuestionId, Answer> answerMap;
-  @override
-  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
 
   @override
   bool operator ==(dynamic other) {
@@ -220,16 +169,7 @@ class _$_Survey extends _Survey {
                 const DeepCollectionEquality()
                     .equals(other.projectId, projectId)) &&
             (identical(other.module, module) ||
-                const DeepCollectionEquality().equals(other.module, module)) &&
-            (identical(other.questionList, questionList) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)));
+                const DeepCollectionEquality().equals(other.module, module)));
   }
 
   @override
@@ -239,10 +179,7 @@ class _$_Survey extends _Survey {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(projectId) ^
-      const DeepCollectionEquality().hash(module) ^
-      const DeepCollectionEquality().hash(questionList) ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap);
+      const DeepCollectionEquality().hash(module);
 
   @override
   _$SurveyCopyWith<_Survey> get copyWith =>
@@ -256,10 +193,7 @@ abstract class _Survey extends Survey {
       @required SurveyName name,
       @required TeamId teamId,
       @required ProjectId projectId,
-      @required KtMap<ModuleType, SurveyModule> module,
-      @required KtList<Question> questionList,
-      @required KtMap<QuestionId, Answer> answerMap,
-      @required KtMap<QuestionId, AnswerStatus> answerStatusMap}) = _$_Survey;
+      @required KtMap<ModuleType, SurveyModule> module}) = _$_Survey;
 
   @override
   SurveyId get id;
@@ -271,12 +205,6 @@ abstract class _Survey extends Survey {
   ProjectId get projectId;
   @override
   KtMap<ModuleType, SurveyModule> get module;
-  @override
-  KtList<Question> get questionList;
-  @override
-  KtMap<QuestionId, Answer> get answerMap;
-  @override
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   @override
   _$SurveyCopyWith<_Survey> get copyWith;
 }

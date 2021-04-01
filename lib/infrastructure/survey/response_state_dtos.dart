@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import '../../domain/core/value_objects.dart';
+import 'question_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/response/response_bloc.dart';
 import '../../domain/core/load_state.dart';
-import '../../domain/overview/value_objects.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/value_objects.dart';
 import '../auth/interviewer_dtos.dart';
@@ -20,33 +21,39 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
   const ResponseStateDto._();
 
   const factory ResponseStateDto({
+    // NOTE downloadedResponseList 不須儲存
     @required SurveyDto survey,
     @required RespondentDto respondent,
     @required InterviewerDto interviewer,
-    @required String surveyType,
     @required String moduleType,
     @required Map<String, dynamic> responseListState,
     @required List<ResponseDto> responseList,
     Map<String, dynamic> responseFailure,
     @required ResponseDto response,
     @required Map<String, dynamic> responseRestoreState,
+    @required List<QuestionDto> questionList,
+    @required bool withResponseId,
+    @required String responseId,
   }) = _ResponseStateDto;
 
-  factory ResponseStateDto.fromDomain(ResponseState responseState) {
+  factory ResponseStateDto.fromDomain(ResponseState domain) {
     return ResponseStateDto(
-      survey: SurveyDto.fromDomain(responseState.survey),
-      respondent: RespondentDto.fromDomain(responseState.respondent),
-      interviewer: InterviewerDto.fromDomain(responseState.interviewer),
-      surveyType: responseState.surveyType.getValueAnyway(),
-      moduleType: responseState.moduleType.getValueAnyway(),
-      responseListState: responseState.responseListState.toJson(),
-      responseList: responseState.responseList
-          .map((e) => ResponseDto.fromDomain(e))
+      survey: SurveyDto.fromDomain(domain.survey),
+      respondent: RespondentDto.fromDomain(domain.respondent),
+      interviewer: InterviewerDto.fromDomain(domain.interviewer),
+      moduleType: domain.moduleType.getValueAnyway(),
+      responseListState: domain.responseListState.toJson(),
+      responseList:
+          domain.responseList.map((e) => ResponseDto.fromDomain(e)).asList(),
+      responseFailure:
+          domain.responseFailure.fold(() => null, (some) => some.toJson()),
+      response: ResponseDto.fromDomain(domain.response),
+      responseRestoreState: domain.responseRestoreState.toJson(),
+      questionList: domain.questionList
+          .map((question) => QuestionDto.fromDomain(question))
           .asList(),
-      responseFailure: responseState.responseFailure
-          .fold(() => null, (some) => some.toJson()),
-      response: ResponseDto.fromDomain(responseState.response),
-      responseRestoreState: responseState.responseRestoreState.toJson(),
+      withResponseId: domain.withResponseId,
+      responseId: domain.responseId.getValueAnyway(),
     );
   }
 
@@ -55,7 +62,6 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
       survey: survey.toDomain(),
       respondent: respondent.toDomain(),
       interviewer: interviewer.toDomain(),
-      surveyType: SurveyType(surveyType),
       moduleType: ModuleType(moduleType),
       responseListState: LoadState.fromJson(responseListState),
       responseList: responseList.map((dto) => dto.toDomain()).toImmutableList(),
@@ -63,6 +69,9 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
           optionOf(responseFailure).map((some) => SurveyFailure.fromJson(some)),
       response: response.toDomain(),
       responseRestoreState: LoadState.fromJson(responseRestoreState),
+      questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
+      withResponseId: withResponseId,
+      responseId: UniqueId.fromUniqueString(responseId),
     );
   }
 

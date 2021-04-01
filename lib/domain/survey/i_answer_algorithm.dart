@@ -43,7 +43,7 @@ abstract class IAnswerAlgorithm {
     @required ChoiceId noteOf,
   });
 
-   KtMap<QuestionId, Answer> clearAnswer({
+  KtMap<QuestionId, Answer> clearAnswer({
     @required KtMap<QuestionId, Answer> answerMap,
     @required Question question,
   });
