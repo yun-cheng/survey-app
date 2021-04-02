@@ -23,6 +23,7 @@ _$_AnswerStateDto _$_$_AnswerStateDtoFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    isReadOnly: json['isReadOnly'] as bool,
   );
 }
 
@@ -32,4 +33,5 @@ Map<String, dynamic> _$_$_AnswerStateDtoToJson(_$_AnswerStateDto instance) =>
       'answerStatusMap':
           instance.answerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'questionList': instance.questionList?.map((e) => e?.toJson())?.toList(),
+      'isReadOnly': instance.isReadOnly,
     };

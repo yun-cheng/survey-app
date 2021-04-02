@@ -18,6 +18,15 @@ class TextBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isReadOnly =
+        context.select((AnswerBloc bloc) => bloc.state.isReadOnly);
+    // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
+    final note = context.select((AnswerBloc bloc) => bloc.state.answerMap
+        .getOrDefault(question.id, Answer.empty())
+        .body
+        .getOrCrash()
+        .toString());
+
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
         // HIGHLIGHT 該頁題目有變更，且包含該題時，才要 rebuild，答案變更時則不須 rebuild
         buildWhen: (p, c) =>
@@ -25,16 +34,12 @@ class TextBox extends StatelessWidget {
             p.pageQuestionList != c.pageQuestionList,
         builder: (context, state) {
           LoggerService.simple.i('TextBox rebuild!!');
-          final note = (context.watch<AnswerBloc>().state)
-              .answerMap
-              .getOrDefault(question.id, Answer.empty())
-              .body
-              .getOrCrash()
-              .toString();
+
           return Padding(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
               initialValue: note,
+              enabled: !isReadOnly,
               decoration: const InputDecoration(
                 labelText: '',
                 counterText: '',

@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import '../../application/survey/survey_page/survey_page_bloc.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
+import '../../application/survey/answer/answer_bloc.dart';
 import '../../application/survey/response/response_bloc.dart';
+import '../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/navigation_page.dart';
 import '../core/constants.dart';
@@ -53,6 +54,14 @@ class SurveyPage extends HookWidget {
             icon: const Icon(Icons.format_list_bulleted),
             onPressed: () {
               context.navigator.push(Routes.surveyContentPage);
+            },
+          ),
+          IconButton(
+            icon: const Icon(Icons.toggle_on),
+            onPressed: () {
+              context.read<AnswerBloc>().add(
+                    const AnswerEvent.readOnlyToggled(),
+                  );
             },
           ),
         ],

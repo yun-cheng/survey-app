@@ -20,11 +20,13 @@ class _$AnswerStateDtoTearOff {
   _AnswerStateDto call(
       {@required Map<String, AnswerDto> answerMap,
       @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required List<QuestionDto> questionList}) {
+      @required List<QuestionDto> questionList,
+      @required bool isReadOnly}) {
     return _AnswerStateDto(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       questionList: questionList,
+      isReadOnly: isReadOnly,
     );
   }
 
@@ -43,6 +45,7 @@ mixin _$AnswerStateDto {
   Map<String, AnswerDto> get answerMap;
   Map<String, AnswerStatusDto> get answerStatusMap;
   List<QuestionDto> get questionList;
+  bool get isReadOnly;
 
   Map<String, dynamic> toJson();
   $AnswerStateDtoCopyWith<AnswerStateDto> get copyWith;
@@ -56,7 +59,8 @@ abstract class $AnswerStateDtoCopyWith<$Res> {
   $Res call(
       {Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
-      List<QuestionDto> questionList});
+      List<QuestionDto> questionList,
+      bool isReadOnly});
 }
 
 /// @nodoc
@@ -73,6 +77,7 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object questionList = freezed,
+    Object isReadOnly = freezed,
   }) {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
@@ -84,6 +89,8 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as List<QuestionDto>,
+      isReadOnly:
+          isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
     ));
   }
 }
@@ -98,7 +105,8 @@ abstract class _$AnswerStateDtoCopyWith<$Res>
   $Res call(
       {Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
-      List<QuestionDto> questionList});
+      List<QuestionDto> questionList,
+      bool isReadOnly});
 }
 
 /// @nodoc
@@ -117,6 +125,7 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object questionList = freezed,
+    Object isReadOnly = freezed,
   }) {
     return _then(_AnswerStateDto(
       answerMap: answerMap == freezed
@@ -128,6 +137,8 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as List<QuestionDto>,
+      isReadOnly:
+          isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
     ));
   }
 }
@@ -139,10 +150,12 @@ class _$_AnswerStateDto extends _AnswerStateDto {
   const _$_AnswerStateDto(
       {@required this.answerMap,
       @required this.answerStatusMap,
-      @required this.questionList})
+      @required this.questionList,
+      @required this.isReadOnly})
       : assert(answerMap != null),
         assert(answerStatusMap != null),
         assert(questionList != null),
+        assert(isReadOnly != null),
         super._();
 
   factory _$_AnswerStateDto.fromJson(Map<String, dynamic> json) =>
@@ -154,10 +167,12 @@ class _$_AnswerStateDto extends _AnswerStateDto {
   final Map<String, AnswerStatusDto> answerStatusMap;
   @override
   final List<QuestionDto> questionList;
+  @override
+  final bool isReadOnly;
 
   @override
   String toString() {
-    return 'AnswerStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList)';
+    return 'AnswerStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList, isReadOnly: $isReadOnly)';
   }
 
   @override
@@ -172,7 +187,10 @@ class _$_AnswerStateDto extends _AnswerStateDto {
                     .equals(other.answerStatusMap, answerStatusMap)) &&
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)));
+                    .equals(other.questionList, questionList)) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)));
   }
 
   @override
@@ -180,7 +198,8 @@ class _$_AnswerStateDto extends _AnswerStateDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(questionList);
+      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(isReadOnly);
 
   @override
   _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith =>
@@ -197,7 +216,8 @@ abstract class _AnswerStateDto extends AnswerStateDto {
   const factory _AnswerStateDto(
       {@required Map<String, AnswerDto> answerMap,
       @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required List<QuestionDto> questionList}) = _$_AnswerStateDto;
+      @required List<QuestionDto> questionList,
+      @required bool isReadOnly}) = _$_AnswerStateDto;
 
   factory _AnswerStateDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerStateDto.fromJson;
@@ -208,6 +228,8 @@ abstract class _AnswerStateDto extends AnswerStateDto {
   Map<String, AnswerStatusDto> get answerStatusMap;
   @override
   List<QuestionDto> get questionList;
+  @override
+  bool get isReadOnly;
   @override
   _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith;
 }

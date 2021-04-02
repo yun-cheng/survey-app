@@ -19,10 +19,14 @@ class NoteBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isReadOnly =
+        context.select((AnswerBloc bloc) => bloc.state.isReadOnly);
+
     return Padding(
       padding: const EdgeInsets.all(10),
       child: TextFormField(
         initialValue: note,
+        enabled: !isReadOnly,
         decoration: const InputDecoration(
           labelText: '',
           counterText: '',

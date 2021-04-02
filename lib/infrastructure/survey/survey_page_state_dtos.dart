@@ -29,28 +29,28 @@ abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
     @required Map<String, dynamic> restoreState,
   }) = _SurveyPageStateDto;
 
-  factory SurveyPageStateDto.fromDomain(SurveyPageState surveyPageState) {
+  factory SurveyPageStateDto.fromDomain(SurveyPageState domain) {
     return SurveyPageStateDto(
-      page: surveyPageState.page.getValueAnyway(),
-      newestPage: surveyPageState.newestPage.getValueAnyway(),
-      questionList: surveyPageState.questionList
+      page: domain.page.getValueAnyway(),
+      newestPage: domain.newestPage.getValueAnyway(),
+      questionList: domain.questionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
-      pageQuestionList: surveyPageState.pageQuestionList
+      pageQuestionList: domain.pageQuestionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
-      contentQuestionList: surveyPageState.contentQuestionList
+      contentQuestionList: domain.contentQuestionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
-      answerStatusMap: surveyPageState.answerStatusMap
+      answerStatusMap: domain.answerStatusMap
           .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
-      isLastPage: surveyPageState.isLastPage,
-      warning: WarningDto.fromDomain(surveyPageState.warning),
-      showWarning: surveyPageState.showWarning,
-      loadState: surveyPageState.loadState.toJson(),
-      restoreState: surveyPageState.restoreState.toJson(),
+      isLastPage: domain.isLastPage,
+      warning: WarningDto.fromDomain(domain.warning),
+      showWarning: domain.showWarning,
+      loadState: domain.loadState.toJson(),
+      restoreState: domain.restoreState.toJson(),
     );
   }
 

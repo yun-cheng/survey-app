@@ -11,10 +11,10 @@ import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import 'note_box.dart';
 
-class AnswerBox extends StatelessWidget {
+class ChoicesBox extends StatelessWidget {
   final Question question;
 
-  const AnswerBox({
+  const ChoicesBox({
     Key key,
     @required this.question,
   }) : super(key: key);
@@ -27,7 +27,8 @@ class AnswerBox extends StatelessWidget {
           p.answerMap[question.id] != c.answerMap[question.id] ||
           p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
           p.answerMap[question.upperQuestionId] !=
-              c.answerMap[question.upperQuestionId],
+              c.answerMap[question.upperQuestionId] ||
+              p.isReadOnly != c.isReadOnly,
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
         final isSpecialAnswer =
@@ -42,7 +43,15 @@ class AnswerBox extends StatelessWidget {
         }
         thisChoiceList =
             isSpecialAnswer ? question.specialAnswerList : thisChoiceList;
+
+        // H_ 如果是唯讀，只保留選擇的選項
+        if (state.isReadOnly) {
+          thisChoiceList = thisChoiceList
+              .filter((choice) => thisAnswer.body.contains(choice.id));
+        }
+
         final size = thisChoiceList.size;
+        LoggerService.simple.i(size);
 
         LoggerService.simple.i('AnswerBox rebuild!!!');
         return StaggeredGridView.countBuilder(

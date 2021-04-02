@@ -43,4 +43,7 @@ abstract class AnswerEvent with _$AnswerEvent {
   const factory AnswerEvent.specialAnswerSwitched({
     @required Question question,
   }) = _SpecialAnswerSwitched;
+
+  // H_4 切換唯讀模式
+  const factory AnswerEvent.readOnlyToggled() = _ReadOnlyToggled;
 }

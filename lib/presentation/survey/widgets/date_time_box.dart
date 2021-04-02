@@ -6,8 +6,8 @@ import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/constants.dart';
 import '../../../infrastructure/core/date_time_extensions.dart';
+import '../../core/constants.dart';
 
 class DateTimeBox extends HookWidget {
   final Question question;
@@ -43,7 +43,8 @@ class DateTimeBox extends HookWidget {
           p.answerMap[question.id] != c.answerMap[question.id] ||
           p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
           p.answerMap[question.upperQuestionId] !=
-              c.answerMap[question.upperQuestionId],
+              c.answerMap[question.upperQuestionId] ||
+          p.isReadOnly != c.isReadOnly,
       builder: (context, state) {
         LoggerService.simple.i('DateTimeBox rebuild!!!');
 
@@ -52,7 +53,7 @@ class DateTimeBox extends HookWidget {
 
         final dateTime = DateTimeX.fromDateTimeString(thisAnswer);
 
-        if (thisAnswer == '') {
+        if (thisAnswer == '' && !state.isReadOnly) {
           updateAnswer(dateTime);
         }
 
@@ -93,7 +94,8 @@ class DateTimeBox extends HookWidget {
             if ([QuestionType.date(), QuestionType.dateTime()]
                 .contains(question.type)) ...[
               FlatButton(
-                onPressed: () => _selectDate(context),
+                // NOTE 如果是唯讀，讓按鈕無效
+                onPressed: () => state.isReadOnly ? null : _selectDate(context),
                 child: Text(
                   dateTime.toDateString(),
                   style: kH3TextStyle,
@@ -103,7 +105,7 @@ class DateTimeBox extends HookWidget {
             if ([QuestionType.time(), QuestionType.dateTime()]
                 .contains(question.type)) ...[
               FlatButton(
-                onPressed: () => _selectTime(context),
+                onPressed: () => state.isReadOnly ? null : _selectTime(context),
                 child: Text(
                   dateTime.toTimeString(),
                   style: kH3TextStyle,

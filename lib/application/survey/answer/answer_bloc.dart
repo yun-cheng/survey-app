@@ -56,62 +56,71 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
       },
       // H_2 變更作答
       answerChanged: (e) async* {
-        final newAnswerMap = _answerAlgorithm.updateAnswer(
-          answerMap: state.answerMap,
-          question: e.question,
-          answerBody: e.body,
-          toggle: e.toggle,
-          isNote: e.isNote,
-          noteOf: e.noteOf,
-          isSpecialAnswer: e.isSpecialAnswer,
-        );
+        if (!state.isReadOnly) {
+          final newAnswerMap = _answerAlgorithm.updateAnswer(
+            answerMap: state.answerMap,
+            question: e.question,
+            answerBody: e.body,
+            toggle: e.toggle,
+            isNote: e.isNote,
+            noteOf: e.noteOf,
+            isSpecialAnswer: e.isSpecialAnswer,
+          );
 
-        final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
-          answerMap: newAnswerMap,
-          answerStatusMap: state.answerStatusMap,
-          question: e.question,
-          questionList: state.questionList,
-          answerAlgorithm: _answerAlgorithm,
-        );
+          final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
+            answerMap: newAnswerMap,
+            answerStatusMap: state.answerStatusMap,
+            question: e.question,
+            questionList: state.questionList,
+            answerAlgorithm: _answerAlgorithm,
+          );
 
-        yield state.copyWith(
-          answerMap: tupleResult.item2,
-          answerStatusMap: tupleResult.item1,
-        );
+          yield state.copyWith(
+            answerMap: tupleResult.item2,
+            answerStatusMap: tupleResult.item1,
+          );
 
-        // LoggerService.simple.e(e.body);
-        // LoggerService.simple.d(newAnswerStatusMap[e.question.id]);
+          // LoggerService.simple.e(e.body);
+          // LoggerService.simple.d(newAnswerStatusMap[e.question.id]);
+        }
       },
       // H_3 切換特殊作答
       specialAnswerSwitched: (e) async* {
-        final answerStatusMap1 =
-            KtMutableMap.from(state.answerStatusMap.asMap());
+        if (!state.isReadOnly) {
+          final answerStatusMap1 =
+              KtMutableMap.from(state.answerStatusMap.asMap());
 
-        final newAnswerStatus =
-            answerStatusMap1[e.question.id].switchSpecialAnswer();
+          final newAnswerStatus =
+              answerStatusMap1[e.question.id].switchSpecialAnswer();
 
-        answerStatusMap1[e.question.id] = newAnswerStatus;
+          answerStatusMap1[e.question.id] = newAnswerStatus;
 
-        final answerStatusMap2 = answerStatusMap1.toMap();
+          final answerStatusMap2 = answerStatusMap1.toMap();
 
-        // S_ 清空該題作答
-        final newAnswerMap = _answerAlgorithm.clearAnswer(
-          answerMap: state.answerMap,
-          question: e.question,
-        );
+          // S_ 清空該題作答
+          final newAnswerMap = _answerAlgorithm.clearAnswer(
+            answerMap: state.answerMap,
+            question: e.question,
+          );
 
-        // S_ 更新 answer status
-        final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
-          answerMap: newAnswerMap,
-          answerStatusMap: answerStatusMap2,
-          question: e.question,
-          questionList: state.questionList,
-          answerAlgorithm: _answerAlgorithm,
-        );
+          // S_ 更新 answer status
+          final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
+            answerMap: newAnswerMap,
+            answerStatusMap: answerStatusMap2,
+            question: e.question,
+            questionList: state.questionList,
+            answerAlgorithm: _answerAlgorithm,
+          );
 
+          yield state.copyWith(
+            answerMap: tupleResult.item2,
+            answerStatusMap: tupleResult.item1,
+          );
+        }
+      },
+      readOnlyToggled: (e) async* {
         yield state.copyWith(
-          answerMap: tupleResult.item2,
-          answerStatusMap: tupleResult.item1,
+          isReadOnly: !state.isReadOnly,
         );
       },
     );

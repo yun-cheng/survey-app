@@ -24,7 +24,8 @@ class DropdownBox extends StatelessWidget {
           p.answerMap[question.id] != c.answerMap[question.id] ||
           p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
           p.answerMap[question.upperQuestionId] !=
-              c.answerMap[question.upperQuestionId],
+              c.answerMap[question.upperQuestionId] ||
+          p.isReadOnly != c.isReadOnly,
       builder: (context, state) {
         final thisAnswer = state.answerMap[question.id];
         KtList<Choice> thisChoiceList = question.choiceList;
@@ -32,9 +33,14 @@ class DropdownBox extends StatelessWidget {
         // H_ 如果是連鎖題下層要篩選選項
         if (question.upperQuestionId.isNotEmpty) {
           final upperAnswer = state.answerMap[question.upperQuestionId];
-          final subsetChoiceList = question.choiceList.filter((choice) =>
+          final thisChoiceList = question.choiceList.filter((choice) =>
               choice.upperChoiceId == upperAnswer.body.getValueAnyway());
-          thisChoiceList = subsetChoiceList;
+        }
+
+        // H_ 如果是唯讀，只保留選擇的選項
+        if (state.isReadOnly) {
+          thisChoiceList = thisChoiceList
+              .filter((choice) => thisAnswer.body.contains(choice.id));
         }
 
         LoggerService.simple.i('DropdownBox rebuild!!!');

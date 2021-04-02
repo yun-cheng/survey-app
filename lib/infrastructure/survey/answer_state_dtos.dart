@@ -18,21 +18,22 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
     @required Map<String, AnswerDto> answerMap,
     @required Map<String, AnswerStatusDto> answerStatusMap,
     @required List<QuestionDto> questionList,
+    @required bool isReadOnly,
   }) = _AnswerStateDto;
 
-  factory AnswerStateDto.fromDomain(AnswerState answerState) {
+  factory AnswerStateDto.fromDomain(AnswerState domain) {
     return AnswerStateDto(
-      answerMap: answerState.answerMap
+      answerMap: domain.answerMap
           .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
-      answerStatusMap: answerState.answerStatusMap
+      answerStatusMap: domain.answerStatusMap
           .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
-      questionList: answerState.questionList
-          .map((e) => QuestionDto.fromDomain(e))
-          .asList(),
+      questionList:
+          domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
+      isReadOnly: domain.isReadOnly,
     );
   }
 
@@ -45,6 +46,7 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
+      isReadOnly: isReadOnly,
     );
   }
 
