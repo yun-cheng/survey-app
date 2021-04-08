@@ -48,12 +48,14 @@ class DateTimeBox extends HookWidget {
       builder: (context, state) {
         LoggerService.simple.i('DateTimeBox rebuild!!!');
 
-        final thisAnswer =
-            state.answerMap[question.id].body.getOrCrash() as String;
+        final answerMap =
+            state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
+        final isReadOnly = state.isReadOnly || state.isRecodeModule;
+        final thisAnswer = answerMap[question.id].body.getOrCrash() as String;
 
         final dateTime = DateTimeX.fromDateTimeString(thisAnswer);
 
-        if (thisAnswer == '' && !state.isReadOnly) {
+        if (thisAnswer == '' && !isReadOnly) {
           updateAnswer(dateTime);
         }
 
@@ -95,7 +97,7 @@ class DateTimeBox extends HookWidget {
                 .contains(question.type)) ...[
               FlatButton(
                 // NOTE 如果是唯讀，讓按鈕無效
-                onPressed: () => state.isReadOnly ? null : _selectDate(context),
+                onPressed: () => isReadOnly ? null : _selectDate(context),
                 child: Text(
                   dateTime.toDateString(),
                   style: kH3TextStyle,
@@ -105,7 +107,7 @@ class DateTimeBox extends HookWidget {
             if ([QuestionType.time(), QuestionType.dateTime()]
                 .contains(question.type)) ...[
               FlatButton(
-                onPressed: () => state.isReadOnly ? null : _selectTime(context),
+                onPressed: () => isReadOnly ? null : _selectTime(context),
                 child: Text(
                   dateTime.toTimeString(),
                   style: kH3TextStyle,

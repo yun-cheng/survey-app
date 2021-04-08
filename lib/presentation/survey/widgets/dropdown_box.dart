@@ -27,18 +27,20 @@ class DropdownBox extends StatelessWidget {
               c.answerMap[question.upperQuestionId] ||
           p.isReadOnly != c.isReadOnly,
       builder: (context, state) {
-        final thisAnswer = state.answerMap[question.id];
+        final answerMap =
+            state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
+        final thisAnswer = answerMap[question.id];
         KtList<Choice> thisChoiceList = question.choiceList;
 
         // H_ 如果是連鎖題下層要篩選選項
         if (question.upperQuestionId.isNotEmpty) {
-          final upperAnswer = state.answerMap[question.upperQuestionId];
-          final thisChoiceList = question.choiceList.filter((choice) =>
+          final upperAnswer = answerMap[question.upperQuestionId];
+          thisChoiceList = question.choiceList.filter((choice) =>
               choice.upperChoiceId == upperAnswer.body.getValueAnyway());
         }
 
         // H_ 如果是唯讀，只保留選擇的選項
-        if (state.isReadOnly) {
+        if (state.isReadOnly || state.isRecodeModule) {
           thisChoiceList = thisChoiceList
               .filter((choice) => thisAnswer.body.contains(choice.id));
         }

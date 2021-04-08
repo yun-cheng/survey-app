@@ -38,6 +38,9 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
           answerMap: e.answerMap,
           answerStatusMap: e.answerStatusMap,
           questionList: e.questionList,
+          mainAnswerMap: e.mainAnswerMap,
+          mainAnswerStatusMap: e.mainAnswerStatusMap,
+          isRecodeModule: e.isRecodeModule,
         );
 
         add(const AnswerEvent.answerStatusInitialized());
@@ -48,6 +51,8 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
           answerStatusMap: state.answerStatusMap,
           questionList: state.questionList,
           answerAlgorithm: _answerAlgorithm,
+          isRecodeModule: state.isRecodeModule,
+          mainAnswerStatusMap: state.mainAnswerStatusMap,
         );
 
         yield state.copyWith(
@@ -56,7 +61,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
       },
       // H_2 變更作答
       answerChanged: (e) async* {
-        if (!state.isReadOnly) {
+        if ((!state.isReadOnly && !state.isRecodeModule) || e.isRecode) {
           final newAnswerMap = _answerAlgorithm.updateAnswer(
             answerMap: state.answerMap,
             question: e.question,
@@ -73,6 +78,8 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
             question: e.question,
             questionList: state.questionList,
             answerAlgorithm: _answerAlgorithm,
+            isRecodeModule: state.isRecodeModule,
+            mainAnswerStatusMap: state.mainAnswerStatusMap,
           );
 
           yield state.copyWith(
@@ -81,12 +88,12 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
           );
 
           // LoggerService.simple.e(e.body);
-          // LoggerService.simple.d(newAnswerStatusMap[e.question.id]);
+          // LoggerService.simple.d(tupleResult.item1);
         }
       },
       // H_3 切換特殊作答
       specialAnswerSwitched: (e) async* {
-        if (!state.isReadOnly) {
+        if (!state.isReadOnly && !state.isRecodeModule) {
           final answerStatusMap1 =
               KtMutableMap.from(state.answerStatusMap.asMap());
 
@@ -110,6 +117,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
             question: e.question,
             questionList: state.questionList,
             answerAlgorithm: _answerAlgorithm,
+            isRecodeModule: state.isRecodeModule,
           );
 
           yield state.copyWith(

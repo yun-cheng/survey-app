@@ -28,27 +28,29 @@ abstract class QuestionDto implements _$QuestionDto {
     @required FullExpressionDto validateAnswer,
     @required String upperQuestionId,
     @required int pageNumber,
+    @required bool recodeNeeded,
   }) = _QuestionDto;
 
-  factory QuestionDto.fromDomain(Question question) {
+  factory QuestionDto.fromDomain(Question domain) {
     return QuestionDto(
-      questionId: question.id.getValueAnyway(),
-      hideQuestionId: question.hideId,
-      serialNumber: question.serialNumber.getValueAnyway(),
-      questionBody: question.body.getValueAnyway(),
-      questionNote: question.note.getValueAnyway(),
-      questionType: question.type.getValueAnyway(),
-      showQuestion: FullExpressionDto.fromDomain(question.show),
-      choiceList: question.choiceList
+      questionId: domain.id.getValueAnyway(),
+      hideQuestionId: domain.hideId,
+      serialNumber: domain.serialNumber.getValueAnyway(),
+      questionBody: domain.body.getValueAnyway(),
+      questionNote: domain.note.getValueAnyway(),
+      questionType: domain.type.getValueAnyway(),
+      showQuestion: FullExpressionDto.fromDomain(domain.show),
+      choiceList: domain.choiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .asList(),
-      specialAnswerList: question.specialAnswerList
+      specialAnswerList: domain.specialAnswerList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .asList(),
-      hasSpecialAnswer: question.hasSpecialAnswer,
-      validateAnswer: FullExpressionDto.fromDomain(question.validateAnswer),
-      upperQuestionId: question.upperQuestionId.getValueAnyway(),
-      pageNumber: question.pageNumber.getValueAnyway(),
+      hasSpecialAnswer: domain.hasSpecialAnswer,
+      validateAnswer: FullExpressionDto.fromDomain(domain.validateAnswer),
+      upperQuestionId: domain.upperQuestionId.getValueAnyway(),
+      pageNumber: domain.pageNumber.getValueAnyway(),
+      recodeNeeded: domain.recodeNeeded,
     );
   }
 
@@ -68,6 +70,7 @@ abstract class QuestionDto implements _$QuestionDto {
       validateAnswer: validateAnswer.toDomain(),
       upperQuestionId: QuestionId(upperQuestionId),
       pageNumber: PageNumber(pageNumber),
+      recodeNeeded: recodeNeeded,
     );
   }
 

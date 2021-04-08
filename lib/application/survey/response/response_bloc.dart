@@ -124,12 +124,14 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           responseRestoreState: const LoadState.inProgress(),
         );
 
+        // S_1 篩出 response
         Response response;
+        // S_1-1 如果有 responseId 則直接篩出來
         if (state.withResponseId) {
           response = state.responseList
               .firstOrNull((r) => r.responseId == state.responseId);
         } else if (state.moduleType != ModuleType.visitReport()) {
-          // S_1 篩出不區分 ticketId 的 responses
+          // S_1-2-1 篩出同受訪者、問卷模組的 responses
           final subsetList = state.responseList
               .filter(
                 (r) =>
@@ -141,17 +143,17 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
                 (r) => r.lastChangedTimeStamp.toInt(),
               );
 
-          // S_2 篩出最近一筆 response
+          // S_1-2-2 篩出最近一筆 response
           final lastResponse = subsetList.firstOrNull();
 
-          // S_3 若最近一筆在 answering，則回復該 response
+          // S_1-2-3 若最近一筆在 answering，則回復該 response
           if (lastResponse != null &&
               lastResponse.responseStatus == ResponseStatus.answering()) {
             response = lastResponse;
           }
         }
 
-        // S_4 否則新創一個 response
+        // S_2 若無篩出，則新創一個 response
         final module = state.survey.module.get(state.moduleType);
         response ??= Response.empty().copyWith(
           teamId: state.survey.teamId,
@@ -176,11 +178,31 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           lastChangedTimeStamp: now,
         );
 
+        // S_3 如果是預過錄，則需要 mainResponse
+        Response mainResponse;
+        if (state.moduleType == ModuleType.recode()) {
+          final mainResponseList = state.responseList
+              .filter(
+                (r) =>
+                    r.respondentId == state.respondent.id &&
+                    r.surveyId == state.survey.id &&
+                    r.moduleType == ModuleType.main(),
+              )
+              .sortedByDescending(
+                (r) => r.lastChangedTimeStamp.toInt(),
+              );
+
+          mainResponse = mainResponseList.firstOrNull();
+
+        }
+        mainResponse ??= Response.empty();
+
         yield state.copyWith(
           response: response,
           questionList: module.questionList,
           responseRestoreState: const LoadState.success(),
           withResponseId: false,
+          mainResponse: mainResponse,
         );
       },
       // H_7 接收更新的作答

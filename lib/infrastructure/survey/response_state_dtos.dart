@@ -1,15 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../domain/core/value_objects.dart';
-import 'question_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/response/response_bloc.dart';
 import '../../domain/core/load_state.dart';
+import '../../domain/core/value_objects.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/value_objects.dart';
 import '../auth/interviewer_dtos.dart';
 import '../respondent/respondent_dtos.dart';
+import 'question_list_dtos.dart';
 import 'response_list_dtos.dart';
 import 'survey_list_dtos.dart';
 
@@ -34,6 +34,7 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
     @required List<QuestionDto> questionList,
     @required bool withResponseId,
     @required String responseId,
+    @required ResponseDto mainResponse,
   }) = _ResponseStateDto;
 
   factory ResponseStateDto.fromDomain(ResponseState domain) {
@@ -54,6 +55,7 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
           .asList(),
       withResponseId: domain.withResponseId,
       responseId: domain.responseId.getValueAnyway(),
+      mainResponse: ResponseDto.fromDomain(domain.mainResponse),
     );
   }
 
@@ -72,6 +74,7 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
       withResponseId: withResponseId,
       responseId: UniqueId.fromUniqueString(responseId),
+      mainResponse: mainResponse.toDomain(),
     );
   }
 

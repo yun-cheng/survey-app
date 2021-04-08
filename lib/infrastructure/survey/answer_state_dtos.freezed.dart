@@ -21,12 +21,18 @@ class _$AnswerStateDtoTearOff {
       {@required Map<String, AnswerDto> answerMap,
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required List<QuestionDto> questionList,
-      @required bool isReadOnly}) {
+      @required bool isReadOnly,
+      @required bool isRecodeModule,
+      @required Map<String, AnswerDto> mainAnswerMap,
+      @required Map<String, AnswerStatusDto> mainAnswerStatusMap}) {
     return _AnswerStateDto(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       questionList: questionList,
       isReadOnly: isReadOnly,
+      isRecodeModule: isRecodeModule,
+      mainAnswerMap: mainAnswerMap,
+      mainAnswerStatusMap: mainAnswerStatusMap,
     );
   }
 
@@ -46,6 +52,9 @@ mixin _$AnswerStateDto {
   Map<String, AnswerStatusDto> get answerStatusMap;
   List<QuestionDto> get questionList;
   bool get isReadOnly;
+  bool get isRecodeModule;
+  Map<String, AnswerDto> get mainAnswerMap;
+  Map<String, AnswerStatusDto> get mainAnswerStatusMap;
 
   Map<String, dynamic> toJson();
   $AnswerStateDtoCopyWith<AnswerStateDto> get copyWith;
@@ -60,7 +69,10 @@ abstract class $AnswerStateDtoCopyWith<$Res> {
       {Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       List<QuestionDto> questionList,
-      bool isReadOnly});
+      bool isReadOnly,
+      bool isRecodeModule,
+      Map<String, AnswerDto> mainAnswerMap,
+      Map<String, AnswerStatusDto> mainAnswerStatusMap});
 }
 
 /// @nodoc
@@ -78,6 +90,9 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
     Object answerStatusMap = freezed,
     Object questionList = freezed,
     Object isReadOnly = freezed,
+    Object isRecodeModule = freezed,
+    Object mainAnswerMap = freezed,
+    Object mainAnswerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
@@ -91,6 +106,15 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
           : questionList as List<QuestionDto>,
       isReadOnly:
           isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule as bool,
+      mainAnswerMap: mainAnswerMap == freezed
+          ? _value.mainAnswerMap
+          : mainAnswerMap as Map<String, AnswerDto>,
+      mainAnswerStatusMap: mainAnswerStatusMap == freezed
+          ? _value.mainAnswerStatusMap
+          : mainAnswerStatusMap as Map<String, AnswerStatusDto>,
     ));
   }
 }
@@ -106,7 +130,10 @@ abstract class _$AnswerStateDtoCopyWith<$Res>
       {Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       List<QuestionDto> questionList,
-      bool isReadOnly});
+      bool isReadOnly,
+      bool isRecodeModule,
+      Map<String, AnswerDto> mainAnswerMap,
+      Map<String, AnswerStatusDto> mainAnswerStatusMap});
 }
 
 /// @nodoc
@@ -126,6 +153,9 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
     Object answerStatusMap = freezed,
     Object questionList = freezed,
     Object isReadOnly = freezed,
+    Object isRecodeModule = freezed,
+    Object mainAnswerMap = freezed,
+    Object mainAnswerStatusMap = freezed,
   }) {
     return _then(_AnswerStateDto(
       answerMap: answerMap == freezed
@@ -139,6 +169,15 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
           : questionList as List<QuestionDto>,
       isReadOnly:
           isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule as bool,
+      mainAnswerMap: mainAnswerMap == freezed
+          ? _value.mainAnswerMap
+          : mainAnswerMap as Map<String, AnswerDto>,
+      mainAnswerStatusMap: mainAnswerStatusMap == freezed
+          ? _value.mainAnswerStatusMap
+          : mainAnswerStatusMap as Map<String, AnswerStatusDto>,
     ));
   }
 }
@@ -151,11 +190,17 @@ class _$_AnswerStateDto extends _AnswerStateDto {
       {@required this.answerMap,
       @required this.answerStatusMap,
       @required this.questionList,
-      @required this.isReadOnly})
+      @required this.isReadOnly,
+      @required this.isRecodeModule,
+      @required this.mainAnswerMap,
+      @required this.mainAnswerStatusMap})
       : assert(answerMap != null),
         assert(answerStatusMap != null),
         assert(questionList != null),
         assert(isReadOnly != null),
+        assert(isRecodeModule != null),
+        assert(mainAnswerMap != null),
+        assert(mainAnswerStatusMap != null),
         super._();
 
   factory _$_AnswerStateDto.fromJson(Map<String, dynamic> json) =>
@@ -169,10 +214,16 @@ class _$_AnswerStateDto extends _AnswerStateDto {
   final List<QuestionDto> questionList;
   @override
   final bool isReadOnly;
+  @override
+  final bool isRecodeModule;
+  @override
+  final Map<String, AnswerDto> mainAnswerMap;
+  @override
+  final Map<String, AnswerStatusDto> mainAnswerStatusMap;
 
   @override
   String toString() {
-    return 'AnswerStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList, isReadOnly: $isReadOnly)';
+    return 'AnswerStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -190,7 +241,16 @@ class _$_AnswerStateDto extends _AnswerStateDto {
                     .equals(other.questionList, questionList)) &&
             (identical(other.isReadOnly, isReadOnly) ||
                 const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)));
+                    .equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecodeModule, isRecodeModule)) &&
+            (identical(other.mainAnswerMap, mainAnswerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainAnswerMap, mainAnswerMap)) &&
+            (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
   }
 
   @override
@@ -199,7 +259,10 @@ class _$_AnswerStateDto extends _AnswerStateDto {
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(questionList) ^
-      const DeepCollectionEquality().hash(isReadOnly);
+      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
+      const DeepCollectionEquality().hash(mainAnswerMap) ^
+      const DeepCollectionEquality().hash(mainAnswerStatusMap);
 
   @override
   _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith =>
@@ -214,10 +277,14 @@ class _$_AnswerStateDto extends _AnswerStateDto {
 abstract class _AnswerStateDto extends AnswerStateDto {
   const _AnswerStateDto._() : super._();
   const factory _AnswerStateDto(
-      {@required Map<String, AnswerDto> answerMap,
-      @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required List<QuestionDto> questionList,
-      @required bool isReadOnly}) = _$_AnswerStateDto;
+          {@required Map<String, AnswerDto> answerMap,
+          @required Map<String, AnswerStatusDto> answerStatusMap,
+          @required List<QuestionDto> questionList,
+          @required bool isReadOnly,
+          @required bool isRecodeModule,
+          @required Map<String, AnswerDto> mainAnswerMap,
+          @required Map<String, AnswerStatusDto> mainAnswerStatusMap}) =
+      _$_AnswerStateDto;
 
   factory _AnswerStateDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerStateDto.fromJson;
@@ -230,6 +297,12 @@ abstract class _AnswerStateDto extends AnswerStateDto {
   List<QuestionDto> get questionList;
   @override
   bool get isReadOnly;
+  @override
+  bool get isRecodeModule;
+  @override
+  Map<String, AnswerDto> get mainAnswerMap;
+  @override
+  Map<String, AnswerStatusDto> get mainAnswerStatusMap;
   @override
   _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith;
 }

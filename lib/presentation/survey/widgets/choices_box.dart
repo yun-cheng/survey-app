@@ -28,11 +28,16 @@ class ChoicesBox extends StatelessWidget {
           p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
           p.answerMap[question.upperQuestionId] !=
               c.answerMap[question.upperQuestionId] ||
-              p.isReadOnly != c.isReadOnly,
+          p.isReadOnly != c.isReadOnly,
       builder: (context, state) {
-        final thisAnswer = state.answerMap[question.id];
-        final isSpecialAnswer =
-            state.answerStatusMap[question.id].isSpecialAnswer;
+        final answerMap =
+            state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
+        final answerStatusMap = state.isRecodeModule
+            ? state.mainAnswerStatusMap
+            : state.answerStatusMap;
+
+        final thisAnswer = answerMap[question.id];
+        final isSpecialAnswer = answerStatusMap[question.id].isSpecialAnswer;
         KtList<Choice> thisChoiceList = question.choiceList;
 
         // H_ 如果是連鎖題下層要篩選選項
@@ -45,15 +50,15 @@ class ChoicesBox extends StatelessWidget {
             isSpecialAnswer ? question.specialAnswerList : thisChoiceList;
 
         // H_ 如果是唯讀，只保留選擇的選項
-        if (state.isReadOnly) {
+        if (state.isReadOnly || state.isRecodeModule) {
           thisChoiceList = thisChoiceList
               .filter((choice) => thisAnswer.body.contains(choice.id));
         }
 
         final size = thisChoiceList.size;
-        LoggerService.simple.i(size);
 
         LoggerService.simple.i('AnswerBox rebuild!!!');
+        
         return StaggeredGridView.countBuilder(
           physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,

@@ -144,6 +144,9 @@ class SplashPage extends StatelessWidget {
                       answerMap: state.response.answerMap,
                       answerStatusMap: state.response.answerStatusMap,
                       questionList: state.questionList,
+                      mainAnswerMap: state.mainResponse.answerMap,
+                      mainAnswerStatusMap: state.mainResponse.answerStatusMap,
+                      isRecodeModule: state.moduleType == ModuleType.recode(),
                     ),
                   );
               context.read<SurveyPageBloc>().add(
@@ -151,6 +154,9 @@ class SplashPage extends StatelessWidget {
                       surveyPageState: state.response.surveyPageState,
                       questionList: state.questionList,
                       answerStatusMap: state.response.answerStatusMap,
+                      isRecodeModule: state.moduleType == ModuleType.recode(),
+                      mainQuestionList:
+                          state.survey.module[ModuleType.main()].questionList,
                     ),
                   );
             }

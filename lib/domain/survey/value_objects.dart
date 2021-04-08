@@ -385,7 +385,10 @@ class ModuleType extends ValueObject<String> {
   factory ModuleType.main() => ModuleType('main');
   factory ModuleType.visitReport() => ModuleType('visitReport');
   factory ModuleType.housingType() => ModuleType('housingType');
-  factory ModuleType.inHouseSampling() => ModuleType('inHouseSampling');
+  factory ModuleType.samplingWithinHousehold() =>
+      ModuleType('samplingWithinHousehold');
+  factory ModuleType.interviewReport() => ModuleType('interviewReport');
+  factory ModuleType.recode() => ModuleType('recode');
   factory ModuleType.empty() => ModuleType('');
 
   const ModuleType._(this.value);

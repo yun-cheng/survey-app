@@ -1670,7 +1670,8 @@ class _$ResponseStateTearOff {
       @required LoadState responseRestoreState,
       @required KtList<Question> questionList,
       @required bool withResponseId,
-      @required UniqueId responseId}) {
+      @required UniqueId responseId,
+      @required Response mainResponse}) {
     return _ResponseState(
       survey: survey,
       respondent: respondent,
@@ -1685,6 +1686,7 @@ class _$ResponseStateTearOff {
       questionList: questionList,
       withResponseId: withResponseId,
       responseId: responseId,
+      mainResponse: mainResponse,
     );
   }
 }
@@ -1708,6 +1710,7 @@ mixin _$ResponseState {
   KtList<Question> get questionList;
   bool get withResponseId;
   UniqueId get responseId;
+  Response get mainResponse;
 
   $ResponseStateCopyWith<ResponseState> get copyWith;
 }
@@ -1730,7 +1733,8 @@ abstract class $ResponseStateCopyWith<$Res> {
       LoadState responseRestoreState,
       KtList<Question> questionList,
       bool withResponseId,
-      UniqueId responseId});
+      UniqueId responseId,
+      Response mainResponse});
 
   $SurveyCopyWith<$Res> get survey;
   $RespondentCopyWith<$Res> get respondent;
@@ -1738,6 +1742,7 @@ abstract class $ResponseStateCopyWith<$Res> {
   $LoadStateCopyWith<$Res> get responseListState;
   $ResponseCopyWith<$Res> get response;
   $LoadStateCopyWith<$Res> get responseRestoreState;
+  $ResponseCopyWith<$Res> get mainResponse;
 }
 
 /// @nodoc
@@ -1764,6 +1769,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object questionList = freezed,
     Object withResponseId = freezed,
     Object responseId = freezed,
+    Object mainResponse = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed ? _value.survey : survey as Survey,
@@ -1798,6 +1804,9 @@ class _$ResponseStateCopyWithImpl<$Res>
           : withResponseId as bool,
       responseId:
           responseId == freezed ? _value.responseId : responseId as UniqueId,
+      mainResponse: mainResponse == freezed
+          ? _value.mainResponse
+          : mainResponse as Response,
     ));
   }
 
@@ -1860,6 +1869,16 @@ class _$ResponseStateCopyWithImpl<$Res>
       return _then(_value.copyWith(responseRestoreState: value));
     });
   }
+
+  @override
+  $ResponseCopyWith<$Res> get mainResponse {
+    if (_value.mainResponse == null) {
+      return null;
+    }
+    return $ResponseCopyWith<$Res>(_value.mainResponse, (value) {
+      return _then(_value.copyWith(mainResponse: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1882,7 +1901,8 @@ abstract class _$ResponseStateCopyWith<$Res>
       LoadState responseRestoreState,
       KtList<Question> questionList,
       bool withResponseId,
-      UniqueId responseId});
+      UniqueId responseId,
+      Response mainResponse});
 
   @override
   $SurveyCopyWith<$Res> get survey;
@@ -1896,6 +1916,8 @@ abstract class _$ResponseStateCopyWith<$Res>
   $ResponseCopyWith<$Res> get response;
   @override
   $LoadStateCopyWith<$Res> get responseRestoreState;
+  @override
+  $ResponseCopyWith<$Res> get mainResponse;
 }
 
 /// @nodoc
@@ -1924,6 +1946,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object questionList = freezed,
     Object withResponseId = freezed,
     Object responseId = freezed,
+    Object mainResponse = freezed,
   }) {
     return _then(_ResponseState(
       survey: survey == freezed ? _value.survey : survey as Survey,
@@ -1958,6 +1981,9 @@ class __$ResponseStateCopyWithImpl<$Res>
           : withResponseId as bool,
       responseId:
           responseId == freezed ? _value.responseId : responseId as UniqueId,
+      mainResponse: mainResponse == freezed
+          ? _value.mainResponse
+          : mainResponse as Response,
     ));
   }
 }
@@ -1977,7 +2003,8 @@ class _$_ResponseState implements _ResponseState {
       @required this.responseRestoreState,
       @required this.questionList,
       @required this.withResponseId,
-      @required this.responseId})
+      @required this.responseId,
+      @required this.mainResponse})
       : assert(survey != null),
         assert(respondent != null),
         assert(interviewer != null),
@@ -1990,7 +2017,8 @@ class _$_ResponseState implements _ResponseState {
         assert(responseRestoreState != null),
         assert(questionList != null),
         assert(withResponseId != null),
-        assert(responseId != null);
+        assert(responseId != null),
+        assert(mainResponse != null);
 
   @override
   final Survey survey;
@@ -2018,10 +2046,12 @@ class _$_ResponseState implements _ResponseState {
   final bool withResponseId;
   @override
   final UniqueId responseId;
+  @override
+  final Response mainResponse;
 
   @override
   String toString() {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId)';
+    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse)';
   }
 
   @override
@@ -2065,7 +2095,10 @@ class _$_ResponseState implements _ResponseState {
                     .equals(other.withResponseId, withResponseId)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)));
+                    .equals(other.responseId, responseId)) &&
+            (identical(other.mainResponse, mainResponse) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainResponse, mainResponse)));
   }
 
   @override
@@ -2083,7 +2116,8 @@ class _$_ResponseState implements _ResponseState {
       const DeepCollectionEquality().hash(responseRestoreState) ^
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(withResponseId) ^
-      const DeepCollectionEquality().hash(responseId);
+      const DeepCollectionEquality().hash(responseId) ^
+      const DeepCollectionEquality().hash(mainResponse);
 
   @override
   _$ResponseStateCopyWith<_ResponseState> get copyWith =>
@@ -2104,7 +2138,8 @@ abstract class _ResponseState implements ResponseState {
       @required LoadState responseRestoreState,
       @required KtList<Question> questionList,
       @required bool withResponseId,
-      @required UniqueId responseId}) = _$_ResponseState;
+      @required UniqueId responseId,
+      @required Response mainResponse}) = _$_ResponseState;
 
   @override
   Survey get survey;
@@ -2132,6 +2167,8 @@ abstract class _ResponseState implements ResponseState {
   bool get withResponseId;
   @override
   UniqueId get responseId;
+  @override
+  Response get mainResponse;
   @override
   _$ResponseStateCopyWith<_ResponseState> get copyWith;
 }

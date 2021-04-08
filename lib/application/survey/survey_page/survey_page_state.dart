@@ -14,6 +14,8 @@ abstract class SurveyPageState with _$SurveyPageState {
     @required bool showWarning,
     @required LoadState loadState,
     @required LoadState restoreState,
+    @required bool isRecodeModule,
+    @required KtList<Question> mainQuestionList,
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
@@ -28,5 +30,7 @@ abstract class SurveyPageState with _$SurveyPageState {
         showWarning: false,
         loadState: const LoadState.initial(),
         restoreState: const LoadState.initial(),
+        isRecodeModule: false,
+        mainQuestionList: const KtList<Question>.empty(),
       );
 }

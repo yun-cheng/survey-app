@@ -27,15 +27,16 @@ abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
     @required bool showWarning,
     @required Map<String, dynamic> loadState,
     @required Map<String, dynamic> restoreState,
+    @required bool isRecodeModule,
+    @required List<QuestionDto> mainQuestionList,
   }) = _SurveyPageStateDto;
 
   factory SurveyPageStateDto.fromDomain(SurveyPageState domain) {
     return SurveyPageStateDto(
       page: domain.page.getValueAnyway(),
       newestPage: domain.newestPage.getValueAnyway(),
-      questionList: domain.questionList
-          .map((e) => QuestionDto.fromDomain(e))
-          .asList(),
+      questionList:
+          domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
       pageQuestionList: domain.pageQuestionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
@@ -51,6 +52,10 @@ abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
       showWarning: domain.showWarning,
       loadState: domain.loadState.toJson(),
       restoreState: domain.restoreState.toJson(),
+      isRecodeModule: domain.isRecodeModule,
+      mainQuestionList: domain.mainQuestionList
+          .map((e) => QuestionDto.fromDomain(e))
+          .asList(),
     );
   }
 
@@ -71,6 +76,8 @@ abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
       showWarning: showWarning,
       loadState: LoadState.fromJson(loadState),
       restoreState: LoadState.fromJson(restoreState),
+      isRecodeModule: isRecodeModule,
+      mainQuestionList: mainQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
     );
   }
 

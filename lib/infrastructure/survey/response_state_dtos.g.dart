@@ -34,6 +34,9 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
         ?.toList(),
     withResponseId: json['withResponseId'] as bool,
     responseId: json['responseId'] as String,
+    mainResponse: json['mainResponse'] == null
+        ? null
+        : ResponseDto.fromJson(json['mainResponse'] as Map<String, dynamic>),
   );
 }
 
@@ -52,4 +55,5 @@ Map<String, dynamic> _$_$_ResponseStateDtoToJson(
       'questionList': instance.questionList?.map((e) => e?.toJson())?.toList(),
       'withResponseId': instance.withResponseId,
       'responseId': instance.responseId,
+      'mainResponse': instance.mainResponse?.toJson(),
     };

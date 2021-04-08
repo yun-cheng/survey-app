@@ -28,6 +28,7 @@ abstract class Question implements _$Question {
     @required FullExpression validateAnswer,
     @required QuestionId upperQuestionId,
     @required PageNumber pageNumber,
+    @required bool recodeNeeded,
   }) = _Question;
 
   factory Question.empty() => Question(
@@ -44,6 +45,7 @@ abstract class Question implements _$Question {
         validateAnswer: FullExpression.empty(),
         upperQuestionId: QuestionId.empty(),
         pageNumber: PageNumber(0),
+        recodeNeeded: false,
       );
 
   String get contentText {

@@ -7,6 +7,9 @@ abstract class AnswerEvent with _$AnswerEvent {
     @required KtMap<QuestionId, Answer> answerMap,
     @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
     @required KtList<Question> questionList,
+    KtMap<QuestionId, Answer> mainAnswerMap,
+    KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    @required bool isRecodeModule,
   }) = _AnswerRestored;
 
   const factory AnswerEvent.answerStatusInitialized() =
@@ -19,6 +22,7 @@ abstract class AnswerEvent with _$AnswerEvent {
     @required bool isNote,
     @required bool isSpecialAnswer,
     @required bool toggle,
+    @required bool isRecode,
     ChoiceId noteOf,
   }) = _AnswerChanged;
 
@@ -29,6 +33,7 @@ abstract class AnswerEvent with _$AnswerEvent {
     bool isNote,
     bool toggle,
     ChoiceId noteOf,
+    bool isRecode,
   }) =>
       _AnswerChanged(
         question: question,
@@ -37,6 +42,7 @@ abstract class AnswerEvent with _$AnswerEvent {
         isNote: isNote ?? false,
         toggle: toggle ?? false,
         noteOf: noteOf,
+        isRecode: isRecode ?? false,
       );
 
   // H_3 切換特殊作答

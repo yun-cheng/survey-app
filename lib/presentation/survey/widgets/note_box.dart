@@ -19,8 +19,8 @@ class NoteBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isReadOnly =
-        context.select((AnswerBloc bloc) => bloc.state.isReadOnly);
+    final isReadOnly = context.select((AnswerBloc bloc) =>
+        bloc.state.isReadOnly || bloc.state.isRecodeModule);
 
     return Padding(
       padding: const EdgeInsets.all(10),

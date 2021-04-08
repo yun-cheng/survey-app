@@ -148,6 +148,71 @@ class RespondentCard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 16),
+                    Row(
+                      children: [
+                        FlatButton(
+                          color: kCardBlueTextColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          onPressed: () {
+                            context.read<ResponseBloc>().add(
+                                  ResponseEvent.responseStartedWith(
+                                    respondent: respondent,
+                                    moduleType: ModuleType.interviewReport(),
+                                  ),
+                                );
+                            context.read<NavigationBloc>().add(
+                                  NavigationEvent.pageChanged(
+                                    page: const NavigationPage.survey(),
+                                    respondentId: respondent.id,
+                                  ),
+                                );
+                            context.navigator.push(
+                              '/respondent/${respondent.id.getOrCrash()}',
+                            );
+                          },
+                          child: const Text(
+                            '訪問紀錄',
+                            style: kCardTextStyle,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: kH1FontSize,
+                        ),
+                          FlatButton(
+                          color: kCardBlueTextColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(18.0),
+                          ),
+                          onPressed: () {
+                            context.read<ResponseBloc>().add(
+                                  ResponseEvent.responseStartedWith(
+                                    respondent: respondent,
+                                    moduleType: ModuleType.recode(),
+                                  ),
+                                );
+                            context.read<NavigationBloc>().add(
+                                  NavigationEvent.pageChanged(
+                                    page: const NavigationPage.survey(),
+                                    respondentId: respondent.id,
+                                  ),
+                                );
+                            context.navigator.push(
+                              '/respondent/${respondent.id.getOrCrash()}',
+                            );
+                          },
+                          child: const Text(
+                            '預過錄',
+                            style: kCardTextStyle,
+                          ),
+                        ),
+                        const SizedBox(
+                          width: kH1FontSize,
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
                     VisitHistory(respondent: respondent),
                   ],
                 ),

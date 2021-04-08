@@ -16,5 +16,7 @@ abstract class IAnswerStatusAlgorithm {
     Question question,
     @required KtList<Question> questionList,
     @required IAnswerAlgorithm answerAlgorithm,
+    @required bool isRecodeModule,
+    KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   });
 }

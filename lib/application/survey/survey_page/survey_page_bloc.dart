@@ -51,6 +51,8 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
           answerStatusMap: e.answerStatusMap,
           pageQuestionList: pageQuestionList,
           contentQuestionList: contentQuestionList,
+          isRecodeModule: e.isRecodeModule,
+          mainQuestionList: e.mainQuestionList,
           restoreState: const LoadState.success(),
         );
       },

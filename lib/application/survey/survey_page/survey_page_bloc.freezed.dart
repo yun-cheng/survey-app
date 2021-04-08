@@ -22,11 +22,15 @@ class _$SurveyPageEventTearOff {
   _StateRestored stateRestored(
       {@required SimpleSurveyPageState surveyPageState,
       @required KtList<Question> questionList,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required bool isRecodeModule,
+      @required KtList<Question> mainQuestionList}) {
     return _StateRestored(
       surveyPageState: surveyPageState,
       questionList: questionList,
       answerStatusMap: answerStatusMap,
+      isRecodeModule: isRecodeModule,
+      mainQuestionList: mainQuestionList,
     );
   }
 
@@ -111,7 +115,9 @@ mixin _$SurveyPageEvent {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -133,7 +139,9 @@ mixin _$SurveyPageEvent {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -247,7 +255,9 @@ class _$_StateRestoring implements _StateRestoring {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -287,7 +297,9 @@ class _$_StateRestoring implements _StateRestoring {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -384,7 +396,9 @@ abstract class _$StateRestoredCopyWith<$Res> {
   $Res call(
       {SimpleSurveyPageState surveyPageState,
       KtList<Question> questionList,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap});
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      bool isRecodeModule,
+      KtList<Question> mainQuestionList});
 
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
 }
@@ -405,6 +419,8 @@ class __$StateRestoredCopyWithImpl<$Res>
     Object surveyPageState = freezed,
     Object questionList = freezed,
     Object answerStatusMap = freezed,
+    Object isRecodeModule = freezed,
+    Object mainQuestionList = freezed,
   }) {
     return _then(_StateRestored(
       surveyPageState: surveyPageState == freezed
@@ -416,6 +432,12 @@ class __$StateRestoredCopyWithImpl<$Res>
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule as bool,
+      mainQuestionList: mainQuestionList == freezed
+          ? _value.mainQuestionList
+          : mainQuestionList as KtList<Question>,
     ));
   }
 
@@ -436,9 +458,14 @@ class _$_StateRestored implements _StateRestored {
   const _$_StateRestored(
       {@required this.surveyPageState,
       @required this.questionList,
-      this.answerStatusMap})
+      @required this.answerStatusMap,
+      @required this.isRecodeModule,
+      @required this.mainQuestionList})
       : assert(surveyPageState != null),
-        assert(questionList != null);
+        assert(questionList != null),
+        assert(answerStatusMap != null),
+        assert(isRecodeModule != null),
+        assert(mainQuestionList != null);
 
   @override
   final SimpleSurveyPageState surveyPageState;
@@ -446,10 +473,14 @@ class _$_StateRestored implements _StateRestored {
   final KtList<Question> questionList;
   @override
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  @override
+  final bool isRecodeModule;
+  @override
+  final KtList<Question> mainQuestionList;
 
   @override
   String toString() {
-    return 'SurveyPageEvent.stateRestored(surveyPageState: $surveyPageState, questionList: $questionList, answerStatusMap: $answerStatusMap)';
+    return 'SurveyPageEvent.stateRestored(surveyPageState: $surveyPageState, questionList: $questionList, answerStatusMap: $answerStatusMap, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList)';
   }
 
   @override
@@ -464,7 +495,13 @@ class _$_StateRestored implements _StateRestored {
                     .equals(other.questionList, questionList)) &&
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)));
+                    .equals(other.answerStatusMap, answerStatusMap)) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecodeModule, isRecodeModule)) &&
+            (identical(other.mainQuestionList, mainQuestionList) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainQuestionList, mainQuestionList)));
   }
 
   @override
@@ -472,7 +509,9 @@ class _$_StateRestored implements _StateRestored {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(surveyPageState) ^
       const DeepCollectionEquality().hash(questionList) ^
-      const DeepCollectionEquality().hash(answerStatusMap);
+      const DeepCollectionEquality().hash(answerStatusMap) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
+      const DeepCollectionEquality().hash(mainQuestionList);
 
   @override
   _$StateRestoredCopyWith<_StateRestored> get copyWith =>
@@ -486,7 +525,9 @@ class _$_StateRestored implements _StateRestored {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -516,7 +557,8 @@ class _$_StateRestored implements _StateRestored {
     assert(stateChanged != null);
     assert(stateLoadSuccess != null);
     assert(stateCleared != null);
-    return stateRestored(surveyPageState, questionList, answerStatusMap);
+    return stateRestored(surveyPageState, questionList, answerStatusMap,
+        isRecodeModule, mainQuestionList);
   }
 
   @override
@@ -526,7 +568,9 @@ class _$_StateRestored implements _StateRestored {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -544,7 +588,8 @@ class _$_StateRestored implements _StateRestored {
   }) {
     assert(orElse != null);
     if (stateRestored != null) {
-      return stateRestored(surveyPageState, questionList, answerStatusMap);
+      return stateRestored(surveyPageState, questionList, answerStatusMap,
+          isRecodeModule, mainQuestionList);
     }
     return orElse();
   }
@@ -615,11 +660,15 @@ abstract class _StateRestored implements SurveyPageEvent {
   const factory _StateRestored(
       {@required SimpleSurveyPageState surveyPageState,
       @required KtList<Question> questionList,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap}) = _$_StateRestored;
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required bool isRecodeModule,
+      @required KtList<Question> mainQuestionList}) = _$_StateRestored;
 
   SimpleSurveyPageState get surveyPageState;
   KtList<Question> get questionList;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap;
+  bool get isRecodeModule;
+  KtList<Question> get mainQuestionList;
   _$StateRestoredCopyWith<_StateRestored> get copyWith;
 }
 
@@ -690,7 +739,9 @@ class _$_PageUpdated implements _PageUpdated {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -730,7 +781,9 @@ class _$_PageUpdated implements _PageUpdated {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -866,7 +919,9 @@ class _$_NextPagePressed implements _NextPagePressed {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -906,7 +961,9 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -1039,7 +1096,9 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -1079,7 +1138,9 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -1212,7 +1273,9 @@ class _$_WentToNewestPage implements _WentToNewestPage {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -1252,7 +1315,9 @@ class _$_WentToNewestPage implements _WentToNewestPage {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -1406,7 +1471,9 @@ class _$_WentToPage implements _WentToPage {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -1446,7 +1513,9 @@ class _$_WentToPage implements _WentToPage {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -1582,7 +1651,9 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -1622,7 +1693,9 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -1755,7 +1828,9 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -1795,7 +1870,9 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -1928,7 +2005,9 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -1968,7 +2047,9 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -2101,7 +2182,9 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -2141,7 +2224,9 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -2300,7 +2385,9 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -2340,7 +2427,9 @@ class _$_AnswerBlocUpdated implements _AnswerBlocUpdated {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -2478,7 +2567,9 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -2518,7 +2609,9 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -2651,7 +2744,9 @@ class _$_StateCleared implements _StateCleared {
         TResult stateRestored(
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap),
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList),
     @required TResult pageUpdated(Direction direction),
     @required TResult nextPagePressed(),
     @required TResult previousPagePressed(),
@@ -2691,7 +2786,9 @@ class _$_StateCleared implements _StateCleared {
     TResult stateRestored(
         SimpleSurveyPageState surveyPageState,
         KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap),
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        bool isRecodeModule,
+        KtList<Question> mainQuestionList),
     TResult pageUpdated(Direction direction),
     TResult nextPagePressed(),
     TResult previousPagePressed(),
@@ -2796,7 +2893,9 @@ class _$SurveyPageStateTearOff {
       @required Warning warning,
       @required bool showWarning,
       @required LoadState loadState,
-      @required LoadState restoreState}) {
+      @required LoadState restoreState,
+      @required bool isRecodeModule,
+      @required KtList<Question> mainQuestionList}) {
     return _SurveyPageState(
       page: page,
       newestPage: newestPage,
@@ -2809,6 +2908,8 @@ class _$SurveyPageStateTearOff {
       showWarning: showWarning,
       loadState: loadState,
       restoreState: restoreState,
+      isRecodeModule: isRecodeModule,
+      mainQuestionList: mainQuestionList,
     );
   }
 }
@@ -2830,6 +2931,8 @@ mixin _$SurveyPageState {
   bool get showWarning;
   LoadState get loadState;
   LoadState get restoreState;
+  bool get isRecodeModule;
+  KtList<Question> get mainQuestionList;
 
   $SurveyPageStateCopyWith<SurveyPageState> get copyWith;
 }
@@ -2850,7 +2953,9 @@ abstract class $SurveyPageStateCopyWith<$Res> {
       Warning warning,
       bool showWarning,
       LoadState loadState,
-      LoadState restoreState});
+      LoadState restoreState,
+      bool isRecodeModule,
+      KtList<Question> mainQuestionList});
 
   $WarningCopyWith<$Res> get warning;
   $LoadStateCopyWith<$Res> get loadState;
@@ -2879,6 +2984,8 @@ class _$SurveyPageStateCopyWithImpl<$Res>
     Object showWarning = freezed,
     Object loadState = freezed,
     Object restoreState = freezed,
+    Object isRecodeModule = freezed,
+    Object mainQuestionList = freezed,
   }) {
     return _then(_value.copyWith(
       page: page == freezed ? _value.page : page as PageNumber,
@@ -2906,6 +3013,12 @@ class _$SurveyPageStateCopyWithImpl<$Res>
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState as LoadState,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule as bool,
+      mainQuestionList: mainQuestionList == freezed
+          ? _value.mainQuestionList
+          : mainQuestionList as KtList<Question>,
     ));
   }
 
@@ -2958,7 +3071,9 @@ abstract class _$SurveyPageStateCopyWith<$Res>
       Warning warning,
       bool showWarning,
       LoadState loadState,
-      LoadState restoreState});
+      LoadState restoreState,
+      bool isRecodeModule,
+      KtList<Question> mainQuestionList});
 
   @override
   $WarningCopyWith<$Res> get warning;
@@ -2992,6 +3107,8 @@ class __$SurveyPageStateCopyWithImpl<$Res>
     Object showWarning = freezed,
     Object loadState = freezed,
     Object restoreState = freezed,
+    Object isRecodeModule = freezed,
+    Object mainQuestionList = freezed,
   }) {
     return _then(_SurveyPageState(
       page: page == freezed ? _value.page : page as PageNumber,
@@ -3019,6 +3136,12 @@ class __$SurveyPageStateCopyWithImpl<$Res>
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState as LoadState,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule as bool,
+      mainQuestionList: mainQuestionList == freezed
+          ? _value.mainQuestionList
+          : mainQuestionList as KtList<Question>,
     ));
   }
 }
@@ -3036,7 +3159,9 @@ class _$_SurveyPageState implements _SurveyPageState {
       @required this.warning,
       @required this.showWarning,
       @required this.loadState,
-      @required this.restoreState})
+      @required this.restoreState,
+      @required this.isRecodeModule,
+      @required this.mainQuestionList})
       : assert(page != null),
         assert(newestPage != null),
         assert(questionList != null),
@@ -3047,7 +3172,9 @@ class _$_SurveyPageState implements _SurveyPageState {
         assert(warning != null),
         assert(showWarning != null),
         assert(loadState != null),
-        assert(restoreState != null);
+        assert(restoreState != null),
+        assert(isRecodeModule != null),
+        assert(mainQuestionList != null);
 
   @override
   final PageNumber page;
@@ -3071,10 +3198,14 @@ class _$_SurveyPageState implements _SurveyPageState {
   final LoadState loadState;
   @override
   final LoadState restoreState;
+  @override
+  final bool isRecodeModule;
+  @override
+  final KtList<Question> mainQuestionList;
 
   @override
   String toString() {
-    return 'SurveyPageState(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState)';
+    return 'SurveyPageState(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList)';
   }
 
   @override
@@ -3112,7 +3243,13 @@ class _$_SurveyPageState implements _SurveyPageState {
                     .equals(other.loadState, loadState)) &&
             (identical(other.restoreState, restoreState) ||
                 const DeepCollectionEquality()
-                    .equals(other.restoreState, restoreState)));
+                    .equals(other.restoreState, restoreState)) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecodeModule, isRecodeModule)) &&
+            (identical(other.mainQuestionList, mainQuestionList) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainQuestionList, mainQuestionList)));
   }
 
   @override
@@ -3128,7 +3265,9 @@ class _$_SurveyPageState implements _SurveyPageState {
       const DeepCollectionEquality().hash(warning) ^
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(loadState) ^
-      const DeepCollectionEquality().hash(restoreState);
+      const DeepCollectionEquality().hash(restoreState) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
+      const DeepCollectionEquality().hash(mainQuestionList);
 
   @override
   _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith =>
@@ -3147,7 +3286,9 @@ abstract class _SurveyPageState implements SurveyPageState {
       @required Warning warning,
       @required bool showWarning,
       @required LoadState loadState,
-      @required LoadState restoreState}) = _$_SurveyPageState;
+      @required LoadState restoreState,
+      @required bool isRecodeModule,
+      @required KtList<Question> mainQuestionList}) = _$_SurveyPageState;
 
   @override
   PageNumber get page;
@@ -3171,6 +3312,10 @@ abstract class _SurveyPageState implements SurveyPageState {
   LoadState get loadState;
   @override
   LoadState get restoreState;
+  @override
+  bool get isRecodeModule;
+  @override
+  KtList<Question> get mainQuestionList;
   @override
   _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith;
 }

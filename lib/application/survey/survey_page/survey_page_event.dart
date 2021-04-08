@@ -7,7 +7,9 @@ abstract class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.stateRestored({
     @required SimpleSurveyPageState surveyPageState,
     @required KtList<Question> questionList,
-    KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    @required bool isRecodeModule,
+    @required KtList<Question> mainQuestionList,
   }) = _StateRestored;
 
   // H_2 切換頁面

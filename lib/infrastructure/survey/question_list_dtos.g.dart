@@ -33,6 +33,7 @@ _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
             json['validateAnswer'] as Map<String, dynamic>),
     upperQuestionId: json['upperQuestionId'] as String,
     pageNumber: json['pageNumber'] as int,
+    recodeNeeded: json['recodeNeeded'] as bool,
   );
 }
 
@@ -52,6 +53,7 @@ Map<String, dynamic> _$_$_QuestionDtoToJson(_$_QuestionDto instance) =>
       'validateAnswer': instance.validateAnswer?.toJson(),
       'upperQuestionId': instance.upperQuestionId,
       'pageNumber': instance.pageNumber,
+      'recodeNeeded': instance.recodeNeeded,
     };
 
 _$_ChoiceDto _$_$_ChoiceDtoFromJson(Map<String, dynamic> json) {

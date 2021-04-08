@@ -30,7 +30,8 @@ class _$QuestionDtoTearOff {
       @required bool hasSpecialAnswer,
       @required FullExpressionDto validateAnswer,
       @required String upperQuestionId,
-      @required int pageNumber}) {
+      @required int pageNumber,
+      @required bool recodeNeeded}) {
     return _QuestionDto(
       questionId: questionId,
       hideQuestionId: hideQuestionId,
@@ -45,6 +46,7 @@ class _$QuestionDtoTearOff {
       validateAnswer: validateAnswer,
       upperQuestionId: upperQuestionId,
       pageNumber: pageNumber,
+      recodeNeeded: recodeNeeded,
     );
   }
 
@@ -73,6 +75,7 @@ mixin _$QuestionDto {
   FullExpressionDto get validateAnswer;
   String get upperQuestionId;
   int get pageNumber;
+  bool get recodeNeeded;
 
   Map<String, dynamic> toJson();
   $QuestionDtoCopyWith<QuestionDto> get copyWith;
@@ -96,7 +99,8 @@ abstract class $QuestionDtoCopyWith<$Res> {
       bool hasSpecialAnswer,
       FullExpressionDto validateAnswer,
       String upperQuestionId,
-      int pageNumber});
+      int pageNumber,
+      bool recodeNeeded});
 
   $FullExpressionDtoCopyWith<$Res> get showQuestion;
   $FullExpressionDtoCopyWith<$Res> get validateAnswer;
@@ -125,6 +129,7 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
     Object pageNumber = freezed,
+    Object recodeNeeded = freezed,
   }) {
     return _then(_value.copyWith(
       questionId:
@@ -162,6 +167,8 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
           ? _value.upperQuestionId
           : upperQuestionId as String,
       pageNumber: pageNumber == freezed ? _value.pageNumber : pageNumber as int,
+      recodeNeeded:
+          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
     ));
   }
 
@@ -206,7 +213,8 @@ abstract class _$QuestionDtoCopyWith<$Res>
       bool hasSpecialAnswer,
       FullExpressionDto validateAnswer,
       String upperQuestionId,
-      int pageNumber});
+      int pageNumber,
+      bool recodeNeeded});
 
   @override
   $FullExpressionDtoCopyWith<$Res> get showQuestion;
@@ -239,6 +247,7 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
     Object pageNumber = freezed,
+    Object recodeNeeded = freezed,
   }) {
     return _then(_QuestionDto(
       questionId:
@@ -276,6 +285,8 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
           ? _value.upperQuestionId
           : upperQuestionId as String,
       pageNumber: pageNumber == freezed ? _value.pageNumber : pageNumber as int,
+      recodeNeeded:
+          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
     ));
   }
 }
@@ -297,7 +308,8 @@ class _$_QuestionDto extends _QuestionDto {
       @required this.hasSpecialAnswer,
       @required this.validateAnswer,
       @required this.upperQuestionId,
-      @required this.pageNumber})
+      @required this.pageNumber,
+      @required this.recodeNeeded})
       : assert(questionId != null),
         assert(hideQuestionId != null),
         assert(serialNumber != null),
@@ -311,6 +323,7 @@ class _$_QuestionDto extends _QuestionDto {
         assert(validateAnswer != null),
         assert(upperQuestionId != null),
         assert(pageNumber != null),
+        assert(recodeNeeded != null),
         super._();
 
   factory _$_QuestionDto.fromJson(Map<String, dynamic> json) =>
@@ -342,10 +355,12 @@ class _$_QuestionDto extends _QuestionDto {
   final String upperQuestionId;
   @override
   final int pageNumber;
+  @override
+  final bool recodeNeeded;
 
   @override
   String toString() {
-    return 'QuestionDto(questionId: $questionId, hideQuestionId: $hideQuestionId, serialNumber: $serialNumber, questionBody: $questionBody, questionNote: $questionNote, questionType: $questionType, showQuestion: $showQuestion, choiceList: $choiceList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
+    return 'QuestionDto(questionId: $questionId, hideQuestionId: $hideQuestionId, serialNumber: $serialNumber, questionBody: $questionBody, questionNote: $questionNote, questionType: $questionType, showQuestion: $showQuestion, choiceList: $choiceList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded)';
   }
 
   @override
@@ -390,7 +405,10 @@ class _$_QuestionDto extends _QuestionDto {
                     .equals(other.upperQuestionId, upperQuestionId)) &&
             (identical(other.pageNumber, pageNumber) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageNumber, pageNumber)));
+                    .equals(other.pageNumber, pageNumber)) &&
+            (identical(other.recodeNeeded, recodeNeeded) ||
+                const DeepCollectionEquality()
+                    .equals(other.recodeNeeded, recodeNeeded)));
   }
 
   @override
@@ -408,7 +426,8 @@ class _$_QuestionDto extends _QuestionDto {
       const DeepCollectionEquality().hash(hasSpecialAnswer) ^
       const DeepCollectionEquality().hash(validateAnswer) ^
       const DeepCollectionEquality().hash(upperQuestionId) ^
-      const DeepCollectionEquality().hash(pageNumber);
+      const DeepCollectionEquality().hash(pageNumber) ^
+      const DeepCollectionEquality().hash(recodeNeeded);
 
   @override
   _$QuestionDtoCopyWith<_QuestionDto> get copyWith =>
@@ -435,7 +454,8 @@ abstract class _QuestionDto extends QuestionDto {
       @required bool hasSpecialAnswer,
       @required FullExpressionDto validateAnswer,
       @required String upperQuestionId,
-      @required int pageNumber}) = _$_QuestionDto;
+      @required int pageNumber,
+      @required bool recodeNeeded}) = _$_QuestionDto;
 
   factory _QuestionDto.fromJson(Map<String, dynamic> json) =
       _$_QuestionDto.fromJson;
@@ -466,6 +486,8 @@ abstract class _QuestionDto extends QuestionDto {
   String get upperQuestionId;
   @override
   int get pageNumber;
+  @override
+  bool get recodeNeeded;
   @override
   _$QuestionDtoCopyWith<_QuestionDto> get copyWith;
 }

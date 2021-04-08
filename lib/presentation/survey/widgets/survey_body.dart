@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../domain/core/load_state.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import 'qa_card.dart';
 
@@ -21,6 +21,7 @@ class SurveyBody extends StatelessWidget {
       builder: (context, state) {
         if (state.restoreState is LoadSuccess) {
           LoggerService.simple.i('List of QaCard rebuild!!');
+          
           return ListView.builder(
             physics: const NeverScrollableScrollPhysics(),
             shrinkWrap: true,

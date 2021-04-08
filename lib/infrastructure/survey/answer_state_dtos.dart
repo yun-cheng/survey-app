@@ -19,6 +19,9 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
     @required Map<String, AnswerStatusDto> answerStatusMap,
     @required List<QuestionDto> questionList,
     @required bool isReadOnly,
+    @required bool isRecodeModule,
+    @required Map<String, AnswerDto> mainAnswerMap,
+    @required Map<String, AnswerStatusDto> mainAnswerStatusMap,
   }) = _AnswerStateDto;
 
   factory AnswerStateDto.fromDomain(AnswerState domain) {
@@ -34,6 +37,15 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
       questionList:
           domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
       isReadOnly: domain.isReadOnly,
+      isRecodeModule: domain.isRecodeModule,
+      mainAnswerMap: domain.mainAnswerMap
+          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
+          .asMap(),
+      mainAnswerStatusMap: domain.mainAnswerStatusMap
+          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
+          .asMap(),
     );
   }
 
@@ -47,6 +59,13 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
           .mapValues((entry) => entry.value.toDomain()),
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
       isReadOnly: isReadOnly,
+      isRecodeModule: isRecodeModule,
+      mainAnswerMap: KtMap.from(mainAnswerMap)
+          .mapKeys((entry) => QuestionId(entry.key))
+          .mapValues((entry) => entry.value.toDomain()),
+      mainAnswerStatusMap: KtMap.from(mainAnswerStatusMap)
+          .mapKeys((entry) => QuestionId(entry.key))
+          .mapValues((entry) => entry.value.toDomain()),
     );
   }
 

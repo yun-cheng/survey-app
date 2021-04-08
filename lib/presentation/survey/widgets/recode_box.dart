@@ -8,10 +8,10 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/question.dart';
 
-class TextBox extends StatelessWidget {
+class RecodeBox extends StatelessWidget {
   final Question question;
 
-  const TextBox({
+  const RecodeBox({
     Key key,
     @required this.question,
   }) : super(key: key);
@@ -20,15 +20,13 @@ class TextBox extends StatelessWidget {
   Widget build(BuildContext context) {
     final isReadOnly =
         context.select((AnswerBloc bloc) => bloc.state.isReadOnly);
-    final isRecodeModule =
-        context.select((AnswerBloc bloc) => bloc.state.isRecodeModule);
+
     // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
-    final note = context.select((AnswerBloc bloc) =>
-        (isRecodeModule ? bloc.state.mainAnswerMap : bloc.state.answerMap)
-            .getOrDefault(question.id, Answer.empty())
-            .body
-            .getOrCrash()
-            .toString());
+    final note = context.select((AnswerBloc bloc) => bloc.state.answerMap
+        .getOrDefault(question.id, Answer.empty())
+        .body
+        .getOrCrash()
+        .toString());
 
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
         // HIGHLIGHT 該頁題目有變更，且包含該題時，才要 rebuild，答案變更時則不須 rebuild
@@ -36,33 +34,28 @@ class TextBox extends StatelessWidget {
             c.pageQuestionList.contains(question) &&
             p.pageQuestionList != c.pageQuestionList,
         builder: (context, state) {
-          LoggerService.simple.i('TextBox rebuild!!');
+          LoggerService.simple.i('RecodeBox rebuild!!');
 
           return Padding(
             padding: const EdgeInsets.all(10),
             child: TextFormField(
               initialValue: note,
-              enabled: !isReadOnly && !isRecodeModule,
+              enabled: !isReadOnly,
               decoration: const InputDecoration(
                 labelText: '',
                 counterText: '',
               ),
               maxLines: null,
-              keyboardType: question.type.isNumber
-                  ? TextInputType.number
-                  : TextInputType.text,
-              inputFormatters: question.type.isNumber
-                  ? <TextInputFormatter>[
-                      FilteringTextInputFormatter.digitsOnly,
-                      // FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
-                    ]
-                  : null,
-              // autocorrect: false,
+              keyboardType: TextInputType.number,
+              inputFormatters: <TextInputFormatter>[
+                FilteringTextInputFormatter.digitsOnly,
+              ],
               onChanged: (value) {
                 context.read<AnswerBloc>().add(
                       AnswerEvent.answerChangedWith(
                         question: question,
                         body: value,
+                        isRecode: true,
                       ),
                     );
               },

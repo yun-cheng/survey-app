@@ -27,7 +27,8 @@ class _$QuestionTearOff {
       @required bool hasSpecialAnswer,
       @required FullExpression validateAnswer,
       @required QuestionId upperQuestionId,
-      @required PageNumber pageNumber}) {
+      @required PageNumber pageNumber,
+      @required bool recodeNeeded}) {
     return _Question(
       id: id,
       hideId: hideId,
@@ -42,6 +43,7 @@ class _$QuestionTearOff {
       validateAnswer: validateAnswer,
       upperQuestionId: upperQuestionId,
       pageNumber: pageNumber,
+      recodeNeeded: recodeNeeded,
     );
   }
 }
@@ -65,6 +67,7 @@ mixin _$Question {
   FullExpression get validateAnswer;
   QuestionId get upperQuestionId;
   PageNumber get pageNumber;
+  bool get recodeNeeded;
 
   $QuestionCopyWith<Question> get copyWith;
 }
@@ -86,7 +89,8 @@ abstract class $QuestionCopyWith<$Res> {
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       QuestionId upperQuestionId,
-      PageNumber pageNumber});
+      PageNumber pageNumber,
+      bool recodeNeeded});
 
   $FullExpressionCopyWith<$Res> get show;
   $FullExpressionCopyWith<$Res> get validateAnswer;
@@ -115,6 +119,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
     Object pageNumber = freezed,
+    Object recodeNeeded = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed ? _value.id : id as QuestionId,
@@ -143,6 +148,8 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           : upperQuestionId as QuestionId,
       pageNumber:
           pageNumber == freezed ? _value.pageNumber : pageNumber as PageNumber,
+      recodeNeeded:
+          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
     ));
   }
 
@@ -185,7 +192,8 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       QuestionId upperQuestionId,
-      PageNumber pageNumber});
+      PageNumber pageNumber,
+      bool recodeNeeded});
 
   @override
   $FullExpressionCopyWith<$Res> get show;
@@ -217,6 +225,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
     Object pageNumber = freezed,
+    Object recodeNeeded = freezed,
   }) {
     return _then(_Question(
       id: id == freezed ? _value.id : id as QuestionId,
@@ -245,6 +254,8 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           : upperQuestionId as QuestionId,
       pageNumber:
           pageNumber == freezed ? _value.pageNumber : pageNumber as PageNumber,
+      recodeNeeded:
+          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
     ));
   }
 }
@@ -264,7 +275,8 @@ class _$_Question extends _Question {
       @required this.hasSpecialAnswer,
       @required this.validateAnswer,
       @required this.upperQuestionId,
-      @required this.pageNumber})
+      @required this.pageNumber,
+      @required this.recodeNeeded})
       : assert(id != null),
         assert(hideId != null),
         assert(serialNumber != null),
@@ -278,6 +290,7 @@ class _$_Question extends _Question {
         assert(validateAnswer != null),
         assert(upperQuestionId != null),
         assert(pageNumber != null),
+        assert(recodeNeeded != null),
         super._();
 
   @override
@@ -306,10 +319,12 @@ class _$_Question extends _Question {
   final QuestionId upperQuestionId;
   @override
   final PageNumber pageNumber;
+  @override
+  final bool recodeNeeded;
 
   @override
   String toString() {
-    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceList: $choiceList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber)';
+    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceList: $choiceList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded)';
   }
 
   @override
@@ -348,7 +363,10 @@ class _$_Question extends _Question {
                     .equals(other.upperQuestionId, upperQuestionId)) &&
             (identical(other.pageNumber, pageNumber) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageNumber, pageNumber)));
+                    .equals(other.pageNumber, pageNumber)) &&
+            (identical(other.recodeNeeded, recodeNeeded) ||
+                const DeepCollectionEquality()
+                    .equals(other.recodeNeeded, recodeNeeded)));
   }
 
   @override
@@ -366,7 +384,8 @@ class _$_Question extends _Question {
       const DeepCollectionEquality().hash(hasSpecialAnswer) ^
       const DeepCollectionEquality().hash(validateAnswer) ^
       const DeepCollectionEquality().hash(upperQuestionId) ^
-      const DeepCollectionEquality().hash(pageNumber);
+      const DeepCollectionEquality().hash(pageNumber) ^
+      const DeepCollectionEquality().hash(recodeNeeded);
 
   @override
   _$QuestionCopyWith<_Question> get copyWith =>
@@ -388,7 +407,8 @@ abstract class _Question extends Question {
       @required bool hasSpecialAnswer,
       @required FullExpression validateAnswer,
       @required QuestionId upperQuestionId,
-      @required PageNumber pageNumber}) = _$_Question;
+      @required PageNumber pageNumber,
+      @required bool recodeNeeded}) = _$_Question;
 
   @override
   QuestionId get id;
@@ -416,6 +436,8 @@ abstract class _Question extends Question {
   QuestionId get upperQuestionId;
   @override
   PageNumber get pageNumber;
+  @override
+  bool get recodeNeeded;
   @override
   _$QuestionCopyWith<_Question> get copyWith;
 }

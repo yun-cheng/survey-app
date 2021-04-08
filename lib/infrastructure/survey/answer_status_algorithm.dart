@@ -20,6 +20,8 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     Question question,
     KtList<Question> questionList,
     IAnswerAlgorithm answerAlgorithm,
+    bool isRecodeModule,
+    KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) {
     KtMap<QuestionId, AnswerStatus> newAnswerStatusMap;
     Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
@@ -53,15 +55,17 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       );
     }
 
-    // S_2 更新題目是否出現
+    // S_2 更新 answerStatus
     final tupleResult1 = evaluateShowQuestionExpression(
       answerMap: question == null ? answerMap : tupleResult.item2,
       answerStatusMap: question == null ? answerStatusMap : tupleResult.item1,
       questionList: questionList,
       answerAlgorithm: answerAlgorithm,
+      isRecodeModule: isRecodeModule,
+      mainAnswerStatusMap: mainAnswerStatusMap,
     );
 
-    // S_3 validate answer
+    // S_3 更新對應的 warning
     newAnswerStatusMap = updateWarning(
       answerMap: tupleResult1.item2,
       answerStatusMap: tupleResult1.item1,
@@ -161,29 +165,47 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     KtMap<QuestionId, AnswerStatus> answerStatusMap,
     KtList<Question> questionList,
     IAnswerAlgorithm answerAlgorithm,
+    bool isRecodeModule,
+    KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) {
     final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
         KtMutableMap.from(answerStatusMap.asMap());
 
     KtMap<QuestionId, Answer> newAnswerMap = answerMap;
-
-    // S_1 篩出有 show question expression 的題目
-    final showQuestionList =
-        questionList.filter((question) => !question.show.isEmpty);
+    KtList<Question> showQuestionList;
+    if (!isRecodeModule) {
+      // S_1 篩出有 show question expression 的題目
+      showQuestionList =
+          questionList.filter((question) => !question.show.isEmpty);
+    } else {
+      showQuestionList = questionList;
+    }
 
     // S_2L 迴圈篩出的題目
     showQuestionList.forEach((question) {
       AnswerStatusType newAnswerStatusType;
-      // S_2L-1 判斷該題是否要出現
-      final bool showQuestion = question.show.evaluate(answerMap);
+      bool showQuestion;
+
+      if (!isRecodeModule) {
+        // S_2L-1 判斷該題是否要出現
+        showQuestion = question.show.evaluate(answerMap);
+      } else {
+        showQuestion = !mainAnswerStatusMap[question.id].isHidden;
+      }
+
       // S_2L-2 改變該題的 answerStatus
+      // S_2L-2-c1 過去隱藏，現在要顯示時
       if (showQuestion && answerStatusMap[question.id].isHidden) {
-        newAnswerStatusType = AnswerStatusType.unanswered();
-        // S_2L-2-c2 當從非 hidden 變 hidden 時，清空作答
+        if (question.type == QuestionType.description()) {
+          newAnswerStatusType = AnswerStatusType.answered();
+        } else {
+          newAnswerStatusType = AnswerStatusType.unanswered();
+        }
+        // S_2L-2-c2 過去顯示，現在要隱藏時，清空作答
       } else if (!showQuestion && !answerStatusMap[question.id].isHidden) {
         newAnswerStatusType = AnswerStatusType.hidden();
         newAnswerMap = answerAlgorithm.clearAnswer(
-          answerMap: answerMap,
+          answerMap: newAnswerMap,
           question: question,
         );
       } else {

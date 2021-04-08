@@ -37,6 +37,11 @@ _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
     showWarning: json['showWarning'] as bool,
     loadState: json['loadState'] as Map<String, dynamic>,
     restoreState: json['restoreState'] as Map<String, dynamic>,
+    isRecodeModule: json['isRecodeModule'] as bool,
+    mainQuestionList: (json['mainQuestionList'] as List)
+        ?.map((e) =>
+            e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -57,4 +62,7 @@ Map<String, dynamic> _$_$_SurveyPageStateDtoToJson(
       'showWarning': instance.showWarning,
       'loadState': instance.loadState,
       'restoreState': instance.restoreState,
+      'isRecodeModule': instance.isRecodeModule,
+      'mainQuestionList':
+          instance.mainQuestionList?.map((e) => e?.toJson())?.toList(),
     };
