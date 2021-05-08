@@ -1,8 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:kt_dart/collection.dart';
 
 import '../core/failures.dart';
 import '../core/value_objects.dart';
 import '../core/value_validators.dart';
+import 'simple_choice.dart';
 
 class QuestionBody extends ValueObject<String> {
   @override
@@ -18,6 +20,24 @@ class QuestionBody extends ValueObject<String> {
   factory QuestionBody.empty() => QuestionBody('');
 
   const QuestionBody._(this.value);
+}
+
+class FormatType extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory FormatType(String input) {
+    assert(input != null);
+    return FormatType._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  factory FormatType.empty() => FormatType('');
+  factory FormatType.string() => FormatType('string');
+  factory FormatType.referenceKey() => FormatType('referenceKey');
+
+  const FormatType._(this.value);
 }
 
 class QuestionNote extends ValueObject<String> {
@@ -53,22 +73,10 @@ class QuestionId extends ValueObject<String> {
     return value.fold((l) => false, (r) => r != '');
   }
 
+  bool get isEmpty => !isNotEmpty;
+
   const QuestionId._(this.value);
 }
-
-// class HideId extends ValueObject<bool> {
-//   @override
-//   final Either<ValueFailure<bool>, bool> value;
-
-//   factory HideId(bool input) {
-//     assert(input != null);
-//     return HideId._(
-//       right(input),
-//     );
-//   }
-
-//   const HideId._(this.value);
-// }
 
 class QuestionType extends ValueObject<String> {
   @override
@@ -91,6 +99,7 @@ class QuestionType extends ValueObject<String> {
   factory QuestionType.date() => QuestionType('date');
   factory QuestionType.time() => QuestionType('time');
   factory QuestionType.dateTime() => QuestionType('dateTime');
+  factory QuestionType.phone() => QuestionType('phone');
   factory QuestionType.description() => QuestionType('description');
   factory QuestionType.empty() => QuestionType('');
 
@@ -125,7 +134,32 @@ class QuestionType extends ValueObject<String> {
         (l) => false, (r) => ['date', 'time', 'dateTime'].contains(r));
   }
 
+  bool get isPhone {
+    return value.fold((l) => false, (r) => r == 'phone');
+  }
+
   const QuestionType._(this.value);
+}
+
+class AnswerType extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory AnswerType(String input) {
+    assert(input != null);
+    return AnswerType._(
+      validateStringNotEmpty(input),
+    );
+  }
+
+  factory AnswerType.string() => AnswerType('string');
+  factory AnswerType.int() => AnswerType('int');
+  factory AnswerType.num() => AnswerType('num');
+  factory AnswerType.choice() => AnswerType('choice');
+  factory AnswerType.choiceList() => AnswerType('choiceList');
+  factory AnswerType.empty() => AnswerType('');
+
+  const AnswerType._(this.value);
 }
 
 class PageNumber extends ValueObject<int> {
@@ -190,92 +224,6 @@ class ChoiceGroup extends ValueObject<String> {
   const ChoiceGroup._(this.value);
 }
 
-class AnswerBody extends ValueObject<dynamic> {
-  @override
-  final Either<ValueFailure<dynamic>, dynamic> value;
-
-  factory AnswerBody(dynamic input) {
-    assert(input != null);
-    return AnswerBody._(
-      right(input),
-    );
-  }
-
-  factory AnswerBody.empty() => AnswerBody('');
-
-  AnswerBody toggle(ChoiceId choiceId) {
-    return value.fold((l) => AnswerBody(l), (r) {
-      List newList;
-      if (r is List && r.contains(choiceId)) {
-        newList = r.where((element) => element != choiceId).toList();
-      } else if (r is List) {
-        newList = [...r];
-        newList.add(choiceId);
-      } else {
-        newList = [choiceId];
-      }
-      return AnswerBody(newList);
-    });
-  }
-
-  AnswerBody add(ChoiceId choiceId) {
-    return value.fold((l) => AnswerBody(l), (r) {
-      List newList;
-      if (r is List && r.contains(choiceId)) {
-        newList = r;
-      } else if (r is List) {
-        newList = [...r];
-        newList.add(choiceId);
-      } else {
-        newList = [choiceId];
-      }
-      return AnswerBody(newList);
-    });
-  }
-
-  bool contains(ChoiceId choiceId) {
-    return value.fold((l) => false, (r) {
-      if (r is List) {
-        return r.contains(choiceId);
-      } else {
-        return r == choiceId;
-      }
-    });
-  }
-
-  bool get isNotEmpty {
-    return value.fold((l) => false, (r) {
-      if (r is List) {
-        return r.isNotEmpty;
-      } else {
-        return r != '';
-      }
-    });
-  }
-
-  bool get isEmpty {
-    return value.fold((l) => true, (r) {
-      if (r is List) {
-        return r.isEmpty;
-      } else {
-        return r == '';
-      }
-    });
-  }
-
-  // bool get hasNote {
-  //   return value.fold((l) => false, (r) {
-  //     if (r is Choice) {
-  //       return r.asNote;
-  //     } else {
-  //       return false;
-  //     }
-  //   });
-  // }
-
-  const AnswerBody._(this.value);
-}
-
 class AnswerStatusType extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -293,6 +241,29 @@ class AnswerStatusType extends ValueObject<String> {
   factory AnswerStatusType.hidden() => AnswerStatusType('hidden');
   factory AnswerStatusType.empty() => AnswerStatusType('');
 
+  // H_ 判斷
+  factory AnswerStatusType.fromString(String string) {
+    if (string != null && string != '') {
+      return AnswerStatusType.answered();
+    }
+    return AnswerStatusType.unanswered();
+  }
+
+  factory AnswerStatusType.fromChoice(SimpleChoice choice) {
+    if (choice != null && choice != SimpleChoice.empty()) {
+      return AnswerStatusType.answered();
+    }
+    return AnswerStatusType.unanswered();
+  }
+
+  factory AnswerStatusType.fromChoiceList(KtList<SimpleChoice> choiceList) {
+    if (choiceList != null && choiceList.isNotEmpty()) {
+      return AnswerStatusType.answered();
+    }
+    return AnswerStatusType.unanswered();
+  }
+
+  // H_
   bool get isAnswered {
     return value.fold((l) => false, (r) => r == 'answered');
   }
@@ -337,6 +308,40 @@ class WarningType extends ValueObject<String> {
   }
 
   const WarningType._(this.value);
+}
+
+class Operator extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Operator(String input) {
+    assert(input != null);
+    return Operator._(
+      right(input),
+    );
+  }
+
+  factory Operator.isEqualTo() => Operator('isEqualTo');
+  factory Operator.notEqualTo() => Operator('notEqualTo');
+  factory Operator.isLessThan() => Operator('isLessThan');
+  factory Operator.isLessThanOrEqualTo() => Operator('isLessThanOrEqualTo');
+  factory Operator.isGreaterThan() => Operator('isGreaterThan');
+  factory Operator.isGreaterThanOrEqualTo() =>
+      Operator('isGreaterThanOrEqualTo');
+  factory Operator.isSameList() => Operator('isSameList');
+  factory Operator.notSameList() => Operator('notSameList');
+  factory Operator.isIn() => Operator('isIn');
+  factory Operator.notIn() => Operator('notIn');
+  factory Operator.contains() => Operator('contains');
+  factory Operator.notContains() => Operator('notContains');
+  factory Operator.containsAny() => Operator('containsAny');
+  factory Operator.notContainsAny() => Operator('notContainsAny');
+  factory Operator.containsAll() => Operator('containsAll');
+  factory Operator.notContainsAll() => Operator('notContainsAll');
+  factory Operator.isType() => Operator('isType');
+  factory Operator.empty() => Operator('');
+
+  const Operator._(this.value);
 }
 
 class FullExpressionBody extends ValueObject<String> {
@@ -394,22 +399,6 @@ class ModuleType extends ValueObject<String> {
   const ModuleType._(this.value);
 }
 
-class StageId extends ValueObject<int> {
-  @override
-  final Either<ValueFailure<int>, int> value;
-
-  factory StageId(int input) {
-    assert(input != null);
-    return StageId._(
-      right(input),
-    );
-  }
-
-  factory StageId.initial() => StageId(0);
-
-  const StageId._(this.value);
-}
-
 class ResponseStatus extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -426,24 +415,6 @@ class ResponseStatus extends ValueObject<String> {
   factory ResponseStatus.empty() => ResponseStatus('');
 
   const ResponseStatus._(this.value);
-}
-
-class UploadType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory UploadType(String input) {
-    assert(input != null);
-    return UploadType._(
-      right(input),
-    );
-  }
-
-  factory UploadType.sync() => UploadType('sync');
-  factory UploadType.stage() => UploadType('stage');
-  factory UploadType.empty() => UploadType('');
-
-  const UploadType._(this.value);
 }
 
 class DeviceTimeStamp extends ValueObject<DateTime> {

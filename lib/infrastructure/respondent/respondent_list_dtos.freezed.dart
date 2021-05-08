@@ -170,13 +170,13 @@ class _$RespondentListDtoTearOff {
       @required String interviewerId,
       @required String teamId,
       @required String projectId,
-      @required List<RespondentDto> respondentList}) {
+      @required List<RespondentDto> list}) {
     return _RespondentListDto(
       surveyId: surveyId,
       interviewerId: interviewerId,
       teamId: teamId,
       projectId: projectId,
-      respondentList: respondentList,
+      list: list,
     );
   }
 
@@ -196,7 +196,7 @@ mixin _$RespondentListDto {
   String get interviewerId;
   String get teamId;
   String get projectId;
-  List<RespondentDto> get respondentList;
+  List<RespondentDto> get list;
 
   Map<String, dynamic> toJson();
   $RespondentListDtoCopyWith<RespondentListDto> get copyWith;
@@ -212,7 +212,7 @@ abstract class $RespondentListDtoCopyWith<$Res> {
       String interviewerId,
       String teamId,
       String projectId,
-      List<RespondentDto> respondentList});
+      List<RespondentDto> list});
 }
 
 /// @nodoc
@@ -230,7 +230,7 @@ class _$RespondentListDtoCopyWithImpl<$Res>
     Object interviewerId = freezed,
     Object teamId = freezed,
     Object projectId = freezed,
-    Object respondentList = freezed,
+    Object list = freezed,
   }) {
     return _then(_value.copyWith(
       surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
@@ -239,9 +239,7 @@ class _$RespondentListDtoCopyWithImpl<$Res>
           : interviewerId as String,
       teamId: teamId == freezed ? _value.teamId : teamId as String,
       projectId: projectId == freezed ? _value.projectId : projectId as String,
-      respondentList: respondentList == freezed
-          ? _value.respondentList
-          : respondentList as List<RespondentDto>,
+      list: list == freezed ? _value.list : list as List<RespondentDto>,
     ));
   }
 }
@@ -258,7 +256,7 @@ abstract class _$RespondentListDtoCopyWith<$Res>
       String interviewerId,
       String teamId,
       String projectId,
-      List<RespondentDto> respondentList});
+      List<RespondentDto> list});
 }
 
 /// @nodoc
@@ -278,7 +276,7 @@ class __$RespondentListDtoCopyWithImpl<$Res>
     Object interviewerId = freezed,
     Object teamId = freezed,
     Object projectId = freezed,
-    Object respondentList = freezed,
+    Object list = freezed,
   }) {
     return _then(_RespondentListDto(
       surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
@@ -287,9 +285,7 @@ class __$RespondentListDtoCopyWithImpl<$Res>
           : interviewerId as String,
       teamId: teamId == freezed ? _value.teamId : teamId as String,
       projectId: projectId == freezed ? _value.projectId : projectId as String,
-      respondentList: respondentList == freezed
-          ? _value.respondentList
-          : respondentList as List<RespondentDto>,
+      list: list == freezed ? _value.list : list as List<RespondentDto>,
     ));
   }
 }
@@ -303,12 +299,12 @@ class _$_RespondentListDto extends _RespondentListDto {
       @required this.interviewerId,
       @required this.teamId,
       @required this.projectId,
-      @required this.respondentList})
+      @required this.list})
       : assert(surveyId != null),
         assert(interviewerId != null),
         assert(teamId != null),
         assert(projectId != null),
-        assert(respondentList != null),
+        assert(list != null),
         super._();
 
   factory _$_RespondentListDto.fromJson(Map<String, dynamic> json) =>
@@ -323,11 +319,11 @@ class _$_RespondentListDto extends _RespondentListDto {
   @override
   final String projectId;
   @override
-  final List<RespondentDto> respondentList;
+  final List<RespondentDto> list;
 
   @override
   String toString() {
-    return 'RespondentListDto(surveyId: $surveyId, interviewerId: $interviewerId, teamId: $teamId, projectId: $projectId, respondentList: $respondentList)';
+    return 'RespondentListDto(surveyId: $surveyId, interviewerId: $interviewerId, teamId: $teamId, projectId: $projectId, list: $list)';
   }
 
   @override
@@ -345,9 +341,8 @@ class _$_RespondentListDto extends _RespondentListDto {
             (identical(other.projectId, projectId) ||
                 const DeepCollectionEquality()
                     .equals(other.projectId, projectId)) &&
-            (identical(other.respondentList, respondentList) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentList, respondentList)));
+            (identical(other.list, list) ||
+                const DeepCollectionEquality().equals(other.list, list)));
   }
 
   @override
@@ -357,7 +352,7 @@ class _$_RespondentListDto extends _RespondentListDto {
       const DeepCollectionEquality().hash(interviewerId) ^
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(projectId) ^
-      const DeepCollectionEquality().hash(respondentList);
+      const DeepCollectionEquality().hash(list);
 
   @override
   _$RespondentListDtoCopyWith<_RespondentListDto> get copyWith =>
@@ -376,7 +371,7 @@ abstract class _RespondentListDto extends RespondentListDto {
       @required String interviewerId,
       @required String teamId,
       @required String projectId,
-      @required List<RespondentDto> respondentList}) = _$_RespondentListDto;
+      @required List<RespondentDto> list}) = _$_RespondentListDto;
 
   factory _RespondentListDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentListDto.fromJson;
@@ -390,7 +385,7 @@ abstract class _RespondentListDto extends RespondentListDto {
   @override
   String get projectId;
   @override
-  List<RespondentDto> get respondentList;
+  List<RespondentDto> get list;
   @override
   _$RespondentListDtoCopyWith<_RespondentListDto> get copyWith;
 }

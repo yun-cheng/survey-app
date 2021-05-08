@@ -61,7 +61,7 @@ GetIt $initGetIt(
   gh.factory<QuestionListBloc>(() => QuestionListBloc(get<IQuizRepository>()));
   gh.factory<QuestionPageBloc>(() => QuestionPageBloc(get<QuestionListBloc>()));
   gh.factory<QuizListBloc>(() => QuizListBloc(get<IQuizListRepository>()));
-  gh.factory<SurveyPageBloc>(() => SurveyPageBloc());
+  gh.factory<SurveyPageBloc>(() => SurveyPageBloc(get<ISurveyRepository>()));
   gh.factory<AnswerBloc>(
       () => AnswerBloc(get<IAnswerAlgorithm>(), get<IAnswerStatusAlgorithm>()));
   gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));

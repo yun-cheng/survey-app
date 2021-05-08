@@ -49,16 +49,16 @@ abstract class RespondentListDto implements _$RespondentListDto {
     @required String interviewerId,
     @required String teamId,
     @required String projectId,
-    @required List<RespondentDto> respondentList,
+    @required List<RespondentDto> list,
   }) = _RespondentListDto;
 
-  factory RespondentListDto.fromDomain(RespondentList respondentList) {
+  factory RespondentListDto.fromDomain(RespondentList domain) {
     return RespondentListDto(
-      surveyId: respondentList.surveyId.getValueAnyway(),
-      interviewerId: respondentList.interviewerId.getValueAnyway(),
-      teamId: respondentList.teamId.getValueAnyway(),
-      projectId: respondentList.projectId.getValueAnyway(),
-      respondentList: respondentList.respondentList
+      surveyId: domain.surveyId.getValueAnyway(),
+      interviewerId: domain.interviewerId.getValueAnyway(),
+      teamId: domain.teamId.getValueAnyway(),
+      projectId: domain.projectId.getValueAnyway(),
+      list: domain.respondentList
           .map((respondent) => RespondentDto.fromDomain(respondent))
           .asList(),
     );
@@ -70,8 +70,7 @@ abstract class RespondentListDto implements _$RespondentListDto {
       interviewerId: InterviewerId(interviewerId),
       teamId: TeamId(teamId),
       projectId: ProjectId(projectId),
-      respondentList:
-          respondentList.map((dto) => dto.toDomain()).toImmutableList(),
+      respondentList: list.map((dto) => dto.toDomain()).toImmutableList(),
     );
   }
 

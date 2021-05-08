@@ -15,17 +15,11 @@ class _$AnswerStatusTearOff {
 
 // ignore: unused_element
   _AnswerStatus call(
-      {@required QuestionId id,
-      @required SerialNumber serialNumber,
-      @required AnswerStatusType type,
-      @required Warning warning,
+      {@required AnswerStatusType type,
       @required bool isSpecialAnswer,
-      KtMap<ChoiceId, AnswerStatusType> noteMap}) {
+      @required KtMap<ChoiceId, AnswerStatusType> noteMap}) {
     return _AnswerStatus(
-      id: id,
-      serialNumber: serialNumber,
       type: type,
-      warning: warning,
       isSpecialAnswer: isSpecialAnswer,
       noteMap: noteMap,
     );
@@ -38,10 +32,7 @@ const $AnswerStatus = _$AnswerStatusTearOff();
 
 /// @nodoc
 mixin _$AnswerStatus {
-  QuestionId get id;
-  SerialNumber get serialNumber;
   AnswerStatusType get type;
-  Warning get warning;
   bool get isSpecialAnswer;
   KtMap<ChoiceId, AnswerStatusType> get noteMap;
 
@@ -54,14 +45,9 @@ abstract class $AnswerStatusCopyWith<$Res> {
           AnswerStatus value, $Res Function(AnswerStatus) then) =
       _$AnswerStatusCopyWithImpl<$Res>;
   $Res call(
-      {QuestionId id,
-      SerialNumber serialNumber,
-      AnswerStatusType type,
-      Warning warning,
+      {AnswerStatusType type,
       bool isSpecialAnswer,
       KtMap<ChoiceId, AnswerStatusType> noteMap});
-
-  $WarningCopyWith<$Res> get warning;
 }
 
 /// @nodoc
@@ -74,20 +60,12 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object serialNumber = freezed,
     Object type = freezed,
-    Object warning = freezed,
     Object isSpecialAnswer = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as QuestionId,
-      serialNumber: serialNumber == freezed
-          ? _value.serialNumber
-          : serialNumber as SerialNumber,
       type: type == freezed ? _value.type : type as AnswerStatusType,
-      warning: warning == freezed ? _value.warning : warning as Warning,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer as bool,
@@ -95,16 +73,6 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
           ? _value.noteMap
           : noteMap as KtMap<ChoiceId, AnswerStatusType>,
     ));
-  }
-
-  @override
-  $WarningCopyWith<$Res> get warning {
-    if (_value.warning == null) {
-      return null;
-    }
-    return $WarningCopyWith<$Res>(_value.warning, (value) {
-      return _then(_value.copyWith(warning: value));
-    });
   }
 }
 
@@ -116,15 +84,9 @@ abstract class _$AnswerStatusCopyWith<$Res>
       __$AnswerStatusCopyWithImpl<$Res>;
   @override
   $Res call(
-      {QuestionId id,
-      SerialNumber serialNumber,
-      AnswerStatusType type,
-      Warning warning,
+      {AnswerStatusType type,
       bool isSpecialAnswer,
       KtMap<ChoiceId, AnswerStatusType> noteMap});
-
-  @override
-  $WarningCopyWith<$Res> get warning;
 }
 
 /// @nodoc
@@ -139,20 +101,12 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object serialNumber = freezed,
     Object type = freezed,
-    Object warning = freezed,
     Object isSpecialAnswer = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_AnswerStatus(
-      id: id == freezed ? _value.id : id as QuestionId,
-      serialNumber: serialNumber == freezed
-          ? _value.serialNumber
-          : serialNumber as SerialNumber,
       type: type == freezed ? _value.type : type as AnswerStatusType,
-      warning: warning == freezed ? _value.warning : warning as Warning,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer as bool,
@@ -166,27 +120,16 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
 /// @nodoc
 class _$_AnswerStatus extends _AnswerStatus {
   const _$_AnswerStatus(
-      {@required this.id,
-      @required this.serialNumber,
-      @required this.type,
-      @required this.warning,
+      {@required this.type,
       @required this.isSpecialAnswer,
-      this.noteMap})
-      : assert(id != null),
-        assert(serialNumber != null),
-        assert(type != null),
-        assert(warning != null),
+      @required this.noteMap})
+      : assert(type != null),
         assert(isSpecialAnswer != null),
+        assert(noteMap != null),
         super._();
 
   @override
-  final QuestionId id;
-  @override
-  final SerialNumber serialNumber;
-  @override
   final AnswerStatusType type;
-  @override
-  final Warning warning;
   @override
   final bool isSpecialAnswer;
   @override
@@ -194,23 +137,15 @@ class _$_AnswerStatus extends _AnswerStatus {
 
   @override
   String toString() {
-    return 'AnswerStatus(id: $id, serialNumber: $serialNumber, type: $type, warning: $warning, isSpecialAnswer: $isSpecialAnswer, noteMap: $noteMap)';
+    return 'AnswerStatus(type: $type, isSpecialAnswer: $isSpecialAnswer, noteMap: $noteMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AnswerStatus &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.warning, warning) ||
-                const DeepCollectionEquality()
-                    .equals(other.warning, warning)) &&
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
                 const DeepCollectionEquality()
                     .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
@@ -221,10 +156,7 @@ class _$_AnswerStatus extends _AnswerStatus {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
       const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(warning) ^
       const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(noteMap);
 
@@ -236,21 +168,12 @@ class _$_AnswerStatus extends _AnswerStatus {
 abstract class _AnswerStatus extends AnswerStatus {
   const _AnswerStatus._() : super._();
   const factory _AnswerStatus(
-      {@required QuestionId id,
-      @required SerialNumber serialNumber,
-      @required AnswerStatusType type,
-      @required Warning warning,
+      {@required AnswerStatusType type,
       @required bool isSpecialAnswer,
-      KtMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
+      @required KtMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
 
   @override
-  QuestionId get id;
-  @override
-  SerialNumber get serialNumber;
-  @override
   AnswerStatusType get type;
-  @override
-  Warning get warning;
   @override
   bool get isSpecialAnswer;
   @override

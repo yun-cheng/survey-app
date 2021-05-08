@@ -17,6 +17,7 @@ abstract class ResponseState with _$ResponseState {
     @required bool withResponseId,
     @required UniqueId responseId,
     @required Response mainResponse,
+    @required KtList<Response> respondentResponseList,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
@@ -34,5 +35,6 @@ abstract class ResponseState with _$ResponseState {
         withResponseId: false,
         responseId: UniqueId(),
         mainResponse: Response.empty(),
+        respondentResponseList: const KtList<Response>.empty(),
       );
 }

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
+import 'answer.dart';
 import 'value_objects.dart';
 
 part 'expression.freezed.dart';
@@ -11,75 +12,62 @@ abstract class Expression implements _$Expression {
 
   const factory Expression({
     @required QuestionId field,
-    AnswerBody isEqualTo,
-    AnswerBody notEqualTo,
-    AnswerBody isLessThan,
-    AnswerBody isLessThanOrEqualTo,
-    AnswerBody isGreaterThan,
-    AnswerBody isGreaterThanOrEqualTo,
-    AnswerBody isSameList,
-    AnswerBody notSameList,
-    AnswerBody isIn,
-    AnswerBody notIn,
-    AnswerBody contains,
-    AnswerBody notContains,
-    AnswerBody containsAny,
-    AnswerBody notContainsAny,
-    AnswerBody containsAll,
-    AnswerBody notContainsAll,
-    AnswerBody isType,
+    @required Operator operator,
+    @required Answer comparisonValue,
   }) = _Expression;
 
-  bool evaluate(AnswerBody answerBody) {
-    dynamic answerValue = answerBody.getOrCrash();
-    if (answerValue is ChoiceId) {
-      answerValue = answerValue.getOrCrash();
-    }
+  bool evaluate(Answer answer) {
+    if (answer.valueIsFinished) {
+      final answerComparableValue = answer.toComparableValue();
+      final comparisonComparableValue = comparisonValue.toComparableValue();
 
-    if (answerBody.isNotEmpty) {
-      if (isEqualTo.isNotEmpty) {
-        return answerValue == isEqualTo.getOrCrash();
-      } else if (notEqualTo.isNotEmpty) {
-        return answerValue != notEqualTo.getOrCrash();
-      } else if (isLessThan.isNotEmpty) {
-        return num.parse(answerValue) < num.parse(isLessThan.getOrCrash());
-      } else if (isLessThanOrEqualTo.isNotEmpty) {
-        return num.parse(answerValue) <=
-            num.parse(isLessThanOrEqualTo.getOrCrash());
-      } else if (isGreaterThan.isNotEmpty) {
-        return num.parse(answerValue) > num.parse(isGreaterThan.getOrCrash());
-      } else if (isGreaterThanOrEqualTo.isNotEmpty) {
-        return num.parse(answerValue) >=
-            num.parse(isGreaterThanOrEqualTo.getOrCrash());
-      } else if (isSameList.isNotEmpty) {
-        return (isSameList.getOrCrash() as List).kt.toSet() ==
-            (answerValue as List).kt.toSet();
-      } else if (notSameList.isNotEmpty) {
-        return (notSameList.getOrCrash() as List).kt.toSet() !=
-            (answerValue as List).kt.toSet();
-      } else if (isIn.isNotEmpty) {
-        return (isIn.getOrCrash() as List).contains(answerValue);
-      } else if (notIn.isNotEmpty) {
-        return !(notIn.getOrCrash() as List).contains(answerValue);
-      } else if (contains.isNotEmpty) {
-        return (answerValue as List).contains(contains.getOrCrash());
-      } else if (notContains.isNotEmpty) {
-        return !(answerValue as List).contains(notContains.getOrCrash());
-      } else if (containsAll.isNotEmpty) {
-        return (answerValue as List)
-            .kt
-            .containsAll((containsAll.getOrCrash() as List).kt);
-      } else if (notContainsAll.isNotEmpty) {
-        return !(answerValue as List)
-            .kt
-            .containsAll((notContainsAll.getOrCrash() as List).kt);
-      } else if (containsAny.isNotEmpty) {
-        return ((answerValue as List).kt)
-            .intersect((containsAny.getOrCrash() as List).kt)
+      if (operator == Operator.isEqualTo()) {
+        return answerComparableValue == comparisonComparableValue;
+      } else if (operator == Operator.notEqualTo()) {
+        return answerComparableValue != comparisonComparableValue;
+      } else if (operator == Operator.isLessThan()) {
+        return num.parse(answerComparableValue) <
+            num.parse(comparisonComparableValue);
+      } else if (operator == Operator.isLessThanOrEqualTo()) {
+        return num.parse(answerComparableValue) <=
+            num.parse(comparisonComparableValue);
+      } else if (operator == Operator.isGreaterThan()) {
+        return num.parse(answerComparableValue) >
+            num.parse(comparisonComparableValue);
+      } else if (operator == Operator.isGreaterThanOrEqualTo()) {
+        return num.parse(answerComparableValue) >=
+            num.parse(comparisonComparableValue);
+      } else if (operator == Operator.isSameList()) {
+        return comparisonComparableValue.toSet() ==
+            answerComparableValue.toSet();
+      } else if (operator == Operator.notSameList()) {
+        return comparisonComparableValue.toSet() !=
+            answerComparableValue.toSet();
+      } else if (operator == Operator.isIn()) {
+        return (comparisonComparableValue as KtList)
+            .contains(answerComparableValue);
+      } else if (operator == Operator.notIn()) {
+        return !(comparisonComparableValue as KtList)
+            .contains(answerComparableValue);
+      } else if (operator == Operator.contains()) {
+        return (answerComparableValue as KtList)
+            .contains(comparisonComparableValue);
+      } else if (operator == Operator.notContains()) {
+        return !(answerComparableValue as KtList)
+            .contains(comparisonComparableValue);
+      } else if (operator == Operator.containsAll()) {
+        return (answerComparableValue as KtList)
+            .containsAll(comparisonComparableValue as KtList);
+      } else if (operator == Operator.notContainsAll()) {
+        return !(answerComparableValue as KtList)
+            .containsAll(comparisonComparableValue as KtList);
+      } else if (operator == Operator.containsAny()) {
+        return (answerComparableValue as KtList)
+            .intersect(comparisonComparableValue as KtList)
             .isNotEmpty();
-      } else if (notContainsAny.isNotEmpty) {
-        return ((answerValue as List).kt)
-            .intersect((notContainsAny.getOrCrash() as List).kt)
+      } else if (operator == Operator.notContainsAny()) {
+        return (answerComparableValue as KtList)
+            .intersect(comparisonComparableValue as KtList)
             .isEmpty();
       }
     }

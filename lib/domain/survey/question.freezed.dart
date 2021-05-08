@@ -18,12 +18,12 @@ class _$QuestionTearOff {
       {@required QuestionId id,
       @required bool hideId,
       @required SerialNumber serialNumber,
-      @required QuestionBody body,
+      @required KtList<FormattedText> body,
+      @required String stringBody,
       @required QuestionNote note,
       @required QuestionType type,
       @required FullExpression show,
       @required KtList<Choice> choiceList,
-      @required KtList<Choice> specialAnswerList,
       @required bool hasSpecialAnswer,
       @required FullExpression validateAnswer,
       @required QuestionId upperQuestionId,
@@ -34,11 +34,11 @@ class _$QuestionTearOff {
       hideId: hideId,
       serialNumber: serialNumber,
       body: body,
+      stringBody: stringBody,
       note: note,
       type: type,
       show: show,
       choiceList: choiceList,
-      specialAnswerList: specialAnswerList,
       hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer,
       upperQuestionId: upperQuestionId,
@@ -57,12 +57,12 @@ mixin _$Question {
   QuestionId get id;
   bool get hideId;
   SerialNumber get serialNumber;
-  QuestionBody get body;
+  KtList<FormattedText> get body;
+  String get stringBody;
   QuestionNote get note;
   QuestionType get type;
   FullExpression get show;
   KtList<Choice> get choiceList;
-  KtList<Choice> get specialAnswerList;
   bool get hasSpecialAnswer;
   FullExpression get validateAnswer;
   QuestionId get upperQuestionId;
@@ -80,12 +80,12 @@ abstract class $QuestionCopyWith<$Res> {
       {QuestionId id,
       bool hideId,
       SerialNumber serialNumber,
-      QuestionBody body,
+      KtList<FormattedText> body,
+      String stringBody,
       QuestionNote note,
       QuestionType type,
       FullExpression show,
       KtList<Choice> choiceList,
-      KtList<Choice> specialAnswerList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       QuestionId upperQuestionId,
@@ -110,11 +110,11 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
     Object hideId = freezed,
     Object serialNumber = freezed,
     Object body = freezed,
+    Object stringBody = freezed,
     Object note = freezed,
     Object type = freezed,
     Object show = freezed,
     Object choiceList = freezed,
-    Object specialAnswerList = freezed,
     Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
@@ -127,16 +127,15 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber as SerialNumber,
-      body: body == freezed ? _value.body : body as QuestionBody,
+      body: body == freezed ? _value.body : body as KtList<FormattedText>,
+      stringBody:
+          stringBody == freezed ? _value.stringBody : stringBody as String,
       note: note == freezed ? _value.note : note as QuestionNote,
       type: type == freezed ? _value.type : type as QuestionType,
       show: show == freezed ? _value.show : show as FullExpression,
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList as KtList<Choice>,
-      specialAnswerList: specialAnswerList == freezed
-          ? _value.specialAnswerList
-          : specialAnswerList as KtList<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
           : hasSpecialAnswer as bool,
@@ -183,12 +182,12 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       {QuestionId id,
       bool hideId,
       SerialNumber serialNumber,
-      QuestionBody body,
+      KtList<FormattedText> body,
+      String stringBody,
       QuestionNote note,
       QuestionType type,
       FullExpression show,
       KtList<Choice> choiceList,
-      KtList<Choice> specialAnswerList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       QuestionId upperQuestionId,
@@ -216,11 +215,11 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     Object hideId = freezed,
     Object serialNumber = freezed,
     Object body = freezed,
+    Object stringBody = freezed,
     Object note = freezed,
     Object type = freezed,
     Object show = freezed,
     Object choiceList = freezed,
-    Object specialAnswerList = freezed,
     Object hasSpecialAnswer = freezed,
     Object validateAnswer = freezed,
     Object upperQuestionId = freezed,
@@ -233,16 +232,15 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber as SerialNumber,
-      body: body == freezed ? _value.body : body as QuestionBody,
+      body: body == freezed ? _value.body : body as KtList<FormattedText>,
+      stringBody:
+          stringBody == freezed ? _value.stringBody : stringBody as String,
       note: note == freezed ? _value.note : note as QuestionNote,
       type: type == freezed ? _value.type : type as QuestionType,
       show: show == freezed ? _value.show : show as FullExpression,
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList as KtList<Choice>,
-      specialAnswerList: specialAnswerList == freezed
-          ? _value.specialAnswerList
-          : specialAnswerList as KtList<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
           : hasSpecialAnswer as bool,
@@ -267,11 +265,11 @@ class _$_Question extends _Question {
       @required this.hideId,
       @required this.serialNumber,
       @required this.body,
+      @required this.stringBody,
       @required this.note,
       @required this.type,
       @required this.show,
       @required this.choiceList,
-      @required this.specialAnswerList,
       @required this.hasSpecialAnswer,
       @required this.validateAnswer,
       @required this.upperQuestionId,
@@ -281,11 +279,11 @@ class _$_Question extends _Question {
         assert(hideId != null),
         assert(serialNumber != null),
         assert(body != null),
+        assert(stringBody != null),
         assert(note != null),
         assert(type != null),
         assert(show != null),
         assert(choiceList != null),
-        assert(specialAnswerList != null),
         assert(hasSpecialAnswer != null),
         assert(validateAnswer != null),
         assert(upperQuestionId != null),
@@ -300,7 +298,9 @@ class _$_Question extends _Question {
   @override
   final SerialNumber serialNumber;
   @override
-  final QuestionBody body;
+  final KtList<FormattedText> body;
+  @override
+  final String stringBody;
   @override
   final QuestionNote note;
   @override
@@ -309,8 +309,6 @@ class _$_Question extends _Question {
   final FullExpression show;
   @override
   final KtList<Choice> choiceList;
-  @override
-  final KtList<Choice> specialAnswerList;
   @override
   final bool hasSpecialAnswer;
   @override
@@ -324,7 +322,7 @@ class _$_Question extends _Question {
 
   @override
   String toString() {
-    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, note: $note, type: $type, show: $show, choiceList: $choiceList, specialAnswerList: $specialAnswerList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded)';
+    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, stringBody: $stringBody, note: $note, type: $type, show: $show, choiceList: $choiceList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded)';
   }
 
   @override
@@ -340,6 +338,9 @@ class _$_Question extends _Question {
                     .equals(other.serialNumber, serialNumber)) &&
             (identical(other.body, body) ||
                 const DeepCollectionEquality().equals(other.body, body)) &&
+            (identical(other.stringBody, stringBody) ||
+                const DeepCollectionEquality()
+                    .equals(other.stringBody, stringBody)) &&
             (identical(other.note, note) ||
                 const DeepCollectionEquality().equals(other.note, note)) &&
             (identical(other.type, type) ||
@@ -349,9 +350,6 @@ class _$_Question extends _Question {
             (identical(other.choiceList, choiceList) ||
                 const DeepCollectionEquality()
                     .equals(other.choiceList, choiceList)) &&
-            (identical(other.specialAnswerList, specialAnswerList) ||
-                const DeepCollectionEquality()
-                    .equals(other.specialAnswerList, specialAnswerList)) &&
             (identical(other.hasSpecialAnswer, hasSpecialAnswer) ||
                 const DeepCollectionEquality()
                     .equals(other.hasSpecialAnswer, hasSpecialAnswer)) &&
@@ -376,11 +374,11 @@ class _$_Question extends _Question {
       const DeepCollectionEquality().hash(hideId) ^
       const DeepCollectionEquality().hash(serialNumber) ^
       const DeepCollectionEquality().hash(body) ^
+      const DeepCollectionEquality().hash(stringBody) ^
       const DeepCollectionEquality().hash(note) ^
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(show) ^
       const DeepCollectionEquality().hash(choiceList) ^
-      const DeepCollectionEquality().hash(specialAnswerList) ^
       const DeepCollectionEquality().hash(hasSpecialAnswer) ^
       const DeepCollectionEquality().hash(validateAnswer) ^
       const DeepCollectionEquality().hash(upperQuestionId) ^
@@ -398,12 +396,12 @@ abstract class _Question extends Question {
       {@required QuestionId id,
       @required bool hideId,
       @required SerialNumber serialNumber,
-      @required QuestionBody body,
+      @required KtList<FormattedText> body,
+      @required String stringBody,
       @required QuestionNote note,
       @required QuestionType type,
       @required FullExpression show,
       @required KtList<Choice> choiceList,
-      @required KtList<Choice> specialAnswerList,
       @required bool hasSpecialAnswer,
       @required FullExpression validateAnswer,
       @required QuestionId upperQuestionId,
@@ -417,7 +415,9 @@ abstract class _Question extends Question {
   @override
   SerialNumber get serialNumber;
   @override
-  QuestionBody get body;
+  KtList<FormattedText> get body;
+  @override
+  String get stringBody;
   @override
   QuestionNote get note;
   @override
@@ -426,8 +426,6 @@ abstract class _Question extends Question {
   FullExpression get show;
   @override
   KtList<Choice> get choiceList;
-  @override
-  KtList<Choice> get specialAnswerList;
   @override
   bool get hasSpecialAnswer;
   @override

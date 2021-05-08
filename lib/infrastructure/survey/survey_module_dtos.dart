@@ -5,7 +5,7 @@ import '../../domain/survey/survey_module.dart';
 import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
-import 'question_list_dtos.dart';
+import 'question_dtos.dart';
 
 part 'survey_module_dtos.freezed.dart';
 part 'survey_module_dtos.g.dart';

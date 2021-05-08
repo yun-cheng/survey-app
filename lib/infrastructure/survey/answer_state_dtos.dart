@@ -1,11 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/answer/answer_bloc.dart';
 import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
-import 'question_list_dtos.dart';
+import 'question_dtos.dart';
 
 part 'answer_state_dtos.freezed.dart';
 part 'answer_state_dtos.g.dart';
@@ -18,10 +19,12 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
     @required Map<String, AnswerDto> answerMap,
     @required Map<String, AnswerStatusDto> answerStatusMap,
     @required List<QuestionDto> questionList,
+    @required QuestionDto question,
     @required bool isReadOnly,
     @required bool isRecodeModule,
     @required Map<String, AnswerDto> mainAnswerMap,
     @required Map<String, AnswerStatusDto> mainAnswerStatusMap,
+    @required Map<String, dynamic> loadState,
   }) = _AnswerStateDto;
 
   factory AnswerStateDto.fromDomain(AnswerState domain) {
@@ -36,6 +39,7 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
           .asMap(),
       questionList:
           domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
+      question: QuestionDto.fromDomain(domain.question),
       isReadOnly: domain.isReadOnly,
       isRecodeModule: domain.isRecodeModule,
       mainAnswerMap: domain.mainAnswerMap
@@ -46,6 +50,7 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
           .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
+      loadState: domain.loadState.toJson(),
     );
   }
 
@@ -58,6 +63,7 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
+      question: question.toDomain(),
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
       mainAnswerMap: KtMap.from(mainAnswerMap)
@@ -66,6 +72,7 @@ abstract class AnswerStateDto implements _$AnswerStateDto {
       mainAnswerStatusMap: KtMap.from(mainAnswerStatusMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
+      loadState: LoadState.fromJson(loadState),
     );
   }
 

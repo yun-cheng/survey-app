@@ -35,23 +35,20 @@ class DropdownBox extends StatelessWidget {
         // H_ 如果是連鎖題下層要篩選選項
         if (question.upperQuestionId.isNotEmpty) {
           final upperAnswer = answerMap[question.upperQuestionId];
-          thisChoiceList = question.choiceList.filter((choice) =>
-              choice.upperChoiceId == upperAnswer.body.getValueAnyway());
+          thisChoiceList = question.choiceList.filter(
+              (choice) => choice.upperChoiceId == upperAnswer.value?.id);
         }
 
         // H_ 如果是唯讀，只保留選擇的選項
         if (state.isReadOnly || state.isRecodeModule) {
           thisChoiceList = thisChoiceList
-              .filter((choice) => thisAnswer.body.contains(choice.id));
+              .filter((choice) => thisAnswer.contains(choice.simple()));
         }
 
         LoggerService.simple.i('DropdownBox rebuild!!!');
 
         return DropdownButton(
-          // NOTE 雖然不確定背後是什麼問題，但這樣就解決無法呈現選擇的選項的問題
-          value: thisAnswer.body.getOrCrash() == ''
-              ? null
-              : thisAnswer.body.getOrCrash(),
+          value: thisAnswer.value?.id,
           style: kPTextStyle.copyWith(
             color: Colors.black,
           ),

@@ -24,11 +24,10 @@ class TextBox extends StatelessWidget {
         context.select((AnswerBloc bloc) => bloc.state.isRecodeModule);
     // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
     final note = context.select((AnswerBloc bloc) =>
-        (isRecodeModule ? bloc.state.mainAnswerMap : bloc.state.answerMap)
-            .getOrDefault(question.id, Answer.empty())
-            .body
-            .getOrCrash()
-            .toString());
+            (isRecodeModule ? bloc.state.mainAnswerMap : bloc.state.answerMap)
+                .getOrDefault(question.id, Answer.empty())
+                .value as String) ??
+        '';
 
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
         // HIGHLIGHT 該頁題目有變更，且包含該題時，才要 rebuild，答案變更時則不須 rebuild

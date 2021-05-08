@@ -15,14 +15,20 @@ class _$AnswerTearOff {
 
 // ignore: unused_element
   _Answer call(
-      {@required QuestionId id,
-      @required SerialNumber serialNumber,
-      AnswerBody body,
-      KtMap<ChoiceId, AnswerBody> noteMap}) {
+      {@required AnswerType type,
+      @required bool withNote,
+      String stringValue,
+      int intValue,
+      SimpleChoice choiceValue,
+      KtList<SimpleChoice> choiceListValue,
+      KtMap<ChoiceId, String> noteMap}) {
     return _Answer(
-      id: id,
-      serialNumber: serialNumber,
-      body: body,
+      type: type,
+      withNote: withNote,
+      stringValue: stringValue,
+      intValue: intValue,
+      choiceValue: choiceValue,
+      choiceListValue: choiceListValue,
       noteMap: noteMap,
     );
   }
@@ -34,10 +40,13 @@ const $Answer = _$AnswerTearOff();
 
 /// @nodoc
 mixin _$Answer {
-  QuestionId get id;
-  SerialNumber get serialNumber;
-  AnswerBody get body;
-  KtMap<ChoiceId, AnswerBody> get noteMap;
+  AnswerType get type;
+  bool get withNote;
+  String get stringValue;
+  int get intValue;
+  SimpleChoice get choiceValue;
+  KtList<SimpleChoice> get choiceListValue;
+  KtMap<ChoiceId, String> get noteMap;
 
   $AnswerCopyWith<Answer> get copyWith;
 }
@@ -47,10 +56,15 @@ abstract class $AnswerCopyWith<$Res> {
   factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) =
       _$AnswerCopyWithImpl<$Res>;
   $Res call(
-      {QuestionId id,
-      SerialNumber serialNumber,
-      AnswerBody body,
-      KtMap<ChoiceId, AnswerBody> noteMap});
+      {AnswerType type,
+      bool withNote,
+      String stringValue,
+      int intValue,
+      SimpleChoice choiceValue,
+      KtList<SimpleChoice> choiceListValue,
+      KtMap<ChoiceId, String> noteMap});
+
+  $SimpleChoiceCopyWith<$Res> get choiceValue;
 }
 
 /// @nodoc
@@ -63,21 +77,40 @@ class _$AnswerCopyWithImpl<$Res> implements $AnswerCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object serialNumber = freezed,
-    Object body = freezed,
+    Object type = freezed,
+    Object withNote = freezed,
+    Object stringValue = freezed,
+    Object intValue = freezed,
+    Object choiceValue = freezed,
+    Object choiceListValue = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as QuestionId,
-      serialNumber: serialNumber == freezed
-          ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      body: body == freezed ? _value.body : body as AnswerBody,
+      type: type == freezed ? _value.type : type as AnswerType,
+      withNote: withNote == freezed ? _value.withNote : withNote as bool,
+      stringValue:
+          stringValue == freezed ? _value.stringValue : stringValue as String,
+      intValue: intValue == freezed ? _value.intValue : intValue as int,
+      choiceValue: choiceValue == freezed
+          ? _value.choiceValue
+          : choiceValue as SimpleChoice,
+      choiceListValue: choiceListValue == freezed
+          ? _value.choiceListValue
+          : choiceListValue as KtList<SimpleChoice>,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMap<ChoiceId, AnswerBody>,
+          : noteMap as KtMap<ChoiceId, String>,
     ));
+  }
+
+  @override
+  $SimpleChoiceCopyWith<$Res> get choiceValue {
+    if (_value.choiceValue == null) {
+      return null;
+    }
+    return $SimpleChoiceCopyWith<$Res>(_value.choiceValue, (value) {
+      return _then(_value.copyWith(choiceValue: value));
+    });
   }
 }
 
@@ -87,10 +120,16 @@ abstract class _$AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       __$AnswerCopyWithImpl<$Res>;
   @override
   $Res call(
-      {QuestionId id,
-      SerialNumber serialNumber,
-      AnswerBody body,
-      KtMap<ChoiceId, AnswerBody> noteMap});
+      {AnswerType type,
+      bool withNote,
+      String stringValue,
+      int intValue,
+      SimpleChoice choiceValue,
+      KtList<SimpleChoice> choiceListValue,
+      KtMap<ChoiceId, String> noteMap});
+
+  @override
+  $SimpleChoiceCopyWith<$Res> get choiceValue;
 }
 
 /// @nodoc
@@ -104,20 +143,29 @@ class __$AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object serialNumber = freezed,
-    Object body = freezed,
+    Object type = freezed,
+    Object withNote = freezed,
+    Object stringValue = freezed,
+    Object intValue = freezed,
+    Object choiceValue = freezed,
+    Object choiceListValue = freezed,
     Object noteMap = freezed,
   }) {
     return _then(_Answer(
-      id: id == freezed ? _value.id : id as QuestionId,
-      serialNumber: serialNumber == freezed
-          ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      body: body == freezed ? _value.body : body as AnswerBody,
+      type: type == freezed ? _value.type : type as AnswerType,
+      withNote: withNote == freezed ? _value.withNote : withNote as bool,
+      stringValue:
+          stringValue == freezed ? _value.stringValue : stringValue as String,
+      intValue: intValue == freezed ? _value.intValue : intValue as int,
+      choiceValue: choiceValue == freezed
+          ? _value.choiceValue
+          : choiceValue as SimpleChoice,
+      choiceListValue: choiceListValue == freezed
+          ? _value.choiceListValue
+          : choiceListValue as KtList<SimpleChoice>,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMap<ChoiceId, AnswerBody>,
+          : noteMap as KtMap<ChoiceId, String>,
     ));
   }
 }
@@ -125,36 +173,58 @@ class __$AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res>
 /// @nodoc
 class _$_Answer extends _Answer {
   const _$_Answer(
-      {@required this.id, @required this.serialNumber, this.body, this.noteMap})
-      : assert(id != null),
-        assert(serialNumber != null),
+      {@required this.type,
+      @required this.withNote,
+      this.stringValue,
+      this.intValue,
+      this.choiceValue,
+      this.choiceListValue,
+      this.noteMap})
+      : assert(type != null),
+        assert(withNote != null),
         super._();
 
   @override
-  final QuestionId id;
+  final AnswerType type;
   @override
-  final SerialNumber serialNumber;
+  final bool withNote;
   @override
-  final AnswerBody body;
+  final String stringValue;
   @override
-  final KtMap<ChoiceId, AnswerBody> noteMap;
+  final int intValue;
+  @override
+  final SimpleChoice choiceValue;
+  @override
+  final KtList<SimpleChoice> choiceListValue;
+  @override
+  final KtMap<ChoiceId, String> noteMap;
 
   @override
   String toString() {
-    return 'Answer(id: $id, serialNumber: $serialNumber, body: $body, noteMap: $noteMap)';
+    return 'Answer(type: $type, withNote: $withNote, stringValue: $stringValue, intValue: $intValue, choiceValue: $choiceValue, choiceListValue: $choiceListValue, noteMap: $noteMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Answer &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.serialNumber, serialNumber) ||
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.withNote, withNote) ||
                 const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)) &&
+                    .equals(other.withNote, withNote)) &&
+            (identical(other.stringValue, stringValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.stringValue, stringValue)) &&
+            (identical(other.intValue, intValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.intValue, intValue)) &&
+            (identical(other.choiceValue, choiceValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.choiceValue, choiceValue)) &&
+            (identical(other.choiceListValue, choiceListValue) ||
+                const DeepCollectionEquality()
+                    .equals(other.choiceListValue, choiceListValue)) &&
             (identical(other.noteMap, noteMap) ||
                 const DeepCollectionEquality().equals(other.noteMap, noteMap)));
   }
@@ -162,9 +232,12 @@ class _$_Answer extends _Answer {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(body) ^
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(withNote) ^
+      const DeepCollectionEquality().hash(stringValue) ^
+      const DeepCollectionEquality().hash(intValue) ^
+      const DeepCollectionEquality().hash(choiceValue) ^
+      const DeepCollectionEquality().hash(choiceListValue) ^
       const DeepCollectionEquality().hash(noteMap);
 
   @override
@@ -175,19 +248,28 @@ class _$_Answer extends _Answer {
 abstract class _Answer extends Answer {
   const _Answer._() : super._();
   const factory _Answer(
-      {@required QuestionId id,
-      @required SerialNumber serialNumber,
-      AnswerBody body,
-      KtMap<ChoiceId, AnswerBody> noteMap}) = _$_Answer;
+      {@required AnswerType type,
+      @required bool withNote,
+      String stringValue,
+      int intValue,
+      SimpleChoice choiceValue,
+      KtList<SimpleChoice> choiceListValue,
+      KtMap<ChoiceId, String> noteMap}) = _$_Answer;
 
   @override
-  QuestionId get id;
+  AnswerType get type;
   @override
-  SerialNumber get serialNumber;
+  bool get withNote;
   @override
-  AnswerBody get body;
+  String get stringValue;
   @override
-  KtMap<ChoiceId, AnswerBody> get noteMap;
+  int get intValue;
+  @override
+  SimpleChoice get choiceValue;
+  @override
+  KtList<SimpleChoice> get choiceListValue;
+  @override
+  KtMap<ChoiceId, String> get noteMap;
   @override
   _$AnswerCopyWith<_Answer> get copyWith;
 }

@@ -20,6 +20,7 @@ class _$ChoiceTearOff {
       @required ChoiceBody body,
       @required bool asNote,
       @required bool asSingle,
+      @required bool isSpecialAnswer,
       @required ChoiceGroup group,
       @required ChoiceId upperChoiceId}) {
     return _Choice(
@@ -28,6 +29,7 @@ class _$ChoiceTearOff {
       body: body,
       asNote: asNote,
       asSingle: asSingle,
+      isSpecialAnswer: isSpecialAnswer,
       group: group,
       upperChoiceId: upperChoiceId,
     );
@@ -45,6 +47,7 @@ mixin _$Choice {
   ChoiceBody get body;
   bool get asNote;
   bool get asSingle;
+  bool get isSpecialAnswer;
   ChoiceGroup get group;
   ChoiceId get upperChoiceId;
 
@@ -61,6 +64,7 @@ abstract class $ChoiceCopyWith<$Res> {
       ChoiceBody body,
       bool asNote,
       bool asSingle,
+      bool isSpecialAnswer,
       ChoiceGroup group,
       ChoiceId upperChoiceId});
 }
@@ -80,6 +84,7 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
     Object body = freezed,
     Object asNote = freezed,
     Object asSingle = freezed,
+    Object isSpecialAnswer = freezed,
     Object group = freezed,
     Object upperChoiceId = freezed,
   }) {
@@ -91,6 +96,9 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
       body: body == freezed ? _value.body : body as ChoiceBody,
       asNote: asNote == freezed ? _value.asNote : asNote as bool,
       asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
+      isSpecialAnswer: isSpecialAnswer == freezed
+          ? _value.isSpecialAnswer
+          : isSpecialAnswer as bool,
       group: group == freezed ? _value.group : group as ChoiceGroup,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
@@ -110,6 +118,7 @@ abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
       ChoiceBody body,
       bool asNote,
       bool asSingle,
+      bool isSpecialAnswer,
       ChoiceGroup group,
       ChoiceId upperChoiceId});
 }
@@ -130,6 +139,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
     Object body = freezed,
     Object asNote = freezed,
     Object asSingle = freezed,
+    Object isSpecialAnswer = freezed,
     Object group = freezed,
     Object upperChoiceId = freezed,
   }) {
@@ -141,6 +151,9 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
       body: body == freezed ? _value.body : body as ChoiceBody,
       asNote: asNote == freezed ? _value.asNote : asNote as bool,
       asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
+      isSpecialAnswer: isSpecialAnswer == freezed
+          ? _value.isSpecialAnswer
+          : isSpecialAnswer as bool,
       group: group == freezed ? _value.group : group as ChoiceGroup,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
@@ -157,6 +170,7 @@ class _$_Choice extends _Choice {
       @required this.body,
       @required this.asNote,
       @required this.asSingle,
+      @required this.isSpecialAnswer,
       @required this.group,
       @required this.upperChoiceId})
       : assert(serialNumber != null),
@@ -164,6 +178,7 @@ class _$_Choice extends _Choice {
         assert(body != null),
         assert(asNote != null),
         assert(asSingle != null),
+        assert(isSpecialAnswer != null),
         assert(group != null),
         assert(upperChoiceId != null),
         super._();
@@ -179,13 +194,15 @@ class _$_Choice extends _Choice {
   @override
   final bool asSingle;
   @override
+  final bool isSpecialAnswer;
+  @override
   final ChoiceGroup group;
   @override
   final ChoiceId upperChoiceId;
 
   @override
   String toString() {
-    return 'Choice(serialNumber: $serialNumber, id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, group: $group, upperChoiceId: $upperChoiceId)';
+    return 'Choice(serialNumber: $serialNumber, id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, group: $group, upperChoiceId: $upperChoiceId)';
   }
 
   @override
@@ -204,6 +221,9 @@ class _$_Choice extends _Choice {
             (identical(other.asSingle, asSingle) ||
                 const DeepCollectionEquality()
                     .equals(other.asSingle, asSingle)) &&
+            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
             (identical(other.group, group) ||
                 const DeepCollectionEquality().equals(other.group, group)) &&
             (identical(other.upperChoiceId, upperChoiceId) ||
@@ -219,6 +239,7 @@ class _$_Choice extends _Choice {
       const DeepCollectionEquality().hash(body) ^
       const DeepCollectionEquality().hash(asNote) ^
       const DeepCollectionEquality().hash(asSingle) ^
+      const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(group) ^
       const DeepCollectionEquality().hash(upperChoiceId);
 
@@ -235,6 +256,7 @@ abstract class _Choice extends Choice {
       @required ChoiceBody body,
       @required bool asNote,
       @required bool asSingle,
+      @required bool isSpecialAnswer,
       @required ChoiceGroup group,
       @required ChoiceId upperChoiceId}) = _$_Choice;
 
@@ -248,6 +270,8 @@ abstract class _Choice extends Choice {
   bool get asNote;
   @override
   bool get asSingle;
+  @override
+  bool get isSpecialAnswer;
   @override
   ChoiceGroup get group;
   @override

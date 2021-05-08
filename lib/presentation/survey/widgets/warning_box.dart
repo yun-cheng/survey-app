@@ -17,7 +17,7 @@ class WarningBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
       builder: (context, state) {
-        final warning = state.answerStatusMap[question.id].warning;
+        final warning = state.answerStatusMap[question.id].toWarning(question);
         return Visibility(
           visible: state.showWarning && !warning.isEmpty,
           child: Text(

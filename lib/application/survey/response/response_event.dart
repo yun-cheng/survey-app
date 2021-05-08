@@ -58,4 +58,8 @@ abstract class ResponseEvent with _$ResponseEvent {
     // NOTE 是否完成這份問卷
     @required bool responseFinished,
   }) = _EditFinished;
+
+  // H_9 更新 respondentResponseList，也就是此受訪者在不同模組的最新 response
+  const factory ResponseEvent.respondentResponseListUpdated() =
+      _RespondentResponseListUpdated;
 }

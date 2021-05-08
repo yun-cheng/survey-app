@@ -18,11 +18,16 @@ class _$SurveyPageStateDtoTearOff {
 
 // ignore: unused_element
   _SurveyPageStateDto call(
-      {@required int page,
+      {@required Map<String, dynamic> referenceListState,
+      @required List<ReferenceDto> referenceList,
+      Map<String, dynamic> surveyFailure,
+      @required RespondentDto respondent,
+      @required int page,
       @required int newestPage,
       @required List<QuestionDto> questionList,
       @required List<QuestionDto> pageQuestionList,
       @required List<QuestionDto> contentQuestionList,
+      @required Map<String, AnswerDto> answerMap,
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required bool isLastPage,
       @required WarningDto warning,
@@ -30,13 +35,21 @@ class _$SurveyPageStateDtoTearOff {
       @required Map<String, dynamic> loadState,
       @required Map<String, dynamic> restoreState,
       @required bool isRecodeModule,
-      @required List<QuestionDto> mainQuestionList}) {
+      @required List<QuestionDto> mainQuestionList,
+      @required List<ResponseDto> respondentResponseList,
+      @required String surveyId,
+      @required String moduleType}) {
     return _SurveyPageStateDto(
+      referenceListState: referenceListState,
+      referenceList: referenceList,
+      surveyFailure: surveyFailure,
+      respondent: respondent,
       page: page,
       newestPage: newestPage,
       questionList: questionList,
       pageQuestionList: pageQuestionList,
       contentQuestionList: contentQuestionList,
+      answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
       warning: warning,
@@ -45,6 +58,9 @@ class _$SurveyPageStateDtoTearOff {
       restoreState: restoreState,
       isRecodeModule: isRecodeModule,
       mainQuestionList: mainQuestionList,
+      respondentResponseList: respondentResponseList,
+      surveyId: surveyId,
+      moduleType: moduleType,
     );
   }
 
@@ -60,11 +76,16 @@ const $SurveyPageStateDto = _$SurveyPageStateDtoTearOff();
 
 /// @nodoc
 mixin _$SurveyPageStateDto {
+  Map<String, dynamic> get referenceListState;
+  List<ReferenceDto> get referenceList;
+  Map<String, dynamic> get surveyFailure;
+  RespondentDto get respondent;
   int get page;
   int get newestPage;
   List<QuestionDto> get questionList;
   List<QuestionDto> get pageQuestionList;
   List<QuestionDto> get contentQuestionList;
+  Map<String, AnswerDto> get answerMap;
   Map<String, AnswerStatusDto> get answerStatusMap;
   bool get isLastPage;
   WarningDto get warning;
@@ -73,6 +94,9 @@ mixin _$SurveyPageStateDto {
   Map<String, dynamic> get restoreState;
   bool get isRecodeModule;
   List<QuestionDto> get mainQuestionList;
+  List<ResponseDto> get respondentResponseList;
+  String get surveyId;
+  String get moduleType;
 
   Map<String, dynamic> toJson();
   $SurveyPageStateDtoCopyWith<SurveyPageStateDto> get copyWith;
@@ -84,11 +108,16 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
           SurveyPageStateDto value, $Res Function(SurveyPageStateDto) then) =
       _$SurveyPageStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {int page,
+      {Map<String, dynamic> referenceListState,
+      List<ReferenceDto> referenceList,
+      Map<String, dynamic> surveyFailure,
+      RespondentDto respondent,
+      int page,
       int newestPage,
       List<QuestionDto> questionList,
       List<QuestionDto> pageQuestionList,
       List<QuestionDto> contentQuestionList,
+      Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
       WarningDto warning,
@@ -96,8 +125,12 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
       Map<String, dynamic> loadState,
       Map<String, dynamic> restoreState,
       bool isRecodeModule,
-      List<QuestionDto> mainQuestionList});
+      List<QuestionDto> mainQuestionList,
+      List<ResponseDto> respondentResponseList,
+      String surveyId,
+      String moduleType});
 
+  $RespondentDtoCopyWith<$Res> get respondent;
   $WarningDtoCopyWith<$Res> get warning;
 }
 
@@ -112,11 +145,16 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object referenceListState = freezed,
+    Object referenceList = freezed,
+    Object surveyFailure = freezed,
+    Object respondent = freezed,
     Object page = freezed,
     Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
     Object contentQuestionList = freezed,
+    Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
     Object warning = freezed,
@@ -125,8 +163,23 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
     Object restoreState = freezed,
     Object isRecodeModule = freezed,
     Object mainQuestionList = freezed,
+    Object respondentResponseList = freezed,
+    Object surveyId = freezed,
+    Object moduleType = freezed,
   }) {
     return _then(_value.copyWith(
+      referenceListState: referenceListState == freezed
+          ? _value.referenceListState
+          : referenceListState as Map<String, dynamic>,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList as List<ReferenceDto>,
+      surveyFailure: surveyFailure == freezed
+          ? _value.surveyFailure
+          : surveyFailure as Map<String, dynamic>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent as RespondentDto,
       page: page == freezed ? _value.page : page as int,
       newestPage: newestPage == freezed ? _value.newestPage : newestPage as int,
       questionList: questionList == freezed
@@ -138,6 +191,9 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
       contentQuestionList: contentQuestionList == freezed
           ? _value.contentQuestionList
           : contentQuestionList as List<QuestionDto>,
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as Map<String, AnswerStatusDto>,
@@ -158,7 +214,23 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
           : mainQuestionList as List<QuestionDto>,
+      respondentResponseList: respondentResponseList == freezed
+          ? _value.respondentResponseList
+          : respondentResponseList as List<ResponseDto>,
+      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
+      moduleType:
+          moduleType == freezed ? _value.moduleType : moduleType as String,
     ));
+  }
+
+  @override
+  $RespondentDtoCopyWith<$Res> get respondent {
+    if (_value.respondent == null) {
+      return null;
+    }
+    return $RespondentDtoCopyWith<$Res>(_value.respondent, (value) {
+      return _then(_value.copyWith(respondent: value));
+    });
   }
 
   @override
@@ -180,11 +252,16 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       __$SurveyPageStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int page,
+      {Map<String, dynamic> referenceListState,
+      List<ReferenceDto> referenceList,
+      Map<String, dynamic> surveyFailure,
+      RespondentDto respondent,
+      int page,
       int newestPage,
       List<QuestionDto> questionList,
       List<QuestionDto> pageQuestionList,
       List<QuestionDto> contentQuestionList,
+      Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
       WarningDto warning,
@@ -192,8 +269,13 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       Map<String, dynamic> loadState,
       Map<String, dynamic> restoreState,
       bool isRecodeModule,
-      List<QuestionDto> mainQuestionList});
+      List<QuestionDto> mainQuestionList,
+      List<ResponseDto> respondentResponseList,
+      String surveyId,
+      String moduleType});
 
+  @override
+  $RespondentDtoCopyWith<$Res> get respondent;
   @override
   $WarningDtoCopyWith<$Res> get warning;
 }
@@ -211,11 +293,16 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object referenceListState = freezed,
+    Object referenceList = freezed,
+    Object surveyFailure = freezed,
+    Object respondent = freezed,
     Object page = freezed,
     Object newestPage = freezed,
     Object questionList = freezed,
     Object pageQuestionList = freezed,
     Object contentQuestionList = freezed,
+    Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object isLastPage = freezed,
     Object warning = freezed,
@@ -224,8 +311,23 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
     Object restoreState = freezed,
     Object isRecodeModule = freezed,
     Object mainQuestionList = freezed,
+    Object respondentResponseList = freezed,
+    Object surveyId = freezed,
+    Object moduleType = freezed,
   }) {
     return _then(_SurveyPageStateDto(
+      referenceListState: referenceListState == freezed
+          ? _value.referenceListState
+          : referenceListState as Map<String, dynamic>,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList as List<ReferenceDto>,
+      surveyFailure: surveyFailure == freezed
+          ? _value.surveyFailure
+          : surveyFailure as Map<String, dynamic>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent as RespondentDto,
       page: page == freezed ? _value.page : page as int,
       newestPage: newestPage == freezed ? _value.newestPage : newestPage as int,
       questionList: questionList == freezed
@@ -237,6 +339,9 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
       contentQuestionList: contentQuestionList == freezed
           ? _value.contentQuestionList
           : contentQuestionList as List<QuestionDto>,
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap as Map<String, AnswerStatusDto>,
@@ -257,6 +362,12 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
           : mainQuestionList as List<QuestionDto>,
+      respondentResponseList: respondentResponseList == freezed
+          ? _value.respondentResponseList
+          : respondentResponseList as List<ResponseDto>,
+      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
+      moduleType:
+          moduleType == freezed ? _value.moduleType : moduleType as String,
     ));
   }
 }
@@ -266,11 +377,16 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
 /// @nodoc
 class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   const _$_SurveyPageStateDto(
-      {@required this.page,
+      {@required this.referenceListState,
+      @required this.referenceList,
+      this.surveyFailure,
+      @required this.respondent,
+      @required this.page,
       @required this.newestPage,
       @required this.questionList,
       @required this.pageQuestionList,
       @required this.contentQuestionList,
+      @required this.answerMap,
       @required this.answerStatusMap,
       @required this.isLastPage,
       @required this.warning,
@@ -278,12 +394,19 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       @required this.loadState,
       @required this.restoreState,
       @required this.isRecodeModule,
-      @required this.mainQuestionList})
-      : assert(page != null),
+      @required this.mainQuestionList,
+      @required this.respondentResponseList,
+      @required this.surveyId,
+      @required this.moduleType})
+      : assert(referenceListState != null),
+        assert(referenceList != null),
+        assert(respondent != null),
+        assert(page != null),
         assert(newestPage != null),
         assert(questionList != null),
         assert(pageQuestionList != null),
         assert(contentQuestionList != null),
+        assert(answerMap != null),
         assert(answerStatusMap != null),
         assert(isLastPage != null),
         assert(warning != null),
@@ -292,11 +415,22 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
         assert(restoreState != null),
         assert(isRecodeModule != null),
         assert(mainQuestionList != null),
+        assert(respondentResponseList != null),
+        assert(surveyId != null),
+        assert(moduleType != null),
         super._();
 
   factory _$_SurveyPageStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_SurveyPageStateDtoFromJson(json);
 
+  @override
+  final Map<String, dynamic> referenceListState;
+  @override
+  final List<ReferenceDto> referenceList;
+  @override
+  final Map<String, dynamic> surveyFailure;
+  @override
+  final RespondentDto respondent;
   @override
   final int page;
   @override
@@ -307,6 +441,8 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   final List<QuestionDto> pageQuestionList;
   @override
   final List<QuestionDto> contentQuestionList;
+  @override
+  final Map<String, AnswerDto> answerMap;
   @override
   final Map<String, AnswerStatusDto> answerStatusMap;
   @override
@@ -323,16 +459,34 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   final bool isRecodeModule;
   @override
   final List<QuestionDto> mainQuestionList;
+  @override
+  final List<ResponseDto> respondentResponseList;
+  @override
+  final String surveyId;
+  @override
+  final String moduleType;
 
   @override
   String toString() {
-    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList)';
+    return 'SurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SurveyPageStateDto &&
+            (identical(other.referenceListState, referenceListState) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceListState, referenceListState)) &&
+            (identical(other.referenceList, referenceList) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceList, referenceList)) &&
+            (identical(other.surveyFailure, surveyFailure) ||
+                const DeepCollectionEquality()
+                    .equals(other.surveyFailure, surveyFailure)) &&
+            (identical(other.respondent, respondent) ||
+                const DeepCollectionEquality()
+                    .equals(other.respondent, respondent)) &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)) &&
             (identical(other.newestPage, newestPage) ||
@@ -347,6 +501,9 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
             (identical(other.contentQuestionList, contentQuestionList) ||
                 const DeepCollectionEquality()
                     .equals(other.contentQuestionList, contentQuestionList)) &&
+            (identical(other.answerMap, answerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerMap, answerMap)) &&
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
@@ -370,17 +527,31 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
                     .equals(other.isRecodeModule, isRecodeModule)) &&
             (identical(other.mainQuestionList, mainQuestionList) ||
                 const DeepCollectionEquality()
-                    .equals(other.mainQuestionList, mainQuestionList)));
+                    .equals(other.mainQuestionList, mainQuestionList)) &&
+            (identical(other.respondentResponseList, respondentResponseList) ||
+                const DeepCollectionEquality().equals(
+                    other.respondentResponseList, respondentResponseList)) &&
+            (identical(other.surveyId, surveyId) ||
+                const DeepCollectionEquality()
+                    .equals(other.surveyId, surveyId)) &&
+            (identical(other.moduleType, moduleType) ||
+                const DeepCollectionEquality()
+                    .equals(other.moduleType, moduleType)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(referenceListState) ^
+      const DeepCollectionEquality().hash(referenceList) ^
+      const DeepCollectionEquality().hash(surveyFailure) ^
+      const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(page) ^
       const DeepCollectionEquality().hash(newestPage) ^
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
       const DeepCollectionEquality().hash(contentQuestionList) ^
+      const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage) ^
       const DeepCollectionEquality().hash(warning) ^
@@ -388,7 +559,10 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       const DeepCollectionEquality().hash(loadState) ^
       const DeepCollectionEquality().hash(restoreState) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(mainQuestionList);
+      const DeepCollectionEquality().hash(mainQuestionList) ^
+      const DeepCollectionEquality().hash(respondentResponseList) ^
+      const DeepCollectionEquality().hash(surveyId) ^
+      const DeepCollectionEquality().hash(moduleType);
 
   @override
   _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith =>
@@ -403,11 +577,16 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
 abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   const _SurveyPageStateDto._() : super._();
   const factory _SurveyPageStateDto(
-      {@required int page,
+      {@required Map<String, dynamic> referenceListState,
+      @required List<ReferenceDto> referenceList,
+      Map<String, dynamic> surveyFailure,
+      @required RespondentDto respondent,
+      @required int page,
       @required int newestPage,
       @required List<QuestionDto> questionList,
       @required List<QuestionDto> pageQuestionList,
       @required List<QuestionDto> contentQuestionList,
+      @required Map<String, AnswerDto> answerMap,
       @required Map<String, AnswerStatusDto> answerStatusMap,
       @required bool isLastPage,
       @required WarningDto warning,
@@ -415,11 +594,22 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
       @required Map<String, dynamic> loadState,
       @required Map<String, dynamic> restoreState,
       @required bool isRecodeModule,
-      @required List<QuestionDto> mainQuestionList}) = _$_SurveyPageStateDto;
+      @required List<QuestionDto> mainQuestionList,
+      @required List<ResponseDto> respondentResponseList,
+      @required String surveyId,
+      @required String moduleType}) = _$_SurveyPageStateDto;
 
   factory _SurveyPageStateDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyPageStateDto.fromJson;
 
+  @override
+  Map<String, dynamic> get referenceListState;
+  @override
+  List<ReferenceDto> get referenceList;
+  @override
+  Map<String, dynamic> get surveyFailure;
+  @override
+  RespondentDto get respondent;
   @override
   int get page;
   @override
@@ -430,6 +620,8 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   List<QuestionDto> get pageQuestionList;
   @override
   List<QuestionDto> get contentQuestionList;
+  @override
+  Map<String, AnswerDto> get answerMap;
   @override
   Map<String, AnswerStatusDto> get answerStatusMap;
   @override
@@ -446,6 +638,12 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   bool get isRecodeModule;
   @override
   List<QuestionDto> get mainQuestionList;
+  @override
+  List<ResponseDto> get respondentResponseList;
+  @override
+  String get surveyId;
+  @override
+  String get moduleType;
   @override
   _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith;
 }

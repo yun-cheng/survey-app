@@ -8,11 +8,18 @@ part of 'answer_dtos.dart';
 
 _$_AnswerDto _$_$_AnswerDtoFromJson(Map<String, dynamic> json) {
   return _$_AnswerDto(
-    questionId: json['questionId'] as String,
-    serialNumber: json['serialNumber'] as int,
-    answerBody: json['answerBody'] == null
+    type: json['type'] as String,
+    withNote: json['withNote'] as bool,
+    stringValue: json['stringValue'] as String,
+    intValue: json['intValue'] as int,
+    choiceValue: json['choiceValue'] == null
         ? null
-        : AnswerBodyDto.fromJson(json['answerBody'] as Map<String, dynamic>),
+        : SimpleChoiceDto.fromJson(json['choiceValue'] as Map<String, dynamic>),
+    choiceListValue: (json['choiceListValue'] as List)
+        ?.map((e) => e == null
+            ? null
+            : SimpleChoiceDto.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
     noteMap: (json['noteMap'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(k, e as String),
     ),
@@ -21,19 +28,12 @@ _$_AnswerDto _$_$_AnswerDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_AnswerDtoToJson(_$_AnswerDto instance) =>
     <String, dynamic>{
-      'questionId': instance.questionId,
-      'serialNumber': instance.serialNumber,
-      'answerBody': instance.answerBody?.toJson(),
+      'type': instance.type,
+      'withNote': instance.withNote,
+      'stringValue': instance.stringValue,
+      'intValue': instance.intValue,
+      'choiceValue': instance.choiceValue?.toJson(),
+      'choiceListValue':
+          instance.choiceListValue?.map((e) => e?.toJson())?.toList(),
       'noteMap': instance.noteMap,
-    };
-
-_$_AnswerBodyDto _$_$_AnswerBodyDtoFromJson(Map<String, dynamic> json) {
-  return _$_AnswerBodyDto(
-    value: json['value'] as Map<String, dynamic>,
-  );
-}
-
-Map<String, dynamic> _$_$_AnswerBodyDtoToJson(_$_AnswerBodyDto instance) =>
-    <String, dynamic>{
-      'value': instance.value,
     };

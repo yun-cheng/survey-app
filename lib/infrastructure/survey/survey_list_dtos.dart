@@ -6,9 +6,6 @@ import '../../domain/auth/value_objects.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/overview/value_objects.dart';
 import '../../domain/survey/value_objects.dart';
-import 'answer_dtos.dart';
-import 'answer_status_dtos.dart';
-import 'question_list_dtos.dart';
 import 'survey_module_dtos.dart';
 
 part 'survey_list_dtos.freezed.dart';

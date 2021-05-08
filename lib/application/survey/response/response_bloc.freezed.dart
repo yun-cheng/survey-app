@@ -81,6 +81,11 @@ class _$ResponseEventTearOff {
       responseFinished: responseFinished,
     );
   }
+
+// ignore: unused_element
+  _RespondentResponseListUpdated respondentResponseListUpdated() {
+    return const _RespondentResponseListUpdated();
+  }
 }
 
 /// @nodoc
@@ -110,6 +115,7 @@ mixin _$ResponseEvent {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   });
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object>({
@@ -127,6 +133,7 @@ mixin _$ResponseEvent {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   });
   @optionalTypeArgs
@@ -139,6 +146,9 @@ mixin _$ResponseEvent {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   });
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
@@ -150,6 +160,7 @@ mixin _$ResponseEvent {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   });
 }
@@ -278,6 +289,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -287,6 +299,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return watchResponseListStarted(teamId, interviewer);
   }
 
@@ -307,6 +320,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -327,6 +341,9 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -336,6 +353,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return watchResponseListStarted(this);
   }
 
@@ -350,6 +368,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -455,6 +474,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -464,6 +484,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseListReceived(failureOrResponseList);
   }
 
@@ -484,6 +505,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -504,6 +526,9 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -513,6 +538,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseListReceived(this);
   }
 
@@ -527,6 +553,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -604,6 +631,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -613,6 +641,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseListSynced();
   }
 
@@ -633,6 +662,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -653,6 +683,9 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -662,6 +695,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseListSynced(this);
   }
 
@@ -676,6 +710,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -781,6 +816,7 @@ class _$_SurveySelected implements _SurveySelected {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -790,6 +826,7 @@ class _$_SurveySelected implements _SurveySelected {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return surveySelected(survey);
   }
 
@@ -810,6 +847,7 @@ class _$_SurveySelected implements _SurveySelected {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -830,6 +868,9 @@ class _$_SurveySelected implements _SurveySelected {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -839,6 +880,7 @@ class _$_SurveySelected implements _SurveySelected {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return surveySelected(this);
   }
 
@@ -853,6 +895,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1004,6 +1047,7 @@ class _$_ResponseStarted implements _ResponseStarted {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1013,6 +1057,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseStarted(respondent, moduleType, withResponseId, responseId);
   }
 
@@ -1033,6 +1078,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1054,6 +1100,9 @@ class _$_ResponseStarted implements _ResponseStarted {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1063,6 +1112,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseStarted(this);
   }
 
@@ -1077,6 +1127,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1159,6 +1210,7 @@ class _$_ResponseRestored implements _ResponseRestored {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1168,6 +1220,7 @@ class _$_ResponseRestored implements _ResponseRestored {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseRestored();
   }
 
@@ -1188,6 +1241,7 @@ class _$_ResponseRestored implements _ResponseRestored {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1208,6 +1262,9 @@ class _$_ResponseRestored implements _ResponseRestored {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1217,6 +1274,7 @@ class _$_ResponseRestored implements _ResponseRestored {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseRestored(this);
   }
 
@@ -1231,6 +1289,7 @@ class _$_ResponseRestored implements _ResponseRestored {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1379,6 +1438,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1388,6 +1448,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseUpdated(
         answerMap, answerStatusMap, surveyPageState, isFinished);
   }
@@ -1409,6 +1470,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1430,6 +1492,9 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1439,6 +1504,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return responseUpdated(this);
   }
 
@@ -1453,6 +1519,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1561,6 +1628,7 @@ class _$_EditFinished implements _EditFinished {
             SimpleSurveyPageState surveyPageState,
             bool isFinished),
     @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1570,6 +1638,7 @@ class _$_EditFinished implements _EditFinished {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return editFinished(responseFinished);
   }
 
@@ -1590,6 +1659,7 @@ class _$_EditFinished implements _EditFinished {
         SimpleSurveyPageState surveyPageState,
         bool isFinished),
     TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1610,6 +1680,9 @@ class _$_EditFinished implements _EditFinished {
     @required TResult responseRestored(_ResponseRestored value),
     @required TResult responseUpdated(_ResponseUpdated value),
     @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
   }) {
     assert(watchResponseListStarted != null);
     assert(responseListReceived != null);
@@ -1619,6 +1692,7 @@ class _$_EditFinished implements _EditFinished {
     assert(responseRestored != null);
     assert(responseUpdated != null);
     assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
     return editFinished(this);
   }
 
@@ -1633,6 +1707,7 @@ class _$_EditFinished implements _EditFinished {
     TResult responseRestored(_ResponseRestored value),
     TResult responseUpdated(_ResponseUpdated value),
     TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
@@ -1650,6 +1725,163 @@ abstract class _EditFinished implements ResponseEvent {
 // NOTE 是否完成這份問卷
   bool get responseFinished;
   _$EditFinishedCopyWith<_EditFinished> get copyWith;
+}
+
+/// @nodoc
+abstract class _$RespondentResponseListUpdatedCopyWith<$Res> {
+  factory _$RespondentResponseListUpdatedCopyWith(
+          _RespondentResponseListUpdated value,
+          $Res Function(_RespondentResponseListUpdated) then) =
+      __$RespondentResponseListUpdatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$RespondentResponseListUpdatedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$RespondentResponseListUpdatedCopyWith<$Res> {
+  __$RespondentResponseListUpdatedCopyWithImpl(
+      _RespondentResponseListUpdated _value,
+      $Res Function(_RespondentResponseListUpdated) _then)
+      : super(_value, (v) => _then(v as _RespondentResponseListUpdated));
+
+  @override
+  _RespondentResponseListUpdated get _value =>
+      super._value as _RespondentResponseListUpdated;
+}
+
+/// @nodoc
+class _$_RespondentResponseListUpdated
+    implements _RespondentResponseListUpdated {
+  const _$_RespondentResponseListUpdated();
+
+  @override
+  String toString() {
+    return 'ResponseEvent.respondentResponseListUpdated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _RespondentResponseListUpdated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object>({
+    @required
+        TResult watchResponseListStarted(
+            TeamId teamId, Interviewer interviewer),
+    @required
+        TResult responseListReceived(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList),
+    @required TResult responseListSynced(),
+    @required TResult surveySelected(Survey survey),
+    @required
+        TResult responseStarted(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId),
+    @required TResult responseRestored(),
+    @required
+        TResult responseUpdated(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            bool isFinished),
+    @required TResult editFinished(bool responseFinished),
+    @required TResult respondentResponseListUpdated(),
+  }) {
+    assert(watchResponseListStarted != null);
+    assert(responseListReceived != null);
+    assert(responseListSynced != null);
+    assert(surveySelected != null);
+    assert(responseStarted != null);
+    assert(responseRestored != null);
+    assert(responseUpdated != null);
+    assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
+    return respondentResponseListUpdated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object>({
+    TResult watchResponseListStarted(TeamId teamId, Interviewer interviewer),
+    TResult responseListReceived(
+        Either<SurveyFailure, KtList<Response>> failureOrResponseList),
+    TResult responseListSynced(),
+    TResult surveySelected(Survey survey),
+    TResult responseStarted(Respondent respondent, ModuleType moduleType,
+        bool withResponseId, UniqueId responseId),
+    TResult responseRestored(),
+    TResult responseUpdated(
+        KtMap<QuestionId, Answer> answerMap,
+        KtMap<QuestionId, AnswerStatus> answerStatusMap,
+        SimpleSurveyPageState surveyPageState,
+        bool isFinished),
+    TResult editFinished(bool responseFinished),
+    TResult respondentResponseListUpdated(),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (respondentResponseListUpdated != null) {
+      return respondentResponseListUpdated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object>({
+    @required TResult watchResponseListStarted(_WatchResponseListStarted value),
+    @required TResult responseListReceived(_ResponseListReceived value),
+    @required TResult responseListSynced(_ResponseListSynced value),
+    @required TResult surveySelected(_SurveySelected value),
+    @required TResult responseStarted(_ResponseStarted value),
+    @required TResult responseRestored(_ResponseRestored value),
+    @required TResult responseUpdated(_ResponseUpdated value),
+    @required TResult editFinished(_EditFinished value),
+    @required
+        TResult respondentResponseListUpdated(
+            _RespondentResponseListUpdated value),
+  }) {
+    assert(watchResponseListStarted != null);
+    assert(responseListReceived != null);
+    assert(responseListSynced != null);
+    assert(surveySelected != null);
+    assert(responseStarted != null);
+    assert(responseRestored != null);
+    assert(responseUpdated != null);
+    assert(editFinished != null);
+    assert(respondentResponseListUpdated != null);
+    return respondentResponseListUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object>({
+    TResult watchResponseListStarted(_WatchResponseListStarted value),
+    TResult responseListReceived(_ResponseListReceived value),
+    TResult responseListSynced(_ResponseListSynced value),
+    TResult surveySelected(_SurveySelected value),
+    TResult responseStarted(_ResponseStarted value),
+    TResult responseRestored(_ResponseRestored value),
+    TResult responseUpdated(_ResponseUpdated value),
+    TResult editFinished(_EditFinished value),
+    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
+    @required TResult orElse(),
+  }) {
+    assert(orElse != null);
+    if (respondentResponseListUpdated != null) {
+      return respondentResponseListUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RespondentResponseListUpdated implements ResponseEvent {
+  const factory _RespondentResponseListUpdated() =
+      _$_RespondentResponseListUpdated;
 }
 
 /// @nodoc
@@ -1671,7 +1903,8 @@ class _$ResponseStateTearOff {
       @required KtList<Question> questionList,
       @required bool withResponseId,
       @required UniqueId responseId,
-      @required Response mainResponse}) {
+      @required Response mainResponse,
+      @required KtList<Response> respondentResponseList}) {
     return _ResponseState(
       survey: survey,
       respondent: respondent,
@@ -1687,6 +1920,7 @@ class _$ResponseStateTearOff {
       withResponseId: withResponseId,
       responseId: responseId,
       mainResponse: mainResponse,
+      respondentResponseList: respondentResponseList,
     );
   }
 }
@@ -1711,6 +1945,7 @@ mixin _$ResponseState {
   bool get withResponseId;
   UniqueId get responseId;
   Response get mainResponse;
+  KtList<Response> get respondentResponseList;
 
   $ResponseStateCopyWith<ResponseState> get copyWith;
 }
@@ -1734,7 +1969,8 @@ abstract class $ResponseStateCopyWith<$Res> {
       KtList<Question> questionList,
       bool withResponseId,
       UniqueId responseId,
-      Response mainResponse});
+      Response mainResponse,
+      KtList<Response> respondentResponseList});
 
   $SurveyCopyWith<$Res> get survey;
   $RespondentCopyWith<$Res> get respondent;
@@ -1770,6 +2006,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object withResponseId = freezed,
     Object responseId = freezed,
     Object mainResponse = freezed,
+    Object respondentResponseList = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed ? _value.survey : survey as Survey,
@@ -1807,6 +2044,9 @@ class _$ResponseStateCopyWithImpl<$Res>
       mainResponse: mainResponse == freezed
           ? _value.mainResponse
           : mainResponse as Response,
+      respondentResponseList: respondentResponseList == freezed
+          ? _value.respondentResponseList
+          : respondentResponseList as KtList<Response>,
     ));
   }
 
@@ -1902,7 +2142,8 @@ abstract class _$ResponseStateCopyWith<$Res>
       KtList<Question> questionList,
       bool withResponseId,
       UniqueId responseId,
-      Response mainResponse});
+      Response mainResponse,
+      KtList<Response> respondentResponseList});
 
   @override
   $SurveyCopyWith<$Res> get survey;
@@ -1947,6 +2188,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object withResponseId = freezed,
     Object responseId = freezed,
     Object mainResponse = freezed,
+    Object respondentResponseList = freezed,
   }) {
     return _then(_ResponseState(
       survey: survey == freezed ? _value.survey : survey as Survey,
@@ -1984,6 +2226,9 @@ class __$ResponseStateCopyWithImpl<$Res>
       mainResponse: mainResponse == freezed
           ? _value.mainResponse
           : mainResponse as Response,
+      respondentResponseList: respondentResponseList == freezed
+          ? _value.respondentResponseList
+          : respondentResponseList as KtList<Response>,
     ));
   }
 }
@@ -2004,7 +2249,8 @@ class _$_ResponseState implements _ResponseState {
       @required this.questionList,
       @required this.withResponseId,
       @required this.responseId,
-      @required this.mainResponse})
+      @required this.mainResponse,
+      @required this.respondentResponseList})
       : assert(survey != null),
         assert(respondent != null),
         assert(interviewer != null),
@@ -2018,7 +2264,8 @@ class _$_ResponseState implements _ResponseState {
         assert(questionList != null),
         assert(withResponseId != null),
         assert(responseId != null),
-        assert(mainResponse != null);
+        assert(mainResponse != null),
+        assert(respondentResponseList != null);
 
   @override
   final Survey survey;
@@ -2048,10 +2295,12 @@ class _$_ResponseState implements _ResponseState {
   final UniqueId responseId;
   @override
   final Response mainResponse;
+  @override
+  final KtList<Response> respondentResponseList;
 
   @override
   String toString() {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse)';
+    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList)';
   }
 
   @override
@@ -2098,7 +2347,10 @@ class _$_ResponseState implements _ResponseState {
                     .equals(other.responseId, responseId)) &&
             (identical(other.mainResponse, mainResponse) ||
                 const DeepCollectionEquality()
-                    .equals(other.mainResponse, mainResponse)));
+                    .equals(other.mainResponse, mainResponse)) &&
+            (identical(other.respondentResponseList, respondentResponseList) ||
+                const DeepCollectionEquality().equals(
+                    other.respondentResponseList, respondentResponseList)));
   }
 
   @override
@@ -2117,7 +2369,8 @@ class _$_ResponseState implements _ResponseState {
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(withResponseId) ^
       const DeepCollectionEquality().hash(responseId) ^
-      const DeepCollectionEquality().hash(mainResponse);
+      const DeepCollectionEquality().hash(mainResponse) ^
+      const DeepCollectionEquality().hash(respondentResponseList);
 
   @override
   _$ResponseStateCopyWith<_ResponseState> get copyWith =>
@@ -2139,7 +2392,8 @@ abstract class _ResponseState implements ResponseState {
       @required KtList<Question> questionList,
       @required bool withResponseId,
       @required UniqueId responseId,
-      @required Response mainResponse}) = _$_ResponseState;
+      @required Response mainResponse,
+      @required KtList<Response> respondentResponseList}) = _$_ResponseState;
 
   @override
   Survey get survey;
@@ -2169,6 +2423,8 @@ abstract class _ResponseState implements ResponseState {
   UniqueId get responseId;
   @override
   Response get mainResponse;
+  @override
+  KtList<Response> get respondentResponseList;
   @override
   _$ResponseStateCopyWith<_ResponseState> get copyWith;
 }

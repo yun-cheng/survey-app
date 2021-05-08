@@ -2,13 +2,14 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../domain/core/value_objects.dart';
-import '../../domain/survey/choice.dart';
 import '../../domain/survey/question.dart';
 import '../../domain/survey/value_objects.dart';
+import 'choice_dtos.dart';
+import 'formatted_text_dtos.dart';
 import 'full_expression_dtos.dart';
 
-part 'question_list_dtos.freezed.dart';
-part 'question_list_dtos.g.dart';
+part 'question_dtos.freezed.dart';
+part 'question_dtos.g.dart';
 
 @freezed
 abstract class QuestionDto implements _$QuestionDto {
@@ -18,12 +19,12 @@ abstract class QuestionDto implements _$QuestionDto {
     @required String questionId,
     @required bool hideQuestionId,
     @required int serialNumber,
-    @required String questionBody,
+    @required List<FormattedTextDto> questionBody,
+    @required String stringBody,
     @required String questionNote,
     @required String questionType,
     @required FullExpressionDto showQuestion,
     @required List<ChoiceDto> choiceList,
-    @required List<ChoiceDto> specialAnswerList,
     @required bool hasSpecialAnswer,
     @required FullExpressionDto validateAnswer,
     @required String upperQuestionId,
@@ -36,14 +37,14 @@ abstract class QuestionDto implements _$QuestionDto {
       questionId: domain.id.getValueAnyway(),
       hideQuestionId: domain.hideId,
       serialNumber: domain.serialNumber.getValueAnyway(),
-      questionBody: domain.body.getValueAnyway(),
+      questionBody: domain.body
+          .map((item) => FormattedTextDto.fromDomain(item))
+          .asList(),
+      stringBody: domain.stringBody,
       questionNote: domain.note.getValueAnyway(),
       questionType: domain.type.getValueAnyway(),
       showQuestion: FullExpressionDto.fromDomain(domain.show),
       choiceList: domain.choiceList
-          .map((choice) => ChoiceDto.fromDomain(choice))
-          .asList(),
-      specialAnswerList: domain.specialAnswerList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .asList(),
       hasSpecialAnswer: domain.hasSpecialAnswer,
@@ -59,13 +60,12 @@ abstract class QuestionDto implements _$QuestionDto {
       id: QuestionId(questionId),
       hideId: hideQuestionId,
       serialNumber: SerialNumber(serialNumber),
-      body: QuestionBody(questionBody),
+      body: questionBody.map((dto) => dto.toDomain()).toImmutableList(),
+      stringBody: stringBody,
       note: QuestionNote(questionNote),
       type: QuestionType(questionType),
       show: showQuestion.toDomain(),
       choiceList: choiceList.map((dto) => dto.toDomain()).toImmutableList(),
-      specialAnswerList:
-          specialAnswerList.map((dto) => dto.toDomain()).toImmutableList(),
       hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer.toDomain(),
       upperQuestionId: QuestionId(upperQuestionId),
@@ -76,46 +76,4 @@ abstract class QuestionDto implements _$QuestionDto {
 
   factory QuestionDto.fromJson(Map<String, dynamic> json) =>
       _$QuestionDtoFromJson(json);
-}
-
-@freezed
-abstract class ChoiceDto implements _$ChoiceDto {
-  const ChoiceDto._();
-
-  const factory ChoiceDto({
-    @required int serialNumber,
-    @required String choiceId,
-    @required String choiceBody,
-    @required bool asNote,
-    @required bool asSingle,
-    @required String choiceGroup,
-    @required String upperChoiceId,
-  }) = _ChoiceDto;
-
-  factory ChoiceDto.fromDomain(Choice choice) {
-    return ChoiceDto(
-      serialNumber: choice.serialNumber.getValueAnyway(),
-      choiceId: choice.id.getValueAnyway(),
-      choiceBody: choice.body.getValueAnyway(),
-      asNote: choice.asNote,
-      asSingle: choice.asSingle,
-      choiceGroup: choice.group.getValueAnyway(),
-      upperChoiceId: choice.upperChoiceId.getValueAnyway(),
-    );
-  }
-
-  Choice toDomain() {
-    return Choice(
-      serialNumber: SerialNumber(serialNumber),
-      id: ChoiceId(choiceId),
-      body: ChoiceBody(choiceBody),
-      asNote: asNote,
-      asSingle: asSingle,
-      group: ChoiceGroup(choiceGroup),
-      upperChoiceId: ChoiceId(upperChoiceId),
-    );
-  }
-
-  factory ChoiceDto.fromJson(Map<String, dynamic> json) =>
-      _$ChoiceDtoFromJson(json);
 }

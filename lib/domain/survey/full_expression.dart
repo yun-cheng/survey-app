@@ -32,17 +32,32 @@ abstract class FullExpression implements _$FullExpression {
     return (body.failureOrUnit).fold((f) => some(f), (_) => none());
   }
 
-  bool evaluate(KtMutableMap<QuestionId, Answer> answerMap) {
+  bool evaluate({
+    Answer answer,
+    KtMutableMap<QuestionId, Answer> answerMap,
+  }) {
+    if (isEmpty) {
+      return true;
+    }
     // NOTE (((A || B) && C) || D) -> true/false
     // NOTE A -> (Q1 != 3)
 
     final newExpressionMap = KtMutableMap<ExpressionId, bool>.empty();
 
     // H_ 各個 expression 轉成 bool
-    expressionMap.mapValuesTo(
-      newExpressionMap,
-      (entry) => entry.value.evaluate(answerMap[entry.value.field].body),
-    );
+    if (answer != null) {
+      // NOTE validateAnswer 使用
+      expressionMap.mapValuesTo(
+        newExpressionMap,
+        (entry) => entry.value.evaluate(answer),
+      );
+    } else {
+      // NOTE showQuestion 使用
+      expressionMap.mapValuesTo(
+        newExpressionMap,
+        (entry) => entry.value.evaluate(answerMap[entry.value.field]),
+      );
+    }
 
     // print(newExpressionMap);
 

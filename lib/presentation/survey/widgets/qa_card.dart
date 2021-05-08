@@ -10,6 +10,7 @@ import '../../../domain/survey/value_objects.dart';
 import 'choices_box.dart';
 import 'date_time_box.dart';
 import 'dropdown_box.dart';
+import 'phone_box.dart';
 import 'question_box.dart';
 import 'recode_box.dart';
 import 'special_answer_switch.dart';
@@ -70,6 +71,10 @@ class QaCard extends StatelessWidget {
                     ),
                   ] else if (thisQuestion.type.isDateTime) ...[
                     DateTimeBox(
+                      question: thisQuestion,
+                    ),
+                  ] else if (thisQuestion.type.isPhone) ...[
+                    PhoneBox(
                       question: thisQuestion,
                     ),
                   ]

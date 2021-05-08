@@ -33,7 +33,9 @@ class SurveyContentBody extends StatelessWidget {
                 Icons.done,
                 color: kCardGreenTextColor,
               );
-            } else if (!state.answerStatusMap[question.id].warning.isEmpty &&
+            } else if (!state.answerStatusMap[question.id]
+                    .toWarning(question)
+                    .isEmpty &&
                 state.showWarning) {
               leadingIcon = const Icon(
                 Icons.close,
@@ -46,11 +48,13 @@ class SurveyContentBody extends StatelessWidget {
               );
             }
 
+            final contentText = question.toPlainTextBody(withId: true);
+
             return Card(
               child: ListTile(
                 leading: leadingIcon,
                 title: Text(
-                  question.contentText,
+                  contentText,
                   style: kH4TextStyle,
                   maxLines: 1,
                   overflow: TextOverflow.fade,

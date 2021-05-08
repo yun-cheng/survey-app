@@ -4,7 +4,6 @@ import 'package:tuple/tuple.dart';
 
 import '../../domain/survey/answer.dart';
 import '../../domain/survey/answer_status.dart';
-import '../../domain/survey/choice.dart';
 import '../../domain/survey/i_answer_algorithm.dart';
 import '../../domain/survey/i_answer_status_algorithm.dart';
 import '../../domain/survey/question.dart';
@@ -28,22 +27,12 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
         tupleResult;
 
     // S_1 先看是否為指定題目
-    if (question != null) {
-      // S_1-1-c1 若為 choice answer
-      if (question.type.isChoice) {
-        newAnswerStatusMap = updateAnswerStatusTypeOfChoice(
-          answerMap: answerMap,
-          answerStatusMap: answerStatusMap,
-          question: question,
-        );
-        // S_1-1-c2 若為 input answer
-      } else {
-        newAnswerStatusMap = updateAnswerStatusTypeOfInput(
-          answerMap: answerMap,
-          answerStatusMap: answerStatusMap,
-          question: question,
-        );
-      }
+    if (!question.isEmpty) {
+      newAnswerStatusMap = updateAnswerStatusType(
+        answerMap: answerMap,
+        answerStatusMap: answerStatusMap,
+        question: question,
+      );
 
       // S_1-2 更新連鎖題的答案及答題狀況
       tupleResult = updateChainQuestion(
@@ -57,45 +46,15 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
 
     // S_2 更新 answerStatus
     final tupleResult1 = evaluateShowQuestionExpression(
-      answerMap: question == null ? answerMap : tupleResult.item2,
-      answerStatusMap: question == null ? answerStatusMap : tupleResult.item1,
+      answerMap: question.isEmpty ? answerMap : tupleResult.item2,
+      answerStatusMap: question.isEmpty ? answerStatusMap : tupleResult.item1,
       questionList: questionList,
       answerAlgorithm: answerAlgorithm,
       isRecodeModule: isRecodeModule,
       mainAnswerStatusMap: mainAnswerStatusMap,
     );
 
-    // S_3 更新對應的 warning
-    newAnswerStatusMap = updateWarning(
-      answerMap: tupleResult1.item2,
-      answerStatusMap: tupleResult1.item1,
-      questionList: questionList,
-    );
-
-    return Tuple2(newAnswerStatusMap, tupleResult1.item2);
-  }
-
-  KtMap<QuestionId, AnswerStatus> updateWarning({
-    KtMap<QuestionId, Answer> answerMap,
-    KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    KtList<Question> questionList,
-  }) {
-    final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
-        KtMutableMap.from(answerStatusMap.asMap());
-
-    // S_1L 迴圈所有題目
-    questionList.forEach((question) {
-      // S_1L-1 更新該題的 warning
-      final newWarning =
-          answerStatusMap[question.id].getWarning(question.pageNumber);
-
-      newAnswerStatusMap[question.id] =
-          newAnswerStatusMap[question.id].copyWith(
-        warning: newWarning,
-      );
-    });
-
-    return newAnswerStatusMap.toMap();
+    return tupleResult1;
   }
 
   @injectable
@@ -125,11 +84,10 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       if (changedQuestionIdList.contains(_question.upperQuestionId)) {
         // S_3L-1 準備比對上層的答案跟下層答案選項的 upperChoiceId
         final upperAnswerChoiceId =
-            newAnswerMap[_question.upperQuestionId].body.getValueAnyway();
-        final lowerAnswerChoiceId =
-            newAnswerMap[_question.id].body.getValueAnyway();
+            newAnswerMap[_question.upperQuestionId].value?.id;
+        final lowerAnswerChoice = newAnswerMap[_question.id].value;
         final lowerChoice = _question.choiceList
-            .firstOrNull((_choice) => _choice.id == lowerAnswerChoiceId);
+            .firstOrNull((_choice) => _choice.simple() == lowerAnswerChoice);
 
         //  S_3L-2 如果下層已答且比對不符亦非特殊作答
         if (lowerChoice != null &&
@@ -142,7 +100,7 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
           );
 
           // S_3L-2-2 重置答題狀況
-          newAnswerStatusMap = updateAnswerStatusTypeOfChoice(
+          newAnswerStatusMap = updateAnswerStatusType(
             answerMap: newAnswerMap,
             answerStatusMap: newAnswerStatusMap,
             question: _question,
@@ -188,7 +146,7 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
 
       if (!isRecodeModule) {
         // S_2L-1 判斷該題是否要出現
-        showQuestion = question.show.evaluate(answerMap);
+        showQuestion = question.show.evaluate(answerMap: answerMap);
       } else {
         showQuestion = !mainAnswerStatusMap[question.id].isHidden;
       }
@@ -221,109 +179,41 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     return Tuple2(newAnswerStatusMap.toMap(), newAnswerMap);
   }
 
-  KtMap<QuestionId, AnswerStatus> updateAnswerStatusTypeOfChoice({
+  KtMap<QuestionId, AnswerStatus> updateAnswerStatusType({
     KtMap<QuestionId, Answer> answerMap,
     KtMap<QuestionId, AnswerStatus> answerStatusMap,
     Question question,
   }) {
     final newAnswerStatusMap = KtMutableMap.from(answerStatusMap.asMap());
-    AnswerStatusType newAnswerStatusType;
-    final newAnswer = answerMap[question.id];
-    final isSpecialAnswer = answerStatusMap[question.id].isSpecialAnswer;
+    final answer = answerMap[question.id];
 
-    // S_1 更新選項的 answerStatus
-    if (newAnswer.body.isNotEmpty) {
-      newAnswerStatusType = AnswerStatusType.answered();
-    } else {
-      newAnswerStatusType = AnswerStatusType.unanswered();
-    }
-
-    // S_2 更新選項說明的 answerStatus
-    final newNoteMap = updateNoteMap(
-      answer: newAnswer,
-      choiceList:
-          isSpecialAnswer ? question.specialAnswerList : question.choiceList,
-    );
-
-    // S_3 合併，輸出
-    newAnswerStatusMap[question.id] = answerStatusMap[question.id].copyWith(
-      type: newAnswerStatusType,
-      noteMap: newNoteMap,
+    newAnswerStatusMap[question.id] = answerStatusMap[question.id].update(
+      answer: answer,
+      expression: question.validateAnswer,
     );
 
     return newAnswerStatusMap.toMap();
   }
 
-  KtMap<ChoiceId, AnswerStatusType> updateNoteMap({
-    Answer answer,
-    KtList<Choice> choiceList,
-  }) {
-    final possibleChoiceAnswerList = answer.body.getOrCrash();
-    final newNoteMap = KtMutableMap<ChoiceId, AnswerStatusType>.empty();
-
-    // S_ 若作答不為空
-    if (possibleChoiceAnswerList != '') {
-      final choiceAnswerList = List<ChoiceId>.from(
-          possibleChoiceAnswerList is List
-              ? possibleChoiceAnswerList
-              : [possibleChoiceAnswerList]);
-      final noteAnswer = answer.noteMap;
-
-      // S_ 迴圈選擇的選項
-      for (final choiceId in choiceAnswerList) {
-        // S_ 如果需要選項說明
-        if (choiceList.first((choice) => choice.id == choiceId).asNote) {
-          // S_ 檢查該選項說明的 answerStatus
-          newNoteMap.put(
-            choiceId,
-            updateAnswerStatusTypeOfNote(noteAnswer[choiceId]),
-          );
-        }
-      }
-    }
-
-    return newNoteMap.toMap();
-  }
-
-  AnswerStatusType updateAnswerStatusTypeOfNote(
-    AnswerBody noteAnswer,
-  ) {
-    AnswerStatusType answerStatusType;
-
-    if (noteAnswer != null && noteAnswer.isNotEmpty) {
-      answerStatusType = AnswerStatusType.answered();
-    } else {
-      answerStatusType = AnswerStatusType.unanswered();
-    }
-
-    return answerStatusType;
-  }
-
-  KtMap<QuestionId, AnswerStatus> updateAnswerStatusTypeOfInput({
+  @override
+  Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
+      switchSpecialAnswer({
     KtMap<QuestionId, Answer> answerMap,
     KtMap<QuestionId, AnswerStatus> answerStatusMap,
     Question question,
+    IAnswerAlgorithm answerAlgorithm,
   }) {
+    // S_ 清空該題作答
+    final newAnswerMap = answerAlgorithm.clearAnswer(
+      answerMap: answerMap,
+      question: question,
+    );
+
     final newAnswerStatusMap = KtMutableMap.from(answerStatusMap.asMap());
-    AnswerStatusType newAnswerStatusType;
-    final newAnswer = answerMap[question.id].body;
-    final isSpecialAnswer = answerStatusMap[question.id].isSpecialAnswer;
-
-    if (newAnswer.isEmpty) {
-      newAnswerStatusType = AnswerStatusType.unanswered();
-    } else if (!isSpecialAnswer) {
-      final bool validateAnswer = question.validateAnswer.evaluate(answerMap);
-
-      newAnswerStatusType = validateAnswer
-          ? AnswerStatusType.answered()
-          : AnswerStatusType.invalid();
-    } else {
-      newAnswerStatusType = AnswerStatusType.answered();
-    }
 
     newAnswerStatusMap[question.id] =
-        answerStatusMap[question.id].copyWith(type: newAnswerStatusType);
+        answerStatusMap[question.id].switchSpecialAnswer();
 
-    return newAnswerStatusMap.toMap();
+    return Tuple2(newAnswerStatusMap.toMap(), newAnswerMap);
   }
 }

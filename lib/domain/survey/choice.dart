@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../core/failures.dart';
 import '../core/value_objects.dart';
+import 'simple_choice.dart';
 import 'value_objects.dart';
 
 part 'choice.freezed.dart';
@@ -17,6 +18,7 @@ abstract class Choice implements _$Choice {
     @required ChoiceBody body,
     @required bool asNote,
     @required bool asSingle,
+    @required bool isSpecialAnswer,
     @required ChoiceGroup group,
     @required ChoiceId upperChoiceId,
   }) = _Choice;
@@ -27,9 +29,17 @@ abstract class Choice implements _$Choice {
         body: ChoiceBody.empty(),
         asNote: false,
         asSingle: false,
+        isSpecialAnswer: false,
         group: ChoiceGroup.empty(),
         upperChoiceId: ChoiceId.empty(),
       );
+
+  SimpleChoice simple() {
+    return SimpleChoice(
+      id: this.id,
+      body: body,
+    );
+  }
 
   Option<ValueFailure<dynamic>> get failureOption {
     return (this.id.failureOrUnit)

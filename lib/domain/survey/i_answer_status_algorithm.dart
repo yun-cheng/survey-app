@@ -19,4 +19,12 @@ abstract class IAnswerStatusAlgorithm {
     @required bool isRecodeModule,
     KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   });
+
+    Tuple2<KtMap<QuestionId, AnswerStatus>,
+      KtMap<QuestionId, Answer>> switchSpecialAnswer({
+    @required KtMap<QuestionId, Answer> answerMap,
+    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    @required Question question,
+    @required IAnswerAlgorithm answerAlgorithm,
+  });
 }

@@ -8,12 +8,7 @@ part of 'answer_status_dtos.dart';
 
 _$_AnswerStatusDto _$_$_AnswerStatusDtoFromJson(Map<String, dynamic> json) {
   return _$_AnswerStatusDto(
-    questionId: json['questionId'] as String,
-    serialNumber: json['serialNumber'] as int,
     answerStatusType: json['answerStatusType'] as String,
-    warning: json['warning'] == null
-        ? null
-        : WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
     isSpecialAnswer: json['isSpecialAnswer'] as bool,
     noteMap: (json['noteMap'] as Map<String, dynamic>)?.map(
       (k, e) => MapEntry(k, e as String),
@@ -23,10 +18,7 @@ _$_AnswerStatusDto _$_$_AnswerStatusDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_AnswerStatusDtoToJson(_$_AnswerStatusDto instance) =>
     <String, dynamic>{
-      'questionId': instance.questionId,
-      'serialNumber': instance.serialNumber,
       'answerStatusType': instance.answerStatusType,
-      'warning': instance.warning?.toJson(),
       'isSpecialAnswer': instance.isSpecialAnswer,
       'noteMap': instance.noteMap,
     };

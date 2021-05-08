@@ -6,9 +6,11 @@ abstract class SurveyEvent with _$SurveyEvent {
     @required TeamId teamId,
     @required InterviewerId interviewerId,
   }) = _WatchSurveyListStarted;
+
   const factory SurveyEvent.surveyListReceived(
     Either<SurveyFailure, KtList<Survey>> failureOrSurveyList,
   ) = _SurveyListReceived;
+
   const factory SurveyEvent.surveySelected({
     @required Survey survey,
   }) = _SurveySelected;

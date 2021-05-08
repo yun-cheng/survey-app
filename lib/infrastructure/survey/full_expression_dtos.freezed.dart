@@ -197,42 +197,12 @@ class _$ExpressionDtoTearOff {
 // ignore: unused_element
   _ExpressionDto call(
       {@required String field,
-      dynamic isEqualTo,
-      dynamic notEqualTo,
-      dynamic isLessThan,
-      dynamic isLessThanOrEqualTo,
-      dynamic isGreaterThan,
-      dynamic isGreaterThanOrEqualTo,
-      dynamic isSameList,
-      dynamic notSameList,
-      dynamic isIn,
-      dynamic notIn,
-      dynamic contains,
-      dynamic notContains,
-      dynamic containsAny,
-      dynamic notContainsAny,
-      dynamic containsAll,
-      dynamic notContainsAll,
-      dynamic isType}) {
+      @required String operator,
+      @required AnswerDto comparisonValue}) {
     return _ExpressionDto(
       field: field,
-      isEqualTo: isEqualTo,
-      notEqualTo: notEqualTo,
-      isLessThan: isLessThan,
-      isLessThanOrEqualTo: isLessThanOrEqualTo,
-      isGreaterThan: isGreaterThan,
-      isGreaterThanOrEqualTo: isGreaterThanOrEqualTo,
-      isSameList: isSameList,
-      notSameList: notSameList,
-      isIn: isIn,
-      notIn: notIn,
-      contains: contains,
-      notContains: notContains,
-      containsAny: containsAny,
-      notContainsAny: notContainsAny,
-      containsAll: containsAll,
-      notContainsAll: notContainsAll,
-      isType: isType,
+      operator: operator,
+      comparisonValue: comparisonValue,
     );
   }
 
@@ -249,23 +219,8 @@ const $ExpressionDto = _$ExpressionDtoTearOff();
 /// @nodoc
 mixin _$ExpressionDto {
   String get field;
-  dynamic get isEqualTo;
-  dynamic get notEqualTo;
-  dynamic get isLessThan;
-  dynamic get isLessThanOrEqualTo;
-  dynamic get isGreaterThan;
-  dynamic get isGreaterThanOrEqualTo;
-  dynamic get isSameList;
-  dynamic get notSameList;
-  dynamic get isIn;
-  dynamic get notIn;
-  dynamic get contains;
-  dynamic get notContains;
-  dynamic get containsAny;
-  dynamic get notContainsAny;
-  dynamic get containsAll;
-  dynamic get notContainsAll;
-  dynamic get isType;
+  String get operator;
+  AnswerDto get comparisonValue;
 
   Map<String, dynamic> toJson();
   $ExpressionDtoCopyWith<ExpressionDto> get copyWith;
@@ -276,25 +231,9 @@ abstract class $ExpressionDtoCopyWith<$Res> {
   factory $ExpressionDtoCopyWith(
           ExpressionDto value, $Res Function(ExpressionDto) then) =
       _$ExpressionDtoCopyWithImpl<$Res>;
-  $Res call(
-      {String field,
-      dynamic isEqualTo,
-      dynamic notEqualTo,
-      dynamic isLessThan,
-      dynamic isLessThanOrEqualTo,
-      dynamic isGreaterThan,
-      dynamic isGreaterThanOrEqualTo,
-      dynamic isSameList,
-      dynamic notSameList,
-      dynamic isIn,
-      dynamic notIn,
-      dynamic contains,
-      dynamic notContains,
-      dynamic containsAny,
-      dynamic notContainsAny,
-      dynamic containsAll,
-      dynamic notContainsAll,
-      dynamic isType});
+  $Res call({String field, String operator, AnswerDto comparisonValue});
+
+  $AnswerDtoCopyWith<$Res> get comparisonValue;
 }
 
 /// @nodoc
@@ -309,61 +248,26 @@ class _$ExpressionDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object field = freezed,
-    Object isEqualTo = freezed,
-    Object notEqualTo = freezed,
-    Object isLessThan = freezed,
-    Object isLessThanOrEqualTo = freezed,
-    Object isGreaterThan = freezed,
-    Object isGreaterThanOrEqualTo = freezed,
-    Object isSameList = freezed,
-    Object notSameList = freezed,
-    Object isIn = freezed,
-    Object notIn = freezed,
-    Object contains = freezed,
-    Object notContains = freezed,
-    Object containsAny = freezed,
-    Object notContainsAny = freezed,
-    Object containsAll = freezed,
-    Object notContainsAll = freezed,
-    Object isType = freezed,
+    Object operator = freezed,
+    Object comparisonValue = freezed,
   }) {
     return _then(_value.copyWith(
       field: field == freezed ? _value.field : field as String,
-      isEqualTo: isEqualTo == freezed ? _value.isEqualTo : isEqualTo as dynamic,
-      notEqualTo:
-          notEqualTo == freezed ? _value.notEqualTo : notEqualTo as dynamic,
-      isLessThan:
-          isLessThan == freezed ? _value.isLessThan : isLessThan as dynamic,
-      isLessThanOrEqualTo: isLessThanOrEqualTo == freezed
-          ? _value.isLessThanOrEqualTo
-          : isLessThanOrEqualTo as dynamic,
-      isGreaterThan: isGreaterThan == freezed
-          ? _value.isGreaterThan
-          : isGreaterThan as dynamic,
-      isGreaterThanOrEqualTo: isGreaterThanOrEqualTo == freezed
-          ? _value.isGreaterThanOrEqualTo
-          : isGreaterThanOrEqualTo as dynamic,
-      isSameList:
-          isSameList == freezed ? _value.isSameList : isSameList as dynamic,
-      notSameList:
-          notSameList == freezed ? _value.notSameList : notSameList as dynamic,
-      isIn: isIn == freezed ? _value.isIn : isIn as dynamic,
-      notIn: notIn == freezed ? _value.notIn : notIn as dynamic,
-      contains: contains == freezed ? _value.contains : contains as dynamic,
-      notContains:
-          notContains == freezed ? _value.notContains : notContains as dynamic,
-      containsAny:
-          containsAny == freezed ? _value.containsAny : containsAny as dynamic,
-      notContainsAny: notContainsAny == freezed
-          ? _value.notContainsAny
-          : notContainsAny as dynamic,
-      containsAll:
-          containsAll == freezed ? _value.containsAll : containsAll as dynamic,
-      notContainsAll: notContainsAll == freezed
-          ? _value.notContainsAll
-          : notContainsAll as dynamic,
-      isType: isType == freezed ? _value.isType : isType as dynamic,
+      operator: operator == freezed ? _value.operator : operator as String,
+      comparisonValue: comparisonValue == freezed
+          ? _value.comparisonValue
+          : comparisonValue as AnswerDto,
     ));
+  }
+
+  @override
+  $AnswerDtoCopyWith<$Res> get comparisonValue {
+    if (_value.comparisonValue == null) {
+      return null;
+    }
+    return $AnswerDtoCopyWith<$Res>(_value.comparisonValue, (value) {
+      return _then(_value.copyWith(comparisonValue: value));
+    });
   }
 }
 
@@ -374,25 +278,10 @@ abstract class _$ExpressionDtoCopyWith<$Res>
           _ExpressionDto value, $Res Function(_ExpressionDto) then) =
       __$ExpressionDtoCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {String field,
-      dynamic isEqualTo,
-      dynamic notEqualTo,
-      dynamic isLessThan,
-      dynamic isLessThanOrEqualTo,
-      dynamic isGreaterThan,
-      dynamic isGreaterThanOrEqualTo,
-      dynamic isSameList,
-      dynamic notSameList,
-      dynamic isIn,
-      dynamic notIn,
-      dynamic contains,
-      dynamic notContains,
-      dynamic containsAny,
-      dynamic notContainsAny,
-      dynamic containsAll,
-      dynamic notContainsAll,
-      dynamic isType});
+  $Res call({String field, String operator, AnswerDto comparisonValue});
+
+  @override
+  $AnswerDtoCopyWith<$Res> get comparisonValue;
 }
 
 /// @nodoc
@@ -409,60 +298,15 @@ class __$ExpressionDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object field = freezed,
-    Object isEqualTo = freezed,
-    Object notEqualTo = freezed,
-    Object isLessThan = freezed,
-    Object isLessThanOrEqualTo = freezed,
-    Object isGreaterThan = freezed,
-    Object isGreaterThanOrEqualTo = freezed,
-    Object isSameList = freezed,
-    Object notSameList = freezed,
-    Object isIn = freezed,
-    Object notIn = freezed,
-    Object contains = freezed,
-    Object notContains = freezed,
-    Object containsAny = freezed,
-    Object notContainsAny = freezed,
-    Object containsAll = freezed,
-    Object notContainsAll = freezed,
-    Object isType = freezed,
+    Object operator = freezed,
+    Object comparisonValue = freezed,
   }) {
     return _then(_ExpressionDto(
       field: field == freezed ? _value.field : field as String,
-      isEqualTo: isEqualTo == freezed ? _value.isEqualTo : isEqualTo as dynamic,
-      notEqualTo:
-          notEqualTo == freezed ? _value.notEqualTo : notEqualTo as dynamic,
-      isLessThan:
-          isLessThan == freezed ? _value.isLessThan : isLessThan as dynamic,
-      isLessThanOrEqualTo: isLessThanOrEqualTo == freezed
-          ? _value.isLessThanOrEqualTo
-          : isLessThanOrEqualTo as dynamic,
-      isGreaterThan: isGreaterThan == freezed
-          ? _value.isGreaterThan
-          : isGreaterThan as dynamic,
-      isGreaterThanOrEqualTo: isGreaterThanOrEqualTo == freezed
-          ? _value.isGreaterThanOrEqualTo
-          : isGreaterThanOrEqualTo as dynamic,
-      isSameList:
-          isSameList == freezed ? _value.isSameList : isSameList as dynamic,
-      notSameList:
-          notSameList == freezed ? _value.notSameList : notSameList as dynamic,
-      isIn: isIn == freezed ? _value.isIn : isIn as dynamic,
-      notIn: notIn == freezed ? _value.notIn : notIn as dynamic,
-      contains: contains == freezed ? _value.contains : contains as dynamic,
-      notContains:
-          notContains == freezed ? _value.notContains : notContains as dynamic,
-      containsAny:
-          containsAny == freezed ? _value.containsAny : containsAny as dynamic,
-      notContainsAny: notContainsAny == freezed
-          ? _value.notContainsAny
-          : notContainsAny as dynamic,
-      containsAll:
-          containsAll == freezed ? _value.containsAll : containsAll as dynamic,
-      notContainsAll: notContainsAll == freezed
-          ? _value.notContainsAll
-          : notContainsAll as dynamic,
-      isType: isType == freezed ? _value.isType : isType as dynamic,
+      operator: operator == freezed ? _value.operator : operator as String,
+      comparisonValue: comparisonValue == freezed
+          ? _value.comparisonValue
+          : comparisonValue as AnswerDto,
     ));
   }
 }
@@ -473,24 +317,11 @@ class __$ExpressionDtoCopyWithImpl<$Res>
 class _$_ExpressionDto extends _ExpressionDto {
   const _$_ExpressionDto(
       {@required this.field,
-      this.isEqualTo,
-      this.notEqualTo,
-      this.isLessThan,
-      this.isLessThanOrEqualTo,
-      this.isGreaterThan,
-      this.isGreaterThanOrEqualTo,
-      this.isSameList,
-      this.notSameList,
-      this.isIn,
-      this.notIn,
-      this.contains,
-      this.notContains,
-      this.containsAny,
-      this.notContainsAny,
-      this.containsAll,
-      this.notContainsAll,
-      this.isType})
+      @required this.operator,
+      @required this.comparisonValue})
       : assert(field != null),
+        assert(operator != null),
+        assert(comparisonValue != null),
         super._();
 
   factory _$_ExpressionDto.fromJson(Map<String, dynamic> json) =>
@@ -499,43 +330,13 @@ class _$_ExpressionDto extends _ExpressionDto {
   @override
   final String field;
   @override
-  final dynamic isEqualTo;
+  final String operator;
   @override
-  final dynamic notEqualTo;
-  @override
-  final dynamic isLessThan;
-  @override
-  final dynamic isLessThanOrEqualTo;
-  @override
-  final dynamic isGreaterThan;
-  @override
-  final dynamic isGreaterThanOrEqualTo;
-  @override
-  final dynamic isSameList;
-  @override
-  final dynamic notSameList;
-  @override
-  final dynamic isIn;
-  @override
-  final dynamic notIn;
-  @override
-  final dynamic contains;
-  @override
-  final dynamic notContains;
-  @override
-  final dynamic containsAny;
-  @override
-  final dynamic notContainsAny;
-  @override
-  final dynamic containsAll;
-  @override
-  final dynamic notContainsAll;
-  @override
-  final dynamic isType;
+  final AnswerDto comparisonValue;
 
   @override
   String toString() {
-    return 'ExpressionDto(field: $field, isEqualTo: $isEqualTo, notEqualTo: $notEqualTo, isLessThan: $isLessThan, isLessThanOrEqualTo: $isLessThanOrEqualTo, isGreaterThan: $isGreaterThan, isGreaterThanOrEqualTo: $isGreaterThanOrEqualTo, isSameList: $isSameList, notSameList: $notSameList, isIn: $isIn, notIn: $notIn, contains: $contains, notContains: $notContains, containsAny: $containsAny, notContainsAny: $notContainsAny, containsAll: $containsAll, notContainsAll: $notContainsAll, isType: $isType)';
+    return 'ExpressionDto(field: $field, operator: $operator, comparisonValue: $comparisonValue)';
   }
 
   @override
@@ -544,77 +345,20 @@ class _$_ExpressionDto extends _ExpressionDto {
         (other is _ExpressionDto &&
             (identical(other.field, field) ||
                 const DeepCollectionEquality().equals(other.field, field)) &&
-            (identical(other.isEqualTo, isEqualTo) ||
+            (identical(other.operator, operator) ||
                 const DeepCollectionEquality()
-                    .equals(other.isEqualTo, isEqualTo)) &&
-            (identical(other.notEqualTo, notEqualTo) ||
+                    .equals(other.operator, operator)) &&
+            (identical(other.comparisonValue, comparisonValue) ||
                 const DeepCollectionEquality()
-                    .equals(other.notEqualTo, notEqualTo)) &&
-            (identical(other.isLessThan, isLessThan) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLessThan, isLessThan)) &&
-            (identical(other.isLessThanOrEqualTo, isLessThanOrEqualTo) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLessThanOrEqualTo, isLessThanOrEqualTo)) &&
-            (identical(other.isGreaterThan, isGreaterThan) ||
-                const DeepCollectionEquality()
-                    .equals(other.isGreaterThan, isGreaterThan)) &&
-            (identical(other.isGreaterThanOrEqualTo, isGreaterThanOrEqualTo) ||
-                const DeepCollectionEquality().equals(
-                    other.isGreaterThanOrEqualTo, isGreaterThanOrEqualTo)) &&
-            (identical(other.isSameList, isSameList) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSameList, isSameList)) &&
-            (identical(other.notSameList, notSameList) ||
-                const DeepCollectionEquality()
-                    .equals(other.notSameList, notSameList)) &&
-            (identical(other.isIn, isIn) ||
-                const DeepCollectionEquality().equals(other.isIn, isIn)) &&
-            (identical(other.notIn, notIn) ||
-                const DeepCollectionEquality().equals(other.notIn, notIn)) &&
-            (identical(other.contains, contains) ||
-                const DeepCollectionEquality()
-                    .equals(other.contains, contains)) &&
-            (identical(other.notContains, notContains) ||
-                const DeepCollectionEquality()
-                    .equals(other.notContains, notContains)) &&
-            (identical(other.containsAny, containsAny) ||
-                const DeepCollectionEquality()
-                    .equals(other.containsAny, containsAny)) &&
-            (identical(other.notContainsAny, notContainsAny) ||
-                const DeepCollectionEquality()
-                    .equals(other.notContainsAny, notContainsAny)) &&
-            (identical(other.containsAll, containsAll) ||
-                const DeepCollectionEquality()
-                    .equals(other.containsAll, containsAll)) &&
-            (identical(other.notContainsAll, notContainsAll) ||
-                const DeepCollectionEquality()
-                    .equals(other.notContainsAll, notContainsAll)) &&
-            (identical(other.isType, isType) ||
-                const DeepCollectionEquality().equals(other.isType, isType)));
+                    .equals(other.comparisonValue, comparisonValue)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(field) ^
-      const DeepCollectionEquality().hash(isEqualTo) ^
-      const DeepCollectionEquality().hash(notEqualTo) ^
-      const DeepCollectionEquality().hash(isLessThan) ^
-      const DeepCollectionEquality().hash(isLessThanOrEqualTo) ^
-      const DeepCollectionEquality().hash(isGreaterThan) ^
-      const DeepCollectionEquality().hash(isGreaterThanOrEqualTo) ^
-      const DeepCollectionEquality().hash(isSameList) ^
-      const DeepCollectionEquality().hash(notSameList) ^
-      const DeepCollectionEquality().hash(isIn) ^
-      const DeepCollectionEquality().hash(notIn) ^
-      const DeepCollectionEquality().hash(contains) ^
-      const DeepCollectionEquality().hash(notContains) ^
-      const DeepCollectionEquality().hash(containsAny) ^
-      const DeepCollectionEquality().hash(notContainsAny) ^
-      const DeepCollectionEquality().hash(containsAll) ^
-      const DeepCollectionEquality().hash(notContainsAll) ^
-      const DeepCollectionEquality().hash(isType);
+      const DeepCollectionEquality().hash(operator) ^
+      const DeepCollectionEquality().hash(comparisonValue);
 
   @override
   _$ExpressionDtoCopyWith<_ExpressionDto> get copyWith =>
@@ -630,23 +374,8 @@ abstract class _ExpressionDto extends ExpressionDto {
   const _ExpressionDto._() : super._();
   const factory _ExpressionDto(
       {@required String field,
-      dynamic isEqualTo,
-      dynamic notEqualTo,
-      dynamic isLessThan,
-      dynamic isLessThanOrEqualTo,
-      dynamic isGreaterThan,
-      dynamic isGreaterThanOrEqualTo,
-      dynamic isSameList,
-      dynamic notSameList,
-      dynamic isIn,
-      dynamic notIn,
-      dynamic contains,
-      dynamic notContains,
-      dynamic containsAny,
-      dynamic notContainsAny,
-      dynamic containsAll,
-      dynamic notContainsAll,
-      dynamic isType}) = _$_ExpressionDto;
+      @required String operator,
+      @required AnswerDto comparisonValue}) = _$_ExpressionDto;
 
   factory _ExpressionDto.fromJson(Map<String, dynamic> json) =
       _$_ExpressionDto.fromJson;
@@ -654,39 +383,9 @@ abstract class _ExpressionDto extends ExpressionDto {
   @override
   String get field;
   @override
-  dynamic get isEqualTo;
+  String get operator;
   @override
-  dynamic get notEqualTo;
-  @override
-  dynamic get isLessThan;
-  @override
-  dynamic get isLessThanOrEqualTo;
-  @override
-  dynamic get isGreaterThan;
-  @override
-  dynamic get isGreaterThanOrEqualTo;
-  @override
-  dynamic get isSameList;
-  @override
-  dynamic get notSameList;
-  @override
-  dynamic get isIn;
-  @override
-  dynamic get notIn;
-  @override
-  dynamic get contains;
-  @override
-  dynamic get notContains;
-  @override
-  dynamic get containsAny;
-  @override
-  dynamic get notContainsAny;
-  @override
-  dynamic get containsAll;
-  @override
-  dynamic get notContainsAll;
-  @override
-  dynamic get isType;
+  AnswerDto get comparisonValue;
   @override
   _$ExpressionDtoCopyWith<_ExpressionDto> get copyWith;
 }

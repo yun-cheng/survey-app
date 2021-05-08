@@ -9,7 +9,7 @@ import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/value_objects.dart';
 import '../auth/interviewer_dtos.dart';
 import '../respondent/respondent_dtos.dart';
-import 'question_list_dtos.dart';
+import 'question_dtos.dart';
 import 'response_list_dtos.dart';
 import 'survey_list_dtos.dart';
 
@@ -35,6 +35,7 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
     @required bool withResponseId,
     @required String responseId,
     @required ResponseDto mainResponse,
+    @required List<ResponseDto> respondentResponseList,
   }) = _ResponseStateDto;
 
   factory ResponseStateDto.fromDomain(ResponseState domain) {
@@ -56,6 +57,8 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
       withResponseId: domain.withResponseId,
       responseId: domain.responseId.getValueAnyway(),
       mainResponse: ResponseDto.fromDomain(domain.mainResponse),
+        respondentResponseList:
+          domain.respondentResponseList.map((e) => ResponseDto.fromDomain(e)).asList(),
     );
   }
 
@@ -75,6 +78,7 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
       withResponseId: withResponseId,
       responseId: UniqueId.fromUniqueString(responseId),
       mainResponse: mainResponse.toDomain(),
+      respondentResponseList: respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
     );
   }
 

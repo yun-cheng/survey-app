@@ -12,10 +12,10 @@ abstract class AnswerEvent with _$AnswerEvent {
     @required bool isRecodeModule,
   }) = _AnswerRestored;
 
-  const factory AnswerEvent.answerStatusInitialized() =
-      _AnswerStatusInitialized;
+  // H_2 重整 answerStatus
+  const factory AnswerEvent.answerStatusUpdated() = _AnswerStatusUpdated;
 
-  // H_2 變更作答
+  // H_3 變更作答
   const factory AnswerEvent.answerChanged({
     @required Question question,
     @required dynamic body,
@@ -45,11 +45,11 @@ abstract class AnswerEvent with _$AnswerEvent {
         isRecode: isRecode ?? false,
       );
 
-  // H_3 切換特殊作答
+  // H_4 切換特殊作答
   const factory AnswerEvent.specialAnswerSwitched({
     @required Question question,
   }) = _SpecialAnswerSwitched;
 
-  // H_4 切換唯讀模式
+  // H_5 切換唯讀模式
   const factory AnswerEvent.readOnlyToggled() = _ReadOnlyToggled;
 }

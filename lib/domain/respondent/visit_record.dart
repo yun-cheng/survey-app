@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'visit_time.dart';
 
 import '../core/value_objects.dart';
 import 'value_objects.dart';
+import 'visit_time.dart';
 
 part 'visit_record.freezed.dart';
 

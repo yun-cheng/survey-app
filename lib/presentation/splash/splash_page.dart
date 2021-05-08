@@ -64,6 +64,12 @@ class SplashPage extends StatelessWidget {
                     interviewerId: state.interviewer.id,
                   ),
                 );
+            context.read<SurveyPageBloc>().add(
+                  SurveyPageEvent.watchReferenceListStarted(
+                    teamId: state.team.id,
+                    interviewerId: state.interviewer.id,
+                  ),
+                );
             context.read<RespondentBloc>().add(
                   RespondentEvent.watchRespondentListListStarted(
                     teamId: state.team.id,
@@ -81,12 +87,11 @@ class SplashPage extends StatelessWidget {
         // H_3 answer 有變更時
         BlocListener<AnswerBloc, AnswerState>(
           listenWhen: (p, c) =>
-              p.answerMap != c.answerMap ||
-              p.answerStatusMap != c.answerStatusMap,
+              p.loadState != c.loadState && c.loadState is LoadSuccess,
           listener: (context, state) {
             LoggerService.simple.i('AnswerBloc listening!!');
 
-            // H_3-2 存回 response
+            // H_3-1 存回 response
             context.read<ResponseBloc>().add(
                   ResponseEvent.responseUpdated(
                     answerMap: state.answerMap,
@@ -95,9 +100,10 @@ class SplashPage extends StatelessWidget {
                   ),
                 );
 
-            // H_3-1 調整 survey page state
+            // H_3-2 調整 survey page state
             context.read<SurveyPageBloc>().add(
-                  SurveyPageEvent.stateChanged(
+                  SurveyPageEvent.answerChanged(
+                    answerMap: state.answerMap,
                     answerStatusMap: state.answerStatusMap,
                   ),
                 );
@@ -151,12 +157,15 @@ class SplashPage extends StatelessWidget {
                   );
               context.read<SurveyPageBloc>().add(
                     SurveyPageEvent.stateRestored(
+                      surveyId: state.survey.id,
+                      moduleType: state.moduleType,
                       surveyPageState: state.response.surveyPageState,
                       questionList: state.questionList,
                       answerStatusMap: state.response.answerStatusMap,
                       isRecodeModule: state.moduleType == ModuleType.recode(),
                       mainQuestionList:
                           state.survey.module[ModuleType.main()].questionList,
+                      respondent: state.respondent,
                     ),
                   );
             }
@@ -186,6 +195,20 @@ class SplashPage extends StatelessWidget {
             context.read<RespondentBloc>().add(
                   RespondentEvent.visitReportUpdated(
                     responseList: state.responseList,
+                  ),
+                );
+          },
+        ),
+        // H_7 該受訪者其他模組的 responses 有變更時
+        BlocListener<ResponseBloc, ResponseState>(
+          listenWhen: (p, c) =>
+              p.respondentResponseList != c.respondentResponseList,
+          listener: (context, state) {
+            LoggerService.simple.i('respondentResponseList listening!!');
+
+            context.read<SurveyPageBloc>().add(
+                  SurveyPageEvent.respondentResponseListUpdated(
+                    respondentResponseList: state.respondentResponseList,
                   ),
                 );
           },

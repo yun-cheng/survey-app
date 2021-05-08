@@ -51,7 +51,7 @@ class DateTimeBox extends HookWidget {
         final answerMap =
             state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
         final isReadOnly = state.isReadOnly || state.isRecodeModule;
-        final thisAnswer = answerMap[question.id].body.getOrCrash() as String;
+        final thisAnswer = answerMap[question.id].value as String ?? '';
 
         final dateTime = DateTimeX.fromDateTimeString(thisAnswer);
 

@@ -21,14 +21,14 @@ abstract class SurveyStateDto implements _$SurveyStateDto {
     Map<String, dynamic> surveyFailure,
   }) = _SurveyStateDto;
 
-  factory SurveyStateDto.fromDomain(SurveyState surveyState) {
+  factory SurveyStateDto.fromDomain(SurveyState domain) {
     return SurveyStateDto(
-      surveyListState: surveyState.surveyListState.toJson(),
+      surveyListState: domain.surveyListState.toJson(),
       surveyList:
-          surveyState.surveyList.map((e) => SurveyDto.fromDomain(e)).asList(),
-      survey: SurveyDto.fromDomain(surveyState.survey),
+          domain.surveyList.map((e) => SurveyDto.fromDomain(e)).asList(),
+      survey: SurveyDto.fromDomain(domain.survey),
       surveyFailure:
-          surveyState.surveyFailure.fold(() => null, (some) => some.toJson()),
+          domain.surveyFailure.fold(() => null, (some) => some.toJson()),
     );
   }
 

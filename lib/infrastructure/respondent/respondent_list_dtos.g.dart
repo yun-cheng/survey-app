@@ -29,7 +29,7 @@ _$_RespondentListDto _$_$_RespondentListDtoFromJson(Map<String, dynamic> json) {
     interviewerId: json['interviewerId'] as String,
     teamId: json['teamId'] as String,
     projectId: json['projectId'] as String,
-    respondentList: (json['respondentList'] as List)
+    list: (json['list'] as List)
         ?.map((e) => e == null
             ? null
             : RespondentDto.fromJson(e as Map<String, dynamic>))
@@ -44,6 +44,5 @@ Map<String, dynamic> _$_$_RespondentListDtoToJson(
       'interviewerId': instance.interviewerId,
       'teamId': instance.teamId,
       'projectId': instance.projectId,
-      'respondentList':
-          instance.respondentList?.map((e) => e?.toJson())?.toList(),
+      'list': instance.list?.map((e) => e?.toJson())?.toList(),
     };

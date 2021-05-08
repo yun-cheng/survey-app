@@ -23,6 +23,9 @@ _$_AnswerStateDto _$_$_AnswerStateDtoFromJson(Map<String, dynamic> json) {
         ?.map((e) =>
             e == null ? null : QuestionDto.fromJson(e as Map<String, dynamic>))
         ?.toList(),
+    question: json['question'] == null
+        ? null
+        : QuestionDto.fromJson(json['question'] as Map<String, dynamic>),
     isReadOnly: json['isReadOnly'] as bool,
     isRecodeModule: json['isRecodeModule'] as bool,
     mainAnswerMap: (json['mainAnswerMap'] as Map<String, dynamic>)?.map(
@@ -37,6 +40,7 @@ _$_AnswerStateDto _$_$_AnswerStateDtoFromJson(Map<String, dynamic> json) {
               ? null
               : AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
+    loadState: json['loadState'] as Map<String, dynamic>,
   );
 }
 
@@ -46,10 +50,12 @@ Map<String, dynamic> _$_$_AnswerStateDtoToJson(_$_AnswerStateDto instance) =>
       'answerStatusMap':
           instance.answerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'questionList': instance.questionList?.map((e) => e?.toJson())?.toList(),
+      'question': instance.question?.toJson(),
       'isReadOnly': instance.isReadOnly,
       'isRecodeModule': instance.isRecodeModule,
       'mainAnswerMap':
           instance.mainAnswerMap?.map((k, e) => MapEntry(k, e?.toJson())),
       'mainAnswerStatusMap':
           instance.mainAnswerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),
+      'loadState': instance.loadState,
     };

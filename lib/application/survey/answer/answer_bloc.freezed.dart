@@ -32,8 +32,8 @@ class _$AnswerEventTearOff {
   }
 
 // ignore: unused_element
-  _AnswerStatusInitialized answerStatusInitialized() {
-    return const _AnswerStatusInitialized();
+  _AnswerStatusUpdated answerStatusUpdated() {
+    return const _AnswerStatusUpdated();
   }
 
 // ignore: unused_element
@@ -85,7 +85,7 @@ mixin _$AnswerEvent {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
             bool isRecodeModule),
-    @required TResult answerStatusInitialized(),
+    @required TResult answerStatusUpdated(),
     @required
         TResult answerChanged(Question question, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
@@ -101,7 +101,7 @@ mixin _$AnswerEvent {
         KtMap<QuestionId, Answer> mainAnswerMap,
         KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
         bool isRecodeModule),
-    TResult answerStatusInitialized(),
+    TResult answerStatusUpdated(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
         bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
     TResult specialAnswerSwitched(Question question),
@@ -111,7 +111,7 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult answerRestored(_AnswerRestored value),
-    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerStatusUpdated(_AnswerStatusUpdated value),
     @required TResult answerChanged(_AnswerChanged value),
     @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     @required TResult readOnlyToggled(_ReadOnlyToggled value),
@@ -119,7 +119,7 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult answerRestored(_AnswerRestored value),
-    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerStatusUpdated(_AnswerStatusUpdated value),
     TResult answerChanged(_AnswerChanged value),
     TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     TResult readOnlyToggled(_ReadOnlyToggled value),
@@ -281,7 +281,7 @@ class _$_AnswerRestored implements _AnswerRestored {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
             bool isRecodeModule),
-    @required TResult answerStatusInitialized(),
+    @required TResult answerStatusUpdated(),
     @required
         TResult answerChanged(Question question, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
@@ -289,7 +289,7 @@ class _$_AnswerRestored implements _AnswerRestored {
     @required TResult readOnlyToggled(),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -307,7 +307,7 @@ class _$_AnswerRestored implements _AnswerRestored {
         KtMap<QuestionId, Answer> mainAnswerMap,
         KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
         bool isRecodeModule),
-    TResult answerStatusInitialized(),
+    TResult answerStatusUpdated(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
         bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
     TResult specialAnswerSwitched(Question question),
@@ -326,13 +326,13 @@ class _$_AnswerRestored implements _AnswerRestored {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult answerRestored(_AnswerRestored value),
-    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerStatusUpdated(_AnswerStatusUpdated value),
     @required TResult answerChanged(_AnswerChanged value),
     @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     @required TResult readOnlyToggled(_ReadOnlyToggled value),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -343,7 +343,7 @@ class _$_AnswerRestored implements _AnswerRestored {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult answerRestored(_AnswerRestored value),
-    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerStatusUpdated(_AnswerStatusUpdated value),
     TResult answerChanged(_AnswerChanged value),
     TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     TResult readOnlyToggled(_ReadOnlyToggled value),
@@ -376,37 +376,36 @@ abstract class _AnswerRestored implements AnswerEvent {
 }
 
 /// @nodoc
-abstract class _$AnswerStatusInitializedCopyWith<$Res> {
-  factory _$AnswerStatusInitializedCopyWith(_AnswerStatusInitialized value,
-          $Res Function(_AnswerStatusInitialized) then) =
-      __$AnswerStatusInitializedCopyWithImpl<$Res>;
+abstract class _$AnswerStatusUpdatedCopyWith<$Res> {
+  factory _$AnswerStatusUpdatedCopyWith(_AnswerStatusUpdated value,
+          $Res Function(_AnswerStatusUpdated) then) =
+      __$AnswerStatusUpdatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$AnswerStatusInitializedCopyWithImpl<$Res>
+class __$AnswerStatusUpdatedCopyWithImpl<$Res>
     extends _$AnswerEventCopyWithImpl<$Res>
-    implements _$AnswerStatusInitializedCopyWith<$Res> {
-  __$AnswerStatusInitializedCopyWithImpl(_AnswerStatusInitialized _value,
-      $Res Function(_AnswerStatusInitialized) _then)
-      : super(_value, (v) => _then(v as _AnswerStatusInitialized));
+    implements _$AnswerStatusUpdatedCopyWith<$Res> {
+  __$AnswerStatusUpdatedCopyWithImpl(
+      _AnswerStatusUpdated _value, $Res Function(_AnswerStatusUpdated) _then)
+      : super(_value, (v) => _then(v as _AnswerStatusUpdated));
 
   @override
-  _AnswerStatusInitialized get _value =>
-      super._value as _AnswerStatusInitialized;
+  _AnswerStatusUpdated get _value => super._value as _AnswerStatusUpdated;
 }
 
 /// @nodoc
-class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
-  const _$_AnswerStatusInitialized();
+class _$_AnswerStatusUpdated implements _AnswerStatusUpdated {
+  const _$_AnswerStatusUpdated();
 
   @override
   String toString() {
-    return 'AnswerEvent.answerStatusInitialized()';
+    return 'AnswerEvent.answerStatusUpdated()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AnswerStatusInitialized);
+    return identical(this, other) || (other is _AnswerStatusUpdated);
   }
 
   @override
@@ -423,7 +422,7 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
             bool isRecodeModule),
-    @required TResult answerStatusInitialized(),
+    @required TResult answerStatusUpdated(),
     @required
         TResult answerChanged(Question question, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
@@ -431,11 +430,11 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
     @required TResult readOnlyToggled(),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
-    return answerStatusInitialized();
+    return answerStatusUpdated();
   }
 
   @override
@@ -448,7 +447,7 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
         KtMap<QuestionId, Answer> mainAnswerMap,
         KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
         bool isRecodeModule),
-    TResult answerStatusInitialized(),
+    TResult answerStatusUpdated(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
         bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
     TResult specialAnswerSwitched(Question question),
@@ -456,8 +455,8 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (answerStatusInitialized != null) {
-      return answerStatusInitialized();
+    if (answerStatusUpdated != null) {
+      return answerStatusUpdated();
     }
     return orElse();
   }
@@ -466,39 +465,39 @@ class _$_AnswerStatusInitialized implements _AnswerStatusInitialized {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult answerRestored(_AnswerRestored value),
-    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerStatusUpdated(_AnswerStatusUpdated value),
     @required TResult answerChanged(_AnswerChanged value),
     @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     @required TResult readOnlyToggled(_ReadOnlyToggled value),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
-    return answerStatusInitialized(this);
+    return answerStatusUpdated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult answerRestored(_AnswerRestored value),
-    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerStatusUpdated(_AnswerStatusUpdated value),
     TResult answerChanged(_AnswerChanged value),
     TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     TResult readOnlyToggled(_ReadOnlyToggled value),
     @required TResult orElse(),
   }) {
     assert(orElse != null);
-    if (answerStatusInitialized != null) {
-      return answerStatusInitialized(this);
+    if (answerStatusUpdated != null) {
+      return answerStatusUpdated(this);
     }
     return orElse();
   }
 }
 
-abstract class _AnswerStatusInitialized implements AnswerEvent {
-  const factory _AnswerStatusInitialized() = _$_AnswerStatusInitialized;
+abstract class _AnswerStatusUpdated implements AnswerEvent {
+  const factory _AnswerStatusUpdated() = _$_AnswerStatusUpdated;
 }
 
 /// @nodoc
@@ -648,7 +647,7 @@ class _$_AnswerChanged implements _AnswerChanged {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
             bool isRecodeModule),
-    @required TResult answerStatusInitialized(),
+    @required TResult answerStatusUpdated(),
     @required
         TResult answerChanged(Question question, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
@@ -656,7 +655,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     @required TResult readOnlyToggled(),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -674,7 +673,7 @@ class _$_AnswerChanged implements _AnswerChanged {
         KtMap<QuestionId, Answer> mainAnswerMap,
         KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
         bool isRecodeModule),
-    TResult answerStatusInitialized(),
+    TResult answerStatusUpdated(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
         bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
     TResult specialAnswerSwitched(Question question),
@@ -693,13 +692,13 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult answerRestored(_AnswerRestored value),
-    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerStatusUpdated(_AnswerStatusUpdated value),
     @required TResult answerChanged(_AnswerChanged value),
     @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     @required TResult readOnlyToggled(_ReadOnlyToggled value),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -710,7 +709,7 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult answerRestored(_AnswerRestored value),
-    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerStatusUpdated(_AnswerStatusUpdated value),
     TResult answerChanged(_AnswerChanged value),
     TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     TResult readOnlyToggled(_ReadOnlyToggled value),
@@ -827,7 +826,7 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
             bool isRecodeModule),
-    @required TResult answerStatusInitialized(),
+    @required TResult answerStatusUpdated(),
     @required
         TResult answerChanged(Question question, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
@@ -835,7 +834,7 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     @required TResult readOnlyToggled(),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -852,7 +851,7 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
         KtMap<QuestionId, Answer> mainAnswerMap,
         KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
         bool isRecodeModule),
-    TResult answerStatusInitialized(),
+    TResult answerStatusUpdated(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
         bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
     TResult specialAnswerSwitched(Question question),
@@ -870,13 +869,13 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult answerRestored(_AnswerRestored value),
-    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerStatusUpdated(_AnswerStatusUpdated value),
     @required TResult answerChanged(_AnswerChanged value),
     @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     @required TResult readOnlyToggled(_ReadOnlyToggled value),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -887,7 +886,7 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult answerRestored(_AnswerRestored value),
-    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerStatusUpdated(_AnswerStatusUpdated value),
     TResult answerChanged(_AnswerChanged value),
     TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     TResult readOnlyToggled(_ReadOnlyToggled value),
@@ -956,7 +955,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
             bool isRecodeModule),
-    @required TResult answerStatusInitialized(),
+    @required TResult answerStatusUpdated(),
     @required
         TResult answerChanged(Question question, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
@@ -964,7 +963,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     @required TResult readOnlyToggled(),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -981,7 +980,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
         KtMap<QuestionId, Answer> mainAnswerMap,
         KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
         bool isRecodeModule),
-    TResult answerStatusInitialized(),
+    TResult answerStatusUpdated(),
     TResult answerChanged(Question question, dynamic body, bool isNote,
         bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId noteOf),
     TResult specialAnswerSwitched(Question question),
@@ -999,13 +998,13 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
   @optionalTypeArgs
   TResult map<TResult extends Object>({
     @required TResult answerRestored(_AnswerRestored value),
-    @required TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    @required TResult answerStatusUpdated(_AnswerStatusUpdated value),
     @required TResult answerChanged(_AnswerChanged value),
     @required TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     @required TResult readOnlyToggled(_ReadOnlyToggled value),
   }) {
     assert(answerRestored != null);
-    assert(answerStatusInitialized != null);
+    assert(answerStatusUpdated != null);
     assert(answerChanged != null);
     assert(specialAnswerSwitched != null);
     assert(readOnlyToggled != null);
@@ -1016,7 +1015,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object>({
     TResult answerRestored(_AnswerRestored value),
-    TResult answerStatusInitialized(_AnswerStatusInitialized value),
+    TResult answerStatusUpdated(_AnswerStatusUpdated value),
     TResult answerChanged(_AnswerChanged value),
     TResult specialAnswerSwitched(_SpecialAnswerSwitched value),
     TResult readOnlyToggled(_ReadOnlyToggled value),
@@ -1043,18 +1042,22 @@ class _$AnswerStateTearOff {
       {@required KtMap<QuestionId, Answer> answerMap,
       @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
       @required KtList<Question> questionList,
+      @required Question question,
       @required bool isReadOnly,
       @required bool isRecodeModule,
       @required KtMap<QuestionId, Answer> mainAnswerMap,
-      @required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) {
+      @required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+      @required LoadState loadState}) {
     return _AnswerState(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       questionList: questionList,
+      question: question,
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
+      loadState: loadState,
     );
   }
 }
@@ -1068,10 +1071,12 @@ mixin _$AnswerState {
   KtMap<QuestionId, Answer> get answerMap;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap;
   KtList<Question> get questionList;
+  Question get question;
   bool get isReadOnly;
   bool get isRecodeModule;
   KtMap<QuestionId, Answer> get mainAnswerMap;
   KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap;
+  LoadState get loadState;
 
   $AnswerStateCopyWith<AnswerState> get copyWith;
 }
@@ -1085,10 +1090,15 @@ abstract class $AnswerStateCopyWith<$Res> {
       {KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
       KtList<Question> questionList,
+      Question question,
       bool isReadOnly,
       bool isRecodeModule,
       KtMap<QuestionId, Answer> mainAnswerMap,
-      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
+      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+      LoadState loadState});
+
+  $QuestionCopyWith<$Res> get question;
+  $LoadStateCopyWith<$Res> get loadState;
 }
 
 /// @nodoc
@@ -1104,10 +1114,12 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object questionList = freezed,
+    Object question = freezed,
     Object isReadOnly = freezed,
     Object isRecodeModule = freezed,
     Object mainAnswerMap = freezed,
     Object mainAnswerStatusMap = freezed,
+    Object loadState = freezed,
   }) {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
@@ -1119,6 +1131,7 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
+      question: question == freezed ? _value.question : question as Question,
       isReadOnly:
           isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
       isRecodeModule: isRecodeModule == freezed
@@ -1130,7 +1143,29 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap as KtMap<QuestionId, AnswerStatus>,
+      loadState:
+          loadState == freezed ? _value.loadState : loadState as LoadState,
     ));
+  }
+
+  @override
+  $QuestionCopyWith<$Res> get question {
+    if (_value.question == null) {
+      return null;
+    }
+    return $QuestionCopyWith<$Res>(_value.question, (value) {
+      return _then(_value.copyWith(question: value));
+    });
+  }
+
+  @override
+  $LoadStateCopyWith<$Res> get loadState {
+    if (_value.loadState == null) {
+      return null;
+    }
+    return $LoadStateCopyWith<$Res>(_value.loadState, (value) {
+      return _then(_value.copyWith(loadState: value));
+    });
   }
 }
 
@@ -1145,10 +1180,17 @@ abstract class _$AnswerStateCopyWith<$Res>
       {KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
       KtList<Question> questionList,
+      Question question,
       bool isReadOnly,
       bool isRecodeModule,
       KtMap<QuestionId, Answer> mainAnswerMap,
-      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
+      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+      LoadState loadState});
+
+  @override
+  $QuestionCopyWith<$Res> get question;
+  @override
+  $LoadStateCopyWith<$Res> get loadState;
 }
 
 /// @nodoc
@@ -1166,10 +1208,12 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
     Object answerMap = freezed,
     Object answerStatusMap = freezed,
     Object questionList = freezed,
+    Object question = freezed,
     Object isReadOnly = freezed,
     Object isRecodeModule = freezed,
     Object mainAnswerMap = freezed,
     Object mainAnswerStatusMap = freezed,
+    Object loadState = freezed,
   }) {
     return _then(_AnswerState(
       answerMap: answerMap == freezed
@@ -1181,6 +1225,7 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
       questionList: questionList == freezed
           ? _value.questionList
           : questionList as KtList<Question>,
+      question: question == freezed ? _value.question : question as Question,
       isReadOnly:
           isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
       isRecodeModule: isRecodeModule == freezed
@@ -1192,6 +1237,8 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap as KtMap<QuestionId, AnswerStatus>,
+      loadState:
+          loadState == freezed ? _value.loadState : loadState as LoadState,
     ));
   }
 }
@@ -1202,17 +1249,21 @@ class _$_AnswerState implements _AnswerState {
       {@required this.answerMap,
       @required this.answerStatusMap,
       @required this.questionList,
+      @required this.question,
       @required this.isReadOnly,
       @required this.isRecodeModule,
       @required this.mainAnswerMap,
-      @required this.mainAnswerStatusMap})
+      @required this.mainAnswerStatusMap,
+      @required this.loadState})
       : assert(answerMap != null),
         assert(answerStatusMap != null),
         assert(questionList != null),
+        assert(question != null),
         assert(isReadOnly != null),
         assert(isRecodeModule != null),
         assert(mainAnswerMap != null),
-        assert(mainAnswerStatusMap != null);
+        assert(mainAnswerStatusMap != null),
+        assert(loadState != null);
 
   @override
   final KtMap<QuestionId, Answer> answerMap;
@@ -1221,6 +1272,8 @@ class _$_AnswerState implements _AnswerState {
   @override
   final KtList<Question> questionList;
   @override
+  final Question question;
+  @override
   final bool isReadOnly;
   @override
   final bool isRecodeModule;
@@ -1228,10 +1281,12 @@ class _$_AnswerState implements _AnswerState {
   final KtMap<QuestionId, Answer> mainAnswerMap;
   @override
   final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
+  @override
+  final LoadState loadState;
 
   @override
   String toString() {
-    return 'AnswerState(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'AnswerState(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionList: $questionList, question: $question, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, loadState: $loadState)';
   }
 
   @override
@@ -1247,6 +1302,9 @@ class _$_AnswerState implements _AnswerState {
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionList, questionList)) &&
+            (identical(other.question, question) ||
+                const DeepCollectionEquality()
+                    .equals(other.question, question)) &&
             (identical(other.isReadOnly, isReadOnly) ||
                 const DeepCollectionEquality()
                     .equals(other.isReadOnly, isReadOnly)) &&
@@ -1258,7 +1316,10 @@ class _$_AnswerState implements _AnswerState {
                     .equals(other.mainAnswerMap, mainAnswerMap)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
+                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)) &&
+            (identical(other.loadState, loadState) ||
+                const DeepCollectionEquality()
+                    .equals(other.loadState, loadState)));
   }
 
   @override
@@ -1267,10 +1328,12 @@ class _$_AnswerState implements _AnswerState {
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(question) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
-      const DeepCollectionEquality().hash(mainAnswerStatusMap);
+      const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
+      const DeepCollectionEquality().hash(loadState);
 
   @override
   _$AnswerStateCopyWith<_AnswerState> get copyWith =>
@@ -1279,14 +1342,15 @@ class _$_AnswerState implements _AnswerState {
 
 abstract class _AnswerState implements AnswerState {
   const factory _AnswerState(
-          {@required KtMap<QuestionId, Answer> answerMap,
-          @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-          @required KtList<Question> questionList,
-          @required bool isReadOnly,
-          @required bool isRecodeModule,
-          @required KtMap<QuestionId, Answer> mainAnswerMap,
-          @required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
-      _$_AnswerState;
+      {@required KtMap<QuestionId, Answer> answerMap,
+      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      @required KtList<Question> questionList,
+      @required Question question,
+      @required bool isReadOnly,
+      @required bool isRecodeModule,
+      @required KtMap<QuestionId, Answer> mainAnswerMap,
+      @required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+      @required LoadState loadState}) = _$_AnswerState;
 
   @override
   KtMap<QuestionId, Answer> get answerMap;
@@ -1295,6 +1359,8 @@ abstract class _AnswerState implements AnswerState {
   @override
   KtList<Question> get questionList;
   @override
+  Question get question;
+  @override
   bool get isReadOnly;
   @override
   bool get isRecodeModule;
@@ -1302,6 +1368,8 @@ abstract class _AnswerState implements AnswerState {
   KtMap<QuestionId, Answer> get mainAnswerMap;
   @override
   KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap;
+  @override
+  LoadState get loadState;
   @override
   _$AnswerStateCopyWith<_AnswerState> get copyWith;
 }

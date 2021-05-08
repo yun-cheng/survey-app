@@ -58,7 +58,9 @@ class AppWidget extends StatelessWidget {
           lazy: false,
         ),
         BlocProvider(
-          create: (_) => SurveyPageBloc(),
+          create: (_) => SurveyPageBloc(
+            getIt<ISurveyRepository>(),
+          ),
         ),
       ],
       child: MaterialApp(

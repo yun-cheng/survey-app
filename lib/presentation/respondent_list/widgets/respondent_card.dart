@@ -180,7 +180,7 @@ class RespondentCard extends StatelessWidget {
                         const SizedBox(
                           width: kH1FontSize,
                         ),
-                          FlatButton(
+                        FlatButton(
                           color: kCardBlueTextColor,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(18.0),

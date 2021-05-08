@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/survey/question.dart';
@@ -16,12 +17,15 @@ class QuestionBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-      buildWhen: (p, c) => false,
+      buildWhen: (p, c) =>
+          p.pageQuestionList != c.pageQuestionList &&
+          !p.pageQuestionList.contains(question),
       builder: (context, state) {
-        final idText = question.hideId && !state.isRecodeModule
-            ? ''
-            : '${question.id.getValueAnyway()}. ';
-        final questionText = idText + question.body.getValueAnyway();
+        LoggerService.simple.i('QuestionBox rebuild');
+
+        final questionText = question.toPlainTextBody(
+          withId: !question.hideId || state.isRecodeModule,
+        );
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,

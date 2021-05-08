@@ -7,9 +7,11 @@ import 'package:rxdart/rxdart.dart';
 import '../../domain/auth/value_objects.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/survey/i_survey_repository.dart';
+import '../../domain/survey/reference.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../core/firestore_helpers.dart';
+import 'reference_dtos.dart';
 import 'response_list_dtos.dart';
 import 'survey_list_dtos.dart';
 
@@ -34,6 +36,27 @@ class SurveyRepository implements ISurveyRepository {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const SurveyFailure.insufficientPermission());
       } else {
+        // print(e);
+        return left(const SurveyFailure.unexpected());
+      }
+    });
+  }
+
+  @override
+  Stream<Either<SurveyFailure, KtList<Reference>>> watchReferenceList(
+      {TeamId teamId, InterviewerId interviewerId}) async* {
+    final referenceCollection = _firestore.referenceCollection;
+
+    yield* referenceCollection
+        .where('teamId', isEqualTo: teamId.getOrCrash())
+        .where('interviewerId', isEqualTo: interviewerId.getOrCrash())
+        .snapshots()
+        .map((snapshot) => right<SurveyFailure, KtList<Reference>>(
+            ReferenceListDto.fromFirestore(snapshot).toDomain()))
+        .onErrorReturnWith((e) {
+      if (e is FirebaseException && e.code == 'permission-denied') {
+        return left(const SurveyFailure.insufficientPermission());
+      } else {
         return left(const SurveyFailure.unexpected());
       }
     });
@@ -46,6 +69,7 @@ class SurveyRepository implements ISurveyRepository {
 
     yield* responseCollection
         .where('teamId', isEqualTo: teamId.getOrCrash())
+        // TODO 應不限於這個訪員?
         .where('interviewerId', isEqualTo: interviewerId.getOrCrash())
         .snapshots()
         .map((snapshot) => right<SurveyFailure, KtList<Response>>(

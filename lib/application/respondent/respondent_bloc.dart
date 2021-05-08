@@ -94,11 +94,6 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
         );
       },
       visitReportUpdated: (e) async* {
-        final choiceList = state
-            .survey.module[ModuleType.visitReport()].questionList
-            .firstOrNull((q) => q.id == QuestionId('V3'))
-            .choiceList;
-
         final visitRecordsMap = e.responseList
             .filter(
               (r) =>
@@ -110,30 +105,19 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
             .mapValues((r) => r.value.getOrNull(0))
             .toList()
             .map((p) => p.second)
-            .map((r) {
-              final v3Answer = choiceList.firstOrNull((c) =>
-                  c.id == r.answerMap[QuestionId('V3')].body.getValueAnyway());
-
-              final v1Answer =
-                  r.answerMap[QuestionId('V1')].body.getValueAnyway();
-              final date = DateTimeX.fromDateTimeString(v1Answer);
-
-              final v2Answer =
-                  r.answerMap[QuestionId('V2')].body.getValueAnyway();
-              final v2AnswerStr =
-                  v2Answer is ChoiceId ? v2Answer.getValueAnyway() : '';
-
-              return VisitRecord(
+            .map(
+              (r) => VisitRecord(
                 respondentId: r.respondentId,
                 responseId: r.responseId,
                 visitTime: VisitTime(
-                  date: date,
-                  timeSession: v2AnswerStr,
+                  date: DateTimeX.fromDateTimeString(
+                    r.answerMap.get(QuestionId('V1')).value,
+                  ),
+                  timeSession: r.answerMap.get(QuestionId('V2'))?.stringBody,
                 ),
-                description:
-                    v3Answer != null ? v3Answer.body.getValueAnyway() : '',
-              );
-            })
+                description: r.answerMap.get(QuestionId('V3'))?.stringBody,
+              ),
+            )
             .sortedByDescending((v) => v.visitTime.toInt())
             .groupBy((r) => r.respondentId);
 

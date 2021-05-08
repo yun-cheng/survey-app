@@ -4,9 +4,6 @@ import 'package:kt_dart/collection.dart';
 
 import '../auth/value_objects.dart';
 import '../core/failures.dart';
-import '../survey/answer.dart';
-import '../survey/answer_status.dart';
-import '../survey/question.dart';
 import '../survey/survey_module.dart';
 import '../survey/value_objects.dart';
 import 'value_objects.dart';
@@ -54,13 +51,6 @@ abstract class Survey implements _$Survey {
         //           .fold(() => right(unit), (f) => left(f)))
         //       .filter((either) => either.isLeft())
         //       .getOrElse(0, (_) => right(unit)),
-        // )
-        // .andThen(
-        //   questionList
-        //       .map((question) => question.failureOption)
-        //       .filter((o) => o.isSome())
-        //       .getOrElse(0, (_) => none())
-        //       .fold(() => right(unit), (f) => left(f)),
         // )
         .fold((f) => some(f), (_) => none());
   }

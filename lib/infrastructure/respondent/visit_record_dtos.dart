@@ -1,9 +1,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'visit_time_dtos.dart';
 
 import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
 import '../../domain/respondent/visit_record.dart';
+import 'visit_time_dtos.dart';
 
 part 'visit_record_dtos.freezed.dart';
 part 'visit_record_dtos.g.dart';

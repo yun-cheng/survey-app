@@ -41,24 +41,26 @@ class ChoicesBox extends StatelessWidget {
         KtList<Choice> thisChoiceList = question.choiceList;
 
         // H_ 如果是連鎖題下層要篩選選項
-        if (question.upperQuestionId.isNotEmpty) {
+        if (question.upperQuestionId.isNotEmpty && !isSpecialAnswer) {
           final upperAnswer = state.answerMap[question.upperQuestionId];
-          thisChoiceList = question.choiceList.filter((choice) =>
-              choice.upperChoiceId == upperAnswer.body.getValueAnyway());
+          thisChoiceList = question.choiceList.filter(
+              (choice) => choice.upperChoiceId == upperAnswer.value?.id);
         }
-        thisChoiceList =
-            isSpecialAnswer ? question.specialAnswerList : thisChoiceList;
+
+        // H_ 篩是否為特殊作答的題目
+        thisChoiceList = thisChoiceList
+            .filter((choice) => choice.isSpecialAnswer == isSpecialAnswer);
 
         // H_ 如果是唯讀，只保留選擇的選項
         if (state.isReadOnly || state.isRecodeModule) {
           thisChoiceList = thisChoiceList
-              .filter((choice) => thisAnswer.body.contains(choice.id));
+              .filter((choice) => thisAnswer.contains(choice.simple()));
         }
 
         final size = thisChoiceList.size;
 
         LoggerService.simple.i('AnswerBox rebuild!!!');
-        
+
         return StaggeredGridView.countBuilder(
           physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
@@ -83,19 +85,17 @@ class ChoicesBox extends StatelessWidget {
                       style: kPTextStyle,
                     ),
                     if (choice.asNote &&
-                        thisAnswer.body.contains(choice.id)) ...[
+                        thisAnswer.contains(choice.simple())) ...[
                       NoteBox(
                         question: question,
                         choice: choice,
-                        note: thisAnswer.noteMap
-                            .getOrDefault(choice.id, AnswerBody.empty())
-                            .getOrCrash() as String,
+                        note: thisAnswer.noteMap.getOrDefault(choice.id, ''),
                       ),
                     ]
                   ],
                 ),
                 value: choice.id,
-                groupValue: thisAnswer.body.getOrCrash(),
+                groupValue: thisAnswer.value?.id,
                 onChanged: (_) {
                   context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
@@ -118,18 +118,16 @@ class ChoicesBox extends StatelessWidget {
                       style: kPTextStyle,
                     ),
                     if (choice.asNote &&
-                        thisAnswer.body.contains(choice.id)) ...[
+                        thisAnswer.contains(choice.simple())) ...[
                       NoteBox(
                         question: question,
                         choice: choice,
-                        note: thisAnswer.noteMap
-                            .getOrDefault(choice.id, AnswerBody.empty())
-                            .getOrCrash() as String,
+                        note: thisAnswer.noteMap.getOrDefault(choice.id, ''),
                       ),
                     ]
                   ],
                 ),
-                value: thisAnswer.body.contains(choice.id),
+                value: thisAnswer.contains(choice.simple()),
                 onChanged: (_) {
                   context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(

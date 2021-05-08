@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'visit_record_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/respondent/respondent_bloc.dart';
@@ -10,6 +9,7 @@ import '../../domain/respondent/value_objects.dart';
 import '../survey/survey_list_dtos.dart';
 import 'respondent_dtos.dart';
 import 'respondent_list_dtos.dart';
+import 'visit_record_dtos.dart';
 
 part 'respondent_state_dtos.freezed.dart';
 part 'respondent_state_dtos.g.dart';
