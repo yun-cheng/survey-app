@@ -12,30 +12,29 @@ import 'choice.dart';
 import 'formatted_text.dart';
 import 'full_expression.dart';
 import 'reference.dart';
-import 'reference_key.dart';
 import 'value_objects.dart';
 
 part 'question.freezed.dart';
 
 @freezed
-abstract class Question implements _$Question {
+class Question with _$Question {
   const Question._();
 
   const factory Question({
-    @required QuestionId id,
-    @required bool hideId,
-    @required SerialNumber serialNumber,
-    @required KtList<FormattedText> body,
-    @required String stringBody,
-    @required QuestionNote note,
-    @required QuestionType type,
-    @required FullExpression show,
-    @required KtList<Choice> choiceList,
-    @required bool hasSpecialAnswer,
-    @required FullExpression validateAnswer,
-    @required QuestionId upperQuestionId,
-    @required PageNumber pageNumber,
-    @required bool recodeNeeded,
+    required QuestionId id,
+    required bool hideId,
+    required SerialNumber serialNumber,
+    required KtList<FormattedText> body,
+    required String stringBody,
+    required QuestionNote note,
+    required QuestionType type,
+    required FullExpression show,
+    required KtList<Choice> choiceList,
+    required bool hasSpecialAnswer,
+    required FullExpression validateAnswer,
+    required QuestionId upperQuestionId,
+    required PageNumber pageNumber,
+    required bool recodeNeeded,
   }) = _Question;
 
   factory Question.empty() => Question(
@@ -58,12 +57,12 @@ abstract class Question implements _$Question {
   bool get isEmpty => this.id.isEmpty;
 
   Question updateBody({
-    @required KtList<Reference> referenceList,
-    @required KtList<Response> responseList,
-    @required SurveyId surveyId,
-    @required ModuleType moduleType,
-    @required KtMap<QuestionId, Answer> answerMap,
-    @required RespondentId respondentId,
+    required KtList<Reference> referenceList,
+    required KtList<Response> responseList,
+    required SurveyId surveyId,
+    required ModuleType moduleType,
+    required KtMap<QuestionId, Answer> answerMap,
+    required RespondentId respondentId,
   }) {
     final newBody = body.map(
       (item) => item.getAnswer(
@@ -86,7 +85,7 @@ abstract class Question implements _$Question {
   }
 
   String toPlainTextBody({
-    @required bool withId,
+    required bool withId,
   }) {
     final idText = withId ? '${this.id.getValueAnyway()}. ' : '';
     return idText + stringBody;

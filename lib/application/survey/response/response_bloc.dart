@@ -27,7 +27,7 @@ part 'response_state.dart';
 
 class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
   final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, KtList<Response>>>
+  StreamSubscription<Either<SurveyFailure, KtList<Response>>>?
       _responseListSubscription;
   ResponseBloc(
     this._surveyRepository,
@@ -87,7 +87,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
                 .getOrNull(0),
           )
           .toList()
-          .map((p) => p.second)
+          .map((p) => p.second!)
           .toList();
 
       if (newList.isNotEmpty()) {
@@ -126,7 +126,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       );
 
       // S_1 篩出 response
-      Response response;
+      Response? response;
       // S_1-c1 如果有 responseId 則直接篩出來
       if (state.withResponseId) {
         response = state.responseList
@@ -153,7 +153,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       }
 
       // S_2 若無篩出，則新創一個 response
-      final module = state.survey.module.get(state.moduleType);
+      final module = state.survey.module.get(state.moduleType)!;
       response ??= Response.empty().copyWith(
         teamId: state.survey.teamId,
         projectId: state.survey.projectId,
@@ -178,7 +178,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       );
 
       // S_4 如果是預過錄，則需要 mainResponse
-      Response mainResponse;
+      Response? mainResponse;
       if (state.moduleType == ModuleType.recode()) {
         final mainResponseList = state.responseList
             .filter(
@@ -277,7 +277,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           .groupBy((r) => r.moduleType)
           .mapValues((r) => r.value.getOrNull(0))
           .toList()
-          .map((p) => p.second);
+          .map((p) => p.second!);
 
       yield state.copyWith(
         respondentResponseList: subsetList,
@@ -292,7 +292,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
   }
 
   @override
-  ResponseState fromJson(Map<String, dynamic> json) {
+  ResponseState? fromJson(Map<String, dynamic> json) {
     try {
       return ResponseStateDto.fromJson(json).toDomain();
     } catch (_) {
@@ -301,7 +301,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
   }
 
   @override
-  Map<String, dynamic> toJson(ResponseState state) {
+  Map<String, dynamic>? toJson(ResponseState state) {
     // try {
     return ResponseStateDto.fromDomain(state).toJson();
     // } catch (_) {

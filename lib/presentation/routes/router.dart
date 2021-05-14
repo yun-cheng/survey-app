@@ -1,27 +1,24 @@
-import 'package:auto_route/auto_route_annotations.dart';
+import 'package:auto_route/auto_route.dart';
 
-import '../finished/finished_page.dart';
 import '../overview/overview_page.dart';
-import '../quiz/quiz_page.dart';
-import '../quiz_list/quiz_list_page.dart';
 import '../respondent_list/respondents_page.dart';
 import '../sign_in/sign_in_page.dart';
 import '../splash/splash_page.dart';
 import '../survey/survey_content_page.dart';
 import '../survey/survey_page.dart';
 
+export 'router.gr.dart';
+
+// TODO 區分不同 module 路徑
 @MaterialAutoRouter(
-  generateNavigationHelperExtension: true,
+  replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    MaterialRoute(page: SplashPage, initial: true),
-    MaterialRoute(page: SignInPage),
-    MaterialRoute(page: QuizListPage),
-    MaterialRoute(page: QuizPage),
-    MaterialRoute(page: FinishedPage),
-    MaterialRoute(page: OverviewPage, path: '/overview'),
-    MaterialRoute(page: RespondentsPage, path: '/respondents'),
-    MaterialRoute(page: SurveyPage, path: '/respondent/:respondentId'),
-    MaterialRoute(page: SurveyContentPage),
+    AutoRoute(page: SplashPage, initial: true),
+    AutoRoute(page: SignInPage),
+    AutoRoute(page: OverviewPage, path: '/overview'),
+    AutoRoute(page: RespondentsPage, path: '/respondents'),
+    AutoRoute(page: SurveyPage, path: '/respondent/:respondentId'),
+    AutoRoute(page: SurveyContentPage),
   ],
 )
-class $AutoRouter {}
+class $RootRouter {}

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'survey_page_state_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'survey_page_state_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SurveyPageStateDto _$SurveyPageStateDtoFromJson(Map<String, dynamic> json) {
   return _SurveyPageStateDto.fromJson(json);
 }
@@ -16,29 +20,28 @@ SurveyPageStateDto _$SurveyPageStateDtoFromJson(Map<String, dynamic> json) {
 class _$SurveyPageStateDtoTearOff {
   const _$SurveyPageStateDtoTearOff();
 
-// ignore: unused_element
   _SurveyPageStateDto call(
-      {@required Map<String, dynamic> referenceListState,
-      @required List<ReferenceDto> referenceList,
-      Map<String, dynamic> surveyFailure,
-      @required RespondentDto respondent,
-      @required int page,
-      @required int newestPage,
-      @required List<QuestionDto> questionList,
-      @required List<QuestionDto> pageQuestionList,
-      @required List<QuestionDto> contentQuestionList,
-      @required Map<String, AnswerDto> answerMap,
-      @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required bool isLastPage,
-      @required WarningDto warning,
-      @required bool showWarning,
-      @required Map<String, dynamic> loadState,
-      @required Map<String, dynamic> restoreState,
-      @required bool isRecodeModule,
-      @required List<QuestionDto> mainQuestionList,
-      @required List<ResponseDto> respondentResponseList,
-      @required String surveyId,
-      @required String moduleType}) {
+      {required Map<String, dynamic> referenceListState,
+      required List<ReferenceDto> referenceList,
+      Map<String, dynamic>? surveyFailure,
+      required RespondentDto respondent,
+      required int page,
+      required int newestPage,
+      required List<QuestionDto> questionList,
+      required List<QuestionDto> pageQuestionList,
+      required List<QuestionDto> contentQuestionList,
+      required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required bool isLastPage,
+      required WarningDto warning,
+      required bool showWarning,
+      required Map<String, dynamic> loadState,
+      required Map<String, dynamic> restoreState,
+      required bool isRecodeModule,
+      required List<QuestionDto> mainQuestionList,
+      required List<ResponseDto> respondentResponseList,
+      required String surveyId,
+      required String moduleType}) {
     return _SurveyPageStateDto(
       referenceListState: referenceListState,
       referenceList: referenceList,
@@ -64,42 +67,46 @@ class _$SurveyPageStateDtoTearOff {
     );
   }
 
-// ignore: unused_element
   SurveyPageStateDto fromJson(Map<String, Object> json) {
     return SurveyPageStateDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SurveyPageStateDto = _$SurveyPageStateDtoTearOff();
 
 /// @nodoc
 mixin _$SurveyPageStateDto {
-  Map<String, dynamic> get referenceListState;
-  List<ReferenceDto> get referenceList;
-  Map<String, dynamic> get surveyFailure;
-  RespondentDto get respondent;
-  int get page;
-  int get newestPage;
-  List<QuestionDto> get questionList;
-  List<QuestionDto> get pageQuestionList;
-  List<QuestionDto> get contentQuestionList;
-  Map<String, AnswerDto> get answerMap;
-  Map<String, AnswerStatusDto> get answerStatusMap;
-  bool get isLastPage;
-  WarningDto get warning;
-  bool get showWarning;
-  Map<String, dynamic> get loadState;
-  Map<String, dynamic> get restoreState;
-  bool get isRecodeModule;
-  List<QuestionDto> get mainQuestionList;
-  List<ResponseDto> get respondentResponseList;
-  String get surveyId;
-  String get moduleType;
+  Map<String, dynamic> get referenceListState =>
+      throw _privateConstructorUsedError;
+  List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get surveyFailure => throw _privateConstructorUsedError;
+  RespondentDto get respondent => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  int get newestPage => throw _privateConstructorUsedError;
+  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
+  List<QuestionDto> get contentQuestionList =>
+      throw _privateConstructorUsedError;
+  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+  WarningDto get warning => throw _privateConstructorUsedError;
+  bool get showWarning => throw _privateConstructorUsedError;
+  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
+  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  List<QuestionDto> get mainQuestionList => throw _privateConstructorUsedError;
+  List<ResponseDto> get respondentResponseList =>
+      throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get moduleType => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SurveyPageStateDtoCopyWith<SurveyPageStateDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SurveyPageStateDtoCopyWith<SurveyPageStateDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -110,7 +117,7 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
   $Res call(
       {Map<String, dynamic> referenceListState,
       List<ReferenceDto> referenceList,
-      Map<String, dynamic> surveyFailure,
+      Map<String, dynamic>? surveyFailure,
       RespondentDto respondent,
       int page,
       int newestPage,
@@ -145,89 +152,118 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object referenceListState = freezed,
-    Object referenceList = freezed,
-    Object surveyFailure = freezed,
-    Object respondent = freezed,
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object questionList = freezed,
-    Object pageQuestionList = freezed,
-    Object contentQuestionList = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object loadState = freezed,
-    Object restoreState = freezed,
-    Object isRecodeModule = freezed,
-    Object mainQuestionList = freezed,
-    Object respondentResponseList = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
+    Object? referenceListState = freezed,
+    Object? referenceList = freezed,
+    Object? surveyFailure = freezed,
+    Object? respondent = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? questionList = freezed,
+    Object? pageQuestionList = freezed,
+    Object? contentQuestionList = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? loadState = freezed,
+    Object? restoreState = freezed,
+    Object? isRecodeModule = freezed,
+    Object? mainQuestionList = freezed,
+    Object? respondentResponseList = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
   }) {
     return _then(_value.copyWith(
       referenceListState: referenceListState == freezed
           ? _value.referenceListState
-          : referenceListState as Map<String, dynamic>,
+          : referenceListState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       referenceList: referenceList == freezed
           ? _value.referenceList
-          : referenceList as List<ReferenceDto>,
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as List<ReferenceDto>,
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
-          : surveyFailure as Map<String, dynamic>,
+          : surveyFailure // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       respondent: respondent == freezed
           ? _value.respondent
-          : respondent as RespondentDto,
-      page: page == freezed ? _value.page : page as int,
-      newestPage: newestPage == freezed ? _value.newestPage : newestPage as int,
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as RespondentDto,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as int,
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as List<QuestionDto>,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
-          : pageQuestionList as List<QuestionDto>,
+          : pageQuestionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       contentQuestionList: contentQuestionList == freezed
           ? _value.contentQuestionList
-          : contentQuestionList as List<QuestionDto>,
+          : contentQuestionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as Map<String, AnswerDto>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as Map<String, AnswerStatusDto>,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as WarningDto,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as WarningDto,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
       loadState: loadState == freezed
           ? _value.loadState
-          : loadState as Map<String, dynamic>,
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       restoreState: restoreState == freezed
           ? _value.restoreState
-          : restoreState as Map<String, dynamic>,
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
-          : isRecodeModule as bool,
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
-          : mainQuestionList as List<QuestionDto>,
+          : mainQuestionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
-          : respondentResponseList as List<ResponseDto>,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
+          : respondentResponseList // ignore: cast_nullable_to_non_nullable
+              as List<ResponseDto>,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
   @override
   $RespondentDtoCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
     return $RespondentDtoCopyWith<$Res>(_value.respondent, (value) {
       return _then(_value.copyWith(respondent: value));
     });
@@ -235,9 +271,6 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
 
   @override
   $WarningDtoCopyWith<$Res> get warning {
-    if (_value.warning == null) {
-      return null;
-    }
     return $WarningDtoCopyWith<$Res>(_value.warning, (value) {
       return _then(_value.copyWith(warning: value));
     });
@@ -254,7 +287,7 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
   $Res call(
       {Map<String, dynamic> referenceListState,
       List<ReferenceDto> referenceList,
-      Map<String, dynamic> surveyFailure,
+      Map<String, dynamic>? surveyFailure,
       RespondentDto respondent,
       int page,
       int newestPage,
@@ -293,132 +326,143 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object referenceListState = freezed,
-    Object referenceList = freezed,
-    Object surveyFailure = freezed,
-    Object respondent = freezed,
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object questionList = freezed,
-    Object pageQuestionList = freezed,
-    Object contentQuestionList = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object loadState = freezed,
-    Object restoreState = freezed,
-    Object isRecodeModule = freezed,
-    Object mainQuestionList = freezed,
-    Object respondentResponseList = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
+    Object? referenceListState = freezed,
+    Object? referenceList = freezed,
+    Object? surveyFailure = freezed,
+    Object? respondent = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? questionList = freezed,
+    Object? pageQuestionList = freezed,
+    Object? contentQuestionList = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? loadState = freezed,
+    Object? restoreState = freezed,
+    Object? isRecodeModule = freezed,
+    Object? mainQuestionList = freezed,
+    Object? respondentResponseList = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
   }) {
     return _then(_SurveyPageStateDto(
       referenceListState: referenceListState == freezed
           ? _value.referenceListState
-          : referenceListState as Map<String, dynamic>,
+          : referenceListState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       referenceList: referenceList == freezed
           ? _value.referenceList
-          : referenceList as List<ReferenceDto>,
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as List<ReferenceDto>,
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
-          : surveyFailure as Map<String, dynamic>,
+          : surveyFailure // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
       respondent: respondent == freezed
           ? _value.respondent
-          : respondent as RespondentDto,
-      page: page == freezed ? _value.page : page as int,
-      newestPage: newestPage == freezed ? _value.newestPage : newestPage as int,
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as RespondentDto,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as int,
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as List<QuestionDto>,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
-          : pageQuestionList as List<QuestionDto>,
+          : pageQuestionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       contentQuestionList: contentQuestionList == freezed
           ? _value.contentQuestionList
-          : contentQuestionList as List<QuestionDto>,
+          : contentQuestionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as Map<String, AnswerDto>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as Map<String, AnswerStatusDto>,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as WarningDto,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as WarningDto,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
       loadState: loadState == freezed
           ? _value.loadState
-          : loadState as Map<String, dynamic>,
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       restoreState: restoreState == freezed
           ? _value.restoreState
-          : restoreState as Map<String, dynamic>,
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
-          : isRecodeModule as bool,
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
-          : mainQuestionList as List<QuestionDto>,
+          : mainQuestionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
-          : respondentResponseList as List<ResponseDto>,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
+          : respondentResponseList // ignore: cast_nullable_to_non_nullable
+              as List<ResponseDto>,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   const _$_SurveyPageStateDto(
-      {@required this.referenceListState,
-      @required this.referenceList,
+      {required this.referenceListState,
+      required this.referenceList,
       this.surveyFailure,
-      @required this.respondent,
-      @required this.page,
-      @required this.newestPage,
-      @required this.questionList,
-      @required this.pageQuestionList,
-      @required this.contentQuestionList,
-      @required this.answerMap,
-      @required this.answerStatusMap,
-      @required this.isLastPage,
-      @required this.warning,
-      @required this.showWarning,
-      @required this.loadState,
-      @required this.restoreState,
-      @required this.isRecodeModule,
-      @required this.mainQuestionList,
-      @required this.respondentResponseList,
-      @required this.surveyId,
-      @required this.moduleType})
-      : assert(referenceListState != null),
-        assert(referenceList != null),
-        assert(respondent != null),
-        assert(page != null),
-        assert(newestPage != null),
-        assert(questionList != null),
-        assert(pageQuestionList != null),
-        assert(contentQuestionList != null),
-        assert(answerMap != null),
-        assert(answerStatusMap != null),
-        assert(isLastPage != null),
-        assert(warning != null),
-        assert(showWarning != null),
-        assert(loadState != null),
-        assert(restoreState != null),
-        assert(isRecodeModule != null),
-        assert(mainQuestionList != null),
-        assert(respondentResponseList != null),
-        assert(surveyId != null),
-        assert(moduleType != null),
-        super._();
+      required this.respondent,
+      required this.page,
+      required this.newestPage,
+      required this.questionList,
+      required this.pageQuestionList,
+      required this.contentQuestionList,
+      required this.answerMap,
+      required this.answerStatusMap,
+      required this.isLastPage,
+      required this.warning,
+      required this.showWarning,
+      required this.loadState,
+      required this.restoreState,
+      required this.isRecodeModule,
+      required this.mainQuestionList,
+      required this.respondentResponseList,
+      required this.surveyId,
+      required this.moduleType})
+      : super._();
 
   factory _$_SurveyPageStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_SurveyPageStateDtoFromJson(json);
@@ -428,7 +472,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   @override
   final List<ReferenceDto> referenceList;
   @override
-  final Map<String, dynamic> surveyFailure;
+  final Map<String, dynamic>? surveyFailure;
   @override
   final RespondentDto respondent;
   @override
@@ -564,6 +608,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType);
 
+  @JsonKey(ignore: true)
   @override
   _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith =>
       __$SurveyPageStateDtoCopyWithImpl<_SurveyPageStateDto>(this, _$identity);
@@ -575,75 +620,81 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
 }
 
 abstract class _SurveyPageStateDto extends SurveyPageStateDto {
-  const _SurveyPageStateDto._() : super._();
   const factory _SurveyPageStateDto(
-      {@required Map<String, dynamic> referenceListState,
-      @required List<ReferenceDto> referenceList,
-      Map<String, dynamic> surveyFailure,
-      @required RespondentDto respondent,
-      @required int page,
-      @required int newestPage,
-      @required List<QuestionDto> questionList,
-      @required List<QuestionDto> pageQuestionList,
-      @required List<QuestionDto> contentQuestionList,
-      @required Map<String, AnswerDto> answerMap,
-      @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required bool isLastPage,
-      @required WarningDto warning,
-      @required bool showWarning,
-      @required Map<String, dynamic> loadState,
-      @required Map<String, dynamic> restoreState,
-      @required bool isRecodeModule,
-      @required List<QuestionDto> mainQuestionList,
-      @required List<ResponseDto> respondentResponseList,
-      @required String surveyId,
-      @required String moduleType}) = _$_SurveyPageStateDto;
+      {required Map<String, dynamic> referenceListState,
+      required List<ReferenceDto> referenceList,
+      Map<String, dynamic>? surveyFailure,
+      required RespondentDto respondent,
+      required int page,
+      required int newestPage,
+      required List<QuestionDto> questionList,
+      required List<QuestionDto> pageQuestionList,
+      required List<QuestionDto> contentQuestionList,
+      required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required bool isLastPage,
+      required WarningDto warning,
+      required bool showWarning,
+      required Map<String, dynamic> loadState,
+      required Map<String, dynamic> restoreState,
+      required bool isRecodeModule,
+      required List<QuestionDto> mainQuestionList,
+      required List<ResponseDto> respondentResponseList,
+      required String surveyId,
+      required String moduleType}) = _$_SurveyPageStateDto;
+  const _SurveyPageStateDto._() : super._();
 
   factory _SurveyPageStateDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyPageStateDto.fromJson;
 
   @override
-  Map<String, dynamic> get referenceListState;
+  Map<String, dynamic> get referenceListState =>
+      throw _privateConstructorUsedError;
   @override
-  List<ReferenceDto> get referenceList;
+  List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get surveyFailure;
+  Map<String, dynamic>? get surveyFailure => throw _privateConstructorUsedError;
   @override
-  RespondentDto get respondent;
+  RespondentDto get respondent => throw _privateConstructorUsedError;
   @override
-  int get page;
+  int get page => throw _privateConstructorUsedError;
   @override
-  int get newestPage;
+  int get newestPage => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get questionList;
+  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get pageQuestionList;
+  List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get contentQuestionList;
+  List<QuestionDto> get contentQuestionList =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerDto> get answerMap;
+  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap;
+  Map<String, AnswerStatusDto> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  bool get isLastPage;
+  bool get isLastPage => throw _privateConstructorUsedError;
   @override
-  WarningDto get warning;
+  WarningDto get warning => throw _privateConstructorUsedError;
   @override
-  bool get showWarning;
+  bool get showWarning => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get loadState;
+  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get restoreState;
+  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
   @override
-  bool get isRecodeModule;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get mainQuestionList;
+  List<QuestionDto> get mainQuestionList => throw _privateConstructorUsedError;
   @override
-  List<ResponseDto> get respondentResponseList;
+  List<ResponseDto> get respondentResponseList =>
+      throw _privateConstructorUsedError;
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get moduleType;
+  String get moduleType => throw _privateConstructorUsedError;
   @override
-  _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

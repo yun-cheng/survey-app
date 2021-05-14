@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'reference_key.dart';
 
@@ -9,15 +9,17 @@ part of 'reference_key.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ReferenceKeyTearOff {
   const _$ReferenceKeyTearOff();
 
-// ignore: unused_element
   _ReferenceKey call(
-      {@required SurveyId surveyId,
-      @required ModuleType moduleType,
-      @required QuestionId questionId}) {
+      {required SurveyId surveyId,
+      required ModuleType moduleType,
+      required QuestionId questionId}) {
     return _ReferenceKey(
       surveyId: surveyId,
       moduleType: moduleType,
@@ -27,16 +29,17 @@ class _$ReferenceKeyTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ReferenceKey = _$ReferenceKeyTearOff();
 
 /// @nodoc
 mixin _$ReferenceKey {
-  SurveyId get surveyId;
-  ModuleType get moduleType;
-  QuestionId get questionId;
+  SurveyId get surveyId => throw _privateConstructorUsedError;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
+  QuestionId get questionId => throw _privateConstructorUsedError;
 
-  $ReferenceKeyCopyWith<ReferenceKey> get copyWith;
+  @JsonKey(ignore: true)
+  $ReferenceKeyCopyWith<ReferenceKey> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -57,16 +60,23 @@ class _$ReferenceKeyCopyWithImpl<$Res> implements $ReferenceKeyCopyWith<$Res> {
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionId = freezed,
   }) {
     return _then(_value.copyWith(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as QuestionId,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
     ));
   }
 }
@@ -93,30 +103,35 @@ class __$ReferenceKeyCopyWithImpl<$Res> extends _$ReferenceKeyCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionId = freezed,
   }) {
     return _then(_ReferenceKey(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as QuestionId,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_ReferenceKey extends _ReferenceKey {
   const _$_ReferenceKey(
-      {@required this.surveyId,
-      @required this.moduleType,
-      @required this.questionId})
-      : assert(surveyId != null),
-        assert(moduleType != null),
-        assert(questionId != null),
-        super._();
+      {required this.surveyId,
+      required this.moduleType,
+      required this.questionId})
+      : super._();
 
   @override
   final SurveyId surveyId;
@@ -152,24 +167,27 @@ class _$_ReferenceKey extends _ReferenceKey {
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(questionId);
 
+  @JsonKey(ignore: true)
   @override
   _$ReferenceKeyCopyWith<_ReferenceKey> get copyWith =>
       __$ReferenceKeyCopyWithImpl<_ReferenceKey>(this, _$identity);
 }
 
 abstract class _ReferenceKey extends ReferenceKey {
-  const _ReferenceKey._() : super._();
   const factory _ReferenceKey(
-      {@required SurveyId surveyId,
-      @required ModuleType moduleType,
-      @required QuestionId questionId}) = _$_ReferenceKey;
+      {required SurveyId surveyId,
+      required ModuleType moduleType,
+      required QuestionId questionId}) = _$_ReferenceKey;
+  const _ReferenceKey._() : super._();
 
   @override
-  SurveyId get surveyId;
+  SurveyId get surveyId => throw _privateConstructorUsedError;
   @override
-  ModuleType get moduleType;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  QuestionId get questionId;
+  QuestionId get questionId => throw _privateConstructorUsedError;
   @override
-  _$ReferenceKeyCopyWith<_ReferenceKey> get copyWith;
+  @JsonKey(ignore: true)
+  _$ReferenceKeyCopyWith<_ReferenceKey> get copyWith =>
+      throw _privateConstructorUsedError;
 }

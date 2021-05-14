@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'navigation_page.dart';
 
@@ -8,6 +8,10 @@ part of 'navigation_page.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 NavigationPage _$NavigationPageFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'signIn':
@@ -28,69 +32,67 @@ NavigationPage _$NavigationPageFromJson(Map<String, dynamic> json) {
 class _$NavigationPageTearOff {
   const _$NavigationPageTearOff();
 
-// ignore: unused_element
   NavSignInPage signIn() {
     return const NavSignInPage();
   }
 
-// ignore: unused_element
   NavOverviewPage overview() {
     return const NavOverviewPage();
   }
 
-// ignore: unused_element
   NavRespondentsPage respondent() {
     return const NavRespondentsPage();
   }
 
-// ignore: unused_element
   NavSurveyPage survey() {
     return const NavSurveyPage();
   }
 
-// ignore: unused_element
   NavigationPage fromJson(Map<String, Object> json) {
     return NavigationPage.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NavigationPage = _$NavigationPageTearOff();
 
 /// @nodoc
 mixin _$NavigationPage {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult signIn(),
-    @required TResult overview(),
-    @required TResult respondent(),
-    @required TResult survey(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() signIn,
+    required TResult Function() overview,
+    required TResult Function() respondent,
+    required TResult Function() survey,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult signIn(),
-    TResult overview(),
-    TResult respondent(),
-    TResult survey(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signIn,
+    TResult Function()? overview,
+    TResult Function()? respondent,
+    TResult Function()? survey,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult signIn(NavSignInPage value),
-    @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentsPage value),
-    @required TResult survey(NavSurveyPage value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavSignInPage value) signIn,
+    required TResult Function(NavOverviewPage value) overview,
+    required TResult Function(NavRespondentsPage value) respondent,
+    required TResult Function(NavSurveyPage value) survey,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult signIn(NavSignInPage value),
-    TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentsPage value),
-    TResult survey(NavSurveyPage value),
-    @required TResult orElse(),
-  });
-  Map<String, dynamic> toJson();
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavSignInPage value)? signIn,
+    TResult Function(NavOverviewPage value)? overview,
+    TResult Function(NavRespondentsPage value)? respondent,
+    TResult Function(NavSurveyPage value)? survey,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -129,9 +131,8 @@ class _$NavSignInPageCopyWithImpl<$Res>
   NavSignInPage get _value => super._value as NavSignInPage;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$NavSignInPage implements NavSignInPage {
   const _$NavSignInPage();
 
@@ -153,29 +154,24 @@ class _$NavSignInPage implements NavSignInPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult signIn(),
-    @required TResult overview(),
-    @required TResult respondent(),
-    @required TResult survey(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() signIn,
+    required TResult Function() overview,
+    required TResult Function() respondent,
+    required TResult Function() survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return signIn();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult signIn(),
-    TResult overview(),
-    TResult respondent(),
-    TResult survey(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signIn,
+    TResult Function()? overview,
+    TResult Function()? respondent,
+    TResult Function()? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signIn != null) {
       return signIn();
     }
@@ -184,29 +180,24 @@ class _$NavSignInPage implements NavSignInPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult signIn(NavSignInPage value),
-    @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentsPage value),
-    @required TResult survey(NavSurveyPage value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavSignInPage value) signIn,
+    required TResult Function(NavOverviewPage value) overview,
+    required TResult Function(NavRespondentsPage value) respondent,
+    required TResult Function(NavSurveyPage value) survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return signIn(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult signIn(NavSignInPage value),
-    TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentsPage value),
-    TResult survey(NavSurveyPage value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavSignInPage value)? signIn,
+    TResult Function(NavOverviewPage value)? overview,
+    TResult Function(NavRespondentsPage value)? respondent,
+    TResult Function(NavSurveyPage value)? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signIn != null) {
       return signIn(this);
     }
@@ -245,9 +236,8 @@ class _$NavOverviewPageCopyWithImpl<$Res>
   NavOverviewPage get _value => super._value as NavOverviewPage;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$NavOverviewPage implements NavOverviewPage {
   const _$NavOverviewPage();
 
@@ -269,29 +259,24 @@ class _$NavOverviewPage implements NavOverviewPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult signIn(),
-    @required TResult overview(),
-    @required TResult respondent(),
-    @required TResult survey(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() signIn,
+    required TResult Function() overview,
+    required TResult Function() respondent,
+    required TResult Function() survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return overview();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult signIn(),
-    TResult overview(),
-    TResult respondent(),
-    TResult survey(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signIn,
+    TResult Function()? overview,
+    TResult Function()? respondent,
+    TResult Function()? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (overview != null) {
       return overview();
     }
@@ -300,29 +285,24 @@ class _$NavOverviewPage implements NavOverviewPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult signIn(NavSignInPage value),
-    @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentsPage value),
-    @required TResult survey(NavSurveyPage value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavSignInPage value) signIn,
+    required TResult Function(NavOverviewPage value) overview,
+    required TResult Function(NavRespondentsPage value) respondent,
+    required TResult Function(NavSurveyPage value) survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return overview(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult signIn(NavSignInPage value),
-    TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentsPage value),
-    TResult survey(NavSurveyPage value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavSignInPage value)? signIn,
+    TResult Function(NavOverviewPage value)? overview,
+    TResult Function(NavRespondentsPage value)? respondent,
+    TResult Function(NavSurveyPage value)? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (overview != null) {
       return overview(this);
     }
@@ -361,9 +341,8 @@ class _$NavRespondentsPageCopyWithImpl<$Res>
   NavRespondentsPage get _value => super._value as NavRespondentsPage;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$NavRespondentsPage implements NavRespondentsPage {
   const _$NavRespondentsPage();
 
@@ -385,29 +364,24 @@ class _$NavRespondentsPage implements NavRespondentsPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult signIn(),
-    @required TResult overview(),
-    @required TResult respondent(),
-    @required TResult survey(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() signIn,
+    required TResult Function() overview,
+    required TResult Function() respondent,
+    required TResult Function() survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return respondent();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult signIn(),
-    TResult overview(),
-    TResult respondent(),
-    TResult survey(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signIn,
+    TResult Function()? overview,
+    TResult Function()? respondent,
+    TResult Function()? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondent != null) {
       return respondent();
     }
@@ -416,29 +390,24 @@ class _$NavRespondentsPage implements NavRespondentsPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult signIn(NavSignInPage value),
-    @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentsPage value),
-    @required TResult survey(NavSurveyPage value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavSignInPage value) signIn,
+    required TResult Function(NavOverviewPage value) overview,
+    required TResult Function(NavRespondentsPage value) respondent,
+    required TResult Function(NavSurveyPage value) survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return respondent(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult signIn(NavSignInPage value),
-    TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentsPage value),
-    TResult survey(NavSurveyPage value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavSignInPage value)? signIn,
+    TResult Function(NavOverviewPage value)? overview,
+    TResult Function(NavRespondentsPage value)? respondent,
+    TResult Function(NavSurveyPage value)? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondent != null) {
       return respondent(this);
     }
@@ -477,9 +446,8 @@ class _$NavSurveyPageCopyWithImpl<$Res>
   NavSurveyPage get _value => super._value as NavSurveyPage;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$NavSurveyPage implements NavSurveyPage {
   const _$NavSurveyPage();
 
@@ -501,29 +469,24 @@ class _$NavSurveyPage implements NavSurveyPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult signIn(),
-    @required TResult overview(),
-    @required TResult respondent(),
-    @required TResult survey(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() signIn,
+    required TResult Function() overview,
+    required TResult Function() respondent,
+    required TResult Function() survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return survey();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult signIn(),
-    TResult overview(),
-    TResult respondent(),
-    TResult survey(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? signIn,
+    TResult Function()? overview,
+    TResult Function()? respondent,
+    TResult Function()? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (survey != null) {
       return survey();
     }
@@ -532,29 +495,24 @@ class _$NavSurveyPage implements NavSurveyPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult signIn(NavSignInPage value),
-    @required TResult overview(NavOverviewPage value),
-    @required TResult respondent(NavRespondentsPage value),
-    @required TResult survey(NavSurveyPage value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(NavSignInPage value) signIn,
+    required TResult Function(NavOverviewPage value) overview,
+    required TResult Function(NavRespondentsPage value) respondent,
+    required TResult Function(NavSurveyPage value) survey,
   }) {
-    assert(signIn != null);
-    assert(overview != null);
-    assert(respondent != null);
-    assert(survey != null);
     return survey(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult signIn(NavSignInPage value),
-    TResult overview(NavOverviewPage value),
-    TResult respondent(NavRespondentsPage value),
-    TResult survey(NavSurveyPage value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NavSignInPage value)? signIn,
+    TResult Function(NavOverviewPage value)? overview,
+    TResult Function(NavRespondentsPage value)? respondent,
+    TResult Function(NavSurveyPage value)? survey,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (survey != null) {
       return survey(this);
     }

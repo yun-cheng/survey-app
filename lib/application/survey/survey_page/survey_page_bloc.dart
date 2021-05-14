@@ -29,7 +29,7 @@ part 'survey_page_state.dart';
 @injectable
 class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
   final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, KtList<Reference>>>
+  StreamSubscription<Either<SurveyFailure, KtList<Reference>>>?
       _referenceListSubscription;
 
   SurveyPageBloc(this._surveyRepository) : super(SurveyPageState.initial());
@@ -142,9 +142,9 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
         );
         final pageQuestionList = questionList.filter((question) =>
             question.pageNumber == state.page &&
-            !state.answerStatusMap[question.id].isHidden);
+            !state.answerStatusMap[question.id]!.isHidden);
         final contentQuestionList = questionList.filter((question) =>
-            !state.answerStatusMap[question.id].isHidden &&
+            !state.answerStatusMap[question.id]!.isHidden &&
             question.pageNumber.getOrCrash() <= state.newestPage.getOrCrash());
 
         yield state.copyWith(
@@ -156,19 +156,19 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
       // H_6 切換頁面相關 events
       // NOTE 單純更新頁數、該頁題目
       pageUpdated: (e) async* {
-        Question firstQuestion;
+        Question? firstQuestion;
         if (e.direction == Direction.current) {
           firstQuestion = state.questionList.firstOrNull((question) =>
               question.pageNumber == state.page &&
-              !state.answerStatusMap[question.id].isHidden);
+              !state.answerStatusMap[question.id]!.isHidden);
         } else if (e.direction == Direction.next) {
           firstQuestion = state.questionList.firstOrNull((question) =>
               question.pageNumber.getOrCrash() > state.page.getOrCrash() &&
-              !state.answerStatusMap[question.id].isHidden);
+              !state.answerStatusMap[question.id]!.isHidden);
         } else if (e.direction == Direction.previous) {
           firstQuestion = state.questionList.lastOrNull((question) =>
               question.pageNumber.getOrCrash() < state.page.getOrCrash() &&
-              !state.answerStatusMap[question.id].isHidden);
+              !state.answerStatusMap[question.id]!.isHidden);
         }
 
         if (firstQuestion != null) {
@@ -179,9 +179,9 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
                   : state.newestPage;
           final pageQuestionList = state.questionList.filter((question) =>
               question.pageNumber == newPage &&
-              !state.answerStatusMap[question.id].isHidden);
+              !state.answerStatusMap[question.id]!.isHidden);
           final contentQuestionList = state.questionList.filter((question) =>
-              !state.answerStatusMap[question.id].isHidden &&
+              !state.answerStatusMap[question.id]!.isHidden &&
               question.pageNumber.getOrCrash() <= newestPage.getOrCrash());
 
           yield state.copyWith(
@@ -249,12 +249,12 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
       },
       // H_7 檢查是否是最後一頁
       checkIsLastPage: (e) async* {
-        Question firstQuestion;
+        Question? firstQuestion;
 
         // NOTE 篩出第一題不是隱藏的題目
         firstQuestion = state.questionList.firstOrNull((question) =>
             question.pageNumber.getOrCrash() > state.page.getOrCrash() &&
-            !state.answerStatusMap[question.id].isHidden);
+            !state.answerStatusMap[question.id]!.isHidden);
 
         yield state.copyWith(
           isLastPage: firstQuestion == null,
@@ -263,17 +263,17 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
       // H_8 warning 相關 events
       // NOTE 更新第一個作答未完成的 warning
       firstWarningUpdated: (e) async* {
-        Question firstQuestion;
+        Question? firstQuestion;
 
         firstQuestion = state.questionList.firstOrNull(
-            (question) => !state.answerStatusMap[question.id].isCompleted);
+            (question) => !state.answerStatusMap[question.id]!.isCompleted);
 
         // NOTE 有未完成的題目
         if (firstQuestion != null &&
             firstQuestion.pageNumber.getOrCrash() <=
                 state.newestPage.getOrCrash()) {
           yield state.copyWith(
-            warning: state.answerStatusMap[firstQuestion.id]
+            warning: state.answerStatusMap[firstQuestion.id]!
                 .toWarning(firstQuestion),
           );
         } else {
@@ -329,7 +329,7 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
   }
 
   @override
-  SurveyPageState fromJson(Map<String, dynamic> json) {
+  SurveyPageState? fromJson(Map<String, dynamic> json) {
     try {
       return SurveyPageStateDto.fromJson(json).toDomain();
     } catch (_) {
@@ -338,7 +338,7 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
   }
 
   @override
-  Map<String, dynamic> toJson(SurveyPageState state) {
+  Map<String, dynamic>? toJson(SurveyPageState state) {
     // try {
     return SurveyPageStateDto.fromDomain(state).toJson();
     // } catch (_) {

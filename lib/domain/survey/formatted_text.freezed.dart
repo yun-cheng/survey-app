@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'formatted_text.dart';
 
@@ -9,16 +9,18 @@ part of 'formatted_text.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$FormattedTextTearOff {
   const _$FormattedTextTearOff();
 
-// ignore: unused_element
   _FormattedText call(
-      {@required FormatType type,
-      @required String stringBody,
-      @required ReferenceKey referenceKey,
-      @required Answer answer}) {
+      {required FormatType type,
+      required String stringBody,
+      required ReferenceKey referenceKey,
+      required Answer answer}) {
     return _FormattedText(
       type: type,
       stringBody: stringBody,
@@ -29,17 +31,18 @@ class _$FormattedTextTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $FormattedText = _$FormattedTextTearOff();
 
 /// @nodoc
 mixin _$FormattedText {
-  FormatType get type;
-  String get stringBody;
-  ReferenceKey get referenceKey;
-  Answer get answer;
+  FormatType get type => throw _privateConstructorUsedError;
+  String get stringBody => throw _privateConstructorUsedError;
+  ReferenceKey get referenceKey => throw _privateConstructorUsedError;
+  Answer get answer => throw _privateConstructorUsedError;
 
-  $FormattedTextCopyWith<FormattedText> get copyWith;
+  @JsonKey(ignore: true)
+  $FormattedTextCopyWith<FormattedText> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,27 +71,33 @@ class _$FormattedTextCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object stringBody = freezed,
-    Object referenceKey = freezed,
-    Object answer = freezed,
+    Object? type = freezed,
+    Object? stringBody = freezed,
+    Object? referenceKey = freezed,
+    Object? answer = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed ? _value.type : type as FormatType,
-      stringBody:
-          stringBody == freezed ? _value.stringBody : stringBody as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as FormatType,
+      stringBody: stringBody == freezed
+          ? _value.stringBody
+          : stringBody // ignore: cast_nullable_to_non_nullable
+              as String,
       referenceKey: referenceKey == freezed
           ? _value.referenceKey
-          : referenceKey as ReferenceKey,
-      answer: answer == freezed ? _value.answer : answer as Answer,
+          : referenceKey // ignore: cast_nullable_to_non_nullable
+              as ReferenceKey,
+      answer: answer == freezed
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as Answer,
     ));
   }
 
   @override
   $ReferenceKeyCopyWith<$Res> get referenceKey {
-    if (_value.referenceKey == null) {
-      return null;
-    }
     return $ReferenceKeyCopyWith<$Res>(_value.referenceKey, (value) {
       return _then(_value.copyWith(referenceKey: value));
     });
@@ -96,9 +105,6 @@ class _$FormattedTextCopyWithImpl<$Res>
 
   @override
   $AnswerCopyWith<$Res> get answer {
-    if (_value.answer == null) {
-      return null;
-    }
     return $AnswerCopyWith<$Res>(_value.answer, (value) {
       return _then(_value.copyWith(answer: value));
     });
@@ -137,35 +143,41 @@ class __$FormattedTextCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object stringBody = freezed,
-    Object referenceKey = freezed,
-    Object answer = freezed,
+    Object? type = freezed,
+    Object? stringBody = freezed,
+    Object? referenceKey = freezed,
+    Object? answer = freezed,
   }) {
     return _then(_FormattedText(
-      type: type == freezed ? _value.type : type as FormatType,
-      stringBody:
-          stringBody == freezed ? _value.stringBody : stringBody as String,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as FormatType,
+      stringBody: stringBody == freezed
+          ? _value.stringBody
+          : stringBody // ignore: cast_nullable_to_non_nullable
+              as String,
       referenceKey: referenceKey == freezed
           ? _value.referenceKey
-          : referenceKey as ReferenceKey,
-      answer: answer == freezed ? _value.answer : answer as Answer,
+          : referenceKey // ignore: cast_nullable_to_non_nullable
+              as ReferenceKey,
+      answer: answer == freezed
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as Answer,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_FormattedText extends _FormattedText {
   const _$_FormattedText(
-      {@required this.type,
-      @required this.stringBody,
-      @required this.referenceKey,
-      @required this.answer})
-      : assert(type != null),
-        assert(stringBody != null),
-        assert(referenceKey != null),
-        assert(answer != null),
-        super._();
+      {required this.type,
+      required this.stringBody,
+      required this.referenceKey,
+      required this.answer})
+      : super._();
 
   @override
   final FormatType type;
@@ -205,27 +217,30 @@ class _$_FormattedText extends _FormattedText {
       const DeepCollectionEquality().hash(referenceKey) ^
       const DeepCollectionEquality().hash(answer);
 
+  @JsonKey(ignore: true)
   @override
   _$FormattedTextCopyWith<_FormattedText> get copyWith =>
       __$FormattedTextCopyWithImpl<_FormattedText>(this, _$identity);
 }
 
 abstract class _FormattedText extends FormattedText {
-  const _FormattedText._() : super._();
   const factory _FormattedText(
-      {@required FormatType type,
-      @required String stringBody,
-      @required ReferenceKey referenceKey,
-      @required Answer answer}) = _$_FormattedText;
+      {required FormatType type,
+      required String stringBody,
+      required ReferenceKey referenceKey,
+      required Answer answer}) = _$_FormattedText;
+  const _FormattedText._() : super._();
 
   @override
-  FormatType get type;
+  FormatType get type => throw _privateConstructorUsedError;
   @override
-  String get stringBody;
+  String get stringBody => throw _privateConstructorUsedError;
   @override
-  ReferenceKey get referenceKey;
+  ReferenceKey get referenceKey => throw _privateConstructorUsedError;
   @override
-  Answer get answer;
+  Answer get answer => throw _privateConstructorUsedError;
   @override
-  _$FormattedTextCopyWith<_FormattedText> get copyWith;
+  @JsonKey(ignore: true)
+  _$FormattedTextCopyWith<_FormattedText> get copyWith =>
+      throw _privateConstructorUsedError;
 }

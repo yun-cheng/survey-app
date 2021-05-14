@@ -4,7 +4,7 @@ part 'survey_failure.freezed.dart';
 part 'survey_failure.g.dart';
 
 @freezed
-abstract class SurveyFailure with _$SurveyFailure {
+class SurveyFailure with _$SurveyFailure {
   const factory SurveyFailure.serverError() = _ServerError;
   const factory SurveyFailure.unexpected() = _Unexpected;
   const factory SurveyFailure.insufficientPermission() = _InsufficientPermission;

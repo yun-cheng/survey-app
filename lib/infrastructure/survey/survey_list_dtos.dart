@@ -12,11 +12,11 @@ part 'survey_list_dtos.freezed.dart';
 part 'survey_list_dtos.g.dart';
 
 @freezed
-abstract class SurveyListDto implements _$SurveyListDto {
+class SurveyListDto with _$SurveyListDto {
   const SurveyListDto._();
 
   const factory SurveyListDto({
-    @required List<SurveyDto> list,
+    required List<SurveyDto> list,
   }) = _SurveyListDto;
 
   factory SurveyListDto.fromDomain(KtList<Survey> surveyList) {
@@ -39,15 +39,15 @@ abstract class SurveyListDto implements _$SurveyListDto {
 }
 
 @freezed
-abstract class SurveyDto implements _$SurveyDto {
+class SurveyDto with _$SurveyDto {
   const SurveyDto._();
 
   const factory SurveyDto({
-    @required String surveyId,
-    @required String surveyName,
-    @required String projectId,
-    @required String teamId,
-    @required Map<String, SurveyModuleDto> module,
+    required String surveyId,
+    required String surveyName,
+    required String projectId,
+    required String teamId,
+    required Map<String, SurveyModuleDto> module,
   }) = _SurveyDto;
 
   factory SurveyDto.fromDomain(Survey survey) {

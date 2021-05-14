@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'simple_choice_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'simple_choice_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SimpleChoiceDto _$SimpleChoiceDtoFromJson(Map<String, dynamic> json) {
   return _SimpleChoiceDto.fromJson(json);
 }
@@ -16,31 +20,30 @@ SimpleChoiceDto _$SimpleChoiceDtoFromJson(Map<String, dynamic> json) {
 class _$SimpleChoiceDtoTearOff {
   const _$SimpleChoiceDtoTearOff();
 
-// ignore: unused_element
-  _SimpleChoiceDto call({@required String id, @required String body}) {
+  _SimpleChoiceDto call({required String id, required String body}) {
     return _SimpleChoiceDto(
       id: id,
       body: body,
     );
   }
 
-// ignore: unused_element
   SimpleChoiceDto fromJson(Map<String, Object> json) {
     return SimpleChoiceDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SimpleChoiceDto = _$SimpleChoiceDtoTearOff();
 
 /// @nodoc
 mixin _$SimpleChoiceDto {
-  String get id;
-  String get body;
+  String get id => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SimpleChoiceDtoCopyWith<SimpleChoiceDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SimpleChoiceDtoCopyWith<SimpleChoiceDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -62,12 +65,18 @@ class _$SimpleChoiceDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object body = freezed,
+    Object? id = freezed,
+    Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      body: body == freezed ? _value.body : body as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -95,24 +104,26 @@ class __$SimpleChoiceDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object body = freezed,
+    Object? id = freezed,
+    Object? body = freezed,
   }) {
     return _then(_SimpleChoiceDto(
-      id: id == freezed ? _value.id : id as String,
-      body: body == freezed ? _value.body : body as String,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SimpleChoiceDto extends _SimpleChoiceDto {
-  const _$_SimpleChoiceDto({@required this.id, @required this.body})
-      : assert(id != null),
-        assert(body != null),
-        super._();
+  const _$_SimpleChoiceDto({required this.id, required this.body}) : super._();
 
   factory _$_SimpleChoiceDto.fromJson(Map<String, dynamic> json) =>
       _$_$_SimpleChoiceDtoFromJson(json);
@@ -143,6 +154,7 @@ class _$_SimpleChoiceDto extends _SimpleChoiceDto {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(body);
 
+  @JsonKey(ignore: true)
   @override
   _$SimpleChoiceDtoCopyWith<_SimpleChoiceDto> get copyWith =>
       __$SimpleChoiceDtoCopyWithImpl<_SimpleChoiceDto>(this, _$identity);
@@ -154,17 +166,19 @@ class _$_SimpleChoiceDto extends _SimpleChoiceDto {
 }
 
 abstract class _SimpleChoiceDto extends SimpleChoiceDto {
-  const _SimpleChoiceDto._() : super._();
-  const factory _SimpleChoiceDto({@required String id, @required String body}) =
+  const factory _SimpleChoiceDto({required String id, required String body}) =
       _$_SimpleChoiceDto;
+  const _SimpleChoiceDto._() : super._();
 
   factory _SimpleChoiceDto.fromJson(Map<String, dynamic> json) =
       _$_SimpleChoiceDto.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get body;
+  String get body => throw _privateConstructorUsedError;
   @override
-  _$SimpleChoiceDtoCopyWith<_SimpleChoiceDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$SimpleChoiceDtoCopyWith<_SimpleChoiceDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -17,6 +17,12 @@ import 'widgets/page_control_bar.dart';
 import 'widgets/survey_body.dart';
 
 class SurveyPage extends HookWidget {
+  final String respondentId;
+
+  const SurveyPage({
+    @PathParam('respondentId') required this.respondentId,
+  });
+
   @override
   Widget build(BuildContext context) {
     final keyboardVisibilityController = KeyboardVisibilityController();
@@ -47,13 +53,13 @@ class SurveyPage extends HookWidget {
                       page: NavigationPage.respondent(),
                     ),
                   );
-              context.navigator.maybePop();
+              context.router.pop();
             }),
         actions: [
           IconButton(
             icon: const Icon(Icons.format_list_bulleted),
             onPressed: () {
-              context.navigator.push(Routes.surveyContentPage);
+              context.pushRoute(const SurveyContentRoute());
             },
           ),
           IconButton(

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flushbar/flushbar_helper.dart';
+// import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,26 +18,27 @@ import 'team_box.dart';
 class SignInForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future showErrorMessage(message) {
-      return FlushbarHelper.createError(
-        message: message,
-      ).show(context);
-    }
+    // Future showErrorMessage(message) {
+    //   return FlushbarHelper.createError(
+    //     message: message,
+    //   ).show(context);
+    // }
 
     return MultiBlocListener(
       listeners: [
         BlocListener<AuthBloc, AuthState>(
           listenWhen: (p, c) => p.authFailure != c.authFailure,
           listener: (context, state) {
-            state.authFailure.fold(
-              () {},
-              (failure) => failure.maybeMap(
-                serverError: (_) => showErrorMessage('伺服器錯誤'),
-                insufficientPermission: (_) => showErrorMessage('權限不足'),
-                unexpected: (_) => showErrorMessage('未知錯誤'),
-                orElse: () {},
-              ),
-            );
+            LoggerService.simple.i(state.authFailure.toString());
+            // state.authFailure.fold(
+            //   () {},
+            //   (failure) => failure.maybeMap(
+            //     serverError: (_) => showErrorMessage('伺服器錯誤'),
+            //     insufficientPermission: (_) => showErrorMessage('權限不足'),
+            //     unexpected: (_) => showErrorMessage('未知錯誤'),
+            //     orElse: () {},
+            //   ),
+            // );
           },
         ),
         BlocListener<AuthBloc, AuthState>(
@@ -46,7 +47,7 @@ class SignInForm extends StatelessWidget {
           listener: (context, state) {
             LoggerService.simple.i('Push to OverviewPage!!');
 
-            context.navigator.push(Routes.overviewPage);
+            context.pushRoute(const OverviewRoute());
 
             context.read<NavigationBloc>().add(
                   const NavigationEvent.pageChanged(
@@ -84,7 +85,7 @@ class SignInForm extends StatelessWidget {
                 const SizedBox(height: 16.0),
                 RoundedButton(
                   title: '登入',
-                  color: Colors.lightBlueAccent[400],
+                  color: Colors.lightBlueAccent[400]!,
                   onPressed: () => context
                       .read<AuthBloc>()
                       .add(const AuthEvent.signInPressed()),

@@ -7,14 +7,14 @@ import 'visit_time.dart';
 part 'visit_record.freezed.dart';
 
 @freezed
-abstract class VisitRecord implements _$VisitRecord {
+class VisitRecord with _$VisitRecord {
   const VisitRecord._();
 
   const factory VisitRecord({
-    @required RespondentId respondentId,
-    @required UniqueId responseId,
-    @required VisitTime visitTime,
-    @required String description,
+    required RespondentId respondentId,
+    required UniqueId responseId,
+    required VisitTime visitTime,
+    required String description,
   }) = _VisitRecord;
 
   factory VisitRecord.empty() => VisitRecord(
@@ -23,6 +23,4 @@ abstract class VisitRecord implements _$VisitRecord {
         visitTime: VisitTime.empty(),
         description: '',
       );
-
-
 }

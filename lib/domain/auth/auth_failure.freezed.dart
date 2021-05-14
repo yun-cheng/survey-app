@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'auth_failure.dart';
 
@@ -8,6 +8,10 @@ part of 'auth_failure.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 AuthFailure _$AuthFailureFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'serverError':
@@ -28,72 +32,70 @@ AuthFailure _$AuthFailureFromJson(Map<String, dynamic> json) {
 class _$AuthFailureTearOff {
   const _$AuthFailureTearOff();
 
-// ignore: unused_element
   ServerError serverError() {
     return const ServerError();
   }
 
-// ignore: unused_element
   _InsufficientPermission insufficientPermission() {
     return const _InsufficientPermission();
   }
 
-// ignore: unused_element
   _Unexpected unexpected() {
     return const _Unexpected();
   }
 
-// ignore: unused_element
   InvalidIdAndPasswordCombination invalidIdAndPasswordCombination() {
     return const InvalidIdAndPasswordCombination();
   }
 
-// ignore: unused_element
   AuthFailure fromJson(Map<String, Object> json) {
     return AuthFailure.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AuthFailure = _$AuthFailureTearOff();
 
 /// @nodoc
 mixin _$AuthFailure {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult serverError(),
-    @required TResult insufficientPermission(),
-    @required TResult unexpected(),
-    @required TResult invalidIdAndPasswordCombination(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unexpected,
+    required TResult Function() invalidIdAndPasswordCombination,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult serverError(),
-    TResult insufficientPermission(),
-    TResult unexpected(),
-    TResult invalidIdAndPasswordCombination(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unexpected,
+    TResult Function()? invalidIdAndPasswordCombination,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult serverError(ServerError value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unexpected(_Unexpected value),
-    @required
-        TResult invalidIdAndPasswordCombination(
-            InvalidIdAndPasswordCombination value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(_InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(InvalidIdAndPasswordCombination value)
+        invalidIdAndPasswordCombination,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult serverError(ServerError value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unexpected(_Unexpected value),
-    TResult invalidIdAndPasswordCombination(
-        InvalidIdAndPasswordCombination value),
-    @required TResult orElse(),
-  });
-  Map<String, dynamic> toJson();
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(_InsufficientPermission value)? insufficientPermission,
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(InvalidIdAndPasswordCombination value)?
+        invalidIdAndPasswordCombination,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -130,9 +132,8 @@ class _$ServerErrorCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   ServerError get _value => super._value as ServerError;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$ServerError implements ServerError {
   const _$ServerError();
 
@@ -154,29 +155,24 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult serverError(),
-    @required TResult insufficientPermission(),
-    @required TResult unexpected(),
-    @required TResult invalidIdAndPasswordCombination(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unexpected,
+    required TResult Function() invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return serverError();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult serverError(),
-    TResult insufficientPermission(),
-    TResult unexpected(),
-    TResult invalidIdAndPasswordCombination(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unexpected,
+    TResult Function()? invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError();
     }
@@ -185,32 +181,27 @@ class _$ServerError implements ServerError {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult serverError(ServerError value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unexpected(_Unexpected value),
-    @required
-        TResult invalidIdAndPasswordCombination(
-            InvalidIdAndPasswordCombination value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(_InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(InvalidIdAndPasswordCombination value)
+        invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return serverError(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult serverError(ServerError value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unexpected(_Unexpected value),
-    TResult invalidIdAndPasswordCombination(
-        InvalidIdAndPasswordCombination value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(_InsufficientPermission value)? insufficientPermission,
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(InvalidIdAndPasswordCombination value)?
+        invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (serverError != null) {
       return serverError(this);
     }
@@ -249,9 +240,8 @@ class __$InsufficientPermissionCopyWithImpl<$Res>
   _InsufficientPermission get _value => super._value as _InsufficientPermission;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_InsufficientPermission implements _InsufficientPermission {
   const _$_InsufficientPermission();
 
@@ -273,29 +263,24 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult serverError(),
-    @required TResult insufficientPermission(),
-    @required TResult unexpected(),
-    @required TResult invalidIdAndPasswordCombination(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unexpected,
+    required TResult Function() invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return insufficientPermission();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult serverError(),
-    TResult insufficientPermission(),
-    TResult unexpected(),
-    TResult invalidIdAndPasswordCombination(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unexpected,
+    TResult Function()? invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission();
     }
@@ -304,32 +289,27 @@ class _$_InsufficientPermission implements _InsufficientPermission {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult serverError(ServerError value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unexpected(_Unexpected value),
-    @required
-        TResult invalidIdAndPasswordCombination(
-            InvalidIdAndPasswordCombination value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(_InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(InvalidIdAndPasswordCombination value)
+        invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return insufficientPermission(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult serverError(ServerError value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unexpected(_Unexpected value),
-    TResult invalidIdAndPasswordCombination(
-        InvalidIdAndPasswordCombination value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(_InsufficientPermission value)? insufficientPermission,
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(InvalidIdAndPasswordCombination value)?
+        invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (insufficientPermission != null) {
       return insufficientPermission(this);
     }
@@ -368,9 +348,8 @@ class __$UnexpectedCopyWithImpl<$Res> extends _$AuthFailureCopyWithImpl<$Res>
   _Unexpected get _value => super._value as _Unexpected;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Unexpected implements _Unexpected {
   const _$_Unexpected();
 
@@ -392,29 +371,24 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult serverError(),
-    @required TResult insufficientPermission(),
-    @required TResult unexpected(),
-    @required TResult invalidIdAndPasswordCombination(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unexpected,
+    required TResult Function() invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return unexpected();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult serverError(),
-    TResult insufficientPermission(),
-    TResult unexpected(),
-    TResult invalidIdAndPasswordCombination(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unexpected,
+    TResult Function()? invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected();
     }
@@ -423,32 +397,27 @@ class _$_Unexpected implements _Unexpected {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult serverError(ServerError value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unexpected(_Unexpected value),
-    @required
-        TResult invalidIdAndPasswordCombination(
-            InvalidIdAndPasswordCombination value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(_InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(InvalidIdAndPasswordCombination value)
+        invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult serverError(ServerError value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unexpected(_Unexpected value),
-    TResult invalidIdAndPasswordCombination(
-        InvalidIdAndPasswordCombination value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(_InsufficientPermission value)? insufficientPermission,
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(InvalidIdAndPasswordCombination value)?
+        invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }
@@ -490,9 +459,8 @@ class _$InvalidIdAndPasswordCombinationCopyWithImpl<$Res>
       super._value as InvalidIdAndPasswordCombination;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$InvalidIdAndPasswordCombination
     implements InvalidIdAndPasswordCombination {
   const _$InvalidIdAndPasswordCombination();
@@ -516,29 +484,24 @@ class _$InvalidIdAndPasswordCombination
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult serverError(),
-    @required TResult insufficientPermission(),
-    @required TResult unexpected(),
-    @required TResult invalidIdAndPasswordCombination(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() insufficientPermission,
+    required TResult Function() unexpected,
+    required TResult Function() invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return invalidIdAndPasswordCombination();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult serverError(),
-    TResult insufficientPermission(),
-    TResult unexpected(),
-    TResult invalidIdAndPasswordCombination(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? insufficientPermission,
+    TResult Function()? unexpected,
+    TResult Function()? invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidIdAndPasswordCombination != null) {
       return invalidIdAndPasswordCombination();
     }
@@ -547,32 +510,27 @@ class _$InvalidIdAndPasswordCombination
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult serverError(ServerError value),
-    @required TResult insufficientPermission(_InsufficientPermission value),
-    @required TResult unexpected(_Unexpected value),
-    @required
-        TResult invalidIdAndPasswordCombination(
-            InvalidIdAndPasswordCombination value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(ServerError value) serverError,
+    required TResult Function(_InsufficientPermission value)
+        insufficientPermission,
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(InvalidIdAndPasswordCombination value)
+        invalidIdAndPasswordCombination,
   }) {
-    assert(serverError != null);
-    assert(insufficientPermission != null);
-    assert(unexpected != null);
-    assert(invalidIdAndPasswordCombination != null);
     return invalidIdAndPasswordCombination(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult serverError(ServerError value),
-    TResult insufficientPermission(_InsufficientPermission value),
-    TResult unexpected(_Unexpected value),
-    TResult invalidIdAndPasswordCombination(
-        InvalidIdAndPasswordCombination value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ServerError value)? serverError,
+    TResult Function(_InsufficientPermission value)? insufficientPermission,
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(InvalidIdAndPasswordCombination value)?
+        invalidIdAndPasswordCombination,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (invalidIdAndPasswordCombination != null) {
       return invalidIdAndPasswordCombination(this);
     }

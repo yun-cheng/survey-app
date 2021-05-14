@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'simple_survey_page_state.dart';
 
@@ -9,18 +9,20 @@ part of 'simple_survey_page_state.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SimpleSurveyPageStateTearOff {
   const _$SimpleSurveyPageStateTearOff();
 
-// ignore: unused_element
   _SimpleSurveyPageState call(
-      {@required PageNumber page,
-      @required PageNumber newestPage,
-      @required bool isLastPage,
-      @required Warning warning,
-      @required bool showWarning,
-      @required LoadState loadState}) {
+      {required PageNumber page,
+      required PageNumber newestPage,
+      required bool isLastPage,
+      required Warning warning,
+      required bool showWarning,
+      required LoadState loadState}) {
     return _SimpleSurveyPageState(
       page: page,
       newestPage: newestPage,
@@ -33,19 +35,20 @@ class _$SimpleSurveyPageStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SimpleSurveyPageState = _$SimpleSurveyPageStateTearOff();
 
 /// @nodoc
 mixin _$SimpleSurveyPageState {
-  PageNumber get page;
-  PageNumber get newestPage;
-  bool get isLastPage;
-  Warning get warning;
-  bool get showWarning;
-  LoadState get loadState;
+  PageNumber get page => throw _privateConstructorUsedError;
+  PageNumber get newestPage => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+  Warning get warning => throw _privateConstructorUsedError;
+  bool get showWarning => throw _privateConstructorUsedError;
+  LoadState get loadState => throw _privateConstructorUsedError;
 
-  $SimpleSurveyPageStateCopyWith<SimpleSurveyPageState> get copyWith;
+  @JsonKey(ignore: true)
+  $SimpleSurveyPageStateCopyWith<SimpleSurveyPageState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -76,32 +79,43 @@ class _$SimpleSurveyPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object loadState = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? loadState = freezed,
   }) {
     return _then(_value.copyWith(
-      page: page == freezed ? _value.page : page as PageNumber,
-      newestPage:
-          newestPage == freezed ? _value.newestPage : newestPage as PageNumber,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as Warning,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
-      loadState:
-          loadState == freezed ? _value.loadState : loadState as LoadState,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as Warning,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadState: loadState == freezed
+          ? _value.loadState
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
     ));
   }
 
   @override
   $WarningCopyWith<$Res> get warning {
-    if (_value.warning == null) {
-      return null;
-    }
     return $WarningCopyWith<$Res>(_value.warning, (value) {
       return _then(_value.copyWith(warning: value));
     });
@@ -109,9 +123,6 @@ class _$SimpleSurveyPageStateCopyWithImpl<$Res>
 
   @override
   $LoadStateCopyWith<$Res> get loadState {
-    if (_value.loadState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.loadState, (value) {
       return _then(_value.copyWith(loadState: value));
     });
@@ -152,44 +163,53 @@ class __$SimpleSurveyPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object loadState = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? loadState = freezed,
   }) {
     return _then(_SimpleSurveyPageState(
-      page: page == freezed ? _value.page : page as PageNumber,
-      newestPage:
-          newestPage == freezed ? _value.newestPage : newestPage as PageNumber,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as Warning,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
-      loadState:
-          loadState == freezed ? _value.loadState : loadState as LoadState,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as Warning,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadState: loadState == freezed
+          ? _value.loadState
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
   const _$_SimpleSurveyPageState(
-      {@required this.page,
-      @required this.newestPage,
-      @required this.isLastPage,
-      @required this.warning,
-      @required this.showWarning,
-      @required this.loadState})
-      : assert(page != null),
-        assert(newestPage != null),
-        assert(isLastPage != null),
-        assert(warning != null),
-        assert(showWarning != null),
-        assert(loadState != null),
-        super._();
+      {required this.page,
+      required this.newestPage,
+      required this.isLastPage,
+      required this.warning,
+      required this.showWarning,
+      required this.loadState})
+      : super._();
 
   @override
   final PageNumber page;
@@ -242,6 +262,7 @@ class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(loadState);
 
+  @JsonKey(ignore: true)
   @override
   _$SimpleSurveyPageStateCopyWith<_SimpleSurveyPageState> get copyWith =>
       __$SimpleSurveyPageStateCopyWithImpl<_SimpleSurveyPageState>(
@@ -249,27 +270,29 @@ class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
 }
 
 abstract class _SimpleSurveyPageState extends SimpleSurveyPageState {
-  const _SimpleSurveyPageState._() : super._();
   const factory _SimpleSurveyPageState(
-      {@required PageNumber page,
-      @required PageNumber newestPage,
-      @required bool isLastPage,
-      @required Warning warning,
-      @required bool showWarning,
-      @required LoadState loadState}) = _$_SimpleSurveyPageState;
+      {required PageNumber page,
+      required PageNumber newestPage,
+      required bool isLastPage,
+      required Warning warning,
+      required bool showWarning,
+      required LoadState loadState}) = _$_SimpleSurveyPageState;
+  const _SimpleSurveyPageState._() : super._();
 
   @override
-  PageNumber get page;
+  PageNumber get page => throw _privateConstructorUsedError;
   @override
-  PageNumber get newestPage;
+  PageNumber get newestPage => throw _privateConstructorUsedError;
   @override
-  bool get isLastPage;
+  bool get isLastPage => throw _privateConstructorUsedError;
   @override
-  Warning get warning;
+  Warning get warning => throw _privateConstructorUsedError;
   @override
-  bool get showWarning;
+  bool get showWarning => throw _privateConstructorUsedError;
   @override
-  LoadState get loadState;
+  LoadState get loadState => throw _privateConstructorUsedError;
   @override
-  _$SimpleSurveyPageStateCopyWith<_SimpleSurveyPageState> get copyWith;
+  @JsonKey(ignore: true)
+  _$SimpleSurveyPageStateCopyWith<_SimpleSurveyPageState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

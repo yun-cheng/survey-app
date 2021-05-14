@@ -22,8 +22,8 @@ class QaCard extends StatelessWidget {
 
   // HIGHLIGHT 即便沒有 field 需要 input 也該使用 key
   const QaCard({
-    Key key,
-    @required this.question,
+    Key? key,
+    required this.question,
   }) : super(key: key);
 
   @override
@@ -34,7 +34,7 @@ class QaCard extends StatelessWidget {
         LoggerService.simple.i('QaCard rebuild');
 
         final isSpecialAnswer = context.select((AnswerBloc bloc) =>
-            bloc.state.answerStatusMap[question.id].isSpecialAnswer);
+            bloc.state.answerStatusMap[question.id]!.isSpecialAnswer);
 
         Question thisQuestion = question;
 

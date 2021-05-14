@@ -7,12 +7,12 @@ part 'simple_choice_dtos.freezed.dart';
 part 'simple_choice_dtos.g.dart';
 
 @freezed
-abstract class SimpleChoiceDto implements _$SimpleChoiceDto {
+class SimpleChoiceDto with _$SimpleChoiceDto {
   const SimpleChoiceDto._();
 
   const factory SimpleChoiceDto({
-    @required String id,
-    @required String body,
+    required String id,
+    required String body,
   }) = _SimpleChoiceDto;
 
   factory SimpleChoiceDto.fromDomain(SimpleChoice domain) {

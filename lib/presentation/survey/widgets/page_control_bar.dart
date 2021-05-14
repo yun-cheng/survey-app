@@ -11,7 +11,7 @@ import 'page_control_button.dart';
 
 class PageControlBar extends StatelessWidget {
   const PageControlBar({
-    Key key,
+    Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -42,11 +42,8 @@ class PageControlBar extends StatelessWidget {
               child: Container(
                 height: 70.0,
                 width: 220.0,
-                child: FlatButton(
-                  color: kWarningButtonColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
+                child: TextButton(
+                  style: kWarningButtonStyle,
                   onPressed: () {
                     context.read<SurveyPageBloc>().add(
                           SurveyPageEvent.wentToPage(state.warning.pageNumber),
@@ -81,11 +78,8 @@ class PageControlBar extends StatelessWidget {
               child: Container(
                 height: 70.0,
                 width: 220.0,
-                child: FlatButton(
-                  color: kWarningButtonColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(18.0),
-                  ),
+                child: TextButton(
+                  style: kWarningButtonStyle,
                   onPressed: () {
                     context.read<SurveyPageBloc>().add(
                           const SurveyPageEvent.finishedButtonPressed(),
@@ -103,7 +97,7 @@ class PageControlBar extends StatelessWidget {
                               page: NavigationPage.respondent(),
                             ),
                           );
-                      context.navigator.maybePop();
+                      context.router.pop();
                     }
                   },
                   child: Text(

@@ -11,12 +11,12 @@ import 'package:kt_dart/collection.dart';
 part 'full_expression.freezed.dart';
 
 @freezed
-abstract class FullExpression implements _$FullExpression {
+class FullExpression with _$FullExpression {
   const FullExpression._();
 
   const factory FullExpression({
-    @required FullExpressionBody body,
-    @required KtMap<ExpressionId, Expression> expressionMap,
+    required FullExpressionBody body,
+    required KtMap<ExpressionId, Expression> expressionMap,
   }) = _FullExpression;
 
   factory FullExpression.empty() => FullExpression(
@@ -33,8 +33,8 @@ abstract class FullExpression implements _$FullExpression {
   }
 
   bool evaluate({
-    Answer answer,
-    KtMutableMap<QuestionId, Answer> answerMap,
+    Answer? answer,
+    KtMap<QuestionId, Answer>? answerMap,
   }) {
     if (isEmpty) {
       return true;
@@ -55,7 +55,7 @@ abstract class FullExpression implements _$FullExpression {
       // NOTE showQuestion 使用
       expressionMap.mapValuesTo(
         newExpressionMap,
-        (entry) => entry.value.evaluate(answerMap[entry.value.field]),
+        (entry) => entry.value.evaluate(answerMap![entry.value.field]!),
       );
     }
 

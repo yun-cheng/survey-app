@@ -7,12 +7,12 @@ import 'value_objects.dart';
 part 'project.freezed.dart';
 
 @freezed
-abstract class Project implements _$Project {
+class Project with _$Project {
   const Project._();
 
   const factory Project({
-    @required ProjectId id,
-    @required ProjectName name,
+    required ProjectId id,
+    required ProjectName name,
   }) = _Project;
 
   factory Project.empty() => Project(

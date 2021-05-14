@@ -13,34 +13,34 @@ import 'value_objects.dart';
 part 'response.freezed.dart';
 
 @freezed
-abstract class Response implements _$Response {
+class Response with _$Response {
   const Response._();
 
   const factory Response({
     // H_ 區分不同 response
-    @required TeamId teamId,
-    @required ProjectId projectId,
-    @required SurveyId surveyId,
-    @required ModuleType moduleType,
-    @required RespondentId respondentId,
+    required TeamId teamId,
+    required ProjectId projectId,
+    required SurveyId surveyId,
+    required ModuleType moduleType,
+    required RespondentId respondentId,
     // H_ 區分 response 版本
-    @required UniqueId responseId,
-    @required UniqueId tempResponseId,
-    @required UniqueId ticketId,
-    @required bool editFinished,
-    @required InterviewerId interviewerId,
-    @required UniqueId deviceId,
+    required UniqueId responseId,
+    required UniqueId tempResponseId,
+    required UniqueId ticketId,
+    required bool editFinished,
+    required InterviewerId interviewerId,
+    required UniqueId deviceId,
     // H_ 狀態
-    @required DeviceTimeStamp createdTimeStamp,
-    @required DeviceTimeStamp sessionStartTimeStamp,
-    @required DeviceTimeStamp sessionEndTimeStamp,
-    @required DeviceTimeStamp lastChangedTimeStamp,
-    @required ResponseStatus responseStatus,
-    @required bool isDeleted,
+    required DeviceTimeStamp createdTimeStamp,
+    required DeviceTimeStamp sessionStartTimeStamp,
+    required DeviceTimeStamp sessionEndTimeStamp,
+    required DeviceTimeStamp lastChangedTimeStamp,
+    required ResponseStatus responseStatus,
+    required bool isDeleted,
     // H_ 內容
-    @required KtMap<QuestionId, Answer> answerMap,
-    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    @required SimpleSurveyPageState surveyPageState,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required SimpleSurveyPageState surveyPageState,
   }) = _Response;
 
   factory Response.empty() {

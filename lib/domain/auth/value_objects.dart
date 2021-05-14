@@ -9,7 +9,6 @@ class InterviewerId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory InterviewerId(String input) {
-    assert(input != null);
     return InterviewerId._(
       validateStringNotEmpty(input),
     );
@@ -25,7 +24,6 @@ class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
-    assert(input != null);
     return Password._(
       validateStringNotEmpty(input),
     );
@@ -41,7 +39,6 @@ class InterviewerName extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory InterviewerName(String input) {
-    assert(input != null);
     return InterviewerName._(
       validateStringNotEmpty(input),
     );
@@ -57,7 +54,6 @@ class TeamId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory TeamId(String input) {
-    assert(input != null);
     return TeamId._(
       validateStringNotEmpty(input),
     );
@@ -73,7 +69,6 @@ class TeamName extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory TeamName(String input) {
-    assert(input != null);
     return TeamName._(
       validateStringNotEmpty(input),
     );

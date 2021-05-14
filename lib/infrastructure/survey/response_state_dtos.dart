@@ -17,25 +17,25 @@ part 'response_state_dtos.freezed.dart';
 part 'response_state_dtos.g.dart';
 
 @freezed
-abstract class ResponseStateDto implements _$ResponseStateDto {
+class ResponseStateDto with _$ResponseStateDto {
   const ResponseStateDto._();
 
   const factory ResponseStateDto({
     // NOTE downloadedResponseList 不須儲存
-    @required SurveyDto survey,
-    @required RespondentDto respondent,
-    @required InterviewerDto interviewer,
-    @required String moduleType,
-    @required Map<String, dynamic> responseListState,
-    @required List<ResponseDto> responseList,
-    Map<String, dynamic> responseFailure,
-    @required ResponseDto response,
-    @required Map<String, dynamic> responseRestoreState,
-    @required List<QuestionDto> questionList,
-    @required bool withResponseId,
-    @required String responseId,
-    @required ResponseDto mainResponse,
-    @required List<ResponseDto> respondentResponseList,
+    required SurveyDto survey,
+    required RespondentDto respondent,
+    required InterviewerDto interviewer,
+    required String moduleType,
+    required Map<String, dynamic> responseListState,
+    required List<ResponseDto> responseList,
+    Map<String, dynamic>? responseFailure,
+    required ResponseDto response,
+    required Map<String, dynamic> responseRestoreState,
+    required List<QuestionDto> questionList,
+    required bool withResponseId,
+    required String responseId,
+    required ResponseDto mainResponse,
+    required List<ResponseDto> respondentResponseList,
   }) = _ResponseStateDto;
 
   factory ResponseStateDto.fromDomain(ResponseState domain) {
@@ -57,8 +57,9 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
       withResponseId: domain.withResponseId,
       responseId: domain.responseId.getValueAnyway(),
       mainResponse: ResponseDto.fromDomain(domain.mainResponse),
-        respondentResponseList:
-          domain.respondentResponseList.map((e) => ResponseDto.fromDomain(e)).asList(),
+      respondentResponseList: domain.respondentResponseList
+          .map((e) => ResponseDto.fromDomain(e))
+          .asList(),
     );
   }
 
@@ -78,7 +79,8 @@ abstract class ResponseStateDto implements _$ResponseStateDto {
       withResponseId: withResponseId,
       responseId: UniqueId.fromUniqueString(responseId),
       mainResponse: mainResponse.toDomain(),
-      respondentResponseList: respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
+      respondentResponseList:
+          respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
     );
   }
 

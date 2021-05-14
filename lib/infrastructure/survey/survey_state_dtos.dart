@@ -11,14 +11,14 @@ part 'survey_state_dtos.freezed.dart';
 part 'survey_state_dtos.g.dart';
 
 @freezed
-abstract class SurveyStateDto implements _$SurveyStateDto {
+class SurveyStateDto with _$SurveyStateDto {
   const SurveyStateDto._();
 
   const factory SurveyStateDto({
-    @required Map<String, dynamic> surveyListState,
-    @required List<SurveyDto> surveyList,
-    @required SurveyDto survey,
-    Map<String, dynamic> surveyFailure,
+    required Map<String, dynamic> surveyListState,
+    required List<SurveyDto> surveyList,
+    required SurveyDto survey,
+    Map<String, dynamic>? surveyFailure,
   }) = _SurveyStateDto;
 
   factory SurveyStateDto.fromDomain(SurveyState domain) {

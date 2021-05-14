@@ -10,12 +10,12 @@ part 'full_expression_dtos.freezed.dart';
 part 'full_expression_dtos.g.dart';
 
 @freezed
-abstract class FullExpressionDto implements _$FullExpressionDto {
+class FullExpressionDto with _$FullExpressionDto {
   const FullExpressionDto._();
 
   const factory FullExpressionDto({
-    @required String fullExpressionBody,
-    @required Map<String, ExpressionDto> expressionMap,
+    required String fullExpressionBody,
+    required Map<String, ExpressionDto> expressionMap,
   }) = _FullExpressionDto;
 
   factory FullExpressionDto.fromDomain(FullExpression fullExpression) {
@@ -42,13 +42,13 @@ abstract class FullExpressionDto implements _$FullExpressionDto {
 }
 
 @freezed
-abstract class ExpressionDto implements _$ExpressionDto {
+class ExpressionDto with _$ExpressionDto {
   const ExpressionDto._();
 
   const factory ExpressionDto({
-    @required String field,
-    @required String operator,
-    @required AnswerDto comparisonValue,
+    required String field,
+    required String operator,
+    required AnswerDto comparisonValue,
   }) = _ExpressionDto;
 
   factory ExpressionDto.fromDomain(Expression domain) {

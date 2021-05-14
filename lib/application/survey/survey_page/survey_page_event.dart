@@ -1,11 +1,11 @@
 part of 'survey_page_bloc.dart';
 
 @freezed
-abstract class SurveyPageEvent with _$SurveyPageEvent {
+class SurveyPageEvent with _$SurveyPageEvent {
   // H_1 監聽 ReferenceList
   const factory SurveyPageEvent.watchReferenceListStarted({
-    @required TeamId teamId,
-    @required InterviewerId interviewerId,
+    required TeamId teamId,
+    required InterviewerId interviewerId,
   }) = _WatchReferenceListStarted;
 
   const factory SurveyPageEvent.referenceListReceived(
@@ -16,25 +16,25 @@ abstract class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.stateRestoring() = _StateRestoring;
   const factory SurveyPageEvent.stateRestoreSuccess() = _StateRestoreSuccess;
   const factory SurveyPageEvent.stateRestored({
-    @required SurveyId surveyId,
-    @required ModuleType moduleType,
-    @required SimpleSurveyPageState surveyPageState,
-    @required KtList<Question> questionList,
-    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    @required bool isRecodeModule,
-    @required KtList<Question> mainQuestionList,
-    @required Respondent respondent,
+    required SurveyId surveyId,
+    required ModuleType moduleType,
+    required SimpleSurveyPageState surveyPageState,
+    required KtList<Question> questionList,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required bool isRecodeModule,
+    required KtList<Question> mainQuestionList,
+    required Respondent respondent,
   }) = _StateRestored;
 
   // H_3 接收此受訪者其他 module 的 responses
   const factory SurveyPageEvent.respondentResponseListUpdated({
-    @required KtList<Response> respondentResponseList,
+    required KtList<Response> respondentResponseList,
   }) = _RespondentResponseListUpdated;
 
   // H_4 接收更新的作答
   const factory SurveyPageEvent.answerChanged({
-    @required KtMutableMap<QuestionId, Answer> answerMap,
-    @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
   }) = _AnswerChanged;
 
   // H_5 更新 questionBody
@@ -42,7 +42,7 @@ abstract class SurveyPageEvent with _$SurveyPageEvent {
 
   // H_6 切換頁面相關 events
   const factory SurveyPageEvent.pageUpdated({
-    @required Direction direction,
+    required Direction direction,
   }) = _PageUpdated;
   const factory SurveyPageEvent.nextPagePressed() = _NextPagePressed;
   const factory SurveyPageEvent.previousPagePressed() = _PreviousPagePressed;

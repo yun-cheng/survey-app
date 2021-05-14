@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'load_state.dart';
 
@@ -8,6 +8,10 @@ part of 'load_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 LoadState _$LoadStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'initial':
@@ -28,69 +32,67 @@ LoadState _$LoadStateFromJson(Map<String, dynamic> json) {
 class _$LoadStateTearOff {
   const _$LoadStateTearOff();
 
-// ignore: unused_element
   LoadInitial initial() {
     return const LoadInitial();
   }
 
-// ignore: unused_element
   LoadInProgress inProgress() {
     return const LoadInProgress();
   }
 
-// ignore: unused_element
   LoadFailure failure() {
     return const LoadFailure();
   }
 
-// ignore: unused_element
   LoadSuccess success() {
     return const LoadSuccess();
   }
 
-// ignore: unused_element
   LoadState fromJson(Map<String, Object> json) {
     return LoadState.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $LoadState = _$LoadStateTearOff();
 
 /// @nodoc
 mixin _$LoadState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult failure(),
-    @required TResult success(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function() failure,
+    required TResult Function() success,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult failure(),
-    TResult success(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function()? failure,
+    TResult Function()? success,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(LoadInitial value),
-    @required TResult inProgress(LoadInProgress value),
-    @required TResult failure(LoadFailure value),
-    @required TResult success(LoadSuccess value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadInitial value) initial,
+    required TResult Function(LoadInProgress value) inProgress,
+    required TResult Function(LoadFailure value) failure,
+    required TResult Function(LoadSuccess value) success,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(LoadInitial value),
-    TResult inProgress(LoadInProgress value),
-    TResult failure(LoadFailure value),
-    TResult success(LoadSuccess value),
-    @required TResult orElse(),
-  });
-  Map<String, dynamic> toJson();
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadInitial value)? initial,
+    TResult Function(LoadInProgress value)? inProgress,
+    TResult Function(LoadFailure value)? failure,
+    TResult Function(LoadSuccess value)? success,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -126,9 +128,8 @@ class _$LoadInitialCopyWithImpl<$Res> extends _$LoadStateCopyWithImpl<$Res>
   LoadInitial get _value => super._value as LoadInitial;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$LoadInitial implements LoadInitial {
   const _$LoadInitial();
 
@@ -150,29 +151,24 @@ class _$LoadInitial implements LoadInitial {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult failure(),
-    @required TResult success(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function() failure,
+    required TResult Function() success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult failure(),
-    TResult success(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function()? failure,
+    TResult Function()? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -181,29 +177,24 @@ class _$LoadInitial implements LoadInitial {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(LoadInitial value),
-    @required TResult inProgress(LoadInProgress value),
-    @required TResult failure(LoadFailure value),
-    @required TResult success(LoadSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadInitial value) initial,
+    required TResult Function(LoadInProgress value) inProgress,
+    required TResult Function(LoadFailure value) failure,
+    required TResult Function(LoadSuccess value) success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(LoadInitial value),
-    TResult inProgress(LoadInProgress value),
-    TResult failure(LoadFailure value),
-    TResult success(LoadSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadInitial value)? initial,
+    TResult Function(LoadInProgress value)? inProgress,
+    TResult Function(LoadFailure value)? failure,
+    TResult Function(LoadSuccess value)? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -241,9 +232,8 @@ class _$LoadInProgressCopyWithImpl<$Res> extends _$LoadStateCopyWithImpl<$Res>
   LoadInProgress get _value => super._value as LoadInProgress;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$LoadInProgress implements LoadInProgress {
   const _$LoadInProgress();
 
@@ -265,29 +255,24 @@ class _$LoadInProgress implements LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult failure(),
-    @required TResult success(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function() failure,
+    required TResult Function() success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return inProgress();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult failure(),
-    TResult success(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function()? failure,
+    TResult Function()? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (inProgress != null) {
       return inProgress();
     }
@@ -296,29 +281,24 @@ class _$LoadInProgress implements LoadInProgress {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(LoadInitial value),
-    @required TResult inProgress(LoadInProgress value),
-    @required TResult failure(LoadFailure value),
-    @required TResult success(LoadSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadInitial value) initial,
+    required TResult Function(LoadInProgress value) inProgress,
+    required TResult Function(LoadFailure value) failure,
+    required TResult Function(LoadSuccess value) success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return inProgress(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(LoadInitial value),
-    TResult inProgress(LoadInProgress value),
-    TResult failure(LoadFailure value),
-    TResult success(LoadSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadInitial value)? initial,
+    TResult Function(LoadInProgress value)? inProgress,
+    TResult Function(LoadFailure value)? failure,
+    TResult Function(LoadSuccess value)? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (inProgress != null) {
       return inProgress(this);
     }
@@ -356,9 +336,8 @@ class _$LoadFailureCopyWithImpl<$Res> extends _$LoadStateCopyWithImpl<$Res>
   LoadFailure get _value => super._value as LoadFailure;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$LoadFailure implements LoadFailure {
   const _$LoadFailure();
 
@@ -380,29 +359,24 @@ class _$LoadFailure implements LoadFailure {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult failure(),
-    @required TResult success(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function() failure,
+    required TResult Function() success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return failure();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult failure(),
-    TResult success(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function()? failure,
+    TResult Function()? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure();
     }
@@ -411,29 +385,24 @@ class _$LoadFailure implements LoadFailure {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(LoadInitial value),
-    @required TResult inProgress(LoadInProgress value),
-    @required TResult failure(LoadFailure value),
-    @required TResult success(LoadSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadInitial value) initial,
+    required TResult Function(LoadInProgress value) inProgress,
+    required TResult Function(LoadFailure value) failure,
+    required TResult Function(LoadSuccess value) success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return failure(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(LoadInitial value),
-    TResult inProgress(LoadInProgress value),
-    TResult failure(LoadFailure value),
-    TResult success(LoadSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadInitial value)? initial,
+    TResult Function(LoadInProgress value)? inProgress,
+    TResult Function(LoadFailure value)? failure,
+    TResult Function(LoadSuccess value)? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure(this);
     }
@@ -471,9 +440,8 @@ class _$LoadSuccessCopyWithImpl<$Res> extends _$LoadStateCopyWithImpl<$Res>
   LoadSuccess get _value => super._value as LoadSuccess;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$LoadSuccess implements LoadSuccess {
   const _$LoadSuccess();
 
@@ -495,29 +463,24 @@ class _$LoadSuccess implements LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult inProgress(),
-    @required TResult failure(),
-    @required TResult success(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() inProgress,
+    required TResult Function() failure,
+    required TResult Function() success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return success();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult inProgress(),
-    TResult failure(),
-    TResult success(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? inProgress,
+    TResult Function()? failure,
+    TResult Function()? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success();
     }
@@ -526,29 +489,24 @@ class _$LoadSuccess implements LoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(LoadInitial value),
-    @required TResult inProgress(LoadInProgress value),
-    @required TResult failure(LoadFailure value),
-    @required TResult success(LoadSuccess value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(LoadInitial value) initial,
+    required TResult Function(LoadInProgress value) inProgress,
+    required TResult Function(LoadFailure value) failure,
+    required TResult Function(LoadSuccess value) success,
   }) {
-    assert(initial != null);
-    assert(inProgress != null);
-    assert(failure != null);
-    assert(success != null);
     return success(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(LoadInitial value),
-    TResult inProgress(LoadInProgress value),
-    TResult failure(LoadFailure value),
-    TResult success(LoadSuccess value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(LoadInitial value)? initial,
+    TResult Function(LoadInProgress value)? inProgress,
+    TResult Function(LoadFailure value)? failure,
+    TResult Function(LoadSuccess value)? success,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(this);
     }

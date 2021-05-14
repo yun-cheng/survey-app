@@ -15,8 +15,8 @@ class ChoicesBox extends StatelessWidget {
   final Question question;
 
   const ChoicesBox({
-    Key key,
-    @required this.question,
+    Key? key,
+    required this.question,
   }) : super(key: key);
 
   @override
@@ -36,15 +36,15 @@ class ChoicesBox extends StatelessWidget {
             ? state.mainAnswerStatusMap
             : state.answerStatusMap;
 
-        final thisAnswer = answerMap[question.id];
-        final isSpecialAnswer = answerStatusMap[question.id].isSpecialAnswer;
+        final thisAnswer = answerMap[question.id]!;
+        final isSpecialAnswer = answerStatusMap[question.id]!.isSpecialAnswer;
         KtList<Choice> thisChoiceList = question.choiceList;
 
         // H_ 如果是連鎖題下層要篩選選項
         if (question.upperQuestionId.isNotEmpty && !isSpecialAnswer) {
           final upperAnswer = state.answerMap[question.upperQuestionId];
           thisChoiceList = question.choiceList.filter(
-              (choice) => choice.upperChoiceId == upperAnswer.value?.id);
+              (choice) => choice.upperChoiceId == upperAnswer!.value?.id);
         }
 
         // H_ 篩是否為特殊作答的題目
@@ -89,7 +89,7 @@ class ChoicesBox extends StatelessWidget {
                       NoteBox(
                         question: question,
                         choice: choice,
-                        note: thisAnswer.noteMap.getOrDefault(choice.id, ''),
+                        note: thisAnswer.noteMap!.getOrDefault(choice.id, '')!,
                       ),
                     ]
                   ],
@@ -122,7 +122,7 @@ class ChoicesBox extends StatelessWidget {
                       NoteBox(
                         question: question,
                         choice: choice,
-                        note: thisAnswer.noteMap.getOrDefault(choice.id, ''),
+                        note: thisAnswer.noteMap!.getOrDefault(choice.id, '')!,
                       ),
                     ]
                   ],

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'reference_key_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'reference_key_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ReferenceKeyDto _$ReferenceKeyDtoFromJson(Map<String, dynamic> json) {
   return _ReferenceKeyDto.fromJson(json);
 }
@@ -16,11 +20,10 @@ ReferenceKeyDto _$ReferenceKeyDtoFromJson(Map<String, dynamic> json) {
 class _$ReferenceKeyDtoTearOff {
   const _$ReferenceKeyDtoTearOff();
 
-// ignore: unused_element
   _ReferenceKeyDto call(
-      {@required String surveyId,
-      @required String moduleType,
-      @required String questionId}) {
+      {required String surveyId,
+      required String moduleType,
+      required String questionId}) {
     return _ReferenceKeyDto(
       surveyId: surveyId,
       moduleType: moduleType,
@@ -28,24 +31,24 @@ class _$ReferenceKeyDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ReferenceKeyDto fromJson(Map<String, Object> json) {
     return ReferenceKeyDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ReferenceKeyDto = _$ReferenceKeyDtoTearOff();
 
 /// @nodoc
 mixin _$ReferenceKeyDto {
-  String get surveyId;
-  String get moduleType;
-  String get questionId;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get moduleType => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ReferenceKeyDtoCopyWith<ReferenceKeyDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ReferenceKeyDtoCopyWith<ReferenceKeyDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -67,16 +70,23 @@ class _$ReferenceKeyDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionId = freezed,
   }) {
     return _then(_value.copyWith(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -104,32 +114,35 @@ class __$ReferenceKeyDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionId = freezed,
   }) {
     return _then(_ReferenceKeyDto(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ReferenceKeyDto extends _ReferenceKeyDto {
   const _$_ReferenceKeyDto(
-      {@required this.surveyId,
-      @required this.moduleType,
-      @required this.questionId})
-      : assert(surveyId != null),
-        assert(moduleType != null),
-        assert(questionId != null),
-        super._();
+      {required this.surveyId,
+      required this.moduleType,
+      required this.questionId})
+      : super._();
 
   factory _$_ReferenceKeyDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ReferenceKeyDtoFromJson(json);
@@ -168,6 +181,7 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(questionId);
 
+  @JsonKey(ignore: true)
   @override
   _$ReferenceKeyDtoCopyWith<_ReferenceKeyDto> get copyWith =>
       __$ReferenceKeyDtoCopyWithImpl<_ReferenceKeyDto>(this, _$identity);
@@ -179,21 +193,23 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
 }
 
 abstract class _ReferenceKeyDto extends ReferenceKeyDto {
-  const _ReferenceKeyDto._() : super._();
   const factory _ReferenceKeyDto(
-      {@required String surveyId,
-      @required String moduleType,
-      @required String questionId}) = _$_ReferenceKeyDto;
+      {required String surveyId,
+      required String moduleType,
+      required String questionId}) = _$_ReferenceKeyDto;
+  const _ReferenceKeyDto._() : super._();
 
   factory _ReferenceKeyDto.fromJson(Map<String, dynamic> json) =
       _$_ReferenceKeyDto.fromJson;
 
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get moduleType;
+  String get moduleType => throw _privateConstructorUsedError;
   @override
-  String get questionId;
+  String get questionId => throw _privateConstructorUsedError;
   @override
-  _$ReferenceKeyDtoCopyWith<_ReferenceKeyDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$ReferenceKeyDtoCopyWith<_ReferenceKeyDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

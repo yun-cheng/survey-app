@@ -12,14 +12,14 @@ import 'value_objects.dart';
 part 'formatted_text.freezed.dart';
 
 @freezed
-abstract class FormattedText implements _$FormattedText {
+class FormattedText with _$FormattedText {
   const FormattedText._();
 
   const factory FormattedText({
-    @required FormatType type,
-    @required String stringBody,
-    @required ReferenceKey referenceKey,
-    @required Answer answer,
+    required FormatType type,
+    required String stringBody,
+    required ReferenceKey referenceKey,
+    required Answer answer,
   }) = _FormattedText;
 
   factory FormattedText.empty() => FormattedText(
@@ -30,14 +30,14 @@ abstract class FormattedText implements _$FormattedText {
       );
 
   FormattedText getAnswer({
-    @required KtList<Reference> referenceList,
-    @required KtList<Response> responseList,
-    @required SurveyId surveyId,
-    @required ModuleType moduleType,
-    @required KtMap<QuestionId, Answer> answerMap,
-    @required RespondentId respondentId,
+    required KtList<Reference> referenceList,
+    required KtList<Response> responseList,
+    required SurveyId surveyId,
+    required ModuleType moduleType,
+    required KtMap<QuestionId, Answer> answerMap,
+    required RespondentId respondentId,
   }) {
-    Answer newAnswer;
+    Answer? newAnswer;
     if (type == FormatType.referenceKey()) {
       if (referenceKey.surveyId == surveyId &&
           referenceKey.moduleType == moduleType) {
@@ -51,7 +51,7 @@ abstract class FormattedText implements _$FormattedText {
                       r.moduleType == referenceKey.moduleType,
                 )
                 ?.answerMap
-                ?.get(referenceKey.questionId) ??
+                .get(referenceKey.questionId) ??
             referenceList
                 .firstOrNull(
                   (r) =>

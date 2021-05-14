@@ -4,163 +4,111 @@
 // AutoRouteGenerator
 // **************************************************************************
 
-// ignore_for_file: public_member_api_docs
+import 'package:auto_route/auto_route.dart' as _i1;
+import 'package:flutter/material.dart' as _i2;
 
-import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
+import '../overview/overview_page.dart' as _i5;
+import '../respondent_list/respondents_page.dart' as _i6;
+import '../sign_in/sign_in_page.dart' as _i4;
+import '../splash/splash_page.dart' as _i3;
+import '../survey/survey_content_page.dart' as _i8;
+import '../survey/survey_page.dart' as _i7;
 
-import '../../domain/quiz_list/value_objects.dart';
-import '../finished/finished_page.dart';
-import '../overview/overview_page.dart';
-import '../quiz/quiz_page.dart';
-import '../quiz_list/quiz_list_page.dart';
-import '../respondent_list/respondents_page.dart';
-import '../sign_in/sign_in_page.dart';
-import '../splash/splash_page.dart';
-import '../survey/survey_content_page.dart';
-import '../survey/survey_page.dart';
+class RootRouter extends _i1.RootStackRouter {
+  RootRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+      : super(navigatorKey);
 
-class Routes {
-  static const String splashPage = '/';
-  static const String signInPage = '/sign-in-page';
-  static const String quizListPage = '/quiz-list-page';
-  static const String quizPage = '/quiz-page';
-  static const String finishedPage = '/finished-page';
-  static const String overviewPage = '/overview';
-  static const String respondentsPage = '/respondents';
-  static const String _surveyPage = '/respondent/:respondentId';
-  static String surveyPage({@required dynamic respondentId}) =>
-      '/respondent/$respondentId';
-  static const String surveyContentPage = '/survey-content-page';
-  static const all = <String>{
-    splashPage,
-    signInPage,
-    quizListPage,
-    quizPage,
-    finishedPage,
-    overviewPage,
-    respondentsPage,
-    _surveyPage,
-    surveyContentPage,
-  };
-}
-
-class AutoRouter extends RouterBase {
   @override
-  List<RouteDef> get routes => _routes;
-  final _routes = <RouteDef>[
-    RouteDef(Routes.splashPage, page: SplashPage),
-    RouteDef(Routes.signInPage, page: SignInPage),
-    RouteDef(Routes.quizListPage, page: QuizListPage),
-    RouteDef(Routes.quizPage, page: QuizPage),
-    RouteDef(Routes.finishedPage, page: FinishedPage),
-    RouteDef(Routes.overviewPage, page: OverviewPage),
-    RouteDef(Routes.respondentsPage, page: RespondentsPage),
-    RouteDef(Routes._surveyPage, page: SurveyPage),
-    RouteDef(Routes.surveyContentPage, page: SurveyContentPage),
-  ];
-  @override
-  Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
-  final _pagesMap = <Type, AutoRouteFactory>{
-    SplashPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SplashPage(),
-        settings: data,
-      );
-    },
-    SignInPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SignInPage(),
-        settings: data,
-      );
-    },
-    QuizListPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => QuizListPage(),
-        settings: data,
-      );
-    },
-    QuizPage: (data) {
-      final args = data.getArgs<QuizPageArguments>(nullOk: false);
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => QuizPage(
-          key: args.key,
-          quizId: args.quizId,
-        ),
-        settings: data,
-      );
-    },
-    FinishedPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => FinishedPage(),
-        settings: data,
-      );
-    },
-    OverviewPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => OverviewPage(),
-        settings: data,
-      );
-    },
-    RespondentsPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => RespondentsPage(),
-        settings: data,
-      );
-    },
-    SurveyPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SurveyPage(),
-        settings: data,
-      );
-    },
-    SurveyContentPage: (data) {
-      return MaterialPageRoute<dynamic>(
-        builder: (context) => SurveyContentPage(),
-        settings: data,
-      );
-    },
+  final Map<String, _i1.PageFactory> pagesMap = {
+    SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i3.SplashPage();
+        }),
+    SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i4.SignInPage();
+        }),
+    OverviewRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i5.OverviewPage();
+        }),
+    RespondentsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i6.RespondentsPage();
+        }),
+    SurveyRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (data) {
+          final pathParams = data.pathParams;
+          final args = data.argsAs<SurveyRouteArgs>(
+              orElse: () => SurveyRouteArgs(
+                  respondentId: pathParams.getString('respondentId')));
+          return _i7.SurveyPage(respondentId: args.respondentId);
+        }),
+    SurveyContentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
+        routeData: routeData,
+        builder: (_) {
+          return _i8.SurveyContentPage();
+        })
   };
+
+  @override
+  List<_i1.RouteConfig> get routes => [
+        _i1.RouteConfig(SplashRoute.name, path: '/'),
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(OverviewRoute.name, path: '/overview'),
+        _i1.RouteConfig(RespondentsRoute.name, path: '/respondents'),
+        _i1.RouteConfig(SurveyRoute.name, path: '/respondent/:respondentId'),
+        _i1.RouteConfig(SurveyContentRoute.name, path: '/survey-content-page')
+      ];
 }
 
-/// ************************************************************************
-/// Navigation helper methods extension
-/// *************************************************************************
+class SplashRoute extends _i1.PageRouteInfo {
+  const SplashRoute() : super(name, path: '/');
 
-extension AutoRouterExtendedNavigatorStateX on ExtendedNavigatorState {
-  Future<dynamic> pushSplashPage() => push<dynamic>(Routes.splashPage);
-
-  Future<dynamic> pushSignInPage() => push<dynamic>(Routes.signInPage);
-
-  Future<dynamic> pushQuizListPage() => push<dynamic>(Routes.quizListPage);
-
-  Future<dynamic> pushQuizPage({
-    Key key,
-    @required QuizId quizId,
-  }) =>
-      push<dynamic>(
-        Routes.quizPage,
-        arguments: QuizPageArguments(key: key, quizId: quizId),
-      );
-
-  Future<dynamic> pushFinishedPage() => push<dynamic>(Routes.finishedPage);
-
-  Future<dynamic> pushOverviewPage() => push<dynamic>(Routes.overviewPage);
-
-  Future<dynamic> pushRespondentsPage() =>
-      push<dynamic>(Routes.respondentsPage);
-
-  Future<dynamic> pushSurveyContentPage() =>
-      push<dynamic>(Routes.surveyContentPage);
+  static const String name = 'SplashRoute';
 }
 
-/// ************************************************************************
-/// Arguments holder classes
-/// *************************************************************************
+class SignInRoute extends _i1.PageRouteInfo {
+  const SignInRoute() : super(name, path: '/sign-in-page');
 
-/// QuizPage arguments holder class
-class QuizPageArguments {
-  final Key key;
-  final QuizId quizId;
-  QuizPageArguments({this.key, @required this.quizId});
+  static const String name = 'SignInRoute';
+}
+
+class OverviewRoute extends _i1.PageRouteInfo {
+  const OverviewRoute() : super(name, path: '/overview');
+
+  static const String name = 'OverviewRoute';
+}
+
+class RespondentsRoute extends _i1.PageRouteInfo {
+  const RespondentsRoute() : super(name, path: '/respondents');
+
+  static const String name = 'RespondentsRoute';
+}
+
+class SurveyRoute extends _i1.PageRouteInfo<SurveyRouteArgs> {
+  SurveyRoute({required String respondentId})
+      : super(name,
+            path: '/respondent/:respondentId',
+            args: SurveyRouteArgs(respondentId: respondentId),
+            rawPathParams: {'respondentId': respondentId});
+
+  static const String name = 'SurveyRoute';
+}
+
+class SurveyRouteArgs {
+  const SurveyRouteArgs({required this.respondentId});
+
+  final String respondentId;
+}
+
+class SurveyContentRoute extends _i1.PageRouteInfo {
+  const SurveyContentRoute() : super(name, path: '/survey-content-page');
+
+  static const String name = 'SurveyContentRoute';
 }

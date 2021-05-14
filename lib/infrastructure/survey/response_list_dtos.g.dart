@@ -8,16 +8,15 @@ part of 'response_list_dtos.dart';
 
 _$_ResponseListDto _$_$_ResponseListDtoFromJson(Map<String, dynamic> json) {
   return _$_ResponseListDto(
-    list: (json['list'] as List)
-        ?.map((e) =>
-            e == null ? null : ResponseDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    list: (json['list'] as List<dynamic>)
+        .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
 Map<String, dynamic> _$_$_ResponseListDtoToJson(_$_ResponseListDto instance) =>
     <String, dynamic>{
-      'list': instance.list?.map((e) => e?.toJson())?.toList(),
+      'list': instance.list.map((e) => e.toJson()).toList(),
     };
 
 _$_ResponseDto _$_$_ResponseDtoFromJson(Map<String, dynamic> json) {
@@ -39,21 +38,15 @@ _$_ResponseDto _$_$_ResponseDtoFromJson(Map<String, dynamic> json) {
     lastChangedTimeStamp: json['lastChangedTimeStamp'] as int,
     responseStatus: json['responseStatus'] as String,
     isDeleted: json['isDeleted'] as bool,
-    answerMap: (json['answerMap'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k, e == null ? null : AnswerDto.fromJson(e as Map<String, dynamic>)),
+    answerMap: (json['answerMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
-    answerStatusMap: (json['answerStatusMap'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(
-          k,
-          e == null
-              ? null
-              : AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
+    answerStatusMap: (json['answerStatusMap'] as Map<String, dynamic>).map(
+      (k, e) =>
+          MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
-    surveyPageState: json['surveyPageState'] == null
-        ? null
-        : SimpleSurveyPageStateDto.fromJson(
-            json['surveyPageState'] as Map<String, dynamic>),
+    surveyPageState: SimpleSurveyPageStateDto.fromJson(
+        json['surveyPageState'] as Map<String, dynamic>),
   );
 }
 
@@ -76,8 +69,8 @@ Map<String, dynamic> _$_$_ResponseDtoToJson(_$_ResponseDto instance) =>
       'lastChangedTimeStamp': instance.lastChangedTimeStamp,
       'responseStatus': instance.responseStatus,
       'isDeleted': instance.isDeleted,
-      'answerMap': instance.answerMap?.map((k, e) => MapEntry(k, e?.toJson())),
+      'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerStatusMap':
-          instance.answerStatusMap?.map((k, e) => MapEntry(k, e?.toJson())),
-      'surveyPageState': instance.surveyPageState?.toJson(),
+          instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
+      'surveyPageState': instance.surveyPageState.toJson(),
     };

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'respondent_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'respondent_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 RespondentDto _$RespondentDtoFromJson(Map<String, dynamic> json) {
   return _RespondentDto.fromJson(json);
 }
@@ -16,12 +20,11 @@ RespondentDto _$RespondentDtoFromJson(Map<String, dynamic> json) {
 class _$RespondentDtoTearOff {
   const _$RespondentDtoTearOff();
 
-// ignore: unused_element
   _RespondentDto call(
-      {@required String respondentId,
-      @required String countyTown,
-      @required String village,
-      @required String remainAddress}) {
+      {required String respondentId,
+      required String countyTown,
+      required String village,
+      required String remainAddress}) {
     return _RespondentDto(
       respondentId: respondentId,
       countyTown: countyTown,
@@ -30,25 +33,25 @@ class _$RespondentDtoTearOff {
     );
   }
 
-// ignore: unused_element
   RespondentDto fromJson(Map<String, Object> json) {
     return RespondentDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RespondentDto = _$RespondentDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentDto {
-  String get respondentId;
-  String get countyTown;
-  String get village;
-  String get remainAddress;
+  String get respondentId => throw _privateConstructorUsedError;
+  String get countyTown => throw _privateConstructorUsedError;
+  String get village => throw _privateConstructorUsedError;
+  String get remainAddress => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $RespondentDtoCopyWith<RespondentDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RespondentDtoCopyWith<RespondentDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -74,21 +77,28 @@ class _$RespondentDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object countyTown = freezed,
-    Object village = freezed,
-    Object remainAddress = freezed,
+    Object? respondentId = freezed,
+    Object? countyTown = freezed,
+    Object? village = freezed,
+    Object? remainAddress = freezed,
   }) {
     return _then(_value.copyWith(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      countyTown:
-          countyTown == freezed ? _value.countyTown : countyTown as String,
-      village: village == freezed ? _value.village : village as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      countyTown: countyTown == freezed
+          ? _value.countyTown
+          : countyTown // ignore: cast_nullable_to_non_nullable
+              as String,
+      village: village == freezed
+          ? _value.village
+          : village // ignore: cast_nullable_to_non_nullable
+              as String,
       remainAddress: remainAddress == freezed
           ? _value.remainAddress
-          : remainAddress as String,
+          : remainAddress // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,39 +130,41 @@ class __$RespondentDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object countyTown = freezed,
-    Object village = freezed,
-    Object remainAddress = freezed,
+    Object? respondentId = freezed,
+    Object? countyTown = freezed,
+    Object? village = freezed,
+    Object? remainAddress = freezed,
   }) {
     return _then(_RespondentDto(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      countyTown:
-          countyTown == freezed ? _value.countyTown : countyTown as String,
-      village: village == freezed ? _value.village : village as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      countyTown: countyTown == freezed
+          ? _value.countyTown
+          : countyTown // ignore: cast_nullable_to_non_nullable
+              as String,
+      village: village == freezed
+          ? _value.village
+          : village // ignore: cast_nullable_to_non_nullable
+              as String,
       remainAddress: remainAddress == freezed
           ? _value.remainAddress
-          : remainAddress as String,
+          : remainAddress // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_RespondentDto extends _RespondentDto {
   const _$_RespondentDto(
-      {@required this.respondentId,
-      @required this.countyTown,
-      @required this.village,
-      @required this.remainAddress})
-      : assert(respondentId != null),
-        assert(countyTown != null),
-        assert(village != null),
-        assert(remainAddress != null),
-        super._();
+      {required this.respondentId,
+      required this.countyTown,
+      required this.village,
+      required this.remainAddress})
+      : super._();
 
   factory _$_RespondentDto.fromJson(Map<String, dynamic> json) =>
       _$_$_RespondentDtoFromJson(json);
@@ -197,6 +209,7 @@ class _$_RespondentDto extends _RespondentDto {
       const DeepCollectionEquality().hash(village) ^
       const DeepCollectionEquality().hash(remainAddress);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentDtoCopyWith<_RespondentDto> get copyWith =>
       __$RespondentDtoCopyWithImpl<_RespondentDto>(this, _$identity);
@@ -208,24 +221,26 @@ class _$_RespondentDto extends _RespondentDto {
 }
 
 abstract class _RespondentDto extends RespondentDto {
-  const _RespondentDto._() : super._();
   const factory _RespondentDto(
-      {@required String respondentId,
-      @required String countyTown,
-      @required String village,
-      @required String remainAddress}) = _$_RespondentDto;
+      {required String respondentId,
+      required String countyTown,
+      required String village,
+      required String remainAddress}) = _$_RespondentDto;
+  const _RespondentDto._() : super._();
 
   factory _RespondentDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentDto.fromJson;
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get countyTown;
+  String get countyTown => throw _privateConstructorUsedError;
   @override
-  String get village;
+  String get village => throw _privateConstructorUsedError;
   @override
-  String get remainAddress;
+  String get remainAddress => throw _privateConstructorUsedError;
   @override
-  _$RespondentDtoCopyWith<_RespondentDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$RespondentDtoCopyWith<_RespondentDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

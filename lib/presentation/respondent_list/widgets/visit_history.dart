@@ -15,8 +15,8 @@ class VisitHistory extends StatelessWidget {
   final Respondent respondent;
 
   const VisitHistory({
-    Key key,
-    @required this.respondent,
+    Key? key,
+    required this.respondent,
   }) : super(key: key);
 
   @override
@@ -31,13 +31,10 @@ class VisitHistory extends StatelessWidget {
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(horizontal: 15),
           itemBuilder: (context, index) {
-            final record = visitRecords[index];
+            final record = visitRecords![index];
 
-            return FlatButton(
-              // color: kCardBlueTextColor,
-              // shape: RoundedRectangleBorder(
-              //   borderRadius: BorderRadius.circular(18.0),
-              // ),
+            return TextButton(
+              style: kVisitHistoryStyle,
               onPressed: () {
                 context.read<ResponseBloc>().add(
                       ResponseEvent.responseStartedWith(
@@ -54,7 +51,7 @@ class VisitHistory extends StatelessWidget {
                         respondentId: respondent.id,
                       ),
                     );
-                context.navigator.push(
+                context.router.pushNamed(
                   '/respondent/${respondent.id.getOrCrash()}',
                 );
               },

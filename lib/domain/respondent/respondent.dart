@@ -7,14 +7,14 @@ import 'value_objects.dart';
 part 'respondent.freezed.dart';
 
 @freezed
-abstract class Respondent implements _$Respondent {
+class Respondent with _$Respondent {
   const Respondent._();
 
   const factory Respondent({
-    @required RespondentId id,
-    @required CountyTown countyTown,
-    @required Village village,
-    @required RemainAddress remainAddress,
+    required RespondentId id,
+    required CountyTown countyTown,
+    required Village village,
+    required RemainAddress remainAddress,
   }) = _Respondent;
 
   factory Respondent.empty() => Respondent(

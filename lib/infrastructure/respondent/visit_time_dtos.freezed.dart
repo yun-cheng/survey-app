@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'visit_time_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'visit_time_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 VisitTimeDto _$VisitTimeDtoFromJson(Map<String, dynamic> json) {
   return _VisitTimeDto.fromJson(json);
 }
@@ -16,31 +20,30 @@ VisitTimeDto _$VisitTimeDtoFromJson(Map<String, dynamic> json) {
 class _$VisitTimeDtoTearOff {
   const _$VisitTimeDtoTearOff();
 
-// ignore: unused_element
-  _VisitTimeDto call({@required int date, @required String timeSession}) {
+  _VisitTimeDto call({required int date, required String timeSession}) {
     return _VisitTimeDto(
       date: date,
       timeSession: timeSession,
     );
   }
 
-// ignore: unused_element
   VisitTimeDto fromJson(Map<String, Object> json) {
     return VisitTimeDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $VisitTimeDto = _$VisitTimeDtoTearOff();
 
 /// @nodoc
 mixin _$VisitTimeDto {
-  int get date;
-  String get timeSession;
+  int get date => throw _privateConstructorUsedError;
+  String get timeSession => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $VisitTimeDtoCopyWith<VisitTimeDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $VisitTimeDtoCopyWith<VisitTimeDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,13 +64,18 @@ class _$VisitTimeDtoCopyWithImpl<$Res> implements $VisitTimeDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object date = freezed,
-    Object timeSession = freezed,
+    Object? date = freezed,
+    Object? timeSession = freezed,
   }) {
     return _then(_value.copyWith(
-      date: date == freezed ? _value.date : date as int,
-      timeSession:
-          timeSession == freezed ? _value.timeSession : timeSession as String,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as int,
+      timeSession: timeSession == freezed
+          ? _value.timeSession
+          : timeSession // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -94,25 +102,27 @@ class __$VisitTimeDtoCopyWithImpl<$Res> extends _$VisitTimeDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object date = freezed,
-    Object timeSession = freezed,
+    Object? date = freezed,
+    Object? timeSession = freezed,
   }) {
     return _then(_VisitTimeDto(
-      date: date == freezed ? _value.date : date as int,
-      timeSession:
-          timeSession == freezed ? _value.timeSession : timeSession as String,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as int,
+      timeSession: timeSession == freezed
+          ? _value.timeSession
+          : timeSession // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_VisitTimeDto extends _VisitTimeDto {
-  const _$_VisitTimeDto({@required this.date, @required this.timeSession})
-      : assert(date != null),
-        assert(timeSession != null),
-        super._();
+  const _$_VisitTimeDto({required this.date, required this.timeSession})
+      : super._();
 
   factory _$_VisitTimeDto.fromJson(Map<String, dynamic> json) =>
       _$_$_VisitTimeDtoFromJson(json);
@@ -144,6 +154,7 @@ class _$_VisitTimeDto extends _VisitTimeDto {
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(timeSession);
 
+  @JsonKey(ignore: true)
   @override
   _$VisitTimeDtoCopyWith<_VisitTimeDto> get copyWith =>
       __$VisitTimeDtoCopyWithImpl<_VisitTimeDto>(this, _$identity);
@@ -155,17 +166,19 @@ class _$_VisitTimeDto extends _VisitTimeDto {
 }
 
 abstract class _VisitTimeDto extends VisitTimeDto {
-  const _VisitTimeDto._() : super._();
   const factory _VisitTimeDto(
-      {@required int date, @required String timeSession}) = _$_VisitTimeDto;
+      {required int date, required String timeSession}) = _$_VisitTimeDto;
+  const _VisitTimeDto._() : super._();
 
   factory _VisitTimeDto.fromJson(Map<String, dynamic> json) =
       _$_VisitTimeDto.fromJson;
 
   @override
-  int get date;
+  int get date => throw _privateConstructorUsedError;
   @override
-  String get timeSession;
+  String get timeSession => throw _privateConstructorUsedError;
   @override
-  _$VisitTimeDtoCopyWith<_VisitTimeDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$VisitTimeDtoCopyWith<_VisitTimeDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

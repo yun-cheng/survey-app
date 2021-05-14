@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'survey_module.dart';
 
@@ -9,15 +9,17 @@ part of 'survey_module.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SurveyModuleTearOff {
   const _$SurveyModuleTearOff();
 
-// ignore: unused_element
   _SurveyModule call(
-      {@required KtList<Question> questionList,
-      @required KtMap<QuestionId, Answer> answerMap,
-      @required KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
+      {required KtList<Question> questionList,
+      required KtMap<QuestionId, Answer> answerMap,
+      required KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
     return _SurveyModule(
       questionList: questionList,
       answerMap: answerMap,
@@ -27,16 +29,18 @@ class _$SurveyModuleTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SurveyModule = _$SurveyModuleTearOff();
 
 /// @nodoc
 mixin _$SurveyModule {
-  KtList<Question> get questionList;
-  KtMap<QuestionId, Answer> get answerMap;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
 
-  $SurveyModuleCopyWith<SurveyModule> get copyWith;
+  @JsonKey(ignore: true)
+  $SurveyModuleCopyWith<SurveyModule> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,20 +64,23 @@ class _$SurveyModuleCopyWithImpl<$Res> implements $SurveyModuleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object questionList = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
+    Object? questionList = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as KtList<Question>,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMap<QuestionId, Answer>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 }
@@ -103,34 +110,35 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object questionList = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
+    Object? questionList = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
   }) {
     return _then(_SurveyModule(
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as KtList<Question>,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMap<QuestionId, Answer>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_SurveyModule extends _SurveyModule {
   const _$_SurveyModule(
-      {@required this.questionList,
-      @required this.answerMap,
-      @required this.answerStatusMap})
-      : assert(questionList != null),
-        assert(answerMap != null),
-        assert(answerStatusMap != null),
-        super._();
+      {required this.questionList,
+      required this.answerMap,
+      required this.answerStatusMap})
+      : super._();
 
   @override
   final KtList<Question> questionList;
@@ -166,25 +174,29 @@ class _$_SurveyModule extends _SurveyModule {
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap);
 
+  @JsonKey(ignore: true)
   @override
   _$SurveyModuleCopyWith<_SurveyModule> get copyWith =>
       __$SurveyModuleCopyWithImpl<_SurveyModule>(this, _$identity);
 }
 
 abstract class _SurveyModule extends SurveyModule {
-  const _SurveyModule._() : super._();
   const factory _SurveyModule(
-          {@required KtList<Question> questionList,
-          @required KtMap<QuestionId, Answer> answerMap,
-          @required KtMap<QuestionId, AnswerStatus> answerStatusMap}) =
+          {required KtList<Question> questionList,
+          required KtMap<QuestionId, Answer> answerMap,
+          required KtMap<QuestionId, AnswerStatus> answerStatusMap}) =
       _$_SurveyModule;
+  const _SurveyModule._() : super._();
 
   @override
-  KtList<Question> get questionList;
+  KtList<Question> get questionList => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  _$SurveyModuleCopyWith<_SurveyModule> get copyWith;
+  @JsonKey(ignore: true)
+  _$SurveyModuleCopyWith<_SurveyModule> get copyWith =>
+      throw _privateConstructorUsedError;
 }

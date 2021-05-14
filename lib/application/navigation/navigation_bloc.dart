@@ -42,7 +42,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   }
 
   @override
-  NavigationState fromJson(Map<String, dynamic> json) {
+  NavigationState? fromJson(Map<String, dynamic> json) {
     try {
       return NavigationState(
         page: NavigationPage.fromJson(json['page']),
@@ -55,7 +55,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   }
 
   @override
-  Map<String, dynamic> toJson(NavigationState state) {
+  Map<String, dynamic>? toJson(NavigationState state) {
     return {
       'page': state.page.toJson(),
       'respondentId': state.respondentId.getOrCrash(),

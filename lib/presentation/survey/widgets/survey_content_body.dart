@@ -28,12 +28,12 @@ class SurveyContentBody extends StatelessWidget {
             final question = state.contentQuestionList[index];
 
             Icon leadingIcon;
-            if (state.answerStatusMap[question.id].isAnswered) {
+            if (state.answerStatusMap[question.id]!.isAnswered) {
               leadingIcon = const Icon(
                 Icons.done,
                 color: kCardGreenTextColor,
               );
-            } else if (!state.answerStatusMap[question.id]
+            } else if (!state.answerStatusMap[question.id]!
                     .toWarning(question)
                     .isEmpty &&
                 state.showWarning) {
@@ -64,7 +64,7 @@ class SurveyContentBody extends StatelessWidget {
                   context.read<SurveyPageBloc>().add(
                         SurveyPageEvent.wentToPage(question.pageNumber),
                       );
-                  context.navigator.maybePop();
+                  context.router.pop();
                 },
               ),
             );

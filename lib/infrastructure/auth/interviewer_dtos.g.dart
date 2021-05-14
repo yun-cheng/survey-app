@@ -9,18 +9,16 @@ part of 'interviewer_dtos.dart';
 _$_InterviewerListDto _$_$_InterviewerListDtoFromJson(
     Map<String, dynamic> json) {
   return _$_InterviewerListDto(
-    list: (json['list'] as List)
-        ?.map((e) => e == null
-            ? null
-            : InterviewerDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    list: (json['list'] as List<dynamic>)
+        .map((e) => InterviewerDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
 Map<String, dynamic> _$_$_InterviewerListDtoToJson(
         _$_InterviewerListDto instance) =>
     <String, dynamic>{
-      'list': instance.list?.map((e) => e?.toJson())?.toList(),
+      'list': instance.list.map((e) => e.toJson()).toList(),
     };
 
 _$_InterviewerDto _$_$_InterviewerDtoFromJson(Map<String, dynamic> json) {

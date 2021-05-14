@@ -6,12 +6,12 @@ import '../core/value_objects.dart';
 import '../core/value_validators.dart';
 import 'simple_choice.dart';
 
+// TODO 可移除
 class QuestionBody extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
   factory QuestionBody(String input) {
-    assert(input != null);
     return QuestionBody._(
       right(input),
     );
@@ -27,7 +27,6 @@ class FormatType extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory FormatType(String input) {
-    assert(input != null);
     return FormatType._(
       validateStringNotEmpty(input),
     );
@@ -45,7 +44,6 @@ class QuestionNote extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory QuestionNote(String input) {
-    assert(input != null);
     return QuestionNote._(
       right(input),
     );
@@ -61,7 +59,6 @@ class QuestionId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory QuestionId(String input) {
-    assert(input != null);
     return QuestionId._(
       right(input),
     );
@@ -83,7 +80,6 @@ class QuestionType extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory QuestionType(String input) {
-    assert(input != null);
     return QuestionType._(
       validateStringNotEmpty(input),
     );
@@ -145,8 +141,8 @@ class AnswerType extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory AnswerType(String input) {
-    assert(input != null);
+  factory AnswerType(String? input) {
+    input ??= '';
     return AnswerType._(
       validateStringNotEmpty(input),
     );
@@ -167,7 +163,6 @@ class PageNumber extends ValueObject<int> {
   final Either<ValueFailure<int>, int> value;
 
   factory PageNumber(int input) {
-    assert(input != null);
     return PageNumber._(
       right(input),
     );
@@ -181,7 +176,6 @@ class ChoiceId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ChoiceId(String input) {
-    assert(input != null);
     return ChoiceId._(
       right(input),
     );
@@ -197,7 +191,6 @@ class ChoiceBody extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ChoiceBody(String input) {
-    assert(input != null);
     return ChoiceBody._(
       right(input),
     );
@@ -213,7 +206,6 @@ class ChoiceGroup extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ChoiceGroup(String input) {
-    assert(input != null);
     return ChoiceGroup._(
       right(input),
     );
@@ -229,7 +221,6 @@ class AnswerStatusType extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory AnswerStatusType(String input) {
-    assert(input != null);
     return AnswerStatusType._(
       right(input),
     );
@@ -243,21 +234,21 @@ class AnswerStatusType extends ValueObject<String> {
 
   // H_ 判斷
   factory AnswerStatusType.fromString(String string) {
-    if (string != null && string != '') {
+    if (string != '') {
       return AnswerStatusType.answered();
     }
     return AnswerStatusType.unanswered();
   }
 
   factory AnswerStatusType.fromChoice(SimpleChoice choice) {
-    if (choice != null && choice != SimpleChoice.empty()) {
+    if (choice != SimpleChoice.empty()) {
       return AnswerStatusType.answered();
     }
     return AnswerStatusType.unanswered();
   }
 
   factory AnswerStatusType.fromChoiceList(KtList<SimpleChoice> choiceList) {
-    if (choiceList != null && choiceList.isNotEmpty()) {
+    if (choiceList.isNotEmpty()) {
       return AnswerStatusType.answered();
     }
     return AnswerStatusType.unanswered();
@@ -292,7 +283,6 @@ class WarningType extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory WarningType(String input) {
-    assert(input != null);
     return WarningType._(
       right(input),
     );
@@ -315,7 +305,6 @@ class Operator extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Operator(String input) {
-    assert(input != null);
     return Operator._(
       right(input),
     );
@@ -349,7 +338,6 @@ class FullExpressionBody extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory FullExpressionBody(String input) {
-    assert(input != null);
     return FullExpressionBody._(
       right(input),
     );
@@ -365,7 +353,6 @@ class ExpressionId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ExpressionId(String input) {
-    assert(input != null);
     return ExpressionId._(
       right(input),
     );
@@ -381,7 +368,6 @@ class ModuleType extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ModuleType(String input) {
-    assert(input != null);
     return ModuleType._(
       right(input),
     );
@@ -404,7 +390,6 @@ class ResponseStatus extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ResponseStatus(String input) {
-    assert(input != null);
     return ResponseStatus._(
       right(input),
     );
@@ -422,7 +407,6 @@ class DeviceTimeStamp extends ValueObject<DateTime> {
   final Either<ValueFailure<DateTime>, DateTime> value;
 
   factory DeviceTimeStamp(DateTime input) {
-    assert(input != null);
     return DeviceTimeStamp._(
       right(input),
     );
@@ -434,14 +418,12 @@ class DeviceTimeStamp extends ValueObject<DateTime> {
   factory DeviceTimeStamp.now() => DeviceTimeStamp(DateTime.now());
 
   factory DeviceTimeStamp.fromString(String time) {
-    assert(time != null);
     return DeviceTimeStamp._(
       right(DateTime.parse(time)),
     );
   }
 
   factory DeviceTimeStamp.fromInt(int time) {
-    assert(time != null);
     return DeviceTimeStamp._(
       right(DateTime.fromMicrosecondsSinceEpoch(time)),
     );

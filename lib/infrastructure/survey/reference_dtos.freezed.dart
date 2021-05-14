@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'reference_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'reference_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ReferenceDto _$ReferenceDtoFromJson(Map<String, dynamic> json) {
   return _ReferenceDto.fromJson(json);
 }
@@ -16,13 +20,12 @@ ReferenceDto _$ReferenceDtoFromJson(Map<String, dynamic> json) {
 class _$ReferenceDtoTearOff {
   const _$ReferenceDtoTearOff();
 
-// ignore: unused_element
   _ReferenceDto call(
-      {@required String respondentId,
-      @required String surveyId,
-      @required String moduleType,
-      @required String questionId,
-      @required AnswerDto answer}) {
+      {required String respondentId,
+      required String surveyId,
+      required String moduleType,
+      required String questionId,
+      required AnswerDto answer}) {
     return _ReferenceDto(
       respondentId: respondentId,
       surveyId: surveyId,
@@ -32,26 +35,26 @@ class _$ReferenceDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ReferenceDto fromJson(Map<String, Object> json) {
     return ReferenceDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ReferenceDto = _$ReferenceDtoTearOff();
 
 /// @nodoc
 mixin _$ReferenceDto {
-  String get respondentId;
-  String get surveyId;
-  String get moduleType;
-  String get questionId;
-  AnswerDto get answer;
+  String get respondentId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get moduleType => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
+  AnswerDto get answer => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ReferenceDtoCopyWith<ReferenceDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ReferenceDtoCopyWith<ReferenceDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -79,30 +82,38 @@ class _$ReferenceDtoCopyWithImpl<$Res> implements $ReferenceDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionId = freezed,
-    Object answer = freezed,
+    Object? respondentId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionId = freezed,
+    Object? answer = freezed,
   }) {
     return _then(_value.copyWith(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
-      answer: answer == freezed ? _value.answer : answer as AnswerDto,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      answer: answer == freezed
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as AnswerDto,
     ));
   }
 
   @override
   $AnswerDtoCopyWith<$Res> get answer {
-    if (_value.answer == null) {
-      return null;
-    }
     return $AnswerDtoCopyWith<$Res>(_value.answer, (value) {
       return _then(_value.copyWith(answer: value));
     });
@@ -139,42 +150,47 @@ class __$ReferenceDtoCopyWithImpl<$Res> extends _$ReferenceDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionId = freezed,
-    Object answer = freezed,
+    Object? respondentId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionId = freezed,
+    Object? answer = freezed,
   }) {
     return _then(_ReferenceDto(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
-      answer: answer == freezed ? _value.answer : answer as AnswerDto,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      answer: answer == freezed
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as AnswerDto,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ReferenceDto extends _ReferenceDto {
   const _$_ReferenceDto(
-      {@required this.respondentId,
-      @required this.surveyId,
-      @required this.moduleType,
-      @required this.questionId,
-      @required this.answer})
-      : assert(respondentId != null),
-        assert(surveyId != null),
-        assert(moduleType != null),
-        assert(questionId != null),
-        assert(answer != null),
-        super._();
+      {required this.respondentId,
+      required this.surveyId,
+      required this.moduleType,
+      required this.questionId,
+      required this.answer})
+      : super._();
 
   factory _$_ReferenceDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ReferenceDtoFromJson(json);
@@ -224,6 +240,7 @@ class _$_ReferenceDto extends _ReferenceDto {
       const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(answer);
 
+  @JsonKey(ignore: true)
   @override
   _$ReferenceDtoCopyWith<_ReferenceDto> get copyWith =>
       __$ReferenceDtoCopyWithImpl<_ReferenceDto>(this, _$identity);
@@ -235,29 +252,31 @@ class _$_ReferenceDto extends _ReferenceDto {
 }
 
 abstract class _ReferenceDto extends ReferenceDto {
-  const _ReferenceDto._() : super._();
   const factory _ReferenceDto(
-      {@required String respondentId,
-      @required String surveyId,
-      @required String moduleType,
-      @required String questionId,
-      @required AnswerDto answer}) = _$_ReferenceDto;
+      {required String respondentId,
+      required String surveyId,
+      required String moduleType,
+      required String questionId,
+      required AnswerDto answer}) = _$_ReferenceDto;
+  const _ReferenceDto._() : super._();
 
   factory _ReferenceDto.fromJson(Map<String, dynamic> json) =
       _$_ReferenceDto.fromJson;
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get moduleType;
+  String get moduleType => throw _privateConstructorUsedError;
   @override
-  String get questionId;
+  String get questionId => throw _privateConstructorUsedError;
   @override
-  AnswerDto get answer;
+  AnswerDto get answer => throw _privateConstructorUsedError;
   @override
-  _$ReferenceDtoCopyWith<_ReferenceDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$ReferenceDtoCopyWith<_ReferenceDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ReferenceListDto _$ReferenceListDtoFromJson(Map<String, dynamic> json) {
@@ -268,29 +287,28 @@ ReferenceListDto _$ReferenceListDtoFromJson(Map<String, dynamic> json) {
 class _$ReferenceListDtoTearOff {
   const _$ReferenceListDtoTearOff();
 
-// ignore: unused_element
-  _ReferenceListDto call({@required List<ReferenceDto> list}) {
+  _ReferenceListDto call({required List<ReferenceDto> list}) {
     return _ReferenceListDto(
       list: list,
     );
   }
 
-// ignore: unused_element
   ReferenceListDto fromJson(Map<String, Object> json) {
     return ReferenceListDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ReferenceListDto = _$ReferenceListDtoTearOff();
 
 /// @nodoc
 mixin _$ReferenceListDto {
-  List<ReferenceDto> get list;
+  List<ReferenceDto> get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ReferenceListDtoCopyWith<ReferenceListDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ReferenceListDtoCopyWith<ReferenceListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -312,10 +330,13 @@ class _$ReferenceListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<ReferenceDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<ReferenceDto>,
     ));
   }
 }
@@ -343,21 +364,21 @@ class __$ReferenceListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_ReferenceListDto(
-      list: list == freezed ? _value.list : list as List<ReferenceDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<ReferenceDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ReferenceListDto extends _ReferenceListDto {
-  const _$_ReferenceListDto({@required this.list})
-      : assert(list != null),
-        super._();
+  const _$_ReferenceListDto({required this.list}) : super._();
 
   factory _$_ReferenceListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ReferenceListDtoFromJson(json);
@@ -382,6 +403,7 @@ class _$_ReferenceListDto extends _ReferenceListDto {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
 
+  @JsonKey(ignore: true)
   @override
   _$ReferenceListDtoCopyWith<_ReferenceListDto> get copyWith =>
       __$ReferenceListDtoCopyWithImpl<_ReferenceListDto>(this, _$identity);
@@ -393,15 +415,17 @@ class _$_ReferenceListDto extends _ReferenceListDto {
 }
 
 abstract class _ReferenceListDto extends ReferenceListDto {
-  const _ReferenceListDto._() : super._();
-  const factory _ReferenceListDto({@required List<ReferenceDto> list}) =
+  const factory _ReferenceListDto({required List<ReferenceDto> list}) =
       _$_ReferenceListDto;
+  const _ReferenceListDto._() : super._();
 
   factory _ReferenceListDto.fromJson(Map<String, dynamic> json) =
       _$_ReferenceListDto.fromJson;
 
   @override
-  List<ReferenceDto> get list;
+  List<ReferenceDto> get list => throw _privateConstructorUsedError;
   @override
-  _$ReferenceListDtoCopyWith<_ReferenceListDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$ReferenceListDtoCopyWith<_ReferenceListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

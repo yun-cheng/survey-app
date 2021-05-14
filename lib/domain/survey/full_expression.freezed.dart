@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'full_expression.dart';
 
@@ -9,14 +9,16 @@ part of 'full_expression.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$FullExpressionTearOff {
   const _$FullExpressionTearOff();
 
-// ignore: unused_element
   _FullExpression call(
-      {@required FullExpressionBody body,
-      @required KtMap<ExpressionId, Expression> expressionMap}) {
+      {required FullExpressionBody body,
+      required KtMap<ExpressionId, Expression> expressionMap}) {
     return _FullExpression(
       body: body,
       expressionMap: expressionMap,
@@ -25,15 +27,17 @@ class _$FullExpressionTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $FullExpression = _$FullExpressionTearOff();
 
 /// @nodoc
 mixin _$FullExpression {
-  FullExpressionBody get body;
-  KtMap<ExpressionId, Expression> get expressionMap;
+  FullExpressionBody get body => throw _privateConstructorUsedError;
+  KtMap<ExpressionId, Expression> get expressionMap =>
+      throw _privateConstructorUsedError;
 
-  $FullExpressionCopyWith<FullExpression> get copyWith;
+  @JsonKey(ignore: true)
+  $FullExpressionCopyWith<FullExpression> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -56,14 +60,18 @@ class _$FullExpressionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object body = freezed,
-    Object expressionMap = freezed,
+    Object? body = freezed,
+    Object? expressionMap = freezed,
   }) {
     return _then(_value.copyWith(
-      body: body == freezed ? _value.body : body as FullExpressionBody,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as FullExpressionBody,
       expressionMap: expressionMap == freezed
           ? _value.expressionMap
-          : expressionMap as KtMap<ExpressionId, Expression>,
+          : expressionMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<ExpressionId, Expression>,
     ));
   }
 }
@@ -92,24 +100,27 @@ class __$FullExpressionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object body = freezed,
-    Object expressionMap = freezed,
+    Object? body = freezed,
+    Object? expressionMap = freezed,
   }) {
     return _then(_FullExpression(
-      body: body == freezed ? _value.body : body as FullExpressionBody,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as FullExpressionBody,
       expressionMap: expressionMap == freezed
           ? _value.expressionMap
-          : expressionMap as KtMap<ExpressionId, Expression>,
+          : expressionMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<ExpressionId, Expression>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_FullExpression extends _FullExpression {
-  const _$_FullExpression({@required this.body, @required this.expressionMap})
-      : assert(body != null),
-        assert(expressionMap != null),
-        super._();
+  const _$_FullExpression({required this.body, required this.expressionMap})
+      : super._();
 
   @override
   final FullExpressionBody body;
@@ -138,22 +149,26 @@ class _$_FullExpression extends _FullExpression {
       const DeepCollectionEquality().hash(body) ^
       const DeepCollectionEquality().hash(expressionMap);
 
+  @JsonKey(ignore: true)
   @override
   _$FullExpressionCopyWith<_FullExpression> get copyWith =>
       __$FullExpressionCopyWithImpl<_FullExpression>(this, _$identity);
 }
 
 abstract class _FullExpression extends FullExpression {
-  const _FullExpression._() : super._();
   const factory _FullExpression(
-          {@required FullExpressionBody body,
-          @required KtMap<ExpressionId, Expression> expressionMap}) =
+          {required FullExpressionBody body,
+          required KtMap<ExpressionId, Expression> expressionMap}) =
       _$_FullExpression;
+  const _FullExpression._() : super._();
 
   @override
-  FullExpressionBody get body;
+  FullExpressionBody get body => throw _privateConstructorUsedError;
   @override
-  KtMap<ExpressionId, Expression> get expressionMap;
+  KtMap<ExpressionId, Expression> get expressionMap =>
+      throw _privateConstructorUsedError;
   @override
-  _$FullExpressionCopyWith<_FullExpression> get copyWith;
+  @JsonKey(ignore: true)
+  _$FullExpressionCopyWith<_FullExpression> get copyWith =>
+      throw _privateConstructorUsedError;
 }

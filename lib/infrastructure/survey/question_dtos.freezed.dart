@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'question_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'question_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 QuestionDto _$QuestionDtoFromJson(Map<String, dynamic> json) {
   return _QuestionDto.fromJson(json);
 }
@@ -16,22 +20,21 @@ QuestionDto _$QuestionDtoFromJson(Map<String, dynamic> json) {
 class _$QuestionDtoTearOff {
   const _$QuestionDtoTearOff();
 
-// ignore: unused_element
   _QuestionDto call(
-      {@required String questionId,
-      @required bool hideQuestionId,
-      @required int serialNumber,
-      @required List<FormattedTextDto> questionBody,
-      @required String stringBody,
-      @required String questionNote,
-      @required String questionType,
-      @required FullExpressionDto showQuestion,
-      @required List<ChoiceDto> choiceList,
-      @required bool hasSpecialAnswer,
-      @required FullExpressionDto validateAnswer,
-      @required String upperQuestionId,
-      @required int pageNumber,
-      @required bool recodeNeeded}) {
+      {required String questionId,
+      required bool hideQuestionId,
+      required int serialNumber,
+      required List<FormattedTextDto> questionBody,
+      required String stringBody,
+      required String questionNote,
+      required String questionType,
+      required FullExpressionDto showQuestion,
+      required List<ChoiceDto> choiceList,
+      required bool hasSpecialAnswer,
+      required FullExpressionDto validateAnswer,
+      required String upperQuestionId,
+      required int pageNumber,
+      required bool recodeNeeded}) {
     return _QuestionDto(
       questionId: questionId,
       hideQuestionId: hideQuestionId,
@@ -50,35 +53,35 @@ class _$QuestionDtoTearOff {
     );
   }
 
-// ignore: unused_element
   QuestionDto fromJson(Map<String, Object> json) {
     return QuestionDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $QuestionDto = _$QuestionDtoTearOff();
 
 /// @nodoc
 mixin _$QuestionDto {
-  String get questionId;
-  bool get hideQuestionId;
-  int get serialNumber;
-  List<FormattedTextDto> get questionBody;
-  String get stringBody;
-  String get questionNote;
-  String get questionType;
-  FullExpressionDto get showQuestion;
-  List<ChoiceDto> get choiceList;
-  bool get hasSpecialAnswer;
-  FullExpressionDto get validateAnswer;
-  String get upperQuestionId;
-  int get pageNumber;
-  bool get recodeNeeded;
+  String get questionId => throw _privateConstructorUsedError;
+  bool get hideQuestionId => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
+  List<FormattedTextDto> get questionBody => throw _privateConstructorUsedError;
+  String get stringBody => throw _privateConstructorUsedError;
+  String get questionNote => throw _privateConstructorUsedError;
+  String get questionType => throw _privateConstructorUsedError;
+  FullExpressionDto get showQuestion => throw _privateConstructorUsedError;
+  List<ChoiceDto> get choiceList => throw _privateConstructorUsedError;
+  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
+  FullExpressionDto get validateAnswer => throw _privateConstructorUsedError;
+  String get upperQuestionId => throw _privateConstructorUsedError;
+  int get pageNumber => throw _privateConstructorUsedError;
+  bool get recodeNeeded => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $QuestionDtoCopyWith<QuestionDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $QuestionDtoCopyWith<QuestionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -116,66 +119,83 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object questionId = freezed,
-    Object hideQuestionId = freezed,
-    Object serialNumber = freezed,
-    Object questionBody = freezed,
-    Object stringBody = freezed,
-    Object questionNote = freezed,
-    Object questionType = freezed,
-    Object showQuestion = freezed,
-    Object choiceList = freezed,
-    Object hasSpecialAnswer = freezed,
-    Object validateAnswer = freezed,
-    Object upperQuestionId = freezed,
-    Object pageNumber = freezed,
-    Object recodeNeeded = freezed,
+    Object? questionId = freezed,
+    Object? hideQuestionId = freezed,
+    Object? serialNumber = freezed,
+    Object? questionBody = freezed,
+    Object? stringBody = freezed,
+    Object? questionNote = freezed,
+    Object? questionType = freezed,
+    Object? showQuestion = freezed,
+    Object? choiceList = freezed,
+    Object? hasSpecialAnswer = freezed,
+    Object? validateAnswer = freezed,
+    Object? upperQuestionId = freezed,
+    Object? pageNumber = freezed,
+    Object? recodeNeeded = freezed,
   }) {
     return _then(_value.copyWith(
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
       hideQuestionId: hideQuestionId == freezed
           ? _value.hideQuestionId
-          : hideQuestionId as bool,
-      serialNumber:
-          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
+          : hideQuestionId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as int,
       questionBody: questionBody == freezed
           ? _value.questionBody
-          : questionBody as List<FormattedTextDto>,
-      stringBody:
-          stringBody == freezed ? _value.stringBody : stringBody as String,
+          : questionBody // ignore: cast_nullable_to_non_nullable
+              as List<FormattedTextDto>,
+      stringBody: stringBody == freezed
+          ? _value.stringBody
+          : stringBody // ignore: cast_nullable_to_non_nullable
+              as String,
       questionNote: questionNote == freezed
           ? _value.questionNote
-          : questionNote as String,
+          : questionNote // ignore: cast_nullable_to_non_nullable
+              as String,
       questionType: questionType == freezed
           ? _value.questionType
-          : questionType as String,
+          : questionType // ignore: cast_nullable_to_non_nullable
+              as String,
       showQuestion: showQuestion == freezed
           ? _value.showQuestion
-          : showQuestion as FullExpressionDto,
+          : showQuestion // ignore: cast_nullable_to_non_nullable
+              as FullExpressionDto,
       choiceList: choiceList == freezed
           ? _value.choiceList
-          : choiceList as List<ChoiceDto>,
+          : choiceList // ignore: cast_nullable_to_non_nullable
+              as List<ChoiceDto>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
-          : hasSpecialAnswer as bool,
+          : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as FullExpressionDto,
+          : validateAnswer // ignore: cast_nullable_to_non_nullable
+              as FullExpressionDto,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
-          : upperQuestionId as String,
-      pageNumber: pageNumber == freezed ? _value.pageNumber : pageNumber as int,
-      recodeNeeded:
-          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
+          : upperQuestionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      recodeNeeded: recodeNeeded == freezed
+          ? _value.recodeNeeded
+          : recodeNeeded // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
   @override
   $FullExpressionDtoCopyWith<$Res> get showQuestion {
-    if (_value.showQuestion == null) {
-      return null;
-    }
     return $FullExpressionDtoCopyWith<$Res>(_value.showQuestion, (value) {
       return _then(_value.copyWith(showQuestion: value));
     });
@@ -183,9 +203,6 @@ class _$QuestionDtoCopyWithImpl<$Res> implements $QuestionDtoCopyWith<$Res> {
 
   @override
   $FullExpressionDtoCopyWith<$Res> get validateAnswer {
-    if (_value.validateAnswer == null) {
-      return null;
-    }
     return $FullExpressionDtoCopyWith<$Res>(_value.validateAnswer, (value) {
       return _then(_value.copyWith(validateAnswer: value));
     });
@@ -233,96 +250,101 @@ class __$QuestionDtoCopyWithImpl<$Res> extends _$QuestionDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object questionId = freezed,
-    Object hideQuestionId = freezed,
-    Object serialNumber = freezed,
-    Object questionBody = freezed,
-    Object stringBody = freezed,
-    Object questionNote = freezed,
-    Object questionType = freezed,
-    Object showQuestion = freezed,
-    Object choiceList = freezed,
-    Object hasSpecialAnswer = freezed,
-    Object validateAnswer = freezed,
-    Object upperQuestionId = freezed,
-    Object pageNumber = freezed,
-    Object recodeNeeded = freezed,
+    Object? questionId = freezed,
+    Object? hideQuestionId = freezed,
+    Object? serialNumber = freezed,
+    Object? questionBody = freezed,
+    Object? stringBody = freezed,
+    Object? questionNote = freezed,
+    Object? questionType = freezed,
+    Object? showQuestion = freezed,
+    Object? choiceList = freezed,
+    Object? hasSpecialAnswer = freezed,
+    Object? validateAnswer = freezed,
+    Object? upperQuestionId = freezed,
+    Object? pageNumber = freezed,
+    Object? recodeNeeded = freezed,
   }) {
     return _then(_QuestionDto(
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
       hideQuestionId: hideQuestionId == freezed
           ? _value.hideQuestionId
-          : hideQuestionId as bool,
-      serialNumber:
-          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
+          : hideQuestionId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as int,
       questionBody: questionBody == freezed
           ? _value.questionBody
-          : questionBody as List<FormattedTextDto>,
-      stringBody:
-          stringBody == freezed ? _value.stringBody : stringBody as String,
+          : questionBody // ignore: cast_nullable_to_non_nullable
+              as List<FormattedTextDto>,
+      stringBody: stringBody == freezed
+          ? _value.stringBody
+          : stringBody // ignore: cast_nullable_to_non_nullable
+              as String,
       questionNote: questionNote == freezed
           ? _value.questionNote
-          : questionNote as String,
+          : questionNote // ignore: cast_nullable_to_non_nullable
+              as String,
       questionType: questionType == freezed
           ? _value.questionType
-          : questionType as String,
+          : questionType // ignore: cast_nullable_to_non_nullable
+              as String,
       showQuestion: showQuestion == freezed
           ? _value.showQuestion
-          : showQuestion as FullExpressionDto,
+          : showQuestion // ignore: cast_nullable_to_non_nullable
+              as FullExpressionDto,
       choiceList: choiceList == freezed
           ? _value.choiceList
-          : choiceList as List<ChoiceDto>,
+          : choiceList // ignore: cast_nullable_to_non_nullable
+              as List<ChoiceDto>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
-          : hasSpecialAnswer as bool,
+          : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as FullExpressionDto,
+          : validateAnswer // ignore: cast_nullable_to_non_nullable
+              as FullExpressionDto,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
-          : upperQuestionId as String,
-      pageNumber: pageNumber == freezed ? _value.pageNumber : pageNumber as int,
-      recodeNeeded:
-          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
+          : upperQuestionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      recodeNeeded: recodeNeeded == freezed
+          ? _value.recodeNeeded
+          : recodeNeeded // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_QuestionDto extends _QuestionDto {
   const _$_QuestionDto(
-      {@required this.questionId,
-      @required this.hideQuestionId,
-      @required this.serialNumber,
-      @required this.questionBody,
-      @required this.stringBody,
-      @required this.questionNote,
-      @required this.questionType,
-      @required this.showQuestion,
-      @required this.choiceList,
-      @required this.hasSpecialAnswer,
-      @required this.validateAnswer,
-      @required this.upperQuestionId,
-      @required this.pageNumber,
-      @required this.recodeNeeded})
-      : assert(questionId != null),
-        assert(hideQuestionId != null),
-        assert(serialNumber != null),
-        assert(questionBody != null),
-        assert(stringBody != null),
-        assert(questionNote != null),
-        assert(questionType != null),
-        assert(showQuestion != null),
-        assert(choiceList != null),
-        assert(hasSpecialAnswer != null),
-        assert(validateAnswer != null),
-        assert(upperQuestionId != null),
-        assert(pageNumber != null),
-        assert(recodeNeeded != null),
-        super._();
+      {required this.questionId,
+      required this.hideQuestionId,
+      required this.serialNumber,
+      required this.questionBody,
+      required this.stringBody,
+      required this.questionNote,
+      required this.questionType,
+      required this.showQuestion,
+      required this.choiceList,
+      required this.hasSpecialAnswer,
+      required this.validateAnswer,
+      required this.upperQuestionId,
+      required this.pageNumber,
+      required this.recodeNeeded})
+      : super._();
 
   factory _$_QuestionDto.fromJson(Map<String, dynamic> json) =>
       _$_$_QuestionDtoFromJson(json);
@@ -427,6 +449,7 @@ class _$_QuestionDto extends _QuestionDto {
       const DeepCollectionEquality().hash(pageNumber) ^
       const DeepCollectionEquality().hash(recodeNeeded);
 
+  @JsonKey(ignore: true)
   @override
   _$QuestionDtoCopyWith<_QuestionDto> get copyWith =>
       __$QuestionDtoCopyWithImpl<_QuestionDto>(this, _$identity);
@@ -438,54 +461,56 @@ class _$_QuestionDto extends _QuestionDto {
 }
 
 abstract class _QuestionDto extends QuestionDto {
-  const _QuestionDto._() : super._();
   const factory _QuestionDto(
-      {@required String questionId,
-      @required bool hideQuestionId,
-      @required int serialNumber,
-      @required List<FormattedTextDto> questionBody,
-      @required String stringBody,
-      @required String questionNote,
-      @required String questionType,
-      @required FullExpressionDto showQuestion,
-      @required List<ChoiceDto> choiceList,
-      @required bool hasSpecialAnswer,
-      @required FullExpressionDto validateAnswer,
-      @required String upperQuestionId,
-      @required int pageNumber,
-      @required bool recodeNeeded}) = _$_QuestionDto;
+      {required String questionId,
+      required bool hideQuestionId,
+      required int serialNumber,
+      required List<FormattedTextDto> questionBody,
+      required String stringBody,
+      required String questionNote,
+      required String questionType,
+      required FullExpressionDto showQuestion,
+      required List<ChoiceDto> choiceList,
+      required bool hasSpecialAnswer,
+      required FullExpressionDto validateAnswer,
+      required String upperQuestionId,
+      required int pageNumber,
+      required bool recodeNeeded}) = _$_QuestionDto;
+  const _QuestionDto._() : super._();
 
   factory _QuestionDto.fromJson(Map<String, dynamic> json) =
       _$_QuestionDto.fromJson;
 
   @override
-  String get questionId;
+  String get questionId => throw _privateConstructorUsedError;
   @override
-  bool get hideQuestionId;
+  bool get hideQuestionId => throw _privateConstructorUsedError;
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  List<FormattedTextDto> get questionBody;
+  List<FormattedTextDto> get questionBody => throw _privateConstructorUsedError;
   @override
-  String get stringBody;
+  String get stringBody => throw _privateConstructorUsedError;
   @override
-  String get questionNote;
+  String get questionNote => throw _privateConstructorUsedError;
   @override
-  String get questionType;
+  String get questionType => throw _privateConstructorUsedError;
   @override
-  FullExpressionDto get showQuestion;
+  FullExpressionDto get showQuestion => throw _privateConstructorUsedError;
   @override
-  List<ChoiceDto> get choiceList;
+  List<ChoiceDto> get choiceList => throw _privateConstructorUsedError;
   @override
-  bool get hasSpecialAnswer;
+  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  FullExpressionDto get validateAnswer;
+  FullExpressionDto get validateAnswer => throw _privateConstructorUsedError;
   @override
-  String get upperQuestionId;
+  String get upperQuestionId => throw _privateConstructorUsedError;
   @override
-  int get pageNumber;
+  int get pageNumber => throw _privateConstructorUsedError;
   @override
-  bool get recodeNeeded;
+  bool get recodeNeeded => throw _privateConstructorUsedError;
   @override
-  _$QuestionDtoCopyWith<_QuestionDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$QuestionDtoCopyWith<_QuestionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'team_list_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'team_list_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 TeamListDto _$TeamListDtoFromJson(Map<String, dynamic> json) {
   return _TeamListDto.fromJson(json);
 }
@@ -16,29 +20,28 @@ TeamListDto _$TeamListDtoFromJson(Map<String, dynamic> json) {
 class _$TeamListDtoTearOff {
   const _$TeamListDtoTearOff();
 
-// ignore: unused_element
-  _TeamListDto call({@required List<TeamDto> list}) {
+  _TeamListDto call({required List<TeamDto> list}) {
     return _TeamListDto(
       list: list,
     );
   }
 
-// ignore: unused_element
   TeamListDto fromJson(Map<String, Object> json) {
     return TeamListDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TeamListDto = _$TeamListDtoTearOff();
 
 /// @nodoc
 mixin _$TeamListDto {
-  List<TeamDto> get list;
+  List<TeamDto> get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $TeamListDtoCopyWith<TeamListDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TeamListDtoCopyWith<TeamListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -59,10 +62,13 @@ class _$TeamListDtoCopyWithImpl<$Res> implements $TeamListDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<TeamDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<TeamDto>,
     ));
   }
 }
@@ -89,21 +95,21 @@ class __$TeamListDtoCopyWithImpl<$Res> extends _$TeamListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_TeamListDto(
-      list: list == freezed ? _value.list : list as List<TeamDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<TeamDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_TeamListDto extends _TeamListDto {
-  const _$_TeamListDto({@required this.list})
-      : assert(list != null),
-        super._();
+  const _$_TeamListDto({required this.list}) : super._();
 
   factory _$_TeamListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_TeamListDtoFromJson(json);
@@ -128,6 +134,7 @@ class _$_TeamListDto extends _TeamListDto {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
 
+  @JsonKey(ignore: true)
   @override
   _$TeamListDtoCopyWith<_TeamListDto> get copyWith =>
       __$TeamListDtoCopyWithImpl<_TeamListDto>(this, _$identity);
@@ -139,16 +146,18 @@ class _$_TeamListDto extends _TeamListDto {
 }
 
 abstract class _TeamListDto extends TeamListDto {
+  const factory _TeamListDto({required List<TeamDto> list}) = _$_TeamListDto;
   const _TeamListDto._() : super._();
-  const factory _TeamListDto({@required List<TeamDto> list}) = _$_TeamListDto;
 
   factory _TeamListDto.fromJson(Map<String, dynamic> json) =
       _$_TeamListDto.fromJson;
 
   @override
-  List<TeamDto> get list;
+  List<TeamDto> get list => throw _privateConstructorUsedError;
   @override
-  _$TeamListDtoCopyWith<_TeamListDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$TeamListDtoCopyWith<_TeamListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 TeamDto _$TeamDtoFromJson(Map<String, dynamic> json) {
@@ -159,31 +168,29 @@ TeamDto _$TeamDtoFromJson(Map<String, dynamic> json) {
 class _$TeamDtoTearOff {
   const _$TeamDtoTearOff();
 
-// ignore: unused_element
-  _TeamDto call({@required String teamId, @required String teamName}) {
+  _TeamDto call({required String teamId, required String teamName}) {
     return _TeamDto(
       teamId: teamId,
       teamName: teamName,
     );
   }
 
-// ignore: unused_element
   TeamDto fromJson(Map<String, Object> json) {
     return TeamDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $TeamDto = _$TeamDtoTearOff();
 
 /// @nodoc
 mixin _$TeamDto {
-  String get teamId;
-  String get teamName;
+  String get teamId => throw _privateConstructorUsedError;
+  String get teamName => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $TeamDtoCopyWith<TeamDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $TeamDtoCopyWith<TeamDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -203,12 +210,18 @@ class _$TeamDtoCopyWithImpl<$Res> implements $TeamDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object teamId = freezed,
-    Object teamName = freezed,
+    Object? teamId = freezed,
+    Object? teamName = freezed,
   }) {
     return _then(_value.copyWith(
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
-      teamName: teamName == freezed ? _value.teamName : teamName as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamName: teamName == freezed
+          ? _value.teamName
+          : teamName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -232,24 +245,26 @@ class __$TeamDtoCopyWithImpl<$Res> extends _$TeamDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object teamId = freezed,
-    Object teamName = freezed,
+    Object? teamId = freezed,
+    Object? teamName = freezed,
   }) {
     return _then(_TeamDto(
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
-      teamName: teamName == freezed ? _value.teamName : teamName as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamName: teamName == freezed
+          ? _value.teamName
+          : teamName // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_TeamDto extends _TeamDto {
-  const _$_TeamDto({@required this.teamId, @required this.teamName})
-      : assert(teamId != null),
-        assert(teamName != null),
-        super._();
+  const _$_TeamDto({required this.teamId, required this.teamName}) : super._();
 
   factory _$_TeamDto.fromJson(Map<String, dynamic> json) =>
       _$_$_TeamDtoFromJson(json);
@@ -281,6 +296,7 @@ class _$_TeamDto extends _TeamDto {
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(teamName);
 
+  @JsonKey(ignore: true)
   @override
   _$TeamDtoCopyWith<_TeamDto> get copyWith =>
       __$TeamDtoCopyWithImpl<_TeamDto>(this, _$identity);
@@ -292,16 +308,18 @@ class _$_TeamDto extends _TeamDto {
 }
 
 abstract class _TeamDto extends TeamDto {
-  const _TeamDto._() : super._();
-  const factory _TeamDto({@required String teamId, @required String teamName}) =
+  const factory _TeamDto({required String teamId, required String teamName}) =
       _$_TeamDto;
+  const _TeamDto._() : super._();
 
   factory _TeamDto.fromJson(Map<String, dynamic> json) = _$_TeamDto.fromJson;
 
   @override
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get teamName;
+  String get teamName => throw _privateConstructorUsedError;
   @override
-  _$TeamDtoCopyWith<_TeamDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$TeamDtoCopyWith<_TeamDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'respondent_list.dart';
 
@@ -9,17 +9,19 @@ part of 'respondent_list.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$RespondentListTearOff {
   const _$RespondentListTearOff();
 
-// ignore: unused_element
   _RespondentList call(
-      {@required SurveyId surveyId,
-      @required InterviewerId interviewerId,
-      @required TeamId teamId,
-      @required ProjectId projectId,
-      @required KtList<Respondent> respondentList}) {
+      {required SurveyId surveyId,
+      required InterviewerId interviewerId,
+      required TeamId teamId,
+      required ProjectId projectId,
+      required KtList<Respondent> respondentList}) {
     return _RespondentList(
       surveyId: surveyId,
       interviewerId: interviewerId,
@@ -31,18 +33,19 @@ class _$RespondentListTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RespondentList = _$RespondentListTearOff();
 
 /// @nodoc
 mixin _$RespondentList {
-  SurveyId get surveyId;
-  InterviewerId get interviewerId;
-  TeamId get teamId;
-  ProjectId get projectId;
-  KtList<Respondent> get respondentList;
+  SurveyId get surveyId => throw _privateConstructorUsedError;
+  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  TeamId get teamId => throw _privateConstructorUsedError;
+  ProjectId get projectId => throw _privateConstructorUsedError;
+  KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
 
-  $RespondentListCopyWith<RespondentList> get copyWith;
+  @JsonKey(ignore: true)
+  $RespondentListCopyWith<RespondentList> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -69,23 +72,33 @@ class _$RespondentListCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object interviewerId = freezed,
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object respondentList = freezed,
+    Object? surveyId = freezed,
+    Object? interviewerId = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? respondentList = freezed,
   }) {
     return _then(_value.copyWith(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as InterviewerId,
-      teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
-      projectId:
-          projectId == freezed ? _value.projectId : projectId as ProjectId,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as TeamId,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as ProjectId,
       respondentList: respondentList == freezed
           ? _value.respondentList
-          : respondentList as KtList<Respondent>,
+          : respondentList // ignore: cast_nullable_to_non_nullable
+              as KtList<Respondent>,
     ));
   }
 }
@@ -118,41 +131,47 @@ class __$RespondentListCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object interviewerId = freezed,
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object respondentList = freezed,
+    Object? surveyId = freezed,
+    Object? interviewerId = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? respondentList = freezed,
   }) {
     return _then(_RespondentList(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as InterviewerId,
-      teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
-      projectId:
-          projectId == freezed ? _value.projectId : projectId as ProjectId,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as TeamId,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as ProjectId,
       respondentList: respondentList == freezed
           ? _value.respondentList
-          : respondentList as KtList<Respondent>,
+          : respondentList // ignore: cast_nullable_to_non_nullable
+              as KtList<Respondent>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_RespondentList extends _RespondentList {
   const _$_RespondentList(
-      {@required this.surveyId,
-      @required this.interviewerId,
-      @required this.teamId,
-      @required this.projectId,
-      @required this.respondentList})
-      : assert(surveyId != null),
-        assert(interviewerId != null),
-        assert(teamId != null),
-        assert(projectId != null),
-        assert(respondentList != null),
-        super._();
+      {required this.surveyId,
+      required this.interviewerId,
+      required this.teamId,
+      required this.projectId,
+      required this.respondentList})
+      : super._();
 
   @override
   final SurveyId surveyId;
@@ -194,30 +213,33 @@ class _$_RespondentList extends _RespondentList {
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(respondentList);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentListCopyWith<_RespondentList> get copyWith =>
       __$RespondentListCopyWithImpl<_RespondentList>(this, _$identity);
 }
 
 abstract class _RespondentList extends RespondentList {
-  const _RespondentList._() : super._();
   const factory _RespondentList(
-      {@required SurveyId surveyId,
-      @required InterviewerId interviewerId,
-      @required TeamId teamId,
-      @required ProjectId projectId,
-      @required KtList<Respondent> respondentList}) = _$_RespondentList;
+      {required SurveyId surveyId,
+      required InterviewerId interviewerId,
+      required TeamId teamId,
+      required ProjectId projectId,
+      required KtList<Respondent> respondentList}) = _$_RespondentList;
+  const _RespondentList._() : super._();
 
   @override
-  SurveyId get surveyId;
+  SurveyId get surveyId => throw _privateConstructorUsedError;
   @override
-  InterviewerId get interviewerId;
+  InterviewerId get interviewerId => throw _privateConstructorUsedError;
   @override
-  TeamId get teamId;
+  TeamId get teamId => throw _privateConstructorUsedError;
   @override
-  ProjectId get projectId;
+  ProjectId get projectId => throw _privateConstructorUsedError;
   @override
-  KtList<Respondent> get respondentList;
+  KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
   @override
-  _$RespondentListCopyWith<_RespondentList> get copyWith;
+  @JsonKey(ignore: true)
+  _$RespondentListCopyWith<_RespondentList> get copyWith =>
+      throw _privateConstructorUsedError;
 }

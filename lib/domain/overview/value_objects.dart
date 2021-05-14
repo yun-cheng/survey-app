@@ -9,7 +9,6 @@ class SurveyId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory SurveyId(String input) {
-    assert(input != null);
     return SurveyId._(
       validateStringNotEmpty(input),
     );
@@ -25,7 +24,6 @@ class SurveyName extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory SurveyName(String input) {
-    assert(input != null);
     return SurveyName._(
       validateStringNotEmpty(input),
     );
@@ -41,7 +39,6 @@ class ProjectId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ProjectId(String input) {
-    assert(input != null);
     return ProjectId._(
       right(input),
     );
@@ -57,7 +54,6 @@ class ProjectName extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ProjectName(String input) {
-    assert(input != null);
     return ProjectName._(
       right(input),
     );

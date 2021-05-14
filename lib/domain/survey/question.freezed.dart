@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'question.dart';
 
@@ -9,26 +9,28 @@ part of 'question.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$QuestionTearOff {
   const _$QuestionTearOff();
 
-// ignore: unused_element
   _Question call(
-      {@required QuestionId id,
-      @required bool hideId,
-      @required SerialNumber serialNumber,
-      @required KtList<FormattedText> body,
-      @required String stringBody,
-      @required QuestionNote note,
-      @required QuestionType type,
-      @required FullExpression show,
-      @required KtList<Choice> choiceList,
-      @required bool hasSpecialAnswer,
-      @required FullExpression validateAnswer,
-      @required QuestionId upperQuestionId,
-      @required PageNumber pageNumber,
-      @required bool recodeNeeded}) {
+      {required QuestionId id,
+      required bool hideId,
+      required SerialNumber serialNumber,
+      required KtList<FormattedText> body,
+      required String stringBody,
+      required QuestionNote note,
+      required QuestionType type,
+      required FullExpression show,
+      required KtList<Choice> choiceList,
+      required bool hasSpecialAnswer,
+      required FullExpression validateAnswer,
+      required QuestionId upperQuestionId,
+      required PageNumber pageNumber,
+      required bool recodeNeeded}) {
     return _Question(
       id: id,
       hideId: hideId,
@@ -49,27 +51,28 @@ class _$QuestionTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Question = _$QuestionTearOff();
 
 /// @nodoc
 mixin _$Question {
-  QuestionId get id;
-  bool get hideId;
-  SerialNumber get serialNumber;
-  KtList<FormattedText> get body;
-  String get stringBody;
-  QuestionNote get note;
-  QuestionType get type;
-  FullExpression get show;
-  KtList<Choice> get choiceList;
-  bool get hasSpecialAnswer;
-  FullExpression get validateAnswer;
-  QuestionId get upperQuestionId;
-  PageNumber get pageNumber;
-  bool get recodeNeeded;
+  QuestionId get id => throw _privateConstructorUsedError;
+  bool get hideId => throw _privateConstructorUsedError;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  KtList<FormattedText> get body => throw _privateConstructorUsedError;
+  String get stringBody => throw _privateConstructorUsedError;
+  QuestionNote get note => throw _privateConstructorUsedError;
+  QuestionType get type => throw _privateConstructorUsedError;
+  FullExpression get show => throw _privateConstructorUsedError;
+  KtList<Choice> get choiceList => throw _privateConstructorUsedError;
+  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
+  FullExpression get validateAnswer => throw _privateConstructorUsedError;
+  QuestionId get upperQuestionId => throw _privateConstructorUsedError;
+  PageNumber get pageNumber => throw _privateConstructorUsedError;
+  bool get recodeNeeded => throw _privateConstructorUsedError;
 
-  $QuestionCopyWith<Question> get copyWith;
+  @JsonKey(ignore: true)
+  $QuestionCopyWith<Question> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -106,57 +109,83 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object hideId = freezed,
-    Object serialNumber = freezed,
-    Object body = freezed,
-    Object stringBody = freezed,
-    Object note = freezed,
-    Object type = freezed,
-    Object show = freezed,
-    Object choiceList = freezed,
-    Object hasSpecialAnswer = freezed,
-    Object validateAnswer = freezed,
-    Object upperQuestionId = freezed,
-    Object pageNumber = freezed,
-    Object recodeNeeded = freezed,
+    Object? id = freezed,
+    Object? hideId = freezed,
+    Object? serialNumber = freezed,
+    Object? body = freezed,
+    Object? stringBody = freezed,
+    Object? note = freezed,
+    Object? type = freezed,
+    Object? show = freezed,
+    Object? choiceList = freezed,
+    Object? hasSpecialAnswer = freezed,
+    Object? validateAnswer = freezed,
+    Object? upperQuestionId = freezed,
+    Object? pageNumber = freezed,
+    Object? recodeNeeded = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as QuestionId,
-      hideId: hideId == freezed ? _value.hideId : hideId as bool,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
+      hideId: hideId == freezed
+          ? _value.hideId
+          : hideId // ignore: cast_nullable_to_non_nullable
+              as bool,
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      body: body == freezed ? _value.body : body as KtList<FormattedText>,
-      stringBody:
-          stringBody == freezed ? _value.stringBody : stringBody as String,
-      note: note == freezed ? _value.note : note as QuestionNote,
-      type: type == freezed ? _value.type : type as QuestionType,
-      show: show == freezed ? _value.show : show as FullExpression,
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as KtList<FormattedText>,
+      stringBody: stringBody == freezed
+          ? _value.stringBody
+          : stringBody // ignore: cast_nullable_to_non_nullable
+              as String,
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as QuestionNote,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as QuestionType,
+      show: show == freezed
+          ? _value.show
+          : show // ignore: cast_nullable_to_non_nullable
+              as FullExpression,
       choiceList: choiceList == freezed
           ? _value.choiceList
-          : choiceList as KtList<Choice>,
+          : choiceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
-          : hasSpecialAnswer as bool,
+          : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as FullExpression,
+          : validateAnswer // ignore: cast_nullable_to_non_nullable
+              as FullExpression,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
-          : upperQuestionId as QuestionId,
-      pageNumber:
-          pageNumber == freezed ? _value.pageNumber : pageNumber as PageNumber,
-      recodeNeeded:
-          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
+          : upperQuestionId // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      recodeNeeded: recodeNeeded == freezed
+          ? _value.recodeNeeded
+          : recodeNeeded // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
   @override
   $FullExpressionCopyWith<$Res> get show {
-    if (_value.show == null) {
-      return null;
-    }
     return $FullExpressionCopyWith<$Res>(_value.show, (value) {
       return _then(_value.copyWith(show: value));
     });
@@ -164,9 +193,6 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
 
   @override
   $FullExpressionCopyWith<$Res> get validateAnswer {
-    if (_value.validateAnswer == null) {
-      return null;
-    }
     return $FullExpressionCopyWith<$Res>(_value.validateAnswer, (value) {
       return _then(_value.copyWith(validateAnswer: value));
     });
@@ -211,85 +237,101 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object hideId = freezed,
-    Object serialNumber = freezed,
-    Object body = freezed,
-    Object stringBody = freezed,
-    Object note = freezed,
-    Object type = freezed,
-    Object show = freezed,
-    Object choiceList = freezed,
-    Object hasSpecialAnswer = freezed,
-    Object validateAnswer = freezed,
-    Object upperQuestionId = freezed,
-    Object pageNumber = freezed,
-    Object recodeNeeded = freezed,
+    Object? id = freezed,
+    Object? hideId = freezed,
+    Object? serialNumber = freezed,
+    Object? body = freezed,
+    Object? stringBody = freezed,
+    Object? note = freezed,
+    Object? type = freezed,
+    Object? show = freezed,
+    Object? choiceList = freezed,
+    Object? hasSpecialAnswer = freezed,
+    Object? validateAnswer = freezed,
+    Object? upperQuestionId = freezed,
+    Object? pageNumber = freezed,
+    Object? recodeNeeded = freezed,
   }) {
     return _then(_Question(
-      id: id == freezed ? _value.id : id as QuestionId,
-      hideId: hideId == freezed ? _value.hideId : hideId as bool,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
+      hideId: hideId == freezed
+          ? _value.hideId
+          : hideId // ignore: cast_nullable_to_non_nullable
+              as bool,
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      body: body == freezed ? _value.body : body as KtList<FormattedText>,
-      stringBody:
-          stringBody == freezed ? _value.stringBody : stringBody as String,
-      note: note == freezed ? _value.note : note as QuestionNote,
-      type: type == freezed ? _value.type : type as QuestionType,
-      show: show == freezed ? _value.show : show as FullExpression,
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as KtList<FormattedText>,
+      stringBody: stringBody == freezed
+          ? _value.stringBody
+          : stringBody // ignore: cast_nullable_to_non_nullable
+              as String,
+      note: note == freezed
+          ? _value.note
+          : note // ignore: cast_nullable_to_non_nullable
+              as QuestionNote,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as QuestionType,
+      show: show == freezed
+          ? _value.show
+          : show // ignore: cast_nullable_to_non_nullable
+              as FullExpression,
       choiceList: choiceList == freezed
           ? _value.choiceList
-          : choiceList as KtList<Choice>,
+          : choiceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
-          : hasSpecialAnswer as bool,
+          : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
       validateAnswer: validateAnswer == freezed
           ? _value.validateAnswer
-          : validateAnswer as FullExpression,
+          : validateAnswer // ignore: cast_nullable_to_non_nullable
+              as FullExpression,
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
-          : upperQuestionId as QuestionId,
-      pageNumber:
-          pageNumber == freezed ? _value.pageNumber : pageNumber as PageNumber,
-      recodeNeeded:
-          recodeNeeded == freezed ? _value.recodeNeeded : recodeNeeded as bool,
+          : upperQuestionId // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      recodeNeeded: recodeNeeded == freezed
+          ? _value.recodeNeeded
+          : recodeNeeded // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Question extends _Question {
   const _$_Question(
-      {@required this.id,
-      @required this.hideId,
-      @required this.serialNumber,
-      @required this.body,
-      @required this.stringBody,
-      @required this.note,
-      @required this.type,
-      @required this.show,
-      @required this.choiceList,
-      @required this.hasSpecialAnswer,
-      @required this.validateAnswer,
-      @required this.upperQuestionId,
-      @required this.pageNumber,
-      @required this.recodeNeeded})
-      : assert(id != null),
-        assert(hideId != null),
-        assert(serialNumber != null),
-        assert(body != null),
-        assert(stringBody != null),
-        assert(note != null),
-        assert(type != null),
-        assert(show != null),
-        assert(choiceList != null),
-        assert(hasSpecialAnswer != null),
-        assert(validateAnswer != null),
-        assert(upperQuestionId != null),
-        assert(pageNumber != null),
-        assert(recodeNeeded != null),
-        super._();
+      {required this.id,
+      required this.hideId,
+      required this.serialNumber,
+      required this.body,
+      required this.stringBody,
+      required this.note,
+      required this.type,
+      required this.show,
+      required this.choiceList,
+      required this.hasSpecialAnswer,
+      required this.validateAnswer,
+      required this.upperQuestionId,
+      required this.pageNumber,
+      required this.recodeNeeded})
+      : super._();
 
   @override
   final QuestionId id;
@@ -385,57 +427,60 @@ class _$_Question extends _Question {
       const DeepCollectionEquality().hash(pageNumber) ^
       const DeepCollectionEquality().hash(recodeNeeded);
 
+  @JsonKey(ignore: true)
   @override
   _$QuestionCopyWith<_Question> get copyWith =>
       __$QuestionCopyWithImpl<_Question>(this, _$identity);
 }
 
 abstract class _Question extends Question {
-  const _Question._() : super._();
   const factory _Question(
-      {@required QuestionId id,
-      @required bool hideId,
-      @required SerialNumber serialNumber,
-      @required KtList<FormattedText> body,
-      @required String stringBody,
-      @required QuestionNote note,
-      @required QuestionType type,
-      @required FullExpression show,
-      @required KtList<Choice> choiceList,
-      @required bool hasSpecialAnswer,
-      @required FullExpression validateAnswer,
-      @required QuestionId upperQuestionId,
-      @required PageNumber pageNumber,
-      @required bool recodeNeeded}) = _$_Question;
+      {required QuestionId id,
+      required bool hideId,
+      required SerialNumber serialNumber,
+      required KtList<FormattedText> body,
+      required String stringBody,
+      required QuestionNote note,
+      required QuestionType type,
+      required FullExpression show,
+      required KtList<Choice> choiceList,
+      required bool hasSpecialAnswer,
+      required FullExpression validateAnswer,
+      required QuestionId upperQuestionId,
+      required PageNumber pageNumber,
+      required bool recodeNeeded}) = _$_Question;
+  const _Question._() : super._();
 
   @override
-  QuestionId get id;
+  QuestionId get id => throw _privateConstructorUsedError;
   @override
-  bool get hideId;
+  bool get hideId => throw _privateConstructorUsedError;
   @override
-  SerialNumber get serialNumber;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
   @override
-  KtList<FormattedText> get body;
+  KtList<FormattedText> get body => throw _privateConstructorUsedError;
   @override
-  String get stringBody;
+  String get stringBody => throw _privateConstructorUsedError;
   @override
-  QuestionNote get note;
+  QuestionNote get note => throw _privateConstructorUsedError;
   @override
-  QuestionType get type;
+  QuestionType get type => throw _privateConstructorUsedError;
   @override
-  FullExpression get show;
+  FullExpression get show => throw _privateConstructorUsedError;
   @override
-  KtList<Choice> get choiceList;
+  KtList<Choice> get choiceList => throw _privateConstructorUsedError;
   @override
-  bool get hasSpecialAnswer;
+  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  FullExpression get validateAnswer;
+  FullExpression get validateAnswer => throw _privateConstructorUsedError;
   @override
-  QuestionId get upperQuestionId;
+  QuestionId get upperQuestionId => throw _privateConstructorUsedError;
   @override
-  PageNumber get pageNumber;
+  PageNumber get pageNumber => throw _privateConstructorUsedError;
   @override
-  bool get recodeNeeded;
+  bool get recodeNeeded => throw _privateConstructorUsedError;
   @override
-  _$QuestionCopyWith<_Question> get copyWith;
+  @JsonKey(ignore: true)
+  _$QuestionCopyWith<_Question> get copyWith =>
+      throw _privateConstructorUsedError;
 }

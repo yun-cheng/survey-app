@@ -11,12 +11,12 @@ import '../../domain/survey/value_objects.dart';
 class AnswerAlgorithm implements IAnswerAlgorithm {
   @override
   KtMap<QuestionId, Answer> updateAnswer({
-    KtMap<QuestionId, Answer> answerMap,
-    Question question,
-    dynamic answerValue,
-    bool toggle,
-    bool isNote,
-    ChoiceId noteOf,
+    required KtMap<QuestionId, Answer> answerMap,
+    required Question question,
+    required dynamic answerValue,
+    required bool toggle,
+    required bool isNote,
+    ChoiceId? noteOf,
   }) {
     // QUESTION 複製 map，不知有無其他方法
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
@@ -24,7 +24,7 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
     Answer newAnswer;
 
     if (isNote) {
-      newAnswer = oldAnswer.setNote(answerValue, noteOf);
+      newAnswer = oldAnswer.setNote(answerValue, noteOf!);
     } else if (!question.type.isChoice) {
       newAnswer = oldAnswer.setString(answerValue);
     } else if ((answerValue as Choice).asSingle || !toggle) {
@@ -46,8 +46,8 @@ class AnswerAlgorithm implements IAnswerAlgorithm {
 
   @override
   KtMap<QuestionId, Answer> clearAnswer({
-    KtMap<QuestionId, Answer> answerMap,
-    Question question,
+    required KtMap<QuestionId, Answer> answerMap,
+    required Question question,
   }) {
     final newAnswerMap = KtMutableMap.from(answerMap.asMap());
 

@@ -8,14 +8,14 @@ import 'value_objects.dart';
 part 'warning.freezed.dart';
 
 @freezed
-abstract class Warning implements _$Warning {
+class Warning with _$Warning {
   const Warning._();
 
   const factory Warning({
-    @required QuestionId id,
-    @required SerialNumber serialNumber,
-    @required PageNumber pageNumber,
-    @required WarningType type,
+    required QuestionId id,
+    required SerialNumber serialNumber,
+    required PageNumber pageNumber,
+    required WarningType type,
   }) = _Warning;
 
   factory Warning.empty() => Warning(

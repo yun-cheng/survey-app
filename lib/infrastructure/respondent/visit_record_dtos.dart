@@ -9,14 +9,14 @@ part 'visit_record_dtos.freezed.dart';
 part 'visit_record_dtos.g.dart';
 
 @freezed
-abstract class VisitRecordDto implements _$VisitRecordDto {
+class VisitRecordDto with _$VisitRecordDto {
   const VisitRecordDto._();
 
   const factory VisitRecordDto({
-    @required String respondentId,
-    @required String responseId,
-    @required VisitTimeDto visitTime,
-    @required String description,
+    required String respondentId,
+    required String responseId,
+    required VisitTimeDto visitTime,
+    required String description,
   }) = _VisitRecordDto;
 
   factory VisitRecordDto.fromDomain(VisitRecord domain) {

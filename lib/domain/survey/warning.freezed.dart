@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'warning.dart';
 
@@ -9,16 +9,18 @@ part of 'warning.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$WarningTearOff {
   const _$WarningTearOff();
 
-// ignore: unused_element
   _Warning call(
-      {@required QuestionId id,
-      @required SerialNumber serialNumber,
-      @required PageNumber pageNumber,
-      @required WarningType type}) {
+      {required QuestionId id,
+      required SerialNumber serialNumber,
+      required PageNumber pageNumber,
+      required WarningType type}) {
     return _Warning(
       id: id,
       serialNumber: serialNumber,
@@ -29,17 +31,17 @@ class _$WarningTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Warning = _$WarningTearOff();
 
 /// @nodoc
 mixin _$Warning {
-  QuestionId get id;
-  SerialNumber get serialNumber;
-  PageNumber get pageNumber;
-  WarningType get type;
+  QuestionId get id => throw _privateConstructorUsedError;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  PageNumber get pageNumber => throw _privateConstructorUsedError;
+  WarningType get type => throw _privateConstructorUsedError;
 
-  $WarningCopyWith<Warning> get copyWith;
+  @JsonKey(ignore: true)
+  $WarningCopyWith<Warning> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -63,19 +65,28 @@ class _$WarningCopyWithImpl<$Res> implements $WarningCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object serialNumber = freezed,
-    Object pageNumber = freezed,
-    Object type = freezed,
+    Object? id = freezed,
+    Object? serialNumber = freezed,
+    Object? pageNumber = freezed,
+    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as QuestionId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      pageNumber:
-          pageNumber == freezed ? _value.pageNumber : pageNumber as PageNumber,
-      type: type == freezed ? _value.type : type as WarningType,
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as WarningType,
     ));
   }
 }
@@ -103,35 +114,41 @@ class __$WarningCopyWithImpl<$Res> extends _$WarningCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object serialNumber = freezed,
-    Object pageNumber = freezed,
-    Object type = freezed,
+    Object? id = freezed,
+    Object? serialNumber = freezed,
+    Object? pageNumber = freezed,
+    Object? type = freezed,
   }) {
     return _then(_Warning(
-      id: id == freezed ? _value.id : id as QuestionId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      pageNumber:
-          pageNumber == freezed ? _value.pageNumber : pageNumber as PageNumber,
-      type: type == freezed ? _value.type : type as WarningType,
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as WarningType,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Warning extends _Warning {
   const _$_Warning(
-      {@required this.id,
-      @required this.serialNumber,
-      @required this.pageNumber,
-      @required this.type})
-      : assert(id != null),
-        assert(serialNumber != null),
-        assert(pageNumber != null),
-        assert(type != null),
-        super._();
+      {required this.id,
+      required this.serialNumber,
+      required this.pageNumber,
+      required this.type})
+      : super._();
 
   @override
   final QuestionId id;
@@ -171,27 +188,30 @@ class _$_Warning extends _Warning {
       const DeepCollectionEquality().hash(pageNumber) ^
       const DeepCollectionEquality().hash(type);
 
+  @JsonKey(ignore: true)
   @override
   _$WarningCopyWith<_Warning> get copyWith =>
       __$WarningCopyWithImpl<_Warning>(this, _$identity);
 }
 
 abstract class _Warning extends Warning {
-  const _Warning._() : super._();
   const factory _Warning(
-      {@required QuestionId id,
-      @required SerialNumber serialNumber,
-      @required PageNumber pageNumber,
-      @required WarningType type}) = _$_Warning;
+      {required QuestionId id,
+      required SerialNumber serialNumber,
+      required PageNumber pageNumber,
+      required WarningType type}) = _$_Warning;
+  const _Warning._() : super._();
 
   @override
-  QuestionId get id;
+  QuestionId get id => throw _privateConstructorUsedError;
   @override
-  SerialNumber get serialNumber;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
   @override
-  PageNumber get pageNumber;
+  PageNumber get pageNumber => throw _privateConstructorUsedError;
   @override
-  WarningType get type;
+  WarningType get type => throw _privateConstructorUsedError;
   @override
-  _$WarningCopyWith<_Warning> get copyWith;
+  @JsonKey(ignore: true)
+  _$WarningCopyWith<_Warning> get copyWith =>
+      throw _privateConstructorUsedError;
 }

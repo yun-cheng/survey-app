@@ -4,7 +4,7 @@ part 'navigation_page.freezed.dart';
 part 'navigation_page.g.dart';
 
 @freezed
-abstract class NavigationPage with _$NavigationPage {
+class NavigationPage with _$NavigationPage {
   const factory NavigationPage.signIn() = NavSignInPage;
   const factory NavigationPage.overview() = NavOverviewPage;
   const factory NavigationPage.respondent() = NavRespondentsPage;

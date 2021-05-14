@@ -12,23 +12,23 @@ class SpecialAnswerSwitch extends StatelessWidget {
   final Question question;
 
   const SpecialAnswerSwitch({
-    Key key,
-    @required this.question,
+    Key? key,
+    required this.question,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AnswerBloc, AnswerState>(
       builder: (context, state) {
-        AnswerStatus answerStatus = state.answerStatusMap[question.id];
+        AnswerStatus answerStatus = state.answerStatusMap[question.id]!;
         bool hasSpecialAnswer = question.hasSpecialAnswer;
 
         if (state.isRecodeModule) {
-          answerStatus = state.mainAnswerStatusMap[question.id];
+          answerStatus = state.mainAnswerStatusMap[question.id]!;
 
           hasSpecialAnswer = context
               .select((SurveyPageBloc bloc) => bloc.state.mainQuestionList
-                  .firstOrNull((_question) => _question.id == question.id))
+                  .firstOrNull((_question) => _question.id == question.id))!
               .hasSpecialAnswer;
         }
 

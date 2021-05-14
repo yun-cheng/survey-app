@@ -7,12 +7,12 @@ import 'value_objects.dart';
 part 'team.freezed.dart';
 
 @freezed
-abstract class Team implements _$Team {
+class Team with _$Team {
   const Team._();
 
   const factory Team({
-    @required TeamId id,
-    @required TeamName name,
+    required TeamId id,
+    required TeamName name,
   }) = _Team;
 
   factory Team.empty() => Team(

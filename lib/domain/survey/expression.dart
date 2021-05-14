@@ -7,13 +7,13 @@ import 'value_objects.dart';
 part 'expression.freezed.dart';
 
 @freezed
-abstract class Expression implements _$Expression {
+class Expression with _$Expression {
   const Expression._();
 
   const factory Expression({
-    @required QuestionId field,
-    @required Operator operator,
-    @required Answer comparisonValue,
+    required QuestionId field,
+    required Operator operator,
+    required Answer comparisonValue,
   }) = _Expression;
 
   bool evaluate(Answer answer) {

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'visit_time.dart';
 
@@ -9,12 +9,14 @@ part of 'visit_time.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$VisitTimeTearOff {
   const _$VisitTimeTearOff();
 
-// ignore: unused_element
-  _VisitTime call({@required DateTime date, @required String timeSession}) {
+  _VisitTime call({required DateTime date, required String timeSession}) {
     return _VisitTime(
       date: date,
       timeSession: timeSession,
@@ -23,15 +25,16 @@ class _$VisitTimeTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $VisitTime = _$VisitTimeTearOff();
 
 /// @nodoc
 mixin _$VisitTime {
-  DateTime get date;
-  String get timeSession;
+  DateTime get date => throw _privateConstructorUsedError;
+  String get timeSession => throw _privateConstructorUsedError;
 
-  $VisitTimeCopyWith<VisitTime> get copyWith;
+  @JsonKey(ignore: true)
+  $VisitTimeCopyWith<VisitTime> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,13 +54,18 @@ class _$VisitTimeCopyWithImpl<$Res> implements $VisitTimeCopyWith<$Res> {
 
   @override
   $Res call({
-    Object date = freezed,
-    Object timeSession = freezed,
+    Object? date = freezed,
+    Object? timeSession = freezed,
   }) {
     return _then(_value.copyWith(
-      date: date == freezed ? _value.date : date as DateTime,
-      timeSession:
-          timeSession == freezed ? _value.timeSession : timeSession as String,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      timeSession: timeSession == freezed
+          ? _value.timeSession
+          : timeSession // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -82,23 +90,27 @@ class __$VisitTimeCopyWithImpl<$Res> extends _$VisitTimeCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object date = freezed,
-    Object timeSession = freezed,
+    Object? date = freezed,
+    Object? timeSession = freezed,
   }) {
     return _then(_VisitTime(
-      date: date == freezed ? _value.date : date as DateTime,
-      timeSession:
-          timeSession == freezed ? _value.timeSession : timeSession as String,
+      date: date == freezed
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      timeSession: timeSession == freezed
+          ? _value.timeSession
+          : timeSession // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_VisitTime extends _VisitTime {
-  const _$_VisitTime({@required this.date, @required this.timeSession})
-      : assert(date != null),
-        assert(timeSession != null),
-        super._();
+  const _$_VisitTime({required this.date, required this.timeSession})
+      : super._();
 
   @override
   final DateTime date;
@@ -127,20 +139,23 @@ class _$_VisitTime extends _VisitTime {
       const DeepCollectionEquality().hash(date) ^
       const DeepCollectionEquality().hash(timeSession);
 
+  @JsonKey(ignore: true)
   @override
   _$VisitTimeCopyWith<_VisitTime> get copyWith =>
       __$VisitTimeCopyWithImpl<_VisitTime>(this, _$identity);
 }
 
 abstract class _VisitTime extends VisitTime {
-  const _VisitTime._() : super._();
   const factory _VisitTime(
-      {@required DateTime date, @required String timeSession}) = _$_VisitTime;
+      {required DateTime date, required String timeSession}) = _$_VisitTime;
+  const _VisitTime._() : super._();
 
   @override
-  DateTime get date;
+  DateTime get date => throw _privateConstructorUsedError;
   @override
-  String get timeSession;
+  String get timeSession => throw _privateConstructorUsedError;
   @override
-  _$VisitTimeCopyWith<_VisitTime> get copyWith;
+  @JsonKey(ignore: true)
+  _$VisitTimeCopyWith<_VisitTime> get copyWith =>
+      throw _privateConstructorUsedError;
 }

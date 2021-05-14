@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'interviewer_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'interviewer_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 InterviewerListDto _$InterviewerListDtoFromJson(Map<String, dynamic> json) {
   return _InterviewerListDto.fromJson(json);
 }
@@ -16,29 +20,28 @@ InterviewerListDto _$InterviewerListDtoFromJson(Map<String, dynamic> json) {
 class _$InterviewerListDtoTearOff {
   const _$InterviewerListDtoTearOff();
 
-// ignore: unused_element
-  _InterviewerListDto call({@required List<InterviewerDto> list}) {
+  _InterviewerListDto call({required List<InterviewerDto> list}) {
     return _InterviewerListDto(
       list: list,
     );
   }
 
-// ignore: unused_element
   InterviewerListDto fromJson(Map<String, Object> json) {
     return InterviewerListDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $InterviewerListDto = _$InterviewerListDtoTearOff();
 
 /// @nodoc
 mixin _$InterviewerListDto {
-  List<InterviewerDto> get list;
+  List<InterviewerDto> get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $InterviewerListDtoCopyWith<InterviewerListDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InterviewerListDtoCopyWith<InterviewerListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,10 +63,13 @@ class _$InterviewerListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<InterviewerDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<InterviewerDto>,
     ));
   }
 }
@@ -91,21 +97,21 @@ class __$InterviewerListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_InterviewerListDto(
-      list: list == freezed ? _value.list : list as List<InterviewerDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<InterviewerDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_InterviewerListDto extends _InterviewerListDto {
-  const _$_InterviewerListDto({@required this.list})
-      : assert(list != null),
-        super._();
+  const _$_InterviewerListDto({required this.list}) : super._();
 
   factory _$_InterviewerListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_InterviewerListDtoFromJson(json);
@@ -130,6 +136,7 @@ class _$_InterviewerListDto extends _InterviewerListDto {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
 
+  @JsonKey(ignore: true)
   @override
   _$InterviewerListDtoCopyWith<_InterviewerListDto> get copyWith =>
       __$InterviewerListDtoCopyWithImpl<_InterviewerListDto>(this, _$identity);
@@ -141,17 +148,19 @@ class _$_InterviewerListDto extends _InterviewerListDto {
 }
 
 abstract class _InterviewerListDto extends InterviewerListDto {
-  const _InterviewerListDto._() : super._();
-  const factory _InterviewerListDto({@required List<InterviewerDto> list}) =
+  const factory _InterviewerListDto({required List<InterviewerDto> list}) =
       _$_InterviewerListDto;
+  const _InterviewerListDto._() : super._();
 
   factory _InterviewerListDto.fromJson(Map<String, dynamic> json) =
       _$_InterviewerListDto.fromJson;
 
   @override
-  List<InterviewerDto> get list;
+  List<InterviewerDto> get list => throw _privateConstructorUsedError;
   @override
-  _$InterviewerListDtoCopyWith<_InterviewerListDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$InterviewerListDtoCopyWith<_InterviewerListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 InterviewerDto _$InterviewerDtoFromJson(Map<String, dynamic> json) {
@@ -162,11 +171,10 @@ InterviewerDto _$InterviewerDtoFromJson(Map<String, dynamic> json) {
 class _$InterviewerDtoTearOff {
   const _$InterviewerDtoTearOff();
 
-// ignore: unused_element
   _InterviewerDto call(
-      {@required String interviewerId,
-      @required String interviewerName,
-      @required String interviewerPassword}) {
+      {required String interviewerId,
+      required String interviewerName,
+      required String interviewerPassword}) {
     return _InterviewerDto(
       interviewerId: interviewerId,
       interviewerName: interviewerName,
@@ -174,24 +182,24 @@ class _$InterviewerDtoTearOff {
     );
   }
 
-// ignore: unused_element
   InterviewerDto fromJson(Map<String, Object> json) {
     return InterviewerDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $InterviewerDto = _$InterviewerDtoTearOff();
 
 /// @nodoc
 mixin _$InterviewerDto {
-  String get interviewerId;
-  String get interviewerName;
-  String get interviewerPassword;
+  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerName => throw _privateConstructorUsedError;
+  String get interviewerPassword => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $InterviewerDtoCopyWith<InterviewerDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $InterviewerDtoCopyWith<InterviewerDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -216,20 +224,23 @@ class _$InterviewerDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object interviewerId = freezed,
-    Object interviewerName = freezed,
-    Object interviewerPassword = freezed,
+    Object? interviewerId = freezed,
+    Object? interviewerName = freezed,
+    Object? interviewerPassword = freezed,
   }) {
     return _then(_value.copyWith(
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as String,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
       interviewerName: interviewerName == freezed
           ? _value.interviewerName
-          : interviewerName as String,
+          : interviewerName // ignore: cast_nullable_to_non_nullable
+              as String,
       interviewerPassword: interviewerPassword == freezed
           ? _value.interviewerPassword
-          : interviewerPassword as String,
+          : interviewerPassword // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -260,36 +271,35 @@ class __$InterviewerDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object interviewerId = freezed,
-    Object interviewerName = freezed,
-    Object interviewerPassword = freezed,
+    Object? interviewerId = freezed,
+    Object? interviewerName = freezed,
+    Object? interviewerPassword = freezed,
   }) {
     return _then(_InterviewerDto(
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as String,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
       interviewerName: interviewerName == freezed
           ? _value.interviewerName
-          : interviewerName as String,
+          : interviewerName // ignore: cast_nullable_to_non_nullable
+              as String,
       interviewerPassword: interviewerPassword == freezed
           ? _value.interviewerPassword
-          : interviewerPassword as String,
+          : interviewerPassword // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_InterviewerDto extends _InterviewerDto {
   const _$_InterviewerDto(
-      {@required this.interviewerId,
-      @required this.interviewerName,
-      @required this.interviewerPassword})
-      : assert(interviewerId != null),
-        assert(interviewerName != null),
-        assert(interviewerPassword != null),
-        super._();
+      {required this.interviewerId,
+      required this.interviewerName,
+      required this.interviewerPassword})
+      : super._();
 
   factory _$_InterviewerDto.fromJson(Map<String, dynamic> json) =>
       _$_$_InterviewerDtoFromJson(json);
@@ -328,6 +338,7 @@ class _$_InterviewerDto extends _InterviewerDto {
       const DeepCollectionEquality().hash(interviewerName) ^
       const DeepCollectionEquality().hash(interviewerPassword);
 
+  @JsonKey(ignore: true)
   @override
   _$InterviewerDtoCopyWith<_InterviewerDto> get copyWith =>
       __$InterviewerDtoCopyWithImpl<_InterviewerDto>(this, _$identity);
@@ -339,21 +350,23 @@ class _$_InterviewerDto extends _InterviewerDto {
 }
 
 abstract class _InterviewerDto extends InterviewerDto {
-  const _InterviewerDto._() : super._();
   const factory _InterviewerDto(
-      {@required String interviewerId,
-      @required String interviewerName,
-      @required String interviewerPassword}) = _$_InterviewerDto;
+      {required String interviewerId,
+      required String interviewerName,
+      required String interviewerPassword}) = _$_InterviewerDto;
+  const _InterviewerDto._() : super._();
 
   factory _InterviewerDto.fromJson(Map<String, dynamic> json) =
       _$_InterviewerDto.fromJson;
 
   @override
-  String get interviewerId;
+  String get interviewerId => throw _privateConstructorUsedError;
   @override
-  String get interviewerName;
+  String get interviewerName => throw _privateConstructorUsedError;
   @override
-  String get interviewerPassword;
+  String get interviewerPassword => throw _privateConstructorUsedError;
   @override
-  _$InterviewerDtoCopyWith<_InterviewerDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$InterviewerDtoCopyWith<_InterviewerDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

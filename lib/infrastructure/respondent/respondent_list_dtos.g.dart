@@ -9,18 +9,16 @@ part of 'respondent_list_dtos.dart';
 _$_RespondentListListDto _$_$_RespondentListListDtoFromJson(
     Map<String, dynamic> json) {
   return _$_RespondentListListDto(
-    list: (json['list'] as List)
-        ?.map((e) => e == null
-            ? null
-            : RespondentListDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    list: (json['list'] as List<dynamic>)
+        .map((e) => RespondentListDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
 Map<String, dynamic> _$_$_RespondentListListDtoToJson(
         _$_RespondentListListDto instance) =>
     <String, dynamic>{
-      'list': instance.list?.map((e) => e?.toJson())?.toList(),
+      'list': instance.list.map((e) => e.toJson()).toList(),
     };
 
 _$_RespondentListDto _$_$_RespondentListDtoFromJson(Map<String, dynamic> json) {
@@ -29,11 +27,9 @@ _$_RespondentListDto _$_$_RespondentListDtoFromJson(Map<String, dynamic> json) {
     interviewerId: json['interviewerId'] as String,
     teamId: json['teamId'] as String,
     projectId: json['projectId'] as String,
-    list: (json['list'] as List)
-        ?.map((e) => e == null
-            ? null
-            : RespondentDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    list: (json['list'] as List<dynamic>)
+        .map((e) => RespondentDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -44,5 +40,5 @@ Map<String, dynamic> _$_$_RespondentListDtoToJson(
       'interviewerId': instance.interviewerId,
       'teamId': instance.teamId,
       'projectId': instance.projectId,
-      'list': instance.list?.map((e) => e?.toJson())?.toList(),
+      'list': instance.list.map((e) => e.toJson()).toList(),
     };

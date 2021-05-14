@@ -9,18 +9,18 @@ import 'value_objects.dart';
 part 'choice.freezed.dart';
 
 @freezed
-abstract class Choice implements _$Choice {
+class Choice with _$Choice {
   const Choice._();
 
   const factory Choice({
-    @required SerialNumber serialNumber,
-    @required ChoiceId id,
-    @required ChoiceBody body,
-    @required bool asNote,
-    @required bool asSingle,
-    @required bool isSpecialAnswer,
-    @required ChoiceGroup group,
-    @required ChoiceId upperChoiceId,
+    required SerialNumber serialNumber,
+    required ChoiceId id,
+    required ChoiceBody body,
+    required bool asNote,
+    required bool asSingle,
+    required bool isSpecialAnswer,
+    required ChoiceGroup group,
+    required ChoiceId upperChoiceId,
   }) = _Choice;
 
   factory Choice.empty() => Choice(

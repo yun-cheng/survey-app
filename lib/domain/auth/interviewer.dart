@@ -7,13 +7,13 @@ import 'value_objects.dart';
 part 'interviewer.freezed.dart';
 
 @freezed
-abstract class Interviewer implements _$Interviewer {
+class Interviewer with _$Interviewer {
   const Interviewer._();
 
   const factory Interviewer({
-    @required InterviewerId id,
-    @required InterviewerName name,
-    @required Password password,
+    required InterviewerId id,
+    required InterviewerName name,
+    required Password password,
   }) = _Interviewer;
 
   factory Interviewer.empty() => Interviewer(

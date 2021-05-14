@@ -15,8 +15,8 @@ class SurveyCard extends StatelessWidget {
   final Survey survey;
 
   const SurveyCard({
-    Key key,
-    @required this.survey,
+    Key? key,
+    required this.survey,
   }) : super(key: key);
 
   @override
@@ -42,7 +42,7 @@ class SurveyCard extends StatelessWidget {
                   page: NavigationPage.respondent(),
                 ),
               );
-          context.navigator.push(Routes.respondentsPage);
+          context.pushRoute(const RespondentsRoute());
         },
         child: Padding(
           padding: const EdgeInsets.all(24.0),

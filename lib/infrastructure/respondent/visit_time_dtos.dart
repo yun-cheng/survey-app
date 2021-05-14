@@ -6,12 +6,12 @@ part 'visit_time_dtos.freezed.dart';
 part 'visit_time_dtos.g.dart';
 
 @freezed
-abstract class VisitTimeDto implements _$VisitTimeDto {
+class VisitTimeDto with _$VisitTimeDto {
   const VisitTimeDto._();
 
   const factory VisitTimeDto({
-    @required int date,
-    @required String timeSession,
+    required int date,
+    required String timeSession,
   }) = _VisitTimeDto;
 
   factory VisitTimeDto.fromDomain(VisitTime domain) {

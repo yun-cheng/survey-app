@@ -1,4 +1,3 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -22,6 +21,7 @@ import 'themes.dart';
 class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final _rootRouter = RootRouter();
     // HIGHLIGHT 如果會需要在多個頁面共用的資料都要在這邊 provide
     return MultiBlocProvider(
       providers: [
@@ -63,13 +63,14 @@ class AppWidget extends StatelessWidget {
           ),
         ),
       ],
-      child: MaterialApp(
+      child: MaterialApp.router(
         title: '問卷',
         debugShowCheckedModeBanner: false,
-        builder: ExtendedNavigator.builder<AutoRouter>(router: AutoRouter()),
         theme: kLightTheme,
         localizationsDelegates: const [GlobalMaterialLocalizations.delegate],
         supportedLocales: const [Locale('en'), Locale('zh', 'TW')],
+        routerDelegate: _rootRouter.delegate(),
+        routeInformationParser: _rootRouter.defaultRouteParser(),
       ),
     );
   }

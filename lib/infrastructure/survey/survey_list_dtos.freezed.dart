@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'survey_list_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'survey_list_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SurveyListDto _$SurveyListDtoFromJson(Map<String, dynamic> json) {
   return _SurveyListDto.fromJson(json);
 }
@@ -16,29 +20,28 @@ SurveyListDto _$SurveyListDtoFromJson(Map<String, dynamic> json) {
 class _$SurveyListDtoTearOff {
   const _$SurveyListDtoTearOff();
 
-// ignore: unused_element
-  _SurveyListDto call({@required List<SurveyDto> list}) {
+  _SurveyListDto call({required List<SurveyDto> list}) {
     return _SurveyListDto(
       list: list,
     );
   }
 
-// ignore: unused_element
   SurveyListDto fromJson(Map<String, Object> json) {
     return SurveyListDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SurveyListDto = _$SurveyListDtoTearOff();
 
 /// @nodoc
 mixin _$SurveyListDto {
-  List<SurveyDto> get list;
+  List<SurveyDto> get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SurveyListDtoCopyWith<SurveyListDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SurveyListDtoCopyWith<SurveyListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,10 +63,13 @@ class _$SurveyListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<SurveyDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<SurveyDto>,
     ));
   }
 }
@@ -91,21 +97,21 @@ class __$SurveyListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_SurveyListDto(
-      list: list == freezed ? _value.list : list as List<SurveyDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<SurveyDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SurveyListDto extends _SurveyListDto {
-  const _$_SurveyListDto({@required this.list})
-      : assert(list != null),
-        super._();
+  const _$_SurveyListDto({required this.list}) : super._();
 
   factory _$_SurveyListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_SurveyListDtoFromJson(json);
@@ -130,6 +136,7 @@ class _$_SurveyListDto extends _SurveyListDto {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
 
+  @JsonKey(ignore: true)
   @override
   _$SurveyListDtoCopyWith<_SurveyListDto> get copyWith =>
       __$SurveyListDtoCopyWithImpl<_SurveyListDto>(this, _$identity);
@@ -141,17 +148,19 @@ class _$_SurveyListDto extends _SurveyListDto {
 }
 
 abstract class _SurveyListDto extends SurveyListDto {
-  const _SurveyListDto._() : super._();
-  const factory _SurveyListDto({@required List<SurveyDto> list}) =
+  const factory _SurveyListDto({required List<SurveyDto> list}) =
       _$_SurveyListDto;
+  const _SurveyListDto._() : super._();
 
   factory _SurveyListDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyListDto.fromJson;
 
   @override
-  List<SurveyDto> get list;
+  List<SurveyDto> get list => throw _privateConstructorUsedError;
   @override
-  _$SurveyListDtoCopyWith<_SurveyListDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$SurveyListDtoCopyWith<_SurveyListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 SurveyDto _$SurveyDtoFromJson(Map<String, dynamic> json) {
@@ -162,13 +171,12 @@ SurveyDto _$SurveyDtoFromJson(Map<String, dynamic> json) {
 class _$SurveyDtoTearOff {
   const _$SurveyDtoTearOff();
 
-// ignore: unused_element
   _SurveyDto call(
-      {@required String surveyId,
-      @required String surveyName,
-      @required String projectId,
-      @required String teamId,
-      @required Map<String, SurveyModuleDto> module}) {
+      {required String surveyId,
+      required String surveyName,
+      required String projectId,
+      required String teamId,
+      required Map<String, SurveyModuleDto> module}) {
     return _SurveyDto(
       surveyId: surveyId,
       surveyName: surveyName,
@@ -178,26 +186,26 @@ class _$SurveyDtoTearOff {
     );
   }
 
-// ignore: unused_element
   SurveyDto fromJson(Map<String, Object> json) {
     return SurveyDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SurveyDto = _$SurveyDtoTearOff();
 
 /// @nodoc
 mixin _$SurveyDto {
-  String get surveyId;
-  String get surveyName;
-  String get projectId;
-  String get teamId;
-  Map<String, SurveyModuleDto> get module;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyName => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  Map<String, SurveyModuleDto> get module => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SurveyDtoCopyWith<SurveyDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SurveyDtoCopyWith<SurveyDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -222,21 +230,33 @@ class _$SurveyDtoCopyWithImpl<$Res> implements $SurveyDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object surveyName = freezed,
-    Object projectId = freezed,
-    Object teamId = freezed,
-    Object module = freezed,
+    Object? surveyId = freezed,
+    Object? surveyName = freezed,
+    Object? projectId = freezed,
+    Object? teamId = freezed,
+    Object? module = freezed,
   }) {
     return _then(_value.copyWith(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      surveyName:
-          surveyName == freezed ? _value.surveyName : surveyName as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyName: surveyName == freezed
+          ? _value.surveyName
+          : surveyName // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
       module: module == freezed
           ? _value.module
-          : module as Map<String, SurveyModuleDto>,
+          : module // ignore: cast_nullable_to_non_nullable
+              as Map<String, SurveyModuleDto>,
     ));
   }
 }
@@ -266,41 +286,47 @@ class __$SurveyDtoCopyWithImpl<$Res> extends _$SurveyDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object surveyName = freezed,
-    Object projectId = freezed,
-    Object teamId = freezed,
-    Object module = freezed,
+    Object? surveyId = freezed,
+    Object? surveyName = freezed,
+    Object? projectId = freezed,
+    Object? teamId = freezed,
+    Object? module = freezed,
   }) {
     return _then(_SurveyDto(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      surveyName:
-          surveyName == freezed ? _value.surveyName : surveyName as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyName: surveyName == freezed
+          ? _value.surveyName
+          : surveyName // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
       module: module == freezed
           ? _value.module
-          : module as Map<String, SurveyModuleDto>,
+          : module // ignore: cast_nullable_to_non_nullable
+              as Map<String, SurveyModuleDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SurveyDto extends _SurveyDto {
   const _$_SurveyDto(
-      {@required this.surveyId,
-      @required this.surveyName,
-      @required this.projectId,
-      @required this.teamId,
-      @required this.module})
-      : assert(surveyId != null),
-        assert(surveyName != null),
-        assert(projectId != null),
-        assert(teamId != null),
-        assert(module != null),
-        super._();
+      {required this.surveyId,
+      required this.surveyName,
+      required this.projectId,
+      required this.teamId,
+      required this.module})
+      : super._();
 
   factory _$_SurveyDto.fromJson(Map<String, dynamic> json) =>
       _$_$_SurveyDtoFromJson(json);
@@ -349,6 +375,7 @@ class _$_SurveyDto extends _SurveyDto {
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(module);
 
+  @JsonKey(ignore: true)
   @override
   _$SurveyDtoCopyWith<_SurveyDto> get copyWith =>
       __$SurveyDtoCopyWithImpl<_SurveyDto>(this, _$identity);
@@ -360,27 +387,29 @@ class _$_SurveyDto extends _SurveyDto {
 }
 
 abstract class _SurveyDto extends SurveyDto {
-  const _SurveyDto._() : super._();
   const factory _SurveyDto(
-      {@required String surveyId,
-      @required String surveyName,
-      @required String projectId,
-      @required String teamId,
-      @required Map<String, SurveyModuleDto> module}) = _$_SurveyDto;
+      {required String surveyId,
+      required String surveyName,
+      required String projectId,
+      required String teamId,
+      required Map<String, SurveyModuleDto> module}) = _$_SurveyDto;
+  const _SurveyDto._() : super._();
 
   factory _SurveyDto.fromJson(Map<String, dynamic> json) =
       _$_SurveyDto.fromJson;
 
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get surveyName;
+  String get surveyName => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  Map<String, SurveyModuleDto> get module;
+  Map<String, SurveyModuleDto> get module => throw _privateConstructorUsedError;
   @override
-  _$SurveyDtoCopyWith<_SurveyDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$SurveyDtoCopyWith<_SurveyDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

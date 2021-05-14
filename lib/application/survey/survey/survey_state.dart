@@ -1,12 +1,12 @@
 part of 'survey_bloc.dart';
 
 @freezed
-abstract class SurveyState with _$SurveyState {
+class SurveyState with _$SurveyState {
   const factory SurveyState({
-    @required LoadState surveyListState,
-    @required KtList<Survey> surveyList,
-    @required Survey survey,
-    @required Option<SurveyFailure> surveyFailure,
+    required LoadState surveyListState,
+    required KtList<Survey> surveyList,
+    required Survey survey,
+    required Option<SurveyFailure> surveyFailure,
   }) = _SurveyState;
 
   factory SurveyState.initial() => SurveyState(

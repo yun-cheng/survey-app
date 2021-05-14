@@ -19,31 +19,31 @@ part 'survey_page_state_dtos.freezed.dart';
 part 'survey_page_state_dtos.g.dart';
 
 @freezed
-abstract class SurveyPageStateDto implements _$SurveyPageStateDto {
+class SurveyPageStateDto with _$SurveyPageStateDto {
   const SurveyPageStateDto._();
 
   const factory SurveyPageStateDto({
-    @required Map<String, dynamic> referenceListState,
-    @required List<ReferenceDto> referenceList,
-    Map<String, dynamic> surveyFailure,
-    @required RespondentDto respondent,
-    @required int page,
-    @required int newestPage,
-    @required List<QuestionDto> questionList,
-    @required List<QuestionDto> pageQuestionList,
-    @required List<QuestionDto> contentQuestionList,
-    @required Map<String, AnswerDto> answerMap,
-    @required Map<String, AnswerStatusDto> answerStatusMap,
-    @required bool isLastPage,
-    @required WarningDto warning,
-    @required bool showWarning,
-    @required Map<String, dynamic> loadState,
-    @required Map<String, dynamic> restoreState,
-    @required bool isRecodeModule,
-    @required List<QuestionDto> mainQuestionList,
-    @required List<ResponseDto> respondentResponseList,
-    @required String surveyId,
-    @required String moduleType,
+    required Map<String, dynamic> referenceListState,
+    required List<ReferenceDto> referenceList,
+    Map<String, dynamic>? surveyFailure,
+    required RespondentDto respondent,
+    required int page,
+    required int newestPage,
+    required List<QuestionDto> questionList,
+    required List<QuestionDto> pageQuestionList,
+    required List<QuestionDto> contentQuestionList,
+    required Map<String, AnswerDto> answerMap,
+    required Map<String, AnswerStatusDto> answerStatusMap,
+    required bool isLastPage,
+    required WarningDto warning,
+    required bool showWarning,
+    required Map<String, dynamic> loadState,
+    required Map<String, dynamic> restoreState,
+    required bool isRecodeModule,
+    required List<QuestionDto> mainQuestionList,
+    required List<ResponseDto> respondentResponseList,
+    required String surveyId,
+    required String moduleType,
   }) = _SurveyPageStateDto;
 
   factory SurveyPageStateDto.fromDomain(SurveyPageState domain) {

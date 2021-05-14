@@ -12,8 +12,8 @@ class RecodeBox extends StatelessWidget {
   final Question question;
 
   const RecodeBox({
-    Key key,
-    @required this.question,
+    Key? key,
+    required this.question,
   }) : super(key: key);
 
   @override
@@ -23,8 +23,8 @@ class RecodeBox extends StatelessWidget {
 
     // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
     final note = context.select((AnswerBloc bloc) => bloc.state.answerMap
-            .getOrDefault(question.id, Answer.empty())
-            .value as String) ??
+            .getOrDefault(question.id, Answer.empty())!
+            .value as String?) ??
         '';
 
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(

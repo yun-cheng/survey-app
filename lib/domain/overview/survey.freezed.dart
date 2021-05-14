@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'survey.dart';
 
@@ -9,17 +9,19 @@ part of 'survey.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SurveyTearOff {
   const _$SurveyTearOff();
 
-// ignore: unused_element
   _Survey call(
-      {@required SurveyId id,
-      @required SurveyName name,
-      @required TeamId teamId,
-      @required ProjectId projectId,
-      @required KtMap<ModuleType, SurveyModule> module}) {
+      {required SurveyId id,
+      required SurveyName name,
+      required TeamId teamId,
+      required ProjectId projectId,
+      required KtMap<ModuleType, SurveyModule> module}) {
     return _Survey(
       id: id,
       name: name,
@@ -31,18 +33,19 @@ class _$SurveyTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Survey = _$SurveyTearOff();
 
 /// @nodoc
 mixin _$Survey {
-  SurveyId get id;
-  SurveyName get name;
-  TeamId get teamId;
-  ProjectId get projectId;
-  KtMap<ModuleType, SurveyModule> get module;
+  SurveyId get id => throw _privateConstructorUsedError;
+  SurveyName get name => throw _privateConstructorUsedError;
+  TeamId get teamId => throw _privateConstructorUsedError;
+  ProjectId get projectId => throw _privateConstructorUsedError;
+  KtMap<ModuleType, SurveyModule> get module =>
+      throw _privateConstructorUsedError;
 
-  $SurveyCopyWith<Survey> get copyWith;
+  @JsonKey(ignore: true)
+  $SurveyCopyWith<Survey> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -67,21 +70,33 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object module = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? module = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as SurveyId,
-      name: name == freezed ? _value.name : name as SurveyName,
-      teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
-      projectId:
-          projectId == freezed ? _value.projectId : projectId as ProjectId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as SurveyName,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as TeamId,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as ProjectId,
       module: module == freezed
           ? _value.module
-          : module as KtMap<ModuleType, SurveyModule>,
+          : module // ignore: cast_nullable_to_non_nullable
+              as KtMap<ModuleType, SurveyModule>,
     ));
   }
 }
@@ -110,39 +125,47 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object module = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? module = freezed,
   }) {
     return _then(_Survey(
-      id: id == freezed ? _value.id : id as SurveyId,
-      name: name == freezed ? _value.name : name as SurveyName,
-      teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
-      projectId:
-          projectId == freezed ? _value.projectId : projectId as ProjectId,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as SurveyName,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as TeamId,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as ProjectId,
       module: module == freezed
           ? _value.module
-          : module as KtMap<ModuleType, SurveyModule>,
+          : module // ignore: cast_nullable_to_non_nullable
+              as KtMap<ModuleType, SurveyModule>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Survey extends _Survey {
   const _$_Survey(
-      {@required this.id,
-      @required this.name,
-      @required this.teamId,
-      @required this.projectId,
-      @required this.module})
-      : assert(id != null),
-        assert(name != null),
-        assert(teamId != null),
-        assert(projectId != null),
-        assert(module != null),
-        super._();
+      {required this.id,
+      required this.name,
+      required this.teamId,
+      required this.projectId,
+      required this.module})
+      : super._();
 
   @override
   final SurveyId id;
@@ -181,30 +204,33 @@ class _$_Survey extends _Survey {
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(module);
 
+  @JsonKey(ignore: true)
   @override
   _$SurveyCopyWith<_Survey> get copyWith =>
       __$SurveyCopyWithImpl<_Survey>(this, _$identity);
 }
 
 abstract class _Survey extends Survey {
-  const _Survey._() : super._();
   const factory _Survey(
-      {@required SurveyId id,
-      @required SurveyName name,
-      @required TeamId teamId,
-      @required ProjectId projectId,
-      @required KtMap<ModuleType, SurveyModule> module}) = _$_Survey;
+      {required SurveyId id,
+      required SurveyName name,
+      required TeamId teamId,
+      required ProjectId projectId,
+      required KtMap<ModuleType, SurveyModule> module}) = _$_Survey;
+  const _Survey._() : super._();
 
   @override
-  SurveyId get id;
+  SurveyId get id => throw _privateConstructorUsedError;
   @override
-  SurveyName get name;
+  SurveyName get name => throw _privateConstructorUsedError;
   @override
-  TeamId get teamId;
+  TeamId get teamId => throw _privateConstructorUsedError;
   @override
-  ProjectId get projectId;
+  ProjectId get projectId => throw _privateConstructorUsedError;
   @override
-  KtMap<ModuleType, SurveyModule> get module;
+  KtMap<ModuleType, SurveyModule> get module =>
+      throw _privateConstructorUsedError;
   @override
-  _$SurveyCopyWith<_Survey> get copyWith;
+  @JsonKey(ignore: true)
+  _$SurveyCopyWith<_Survey> get copyWith => throw _privateConstructorUsedError;
 }

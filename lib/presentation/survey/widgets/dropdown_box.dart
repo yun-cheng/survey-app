@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
@@ -12,8 +13,8 @@ class DropdownBox extends StatelessWidget {
   final Question question;
 
   const DropdownBox({
-    Key key,
-    @required this.question,
+    Key? key,
+    required this.question,
   }) : super(key: key);
 
   @override
@@ -29,12 +30,12 @@ class DropdownBox extends StatelessWidget {
       builder: (context, state) {
         final answerMap =
             state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
-        final thisAnswer = answerMap[question.id];
+        final thisAnswer = answerMap[question.id]!;
         KtList<Choice> thisChoiceList = question.choiceList;
 
         // H_ 如果是連鎖題下層要篩選選項
         if (question.upperQuestionId.isNotEmpty) {
-          final upperAnswer = answerMap[question.upperQuestionId];
+          final upperAnswer = answerMap[question.upperQuestionId]!;
           thisChoiceList = question.choiceList.filter(
               (choice) => choice.upperChoiceId == upperAnswer.value?.id);
         }
@@ -47,7 +48,7 @@ class DropdownBox extends StatelessWidget {
 
         LoggerService.simple.i('DropdownBox rebuild!!!');
 
-        return DropdownButton(
+        return DropdownButton<ChoiceId>(
           value: thisAnswer.value?.id,
           style: kPTextStyle.copyWith(
             color: Colors.black,
@@ -76,15 +77,13 @@ class DropdownBox extends StatelessWidget {
                 ),
               )
               .asList(),
-          onChanged: (value) {
-            context.read<AnswerBloc>().add(
-                  AnswerEvent.answerChangedWith(
-                    question: question,
-                    body: thisChoiceList.first((choice) => choice.id == value),
-                    // asSingle: choice.asSingle,
-                  ),
-                );
-          },
+          onChanged: (ChoiceId? value) => context.read<AnswerBloc>().add(
+                AnswerEvent.answerChangedWith(
+                  question: question,
+                  body: thisChoiceList.first((choice) => choice.id == value),
+                  // asSingle: choice.asSingle,
+                ),
+              ),
         );
       },
     );

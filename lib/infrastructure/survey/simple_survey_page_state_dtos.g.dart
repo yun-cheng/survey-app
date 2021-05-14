@@ -12,9 +12,7 @@ _$_SimpleSurveyPageStateDto _$_$_SimpleSurveyPageStateDtoFromJson(
     page: json['page'] as int,
     newestPage: json['newestPage'] as int,
     isLastPage: json['isLastPage'] as bool,
-    warning: json['warning'] == null
-        ? null
-        : WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
+    warning: WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
     showWarning: json['showWarning'] as bool,
     loadState: json['loadState'] as Map<String, dynamic>,
   );
@@ -26,7 +24,7 @@ Map<String, dynamic> _$_$_SimpleSurveyPageStateDtoToJson(
       'page': instance.page,
       'newestPage': instance.newestPage,
       'isLastPage': instance.isLastPage,
-      'warning': instance.warning?.toJson(),
+      'warning': instance.warning.toJson(),
       'showWarning': instance.showWarning,
       'loadState': instance.loadState,
     };

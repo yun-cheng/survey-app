@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'visit_record.dart';
 
@@ -9,16 +9,18 @@ part of 'visit_record.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$VisitRecordTearOff {
   const _$VisitRecordTearOff();
 
-// ignore: unused_element
   _VisitRecord call(
-      {@required RespondentId respondentId,
-      @required UniqueId responseId,
-      @required VisitTime visitTime,
-      @required String description}) {
+      {required RespondentId respondentId,
+      required UniqueId responseId,
+      required VisitTime visitTime,
+      required String description}) {
     return _VisitRecord(
       respondentId: respondentId,
       responseId: responseId,
@@ -29,17 +31,18 @@ class _$VisitRecordTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $VisitRecord = _$VisitRecordTearOff();
 
 /// @nodoc
 mixin _$VisitRecord {
-  RespondentId get respondentId;
-  UniqueId get responseId;
-  VisitTime get visitTime;
-  String get description;
+  RespondentId get respondentId => throw _privateConstructorUsedError;
+  UniqueId get responseId => throw _privateConstructorUsedError;
+  VisitTime get visitTime => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
 
-  $VisitRecordCopyWith<VisitRecord> get copyWith;
+  @JsonKey(ignore: true)
+  $VisitRecordCopyWith<VisitRecord> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -66,29 +69,33 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object responseId = freezed,
-    Object visitTime = freezed,
-    Object description = freezed,
+    Object? respondentId = freezed,
+    Object? responseId = freezed,
+    Object? visitTime = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as RespondentId,
-      responseId:
-          responseId == freezed ? _value.responseId : responseId as UniqueId,
-      visitTime:
-          visitTime == freezed ? _value.visitTime : visitTime as VisitTime,
-      description:
-          description == freezed ? _value.description : description as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+      visitTime: visitTime == freezed
+          ? _value.visitTime
+          : visitTime // ignore: cast_nullable_to_non_nullable
+              as VisitTime,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
   @override
   $VisitTimeCopyWith<$Res> get visitTime {
-    if (_value.visitTime == null) {
-      return null;
-    }
     return $VisitTimeCopyWith<$Res>(_value.visitTime, (value) {
       return _then(_value.copyWith(visitTime: value));
     });
@@ -124,37 +131,41 @@ class __$VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object responseId = freezed,
-    Object visitTime = freezed,
-    Object description = freezed,
+    Object? respondentId = freezed,
+    Object? responseId = freezed,
+    Object? visitTime = freezed,
+    Object? description = freezed,
   }) {
     return _then(_VisitRecord(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as RespondentId,
-      responseId:
-          responseId == freezed ? _value.responseId : responseId as UniqueId,
-      visitTime:
-          visitTime == freezed ? _value.visitTime : visitTime as VisitTime,
-      description:
-          description == freezed ? _value.description : description as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+      visitTime: visitTime == freezed
+          ? _value.visitTime
+          : visitTime // ignore: cast_nullable_to_non_nullable
+              as VisitTime,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_VisitRecord extends _VisitRecord {
   const _$_VisitRecord(
-      {@required this.respondentId,
-      @required this.responseId,
-      @required this.visitTime,
-      @required this.description})
-      : assert(respondentId != null),
-        assert(responseId != null),
-        assert(visitTime != null),
-        assert(description != null),
-        super._();
+      {required this.respondentId,
+      required this.responseId,
+      required this.visitTime,
+      required this.description})
+      : super._();
 
   @override
   final RespondentId respondentId;
@@ -196,27 +207,30 @@ class _$_VisitRecord extends _VisitRecord {
       const DeepCollectionEquality().hash(visitTime) ^
       const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   _$VisitRecordCopyWith<_VisitRecord> get copyWith =>
       __$VisitRecordCopyWithImpl<_VisitRecord>(this, _$identity);
 }
 
 abstract class _VisitRecord extends VisitRecord {
-  const _VisitRecord._() : super._();
   const factory _VisitRecord(
-      {@required RespondentId respondentId,
-      @required UniqueId responseId,
-      @required VisitTime visitTime,
-      @required String description}) = _$_VisitRecord;
+      {required RespondentId respondentId,
+      required UniqueId responseId,
+      required VisitTime visitTime,
+      required String description}) = _$_VisitRecord;
+  const _VisitRecord._() : super._();
 
   @override
-  RespondentId get respondentId;
+  RespondentId get respondentId => throw _privateConstructorUsedError;
   @override
-  UniqueId get responseId;
+  UniqueId get responseId => throw _privateConstructorUsedError;
   @override
-  VisitTime get visitTime;
+  VisitTime get visitTime => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  _$VisitRecordCopyWith<_VisitRecord> get copyWith;
+  @JsonKey(ignore: true)
+  _$VisitRecordCopyWith<_VisitRecord> get copyWith =>
+      throw _privateConstructorUsedError;
 }

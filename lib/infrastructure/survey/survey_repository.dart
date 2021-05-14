@@ -22,8 +22,10 @@ class SurveyRepository implements ISurveyRepository {
   SurveyRepository(this._firestore);
 
   @override
-  Stream<Either<SurveyFailure, KtList<Survey>>> watchSurveyList(
-      {TeamId teamId, InterviewerId interviewerId}) async* {
+  Stream<Either<SurveyFailure, KtList<Survey>>> watchSurveyList({
+    required TeamId teamId,
+    required InterviewerId interviewerId,
+  }) async* {
     final surveyCollection = _firestore.surveyCollection;
 
     yield* surveyCollection
@@ -32,7 +34,7 @@ class SurveyRepository implements ISurveyRepository {
         .snapshots()
         .map((snapshot) => right<SurveyFailure, KtList<Survey>>(
             SurveyListDto.fromFirestore(snapshot).toDomain()))
-        .onErrorReturnWith((e) {
+        .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const SurveyFailure.insufficientPermission());
       } else {
@@ -43,8 +45,10 @@ class SurveyRepository implements ISurveyRepository {
   }
 
   @override
-  Stream<Either<SurveyFailure, KtList<Reference>>> watchReferenceList(
-      {TeamId teamId, InterviewerId interviewerId}) async* {
+  Stream<Either<SurveyFailure, KtList<Reference>>> watchReferenceList({
+    required TeamId teamId,
+    required InterviewerId interviewerId,
+  }) async* {
     final referenceCollection = _firestore.referenceCollection;
 
     yield* referenceCollection
@@ -53,7 +57,7 @@ class SurveyRepository implements ISurveyRepository {
         .snapshots()
         .map((snapshot) => right<SurveyFailure, KtList<Reference>>(
             ReferenceListDto.fromFirestore(snapshot).toDomain()))
-        .onErrorReturnWith((e) {
+        .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const SurveyFailure.insufficientPermission());
       } else {
@@ -63,8 +67,10 @@ class SurveyRepository implements ISurveyRepository {
   }
 
   @override
-  Stream<Either<SurveyFailure, KtList<Response>>> watchResponseList(
-      {TeamId teamId, InterviewerId interviewerId}) async* {
+  Stream<Either<SurveyFailure, KtList<Response>>> watchResponseList({
+    required TeamId teamId,
+    required InterviewerId interviewerId,
+  }) async* {
     final responseCollection = _firestore.responseCollection;
 
     yield* responseCollection
@@ -74,7 +80,7 @@ class SurveyRepository implements ISurveyRepository {
         .snapshots()
         .map((snapshot) => right<SurveyFailure, KtList<Response>>(
             ResponseListDto.fromFirestore(snapshot).toDomain()))
-        .onErrorReturnWith((e) {
+        .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const SurveyFailure.insufficientPermission());
       } else {
@@ -84,8 +90,9 @@ class SurveyRepository implements ISurveyRepository {
   }
 
   @override
-  Future<Either<SurveyFailure, Unit>> uploadResponseList(
-      {KtList<Response> responseList}) async {
+  Future<Either<SurveyFailure, Unit>> uploadResponseList({
+    required KtList<Response> responseList,
+  }) async {
     try {
       final responseCollection = _firestore.responseCollection;
 
@@ -99,8 +106,8 @@ class SurveyRepository implements ISurveyRepository {
       await batch.commit();
 
       return right(unit);
-    } on FirebaseException catch (e) {
-      if (e.code == 'permission-denied') {
+    } catch (e) {
+      if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const SurveyFailure.insufficientPermission());
       } else {
         return left(const SurveyFailure.unexpected());

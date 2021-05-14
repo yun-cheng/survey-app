@@ -7,7 +7,7 @@ import 'sign_in_validator.dart';
 
 class AccountBox extends StatelessWidget {
   const AccountBox({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

@@ -7,7 +7,7 @@ import 'sign_in_validator.dart';
 
 class PasswordBox extends StatelessWidget {
   const PasswordBox({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

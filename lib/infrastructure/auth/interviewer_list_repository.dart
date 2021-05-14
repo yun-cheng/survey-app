@@ -8,7 +8,7 @@
 //import 'dart:convert';
 //
 //@LazySingleton(as: IInterviewerListRepository)
-//class InterviewerListRepository implements IInterviewerListRepository {
+//class InterviewerListRepository with IInterviewerListRepository {
 //  InterviewerListRepository();
 //
 //  @override

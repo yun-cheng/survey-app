@@ -8,11 +8,11 @@
 // part 'project_list_dtos.g.dart';
 
 // @freezed
-// abstract class ProjectListDto implements _$ProjectListDto {
+// abstract class ProjectListDto with _$ProjectListDto {
 //   const ProjectListDto._();
 
 //   const factory ProjectListDto({
-//     @required List<ProjectDto> list,
+//     required List<ProjectDto> list,
 //   }) = _ProjectListDto;
 
 //   factory ProjectListDto.fromDomain(KtList<Project> projectList) {
@@ -35,13 +35,13 @@
 // }
 
 // @freezed
-// abstract class ProjectDto implements _$ProjectDto {
+// abstract class ProjectDto with _$ProjectDto {
 //   const ProjectDto._();
 
 //   const factory ProjectDto({
 //     // TODO 是否改為 id, name?
-//     @required String projectId,
-//     @required String projectName,
+//     required String projectId,
+//     required String projectName,
 //   }) = _ProjectDto;
 
 //   factory ProjectDto.fromDomain(Project project) {

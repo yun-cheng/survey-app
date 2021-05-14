@@ -12,19 +12,19 @@ part 'answer_state_dtos.freezed.dart';
 part 'answer_state_dtos.g.dart';
 
 @freezed
-abstract class AnswerStateDto implements _$AnswerStateDto {
+class AnswerStateDto with _$AnswerStateDto {
   const AnswerStateDto._();
 
   const factory AnswerStateDto({
-    @required Map<String, AnswerDto> answerMap,
-    @required Map<String, AnswerStatusDto> answerStatusMap,
-    @required List<QuestionDto> questionList,
-    @required QuestionDto question,
-    @required bool isReadOnly,
-    @required bool isRecodeModule,
-    @required Map<String, AnswerDto> mainAnswerMap,
-    @required Map<String, AnswerStatusDto> mainAnswerStatusMap,
-    @required Map<String, dynamic> loadState,
+    required Map<String, AnswerDto> answerMap,
+    required Map<String, AnswerStatusDto> answerStatusMap,
+    required List<QuestionDto> questionList,
+    required QuestionDto question,
+    required bool isReadOnly,
+    required bool isRecodeModule,
+    required Map<String, AnswerDto> mainAnswerMap,
+    required Map<String, AnswerStatusDto> mainAnswerStatusMap,
+    required Map<String, dynamic> loadState,
   }) = _AnswerStateDto;
 
   factory AnswerStateDto.fromDomain(AnswerState domain) {

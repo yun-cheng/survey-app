@@ -33,23 +33,23 @@ class SplashPage extends StatelessWidget {
                   const NavigationEvent.pagePushed(),
                 );
 
-            context.navigator.push(Routes.signInPage);
+            context.pushRoute(const SignInRoute());
             if (state.page is NavSignInPage) {
               return;
             }
 
-            context.navigator.push(Routes.overviewPage);
+            context.pushRoute(const OverviewRoute());
             if (state.page is NavOverviewPage) {
               return;
             }
 
-            context.navigator.push(Routes.respondentsPage);
+            context.pushRoute(const RespondentsRoute());
             if (state.page is NavRespondentsPage) {
               return;
             }
 
-            context.navigator
-                .push('/respondent/${state.respondentId.getOrCrash()}');
+            context.router
+                .pushNamed('/respondent/${state.respondentId.getOrCrash()}');
           },
         ),
         // H_2 監聽 Firestore
@@ -164,7 +164,7 @@ class SplashPage extends StatelessWidget {
                       answerStatusMap: state.response.answerStatusMap,
                       isRecodeModule: state.moduleType == ModuleType.recode(),
                       mainQuestionList:
-                          state.survey.module[ModuleType.main()].questionList,
+                          state.survey.module[ModuleType.main()]!.questionList,
                       respondent: state.respondent,
                     ),
                   );

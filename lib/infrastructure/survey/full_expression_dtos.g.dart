@@ -9,9 +9,8 @@ part of 'full_expression_dtos.dart';
 _$_FullExpressionDto _$_$_FullExpressionDtoFromJson(Map<String, dynamic> json) {
   return _$_FullExpressionDto(
     fullExpressionBody: json['fullExpressionBody'] as String,
-    expressionMap: (json['expressionMap'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(k,
-          e == null ? null : ExpressionDto.fromJson(e as Map<String, dynamic>)),
+    expressionMap: (json['expressionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, ExpressionDto.fromJson(e as Map<String, dynamic>)),
     ),
   );
 }
@@ -21,16 +20,15 @@ Map<String, dynamic> _$_$_FullExpressionDtoToJson(
     <String, dynamic>{
       'fullExpressionBody': instance.fullExpressionBody,
       'expressionMap':
-          instance.expressionMap?.map((k, e) => MapEntry(k, e?.toJson())),
+          instance.expressionMap.map((k, e) => MapEntry(k, e.toJson())),
     };
 
 _$_ExpressionDto _$_$_ExpressionDtoFromJson(Map<String, dynamic> json) {
   return _$_ExpressionDto(
     field: json['field'] as String,
     operator: json['operator'] as String,
-    comparisonValue: json['comparisonValue'] == null
-        ? null
-        : AnswerDto.fromJson(json['comparisonValue'] as Map<String, dynamic>),
+    comparisonValue:
+        AnswerDto.fromJson(json['comparisonValue'] as Map<String, dynamic>),
   );
 }
 
@@ -38,5 +36,5 @@ Map<String, dynamic> _$_$_ExpressionDtoToJson(_$_ExpressionDto instance) =>
     <String, dynamic>{
       'field': instance.field,
       'operator': instance.operator,
-      'comparisonValue': instance.comparisonValue?.toJson(),
+      'comparisonValue': instance.comparisonValue.toJson(),
     };

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'project.dart';
 
@@ -9,12 +9,14 @@ part of 'project.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ProjectTearOff {
   const _$ProjectTearOff();
 
-// ignore: unused_element
-  _Project call({@required ProjectId id, @required ProjectName name}) {
+  _Project call({required ProjectId id, required ProjectName name}) {
     return _Project(
       id: id,
       name: name,
@@ -23,15 +25,15 @@ class _$ProjectTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Project = _$ProjectTearOff();
 
 /// @nodoc
 mixin _$Project {
-  ProjectId get id;
-  ProjectName get name;
+  ProjectId get id => throw _privateConstructorUsedError;
+  ProjectName get name => throw _privateConstructorUsedError;
 
-  $ProjectCopyWith<Project> get copyWith;
+  @JsonKey(ignore: true)
+  $ProjectCopyWith<Project> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,12 +53,18 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as ProjectId,
-      name: name == freezed ? _value.name : name as ProjectName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as ProjectId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as ProjectName,
     ));
   }
 }
@@ -80,22 +88,26 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Project(
-      id: id == freezed ? _value.id : id as ProjectId,
-      name: name == freezed ? _value.name : name as ProjectName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as ProjectId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as ProjectName,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Project extends _Project {
-  const _$_Project({@required this.id, @required this.name})
-      : assert(id != null),
-        assert(name != null),
-        super._();
+  const _$_Project({required this.id, required this.name}) : super._();
 
   @override
   final ProjectId id;
@@ -123,20 +135,23 @@ class _$_Project extends _Project {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name);
 
+  @JsonKey(ignore: true)
   @override
   _$ProjectCopyWith<_Project> get copyWith =>
       __$ProjectCopyWithImpl<_Project>(this, _$identity);
 }
 
 abstract class _Project extends Project {
-  const _Project._() : super._();
-  const factory _Project({@required ProjectId id, @required ProjectName name}) =
+  const factory _Project({required ProjectId id, required ProjectName name}) =
       _$_Project;
+  const _Project._() : super._();
 
   @override
-  ProjectId get id;
+  ProjectId get id => throw _privateConstructorUsedError;
   @override
-  ProjectName get name;
+  ProjectName get name => throw _privateConstructorUsedError;
   @override
-  _$ProjectCopyWith<_Project> get copyWith;
+  @JsonKey(ignore: true)
+  _$ProjectCopyWith<_Project> get copyWith =>
+      throw _privateConstructorUsedError;
 }

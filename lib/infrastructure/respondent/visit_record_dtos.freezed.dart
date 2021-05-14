@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'visit_record_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'visit_record_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 VisitRecordDto _$VisitRecordDtoFromJson(Map<String, dynamic> json) {
   return _VisitRecordDto.fromJson(json);
 }
@@ -16,12 +20,11 @@ VisitRecordDto _$VisitRecordDtoFromJson(Map<String, dynamic> json) {
 class _$VisitRecordDtoTearOff {
   const _$VisitRecordDtoTearOff();
 
-// ignore: unused_element
   _VisitRecordDto call(
-      {@required String respondentId,
-      @required String responseId,
-      @required VisitTimeDto visitTime,
-      @required String description}) {
+      {required String respondentId,
+      required String responseId,
+      required VisitTimeDto visitTime,
+      required String description}) {
     return _VisitRecordDto(
       respondentId: respondentId,
       responseId: responseId,
@@ -30,25 +33,25 @@ class _$VisitRecordDtoTearOff {
     );
   }
 
-// ignore: unused_element
   VisitRecordDto fromJson(Map<String, Object> json) {
     return VisitRecordDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $VisitRecordDto = _$VisitRecordDtoTearOff();
 
 /// @nodoc
 mixin _$VisitRecordDto {
-  String get respondentId;
-  String get responseId;
-  VisitTimeDto get visitTime;
-  String get description;
+  String get respondentId => throw _privateConstructorUsedError;
+  String get responseId => throw _privateConstructorUsedError;
+  VisitTimeDto get visitTime => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $VisitRecordDtoCopyWith<VisitRecordDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $VisitRecordDtoCopyWith<VisitRecordDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -76,29 +79,33 @@ class _$VisitRecordDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object responseId = freezed,
-    Object visitTime = freezed,
-    Object description = freezed,
+    Object? respondentId = freezed,
+    Object? responseId = freezed,
+    Object? visitTime = freezed,
+    Object? description = freezed,
   }) {
     return _then(_value.copyWith(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      responseId:
-          responseId == freezed ? _value.responseId : responseId as String,
-      visitTime:
-          visitTime == freezed ? _value.visitTime : visitTime as VisitTimeDto,
-      description:
-          description == freezed ? _value.description : description as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String,
+      visitTime: visitTime == freezed
+          ? _value.visitTime
+          : visitTime // ignore: cast_nullable_to_non_nullable
+              as VisitTimeDto,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 
   @override
   $VisitTimeDtoCopyWith<$Res> get visitTime {
-    if (_value.visitTime == null) {
-      return null;
-    }
     return $VisitTimeDtoCopyWith<$Res>(_value.visitTime, (value) {
       return _then(_value.copyWith(visitTime: value));
     });
@@ -135,39 +142,41 @@ class __$VisitRecordDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentId = freezed,
-    Object responseId = freezed,
-    Object visitTime = freezed,
-    Object description = freezed,
+    Object? respondentId = freezed,
+    Object? responseId = freezed,
+    Object? visitTime = freezed,
+    Object? description = freezed,
   }) {
     return _then(_VisitRecordDto(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      responseId:
-          responseId == freezed ? _value.responseId : responseId as String,
-      visitTime:
-          visitTime == freezed ? _value.visitTime : visitTime as VisitTimeDto,
-      description:
-          description == freezed ? _value.description : description as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String,
+      visitTime: visitTime == freezed
+          ? _value.visitTime
+          : visitTime // ignore: cast_nullable_to_non_nullable
+              as VisitTimeDto,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_VisitRecordDto extends _VisitRecordDto {
   const _$_VisitRecordDto(
-      {@required this.respondentId,
-      @required this.responseId,
-      @required this.visitTime,
-      @required this.description})
-      : assert(respondentId != null),
-        assert(responseId != null),
-        assert(visitTime != null),
-        assert(description != null),
-        super._();
+      {required this.respondentId,
+      required this.responseId,
+      required this.visitTime,
+      required this.description})
+      : super._();
 
   factory _$_VisitRecordDto.fromJson(Map<String, dynamic> json) =>
       _$_$_VisitRecordDtoFromJson(json);
@@ -212,6 +221,7 @@ class _$_VisitRecordDto extends _VisitRecordDto {
       const DeepCollectionEquality().hash(visitTime) ^
       const DeepCollectionEquality().hash(description);
 
+  @JsonKey(ignore: true)
   @override
   _$VisitRecordDtoCopyWith<_VisitRecordDto> get copyWith =>
       __$VisitRecordDtoCopyWithImpl<_VisitRecordDto>(this, _$identity);
@@ -223,24 +233,26 @@ class _$_VisitRecordDto extends _VisitRecordDto {
 }
 
 abstract class _VisitRecordDto extends VisitRecordDto {
-  const _VisitRecordDto._() : super._();
   const factory _VisitRecordDto(
-      {@required String respondentId,
-      @required String responseId,
-      @required VisitTimeDto visitTime,
-      @required String description}) = _$_VisitRecordDto;
+      {required String respondentId,
+      required String responseId,
+      required VisitTimeDto visitTime,
+      required String description}) = _$_VisitRecordDto;
+  const _VisitRecordDto._() : super._();
 
   factory _VisitRecordDto.fromJson(Map<String, dynamic> json) =
       _$_VisitRecordDto.fromJson;
 
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  String get responseId;
+  String get responseId => throw _privateConstructorUsedError;
   @override
-  VisitTimeDto get visitTime;
+  VisitTimeDto get visitTime => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
-  _$VisitRecordDtoCopyWith<_VisitRecordDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$VisitRecordDtoCopyWith<_VisitRecordDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -11,11 +11,11 @@ part 'respondent_list_dtos.freezed.dart';
 part 'respondent_list_dtos.g.dart';
 
 @freezed
-abstract class RespondentListListDto implements _$RespondentListListDto {
+class RespondentListListDto with _$RespondentListListDto {
   const RespondentListListDto._();
 
   const factory RespondentListListDto({
-    @required List<RespondentListDto> list,
+    required List<RespondentListDto> list,
   }) = _RespondentListListDto;
 
   factory RespondentListListDto.fromDomain(
@@ -41,15 +41,15 @@ abstract class RespondentListListDto implements _$RespondentListListDto {
 }
 
 @freezed
-abstract class RespondentListDto implements _$RespondentListDto {
+class RespondentListDto with _$RespondentListDto {
   const RespondentListDto._();
 
   const factory RespondentListDto({
-    @required String surveyId,
-    @required String interviewerId,
-    @required String teamId,
-    @required String projectId,
-    @required List<RespondentDto> list,
+    required String surveyId,
+    required String interviewerId,
+    required String teamId,
+    required String projectId,
+    required List<RespondentDto> list,
   }) = _RespondentListDto;
 
   factory RespondentListDto.fromDomain(RespondentList domain) {

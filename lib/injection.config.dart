@@ -4,73 +4,49 @@
 // InjectableConfigGenerator
 // **************************************************************************
 
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get_it/get_it.dart';
-import 'package:injectable/injectable.dart';
+import 'package:cloud_firestore/cloud_firestore.dart' as _i3;
+import 'package:get_it/get_it.dart' as _i1;
+import 'package:injectable/injectable.dart' as _i2;
 
-import 'infrastructure/survey/answer_algorithm.dart';
-import 'application/survey/answer/answer_bloc.dart';
-import 'infrastructure/survey/answer_status_algorithm.dart';
-import 'application/auth/auth_bloc.dart';
-import 'infrastructure/core/firebase_injectable_module.dart';
-import 'domain/survey/i_answer_algorithm.dart';
-import 'domain/survey/i_answer_status_algorithm.dart';
-import 'domain/auth/i_auth_facade.dart';
-import 'domain/overview/i_overview_repository.dart';
-import 'domain/quiz_list/i_quiz_list_repository.dart';
-import 'domain/quiz/i_quiz_repository.dart';
-import 'domain/respondent/i_respondent_repository.dart';
-import 'domain/survey/i_survey_repository.dart';
-import 'infrastructure/auth/manual_auth_facade.dart';
-import 'infrastructure/overview/overview_repository.dart';
-import 'application/quiz/question/question_bloc.dart';
-import 'application/quiz/question_list/question_list_bloc.dart';
-import 'application/quiz/question_page/question_page_bloc.dart';
-import 'application/quiz_list/quiz_list_bloc.dart';
-import 'infrastructure/quiz_list/quiz_list_repository.dart';
-import 'infrastructure/quiz/quiz_repository.dart';
-import 'infrastructure/respondent/respondent_repository.dart';
-import 'application/survey/survey_page/survey_page_bloc.dart';
-import 'infrastructure/survey/survey_repository.dart';
+import 'application/auth/auth_bloc.dart' as _i16;
+import 'application/survey/answer/answer_bloc.dart' as _i15;
+import 'application/survey/survey_page/survey_page_bloc.dart' as _i14;
+import 'domain/auth/i_auth_facade.dart' as _i8;
+import 'domain/respondent/i_respondent_repository.dart' as _i10;
+import 'domain/survey/i_answer_algorithm.dart' as _i4;
+import 'domain/survey/i_answer_status_algorithm.dart' as _i6;
+import 'domain/survey/i_survey_repository.dart' as _i12;
+import 'infrastructure/auth/manual_auth_facade.dart' as _i9;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i17;
+import 'infrastructure/respondent/respondent_repository.dart' as _i11;
+import 'infrastructure/survey/answer_algorithm.dart' as _i5;
+import 'infrastructure/survey/answer_status_algorithm.dart' as _i7;
+import 'infrastructure/survey/survey_repository.dart'
+    as _i13; // ignore_for_file: unnecessary_lambdas
 
-/// adds generated dependencies
-/// to the provided [GetIt] instance
-
-GetIt $initGetIt(
-  GetIt get, {
-  String environment,
-  EnvironmentFilter environmentFilter,
-}) {
-  final gh = GetItHelper(get, environment, environmentFilter);
+// ignore_for_file: lines_longer_than_80_chars
+/// initializes the registration of provided dependencies inside of [GetIt]
+_i1.GetIt $initGetIt(_i1.GetIt get,
+    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
+  final gh = _i2.GetItHelper(get, environment, environmentFilter);
   final firebaseInjectableModule = _$FirebaseInjectableModule();
-  gh.lazySingleton<FirebaseFirestore>(() => firebaseInjectableModule.firestore);
-  gh.lazySingleton<IAnswerAlgorithm>(() => AnswerAlgorithm());
-  gh.lazySingleton<IAnswerStatusAlgorithm>(() => AnswerStatusAlgorithm());
-  gh.lazySingleton<IAuthFacade>(
-      () => ManualAuthFacade(get<FirebaseFirestore>()));
-  gh.lazySingleton<IOverviewRepository>(
-      () => OverviewRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IQuizListRepository>(
-      () => QuizListRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IQuizRepository>(
-      () => QuizRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<IRespondentRepository>(
-      () => RespondentRepository(get<FirebaseFirestore>()));
-  gh.lazySingleton<ISurveyRepository>(
-      () => SurveyRepository(get<FirebaseFirestore>()));
-  gh.factory<QuestionListBloc>(() => QuestionListBloc(get<IQuizRepository>()));
-  gh.factory<QuestionPageBloc>(() => QuestionPageBloc(get<QuestionListBloc>()));
-  gh.factory<QuizListBloc>(() => QuizListBloc(get<IQuizListRepository>()));
-  gh.factory<SurveyPageBloc>(() => SurveyPageBloc(get<ISurveyRepository>()));
-  gh.factory<AnswerBloc>(
-      () => AnswerBloc(get<IAnswerAlgorithm>(), get<IAnswerStatusAlgorithm>()));
-  gh.factory<AuthBloc>(() => AuthBloc(get<IAuthFacade>()));
-  gh.factory<QuestionBloc>(() => QuestionBloc(
-        get<IQuizRepository>(),
-        get<QuestionListBloc>(),
-        get<QuestionPageBloc>(),
-      ));
+  gh.lazySingleton<_i3.FirebaseFirestore>(
+      () => firebaseInjectableModule.firestore);
+  gh.lazySingleton<_i4.IAnswerAlgorithm>(() => _i5.AnswerAlgorithm());
+  gh.lazySingleton<_i6.IAnswerStatusAlgorithm>(
+      () => _i7.AnswerStatusAlgorithm());
+  gh.lazySingleton<_i8.IAuthFacade>(
+      () => _i9.ManualAuthFacade(get<_i3.FirebaseFirestore>()));
+  gh.lazySingleton<_i10.IRespondentRepository>(
+      () => _i11.RespondentRepository(get<_i3.FirebaseFirestore>()));
+  gh.lazySingleton<_i12.ISurveyRepository>(
+      () => _i13.SurveyRepository(get<_i3.FirebaseFirestore>()));
+  gh.factory<_i14.SurveyPageBloc>(
+      () => _i14.SurveyPageBloc(get<_i12.ISurveyRepository>()));
+  gh.factory<_i15.AnswerBloc>(() => _i15.AnswerBloc(
+      get<_i4.IAnswerAlgorithm>(), get<_i6.IAnswerStatusAlgorithm>()));
+  gh.factory<_i16.AuthBloc>(() => _i16.AuthBloc(get<_i8.IAuthFacade>()));
   return get;
 }
 
-class _$FirebaseInjectableModule extends FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i17.FirebaseInjectableModule {}

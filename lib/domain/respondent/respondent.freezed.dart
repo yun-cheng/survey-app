@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'respondent.dart';
 
@@ -9,16 +9,18 @@ part of 'respondent.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$RespondentTearOff {
   const _$RespondentTearOff();
 
-// ignore: unused_element
   _Respondent call(
-      {@required RespondentId id,
-      @required CountyTown countyTown,
-      @required Village village,
-      @required RemainAddress remainAddress}) {
+      {required RespondentId id,
+      required CountyTown countyTown,
+      required Village village,
+      required RemainAddress remainAddress}) {
     return _Respondent(
       id: id,
       countyTown: countyTown,
@@ -29,17 +31,18 @@ class _$RespondentTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Respondent = _$RespondentTearOff();
 
 /// @nodoc
 mixin _$Respondent {
-  RespondentId get id;
-  CountyTown get countyTown;
-  Village get village;
-  RemainAddress get remainAddress;
+  RespondentId get id => throw _privateConstructorUsedError;
+  CountyTown get countyTown => throw _privateConstructorUsedError;
+  Village get village => throw _privateConstructorUsedError;
+  RemainAddress get remainAddress => throw _privateConstructorUsedError;
 
-  $RespondentCopyWith<Respondent> get copyWith;
+  @JsonKey(ignore: true)
+  $RespondentCopyWith<Respondent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -64,19 +67,28 @@ class _$RespondentCopyWithImpl<$Res> implements $RespondentCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object countyTown = freezed,
-    Object village = freezed,
-    Object remainAddress = freezed,
+    Object? id = freezed,
+    Object? countyTown = freezed,
+    Object? village = freezed,
+    Object? remainAddress = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as RespondentId,
-      countyTown:
-          countyTown == freezed ? _value.countyTown : countyTown as CountyTown,
-      village: village == freezed ? _value.village : village as Village,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
+      countyTown: countyTown == freezed
+          ? _value.countyTown
+          : countyTown // ignore: cast_nullable_to_non_nullable
+              as CountyTown,
+      village: village == freezed
+          ? _value.village
+          : village // ignore: cast_nullable_to_non_nullable
+              as Village,
       remainAddress: remainAddress == freezed
           ? _value.remainAddress
-          : remainAddress as RemainAddress,
+          : remainAddress // ignore: cast_nullable_to_non_nullable
+              as RemainAddress,
     ));
   }
 }
@@ -106,35 +118,41 @@ class __$RespondentCopyWithImpl<$Res> extends _$RespondentCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object countyTown = freezed,
-    Object village = freezed,
-    Object remainAddress = freezed,
+    Object? id = freezed,
+    Object? countyTown = freezed,
+    Object? village = freezed,
+    Object? remainAddress = freezed,
   }) {
     return _then(_Respondent(
-      id: id == freezed ? _value.id : id as RespondentId,
-      countyTown:
-          countyTown == freezed ? _value.countyTown : countyTown as CountyTown,
-      village: village == freezed ? _value.village : village as Village,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
+      countyTown: countyTown == freezed
+          ? _value.countyTown
+          : countyTown // ignore: cast_nullable_to_non_nullable
+              as CountyTown,
+      village: village == freezed
+          ? _value.village
+          : village // ignore: cast_nullable_to_non_nullable
+              as Village,
       remainAddress: remainAddress == freezed
           ? _value.remainAddress
-          : remainAddress as RemainAddress,
+          : remainAddress // ignore: cast_nullable_to_non_nullable
+              as RemainAddress,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Respondent extends _Respondent {
   const _$_Respondent(
-      {@required this.id,
-      @required this.countyTown,
-      @required this.village,
-      @required this.remainAddress})
-      : assert(id != null),
-        assert(countyTown != null),
-        assert(village != null),
-        assert(remainAddress != null),
-        super._();
+      {required this.id,
+      required this.countyTown,
+      required this.village,
+      required this.remainAddress})
+      : super._();
 
   @override
   final RespondentId id;
@@ -175,27 +193,30 @@ class _$_Respondent extends _Respondent {
       const DeepCollectionEquality().hash(village) ^
       const DeepCollectionEquality().hash(remainAddress);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentCopyWith<_Respondent> get copyWith =>
       __$RespondentCopyWithImpl<_Respondent>(this, _$identity);
 }
 
 abstract class _Respondent extends Respondent {
-  const _Respondent._() : super._();
   const factory _Respondent(
-      {@required RespondentId id,
-      @required CountyTown countyTown,
-      @required Village village,
-      @required RemainAddress remainAddress}) = _$_Respondent;
+      {required RespondentId id,
+      required CountyTown countyTown,
+      required Village village,
+      required RemainAddress remainAddress}) = _$_Respondent;
+  const _Respondent._() : super._();
 
   @override
-  RespondentId get id;
+  RespondentId get id => throw _privateConstructorUsedError;
   @override
-  CountyTown get countyTown;
+  CountyTown get countyTown => throw _privateConstructorUsedError;
   @override
-  Village get village;
+  Village get village => throw _privateConstructorUsedError;
   @override
-  RemainAddress get remainAddress;
+  RemainAddress get remainAddress => throw _privateConstructorUsedError;
   @override
-  _$RespondentCopyWith<_Respondent> get copyWith;
+  @JsonKey(ignore: true)
+  _$RespondentCopyWith<_Respondent> get copyWith =>
+      throw _privateConstructorUsedError;
 }

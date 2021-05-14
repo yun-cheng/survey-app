@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'warning_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'warning_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 WarningDto _$WarningDtoFromJson(Map<String, dynamic> json) {
   return _WarningDto.fromJson(json);
 }
@@ -16,12 +20,11 @@ WarningDto _$WarningDtoFromJson(Map<String, dynamic> json) {
 class _$WarningDtoTearOff {
   const _$WarningDtoTearOff();
 
-// ignore: unused_element
   _WarningDto call(
-      {@required String questionId,
-      @required int serialNumber,
-      @required int pageNumber,
-      @required String warningType}) {
+      {required String questionId,
+      required int serialNumber,
+      required int pageNumber,
+      required String warningType}) {
     return _WarningDto(
       questionId: questionId,
       serialNumber: serialNumber,
@@ -30,25 +33,25 @@ class _$WarningDtoTearOff {
     );
   }
 
-// ignore: unused_element
   WarningDto fromJson(Map<String, Object> json) {
     return WarningDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $WarningDto = _$WarningDtoTearOff();
 
 /// @nodoc
 mixin _$WarningDto {
-  String get questionId;
-  int get serialNumber;
-  int get pageNumber;
-  String get warningType;
+  String get questionId => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
+  int get pageNumber => throw _privateConstructorUsedError;
+  String get warningType => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $WarningDtoCopyWith<WarningDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $WarningDtoCopyWith<WarningDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -73,19 +76,28 @@ class _$WarningDtoCopyWithImpl<$Res> implements $WarningDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object questionId = freezed,
-    Object serialNumber = freezed,
-    Object pageNumber = freezed,
-    Object warningType = freezed,
+    Object? questionId = freezed,
+    Object? serialNumber = freezed,
+    Object? pageNumber = freezed,
+    Object? warningType = freezed,
   }) {
     return _then(_value.copyWith(
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
-      serialNumber:
-          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      pageNumber: pageNumber == freezed ? _value.pageNumber : pageNumber as int,
-      warningType:
-          warningType == freezed ? _value.warningType : warningType as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      warningType: warningType == freezed
+          ? _value.warningType
+          : warningType // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -115,37 +127,41 @@ class __$WarningDtoCopyWithImpl<$Res> extends _$WarningDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object questionId = freezed,
-    Object serialNumber = freezed,
-    Object pageNumber = freezed,
-    Object warningType = freezed,
+    Object? questionId = freezed,
+    Object? serialNumber = freezed,
+    Object? pageNumber = freezed,
+    Object? warningType = freezed,
   }) {
     return _then(_WarningDto(
-      questionId:
-          questionId == freezed ? _value.questionId : questionId as String,
-      serialNumber:
-          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      pageNumber: pageNumber == freezed ? _value.pageNumber : pageNumber as int,
-      warningType:
-          warningType == freezed ? _value.warningType : warningType as String,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      pageNumber: pageNumber == freezed
+          ? _value.pageNumber
+          : pageNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      warningType: warningType == freezed
+          ? _value.warningType
+          : warningType // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_WarningDto extends _WarningDto {
   const _$_WarningDto(
-      {@required this.questionId,
-      @required this.serialNumber,
-      @required this.pageNumber,
-      @required this.warningType})
-      : assert(questionId != null),
-        assert(serialNumber != null),
-        assert(pageNumber != null),
-        assert(warningType != null),
-        super._();
+      {required this.questionId,
+      required this.serialNumber,
+      required this.pageNumber,
+      required this.warningType})
+      : super._();
 
   factory _$_WarningDto.fromJson(Map<String, dynamic> json) =>
       _$_$_WarningDtoFromJson(json);
@@ -190,6 +206,7 @@ class _$_WarningDto extends _WarningDto {
       const DeepCollectionEquality().hash(pageNumber) ^
       const DeepCollectionEquality().hash(warningType);
 
+  @JsonKey(ignore: true)
   @override
   _$WarningDtoCopyWith<_WarningDto> get copyWith =>
       __$WarningDtoCopyWithImpl<_WarningDto>(this, _$identity);
@@ -201,24 +218,26 @@ class _$_WarningDto extends _WarningDto {
 }
 
 abstract class _WarningDto extends WarningDto {
-  const _WarningDto._() : super._();
   const factory _WarningDto(
-      {@required String questionId,
-      @required int serialNumber,
-      @required int pageNumber,
-      @required String warningType}) = _$_WarningDto;
+      {required String questionId,
+      required int serialNumber,
+      required int pageNumber,
+      required String warningType}) = _$_WarningDto;
+  const _WarningDto._() : super._();
 
   factory _WarningDto.fromJson(Map<String, dynamic> json) =
       _$_WarningDto.fromJson;
 
   @override
-  String get questionId;
+  String get questionId => throw _privateConstructorUsedError;
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  int get pageNumber;
+  int get pageNumber => throw _privateConstructorUsedError;
   @override
-  String get warningType;
+  String get warningType => throw _privateConstructorUsedError;
   @override
-  _$WarningDtoCopyWith<_WarningDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$WarningDtoCopyWith<_WarningDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

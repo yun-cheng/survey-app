@@ -26,7 +26,7 @@ part 'respondent_state.dart';
 
 class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
   final IRespondentRepository _respondentRepository;
-  StreamSubscription<Either<RespondentFailure, KtList<RespondentList>>>
+  StreamSubscription<Either<RespondentFailure, KtList<RespondentList>>>?
       _respondentListListSubscription;
 
   RespondentBloc(this._respondentRepository) : super(RespondentState.initial());
@@ -104,18 +104,23 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
             .groupBy((r) => KtPair(r.respondentId, r.ticketId))
             .mapValues((r) => r.value.getOrNull(0))
             .toList()
-            .map((p) => p.second)
+            .map((p) => p.second!)
             .map(
               (r) => VisitRecord(
                 respondentId: r.respondentId,
                 responseId: r.responseId,
                 visitTime: VisitTime(
                   date: DateTimeX.fromDateTimeString(
-                    r.answerMap.get(QuestionId('V1')).value,
-                  ),
-                  timeSession: r.answerMap.get(QuestionId('V2'))?.stringBody,
+                    r.answerMap.get(QuestionId('V1'))!.value,
+                  )!,
+                  timeSession: r.answerMap
+                          .get(QuestionId('V2'))!
+                          .choiceValue
+                          ?.id
+                          .getValueAnyway() ??
+                      '',
                 ),
-                description: r.answerMap.get(QuestionId('V3'))?.stringBody,
+                description: r.answerMap.get(QuestionId('V3'))!.stringBody,
               ),
             )
             .sortedByDescending((v) => v.visitTime.toInt())
@@ -136,7 +141,7 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
   }
 
   @override
-  RespondentState fromJson(Map<String, dynamic> json) {
+  RespondentState? fromJson(Map<String, dynamic> json) {
     try {
       return RespondentStateDto.fromJson(json).toDomain();
     } catch (_) {
@@ -145,7 +150,7 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
   }
 
   @override
-  Map<String, dynamic> toJson(RespondentState state) {
+  Map<String, dynamic>? toJson(RespondentState state) {
     // try {
     if (state.respondentListListState is LoadSuccess) {
       return RespondentStateDto.fromDomain(state).toJson();

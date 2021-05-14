@@ -117,7 +117,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
   }
 
   @override
-  AnswerState fromJson(Map<String, dynamic> json) {
+  AnswerState? fromJson(Map<String, dynamic> json) {
     try {
       return AnswerStateDto.fromJson(json).toDomain();
     } catch (_) {
@@ -126,7 +126,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
   }
 
   @override
-  Map<String, dynamic> toJson(AnswerState state) {
+  Map<String, dynamic>? toJson(AnswerState state) {
     // try {
     if (state.answerMap.isNotEmpty()) {
       return AnswerStateDto.fromDomain(state).toJson();

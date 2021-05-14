@@ -8,13 +8,13 @@ part 'reference_key_dtos.freezed.dart';
 part 'reference_key_dtos.g.dart';
 
 @freezed
-abstract class ReferenceKeyDto implements _$ReferenceKeyDto {
+class ReferenceKeyDto with _$ReferenceKeyDto {
   const ReferenceKeyDto._();
 
   const factory ReferenceKeyDto({
-    @required String surveyId,
-    @required String moduleType,
-    @required String questionId,
+    required String surveyId,
+    required String moduleType,
+    required String questionId,
   }) = _ReferenceKeyDto;
 
   factory ReferenceKeyDto.fromDomain(ReferenceKey domain) {

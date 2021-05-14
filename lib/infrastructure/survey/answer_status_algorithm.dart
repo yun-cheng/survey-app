@@ -14,16 +14,16 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
   @override
   Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
       updateAnswerStatus({
-    KtMap<QuestionId, Answer> answerMap,
-    KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    Question question,
-    KtList<Question> questionList,
-    IAnswerAlgorithm answerAlgorithm,
-    bool isRecodeModule,
-    KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required Question question,
+    required KtList<Question> questionList,
+    required IAnswerAlgorithm answerAlgorithm,
+    required bool isRecodeModule,
+    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) {
     KtMap<QuestionId, AnswerStatus> newAnswerStatusMap;
-    Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
+    Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>?
         tupleResult;
 
     // S_1 先看是否為指定題目
@@ -46,8 +46,8 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
 
     // S_2 更新 answerStatus
     final tupleResult1 = evaluateShowQuestionExpression(
-      answerMap: question.isEmpty ? answerMap : tupleResult.item2,
-      answerStatusMap: question.isEmpty ? answerStatusMap : tupleResult.item1,
+      answerMap: question.isEmpty ? answerMap : tupleResult!.item2,
+      answerStatusMap: question.isEmpty ? answerStatusMap : tupleResult!.item1,
       questionList: questionList,
       answerAlgorithm: answerAlgorithm,
       isRecodeModule: isRecodeModule,
@@ -60,11 +60,11 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
   @injectable
   Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
       updateChainQuestion({
-    KtMap<QuestionId, Answer> answerMap,
-    KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    Question question,
-    KtList<Question> questionList,
-    IAnswerAlgorithm answerAlgorithm,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required Question question,
+    required KtList<Question> questionList,
+    required IAnswerAlgorithm answerAlgorithm,
   }) {
     KtMap<QuestionId, AnswerStatus> newAnswerStatusMap = answerStatusMap;
     KtMap<QuestionId, Answer> newAnswerMap = answerMap;
@@ -84,15 +84,15 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
       if (changedQuestionIdList.contains(_question.upperQuestionId)) {
         // S_3L-1 準備比對上層的答案跟下層答案選項的 upperChoiceId
         final upperAnswerChoiceId =
-            newAnswerMap[_question.upperQuestionId].value?.id;
-        final lowerAnswerChoice = newAnswerMap[_question.id].value;
+            newAnswerMap[_question.upperQuestionId]!.value?.id;
+        final lowerAnswerChoice = newAnswerMap[_question.id]!.value;
         final lowerChoice = _question.choiceList
             .firstOrNull((_choice) => _choice.simple() == lowerAnswerChoice);
 
         //  S_3L-2 如果下層已答且比對不符亦非特殊作答
         if (lowerChoice != null &&
             lowerChoice.upperChoiceId != upperAnswerChoiceId &&
-            !newAnswerStatusMap[_question.id].isSpecialAnswer) {
+            !newAnswerStatusMap[_question.id]!.isSpecialAnswer) {
           // S_3L-2-1 清除作答
           newAnswerMap = answerAlgorithm.clearAnswer(
             answerMap: newAnswerMap,
@@ -119,12 +119,12 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
   @injectable
   Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
       evaluateShowQuestionExpression({
-    KtMap<QuestionId, Answer> answerMap,
-    KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    KtList<Question> questionList,
-    IAnswerAlgorithm answerAlgorithm,
-    bool isRecodeModule,
-    KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtList<Question> questionList,
+    required IAnswerAlgorithm answerAlgorithm,
+    required bool isRecodeModule,
+    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) {
     final KtMutableMap<QuestionId, AnswerStatus> newAnswerStatusMap =
         KtMutableMap.from(answerStatusMap.asMap());
@@ -148,30 +148,30 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
         // S_2L-1 判斷該題是否要出現
         showQuestion = question.show.evaluate(answerMap: answerMap);
       } else {
-        showQuestion = !mainAnswerStatusMap[question.id].isHidden;
+        showQuestion = !mainAnswerStatusMap[question.id]!.isHidden;
       }
 
       // S_2L-2 改變該題的 answerStatus
       // S_2L-2-c1 過去隱藏，現在要顯示時
-      if (showQuestion && answerStatusMap[question.id].isHidden) {
+      if (showQuestion && answerStatusMap[question.id]!.isHidden) {
         if (question.type == QuestionType.description()) {
           newAnswerStatusType = AnswerStatusType.answered();
         } else {
           newAnswerStatusType = AnswerStatusType.unanswered();
         }
         // S_2L-2-c2 過去顯示，現在要隱藏時，清空作答
-      } else if (!showQuestion && !answerStatusMap[question.id].isHidden) {
+      } else if (!showQuestion && !answerStatusMap[question.id]!.isHidden) {
         newAnswerStatusType = AnswerStatusType.hidden();
         newAnswerMap = answerAlgorithm.clearAnswer(
           answerMap: newAnswerMap,
           question: question,
         );
       } else {
-        newAnswerStatusType = answerStatusMap[question.id].type;
+        newAnswerStatusType = answerStatusMap[question.id]!.type;
       }
 
       newAnswerStatusMap[question.id] =
-          newAnswerStatusMap[question.id].copyWith(
+          newAnswerStatusMap[question.id]!.copyWith(
         type: newAnswerStatusType,
       );
     });
@@ -180,14 +180,14 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
   }
 
   KtMap<QuestionId, AnswerStatus> updateAnswerStatusType({
-    KtMap<QuestionId, Answer> answerMap,
-    KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    Question question,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required Question question,
   }) {
     final newAnswerStatusMap = KtMutableMap.from(answerStatusMap.asMap());
-    final answer = answerMap[question.id];
+    final answer = answerMap[question.id]!;
 
-    newAnswerStatusMap[question.id] = answerStatusMap[question.id].update(
+    newAnswerStatusMap[question.id] = answerStatusMap[question.id]!.update(
       answer: answer,
       expression: question.validateAnswer,
     );
@@ -198,10 +198,10 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
   @override
   Tuple2<KtMap<QuestionId, AnswerStatus>, KtMap<QuestionId, Answer>>
       switchSpecialAnswer({
-    KtMap<QuestionId, Answer> answerMap,
-    KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    Question question,
-    IAnswerAlgorithm answerAlgorithm,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required Question question,
+    required IAnswerAlgorithm answerAlgorithm,
   }) {
     // S_ 清空該題作答
     final newAnswerMap = answerAlgorithm.clearAnswer(
@@ -212,7 +212,7 @@ class AnswerStatusAlgorithm implements IAnswerStatusAlgorithm {
     final newAnswerStatusMap = KtMutableMap.from(answerStatusMap.asMap());
 
     newAnswerStatusMap[question.id] =
-        answerStatusMap[question.id].switchSpecialAnswer();
+        answerStatusMap[question.id]!.switchSpecialAnswer();
 
     return Tuple2(newAnswerStatusMap.toMap(), newAnswerMap);
   }

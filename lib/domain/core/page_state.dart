@@ -4,7 +4,7 @@ part 'page_state.freezed.dart';
 part 'page_state.g.dart';
 
 @freezed
-abstract class PageState with _$PageState {
+class PageState with _$PageState {
   const factory PageState.initial() = InitialPage;
   const factory PageState.push() = PushPage;
   const factory PageState.pop() = PopPage;

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'answer_status.dart';
 
@@ -9,15 +9,17 @@ part of 'answer_status.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AnswerStatusTearOff {
   const _$AnswerStatusTearOff();
 
-// ignore: unused_element
   _AnswerStatus call(
-      {@required AnswerStatusType type,
-      @required bool isSpecialAnswer,
-      @required KtMap<ChoiceId, AnswerStatusType> noteMap}) {
+      {required AnswerStatusType type,
+      required bool isSpecialAnswer,
+      required KtMap<ChoiceId, AnswerStatusType> noteMap}) {
     return _AnswerStatus(
       type: type,
       isSpecialAnswer: isSpecialAnswer,
@@ -27,16 +29,18 @@ class _$AnswerStatusTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AnswerStatus = _$AnswerStatusTearOff();
 
 /// @nodoc
 mixin _$AnswerStatus {
-  AnswerStatusType get type;
-  bool get isSpecialAnswer;
-  KtMap<ChoiceId, AnswerStatusType> get noteMap;
+  AnswerStatusType get type => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  KtMap<ChoiceId, AnswerStatusType> get noteMap =>
+      throw _privateConstructorUsedError;
 
-  $AnswerStatusCopyWith<AnswerStatus> get copyWith;
+  @JsonKey(ignore: true)
+  $AnswerStatusCopyWith<AnswerStatus> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,18 +64,23 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
 
   @override
   $Res call({
-    Object type = freezed,
-    Object isSpecialAnswer = freezed,
-    Object noteMap = freezed,
+    Object? type = freezed,
+    Object? isSpecialAnswer = freezed,
+    Object? noteMap = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed ? _value.type : type as AnswerStatusType,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AnswerStatusType,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
-          : isSpecialAnswer as bool,
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMap<ChoiceId, AnswerStatusType>,
+          : noteMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<ChoiceId, AnswerStatusType>,
     ));
   }
 }
@@ -101,32 +110,35 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object isSpecialAnswer = freezed,
-    Object noteMap = freezed,
+    Object? type = freezed,
+    Object? isSpecialAnswer = freezed,
+    Object? noteMap = freezed,
   }) {
     return _then(_AnswerStatus(
-      type: type == freezed ? _value.type : type as AnswerStatusType,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AnswerStatusType,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
-          : isSpecialAnswer as bool,
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMap<ChoiceId, AnswerStatusType>,
+          : noteMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<ChoiceId, AnswerStatusType>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AnswerStatus extends _AnswerStatus {
   const _$_AnswerStatus(
-      {@required this.type,
-      @required this.isSpecialAnswer,
-      @required this.noteMap})
-      : assert(type != null),
-        assert(isSpecialAnswer != null),
-        assert(noteMap != null),
-        super._();
+      {required this.type,
+      required this.isSpecialAnswer,
+      required this.noteMap})
+      : super._();
 
   @override
   final AnswerStatusType type;
@@ -160,24 +172,28 @@ class _$_AnswerStatus extends _AnswerStatus {
       const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(noteMap);
 
+  @JsonKey(ignore: true)
   @override
   _$AnswerStatusCopyWith<_AnswerStatus> get copyWith =>
       __$AnswerStatusCopyWithImpl<_AnswerStatus>(this, _$identity);
 }
 
 abstract class _AnswerStatus extends AnswerStatus {
-  const _AnswerStatus._() : super._();
   const factory _AnswerStatus(
-      {@required AnswerStatusType type,
-      @required bool isSpecialAnswer,
-      @required KtMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
+      {required AnswerStatusType type,
+      required bool isSpecialAnswer,
+      required KtMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
+  const _AnswerStatus._() : super._();
 
   @override
-  AnswerStatusType get type;
+  AnswerStatusType get type => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  KtMap<ChoiceId, AnswerStatusType> get noteMap;
+  KtMap<ChoiceId, AnswerStatusType> get noteMap =>
+      throw _privateConstructorUsedError;
   @override
-  _$AnswerStatusCopyWith<_AnswerStatus> get copyWith;
+  @JsonKey(ignore: true)
+  _$AnswerStatusCopyWith<_AnswerStatus> get copyWith =>
+      throw _privateConstructorUsedError;
 }

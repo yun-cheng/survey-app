@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'choice_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'choice_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ChoiceDto _$ChoiceDtoFromJson(Map<String, dynamic> json) {
   return _ChoiceDto.fromJson(json);
 }
@@ -16,16 +20,15 @@ ChoiceDto _$ChoiceDtoFromJson(Map<String, dynamic> json) {
 class _$ChoiceDtoTearOff {
   const _$ChoiceDtoTearOff();
 
-// ignore: unused_element
   _ChoiceDto call(
-      {@required int serialNumber,
-      @required String choiceId,
-      @required String choiceBody,
-      @required bool asNote,
-      @required bool asSingle,
-      @required bool isSpecialAnswer,
-      @required String choiceGroup,
-      @required String upperChoiceId}) {
+      {required int serialNumber,
+      required String choiceId,
+      required String choiceBody,
+      required bool asNote,
+      required bool asSingle,
+      required bool isSpecialAnswer,
+      required String choiceGroup,
+      required String upperChoiceId}) {
     return _ChoiceDto(
       serialNumber: serialNumber,
       choiceId: choiceId,
@@ -38,29 +41,29 @@ class _$ChoiceDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ChoiceDto fromJson(Map<String, Object> json) {
     return ChoiceDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ChoiceDto = _$ChoiceDtoTearOff();
 
 /// @nodoc
 mixin _$ChoiceDto {
-  int get serialNumber;
-  String get choiceId;
-  String get choiceBody;
-  bool get asNote;
-  bool get asSingle;
-  bool get isSpecialAnswer;
-  String get choiceGroup;
-  String get upperChoiceId;
+  int get serialNumber => throw _privateConstructorUsedError;
+  String get choiceId => throw _privateConstructorUsedError;
+  String get choiceBody => throw _privateConstructorUsedError;
+  bool get asNote => throw _privateConstructorUsedError;
+  bool get asSingle => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  String get choiceGroup => throw _privateConstructorUsedError;
+  String get upperChoiceId => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ChoiceDtoCopyWith<ChoiceDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ChoiceDtoCopyWith<ChoiceDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -88,31 +91,48 @@ class _$ChoiceDtoCopyWithImpl<$Res> implements $ChoiceDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object serialNumber = freezed,
-    Object choiceId = freezed,
-    Object choiceBody = freezed,
-    Object asNote = freezed,
-    Object asSingle = freezed,
-    Object isSpecialAnswer = freezed,
-    Object choiceGroup = freezed,
-    Object upperChoiceId = freezed,
+    Object? serialNumber = freezed,
+    Object? choiceId = freezed,
+    Object? choiceBody = freezed,
+    Object? asNote = freezed,
+    Object? asSingle = freezed,
+    Object? isSpecialAnswer = freezed,
+    Object? choiceGroup = freezed,
+    Object? upperChoiceId = freezed,
   }) {
     return _then(_value.copyWith(
-      serialNumber:
-          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      choiceId: choiceId == freezed ? _value.choiceId : choiceId as String,
-      choiceBody:
-          choiceBody == freezed ? _value.choiceBody : choiceBody as String,
-      asNote: asNote == freezed ? _value.asNote : asNote as bool,
-      asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      choiceId: choiceId == freezed
+          ? _value.choiceId
+          : choiceId // ignore: cast_nullable_to_non_nullable
+              as String,
+      choiceBody: choiceBody == freezed
+          ? _value.choiceBody
+          : choiceBody // ignore: cast_nullable_to_non_nullable
+              as String,
+      asNote: asNote == freezed
+          ? _value.asNote
+          : asNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+      asSingle: asSingle == freezed
+          ? _value.asSingle
+          : asSingle // ignore: cast_nullable_to_non_nullable
+              as bool,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
-          : isSpecialAnswer as bool,
-      choiceGroup:
-          choiceGroup == freezed ? _value.choiceGroup : choiceGroup as String,
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      choiceGroup: choiceGroup == freezed
+          ? _value.choiceGroup
+          : choiceGroup // ignore: cast_nullable_to_non_nullable
+              as String,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
-          : upperChoiceId as String,
+          : upperChoiceId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -145,57 +165,65 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object serialNumber = freezed,
-    Object choiceId = freezed,
-    Object choiceBody = freezed,
-    Object asNote = freezed,
-    Object asSingle = freezed,
-    Object isSpecialAnswer = freezed,
-    Object choiceGroup = freezed,
-    Object upperChoiceId = freezed,
+    Object? serialNumber = freezed,
+    Object? choiceId = freezed,
+    Object? choiceBody = freezed,
+    Object? asNote = freezed,
+    Object? asSingle = freezed,
+    Object? isSpecialAnswer = freezed,
+    Object? choiceGroup = freezed,
+    Object? upperChoiceId = freezed,
   }) {
     return _then(_ChoiceDto(
-      serialNumber:
-          serialNumber == freezed ? _value.serialNumber : serialNumber as int,
-      choiceId: choiceId == freezed ? _value.choiceId : choiceId as String,
-      choiceBody:
-          choiceBody == freezed ? _value.choiceBody : choiceBody as String,
-      asNote: asNote == freezed ? _value.asNote : asNote as bool,
-      asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
+      serialNumber: serialNumber == freezed
+          ? _value.serialNumber
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as int,
+      choiceId: choiceId == freezed
+          ? _value.choiceId
+          : choiceId // ignore: cast_nullable_to_non_nullable
+              as String,
+      choiceBody: choiceBody == freezed
+          ? _value.choiceBody
+          : choiceBody // ignore: cast_nullable_to_non_nullable
+              as String,
+      asNote: asNote == freezed
+          ? _value.asNote
+          : asNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+      asSingle: asSingle == freezed
+          ? _value.asSingle
+          : asSingle // ignore: cast_nullable_to_non_nullable
+              as bool,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
-          : isSpecialAnswer as bool,
-      choiceGroup:
-          choiceGroup == freezed ? _value.choiceGroup : choiceGroup as String,
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      choiceGroup: choiceGroup == freezed
+          ? _value.choiceGroup
+          : choiceGroup // ignore: cast_nullable_to_non_nullable
+              as String,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
-          : upperChoiceId as String,
+          : upperChoiceId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ChoiceDto extends _ChoiceDto {
   const _$_ChoiceDto(
-      {@required this.serialNumber,
-      @required this.choiceId,
-      @required this.choiceBody,
-      @required this.asNote,
-      @required this.asSingle,
-      @required this.isSpecialAnswer,
-      @required this.choiceGroup,
-      @required this.upperChoiceId})
-      : assert(serialNumber != null),
-        assert(choiceId != null),
-        assert(choiceBody != null),
-        assert(asNote != null),
-        assert(asSingle != null),
-        assert(isSpecialAnswer != null),
-        assert(choiceGroup != null),
-        assert(upperChoiceId != null),
-        super._();
+      {required this.serialNumber,
+      required this.choiceId,
+      required this.choiceBody,
+      required this.asNote,
+      required this.asSingle,
+      required this.isSpecialAnswer,
+      required this.choiceGroup,
+      required this.upperChoiceId})
+      : super._();
 
   factory _$_ChoiceDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ChoiceDtoFromJson(json);
@@ -263,6 +291,7 @@ class _$_ChoiceDto extends _ChoiceDto {
       const DeepCollectionEquality().hash(choiceGroup) ^
       const DeepCollectionEquality().hash(upperChoiceId);
 
+  @JsonKey(ignore: true)
   @override
   _$ChoiceDtoCopyWith<_ChoiceDto> get copyWith =>
       __$ChoiceDtoCopyWithImpl<_ChoiceDto>(this, _$identity);
@@ -274,36 +303,38 @@ class _$_ChoiceDto extends _ChoiceDto {
 }
 
 abstract class _ChoiceDto extends ChoiceDto {
-  const _ChoiceDto._() : super._();
   const factory _ChoiceDto(
-      {@required int serialNumber,
-      @required String choiceId,
-      @required String choiceBody,
-      @required bool asNote,
-      @required bool asSingle,
-      @required bool isSpecialAnswer,
-      @required String choiceGroup,
-      @required String upperChoiceId}) = _$_ChoiceDto;
+      {required int serialNumber,
+      required String choiceId,
+      required String choiceBody,
+      required bool asNote,
+      required bool asSingle,
+      required bool isSpecialAnswer,
+      required String choiceGroup,
+      required String upperChoiceId}) = _$_ChoiceDto;
+  const _ChoiceDto._() : super._();
 
   factory _ChoiceDto.fromJson(Map<String, dynamic> json) =
       _$_ChoiceDto.fromJson;
 
   @override
-  int get serialNumber;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
-  String get choiceId;
+  String get choiceId => throw _privateConstructorUsedError;
   @override
-  String get choiceBody;
+  String get choiceBody => throw _privateConstructorUsedError;
   @override
-  bool get asNote;
+  bool get asNote => throw _privateConstructorUsedError;
   @override
-  bool get asSingle;
+  bool get asSingle => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  String get choiceGroup;
+  String get choiceGroup => throw _privateConstructorUsedError;
   @override
-  String get upperChoiceId;
+  String get upperChoiceId => throw _privateConstructorUsedError;
   @override
-  _$ChoiceDtoCopyWith<_ChoiceDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$ChoiceDtoCopyWith<_ChoiceDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

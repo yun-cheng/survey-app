@@ -3,12 +3,12 @@ import '../../infrastructure/core/date_time_extensions.dart';
 part 'visit_time.freezed.dart';
 
 @freezed
-abstract class VisitTime implements _$VisitTime {
+class VisitTime with _$VisitTime {
   const VisitTime._();
 
   const factory VisitTime({
-    @required DateTime date,
-    @required String timeSession,
+    required DateTime date,
+    required String timeSession,
   }) = _VisitTime;
 
   factory VisitTime.empty() => VisitTime(

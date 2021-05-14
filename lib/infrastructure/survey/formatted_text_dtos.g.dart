@@ -9,7 +9,7 @@ part of 'formatted_text_dtos.dart';
 _$_FormattedTextDto _$_$_FormattedTextDtoFromJson(Map<String, dynamic> json) {
   return _$_FormattedTextDto(
     type: json['type'] as String,
-    stringBody: json['stringBody'] as String,
+    stringBody: json['stringBody'] as String? ?? '',
     referenceKey: json['referenceKey'] == null
         ? null
         : ReferenceKeyDto.fromJson(

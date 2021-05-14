@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'simple_survey_page_state_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'simple_survey_page_state_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 SimpleSurveyPageStateDto _$SimpleSurveyPageStateDtoFromJson(
     Map<String, dynamic> json) {
   return _SimpleSurveyPageStateDto.fromJson(json);
@@ -17,14 +21,13 @@ SimpleSurveyPageStateDto _$SimpleSurveyPageStateDtoFromJson(
 class _$SimpleSurveyPageStateDtoTearOff {
   const _$SimpleSurveyPageStateDtoTearOff();
 
-// ignore: unused_element
   _SimpleSurveyPageStateDto call(
-      {@required int page,
-      @required int newestPage,
-      @required bool isLastPage,
-      @required WarningDto warning,
-      @required bool showWarning,
-      @required Map<String, dynamic> loadState}) {
+      {required int page,
+      required int newestPage,
+      required bool isLastPage,
+      required WarningDto warning,
+      required bool showWarning,
+      required Map<String, dynamic> loadState}) {
     return _SimpleSurveyPageStateDto(
       page: page,
       newestPage: newestPage,
@@ -35,27 +38,27 @@ class _$SimpleSurveyPageStateDtoTearOff {
     );
   }
 
-// ignore: unused_element
   SimpleSurveyPageStateDto fromJson(Map<String, Object> json) {
     return SimpleSurveyPageStateDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SimpleSurveyPageStateDto = _$SimpleSurveyPageStateDtoTearOff();
 
 /// @nodoc
 mixin _$SimpleSurveyPageStateDto {
-  int get page;
-  int get newestPage;
-  bool get isLastPage;
-  WarningDto get warning;
-  bool get showWarning;
-  Map<String, dynamic> get loadState;
+  int get page => throw _privateConstructorUsedError;
+  int get newestPage => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+  WarningDto get warning => throw _privateConstructorUsedError;
+  bool get showWarning => throw _privateConstructorUsedError;
+  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SimpleSurveyPageStateDtoCopyWith<SimpleSurveyPageStateDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SimpleSurveyPageStateDtoCopyWith<SimpleSurveyPageStateDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -85,32 +88,43 @@ class _$SimpleSurveyPageStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object loadState = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? loadState = freezed,
   }) {
     return _then(_value.copyWith(
-      page: page == freezed ? _value.page : page as int,
-      newestPage: newestPage == freezed ? _value.newestPage : newestPage as int,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as WarningDto,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as WarningDto,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
       loadState: loadState == freezed
           ? _value.loadState
-          : loadState as Map<String, dynamic>,
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 
   @override
   $WarningDtoCopyWith<$Res> get warning {
-    if (_value.warning == null) {
-      return null;
-    }
     return $WarningDtoCopyWith<$Res>(_value.warning, (value) {
       return _then(_value.copyWith(warning: value));
     });
@@ -150,46 +164,53 @@ class __$SimpleSurveyPageStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object loadState = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? loadState = freezed,
   }) {
     return _then(_SimpleSurveyPageStateDto(
-      page: page == freezed ? _value.page : page as int,
-      newestPage: newestPage == freezed ? _value.newestPage : newestPage as int,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as WarningDto,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as int,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as WarningDto,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
       loadState: loadState == freezed
           ? _value.loadState
-          : loadState as Map<String, dynamic>,
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
   const _$_SimpleSurveyPageStateDto(
-      {@required this.page,
-      @required this.newestPage,
-      @required this.isLastPage,
-      @required this.warning,
-      @required this.showWarning,
-      @required this.loadState})
-      : assert(page != null),
-        assert(newestPage != null),
-        assert(isLastPage != null),
-        assert(warning != null),
-        assert(showWarning != null),
-        assert(loadState != null),
-        super._();
+      {required this.page,
+      required this.newestPage,
+      required this.isLastPage,
+      required this.warning,
+      required this.showWarning,
+      required this.loadState})
+      : super._();
 
   factory _$_SimpleSurveyPageStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_SimpleSurveyPageStateDtoFromJson(json);
@@ -245,6 +266,7 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(loadState);
 
+  @JsonKey(ignore: true)
   @override
   _$SimpleSurveyPageStateDtoCopyWith<_SimpleSurveyPageStateDto> get copyWith =>
       __$SimpleSurveyPageStateDtoCopyWithImpl<_SimpleSurveyPageStateDto>(
@@ -257,30 +279,32 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
 }
 
 abstract class _SimpleSurveyPageStateDto extends SimpleSurveyPageStateDto {
-  const _SimpleSurveyPageStateDto._() : super._();
   const factory _SimpleSurveyPageStateDto(
-      {@required int page,
-      @required int newestPage,
-      @required bool isLastPage,
-      @required WarningDto warning,
-      @required bool showWarning,
-      @required Map<String, dynamic> loadState}) = _$_SimpleSurveyPageStateDto;
+      {required int page,
+      required int newestPage,
+      required bool isLastPage,
+      required WarningDto warning,
+      required bool showWarning,
+      required Map<String, dynamic> loadState}) = _$_SimpleSurveyPageStateDto;
+  const _SimpleSurveyPageStateDto._() : super._();
 
   factory _SimpleSurveyPageStateDto.fromJson(Map<String, dynamic> json) =
       _$_SimpleSurveyPageStateDto.fromJson;
 
   @override
-  int get page;
+  int get page => throw _privateConstructorUsedError;
   @override
-  int get newestPage;
+  int get newestPage => throw _privateConstructorUsedError;
   @override
-  bool get isLastPage;
+  bool get isLastPage => throw _privateConstructorUsedError;
   @override
-  WarningDto get warning;
+  WarningDto get warning => throw _privateConstructorUsedError;
   @override
-  bool get showWarning;
+  bool get showWarning => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get loadState;
+  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
   @override
-  _$SimpleSurveyPageStateDtoCopyWith<_SimpleSurveyPageStateDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$SimpleSurveyPageStateDtoCopyWith<_SimpleSurveyPageStateDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

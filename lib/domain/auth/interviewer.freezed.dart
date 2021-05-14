@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'interviewer.dart';
 
@@ -9,15 +9,17 @@ part of 'interviewer.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$InterviewerTearOff {
   const _$InterviewerTearOff();
 
-// ignore: unused_element
   _Interviewer call(
-      {@required InterviewerId id,
-      @required InterviewerName name,
-      @required Password password}) {
+      {required InterviewerId id,
+      required InterviewerName name,
+      required Password password}) {
     return _Interviewer(
       id: id,
       name: name,
@@ -27,16 +29,17 @@ class _$InterviewerTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Interviewer = _$InterviewerTearOff();
 
 /// @nodoc
 mixin _$Interviewer {
-  InterviewerId get id;
-  InterviewerName get name;
-  Password get password;
+  InterviewerId get id => throw _privateConstructorUsedError;
+  InterviewerName get name => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
 
-  $InterviewerCopyWith<Interviewer> get copyWith;
+  @JsonKey(ignore: true)
+  $InterviewerCopyWith<Interviewer> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -57,14 +60,23 @@ class _$InterviewerCopyWithImpl<$Res> implements $InterviewerCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object password = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? password = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as InterviewerId,
-      name: name == freezed ? _value.name : name as InterviewerName,
-      password: password == freezed ? _value.password : password as Password,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as InterviewerName,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
     ));
   }
 }
@@ -91,26 +103,33 @@ class __$InterviewerCopyWithImpl<$Res> extends _$InterviewerCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
-    Object password = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
+    Object? password = freezed,
   }) {
     return _then(_Interviewer(
-      id: id == freezed ? _value.id : id as InterviewerId,
-      name: name == freezed ? _value.name : name as InterviewerName,
-      password: password == freezed ? _value.password : password as Password,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as InterviewerName,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Interviewer extends _Interviewer {
   const _$_Interviewer(
-      {@required this.id, @required this.name, @required this.password})
-      : assert(id != null),
-        assert(name != null),
-        assert(password != null),
-        super._();
+      {required this.id, required this.name, required this.password})
+      : super._();
 
   @override
   final InterviewerId id;
@@ -144,24 +163,27 @@ class _$_Interviewer extends _Interviewer {
       const DeepCollectionEquality().hash(name) ^
       const DeepCollectionEquality().hash(password);
 
+  @JsonKey(ignore: true)
   @override
   _$InterviewerCopyWith<_Interviewer> get copyWith =>
       __$InterviewerCopyWithImpl<_Interviewer>(this, _$identity);
 }
 
 abstract class _Interviewer extends Interviewer {
-  const _Interviewer._() : super._();
   const factory _Interviewer(
-      {@required InterviewerId id,
-      @required InterviewerName name,
-      @required Password password}) = _$_Interviewer;
+      {required InterviewerId id,
+      required InterviewerName name,
+      required Password password}) = _$_Interviewer;
+  const _Interviewer._() : super._();
 
   @override
-  InterviewerId get id;
+  InterviewerId get id => throw _privateConstructorUsedError;
   @override
-  InterviewerName get name;
+  InterviewerName get name => throw _privateConstructorUsedError;
   @override
-  Password get password;
+  Password get password => throw _privateConstructorUsedError;
   @override
-  _$InterviewerCopyWith<_Interviewer> get copyWith;
+  @JsonKey(ignore: true)
+  _$InterviewerCopyWith<_Interviewer> get copyWith =>
+      throw _privateConstructorUsedError;
 }

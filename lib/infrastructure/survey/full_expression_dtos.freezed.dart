@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'full_expression_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'full_expression_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 FullExpressionDto _$FullExpressionDtoFromJson(Map<String, dynamic> json) {
   return _FullExpressionDto.fromJson(json);
 }
@@ -16,33 +20,33 @@ FullExpressionDto _$FullExpressionDtoFromJson(Map<String, dynamic> json) {
 class _$FullExpressionDtoTearOff {
   const _$FullExpressionDtoTearOff();
 
-// ignore: unused_element
   _FullExpressionDto call(
-      {@required String fullExpressionBody,
-      @required Map<String, ExpressionDto> expressionMap}) {
+      {required String fullExpressionBody,
+      required Map<String, ExpressionDto> expressionMap}) {
     return _FullExpressionDto(
       fullExpressionBody: fullExpressionBody,
       expressionMap: expressionMap,
     );
   }
 
-// ignore: unused_element
   FullExpressionDto fromJson(Map<String, Object> json) {
     return FullExpressionDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $FullExpressionDto = _$FullExpressionDtoTearOff();
 
 /// @nodoc
 mixin _$FullExpressionDto {
-  String get fullExpressionBody;
-  Map<String, ExpressionDto> get expressionMap;
+  String get fullExpressionBody => throw _privateConstructorUsedError;
+  Map<String, ExpressionDto> get expressionMap =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $FullExpressionDtoCopyWith<FullExpressionDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FullExpressionDtoCopyWith<FullExpressionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,16 +69,18 @@ class _$FullExpressionDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object fullExpressionBody = freezed,
-    Object expressionMap = freezed,
+    Object? fullExpressionBody = freezed,
+    Object? expressionMap = freezed,
   }) {
     return _then(_value.copyWith(
       fullExpressionBody: fullExpressionBody == freezed
           ? _value.fullExpressionBody
-          : fullExpressionBody as String,
+          : fullExpressionBody // ignore: cast_nullable_to_non_nullable
+              as String,
       expressionMap: expressionMap == freezed
           ? _value.expressionMap
-          : expressionMap as Map<String, ExpressionDto>,
+          : expressionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, ExpressionDto>,
     ));
   }
 }
@@ -103,29 +109,28 @@ class __$FullExpressionDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object fullExpressionBody = freezed,
-    Object expressionMap = freezed,
+    Object? fullExpressionBody = freezed,
+    Object? expressionMap = freezed,
   }) {
     return _then(_FullExpressionDto(
       fullExpressionBody: fullExpressionBody == freezed
           ? _value.fullExpressionBody
-          : fullExpressionBody as String,
+          : fullExpressionBody // ignore: cast_nullable_to_non_nullable
+              as String,
       expressionMap: expressionMap == freezed
           ? _value.expressionMap
-          : expressionMap as Map<String, ExpressionDto>,
+          : expressionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, ExpressionDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_FullExpressionDto extends _FullExpressionDto {
   const _$_FullExpressionDto(
-      {@required this.fullExpressionBody, @required this.expressionMap})
-      : assert(fullExpressionBody != null),
-        assert(expressionMap != null),
-        super._();
+      {required this.fullExpressionBody, required this.expressionMap})
+      : super._();
 
   factory _$_FullExpressionDto.fromJson(Map<String, dynamic> json) =>
       _$_$_FullExpressionDtoFromJson(json);
@@ -158,6 +163,7 @@ class _$_FullExpressionDto extends _FullExpressionDto {
       const DeepCollectionEquality().hash(fullExpressionBody) ^
       const DeepCollectionEquality().hash(expressionMap);
 
+  @JsonKey(ignore: true)
   @override
   _$FullExpressionDtoCopyWith<_FullExpressionDto> get copyWith =>
       __$FullExpressionDtoCopyWithImpl<_FullExpressionDto>(this, _$identity);
@@ -169,21 +175,24 @@ class _$_FullExpressionDto extends _FullExpressionDto {
 }
 
 abstract class _FullExpressionDto extends FullExpressionDto {
-  const _FullExpressionDto._() : super._();
   const factory _FullExpressionDto(
-          {@required String fullExpressionBody,
-          @required Map<String, ExpressionDto> expressionMap}) =
+          {required String fullExpressionBody,
+          required Map<String, ExpressionDto> expressionMap}) =
       _$_FullExpressionDto;
+  const _FullExpressionDto._() : super._();
 
   factory _FullExpressionDto.fromJson(Map<String, dynamic> json) =
       _$_FullExpressionDto.fromJson;
 
   @override
-  String get fullExpressionBody;
+  String get fullExpressionBody => throw _privateConstructorUsedError;
   @override
-  Map<String, ExpressionDto> get expressionMap;
+  Map<String, ExpressionDto> get expressionMap =>
+      throw _privateConstructorUsedError;
   @override
-  _$FullExpressionDtoCopyWith<_FullExpressionDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$FullExpressionDtoCopyWith<_FullExpressionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ExpressionDto _$ExpressionDtoFromJson(Map<String, dynamic> json) {
@@ -194,11 +203,10 @@ ExpressionDto _$ExpressionDtoFromJson(Map<String, dynamic> json) {
 class _$ExpressionDtoTearOff {
   const _$ExpressionDtoTearOff();
 
-// ignore: unused_element
   _ExpressionDto call(
-      {@required String field,
-      @required String operator,
-      @required AnswerDto comparisonValue}) {
+      {required String field,
+      required String operator,
+      required AnswerDto comparisonValue}) {
     return _ExpressionDto(
       field: field,
       operator: operator,
@@ -206,24 +214,24 @@ class _$ExpressionDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ExpressionDto fromJson(Map<String, Object> json) {
     return ExpressionDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ExpressionDto = _$ExpressionDtoTearOff();
 
 /// @nodoc
 mixin _$ExpressionDto {
-  String get field;
-  String get operator;
-  AnswerDto get comparisonValue;
+  String get field => throw _privateConstructorUsedError;
+  String get operator => throw _privateConstructorUsedError;
+  AnswerDto get comparisonValue => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ExpressionDtoCopyWith<ExpressionDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ExpressionDtoCopyWith<ExpressionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -247,24 +255,28 @@ class _$ExpressionDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object field = freezed,
-    Object operator = freezed,
-    Object comparisonValue = freezed,
+    Object? field = freezed,
+    Object? operator = freezed,
+    Object? comparisonValue = freezed,
   }) {
     return _then(_value.copyWith(
-      field: field == freezed ? _value.field : field as String,
-      operator: operator == freezed ? _value.operator : operator as String,
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as String,
       comparisonValue: comparisonValue == freezed
           ? _value.comparisonValue
-          : comparisonValue as AnswerDto,
+          : comparisonValue // ignore: cast_nullable_to_non_nullable
+              as AnswerDto,
     ));
   }
 
   @override
   $AnswerDtoCopyWith<$Res> get comparisonValue {
-    if (_value.comparisonValue == null) {
-      return null;
-    }
     return $AnswerDtoCopyWith<$Res>(_value.comparisonValue, (value) {
       return _then(_value.copyWith(comparisonValue: value));
     });
@@ -297,32 +309,35 @@ class __$ExpressionDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object field = freezed,
-    Object operator = freezed,
-    Object comparisonValue = freezed,
+    Object? field = freezed,
+    Object? operator = freezed,
+    Object? comparisonValue = freezed,
   }) {
     return _then(_ExpressionDto(
-      field: field == freezed ? _value.field : field as String,
-      operator: operator == freezed ? _value.operator : operator as String,
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as String,
       comparisonValue: comparisonValue == freezed
           ? _value.comparisonValue
-          : comparisonValue as AnswerDto,
+          : comparisonValue // ignore: cast_nullable_to_non_nullable
+              as AnswerDto,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ExpressionDto extends _ExpressionDto {
   const _$_ExpressionDto(
-      {@required this.field,
-      @required this.operator,
-      @required this.comparisonValue})
-      : assert(field != null),
-        assert(operator != null),
-        assert(comparisonValue != null),
-        super._();
+      {required this.field,
+      required this.operator,
+      required this.comparisonValue})
+      : super._();
 
   factory _$_ExpressionDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ExpressionDtoFromJson(json);
@@ -360,6 +375,7 @@ class _$_ExpressionDto extends _ExpressionDto {
       const DeepCollectionEquality().hash(operator) ^
       const DeepCollectionEquality().hash(comparisonValue);
 
+  @JsonKey(ignore: true)
   @override
   _$ExpressionDtoCopyWith<_ExpressionDto> get copyWith =>
       __$ExpressionDtoCopyWithImpl<_ExpressionDto>(this, _$identity);
@@ -371,21 +387,23 @@ class _$_ExpressionDto extends _ExpressionDto {
 }
 
 abstract class _ExpressionDto extends ExpressionDto {
-  const _ExpressionDto._() : super._();
   const factory _ExpressionDto(
-      {@required String field,
-      @required String operator,
-      @required AnswerDto comparisonValue}) = _$_ExpressionDto;
+      {required String field,
+      required String operator,
+      required AnswerDto comparisonValue}) = _$_ExpressionDto;
+  const _ExpressionDto._() : super._();
 
   factory _ExpressionDto.fromJson(Map<String, dynamic> json) =
       _$_ExpressionDto.fromJson;
 
   @override
-  String get field;
+  String get field => throw _privateConstructorUsedError;
   @override
-  String get operator;
+  String get operator => throw _privateConstructorUsedError;
   @override
-  AnswerDto get comparisonValue;
+  AnswerDto get comparisonValue => throw _privateConstructorUsedError;
   @override
-  _$ExpressionDtoCopyWith<_ExpressionDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$ExpressionDtoCopyWith<_ExpressionDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

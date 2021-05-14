@@ -13,7 +13,7 @@ class SurveyContentPage extends StatelessWidget {
         leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: () {
-              context.navigator.maybePop();
+              context.router.pop();
             }),
       ),
       body: ResponsiveLayout(

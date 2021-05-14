@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'page_state.dart';
 
@@ -8,6 +8,10 @@ part of 'page_state.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 PageState _$PageStateFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType'] as String) {
     case 'initial':
@@ -26,60 +30,59 @@ PageState _$PageStateFromJson(Map<String, dynamic> json) {
 class _$PageStateTearOff {
   const _$PageStateTearOff();
 
-// ignore: unused_element
   InitialPage initial() {
     return const InitialPage();
   }
 
-// ignore: unused_element
   PushPage push() {
     return const PushPage();
   }
 
-// ignore: unused_element
   PopPage pop() {
     return const PopPage();
   }
 
-// ignore: unused_element
   PageState fromJson(Map<String, Object> json) {
     return PageState.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $PageState = _$PageStateTearOff();
 
 /// @nodoc
 mixin _$PageState {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult push(),
-    @required TResult pop(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() push,
+    required TResult Function() pop,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult push(),
-    TResult pop(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? push,
+    TResult Function()? pop,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialPage value),
-    @required TResult push(PushPage value),
-    @required TResult pop(PopPage value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialPage value) initial,
+    required TResult Function(PushPage value) push,
+    required TResult Function(PopPage value) pop,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialPage value),
-    TResult push(PushPage value),
-    TResult pop(PopPage value),
-    @required TResult orElse(),
-  });
-  Map<String, dynamic> toJson();
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialPage value)? initial,
+    TResult Function(PushPage value)? push,
+    TResult Function(PopPage value)? pop,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -115,9 +118,8 @@ class _$InitialPageCopyWithImpl<$Res> extends _$PageStateCopyWithImpl<$Res>
   InitialPage get _value => super._value as InitialPage;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$InitialPage implements InitialPage {
   const _$InitialPage();
 
@@ -139,26 +141,22 @@ class _$InitialPage implements InitialPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult push(),
-    @required TResult pop(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() push,
+    required TResult Function() pop,
   }) {
-    assert(initial != null);
-    assert(push != null);
-    assert(pop != null);
     return initial();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult push(),
-    TResult pop(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? push,
+    TResult Function()? pop,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial();
     }
@@ -167,26 +165,22 @@ class _$InitialPage implements InitialPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialPage value),
-    @required TResult push(PushPage value),
-    @required TResult pop(PopPage value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialPage value) initial,
+    required TResult Function(PushPage value) push,
+    required TResult Function(PopPage value) pop,
   }) {
-    assert(initial != null);
-    assert(push != null);
-    assert(pop != null);
     return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialPage value),
-    TResult push(PushPage value),
-    TResult pop(PopPage value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialPage value)? initial,
+    TResult Function(PushPage value)? push,
+    TResult Function(PopPage value)? pop,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (initial != null) {
       return initial(this);
     }
@@ -222,9 +216,8 @@ class _$PushPageCopyWithImpl<$Res> extends _$PageStateCopyWithImpl<$Res>
   PushPage get _value => super._value as PushPage;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$PushPage implements PushPage {
   const _$PushPage();
 
@@ -246,26 +239,22 @@ class _$PushPage implements PushPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult push(),
-    @required TResult pop(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() push,
+    required TResult Function() pop,
   }) {
-    assert(initial != null);
-    assert(push != null);
-    assert(pop != null);
     return push();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult push(),
-    TResult pop(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? push,
+    TResult Function()? pop,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (push != null) {
       return push();
     }
@@ -274,26 +263,22 @@ class _$PushPage implements PushPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialPage value),
-    @required TResult push(PushPage value),
-    @required TResult pop(PopPage value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialPage value) initial,
+    required TResult Function(PushPage value) push,
+    required TResult Function(PopPage value) pop,
   }) {
-    assert(initial != null);
-    assert(push != null);
-    assert(pop != null);
     return push(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialPage value),
-    TResult push(PushPage value),
-    TResult pop(PopPage value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialPage value)? initial,
+    TResult Function(PushPage value)? push,
+    TResult Function(PopPage value)? pop,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (push != null) {
       return push(this);
     }
@@ -328,9 +313,8 @@ class _$PopPageCopyWithImpl<$Res> extends _$PageStateCopyWithImpl<$Res>
   PopPage get _value => super._value as PopPage;
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$PopPage implements PopPage {
   const _$PopPage();
 
@@ -352,26 +336,22 @@ class _$PopPage implements PopPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult initial(),
-    @required TResult push(),
-    @required TResult pop(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() push,
+    required TResult Function() pop,
   }) {
-    assert(initial != null);
-    assert(push != null);
-    assert(pop != null);
     return pop();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult initial(),
-    TResult push(),
-    TResult pop(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? push,
+    TResult Function()? pop,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pop != null) {
       return pop();
     }
@@ -380,26 +360,22 @@ class _$PopPage implements PopPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult initial(InitialPage value),
-    @required TResult push(PushPage value),
-    @required TResult pop(PopPage value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(InitialPage value) initial,
+    required TResult Function(PushPage value) push,
+    required TResult Function(PopPage value) pop,
   }) {
-    assert(initial != null);
-    assert(push != null);
-    assert(pop != null);
     return pop(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult initial(InitialPage value),
-    TResult push(PushPage value),
-    TResult pop(PopPage value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InitialPage value)? initial,
+    TResult Function(PushPage value)? push,
+    TResult Function(PopPage value)? pop,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pop != null) {
       return pop(this);
     }

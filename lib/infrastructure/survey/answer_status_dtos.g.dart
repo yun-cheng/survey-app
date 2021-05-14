@@ -9,10 +9,11 @@ part of 'answer_status_dtos.dart';
 _$_AnswerStatusDto _$_$_AnswerStatusDtoFromJson(Map<String, dynamic> json) {
   return _$_AnswerStatusDto(
     answerStatusType: json['answerStatusType'] as String,
-    isSpecialAnswer: json['isSpecialAnswer'] as bool,
-    noteMap: (json['noteMap'] as Map<String, dynamic>)?.map(
-      (k, e) => MapEntry(k, e as String),
-    ),
+    isSpecialAnswer: json['isSpecialAnswer'] as bool? ?? false,
+    noteMap: (json['noteMap'] as Map<String, dynamic>?)?.map(
+          (k, e) => MapEntry(k, e as String),
+        ) ??
+        {},
   );
 }
 

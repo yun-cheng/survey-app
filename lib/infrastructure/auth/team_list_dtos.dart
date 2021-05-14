@@ -9,11 +9,11 @@ part 'team_list_dtos.freezed.dart';
 part 'team_list_dtos.g.dart';
 
 @freezed
-abstract class TeamListDto implements _$TeamListDto {
+class TeamListDto with _$TeamListDto {
   const TeamListDto._();
 
   const factory TeamListDto({
-    @required List<TeamDto> list,
+    required List<TeamDto> list,
   }) = _TeamListDto;
 
   factory TeamListDto.fromDomain(KtList<Team> teamList) {
@@ -37,12 +37,12 @@ abstract class TeamListDto implements _$TeamListDto {
 }
 
 @freezed
-abstract class TeamDto implements _$TeamDto {
+class TeamDto with _$TeamDto {
   const TeamDto._();
 
   const factory TeamDto({
-    @required String teamId,
-    @required String teamName,
+    required String teamId,
+    required String teamName,
   }) = _TeamDto;
 
   factory TeamDto.fromDomain(Team team) {

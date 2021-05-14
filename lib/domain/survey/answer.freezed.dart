@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'answer.dart';
 
@@ -9,19 +9,21 @@ part of 'answer.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AnswerTearOff {
   const _$AnswerTearOff();
 
-// ignore: unused_element
   _Answer call(
-      {@required AnswerType type,
-      @required bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoice choiceValue,
-      KtList<SimpleChoice> choiceListValue,
-      KtMap<ChoiceId, String> noteMap}) {
+      {required AnswerType type,
+      required bool withNote,
+      String? stringValue,
+      int? intValue,
+      SimpleChoice? choiceValue,
+      KtList<SimpleChoice>? choiceListValue,
+      KtMap<ChoiceId, String>? noteMap}) {
     return _Answer(
       type: type,
       withNote: withNote,
@@ -35,20 +37,21 @@ class _$AnswerTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Answer = _$AnswerTearOff();
 
 /// @nodoc
 mixin _$Answer {
-  AnswerType get type;
-  bool get withNote;
-  String get stringValue;
-  int get intValue;
-  SimpleChoice get choiceValue;
-  KtList<SimpleChoice> get choiceListValue;
-  KtMap<ChoiceId, String> get noteMap;
+  AnswerType get type => throw _privateConstructorUsedError;
+  bool get withNote => throw _privateConstructorUsedError;
+  String? get stringValue => throw _privateConstructorUsedError;
+  int? get intValue => throw _privateConstructorUsedError;
+  SimpleChoice? get choiceValue => throw _privateConstructorUsedError;
+  KtList<SimpleChoice>? get choiceListValue =>
+      throw _privateConstructorUsedError;
+  KtMap<ChoiceId, String>? get noteMap => throw _privateConstructorUsedError;
 
-  $AnswerCopyWith<Answer> get copyWith;
+  @JsonKey(ignore: true)
+  $AnswerCopyWith<Answer> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -58,13 +61,13 @@ abstract class $AnswerCopyWith<$Res> {
   $Res call(
       {AnswerType type,
       bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoice choiceValue,
-      KtList<SimpleChoice> choiceListValue,
-      KtMap<ChoiceId, String> noteMap});
+      String? stringValue,
+      int? intValue,
+      SimpleChoice? choiceValue,
+      KtList<SimpleChoice>? choiceListValue,
+      KtMap<ChoiceId, String>? noteMap});
 
-  $SimpleChoiceCopyWith<$Res> get choiceValue;
+  $SimpleChoiceCopyWith<$Res>? get choiceValue;
 }
 
 /// @nodoc
@@ -77,38 +80,53 @@ class _$AnswerCopyWithImpl<$Res> implements $AnswerCopyWith<$Res> {
 
   @override
   $Res call({
-    Object type = freezed,
-    Object withNote = freezed,
-    Object stringValue = freezed,
-    Object intValue = freezed,
-    Object choiceValue = freezed,
-    Object choiceListValue = freezed,
-    Object noteMap = freezed,
+    Object? type = freezed,
+    Object? withNote = freezed,
+    Object? stringValue = freezed,
+    Object? intValue = freezed,
+    Object? choiceValue = freezed,
+    Object? choiceListValue = freezed,
+    Object? noteMap = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed ? _value.type : type as AnswerType,
-      withNote: withNote == freezed ? _value.withNote : withNote as bool,
-      stringValue:
-          stringValue == freezed ? _value.stringValue : stringValue as String,
-      intValue: intValue == freezed ? _value.intValue : intValue as int,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AnswerType,
+      withNote: withNote == freezed
+          ? _value.withNote
+          : withNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+      stringValue: stringValue == freezed
+          ? _value.stringValue
+          : stringValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      intValue: intValue == freezed
+          ? _value.intValue
+          : intValue // ignore: cast_nullable_to_non_nullable
+              as int?,
       choiceValue: choiceValue == freezed
           ? _value.choiceValue
-          : choiceValue as SimpleChoice,
+          : choiceValue // ignore: cast_nullable_to_non_nullable
+              as SimpleChoice?,
       choiceListValue: choiceListValue == freezed
           ? _value.choiceListValue
-          : choiceListValue as KtList<SimpleChoice>,
+          : choiceListValue // ignore: cast_nullable_to_non_nullable
+              as KtList<SimpleChoice>?,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMap<ChoiceId, String>,
+          : noteMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<ChoiceId, String>?,
     ));
   }
 
   @override
-  $SimpleChoiceCopyWith<$Res> get choiceValue {
+  $SimpleChoiceCopyWith<$Res>? get choiceValue {
     if (_value.choiceValue == null) {
       return null;
     }
-    return $SimpleChoiceCopyWith<$Res>(_value.choiceValue, (value) {
+
+    return $SimpleChoiceCopyWith<$Res>(_value.choiceValue!, (value) {
       return _then(_value.copyWith(choiceValue: value));
     });
   }
@@ -122,14 +140,14 @@ abstract class _$AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
   $Res call(
       {AnswerType type,
       bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoice choiceValue,
-      KtList<SimpleChoice> choiceListValue,
-      KtMap<ChoiceId, String> noteMap});
+      String? stringValue,
+      int? intValue,
+      SimpleChoice? choiceValue,
+      KtList<SimpleChoice>? choiceListValue,
+      KtMap<ChoiceId, String>? noteMap});
 
   @override
-  $SimpleChoiceCopyWith<$Res> get choiceValue;
+  $SimpleChoiceCopyWith<$Res>? get choiceValue;
 }
 
 /// @nodoc
@@ -143,61 +161,74 @@ class __$AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object withNote = freezed,
-    Object stringValue = freezed,
-    Object intValue = freezed,
-    Object choiceValue = freezed,
-    Object choiceListValue = freezed,
-    Object noteMap = freezed,
+    Object? type = freezed,
+    Object? withNote = freezed,
+    Object? stringValue = freezed,
+    Object? intValue = freezed,
+    Object? choiceValue = freezed,
+    Object? choiceListValue = freezed,
+    Object? noteMap = freezed,
   }) {
     return _then(_Answer(
-      type: type == freezed ? _value.type : type as AnswerType,
-      withNote: withNote == freezed ? _value.withNote : withNote as bool,
-      stringValue:
-          stringValue == freezed ? _value.stringValue : stringValue as String,
-      intValue: intValue == freezed ? _value.intValue : intValue as int,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AnswerType,
+      withNote: withNote == freezed
+          ? _value.withNote
+          : withNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+      stringValue: stringValue == freezed
+          ? _value.stringValue
+          : stringValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      intValue: intValue == freezed
+          ? _value.intValue
+          : intValue // ignore: cast_nullable_to_non_nullable
+              as int?,
       choiceValue: choiceValue == freezed
           ? _value.choiceValue
-          : choiceValue as SimpleChoice,
+          : choiceValue // ignore: cast_nullable_to_non_nullable
+              as SimpleChoice?,
       choiceListValue: choiceListValue == freezed
           ? _value.choiceListValue
-          : choiceListValue as KtList<SimpleChoice>,
+          : choiceListValue // ignore: cast_nullable_to_non_nullable
+              as KtList<SimpleChoice>?,
       noteMap: noteMap == freezed
           ? _value.noteMap
-          : noteMap as KtMap<ChoiceId, String>,
+          : noteMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<ChoiceId, String>?,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Answer extends _Answer {
   const _$_Answer(
-      {@required this.type,
-      @required this.withNote,
+      {required this.type,
+      required this.withNote,
       this.stringValue,
       this.intValue,
       this.choiceValue,
       this.choiceListValue,
       this.noteMap})
-      : assert(type != null),
-        assert(withNote != null),
-        super._();
+      : super._();
 
   @override
   final AnswerType type;
   @override
   final bool withNote;
   @override
-  final String stringValue;
+  final String? stringValue;
   @override
-  final int intValue;
+  final int? intValue;
   @override
-  final SimpleChoice choiceValue;
+  final SimpleChoice? choiceValue;
   @override
-  final KtList<SimpleChoice> choiceListValue;
+  final KtList<SimpleChoice>? choiceListValue;
   @override
-  final KtMap<ChoiceId, String> noteMap;
+  final KtMap<ChoiceId, String>? noteMap;
 
   @override
   String toString() {
@@ -240,36 +271,39 @@ class _$_Answer extends _Answer {
       const DeepCollectionEquality().hash(choiceListValue) ^
       const DeepCollectionEquality().hash(noteMap);
 
+  @JsonKey(ignore: true)
   @override
   _$AnswerCopyWith<_Answer> get copyWith =>
       __$AnswerCopyWithImpl<_Answer>(this, _$identity);
 }
 
 abstract class _Answer extends Answer {
-  const _Answer._() : super._();
   const factory _Answer(
-      {@required AnswerType type,
-      @required bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoice choiceValue,
-      KtList<SimpleChoice> choiceListValue,
-      KtMap<ChoiceId, String> noteMap}) = _$_Answer;
+      {required AnswerType type,
+      required bool withNote,
+      String? stringValue,
+      int? intValue,
+      SimpleChoice? choiceValue,
+      KtList<SimpleChoice>? choiceListValue,
+      KtMap<ChoiceId, String>? noteMap}) = _$_Answer;
+  const _Answer._() : super._();
 
   @override
-  AnswerType get type;
+  AnswerType get type => throw _privateConstructorUsedError;
   @override
-  bool get withNote;
+  bool get withNote => throw _privateConstructorUsedError;
   @override
-  String get stringValue;
+  String? get stringValue => throw _privateConstructorUsedError;
   @override
-  int get intValue;
+  int? get intValue => throw _privateConstructorUsedError;
   @override
-  SimpleChoice get choiceValue;
+  SimpleChoice? get choiceValue => throw _privateConstructorUsedError;
   @override
-  KtList<SimpleChoice> get choiceListValue;
+  KtList<SimpleChoice>? get choiceListValue =>
+      throw _privateConstructorUsedError;
   @override
-  KtMap<ChoiceId, String> get noteMap;
+  KtMap<ChoiceId, String>? get noteMap => throw _privateConstructorUsedError;
   @override
-  _$AnswerCopyWith<_Answer> get copyWith;
+  @JsonKey(ignore: true)
+  _$AnswerCopyWith<_Answer> get copyWith => throw _privateConstructorUsedError;
 }

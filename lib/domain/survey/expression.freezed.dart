@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'expression.dart';
 
@@ -9,15 +9,17 @@ part of 'expression.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ExpressionTearOff {
   const _$ExpressionTearOff();
 
-// ignore: unused_element
   _Expression call(
-      {@required QuestionId field,
-      @required Operator operator,
-      @required Answer comparisonValue}) {
+      {required QuestionId field,
+      required Operator operator,
+      required Answer comparisonValue}) {
     return _Expression(
       field: field,
       operator: operator,
@@ -27,16 +29,17 @@ class _$ExpressionTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Expression = _$ExpressionTearOff();
 
 /// @nodoc
 mixin _$Expression {
-  QuestionId get field;
-  Operator get operator;
-  Answer get comparisonValue;
+  QuestionId get field => throw _privateConstructorUsedError;
+  Operator get operator => throw _privateConstructorUsedError;
+  Answer get comparisonValue => throw _privateConstructorUsedError;
 
-  $ExpressionCopyWith<Expression> get copyWith;
+  @JsonKey(ignore: true)
+  $ExpressionCopyWith<Expression> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -59,24 +62,28 @@ class _$ExpressionCopyWithImpl<$Res> implements $ExpressionCopyWith<$Res> {
 
   @override
   $Res call({
-    Object field = freezed,
-    Object operator = freezed,
-    Object comparisonValue = freezed,
+    Object? field = freezed,
+    Object? operator = freezed,
+    Object? comparisonValue = freezed,
   }) {
     return _then(_value.copyWith(
-      field: field == freezed ? _value.field : field as QuestionId,
-      operator: operator == freezed ? _value.operator : operator as Operator,
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as Operator,
       comparisonValue: comparisonValue == freezed
           ? _value.comparisonValue
-          : comparisonValue as Answer,
+          : comparisonValue // ignore: cast_nullable_to_non_nullable
+              as Answer,
     ));
   }
 
   @override
   $AnswerCopyWith<$Res> get comparisonValue {
-    if (_value.comparisonValue == null) {
-      return null;
-    }
     return $AnswerCopyWith<$Res>(_value.comparisonValue, (value) {
       return _then(_value.copyWith(comparisonValue: value));
     });
@@ -107,30 +114,35 @@ class __$ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object field = freezed,
-    Object operator = freezed,
-    Object comparisonValue = freezed,
+    Object? field = freezed,
+    Object? operator = freezed,
+    Object? comparisonValue = freezed,
   }) {
     return _then(_Expression(
-      field: field == freezed ? _value.field : field as QuestionId,
-      operator: operator == freezed ? _value.operator : operator as Operator,
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as QuestionId,
+      operator: operator == freezed
+          ? _value.operator
+          : operator // ignore: cast_nullable_to_non_nullable
+              as Operator,
       comparisonValue: comparisonValue == freezed
           ? _value.comparisonValue
-          : comparisonValue as Answer,
+          : comparisonValue // ignore: cast_nullable_to_non_nullable
+              as Answer,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Expression extends _Expression {
   const _$_Expression(
-      {@required this.field,
-      @required this.operator,
-      @required this.comparisonValue})
-      : assert(field != null),
-        assert(operator != null),
-        assert(comparisonValue != null),
-        super._();
+      {required this.field,
+      required this.operator,
+      required this.comparisonValue})
+      : super._();
 
   @override
   final QuestionId field;
@@ -165,24 +177,27 @@ class _$_Expression extends _Expression {
       const DeepCollectionEquality().hash(operator) ^
       const DeepCollectionEquality().hash(comparisonValue);
 
+  @JsonKey(ignore: true)
   @override
   _$ExpressionCopyWith<_Expression> get copyWith =>
       __$ExpressionCopyWithImpl<_Expression>(this, _$identity);
 }
 
 abstract class _Expression extends Expression {
-  const _Expression._() : super._();
   const factory _Expression(
-      {@required QuestionId field,
-      @required Operator operator,
-      @required Answer comparisonValue}) = _$_Expression;
+      {required QuestionId field,
+      required Operator operator,
+      required Answer comparisonValue}) = _$_Expression;
+  const _Expression._() : super._();
 
   @override
-  QuestionId get field;
+  QuestionId get field => throw _privateConstructorUsedError;
   @override
-  Operator get operator;
+  Operator get operator => throw _privateConstructorUsedError;
   @override
-  Answer get comparisonValue;
+  Answer get comparisonValue => throw _privateConstructorUsedError;
   @override
-  _$ExpressionCopyWith<_Expression> get copyWith;
+  @JsonKey(ignore: true)
+  _$ExpressionCopyWith<_Expression> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,15 +1,15 @@
 part of 'respondent_bloc.dart';
 
 @freezed
-abstract class RespondentState with _$RespondentState {
+class RespondentState with _$RespondentState {
   const factory RespondentState({
-    @required LoadState respondentListListState,
-    @required KtList<RespondentList> respondentListList,
-    @required Survey survey,
-    @required KtList<Respondent> respondentList,
-    @required Option<RespondentFailure> respondentFailure,
-    @required RespondentId selectedRespondentId,
-    @required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+    required LoadState respondentListListState,
+    required KtList<RespondentList> respondentListList,
+    required Survey survey,
+    required KtList<Respondent> respondentList,
+    required Option<RespondentFailure> respondentFailure,
+    required RespondentId selectedRespondentId,
+    required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(

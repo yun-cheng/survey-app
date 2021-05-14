@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/auth/team.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/auth/auth_bloc.dart';
@@ -7,7 +8,7 @@ import '../../core/constants.dart';
 
 class Teambox extends StatelessWidget {
   const Teambox({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -15,7 +16,7 @@ class Teambox extends StatelessWidget {
     return BlocBuilder<AuthBloc, AuthState>(
       buildWhen: (p, c) => p.teamList != c.teamList,
       builder: (context, state) {
-        return DropdownButtonFormField(
+        return DropdownButtonFormField<Team>(
           value: state.team.failureOption.isNone() &&
                   state.teamList.contains(state.team)
               ? state.team
@@ -30,9 +31,8 @@ class Teambox extends StatelessWidget {
                 ),
               )
               .asList(),
-          onChanged: (value) {
-            context.read<AuthBloc>().add(AuthEvent.teamSelected(value));
-          },
+          onChanged: (Team? value) =>
+              context.read<AuthBloc>().add(AuthEvent.teamSelected(value!)),
           style: kPTextStyle.copyWith(
             color: Colors.black,
           ),

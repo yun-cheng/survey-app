@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'navigation_bloc.dart';
 
@@ -9,63 +9,67 @@ part of 'navigation_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$NavigationEventTearOff {
   const _$NavigationEventTearOff();
 
-// ignore: unused_element
   _PageChanged pageChanged(
-      {@required NavigationPage page, RespondentId respondentId}) {
+      {required NavigationPage page, RespondentId? respondentId}) {
     return _PageChanged(
       page: page,
       respondentId: respondentId,
     );
   }
 
-// ignore: unused_element
   _PagePushed pagePushed() {
     return const _PagePushed();
   }
 
-// ignore: unused_element
   _PageInitialized pageInitialized() {
     return const _PageInitialized();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NavigationEvent = _$NavigationEventTearOff();
 
 /// @nodoc
 mixin _$NavigationEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    @required TResult pagePushed(),
-    @required TResult pageInitialized(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(NavigationPage page, RespondentId? respondentId)
+        pageChanged,
+    required TResult Function() pagePushed,
+    required TResult Function() pageInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    TResult pagePushed(),
-    TResult pageInitialized(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(NavigationPage page, RespondentId? respondentId)?
+        pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pageChanged(_PageChanged value),
-    @required TResult pagePushed(_PagePushed value),
-    @required TResult pageInitialized(_PageInitialized value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageInitialized value) pageInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pageChanged(_PageChanged value),
-    TResult pagePushed(_PagePushed value),
-    TResult pageInitialized(_PageInitialized value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -90,7 +94,7 @@ abstract class _$PageChangedCopyWith<$Res> {
   factory _$PageChangedCopyWith(
           _PageChanged value, $Res Function(_PageChanged) then) =
       __$PageChangedCopyWithImpl<$Res>;
-  $Res call({NavigationPage page, RespondentId respondentId});
+  $Res call({NavigationPage page, RespondentId? respondentId});
 
   $NavigationPageCopyWith<$Res> get page;
 }
@@ -108,22 +112,23 @@ class __$PageChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object respondentId = freezed,
+    Object? page = freezed,
+    Object? respondentId = freezed,
   }) {
     return _then(_PageChanged(
-      page: page == freezed ? _value.page : page as NavigationPage,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as NavigationPage,
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as RespondentId,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId?,
     ));
   }
 
   @override
   $NavigationPageCopyWith<$Res> get page {
-    if (_value.page == null) {
-      return null;
-    }
     return $NavigationPageCopyWith<$Res>(_value.page, (value) {
       return _then(_value.copyWith(page: value));
     });
@@ -131,14 +136,14 @@ class __$PageChangedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_PageChanged implements _PageChanged {
-  const _$_PageChanged({@required this.page, this.respondentId})
-      : assert(page != null);
+  const _$_PageChanged({required this.page, this.respondentId});
 
   @override
   final NavigationPage page;
   @override
-  final RespondentId respondentId;
+  final RespondentId? respondentId;
 
   @override
   String toString() {
@@ -162,33 +167,31 @@ class _$_PageChanged implements _PageChanged {
       const DeepCollectionEquality().hash(page) ^
       const DeepCollectionEquality().hash(respondentId);
 
+  @JsonKey(ignore: true)
   @override
   _$PageChangedCopyWith<_PageChanged> get copyWith =>
       __$PageChangedCopyWithImpl<_PageChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    @required TResult pagePushed(),
-    @required TResult pageInitialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(NavigationPage page, RespondentId? respondentId)
+        pageChanged,
+    required TResult Function() pagePushed,
+    required TResult Function() pageInitialized,
   }) {
-    assert(pageChanged != null);
-    assert(pagePushed != null);
-    assert(pageInitialized != null);
     return pageChanged(page, respondentId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    TResult pagePushed(),
-    TResult pageInitialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(NavigationPage page, RespondentId? respondentId)?
+        pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pageChanged != null) {
       return pageChanged(page, respondentId);
     }
@@ -197,26 +200,22 @@ class _$_PageChanged implements _PageChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pageChanged(_PageChanged value),
-    @required TResult pagePushed(_PagePushed value),
-    @required TResult pageInitialized(_PageInitialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageInitialized value) pageInitialized,
   }) {
-    assert(pageChanged != null);
-    assert(pagePushed != null);
-    assert(pageInitialized != null);
     return pageChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pageChanged(_PageChanged value),
-    TResult pagePushed(_PagePushed value),
-    TResult pageInitialized(_PageInitialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pageChanged != null) {
       return pageChanged(this);
     }
@@ -226,12 +225,14 @@ class _$_PageChanged implements _PageChanged {
 
 abstract class _PageChanged implements NavigationEvent {
   const factory _PageChanged(
-      {@required NavigationPage page,
-      RespondentId respondentId}) = _$_PageChanged;
+      {required NavigationPage page,
+      RespondentId? respondentId}) = _$_PageChanged;
 
-  NavigationPage get page;
-  RespondentId get respondentId;
-  _$PageChangedCopyWith<_PageChanged> get copyWith;
+  NavigationPage get page => throw _privateConstructorUsedError;
+  RespondentId? get respondentId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$PageChangedCopyWith<_PageChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -254,6 +255,7 @@ class __$PagePushedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_PagePushed implements _PagePushed {
   const _$_PagePushed();
 
@@ -272,27 +274,24 @@ class _$_PagePushed implements _PagePushed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    @required TResult pagePushed(),
-    @required TResult pageInitialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(NavigationPage page, RespondentId? respondentId)
+        pageChanged,
+    required TResult Function() pagePushed,
+    required TResult Function() pageInitialized,
   }) {
-    assert(pageChanged != null);
-    assert(pagePushed != null);
-    assert(pageInitialized != null);
     return pagePushed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    TResult pagePushed(),
-    TResult pageInitialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(NavigationPage page, RespondentId? respondentId)?
+        pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pagePushed != null) {
       return pagePushed();
     }
@@ -301,26 +300,22 @@ class _$_PagePushed implements _PagePushed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pageChanged(_PageChanged value),
-    @required TResult pagePushed(_PagePushed value),
-    @required TResult pageInitialized(_PageInitialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageInitialized value) pageInitialized,
   }) {
-    assert(pageChanged != null);
-    assert(pagePushed != null);
-    assert(pageInitialized != null);
     return pagePushed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pageChanged(_PageChanged value),
-    TResult pagePushed(_PagePushed value),
-    TResult pageInitialized(_PageInitialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pagePushed != null) {
       return pagePushed(this);
     }
@@ -352,6 +347,7 @@ class __$PageInitializedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_PageInitialized implements _PageInitialized {
   const _$_PageInitialized();
 
@@ -370,27 +366,24 @@ class _$_PageInitialized implements _PageInitialized {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    @required TResult pagePushed(),
-    @required TResult pageInitialized(),
+  TResult when<TResult extends Object?>({
+    required TResult Function(NavigationPage page, RespondentId? respondentId)
+        pageChanged,
+    required TResult Function() pagePushed,
+    required TResult Function() pageInitialized,
   }) {
-    assert(pageChanged != null);
-    assert(pagePushed != null);
-    assert(pageInitialized != null);
     return pageInitialized();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult pageChanged(NavigationPage page, RespondentId respondentId),
-    TResult pagePushed(),
-    TResult pageInitialized(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(NavigationPage page, RespondentId? respondentId)?
+        pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pageInitialized != null) {
       return pageInitialized();
     }
@@ -399,26 +392,22 @@ class _$_PageInitialized implements _PageInitialized {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult pageChanged(_PageChanged value),
-    @required TResult pagePushed(_PagePushed value),
-    @required TResult pageInitialized(_PageInitialized value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PageChanged value) pageChanged,
+    required TResult Function(_PagePushed value) pagePushed,
+    required TResult Function(_PageInitialized value) pageInitialized,
   }) {
-    assert(pageChanged != null);
-    assert(pagePushed != null);
-    assert(pageInitialized != null);
     return pageInitialized(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult pageChanged(_PageChanged value),
-    TResult pagePushed(_PagePushed value),
-    TResult pageInitialized(_PageInitialized value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pageInitialized != null) {
       return pageInitialized(this);
     }
@@ -434,11 +423,10 @@ abstract class _PageInitialized implements NavigationEvent {
 class _$NavigationStateTearOff {
   const _$NavigationStateTearOff();
 
-// ignore: unused_element
   _NavigationState call(
-      {@required NavigationPage page,
-      @required RespondentId respondentId,
-      @required PageState pageState}) {
+      {required NavigationPage page,
+      required RespondentId respondentId,
+      required PageState pageState}) {
     return _NavigationState(
       page: page,
       respondentId: respondentId,
@@ -448,16 +436,17 @@ class _$NavigationStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $NavigationState = _$NavigationStateTearOff();
 
 /// @nodoc
 mixin _$NavigationState {
-  NavigationPage get page;
-  RespondentId get respondentId;
-  PageState get pageState;
+  NavigationPage get page => throw _privateConstructorUsedError;
+  RespondentId get respondentId => throw _privateConstructorUsedError;
+  PageState get pageState => throw _privateConstructorUsedError;
 
-  $NavigationStateCopyWith<NavigationState> get copyWith;
+  @JsonKey(ignore: true)
+  $NavigationStateCopyWith<NavigationState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -483,25 +472,28 @@ class _$NavigationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object respondentId = freezed,
-    Object pageState = freezed,
+    Object? page = freezed,
+    Object? respondentId = freezed,
+    Object? pageState = freezed,
   }) {
     return _then(_value.copyWith(
-      page: page == freezed ? _value.page : page as NavigationPage,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as NavigationPage,
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as RespondentId,
-      pageState:
-          pageState == freezed ? _value.pageState : pageState as PageState,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
+      pageState: pageState == freezed
+          ? _value.pageState
+          : pageState // ignore: cast_nullable_to_non_nullable
+              as PageState,
     ));
   }
 
   @override
   $NavigationPageCopyWith<$Res> get page {
-    if (_value.page == null) {
-      return null;
-    }
     return $NavigationPageCopyWith<$Res>(_value.page, (value) {
       return _then(_value.copyWith(page: value));
     });
@@ -509,9 +501,6 @@ class _$NavigationStateCopyWithImpl<$Res>
 
   @override
   $PageStateCopyWith<$Res> get pageState {
-    if (_value.pageState == null) {
-      return null;
-    }
     return $PageStateCopyWith<$Res>(_value.pageState, (value) {
       return _then(_value.copyWith(pageState: value));
     });
@@ -547,30 +536,34 @@ class __$NavigationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object respondentId = freezed,
-    Object pageState = freezed,
+    Object? page = freezed,
+    Object? respondentId = freezed,
+    Object? pageState = freezed,
   }) {
     return _then(_NavigationState(
-      page: page == freezed ? _value.page : page as NavigationPage,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as NavigationPage,
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as RespondentId,
-      pageState:
-          pageState == freezed ? _value.pageState : pageState as PageState,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
+      pageState: pageState == freezed
+          ? _value.pageState
+          : pageState // ignore: cast_nullable_to_non_nullable
+              as PageState,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_NavigationState implements _NavigationState {
   const _$_NavigationState(
-      {@required this.page,
-      @required this.respondentId,
-      @required this.pageState})
-      : assert(page != null),
-        assert(respondentId != null),
-        assert(pageState != null);
+      {required this.page,
+      required this.respondentId,
+      required this.pageState});
 
   @override
   final NavigationPage page;
@@ -605,6 +598,7 @@ class _$_NavigationState implements _NavigationState {
       const DeepCollectionEquality().hash(respondentId) ^
       const DeepCollectionEquality().hash(pageState);
 
+  @JsonKey(ignore: true)
   @override
   _$NavigationStateCopyWith<_NavigationState> get copyWith =>
       __$NavigationStateCopyWithImpl<_NavigationState>(this, _$identity);
@@ -612,16 +606,18 @@ class _$_NavigationState implements _NavigationState {
 
 abstract class _NavigationState implements NavigationState {
   const factory _NavigationState(
-      {@required NavigationPage page,
-      @required RespondentId respondentId,
-      @required PageState pageState}) = _$_NavigationState;
+      {required NavigationPage page,
+      required RespondentId respondentId,
+      required PageState pageState}) = _$_NavigationState;
 
   @override
-  NavigationPage get page;
+  NavigationPage get page => throw _privateConstructorUsedError;
   @override
-  RespondentId get respondentId;
+  RespondentId get respondentId => throw _privateConstructorUsedError;
   @override
-  PageState get pageState;
+  PageState get pageState => throw _privateConstructorUsedError;
   @override
-  _$NavigationStateCopyWith<_NavigationState> get copyWith;
+  @JsonKey(ignore: true)
+  _$NavigationStateCopyWith<_NavigationState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -16,11 +16,11 @@ extension DateTimeExtension on DateTime {
   }
 
   DateTime update({
-    int year,
-    int month,
-    int day,
-    int hour,
-    int minute,
+    int? year,
+    int? month,
+    int? day,
+    int? hour,
+    int? minute,
   }) {
     return DateTime(
       year ?? this.year,
@@ -55,11 +55,11 @@ extension TimeOfDayExtension on TimeOfDay {
 }
 
 class TimeOfDayX {
-  static TimeOfDay fromTimeString(String timeString) {
+  static TimeOfDay? fromTimeString(String timeString) {
     final hour = int.tryParse(timeString.split(':')[0]);
     final minute = int.tryParse(timeString.split(':')[1]);
     try {
-      return TimeOfDay(hour: hour, minute: minute);
+      return TimeOfDay(hour: hour!, minute: minute!);
     } on Exception {
       return null;
     }
@@ -67,7 +67,7 @@ class TimeOfDayX {
 }
 
 class DateTimeX {
-  static DateTime fromDateTimeString(String dateTimeString) {
+  static DateTime? fromDateTimeString(String dateTimeString) {
     if (dateTimeString == '') {
       return DateTime.now();
     }

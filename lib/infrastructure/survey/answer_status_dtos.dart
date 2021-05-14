@@ -8,13 +8,13 @@ part 'answer_status_dtos.freezed.dart';
 part 'answer_status_dtos.g.dart';
 
 @freezed
-abstract class AnswerStatusDto implements _$AnswerStatusDto {
+class AnswerStatusDto with _$AnswerStatusDto {
   const AnswerStatusDto._();
 
   const factory AnswerStatusDto({
-    @required String answerStatusType,
-    bool isSpecialAnswer,
-    Map<String, String> noteMap,
+    required String answerStatusType,
+    @Default(false) bool isSpecialAnswer,
+    @Default({}) Map<String, String> noteMap,
   }) = _AnswerStatusDto;
 
   factory AnswerStatusDto.fromDomain(AnswerStatus answerStatus) {
@@ -31,12 +31,10 @@ abstract class AnswerStatusDto implements _$AnswerStatusDto {
   AnswerStatus toDomain() {
     return AnswerStatus(
       type: AnswerStatusType(answerStatusType),
-      isSpecialAnswer: isSpecialAnswer ?? false,
-      noteMap: noteMap != null
-          ? KtMutableMap.from(noteMap)
-              .mapKeys((entry) => ChoiceId(entry.key))
-              .mapValues((entry) => AnswerStatusType(entry.value))
-          : KtMutableMap<ChoiceId, AnswerStatusType>.empty(),
+      isSpecialAnswer: isSpecialAnswer,
+      noteMap: KtMutableMap.from(noteMap)
+          .mapKeys((entry) => ChoiceId(entry.key))
+          .mapValues((entry) => AnswerStatusType(entry.value)),
     );
   }
 

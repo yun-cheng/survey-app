@@ -11,29 +11,21 @@ _$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
   return _$_RespondentStateDto(
     respondentListListState:
         json['respondentListListState'] as Map<String, dynamic>,
-    respondentListList: (json['respondentListList'] as List)
-        ?.map((e) => e == null
-            ? null
-            : RespondentListDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
-    survey: json['survey'] == null
-        ? null
-        : SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
-    respondentList: (json['respondentList'] as List)
-        ?.map((e) => e == null
-            ? null
-            : RespondentDto.fromJson(e as Map<String, dynamic>))
-        ?.toList(),
+    respondentListList: (json['respondentListList'] as List<dynamic>)
+        .map((e) => RespondentListDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
+    survey: SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
+    respondentList: (json['respondentList'] as List<dynamic>)
+        .map((e) => RespondentDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
     selectedRespondentId: json['selectedRespondentId'] as String,
-    respondentFailure: json['respondentFailure'] as Map<String, dynamic>,
-    visitRecordsMap: (json['visitRecordsMap'] as Map<String, dynamic>)?.map(
+    respondentFailure: json['respondentFailure'] as Map<String, dynamic>?,
+    visitRecordsMap: (json['visitRecordsMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(
           k,
-          (e as List)
-              ?.map((e) => e == null
-                  ? null
-                  : VisitRecordDto.fromJson(e as Map<String, dynamic>))
-              ?.toList()),
+          (e as List<dynamic>)
+              .map((e) => VisitRecordDto.fromJson(e as Map<String, dynamic>))
+              .toList()),
     ),
   );
 }
@@ -43,12 +35,11 @@ Map<String, dynamic> _$_$_RespondentStateDtoToJson(
     <String, dynamic>{
       'respondentListListState': instance.respondentListListState,
       'respondentListList':
-          instance.respondentListList?.map((e) => e?.toJson())?.toList(),
-      'survey': instance.survey?.toJson(),
-      'respondentList':
-          instance.respondentList?.map((e) => e?.toJson())?.toList(),
+          instance.respondentListList.map((e) => e.toJson()).toList(),
+      'survey': instance.survey.toJson(),
+      'respondentList': instance.respondentList.map((e) => e.toJson()).toList(),
       'selectedRespondentId': instance.selectedRespondentId,
       'respondentFailure': instance.respondentFailure,
       'visitRecordsMap': instance.visitRecordsMap
-          ?.map((k, e) => MapEntry(k, e?.map((e) => e?.toJson())?.toList())),
+          .map((k, e) => MapEntry(k, e.map((e) => e.toJson()).toList())),
     };

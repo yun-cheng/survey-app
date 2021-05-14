@@ -1,23 +1,23 @@
 part of 'response_bloc.dart';
 
 @freezed
-abstract class ResponseState with _$ResponseState {
+class ResponseState with _$ResponseState {
   const factory ResponseState({
-    @required Survey survey,
-    @required Respondent respondent,
-    @required Interviewer interviewer,
-    @required ModuleType moduleType,
-    @required LoadState responseListState,
-    @required KtList<Response> responseList,
-    @required KtList<Response> downloadedResponseList,
-    @required Option<SurveyFailure> responseFailure,
-    @required Response response,
-    @required LoadState responseRestoreState,
-    @required KtList<Question> questionList,
-    @required bool withResponseId,
-    @required UniqueId responseId,
-    @required Response mainResponse,
-    @required KtList<Response> respondentResponseList,
+    required Survey survey,
+    required Respondent respondent,
+    required Interviewer interviewer,
+    required ModuleType moduleType,
+    required LoadState responseListState,
+    required KtList<Response> responseList,
+    required KtList<Response> downloadedResponseList,
+    required Option<SurveyFailure> responseFailure,
+    required Response response,
+    required LoadState responseRestoreState,
+    required KtList<Question> questionList,
+    required bool withResponseId,
+    required UniqueId responseId,
+    required Response mainResponse,
+    required KtList<Response> respondentResponseList,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(

@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'failures.dart';
 
@@ -9,33 +9,32 @@ part of 'failures.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ValueFailureTearOff {
   const _$ValueFailureTearOff();
 
-// ignore: unused_element
-  Empty<T> empty<T>({@required T failedValue}) {
+  Empty<T> empty<T>({required T failedValue}) {
     return Empty<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
-  UnexpectedAnswer<T> unexpected<T>({@required T failedValue}) {
+  UnexpectedAnswer<T> unexpected<T>({required T failedValue}) {
     return UnexpectedAnswer<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
-  NotNaturalNumber<T> notNaturalNumber<T>({@required T failedValue}) {
+  NotNaturalNumber<T> notNaturalNumber<T>({required T failedValue}) {
     return NotNaturalNumber<T>(
       failedValue: failedValue,
     );
   }
 
-// ignore: unused_element
-  NotBoolean<T> notBoolean<T>({@required T failedValue}) {
+  NotBoolean<T> notBoolean<T>({required T failedValue}) {
     return NotBoolean<T>(
       failedValue: failedValue,
     );
@@ -43,45 +42,50 @@ class _$ValueFailureTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ValueFailure = _$ValueFailureTearOff();
 
 /// @nodoc
 mixin _$ValueFailure<T> {
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
 
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(T failedValue),
-    @required TResult notNaturalNumber(T failedValue),
-    @required TResult notBoolean(T failedValue),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) unexpected,
+    required TResult Function(T failedValue) notNaturalNumber,
+    required TResult Function(T failedValue) notBoolean,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(T failedValue),
-    TResult notNaturalNumber(T failedValue),
-    TResult notBoolean(T failedValue),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? unexpected,
+    TResult Function(T failedValue)? notNaturalNumber,
+    TResult Function(T failedValue)? notBoolean,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(Empty<T> value),
-    @required TResult unexpected(UnexpectedAnswer<T> value),
-    @required TResult notNaturalNumber(NotNaturalNumber<T> value),
-    @required TResult notBoolean(NotBoolean<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(UnexpectedAnswer<T> value) unexpected,
+    required TResult Function(NotNaturalNumber<T> value) notNaturalNumber,
+    required TResult Function(NotBoolean<T> value) notBoolean,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(Empty<T> value),
-    TResult unexpected(UnexpectedAnswer<T> value),
-    TResult notNaturalNumber(NotNaturalNumber<T> value),
-    TResult notBoolean(NotBoolean<T> value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(UnexpectedAnswer<T> value)? unexpected,
+    TResult Function(NotNaturalNumber<T> value)? notNaturalNumber,
+    TResult Function(NotBoolean<T> value)? notBoolean,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
-  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith;
+  @JsonKey(ignore: true)
+  $ValueFailureCopyWith<T, ValueFailure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -103,11 +107,13 @@ class _$ValueFailureCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(_value.copyWith(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
@@ -132,18 +138,21 @@ class _$EmptyCopyWithImpl<T, $Res> extends _$ValueFailureCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(Empty<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$Empty<T> implements Empty<T> {
-  const _$Empty({@required this.failedValue}) : assert(failedValue != null);
+  const _$Empty({required this.failedValue});
 
   @override
   final T failedValue;
@@ -166,35 +175,31 @@ class _$Empty<T> implements Empty<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $EmptyCopyWith<T, Empty<T>> get copyWith =>
       _$EmptyCopyWithImpl<T, Empty<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(T failedValue),
-    @required TResult notNaturalNumber(T failedValue),
-    @required TResult notBoolean(T failedValue),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) unexpected,
+    required TResult Function(T failedValue) notNaturalNumber,
+    required TResult Function(T failedValue) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return empty(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(T failedValue),
-    TResult notNaturalNumber(T failedValue),
-    TResult notBoolean(T failedValue),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? unexpected,
+    TResult Function(T failedValue)? notNaturalNumber,
+    TResult Function(T failedValue)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(failedValue);
     }
@@ -203,29 +208,24 @@ class _$Empty<T> implements Empty<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(Empty<T> value),
-    @required TResult unexpected(UnexpectedAnswer<T> value),
-    @required TResult notNaturalNumber(NotNaturalNumber<T> value),
-    @required TResult notBoolean(NotBoolean<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(UnexpectedAnswer<T> value) unexpected,
+    required TResult Function(NotNaturalNumber<T> value) notNaturalNumber,
+    required TResult Function(NotBoolean<T> value) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return empty(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(Empty<T> value),
-    TResult unexpected(UnexpectedAnswer<T> value),
-    TResult notNaturalNumber(NotNaturalNumber<T> value),
-    TResult notBoolean(NotBoolean<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(UnexpectedAnswer<T> value)? unexpected,
+    TResult Function(NotNaturalNumber<T> value)? notNaturalNumber,
+    TResult Function(NotBoolean<T> value)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (empty != null) {
       return empty(this);
     }
@@ -234,12 +234,14 @@ class _$Empty<T> implements Empty<T> {
 }
 
 abstract class Empty<T> implements ValueFailure<T> {
-  const factory Empty({@required T failedValue}) = _$Empty<T>;
+  const factory Empty({required T failedValue}) = _$Empty<T>;
 
   @override
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @override
-  $EmptyCopyWith<T, Empty<T>> get copyWith;
+  @JsonKey(ignore: true)
+  $EmptyCopyWith<T, Empty<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -265,19 +267,21 @@ class _$UnexpectedAnswerCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(UnexpectedAnswer<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
-  const _$UnexpectedAnswer({@required this.failedValue})
-      : assert(failedValue != null);
+  const _$UnexpectedAnswer({required this.failedValue});
 
   @override
   final T failedValue;
@@ -300,35 +304,31 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $UnexpectedAnswerCopyWith<T, UnexpectedAnswer<T>> get copyWith =>
       _$UnexpectedAnswerCopyWithImpl<T, UnexpectedAnswer<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(T failedValue),
-    @required TResult notNaturalNumber(T failedValue),
-    @required TResult notBoolean(T failedValue),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) unexpected,
+    required TResult Function(T failedValue) notNaturalNumber,
+    required TResult Function(T failedValue) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return unexpected(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(T failedValue),
-    TResult notNaturalNumber(T failedValue),
-    TResult notBoolean(T failedValue),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? unexpected,
+    TResult Function(T failedValue)? notNaturalNumber,
+    TResult Function(T failedValue)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(failedValue);
     }
@@ -337,29 +337,24 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(Empty<T> value),
-    @required TResult unexpected(UnexpectedAnswer<T> value),
-    @required TResult notNaturalNumber(NotNaturalNumber<T> value),
-    @required TResult notBoolean(NotBoolean<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(UnexpectedAnswer<T> value) unexpected,
+    required TResult Function(NotNaturalNumber<T> value) notNaturalNumber,
+    required TResult Function(NotBoolean<T> value) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return unexpected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(Empty<T> value),
-    TResult unexpected(UnexpectedAnswer<T> value),
-    TResult notNaturalNumber(NotNaturalNumber<T> value),
-    TResult notBoolean(NotBoolean<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(UnexpectedAnswer<T> value)? unexpected,
+    TResult Function(NotNaturalNumber<T> value)? notNaturalNumber,
+    TResult Function(NotBoolean<T> value)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (unexpected != null) {
       return unexpected(this);
     }
@@ -368,13 +363,15 @@ class _$UnexpectedAnswer<T> implements UnexpectedAnswer<T> {
 }
 
 abstract class UnexpectedAnswer<T> implements ValueFailure<T> {
-  const factory UnexpectedAnswer({@required T failedValue}) =
+  const factory UnexpectedAnswer({required T failedValue}) =
       _$UnexpectedAnswer<T>;
 
   @override
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @override
-  $UnexpectedAnswerCopyWith<T, UnexpectedAnswer<T>> get copyWith;
+  @JsonKey(ignore: true)
+  $UnexpectedAnswerCopyWith<T, UnexpectedAnswer<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -400,19 +397,21 @@ class _$NotNaturalNumberCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(NotNaturalNumber<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
-  const _$NotNaturalNumber({@required this.failedValue})
-      : assert(failedValue != null);
+  const _$NotNaturalNumber({required this.failedValue});
 
   @override
   final T failedValue;
@@ -435,35 +434,31 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $NotNaturalNumberCopyWith<T, NotNaturalNumber<T>> get copyWith =>
       _$NotNaturalNumberCopyWithImpl<T, NotNaturalNumber<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(T failedValue),
-    @required TResult notNaturalNumber(T failedValue),
-    @required TResult notBoolean(T failedValue),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) unexpected,
+    required TResult Function(T failedValue) notNaturalNumber,
+    required TResult Function(T failedValue) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return notNaturalNumber(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(T failedValue),
-    TResult notNaturalNumber(T failedValue),
-    TResult notBoolean(T failedValue),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? unexpected,
+    TResult Function(T failedValue)? notNaturalNumber,
+    TResult Function(T failedValue)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (notNaturalNumber != null) {
       return notNaturalNumber(failedValue);
     }
@@ -472,29 +467,24 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(Empty<T> value),
-    @required TResult unexpected(UnexpectedAnswer<T> value),
-    @required TResult notNaturalNumber(NotNaturalNumber<T> value),
-    @required TResult notBoolean(NotBoolean<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(UnexpectedAnswer<T> value) unexpected,
+    required TResult Function(NotNaturalNumber<T> value) notNaturalNumber,
+    required TResult Function(NotBoolean<T> value) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return notNaturalNumber(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(Empty<T> value),
-    TResult unexpected(UnexpectedAnswer<T> value),
-    TResult notNaturalNumber(NotNaturalNumber<T> value),
-    TResult notBoolean(NotBoolean<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(UnexpectedAnswer<T> value)? unexpected,
+    TResult Function(NotNaturalNumber<T> value)? notNaturalNumber,
+    TResult Function(NotBoolean<T> value)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (notNaturalNumber != null) {
       return notNaturalNumber(this);
     }
@@ -503,13 +493,15 @@ class _$NotNaturalNumber<T> implements NotNaturalNumber<T> {
 }
 
 abstract class NotNaturalNumber<T> implements ValueFailure<T> {
-  const factory NotNaturalNumber({@required T failedValue}) =
+  const factory NotNaturalNumber({required T failedValue}) =
       _$NotNaturalNumber<T>;
 
   @override
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @override
-  $NotNaturalNumberCopyWith<T, NotNaturalNumber<T>> get copyWith;
+  @JsonKey(ignore: true)
+  $NotNaturalNumberCopyWith<T, NotNaturalNumber<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -535,19 +527,21 @@ class _$NotBooleanCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object failedValue = freezed,
+    Object? failedValue = freezed,
   }) {
     return _then(NotBoolean<T>(
-      failedValue:
-          failedValue == freezed ? _value.failedValue : failedValue as T,
+      failedValue: failedValue == freezed
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
 
 /// @nodoc
+
 class _$NotBoolean<T> implements NotBoolean<T> {
-  const _$NotBoolean({@required this.failedValue})
-      : assert(failedValue != null);
+  const _$NotBoolean({required this.failedValue});
 
   @override
   final T failedValue;
@@ -570,35 +564,31 @@ class _$NotBoolean<T> implements NotBoolean<T> {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(failedValue);
 
+  @JsonKey(ignore: true)
   @override
   $NotBooleanCopyWith<T, NotBoolean<T>> get copyWith =>
       _$NotBooleanCopyWithImpl<T, NotBoolean<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult empty(T failedValue),
-    @required TResult unexpected(T failedValue),
-    @required TResult notNaturalNumber(T failedValue),
-    @required TResult notBoolean(T failedValue),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) unexpected,
+    required TResult Function(T failedValue) notNaturalNumber,
+    required TResult Function(T failedValue) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return notBoolean(failedValue);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult empty(T failedValue),
-    TResult unexpected(T failedValue),
-    TResult notNaturalNumber(T failedValue),
-    TResult notBoolean(T failedValue),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? unexpected,
+    TResult Function(T failedValue)? notNaturalNumber,
+    TResult Function(T failedValue)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (notBoolean != null) {
       return notBoolean(failedValue);
     }
@@ -607,29 +597,24 @@ class _$NotBoolean<T> implements NotBoolean<T> {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult empty(Empty<T> value),
-    @required TResult unexpected(UnexpectedAnswer<T> value),
-    @required TResult notNaturalNumber(NotNaturalNumber<T> value),
-    @required TResult notBoolean(NotBoolean<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(UnexpectedAnswer<T> value) unexpected,
+    required TResult Function(NotNaturalNumber<T> value) notNaturalNumber,
+    required TResult Function(NotBoolean<T> value) notBoolean,
   }) {
-    assert(empty != null);
-    assert(unexpected != null);
-    assert(notNaturalNumber != null);
-    assert(notBoolean != null);
     return notBoolean(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult empty(Empty<T> value),
-    TResult unexpected(UnexpectedAnswer<T> value),
-    TResult notNaturalNumber(NotNaturalNumber<T> value),
-    TResult notBoolean(NotBoolean<T> value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(UnexpectedAnswer<T> value)? unexpected,
+    TResult Function(NotNaturalNumber<T> value)? notNaturalNumber,
+    TResult Function(NotBoolean<T> value)? notBoolean,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (notBoolean != null) {
       return notBoolean(this);
     }
@@ -638,10 +623,12 @@ class _$NotBoolean<T> implements NotBoolean<T> {
 }
 
 abstract class NotBoolean<T> implements ValueFailure<T> {
-  const factory NotBoolean({@required T failedValue}) = _$NotBoolean<T>;
+  const factory NotBoolean({required T failedValue}) = _$NotBoolean<T>;
 
   @override
-  T get failedValue;
+  T get failedValue => throw _privateConstructorUsedError;
   @override
-  $NotBooleanCopyWith<T, NotBoolean<T>> get copyWith;
+  @JsonKey(ignore: true)
+  $NotBooleanCopyWith<T, NotBoolean<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

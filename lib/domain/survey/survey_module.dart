@@ -9,13 +9,13 @@ import 'value_objects.dart';
 part 'survey_module.freezed.dart';
 
 @freezed
-abstract class SurveyModule implements _$SurveyModule {
+class SurveyModule with _$SurveyModule {
   const SurveyModule._();
 
   const factory SurveyModule({
-    @required KtList<Question> questionList,
-    @required KtMap<QuestionId, Answer> answerMap,
-    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtList<Question> questionList,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
   }) = _SurveyModule;
 
   factory SurveyModule.empty() => const SurveyModule(

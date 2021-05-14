@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'choice.dart';
 
@@ -9,20 +9,22 @@ part of 'choice.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ChoiceTearOff {
   const _$ChoiceTearOff();
 
-// ignore: unused_element
   _Choice call(
-      {@required SerialNumber serialNumber,
-      @required ChoiceId id,
-      @required ChoiceBody body,
-      @required bool asNote,
-      @required bool asSingle,
-      @required bool isSpecialAnswer,
-      @required ChoiceGroup group,
-      @required ChoiceId upperChoiceId}) {
+      {required SerialNumber serialNumber,
+      required ChoiceId id,
+      required ChoiceBody body,
+      required bool asNote,
+      required bool asSingle,
+      required bool isSpecialAnswer,
+      required ChoiceGroup group,
+      required ChoiceId upperChoiceId}) {
     return _Choice(
       serialNumber: serialNumber,
       id: id,
@@ -37,21 +39,21 @@ class _$ChoiceTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Choice = _$ChoiceTearOff();
 
 /// @nodoc
 mixin _$Choice {
-  SerialNumber get serialNumber;
-  ChoiceId get id;
-  ChoiceBody get body;
-  bool get asNote;
-  bool get asSingle;
-  bool get isSpecialAnswer;
-  ChoiceGroup get group;
-  ChoiceId get upperChoiceId;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  ChoiceId get id => throw _privateConstructorUsedError;
+  ChoiceBody get body => throw _privateConstructorUsedError;
+  bool get asNote => throw _privateConstructorUsedError;
+  bool get asSingle => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  ChoiceGroup get group => throw _privateConstructorUsedError;
+  ChoiceId get upperChoiceId => throw _privateConstructorUsedError;
 
-  $ChoiceCopyWith<Choice> get copyWith;
+  @JsonKey(ignore: true)
+  $ChoiceCopyWith<Choice> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -79,30 +81,48 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
 
   @override
   $Res call({
-    Object serialNumber = freezed,
-    Object id = freezed,
-    Object body = freezed,
-    Object asNote = freezed,
-    Object asSingle = freezed,
-    Object isSpecialAnswer = freezed,
-    Object group = freezed,
-    Object upperChoiceId = freezed,
+    Object? serialNumber = freezed,
+    Object? id = freezed,
+    Object? body = freezed,
+    Object? asNote = freezed,
+    Object? asSingle = freezed,
+    Object? isSpecialAnswer = freezed,
+    Object? group = freezed,
+    Object? upperChoiceId = freezed,
   }) {
     return _then(_value.copyWith(
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      id: id == freezed ? _value.id : id as ChoiceId,
-      body: body == freezed ? _value.body : body as ChoiceBody,
-      asNote: asNote == freezed ? _value.asNote : asNote as bool,
-      asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as ChoiceId,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as ChoiceBody,
+      asNote: asNote == freezed
+          ? _value.asNote
+          : asNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+      asSingle: asSingle == freezed
+          ? _value.asSingle
+          : asSingle // ignore: cast_nullable_to_non_nullable
+              as bool,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
-          : isSpecialAnswer as bool,
-      group: group == freezed ? _value.group : group as ChoiceGroup,
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      group: group == freezed
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as ChoiceGroup,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
-          : upperChoiceId as ChoiceId,
+          : upperChoiceId // ignore: cast_nullable_to_non_nullable
+              as ChoiceId,
     ));
   }
 }
@@ -134,54 +154,65 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object serialNumber = freezed,
-    Object id = freezed,
-    Object body = freezed,
-    Object asNote = freezed,
-    Object asSingle = freezed,
-    Object isSpecialAnswer = freezed,
-    Object group = freezed,
-    Object upperChoiceId = freezed,
+    Object? serialNumber = freezed,
+    Object? id = freezed,
+    Object? body = freezed,
+    Object? asNote = freezed,
+    Object? asSingle = freezed,
+    Object? isSpecialAnswer = freezed,
+    Object? group = freezed,
+    Object? upperChoiceId = freezed,
   }) {
     return _then(_Choice(
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
-          : serialNumber as SerialNumber,
-      id: id == freezed ? _value.id : id as ChoiceId,
-      body: body == freezed ? _value.body : body as ChoiceBody,
-      asNote: asNote == freezed ? _value.asNote : asNote as bool,
-      asSingle: asSingle == freezed ? _value.asSingle : asSingle as bool,
+          : serialNumber // ignore: cast_nullable_to_non_nullable
+              as SerialNumber,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as ChoiceId,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as ChoiceBody,
+      asNote: asNote == freezed
+          ? _value.asNote
+          : asNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+      asSingle: asSingle == freezed
+          ? _value.asSingle
+          : asSingle // ignore: cast_nullable_to_non_nullable
+              as bool,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
-          : isSpecialAnswer as bool,
-      group: group == freezed ? _value.group : group as ChoiceGroup,
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      group: group == freezed
+          ? _value.group
+          : group // ignore: cast_nullable_to_non_nullable
+              as ChoiceGroup,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
-          : upperChoiceId as ChoiceId,
+          : upperChoiceId // ignore: cast_nullable_to_non_nullable
+              as ChoiceId,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Choice extends _Choice {
   const _$_Choice(
-      {@required this.serialNumber,
-      @required this.id,
-      @required this.body,
-      @required this.asNote,
-      @required this.asSingle,
-      @required this.isSpecialAnswer,
-      @required this.group,
-      @required this.upperChoiceId})
-      : assert(serialNumber != null),
-        assert(id != null),
-        assert(body != null),
-        assert(asNote != null),
-        assert(asSingle != null),
-        assert(isSpecialAnswer != null),
-        assert(group != null),
-        assert(upperChoiceId != null),
-        super._();
+      {required this.serialNumber,
+      required this.id,
+      required this.body,
+      required this.asNote,
+      required this.asSingle,
+      required this.isSpecialAnswer,
+      required this.group,
+      required this.upperChoiceId})
+      : super._();
 
   @override
   final SerialNumber serialNumber;
@@ -243,39 +274,41 @@ class _$_Choice extends _Choice {
       const DeepCollectionEquality().hash(group) ^
       const DeepCollectionEquality().hash(upperChoiceId);
 
+  @JsonKey(ignore: true)
   @override
   _$ChoiceCopyWith<_Choice> get copyWith =>
       __$ChoiceCopyWithImpl<_Choice>(this, _$identity);
 }
 
 abstract class _Choice extends Choice {
-  const _Choice._() : super._();
   const factory _Choice(
-      {@required SerialNumber serialNumber,
-      @required ChoiceId id,
-      @required ChoiceBody body,
-      @required bool asNote,
-      @required bool asSingle,
-      @required bool isSpecialAnswer,
-      @required ChoiceGroup group,
-      @required ChoiceId upperChoiceId}) = _$_Choice;
+      {required SerialNumber serialNumber,
+      required ChoiceId id,
+      required ChoiceBody body,
+      required bool asNote,
+      required bool asSingle,
+      required bool isSpecialAnswer,
+      required ChoiceGroup group,
+      required ChoiceId upperChoiceId}) = _$_Choice;
+  const _Choice._() : super._();
 
   @override
-  SerialNumber get serialNumber;
+  SerialNumber get serialNumber => throw _privateConstructorUsedError;
   @override
-  ChoiceId get id;
+  ChoiceId get id => throw _privateConstructorUsedError;
   @override
-  ChoiceBody get body;
+  ChoiceBody get body => throw _privateConstructorUsedError;
   @override
-  bool get asNote;
+  bool get asNote => throw _privateConstructorUsedError;
   @override
-  bool get asSingle;
+  bool get asSingle => throw _privateConstructorUsedError;
   @override
-  bool get isSpecialAnswer;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  ChoiceGroup get group;
+  ChoiceGroup get group => throw _privateConstructorUsedError;
   @override
-  ChoiceId get upperChoiceId;
+  ChoiceId get upperChoiceId => throw _privateConstructorUsedError;
   @override
-  _$ChoiceCopyWith<_Choice> get copyWith;
+  @JsonKey(ignore: true)
+  _$ChoiceCopyWith<_Choice> get copyWith => throw _privateConstructorUsedError;
 }

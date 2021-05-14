@@ -3,4 +3,5 @@ targets:
     builders:
       json_serializable:
         options:
+          # HIGHLIGHT 解決太多層 domain 包在一起無法正確 to_json 的問題
           explicit_to_json: true

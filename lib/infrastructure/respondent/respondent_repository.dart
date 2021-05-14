@@ -19,8 +19,10 @@ class RespondentRepository implements IRespondentRepository {
 
   @override
   Stream<Either<RespondentFailure, KtList<RespondentList>>>
-      watchRespondentListList(
-          {TeamId teamId, InterviewerId interviewerId}) async* {
+      watchRespondentListList({
+    required TeamId teamId,
+    required InterviewerId interviewerId,
+  }) async* {
     final respondentCollection = _firestore.respondentCollection;
 
     yield* respondentCollection
@@ -29,7 +31,7 @@ class RespondentRepository implements IRespondentRepository {
         .snapshots()
         .map((snapshot) => right<RespondentFailure, KtList<RespondentList>>(
             RespondentListListDto.fromFirestore(snapshot).toDomain()))
-        .onErrorReturnWith((e) {
+        .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(const RespondentFailure.insufficientPermission());
       } else {

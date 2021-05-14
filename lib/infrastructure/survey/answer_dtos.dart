@@ -9,17 +9,17 @@ part 'answer_dtos.freezed.dart';
 part 'answer_dtos.g.dart';
 
 @freezed
-abstract class AnswerDto implements _$AnswerDto {
+class AnswerDto with _$AnswerDto {
   const AnswerDto._();
 
   const factory AnswerDto({
-    String type,
-    bool withNote,
-    String stringValue,
-    int intValue,
-    SimpleChoiceDto choiceValue,
-    List<SimpleChoiceDto> choiceListValue,
-    Map<String, String> noteMap,
+    String? type,
+    bool? withNote,
+    String? stringValue,
+    int? intValue,
+    SimpleChoiceDto? choiceValue,
+    List<SimpleChoiceDto>? choiceListValue,
+    Map<String, String>? noteMap,
   }) = _AnswerDto;
 
   factory AnswerDto.fromDomain(Answer domain) {
@@ -29,29 +29,28 @@ abstract class AnswerDto implements _$AnswerDto {
       stringValue: domain.stringValue,
       intValue: domain.intValue,
       choiceValue: domain.choiceValue != null
-          ? SimpleChoiceDto.fromDomain(domain.choiceValue)
+          ? SimpleChoiceDto.fromDomain(domain.choiceValue!)
           : null,
       choiceListValue: domain.choiceListValue
           ?.map((choice) => SimpleChoiceDto.fromDomain(choice))
-          ?.asList(),
+          .asList(),
       noteMap: domain.noteMap
           ?.mapKeys((entry) => entry.key.getValueAnyway())
-          ?.asMap(),
+          .asMap(),
     );
   }
 
   Answer toDomain() {
     return Answer(
-      type: type != null ? AnswerType(type) : AnswerType.empty(),
+      type: AnswerType(type),
       withNote: withNote ?? false,
       stringValue: stringValue,
       intValue: intValue,
       choiceValue: choiceValue?.toDomain(),
-      choiceListValue: choiceListValue
-          ?.map((choice) => choice.toDomain())
-          ?.toImmutableList(),
+      choiceListValue:
+          choiceListValue?.map((choice) => choice.toDomain()).toImmutableList(),
       noteMap: noteMap != null
-          ? KtMap.from(noteMap).mapKeys((entry) => ChoiceId(entry.key))
+          ? KtMap.from(noteMap!).mapKeys((entry) => ChoiceId(entry.key))
           : null,
     );
   }

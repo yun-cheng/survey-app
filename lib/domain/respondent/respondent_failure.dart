@@ -4,7 +4,7 @@ part 'respondent_failure.freezed.dart';
 part 'respondent_failure.g.dart';
 
 @freezed
-abstract class RespondentFailure with _$RespondentFailure {
+class RespondentFailure with _$RespondentFailure {
   const factory RespondentFailure.serverError() = ServerError;
   const factory RespondentFailure.insufficientPermission() =
       _InsufficientPermission;

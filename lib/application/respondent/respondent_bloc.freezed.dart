@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'respondent_bloc.dart';
 
@@ -9,20 +9,21 @@ part of 'respondent_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$RespondentEventTearOff {
   const _$RespondentEventTearOff();
 
-// ignore: unused_element
   _WatchRespondentListListStarted watchRespondentListListStarted(
-      {@required TeamId teamId, @required InterviewerId interviewerId}) {
+      {required TeamId teamId, required InterviewerId interviewerId}) {
     return _WatchRespondentListListStarted(
       teamId: teamId,
       interviewerId: interviewerId,
     );
   }
 
-// ignore: unused_element
   _RespondentListListReceived respondentListListReceived(
       Either<RespondentFailure, KtList<RespondentList>>
           failureOrRespondentListList) {
@@ -31,29 +32,24 @@ class _$RespondentEventTearOff {
     );
   }
 
-// ignore: unused_element
-  _SurveySelected surveySelected({@required Survey survey}) {
+  _SurveySelected surveySelected({required Survey survey}) {
     return _SurveySelected(
       survey: survey,
     );
   }
 
-// ignore: unused_element
   _RespondentListLoaded respondentListLoaded() {
     return const _RespondentListLoaded();
   }
 
-// ignore: unused_element
-  _RespondentSelected respondentSelected(
-      {@required RespondentId respondentId}) {
+  _RespondentSelected respondentSelected({required RespondentId respondentId}) {
     return _RespondentSelected(
       respondentId: respondentId,
     );
   }
 
-// ignore: unused_element
   _VisitReportUpdated visitReportUpdated(
-      {@required KtList<Response> responseList}) {
+      {required KtList<Response> responseList}) {
     return _VisitReportUpdated(
       responseList: responseList,
     );
@@ -61,61 +57,64 @@ class _$RespondentEventTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RespondentEvent = _$RespondentEventTearOff();
 
 /// @nodoc
 mixin _$RespondentEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult respondentListListReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList),
-    @required TResult surveySelected(Survey survey),
-    @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(RespondentId respondentId),
-    @required TResult visitReportUpdated(KtList<Response> responseList),
-  });
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult respondentListListReceived(
-        Either<RespondentFailure, KtList<RespondentList>>
-            failureOrRespondentListList),
-    TResult surveySelected(Survey survey),
-    TResult respondentListLoaded(),
-    TResult respondentSelected(RespondentId respondentId),
-    TResult visitReportUpdated(KtList<Response> responseList),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            _WatchRespondentListListStarted value),
-    @required
-        TResult respondentListListReceived(_RespondentListListReceived value),
-    @required TResult surveySelected(_SurveySelected value),
-    @required TResult respondentListLoaded(_RespondentListLoaded value),
-    @required TResult respondentSelected(_RespondentSelected value),
-    @required TResult visitReportUpdated(_VisitReportUpdated value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        _WatchRespondentListListStarted value),
-    TResult respondentListListReceived(_RespondentListListReceived value),
-    TResult surveySelected(_SurveySelected value),
-    TResult respondentListLoaded(_RespondentListLoaded value),
-    TResult respondentSelected(_RespondentSelected value),
-    TResult visitReportUpdated(_VisitReportUpdated value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -159,25 +158,28 @@ class __$WatchRespondentListListStartedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object teamId = freezed,
-    Object interviewerId = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
   }) {
     return _then(_WatchRespondentListListStarted(
-      teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as TeamId,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as InterviewerId,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_WatchRespondentListListStarted
     implements _WatchRespondentListListStarted {
   const _$_WatchRespondentListListStarted(
-      {@required this.teamId, @required this.interviewerId})
-      : assert(teamId != null),
-        assert(interviewerId != null);
+      {required this.teamId, required this.interviewerId});
 
   @override
   final TeamId teamId;
@@ -206,6 +208,7 @@ class _$_WatchRespondentListListStarted
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(interviewerId);
 
+  @JsonKey(ignore: true)
   @override
   _$WatchRespondentListListStartedCopyWith<_WatchRespondentListListStarted>
       get copyWith => __$WatchRespondentListListStartedCopyWithImpl<
@@ -213,43 +216,36 @@ class _$_WatchRespondentListListStarted
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult respondentListListReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList),
-    @required TResult surveySelected(Survey survey),
-    @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(RespondentId respondentId),
-    @required TResult visitReportUpdated(KtList<Response> responseList),
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return watchRespondentListListStarted(teamId, interviewerId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult respondentListListReceived(
-        Either<RespondentFailure, KtList<RespondentList>>
-            failureOrRespondentListList),
-    TResult surveySelected(Survey survey),
-    TResult respondentListLoaded(),
-    TResult respondentSelected(RespondentId respondentId),
-    TResult visitReportUpdated(KtList<Response> responseList),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchRespondentListListStarted != null) {
       return watchRespondentListListStarted(teamId, interviewerId);
     }
@@ -258,39 +254,32 @@ class _$_WatchRespondentListListStarted
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            _WatchRespondentListListStarted value),
-    @required
-        TResult respondentListListReceived(_RespondentListListReceived value),
-    @required TResult surveySelected(_SurveySelected value),
-    @required TResult respondentListLoaded(_RespondentListLoaded value),
-    @required TResult respondentSelected(_RespondentSelected value),
-    @required TResult visitReportUpdated(_VisitReportUpdated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return watchRespondentListListStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        _WatchRespondentListListStarted value),
-    TResult respondentListListReceived(_RespondentListListReceived value),
-    TResult surveySelected(_SurveySelected value),
-    TResult respondentListLoaded(_RespondentListLoaded value),
-    TResult respondentSelected(_RespondentSelected value),
-    TResult visitReportUpdated(_VisitReportUpdated value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchRespondentListListStarted != null) {
       return watchRespondentListListStarted(this);
     }
@@ -300,13 +289,14 @@ class _$_WatchRespondentListListStarted
 
 abstract class _WatchRespondentListListStarted implements RespondentEvent {
   const factory _WatchRespondentListListStarted(
-          {@required TeamId teamId, @required InterviewerId interviewerId}) =
+          {required TeamId teamId, required InterviewerId interviewerId}) =
       _$_WatchRespondentListListStarted;
 
-  TeamId get teamId;
-  InterviewerId get interviewerId;
+  TeamId get teamId => throw _privateConstructorUsedError;
+  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   _$WatchRespondentListListStartedCopyWith<_WatchRespondentListListStarted>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -334,21 +324,21 @@ class __$RespondentListListReceivedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrRespondentListList = freezed,
+    Object? failureOrRespondentListList = freezed,
   }) {
     return _then(_RespondentListListReceived(
       failureOrRespondentListList == freezed
           ? _value.failureOrRespondentListList
-          : failureOrRespondentListList
+          : failureOrRespondentListList // ignore: cast_nullable_to_non_nullable
               as Either<RespondentFailure, KtList<RespondentList>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_RespondentListListReceived implements _RespondentListListReceived {
-  const _$_RespondentListListReceived(this.failureOrRespondentListList)
-      : assert(failureOrRespondentListList != null);
+  const _$_RespondentListListReceived(this.failureOrRespondentListList);
 
   @override
   final Either<RespondentFailure, KtList<RespondentList>>
@@ -375,6 +365,7 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrRespondentListList);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentListListReceivedCopyWith<_RespondentListListReceived>
       get copyWith => __$RespondentListListReceivedCopyWithImpl<
@@ -382,43 +373,36 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult respondentListListReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList),
-    @required TResult surveySelected(Survey survey),
-    @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(RespondentId respondentId),
-    @required TResult visitReportUpdated(KtList<Response> responseList),
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return respondentListListReceived(failureOrRespondentListList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult respondentListListReceived(
-        Either<RespondentFailure, KtList<RespondentList>>
-            failureOrRespondentListList),
-    TResult surveySelected(Survey survey),
-    TResult respondentListLoaded(),
-    TResult respondentSelected(RespondentId respondentId),
-    TResult visitReportUpdated(KtList<Response> responseList),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentListListReceived != null) {
       return respondentListListReceived(failureOrRespondentListList);
     }
@@ -427,39 +411,32 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            _WatchRespondentListListStarted value),
-    @required
-        TResult respondentListListReceived(_RespondentListListReceived value),
-    @required TResult surveySelected(_SurveySelected value),
-    @required TResult respondentListLoaded(_RespondentListLoaded value),
-    @required TResult respondentSelected(_RespondentSelected value),
-    @required TResult visitReportUpdated(_VisitReportUpdated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return respondentListListReceived(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        _WatchRespondentListListStarted value),
-    TResult respondentListListReceived(_RespondentListListReceived value),
-    TResult surveySelected(_SurveySelected value),
-    TResult respondentListLoaded(_RespondentListLoaded value),
-    TResult respondentSelected(_RespondentSelected value),
-    TResult visitReportUpdated(_VisitReportUpdated value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentListListReceived != null) {
       return respondentListListReceived(this);
     }
@@ -473,9 +450,10 @@ abstract class _RespondentListListReceived implements RespondentEvent {
           failureOrRespondentListList) = _$_RespondentListListReceived;
 
   Either<RespondentFailure, KtList<RespondentList>>
-      get failureOrRespondentListList;
+      get failureOrRespondentListList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   _$RespondentListListReceivedCopyWith<_RespondentListListReceived>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -501,18 +479,18 @@ class __$SurveySelectedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object survey = freezed,
+    Object? survey = freezed,
   }) {
     return _then(_SurveySelected(
-      survey: survey == freezed ? _value.survey : survey as Survey,
+      survey: survey == freezed
+          ? _value.survey
+          : survey // ignore: cast_nullable_to_non_nullable
+              as Survey,
     ));
   }
 
   @override
   $SurveyCopyWith<$Res> get survey {
-    if (_value.survey == null) {
-      return null;
-    }
     return $SurveyCopyWith<$Res>(_value.survey, (value) {
       return _then(_value.copyWith(survey: value));
     });
@@ -520,8 +498,9 @@ class __$SurveySelectedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SurveySelected implements _SurveySelected {
-  const _$_SurveySelected({@required this.survey}) : assert(survey != null);
+  const _$_SurveySelected({required this.survey});
 
   @override
   final Survey survey;
@@ -543,49 +522,43 @@ class _$_SurveySelected implements _SurveySelected {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(survey);
 
+  @JsonKey(ignore: true)
   @override
   _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
       __$SurveySelectedCopyWithImpl<_SurveySelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult respondentListListReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList),
-    @required TResult surveySelected(Survey survey),
-    @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(RespondentId respondentId),
-    @required TResult visitReportUpdated(KtList<Response> responseList),
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return surveySelected(survey);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult respondentListListReceived(
-        Either<RespondentFailure, KtList<RespondentList>>
-            failureOrRespondentListList),
-    TResult surveySelected(Survey survey),
-    TResult respondentListLoaded(),
-    TResult respondentSelected(RespondentId respondentId),
-    TResult visitReportUpdated(KtList<Response> responseList),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (surveySelected != null) {
       return surveySelected(survey);
     }
@@ -594,39 +567,32 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            _WatchRespondentListListStarted value),
-    @required
-        TResult respondentListListReceived(_RespondentListListReceived value),
-    @required TResult surveySelected(_SurveySelected value),
-    @required TResult respondentListLoaded(_RespondentListLoaded value),
-    @required TResult respondentSelected(_RespondentSelected value),
-    @required TResult visitReportUpdated(_VisitReportUpdated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return surveySelected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        _WatchRespondentListListStarted value),
-    TResult respondentListListReceived(_RespondentListListReceived value),
-    TResult surveySelected(_SurveySelected value),
-    TResult respondentListLoaded(_RespondentListLoaded value),
-    TResult respondentSelected(_RespondentSelected value),
-    TResult visitReportUpdated(_VisitReportUpdated value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (surveySelected != null) {
       return surveySelected(this);
     }
@@ -635,10 +601,12 @@ class _$_SurveySelected implements _SurveySelected {
 }
 
 abstract class _SurveySelected implements RespondentEvent {
-  const factory _SurveySelected({@required Survey survey}) = _$_SurveySelected;
+  const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
 
-  Survey get survey;
-  _$SurveySelectedCopyWith<_SurveySelected> get copyWith;
+  Survey get survey => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -661,6 +629,7 @@ class __$RespondentListLoadedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_RespondentListLoaded implements _RespondentListLoaded {
   const _$_RespondentListLoaded();
 
@@ -679,43 +648,36 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult respondentListListReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList),
-    @required TResult surveySelected(Survey survey),
-    @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(RespondentId respondentId),
-    @required TResult visitReportUpdated(KtList<Response> responseList),
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return respondentListLoaded();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult respondentListListReceived(
-        Either<RespondentFailure, KtList<RespondentList>>
-            failureOrRespondentListList),
-    TResult surveySelected(Survey survey),
-    TResult respondentListLoaded(),
-    TResult respondentSelected(RespondentId respondentId),
-    TResult visitReportUpdated(KtList<Response> responseList),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentListLoaded != null) {
       return respondentListLoaded();
     }
@@ -724,39 +686,32 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            _WatchRespondentListListStarted value),
-    @required
-        TResult respondentListListReceived(_RespondentListListReceived value),
-    @required TResult surveySelected(_SurveySelected value),
-    @required TResult respondentListLoaded(_RespondentListLoaded value),
-    @required TResult respondentSelected(_RespondentSelected value),
-    @required TResult visitReportUpdated(_VisitReportUpdated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return respondentListLoaded(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        _WatchRespondentListListStarted value),
-    TResult respondentListListReceived(_RespondentListListReceived value),
-    TResult surveySelected(_SurveySelected value),
-    TResult respondentListLoaded(_RespondentListLoaded value),
-    TResult respondentSelected(_RespondentSelected value),
-    TResult visitReportUpdated(_VisitReportUpdated value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentListLoaded != null) {
       return respondentListLoaded(this);
     }
@@ -789,20 +744,21 @@ class __$RespondentSelectedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentId = freezed,
+    Object? respondentId = freezed,
   }) {
     return _then(_RespondentSelected(
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as RespondentId,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_RespondentSelected implements _RespondentSelected {
-  const _$_RespondentSelected({@required this.respondentId})
-      : assert(respondentId != null);
+  const _$_RespondentSelected({required this.respondentId});
 
   @override
   final RespondentId respondentId;
@@ -825,49 +781,43 @@ class _$_RespondentSelected implements _RespondentSelected {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(respondentId);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
       __$RespondentSelectedCopyWithImpl<_RespondentSelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult respondentListListReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList),
-    @required TResult surveySelected(Survey survey),
-    @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(RespondentId respondentId),
-    @required TResult visitReportUpdated(KtList<Response> responseList),
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return respondentSelected(respondentId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult respondentListListReceived(
-        Either<RespondentFailure, KtList<RespondentList>>
-            failureOrRespondentListList),
-    TResult surveySelected(Survey survey),
-    TResult respondentListLoaded(),
-    TResult respondentSelected(RespondentId respondentId),
-    TResult visitReportUpdated(KtList<Response> responseList),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentSelected != null) {
       return respondentSelected(respondentId);
     }
@@ -876,39 +826,32 @@ class _$_RespondentSelected implements _RespondentSelected {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            _WatchRespondentListListStarted value),
-    @required
-        TResult respondentListListReceived(_RespondentListListReceived value),
-    @required TResult surveySelected(_SurveySelected value),
-    @required TResult respondentListLoaded(_RespondentListLoaded value),
-    @required TResult respondentSelected(_RespondentSelected value),
-    @required TResult visitReportUpdated(_VisitReportUpdated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return respondentSelected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        _WatchRespondentListListStarted value),
-    TResult respondentListListReceived(_RespondentListListReceived value),
-    TResult surveySelected(_SurveySelected value),
-    TResult respondentListLoaded(_RespondentListLoaded value),
-    TResult respondentSelected(_RespondentSelected value),
-    TResult visitReportUpdated(_VisitReportUpdated value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentSelected != null) {
       return respondentSelected(this);
     }
@@ -917,11 +860,13 @@ class _$_RespondentSelected implements _RespondentSelected {
 }
 
 abstract class _RespondentSelected implements RespondentEvent {
-  const factory _RespondentSelected({@required RespondentId respondentId}) =
+  const factory _RespondentSelected({required RespondentId respondentId}) =
       _$_RespondentSelected;
 
-  RespondentId get respondentId;
-  _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith;
+  RespondentId get respondentId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -945,20 +890,21 @@ class __$VisitReportUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object responseList = freezed,
+    Object? responseList = freezed,
   }) {
     return _then(_VisitReportUpdated(
       responseList: responseList == freezed
           ? _value.responseList
-          : responseList as KtList<Response>,
+          : responseList // ignore: cast_nullable_to_non_nullable
+              as KtList<Response>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_VisitReportUpdated implements _VisitReportUpdated {
-  const _$_VisitReportUpdated({@required this.responseList})
-      : assert(responseList != null);
+  const _$_VisitReportUpdated({required this.responseList});
 
   @override
   final KtList<Response> responseList;
@@ -981,49 +927,43 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(responseList);
 
+  @JsonKey(ignore: true)
   @override
   _$VisitReportUpdatedCopyWith<_VisitReportUpdated> get copyWith =>
       __$VisitReportUpdatedCopyWithImpl<_VisitReportUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult respondentListListReceived(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList),
-    @required TResult surveySelected(Survey survey),
-    @required TResult respondentListLoaded(),
-    @required TResult respondentSelected(RespondentId respondentId),
-    @required TResult visitReportUpdated(KtList<Response> responseList),
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return visitReportUpdated(responseList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult respondentListListReceived(
-        Either<RespondentFailure, KtList<RespondentList>>
-            failureOrRespondentListList),
-    TResult surveySelected(Survey survey),
-    TResult respondentListLoaded(),
-    TResult respondentSelected(RespondentId respondentId),
-    TResult visitReportUpdated(KtList<Response> responseList),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (visitReportUpdated != null) {
       return visitReportUpdated(responseList);
     }
@@ -1032,39 +972,32 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchRespondentListListStarted(
-            _WatchRespondentListListStarted value),
-    @required
-        TResult respondentListListReceived(_RespondentListListReceived value),
-    @required TResult surveySelected(_SurveySelected value),
-    @required TResult respondentListLoaded(_RespondentListLoaded value),
-    @required TResult respondentSelected(_RespondentSelected value),
-    @required TResult visitReportUpdated(_VisitReportUpdated value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
   }) {
-    assert(watchRespondentListListStarted != null);
-    assert(respondentListListReceived != null);
-    assert(surveySelected != null);
-    assert(respondentListLoaded != null);
-    assert(respondentSelected != null);
-    assert(visitReportUpdated != null);
     return visitReportUpdated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchRespondentListListStarted(
-        _WatchRespondentListListStarted value),
-    TResult respondentListListReceived(_RespondentListListReceived value),
-    TResult surveySelected(_SurveySelected value),
-    TResult respondentListLoaded(_RespondentListLoaded value),
-    TResult respondentSelected(_RespondentSelected value),
-    TResult visitReportUpdated(_VisitReportUpdated value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (visitReportUpdated != null) {
       return visitReportUpdated(this);
     }
@@ -1073,26 +1006,27 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
 }
 
 abstract class _VisitReportUpdated implements RespondentEvent {
-  const factory _VisitReportUpdated({@required KtList<Response> responseList}) =
+  const factory _VisitReportUpdated({required KtList<Response> responseList}) =
       _$_VisitReportUpdated;
 
-  KtList<Response> get responseList;
-  _$VisitReportUpdatedCopyWith<_VisitReportUpdated> get copyWith;
+  KtList<Response> get responseList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$VisitReportUpdatedCopyWith<_VisitReportUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 class _$RespondentStateTearOff {
   const _$RespondentStateTearOff();
 
-// ignore: unused_element
   _RespondentState call(
-      {@required LoadState respondentListListState,
-      @required KtList<RespondentList> respondentListList,
-      @required Survey survey,
-      @required KtList<Respondent> respondentList,
-      @required Option<RespondentFailure> respondentFailure,
-      @required RespondentId selectedRespondentId,
-      @required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap}) {
+      {required LoadState respondentListListState,
+      required KtList<RespondentList> respondentListList,
+      required Survey survey,
+      required KtList<Respondent> respondentList,
+      required Option<RespondentFailure> respondentFailure,
+      required RespondentId selectedRespondentId,
+      required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap}) {
     return _RespondentState(
       respondentListListState: respondentListListState,
       respondentListList: respondentListList,
@@ -1106,20 +1040,24 @@ class _$RespondentStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RespondentState = _$RespondentStateTearOff();
 
 /// @nodoc
 mixin _$RespondentState {
-  LoadState get respondentListListState;
-  KtList<RespondentList> get respondentListList;
-  Survey get survey;
-  KtList<Respondent> get respondentList;
-  Option<RespondentFailure> get respondentFailure;
-  RespondentId get selectedRespondentId;
-  KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap;
+  LoadState get respondentListListState => throw _privateConstructorUsedError;
+  KtList<RespondentList> get respondentListList =>
+      throw _privateConstructorUsedError;
+  Survey get survey => throw _privateConstructorUsedError;
+  KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
+  Option<RespondentFailure> get respondentFailure =>
+      throw _privateConstructorUsedError;
+  RespondentId get selectedRespondentId => throw _privateConstructorUsedError;
+  KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap =>
+      throw _privateConstructorUsedError;
 
-  $RespondentStateCopyWith<RespondentState> get copyWith;
+  @JsonKey(ignore: true)
+  $RespondentStateCopyWith<RespondentState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1151,42 +1089,48 @@ class _$RespondentStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentListListState = freezed,
-    Object respondentListList = freezed,
-    Object survey = freezed,
-    Object respondentList = freezed,
-    Object respondentFailure = freezed,
-    Object selectedRespondentId = freezed,
-    Object visitRecordsMap = freezed,
+    Object? respondentListListState = freezed,
+    Object? respondentListList = freezed,
+    Object? survey = freezed,
+    Object? respondentList = freezed,
+    Object? respondentFailure = freezed,
+    Object? selectedRespondentId = freezed,
+    Object? visitRecordsMap = freezed,
   }) {
     return _then(_value.copyWith(
       respondentListListState: respondentListListState == freezed
           ? _value.respondentListListState
-          : respondentListListState as LoadState,
+          : respondentListListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       respondentListList: respondentListList == freezed
           ? _value.respondentListList
-          : respondentListList as KtList<RespondentList>,
-      survey: survey == freezed ? _value.survey : survey as Survey,
+          : respondentListList // ignore: cast_nullable_to_non_nullable
+              as KtList<RespondentList>,
+      survey: survey == freezed
+          ? _value.survey
+          : survey // ignore: cast_nullable_to_non_nullable
+              as Survey,
       respondentList: respondentList == freezed
           ? _value.respondentList
-          : respondentList as KtList<Respondent>,
+          : respondentList // ignore: cast_nullable_to_non_nullable
+              as KtList<Respondent>,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
-          : respondentFailure as Option<RespondentFailure>,
+          : respondentFailure // ignore: cast_nullable_to_non_nullable
+              as Option<RespondentFailure>,
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
-          : selectedRespondentId as RespondentId,
+          : selectedRespondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
-          : visitRecordsMap as KtMap<RespondentId, KtList<VisitRecord>>,
+          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<RespondentId, KtList<VisitRecord>>,
     ));
   }
 
   @override
   $LoadStateCopyWith<$Res> get respondentListListState {
-    if (_value.respondentListListState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.respondentListListState, (value) {
       return _then(_value.copyWith(respondentListListState: value));
     });
@@ -1194,9 +1138,6 @@ class _$RespondentStateCopyWithImpl<$Res>
 
   @override
   $SurveyCopyWith<$Res> get survey {
-    if (_value.survey == null) {
-      return null;
-    }
     return $SurveyCopyWith<$Res>(_value.survey, (value) {
       return _then(_value.copyWith(survey: value));
     });
@@ -1238,55 +1179,58 @@ class __$RespondentStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentListListState = freezed,
-    Object respondentListList = freezed,
-    Object survey = freezed,
-    Object respondentList = freezed,
-    Object respondentFailure = freezed,
-    Object selectedRespondentId = freezed,
-    Object visitRecordsMap = freezed,
+    Object? respondentListListState = freezed,
+    Object? respondentListList = freezed,
+    Object? survey = freezed,
+    Object? respondentList = freezed,
+    Object? respondentFailure = freezed,
+    Object? selectedRespondentId = freezed,
+    Object? visitRecordsMap = freezed,
   }) {
     return _then(_RespondentState(
       respondentListListState: respondentListListState == freezed
           ? _value.respondentListListState
-          : respondentListListState as LoadState,
+          : respondentListListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       respondentListList: respondentListList == freezed
           ? _value.respondentListList
-          : respondentListList as KtList<RespondentList>,
-      survey: survey == freezed ? _value.survey : survey as Survey,
+          : respondentListList // ignore: cast_nullable_to_non_nullable
+              as KtList<RespondentList>,
+      survey: survey == freezed
+          ? _value.survey
+          : survey // ignore: cast_nullable_to_non_nullable
+              as Survey,
       respondentList: respondentList == freezed
           ? _value.respondentList
-          : respondentList as KtList<Respondent>,
+          : respondentList // ignore: cast_nullable_to_non_nullable
+              as KtList<Respondent>,
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
-          : respondentFailure as Option<RespondentFailure>,
+          : respondentFailure // ignore: cast_nullable_to_non_nullable
+              as Option<RespondentFailure>,
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
-          : selectedRespondentId as RespondentId,
+          : selectedRespondentId // ignore: cast_nullable_to_non_nullable
+              as RespondentId,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
-          : visitRecordsMap as KtMap<RespondentId, KtList<VisitRecord>>,
+          : visitRecordsMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<RespondentId, KtList<VisitRecord>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_RespondentState implements _RespondentState {
   const _$_RespondentState(
-      {@required this.respondentListListState,
-      @required this.respondentListList,
-      @required this.survey,
-      @required this.respondentList,
-      @required this.respondentFailure,
-      @required this.selectedRespondentId,
-      @required this.visitRecordsMap})
-      : assert(respondentListListState != null),
-        assert(respondentListList != null),
-        assert(survey != null),
-        assert(respondentList != null),
-        assert(respondentFailure != null),
-        assert(selectedRespondentId != null),
-        assert(visitRecordsMap != null);
+      {required this.respondentListListState,
+      required this.respondentListList,
+      required this.survey,
+      required this.respondentList,
+      required this.respondentFailure,
+      required this.selectedRespondentId,
+      required this.visitRecordsMap});
 
   @override
   final LoadState respondentListListState;
@@ -1346,6 +1290,7 @@ class _$_RespondentState implements _RespondentState {
       const DeepCollectionEquality().hash(selectedRespondentId) ^
       const DeepCollectionEquality().hash(visitRecordsMap);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentStateCopyWith<_RespondentState> get copyWith =>
       __$RespondentStateCopyWithImpl<_RespondentState>(this, _$identity);
@@ -1353,29 +1298,34 @@ class _$_RespondentState implements _RespondentState {
 
 abstract class _RespondentState implements RespondentState {
   const factory _RespondentState(
-          {@required LoadState respondentListListState,
-          @required KtList<RespondentList> respondentListList,
-          @required Survey survey,
-          @required KtList<Respondent> respondentList,
-          @required Option<RespondentFailure> respondentFailure,
-          @required RespondentId selectedRespondentId,
-          @required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap}) =
+          {required LoadState respondentListListState,
+          required KtList<RespondentList> respondentListList,
+          required Survey survey,
+          required KtList<Respondent> respondentList,
+          required Option<RespondentFailure> respondentFailure,
+          required RespondentId selectedRespondentId,
+          required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap}) =
       _$_RespondentState;
 
   @override
-  LoadState get respondentListListState;
+  LoadState get respondentListListState => throw _privateConstructorUsedError;
   @override
-  KtList<RespondentList> get respondentListList;
+  KtList<RespondentList> get respondentListList =>
+      throw _privateConstructorUsedError;
   @override
-  Survey get survey;
+  Survey get survey => throw _privateConstructorUsedError;
   @override
-  KtList<Respondent> get respondentList;
+  KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
   @override
-  Option<RespondentFailure> get respondentFailure;
+  Option<RespondentFailure> get respondentFailure =>
+      throw _privateConstructorUsedError;
   @override
-  RespondentId get selectedRespondentId;
+  RespondentId get selectedRespondentId => throw _privateConstructorUsedError;
   @override
-  KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap;
+  KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap =>
+      throw _privateConstructorUsedError;
   @override
-  _$RespondentStateCopyWith<_RespondentState> get copyWith;
+  @JsonKey(ignore: true)
+  _$RespondentStateCopyWith<_RespondentState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

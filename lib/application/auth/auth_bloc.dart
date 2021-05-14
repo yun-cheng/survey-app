@@ -22,8 +22,8 @@ part 'auth_state.dart';
 @injectable
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
-  StreamSubscription<Either<AuthFailure, KtList<Team>>> _teamListSubscription;
-  StreamSubscription<Either<AuthFailure, KtList<Interviewer>>>
+  StreamSubscription<Either<AuthFailure, KtList<Team>>>? _teamListSubscription;
+  StreamSubscription<Either<AuthFailure, KtList<Interviewer>>>?
       _interviewerListSubscription;
 
   AuthBloc(this._authFacade) : super(AuthState.initial()) {
@@ -148,11 +148,12 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   @override
   Future<void> close() {
     _teamListSubscription?.cancel();
+    _interviewerListSubscription?.cancel();
     return super.close();
   }
 
   @override
-  AuthState fromJson(Map<String, dynamic> json) {
+  AuthState? fromJson(Map<String, dynamic> json) {
     try {
       return AuthStateDto.fromJson(json).toDomain();
     } catch (_) {
@@ -161,7 +162,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   }
 
   @override
-  Map<String, dynamic> toJson(AuthState state) {
+  Map<String, dynamic>? toJson(AuthState state) {
     if (state.signInState is LoadSuccess) {
       return AuthStateDto.fromDomain(state).toJson();
     } else {

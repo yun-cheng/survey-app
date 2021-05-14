@@ -9,19 +9,20 @@ part 'simple_survey_page_state_dtos.freezed.dart';
 part 'simple_survey_page_state_dtos.g.dart';
 
 @freezed
-abstract class SimpleSurveyPageStateDto implements _$SimpleSurveyPageStateDto {
+class SimpleSurveyPageStateDto with _$SimpleSurveyPageStateDto {
   const SimpleSurveyPageStateDto._();
 
   const factory SimpleSurveyPageStateDto({
-    @required int page,
-    @required int newestPage,
-    @required bool isLastPage,
-    @required WarningDto warning,
-    @required bool showWarning,
-    @required Map<String, dynamic> loadState,
+    required int page,
+    required int newestPage,
+    required bool isLastPage,
+    required WarningDto warning,
+    required bool showWarning,
+    required Map<String, dynamic> loadState,
   }) = _SimpleSurveyPageStateDto;
 
-  factory SimpleSurveyPageStateDto.fromDomain(SimpleSurveyPageState surveyPageState) {
+  factory SimpleSurveyPageStateDto.fromDomain(
+      SimpleSurveyPageState surveyPageState) {
     return SimpleSurveyPageStateDto(
       page: surveyPageState.page.getValueAnyway(),
       newestPage: surveyPageState.newestPage.getValueAnyway(),

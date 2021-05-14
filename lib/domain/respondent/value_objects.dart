@@ -8,7 +8,6 @@ class RespondentId extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory RespondentId(String input) {
-    assert(input != null);
     return RespondentId._(
       right(input),
     );
@@ -24,7 +23,6 @@ class CountyTown extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory CountyTown(String input) {
-    assert(input != null);
     return CountyTown._(
       right(input),
     );
@@ -40,7 +38,6 @@ class Village extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Village(String input) {
-    assert(input != null);
     return Village._(
       right(input),
     );
@@ -56,7 +53,6 @@ class RemainAddress extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory RemainAddress(String input) {
-    assert(input != null);
     return RemainAddress._(
       right(input),
     );

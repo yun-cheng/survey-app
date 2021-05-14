@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'team.dart';
 
@@ -9,12 +9,14 @@ part of 'team.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$TeamTearOff {
   const _$TeamTearOff();
 
-// ignore: unused_element
-  _Team call({@required TeamId id, @required TeamName name}) {
+  _Team call({required TeamId id, required TeamName name}) {
     return _Team(
       id: id,
       name: name,
@@ -23,15 +25,15 @@ class _$TeamTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Team = _$TeamTearOff();
 
 /// @nodoc
 mixin _$Team {
-  TeamId get id;
-  TeamName get name;
+  TeamId get id => throw _privateConstructorUsedError;
+  TeamName get name => throw _privateConstructorUsedError;
 
-  $TeamCopyWith<Team> get copyWith;
+  @JsonKey(ignore: true)
+  $TeamCopyWith<Team> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -51,12 +53,18 @@ class _$TeamCopyWithImpl<$Res> implements $TeamCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as TeamId,
-      name: name == freezed ? _value.name : name as TeamName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as TeamId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as TeamName,
     ));
   }
 }
@@ -80,22 +88,26 @@ class __$TeamCopyWithImpl<$Res> extends _$TeamCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Team(
-      id: id == freezed ? _value.id : id as TeamId,
-      name: name == freezed ? _value.name : name as TeamName,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as TeamId,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as TeamName,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Team extends _Team {
-  const _$_Team({@required this.id, @required this.name})
-      : assert(id != null),
-        assert(name != null),
-        super._();
+  const _$_Team({required this.id, required this.name}) : super._();
 
   @override
   final TeamId id;
@@ -123,19 +135,21 @@ class _$_Team extends _Team {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name);
 
+  @JsonKey(ignore: true)
   @override
   _$TeamCopyWith<_Team> get copyWith =>
       __$TeamCopyWithImpl<_Team>(this, _$identity);
 }
 
 abstract class _Team extends Team {
+  const factory _Team({required TeamId id, required TeamName name}) = _$_Team;
   const _Team._() : super._();
-  const factory _Team({@required TeamId id, @required TeamName name}) = _$_Team;
 
   @override
-  TeamId get id;
+  TeamId get id => throw _privateConstructorUsedError;
   @override
-  TeamName get name;
+  TeamName get name => throw _privateConstructorUsedError;
   @override
-  _$TeamCopyWith<_Team> get copyWith;
+  @JsonKey(ignore: true)
+  _$TeamCopyWith<_Team> get copyWith => throw _privateConstructorUsedError;
 }

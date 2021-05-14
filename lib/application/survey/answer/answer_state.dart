@@ -1,17 +1,17 @@
 part of 'answer_bloc.dart';
 
 @freezed
-abstract class AnswerState with _$AnswerState {
+class AnswerState with _$AnswerState {
   const factory AnswerState({
-    @required KtMap<QuestionId, Answer> answerMap,
-    @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    @required KtList<Question> questionList,
-    @required Question question,
-    @required bool isReadOnly,
-    @required bool isRecodeModule,
-    @required KtMap<QuestionId, Answer> mainAnswerMap,
-    @required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-    @required LoadState loadState,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtList<Question> questionList,
+    required Question question,
+    required bool isReadOnly,
+    required bool isRecodeModule,
+    required KtMap<QuestionId, Answer> mainAnswerMap,
+    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required LoadState loadState,
   }) = _AnswerState;
 
   factory AnswerState.initial() => AnswerState(

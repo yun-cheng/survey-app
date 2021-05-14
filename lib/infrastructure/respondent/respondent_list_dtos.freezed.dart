@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'respondent_list_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'respondent_list_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 RespondentListListDto _$RespondentListListDtoFromJson(
     Map<String, dynamic> json) {
   return _RespondentListListDto.fromJson(json);
@@ -17,29 +21,28 @@ RespondentListListDto _$RespondentListListDtoFromJson(
 class _$RespondentListListDtoTearOff {
   const _$RespondentListListDtoTearOff();
 
-// ignore: unused_element
-  _RespondentListListDto call({@required List<RespondentListDto> list}) {
+  _RespondentListListDto call({required List<RespondentListDto> list}) {
     return _RespondentListListDto(
       list: list,
     );
   }
 
-// ignore: unused_element
   RespondentListListDto fromJson(Map<String, Object> json) {
     return RespondentListListDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RespondentListListDto = _$RespondentListListDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentListListDto {
-  List<RespondentListDto> get list;
+  List<RespondentListDto> get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $RespondentListListDtoCopyWith<RespondentListListDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RespondentListListDtoCopyWith<RespondentListListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -61,10 +64,13 @@ class _$RespondentListListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<RespondentListDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<RespondentListDto>,
     ));
   }
 }
@@ -92,21 +98,21 @@ class __$RespondentListListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_RespondentListListDto(
-      list: list == freezed ? _value.list : list as List<RespondentListDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<RespondentListDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_RespondentListListDto extends _RespondentListListDto {
-  const _$_RespondentListListDto({@required this.list})
-      : assert(list != null),
-        super._();
+  const _$_RespondentListListDto({required this.list}) : super._();
 
   factory _$_RespondentListListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_RespondentListListDtoFromJson(json);
@@ -131,6 +137,7 @@ class _$_RespondentListListDto extends _RespondentListListDto {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentListListDtoCopyWith<_RespondentListListDto> get copyWith =>
       __$RespondentListListDtoCopyWithImpl<_RespondentListListDto>(
@@ -143,17 +150,19 @@ class _$_RespondentListListDto extends _RespondentListListDto {
 }
 
 abstract class _RespondentListListDto extends RespondentListListDto {
-  const _RespondentListListDto._() : super._();
   const factory _RespondentListListDto(
-      {@required List<RespondentListDto> list}) = _$_RespondentListListDto;
+      {required List<RespondentListDto> list}) = _$_RespondentListListDto;
+  const _RespondentListListDto._() : super._();
 
   factory _RespondentListListDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentListListDto.fromJson;
 
   @override
-  List<RespondentListDto> get list;
+  List<RespondentListDto> get list => throw _privateConstructorUsedError;
   @override
-  _$RespondentListListDtoCopyWith<_RespondentListListDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$RespondentListListDtoCopyWith<_RespondentListListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 RespondentListDto _$RespondentListDtoFromJson(Map<String, dynamic> json) {
@@ -164,13 +173,12 @@ RespondentListDto _$RespondentListDtoFromJson(Map<String, dynamic> json) {
 class _$RespondentListDtoTearOff {
   const _$RespondentListDtoTearOff();
 
-// ignore: unused_element
   _RespondentListDto call(
-      {@required String surveyId,
-      @required String interviewerId,
-      @required String teamId,
-      @required String projectId,
-      @required List<RespondentDto> list}) {
+      {required String surveyId,
+      required String interviewerId,
+      required String teamId,
+      required String projectId,
+      required List<RespondentDto> list}) {
     return _RespondentListDto(
       surveyId: surveyId,
       interviewerId: interviewerId,
@@ -180,26 +188,26 @@ class _$RespondentListDtoTearOff {
     );
   }
 
-// ignore: unused_element
   RespondentListDto fromJson(Map<String, Object> json) {
     return RespondentListDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $RespondentListDto = _$RespondentListDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentListDto {
-  String get surveyId;
-  String get interviewerId;
-  String get teamId;
-  String get projectId;
-  List<RespondentDto> get list;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
+  List<RespondentDto> get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $RespondentListDtoCopyWith<RespondentListDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RespondentListDtoCopyWith<RespondentListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -226,20 +234,33 @@ class _$RespondentListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object interviewerId = freezed,
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object list = freezed,
+    Object? surveyId = freezed,
+    Object? interviewerId = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as String,
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      list: list == freezed ? _value.list : list as List<RespondentDto>,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<RespondentDto>,
     ));
   }
 }
@@ -272,40 +293,47 @@ class __$RespondentListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object interviewerId = freezed,
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object list = freezed,
+    Object? surveyId = freezed,
+    Object? interviewerId = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? list = freezed,
   }) {
     return _then(_RespondentListDto(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as String,
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      list: list == freezed ? _value.list : list as List<RespondentDto>,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<RespondentDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_RespondentListDto extends _RespondentListDto {
   const _$_RespondentListDto(
-      {@required this.surveyId,
-      @required this.interviewerId,
-      @required this.teamId,
-      @required this.projectId,
-      @required this.list})
-      : assert(surveyId != null),
-        assert(interviewerId != null),
-        assert(teamId != null),
-        assert(projectId != null),
-        assert(list != null),
-        super._();
+      {required this.surveyId,
+      required this.interviewerId,
+      required this.teamId,
+      required this.projectId,
+      required this.list})
+      : super._();
 
   factory _$_RespondentListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_RespondentListDtoFromJson(json);
@@ -354,6 +382,7 @@ class _$_RespondentListDto extends _RespondentListDto {
       const DeepCollectionEquality().hash(projectId) ^
       const DeepCollectionEquality().hash(list);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentListDtoCopyWith<_RespondentListDto> get copyWith =>
       __$RespondentListDtoCopyWithImpl<_RespondentListDto>(this, _$identity);
@@ -365,27 +394,29 @@ class _$_RespondentListDto extends _RespondentListDto {
 }
 
 abstract class _RespondentListDto extends RespondentListDto {
-  const _RespondentListDto._() : super._();
   const factory _RespondentListDto(
-      {@required String surveyId,
-      @required String interviewerId,
-      @required String teamId,
-      @required String projectId,
-      @required List<RespondentDto> list}) = _$_RespondentListDto;
+      {required String surveyId,
+      required String interviewerId,
+      required String teamId,
+      required String projectId,
+      required List<RespondentDto> list}) = _$_RespondentListDto;
+  const _RespondentListDto._() : super._();
 
   factory _RespondentListDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentListDto.fromJson;
 
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get interviewerId;
+  String get interviewerId => throw _privateConstructorUsedError;
   @override
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  List<RespondentDto> get list;
+  List<RespondentDto> get list => throw _privateConstructorUsedError;
   @override
-  _$RespondentListDtoCopyWith<_RespondentListDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$RespondentListDtoCopyWith<_RespondentListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

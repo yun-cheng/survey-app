@@ -11,14 +11,14 @@ part 'formatted_text_dtos.freezed.dart';
 part 'formatted_text_dtos.g.dart';
 
 @freezed
-abstract class FormattedTextDto implements _$FormattedTextDto {
+class FormattedTextDto with _$FormattedTextDto {
   const FormattedTextDto._();
 
-  const factory FormattedTextDto({
-    @required String type,
-    String stringBody,
-    ReferenceKeyDto referenceKey,
-    AnswerDto answer,
+  factory FormattedTextDto({
+    required String type,
+    @Default('') String stringBody,
+    ReferenceKeyDto? referenceKey,
+    AnswerDto? answer,
   }) = _FormattedTextDto;
 
   factory FormattedTextDto.fromDomain(FormattedText domain) {
@@ -33,10 +33,11 @@ abstract class FormattedTextDto implements _$FormattedTextDto {
   FormattedText toDomain() {
     return FormattedText(
       type: FormatType(type),
-      stringBody: stringBody ?? '',
-      referenceKey:
-          referenceKey == null ? ReferenceKey.empty() : referenceKey.toDomain(),
-      answer: answer == null ? Answer.empty() : answer.toDomain(),
+      stringBody: stringBody,
+      referenceKey: referenceKey == null
+          ? ReferenceKey.empty()
+          : referenceKey!.toDomain(),
+      answer: answer == null ? Answer.empty() : answer!.toDomain(),
     );
   }
 

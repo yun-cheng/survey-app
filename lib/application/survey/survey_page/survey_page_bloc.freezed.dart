@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'survey_page_bloc.dart';
 
@@ -9,20 +9,21 @@ part of 'survey_page_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SurveyPageEventTearOff {
   const _$SurveyPageEventTearOff();
 
-// ignore: unused_element
   _WatchReferenceListStarted watchReferenceListStarted(
-      {@required TeamId teamId, @required InterviewerId interviewerId}) {
+      {required TeamId teamId, required InterviewerId interviewerId}) {
     return _WatchReferenceListStarted(
       teamId: teamId,
       interviewerId: interviewerId,
     );
   }
 
-// ignore: unused_element
   _ReferenceListReceived referenceListReceived(
       Either<SurveyFailure, KtList<Reference>> failureOrReferenceList) {
     return _ReferenceListReceived(
@@ -30,26 +31,23 @@ class _$SurveyPageEventTearOff {
     );
   }
 
-// ignore: unused_element
   _StateRestoring stateRestoring() {
     return const _StateRestoring();
   }
 
-// ignore: unused_element
   _StateRestoreSuccess stateRestoreSuccess() {
     return const _StateRestoreSuccess();
   }
 
-// ignore: unused_element
   _StateRestored stateRestored(
-      {@required SurveyId surveyId,
-      @required ModuleType moduleType,
-      @required SimpleSurveyPageState surveyPageState,
-      @required KtList<Question> questionList,
-      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required bool isRecodeModule,
-      @required KtList<Question> mainQuestionList,
-      @required Respondent respondent}) {
+      {required SurveyId surveyId,
+      required ModuleType moduleType,
+      required SimpleSurveyPageState surveyPageState,
+      required KtList<Question> questionList,
+      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required bool isRecodeModule,
+      required KtList<Question> mainQuestionList,
+      required Respondent respondent}) {
     return _StateRestored(
       surveyId: surveyId,
       moduleType: moduleType,
@@ -62,107 +60,90 @@ class _$SurveyPageEventTearOff {
     );
   }
 
-// ignore: unused_element
   _RespondentResponseListUpdated respondentResponseListUpdated(
-      {@required KtList<Response> respondentResponseList}) {
+      {required KtList<Response> respondentResponseList}) {
     return _RespondentResponseListUpdated(
       respondentResponseList: respondentResponseList,
     );
   }
 
-// ignore: unused_element
   _AnswerChanged answerChanged(
-      {@required KtMutableMap<QuestionId, Answer> answerMap,
-      @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap}) {
+      {required KtMap<QuestionId, Answer> answerMap,
+      required KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
     return _AnswerChanged(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
     );
   }
 
-// ignore: unused_element
   _QuestionBodyUpdated questionBodyUpdated() {
     return const _QuestionBodyUpdated();
   }
 
-// ignore: unused_element
-  _PageUpdated pageUpdated({@required Direction direction}) {
+  _PageUpdated pageUpdated({required Direction direction}) {
     return _PageUpdated(
       direction: direction,
     );
   }
 
-// ignore: unused_element
   _NextPagePressed nextPagePressed() {
     return const _NextPagePressed();
   }
 
-// ignore: unused_element
   _PreviousPagePressed previousPagePressed() {
     return const _PreviousPagePressed();
   }
 
-// ignore: unused_element
   _WentToNewestPage wentToNewestPage() {
     return const _WentToNewestPage();
   }
 
-// ignore: unused_element
   _WentToPage wentToPage(PageNumber page) {
     return _WentToPage(
       page,
     );
   }
 
-// ignore: unused_element
   _CheckIsLastPage checkIsLastPage() {
     return const _CheckIsLastPage();
   }
 
-// ignore: unused_element
   _FirstWarningUpdated firstWarningUpdated() {
     return const _FirstWarningUpdated();
   }
 
-// ignore: unused_element
   _ShowWarningUpdated showWarningUpdated() {
     return const _ShowWarningUpdated();
   }
 
-// ignore: unused_element
   _FinishedButtonPressed finishedButtonPressed() {
     return const _FinishedButtonPressed();
   }
 
-// ignore: unused_element
   _StateLoadSuccess stateLoadSuccess() {
     return const _StateLoadSuccess();
   }
 
-// ignore: unused_element
   _StateCleared stateCleared() {
     return const _StateCleared();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SurveyPageEvent = _$SurveyPageEventTearOff();
 
 /// @nodoc
 mixin _$SurveyPageEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -170,109 +151,119 @@ mixin _$SurveyPageEvent {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
-  });
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -314,24 +305,27 @@ class __$WatchReferenceListStartedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object teamId = freezed,
-    Object interviewerId = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
   }) {
     return _then(_WatchReferenceListStarted(
-      teamId: teamId == freezed ? _value.teamId : teamId as TeamId,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as TeamId,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as InterviewerId,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
   const _$_WatchReferenceListStarted(
-      {@required this.teamId, @required this.interviewerId})
-      : assert(teamId != null),
-        assert(interviewerId != null);
+      {required this.teamId, required this.interviewerId});
 
   @override
   final TeamId teamId;
@@ -360,6 +354,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
       const DeepCollectionEquality().hash(teamId) ^
       const DeepCollectionEquality().hash(interviewerId);
 
+  @JsonKey(ignore: true)
   @override
   _$WatchReferenceListStartedCopyWith<_WatchReferenceListStarted>
       get copyWith =>
@@ -368,17 +363,15 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -386,85 +379,68 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return watchReferenceListStarted(teamId, interviewerId);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchReferenceListStarted != null) {
       return watchReferenceListStarted(teamId, interviewerId);
     }
@@ -473,77 +449,60 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return watchReferenceListStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchReferenceListStarted != null) {
       return watchReferenceListStarted(this);
     }
@@ -553,12 +512,14 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
 
 abstract class _WatchReferenceListStarted implements SurveyPageEvent {
   const factory _WatchReferenceListStarted(
-      {@required TeamId teamId,
-      @required InterviewerId interviewerId}) = _$_WatchReferenceListStarted;
+      {required TeamId teamId,
+      required InterviewerId interviewerId}) = _$_WatchReferenceListStarted;
 
-  TeamId get teamId;
-  InterviewerId get interviewerId;
-  _$WatchReferenceListStartedCopyWith<_WatchReferenceListStarted> get copyWith;
+  TeamId get teamId => throw _privateConstructorUsedError;
+  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WatchReferenceListStartedCopyWith<_WatchReferenceListStarted>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -582,20 +543,21 @@ class __$ReferenceListReceivedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrReferenceList = freezed,
+    Object? failureOrReferenceList = freezed,
   }) {
     return _then(_ReferenceListReceived(
       failureOrReferenceList == freezed
           ? _value.failureOrReferenceList
-          : failureOrReferenceList as Either<SurveyFailure, KtList<Reference>>,
+          : failureOrReferenceList // ignore: cast_nullable_to_non_nullable
+              as Either<SurveyFailure, KtList<Reference>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_ReferenceListReceived implements _ReferenceListReceived {
-  const _$_ReferenceListReceived(this.failureOrReferenceList)
-      : assert(failureOrReferenceList != null);
+  const _$_ReferenceListReceived(this.failureOrReferenceList);
 
   @override
   final Either<SurveyFailure, KtList<Reference>> failureOrReferenceList;
@@ -619,6 +581,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrReferenceList);
 
+  @JsonKey(ignore: true)
   @override
   _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith =>
       __$ReferenceListReceivedCopyWithImpl<_ReferenceListReceived>(
@@ -626,17 +589,15 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -644,85 +605,68 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return referenceListReceived(failureOrReferenceList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (referenceListReceived != null) {
       return referenceListReceived(failureOrReferenceList);
     }
@@ -731,77 +675,60 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return referenceListReceived(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (referenceListReceived != null) {
       return referenceListReceived(this);
     }
@@ -814,8 +741,11 @@ abstract class _ReferenceListReceived implements SurveyPageEvent {
           Either<SurveyFailure, KtList<Reference>> failureOrReferenceList) =
       _$_ReferenceListReceived;
 
-  Either<SurveyFailure, KtList<Reference>> get failureOrReferenceList;
-  _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith;
+  Either<SurveyFailure, KtList<Reference>> get failureOrReferenceList =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -838,6 +768,7 @@ class __$StateRestoringCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_StateRestoring implements _StateRestoring {
   const _$_StateRestoring();
 
@@ -856,17 +787,15 @@ class _$_StateRestoring implements _StateRestoring {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -874,85 +803,68 @@ class _$_StateRestoring implements _StateRestoring {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateRestoring();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateRestoring != null) {
       return stateRestoring();
     }
@@ -961,77 +873,60 @@ class _$_StateRestoring implements _StateRestoring {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateRestoring(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateRestoring != null) {
       return stateRestoring(this);
     }
@@ -1063,6 +958,7 @@ class __$StateRestoreSuccessCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_StateRestoreSuccess implements _StateRestoreSuccess {
   const _$_StateRestoreSuccess();
 
@@ -1081,17 +977,15 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -1099,85 +993,68 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateRestoreSuccess();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateRestoreSuccess != null) {
       return stateRestoreSuccess();
     }
@@ -1186,77 +1063,60 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateRestoreSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateRestoreSuccess != null) {
       return stateRestoreSuccess(this);
     }
@@ -1300,44 +1160,53 @@ class __$StateRestoredCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object surveyPageState = freezed,
-    Object questionList = freezed,
-    Object answerStatusMap = freezed,
-    Object isRecodeModule = freezed,
-    Object mainQuestionList = freezed,
-    Object respondent = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? surveyPageState = freezed,
+    Object? questionList = freezed,
+    Object? answerStatusMap = freezed,
+    Object? isRecodeModule = freezed,
+    Object? mainQuestionList = freezed,
+    Object? respondent = freezed,
   }) {
     return _then(_StateRestored(
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
-          : surveyPageState as SimpleSurveyPageState,
+          : surveyPageState // ignore: cast_nullable_to_non_nullable
+              as SimpleSurveyPageState,
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as KtList<Question>,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
-          : isRecodeModule as bool,
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
-          : mainQuestionList as KtList<Question>,
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
+          : mainQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
     ));
   }
 
   @override
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState {
-    if (_value.surveyPageState == null) {
-      return null;
-    }
     return $SimpleSurveyPageStateCopyWith<$Res>(_value.surveyPageState,
         (value) {
       return _then(_value.copyWith(surveyPageState: value));
@@ -1346,9 +1215,6 @@ class __$StateRestoredCopyWithImpl<$Res>
 
   @override
   $RespondentCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
     return $RespondentCopyWith<$Res>(_value.respondent, (value) {
       return _then(_value.copyWith(respondent: value));
     });
@@ -1356,24 +1222,17 @@ class __$StateRestoredCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_StateRestored implements _StateRestored {
   const _$_StateRestored(
-      {@required this.surveyId,
-      @required this.moduleType,
-      @required this.surveyPageState,
-      @required this.questionList,
-      @required this.answerStatusMap,
-      @required this.isRecodeModule,
-      @required this.mainQuestionList,
-      @required this.respondent})
-      : assert(surveyId != null),
-        assert(moduleType != null),
-        assert(surveyPageState != null),
-        assert(questionList != null),
-        assert(answerStatusMap != null),
-        assert(isRecodeModule != null),
-        assert(mainQuestionList != null),
-        assert(respondent != null);
+      {required this.surveyId,
+      required this.moduleType,
+      required this.surveyPageState,
+      required this.questionList,
+      required this.answerStatusMap,
+      required this.isRecodeModule,
+      required this.mainQuestionList,
+      required this.respondent});
 
   @override
   final SurveyId surveyId;
@@ -1439,23 +1298,22 @@ class _$_StateRestored implements _StateRestored {
       const DeepCollectionEquality().hash(mainQuestionList) ^
       const DeepCollectionEquality().hash(respondent);
 
+  @JsonKey(ignore: true)
   @override
   _$StateRestoredCopyWith<_StateRestored> get copyWith =>
       __$StateRestoredCopyWithImpl<_StateRestored>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -1463,86 +1321,69 @@ class _$_StateRestored implements _StateRestored {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateRestored(surveyId, moduleType, surveyPageState, questionList,
         answerStatusMap, isRecodeModule, mainQuestionList, respondent);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateRestored != null) {
       return stateRestored(surveyId, moduleType, surveyPageState, questionList,
           answerStatusMap, isRecodeModule, mainQuestionList, respondent);
@@ -1552,77 +1393,60 @@ class _$_StateRestored implements _StateRestored {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateRestored(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateRestored != null) {
       return stateRestored(this);
     }
@@ -1632,24 +1456,28 @@ class _$_StateRestored implements _StateRestored {
 
 abstract class _StateRestored implements SurveyPageEvent {
   const factory _StateRestored(
-      {@required SurveyId surveyId,
-      @required ModuleType moduleType,
-      @required SimpleSurveyPageState surveyPageState,
-      @required KtList<Question> questionList,
-      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required bool isRecodeModule,
-      @required KtList<Question> mainQuestionList,
-      @required Respondent respondent}) = _$_StateRestored;
+      {required SurveyId surveyId,
+      required ModuleType moduleType,
+      required SimpleSurveyPageState surveyPageState,
+      required KtList<Question> questionList,
+      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required bool isRecodeModule,
+      required KtList<Question> mainQuestionList,
+      required Respondent respondent}) = _$_StateRestored;
 
-  SurveyId get surveyId;
-  ModuleType get moduleType;
-  SimpleSurveyPageState get surveyPageState;
-  KtList<Question> get questionList;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
-  bool get isRecodeModule;
-  KtList<Question> get mainQuestionList;
-  Respondent get respondent;
-  _$StateRestoredCopyWith<_StateRestored> get copyWith;
+  SurveyId get surveyId => throw _privateConstructorUsedError;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
+  SimpleSurveyPageState get surveyPageState =>
+      throw _privateConstructorUsedError;
+  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
+  Respondent get respondent => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$StateRestoredCopyWith<_StateRestored> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1676,22 +1504,23 @@ class __$RespondentResponseListUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object respondentResponseList = freezed,
+    Object? respondentResponseList = freezed,
   }) {
     return _then(_RespondentResponseListUpdated(
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
-          : respondentResponseList as KtList<Response>,
+          : respondentResponseList // ignore: cast_nullable_to_non_nullable
+              as KtList<Response>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_RespondentResponseListUpdated
     implements _RespondentResponseListUpdated {
   const _$_RespondentResponseListUpdated(
-      {@required this.respondentResponseList})
-      : assert(respondentResponseList != null);
+      {required this.respondentResponseList});
 
   @override
   final KtList<Response> respondentResponseList;
@@ -1715,6 +1544,7 @@ class _$_RespondentResponseListUpdated
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(respondentResponseList);
 
+  @JsonKey(ignore: true)
   @override
   _$RespondentResponseListUpdatedCopyWith<_RespondentResponseListUpdated>
       get copyWith => __$RespondentResponseListUpdatedCopyWithImpl<
@@ -1722,17 +1552,15 @@ class _$_RespondentResponseListUpdated
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -1740,85 +1568,68 @@ class _$_RespondentResponseListUpdated
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return respondentResponseListUpdated(respondentResponseList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentResponseListUpdated != null) {
       return respondentResponseListUpdated(respondentResponseList);
     }
@@ -1827,77 +1638,60 @@ class _$_RespondentResponseListUpdated
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return respondentResponseListUpdated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (respondentResponseListUpdated != null) {
       return respondentResponseListUpdated(this);
     }
@@ -1907,12 +1701,14 @@ class _$_RespondentResponseListUpdated
 
 abstract class _RespondentResponseListUpdated implements SurveyPageEvent {
   const factory _RespondentResponseListUpdated(
-          {@required KtList<Response> respondentResponseList}) =
+          {required KtList<Response> respondentResponseList}) =
       _$_RespondentResponseListUpdated;
 
-  KtList<Response> get respondentResponseList;
+  KtList<Response> get respondentResponseList =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
   _$RespondentResponseListUpdatedCopyWith<_RespondentResponseListUpdated>
-      get copyWith;
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1921,8 +1717,8 @@ abstract class _$AnswerChangedCopyWith<$Res> {
           _AnswerChanged value, $Res Function(_AnswerChanged) then) =
       __$AnswerChangedCopyWithImpl<$Res>;
   $Res call(
-      {KtMutableMap<QuestionId, Answer> answerMap,
-      KtMutableMap<QuestionId, AnswerStatus> answerStatusMap});
+      {KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -1938,31 +1734,32 @@ class __$AnswerChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
   }) {
     return _then(_AnswerChanged(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMutableMap<QuestionId, Answer>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMutableMap<QuestionId, AnswerStatus>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AnswerChanged implements _AnswerChanged {
   const _$_AnswerChanged(
-      {@required this.answerMap, @required this.answerStatusMap})
-      : assert(answerMap != null),
-        assert(answerStatusMap != null);
+      {required this.answerMap, required this.answerStatusMap});
 
   @override
-  final KtMutableMap<QuestionId, Answer> answerMap;
+  final KtMap<QuestionId, Answer> answerMap;
   @override
-  final KtMutableMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
 
   @override
   String toString() {
@@ -1987,23 +1784,22 @@ class _$_AnswerChanged implements _AnswerChanged {
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap);
 
+  @JsonKey(ignore: true)
   @override
   _$AnswerChangedCopyWith<_AnswerChanged> get copyWith =>
       __$AnswerChangedCopyWithImpl<_AnswerChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -2011,85 +1807,68 @@ class _$_AnswerChanged implements _AnswerChanged {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return answerChanged(answerMap, answerStatusMap);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (answerChanged != null) {
       return answerChanged(answerMap, answerStatusMap);
     }
@@ -2098,77 +1877,60 @@ class _$_AnswerChanged implements _AnswerChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return answerChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (answerChanged != null) {
       return answerChanged(this);
     }
@@ -2178,13 +1940,16 @@ class _$_AnswerChanged implements _AnswerChanged {
 
 abstract class _AnswerChanged implements SurveyPageEvent {
   const factory _AnswerChanged(
-          {@required KtMutableMap<QuestionId, Answer> answerMap,
-          @required KtMutableMap<QuestionId, AnswerStatus> answerStatusMap}) =
+          {required KtMap<QuestionId, Answer> answerMap,
+          required KtMap<QuestionId, AnswerStatus> answerStatusMap}) =
       _$_AnswerChanged;
 
-  KtMutableMap<QuestionId, Answer> get answerMap;
-  KtMutableMap<QuestionId, AnswerStatus> get answerStatusMap;
-  _$AnswerChangedCopyWith<_AnswerChanged> get copyWith;
+  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$AnswerChangedCopyWith<_AnswerChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2207,6 +1972,7 @@ class __$QuestionBodyUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_QuestionBodyUpdated implements _QuestionBodyUpdated {
   const _$_QuestionBodyUpdated();
 
@@ -2225,17 +1991,15 @@ class _$_QuestionBodyUpdated implements _QuestionBodyUpdated {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -2243,85 +2007,68 @@ class _$_QuestionBodyUpdated implements _QuestionBodyUpdated {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return questionBodyUpdated();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (questionBodyUpdated != null) {
       return questionBodyUpdated();
     }
@@ -2330,77 +2077,60 @@ class _$_QuestionBodyUpdated implements _QuestionBodyUpdated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return questionBodyUpdated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (questionBodyUpdated != null) {
       return questionBodyUpdated(this);
     }
@@ -2433,18 +2163,21 @@ class __$PageUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object direction = freezed,
+    Object? direction = freezed,
   }) {
     return _then(_PageUpdated(
-      direction:
-          direction == freezed ? _value.direction : direction as Direction,
+      direction: direction == freezed
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as Direction,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_PageUpdated implements _PageUpdated {
-  const _$_PageUpdated({@required this.direction}) : assert(direction != null);
+  const _$_PageUpdated({required this.direction});
 
   @override
   final Direction direction;
@@ -2467,23 +2200,22 @@ class _$_PageUpdated implements _PageUpdated {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(direction);
 
+  @JsonKey(ignore: true)
   @override
   _$PageUpdatedCopyWith<_PageUpdated> get copyWith =>
       __$PageUpdatedCopyWithImpl<_PageUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -2491,85 +2223,68 @@ class _$_PageUpdated implements _PageUpdated {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return pageUpdated(direction);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pageUpdated != null) {
       return pageUpdated(direction);
     }
@@ -2578,77 +2293,60 @@ class _$_PageUpdated implements _PageUpdated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return pageUpdated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (pageUpdated != null) {
       return pageUpdated(this);
     }
@@ -2657,10 +2355,12 @@ class _$_PageUpdated implements _PageUpdated {
 }
 
 abstract class _PageUpdated implements SurveyPageEvent {
-  const factory _PageUpdated({@required Direction direction}) = _$_PageUpdated;
+  const factory _PageUpdated({required Direction direction}) = _$_PageUpdated;
 
-  Direction get direction;
-  _$PageUpdatedCopyWith<_PageUpdated> get copyWith;
+  Direction get direction => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$PageUpdatedCopyWith<_PageUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2683,6 +2383,7 @@ class __$NextPagePressedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_NextPagePressed implements _NextPagePressed {
   const _$_NextPagePressed();
 
@@ -2701,17 +2402,15 @@ class _$_NextPagePressed implements _NextPagePressed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -2719,85 +2418,68 @@ class _$_NextPagePressed implements _NextPagePressed {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return nextPagePressed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (nextPagePressed != null) {
       return nextPagePressed();
     }
@@ -2806,77 +2488,60 @@ class _$_NextPagePressed implements _NextPagePressed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return nextPagePressed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (nextPagePressed != null) {
       return nextPagePressed(this);
     }
@@ -2908,6 +2573,7 @@ class __$PreviousPagePressedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_PreviousPagePressed implements _PreviousPagePressed {
   const _$_PreviousPagePressed();
 
@@ -2926,17 +2592,15 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -2944,85 +2608,68 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return previousPagePressed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (previousPagePressed != null) {
       return previousPagePressed();
     }
@@ -3031,77 +2678,60 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return previousPagePressed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (previousPagePressed != null) {
       return previousPagePressed(this);
     }
@@ -3133,6 +2763,7 @@ class __$WentToNewestPageCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WentToNewestPage implements _WentToNewestPage {
   const _$_WentToNewestPage();
 
@@ -3151,17 +2782,15 @@ class _$_WentToNewestPage implements _WentToNewestPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -3169,85 +2798,68 @@ class _$_WentToNewestPage implements _WentToNewestPage {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return wentToNewestPage();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wentToNewestPage != null) {
       return wentToNewestPage();
     }
@@ -3256,77 +2868,60 @@ class _$_WentToNewestPage implements _WentToNewestPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return wentToNewestPage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wentToNewestPage != null) {
       return wentToNewestPage(this);
     }
@@ -3359,17 +2954,21 @@ class __$WentToPageCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
+    Object? page = freezed,
   }) {
     return _then(_WentToPage(
-      page == freezed ? _value.page : page as PageNumber,
+      page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_WentToPage implements _WentToPage {
-  const _$_WentToPage(this.page) : assert(page != null);
+  const _$_WentToPage(this.page);
 
   @override
   final PageNumber page;
@@ -3391,23 +2990,22 @@ class _$_WentToPage implements _WentToPage {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(page);
 
+  @JsonKey(ignore: true)
   @override
   _$WentToPageCopyWith<_WentToPage> get copyWith =>
       __$WentToPageCopyWithImpl<_WentToPage>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -3415,85 +3013,68 @@ class _$_WentToPage implements _WentToPage {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return wentToPage(page);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wentToPage != null) {
       return wentToPage(page);
     }
@@ -3502,77 +3083,60 @@ class _$_WentToPage implements _WentToPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return wentToPage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (wentToPage != null) {
       return wentToPage(this);
     }
@@ -3583,8 +3147,10 @@ class _$_WentToPage implements _WentToPage {
 abstract class _WentToPage implements SurveyPageEvent {
   const factory _WentToPage(PageNumber page) = _$_WentToPage;
 
-  PageNumber get page;
-  _$WentToPageCopyWith<_WentToPage> get copyWith;
+  PageNumber get page => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WentToPageCopyWith<_WentToPage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3607,6 +3173,7 @@ class __$CheckIsLastPageCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_CheckIsLastPage implements _CheckIsLastPage {
   const _$_CheckIsLastPage();
 
@@ -3625,17 +3192,15 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -3643,85 +3208,68 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return checkIsLastPage();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (checkIsLastPage != null) {
       return checkIsLastPage();
     }
@@ -3730,77 +3278,60 @@ class _$_CheckIsLastPage implements _CheckIsLastPage {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return checkIsLastPage(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (checkIsLastPage != null) {
       return checkIsLastPage(this);
     }
@@ -3832,6 +3363,7 @@ class __$FirstWarningUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_FirstWarningUpdated implements _FirstWarningUpdated {
   const _$_FirstWarningUpdated();
 
@@ -3850,17 +3382,15 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -3868,85 +3398,68 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return firstWarningUpdated();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (firstWarningUpdated != null) {
       return firstWarningUpdated();
     }
@@ -3955,77 +3468,60 @@ class _$_FirstWarningUpdated implements _FirstWarningUpdated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return firstWarningUpdated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (firstWarningUpdated != null) {
       return firstWarningUpdated(this);
     }
@@ -4057,6 +3553,7 @@ class __$ShowWarningUpdatedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_ShowWarningUpdated implements _ShowWarningUpdated {
   const _$_ShowWarningUpdated();
 
@@ -4075,17 +3572,15 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -4093,85 +3588,68 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return showWarningUpdated();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showWarningUpdated != null) {
       return showWarningUpdated();
     }
@@ -4180,77 +3658,60 @@ class _$_ShowWarningUpdated implements _ShowWarningUpdated {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return showWarningUpdated(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (showWarningUpdated != null) {
       return showWarningUpdated(this);
     }
@@ -4282,6 +3743,7 @@ class __$FinishedButtonPressedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   const _$_FinishedButtonPressed();
 
@@ -4300,17 +3762,15 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -4318,85 +3778,68 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return finishedButtonPressed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (finishedButtonPressed != null) {
       return finishedButtonPressed();
     }
@@ -4405,77 +3848,60 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return finishedButtonPressed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (finishedButtonPressed != null) {
       return finishedButtonPressed(this);
     }
@@ -4507,6 +3933,7 @@ class __$StateLoadSuccessCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_StateLoadSuccess implements _StateLoadSuccess {
   const _$_StateLoadSuccess();
 
@@ -4525,17 +3952,15 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -4543,85 +3968,68 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateLoadSuccess();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateLoadSuccess != null) {
       return stateLoadSuccess();
     }
@@ -4630,77 +4038,60 @@ class _$_StateLoadSuccess implements _StateLoadSuccess {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateLoadSuccess(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateLoadSuccess != null) {
       return stateLoadSuccess(this);
     }
@@ -4732,6 +4123,7 @@ class __$StateClearedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_StateCleared implements _StateCleared {
   const _$_StateCleared();
 
@@ -4750,17 +4142,15 @@ class _$_StateCleared implements _StateCleared {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(
-            TeamId teamId, InterviewerId interviewerId),
-    @required
-        TResult referenceListReceived(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    @required TResult stateRestoring(),
-    @required TResult stateRestoreSuccess(),
-    @required
-        TResult stateRestored(
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoring,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
@@ -4768,85 +4158,68 @@ class _$_StateCleared implements _StateCleared {
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            Respondent respondent),
-    @required
-        TResult respondentResponseListUpdated(
-            KtList<Response> respondentResponseList),
-    @required
-        TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-            KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    @required TResult questionBodyUpdated(),
-    @required TResult pageUpdated(Direction direction),
-    @required TResult nextPagePressed(),
-    @required TResult previousPagePressed(),
-    @required TResult wentToNewestPage(),
-    @required TResult wentToPage(PageNumber page),
-    @required TResult checkIsLastPage(),
-    @required TResult firstWarningUpdated(),
-    @required TResult showWarningUpdated(),
-    @required TResult finishedButtonPressed(),
-    @required TResult stateLoadSuccess(),
-    @required TResult stateCleared(),
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() questionBodyUpdated,
+    required TResult Function(Direction direction) pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() checkIsLastPage,
+    required TResult Function() firstWarningUpdated,
+    required TResult Function() showWarningUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateLoadSuccess,
+    required TResult Function() stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateCleared();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchReferenceListStarted(
-        TeamId teamId, InterviewerId interviewerId),
-    TResult referenceListReceived(
-        Either<SurveyFailure, KtList<Reference>> failureOrReferenceList),
-    TResult stateRestoring(),
-    TResult stateRestoreSuccess(),
-    TResult stateRestored(
-        SurveyId surveyId,
-        ModuleType moduleType,
-        SimpleSurveyPageState surveyPageState,
-        KtList<Question> questionList,
-        KtMap<QuestionId, AnswerStatus> answerStatusMap,
-        bool isRecodeModule,
-        KtList<Question> mainQuestionList,
-        Respondent respondent),
-    TResult respondentResponseListUpdated(
-        KtList<Response> respondentResponseList),
-    TResult answerChanged(KtMutableMap<QuestionId, Answer> answerMap,
-        KtMutableMap<QuestionId, AnswerStatus> answerStatusMap),
-    TResult questionBodyUpdated(),
-    TResult pageUpdated(Direction direction),
-    TResult nextPagePressed(),
-    TResult previousPagePressed(),
-    TResult wentToNewestPage(),
-    TResult wentToPage(PageNumber page),
-    TResult checkIsLastPage(),
-    TResult firstWarningUpdated(),
-    TResult showWarningUpdated(),
-    TResult finishedButtonPressed(),
-    TResult stateLoadSuccess(),
-    TResult stateCleared(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoring,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? questionBodyUpdated,
+    TResult Function(Direction direction)? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? checkIsLastPage,
+    TResult Function()? firstWarningUpdated,
+    TResult Function()? showWarningUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateLoadSuccess,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateCleared != null) {
       return stateCleared();
     }
@@ -4855,77 +4228,60 @@ class _$_StateCleared implements _StateCleared {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required
-        TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    @required TResult referenceListReceived(_ReferenceListReceived value),
-    @required TResult stateRestoring(_StateRestoring value),
-    @required TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    @required TResult stateRestored(_StateRestored value),
-    @required
-        TResult respondentResponseListUpdated(
-            _RespondentResponseListUpdated value),
-    @required TResult answerChanged(_AnswerChanged value),
-    @required TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    @required TResult pageUpdated(_PageUpdated value),
-    @required TResult nextPagePressed(_NextPagePressed value),
-    @required TResult previousPagePressed(_PreviousPagePressed value),
-    @required TResult wentToNewestPage(_WentToNewestPage value),
-    @required TResult wentToPage(_WentToPage value),
-    @required TResult checkIsLastPage(_CheckIsLastPage value),
-    @required TResult firstWarningUpdated(_FirstWarningUpdated value),
-    @required TResult showWarningUpdated(_ShowWarningUpdated value),
-    @required TResult finishedButtonPressed(_FinishedButtonPressed value),
-    @required TResult stateLoadSuccess(_StateLoadSuccess value),
-    @required TResult stateCleared(_StateCleared value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoring value) stateRestoring,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_QuestionBodyUpdated value) questionBodyUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_CheckIsLastPage value) checkIsLastPage,
+    required TResult Function(_FirstWarningUpdated value) firstWarningUpdated,
+    required TResult Function(_ShowWarningUpdated value) showWarningUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateLoadSuccess value) stateLoadSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
-    assert(watchReferenceListStarted != null);
-    assert(referenceListReceived != null);
-    assert(stateRestoring != null);
-    assert(stateRestoreSuccess != null);
-    assert(stateRestored != null);
-    assert(respondentResponseListUpdated != null);
-    assert(answerChanged != null);
-    assert(questionBodyUpdated != null);
-    assert(pageUpdated != null);
-    assert(nextPagePressed != null);
-    assert(previousPagePressed != null);
-    assert(wentToNewestPage != null);
-    assert(wentToPage != null);
-    assert(checkIsLastPage != null);
-    assert(firstWarningUpdated != null);
-    assert(showWarningUpdated != null);
-    assert(finishedButtonPressed != null);
-    assert(stateLoadSuccess != null);
-    assert(stateCleared != null);
     return stateCleared(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchReferenceListStarted(_WatchReferenceListStarted value),
-    TResult referenceListReceived(_ReferenceListReceived value),
-    TResult stateRestoring(_StateRestoring value),
-    TResult stateRestoreSuccess(_StateRestoreSuccess value),
-    TResult stateRestored(_StateRestored value),
-    TResult respondentResponseListUpdated(_RespondentResponseListUpdated value),
-    TResult answerChanged(_AnswerChanged value),
-    TResult questionBodyUpdated(_QuestionBodyUpdated value),
-    TResult pageUpdated(_PageUpdated value),
-    TResult nextPagePressed(_NextPagePressed value),
-    TResult previousPagePressed(_PreviousPagePressed value),
-    TResult wentToNewestPage(_WentToNewestPage value),
-    TResult wentToPage(_WentToPage value),
-    TResult checkIsLastPage(_CheckIsLastPage value),
-    TResult firstWarningUpdated(_FirstWarningUpdated value),
-    TResult showWarningUpdated(_ShowWarningUpdated value),
-    TResult finishedButtonPressed(_FinishedButtonPressed value),
-    TResult stateLoadSuccess(_StateLoadSuccess value),
-    TResult stateCleared(_StateCleared value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoring value)? stateRestoring,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_QuestionBodyUpdated value)? questionBodyUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_CheckIsLastPage value)? checkIsLastPage,
+    TResult Function(_FirstWarningUpdated value)? firstWarningUpdated,
+    TResult Function(_ShowWarningUpdated value)? showWarningUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateLoadSuccess value)? stateLoadSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (stateCleared != null) {
       return stateCleared(this);
     }
@@ -4941,29 +4297,28 @@ abstract class _StateCleared implements SurveyPageEvent {
 class _$SurveyPageStateTearOff {
   const _$SurveyPageStateTearOff();
 
-// ignore: unused_element
   _SurveyPageState call(
-      {@required PageNumber page,
-      @required PageNumber newestPage,
-      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required bool isLastPage,
-      @required Warning warning,
-      @required bool showWarning,
-      @required bool isRecodeModule,
-      @required LoadState loadState,
-      @required LoadState restoreState,
-      @required LoadState referenceListState,
-      @required KtList<Reference> referenceList,
-      @required Option<SurveyFailure> surveyFailure,
-      @required Respondent respondent,
-      @required KtMap<QuestionId, Answer> answerMap,
-      @required KtList<Response> respondentResponseList,
-      @required SurveyId surveyId,
-      @required ModuleType moduleType,
-      @required KtList<Question> questionList,
-      @required KtList<Question> pageQuestionList,
-      @required KtList<Question> contentQuestionList,
-      @required KtList<Question> mainQuestionList}) {
+      {required PageNumber page,
+      required PageNumber newestPage,
+      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required bool isLastPage,
+      required Warning warning,
+      required bool showWarning,
+      required bool isRecodeModule,
+      required LoadState loadState,
+      required LoadState restoreState,
+      required LoadState referenceListState,
+      required KtList<Reference> referenceList,
+      required Option<SurveyFailure> surveyFailure,
+      required Respondent respondent,
+      required KtMap<QuestionId, Answer> answerMap,
+      required KtList<Response> respondentResponseList,
+      required SurveyId surveyId,
+      required ModuleType moduleType,
+      required KtList<Question> questionList,
+      required KtList<Question> pageQuestionList,
+      required KtList<Question> contentQuestionList,
+      required KtList<Question> mainQuestionList}) {
     return _SurveyPageState(
       page: page,
       newestPage: newestPage,
@@ -4991,35 +4346,41 @@ class _$SurveyPageStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SurveyPageState = _$SurveyPageStateTearOff();
 
 /// @nodoc
 mixin _$SurveyPageState {
 // H_
-  PageNumber get page;
-  PageNumber get newestPage;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
-  bool get isLastPage;
-  Warning get warning;
-  bool get showWarning;
-  bool get isRecodeModule;
-  LoadState get loadState;
-  LoadState get restoreState; // H_ reference
-  LoadState get referenceListState;
-  KtList<Reference> get referenceList;
-  Option<SurveyFailure> get surveyFailure;
-  Respondent get respondent;
-  KtMap<QuestionId, Answer> get answerMap;
-  KtList<Response> get respondentResponseList;
-  SurveyId get surveyId;
-  ModuleType get moduleType; // H_ questionList
-  KtList<Question> get questionList;
-  KtList<Question> get pageQuestionList;
-  KtList<Question> get contentQuestionList;
-  KtList<Question> get mainQuestionList;
+  PageNumber get page => throw _privateConstructorUsedError;
+  PageNumber get newestPage => throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+  Warning get warning => throw _privateConstructorUsedError;
+  bool get showWarning => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  LoadState get loadState => throw _privateConstructorUsedError;
+  LoadState get restoreState =>
+      throw _privateConstructorUsedError; // H_ reference
+  LoadState get referenceListState => throw _privateConstructorUsedError;
+  KtList<Reference> get referenceList => throw _privateConstructorUsedError;
+  Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
+  Respondent get respondent => throw _privateConstructorUsedError;
+  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtList<Response> get respondentResponseList =>
+      throw _privateConstructorUsedError;
+  SurveyId get surveyId => throw _privateConstructorUsedError;
+  ModuleType get moduleType =>
+      throw _privateConstructorUsedError; // H_ questionList
+  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
+  KtList<Question> get contentQuestionList =>
+      throw _privateConstructorUsedError;
+  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
 
-  $SurveyPageStateCopyWith<SurveyPageState> get copyWith;
+  @JsonKey(ignore: true)
+  $SurveyPageStateCopyWith<SurveyPageState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -5068,88 +4429,118 @@ class _$SurveyPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object answerStatusMap = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object isRecodeModule = freezed,
-    Object loadState = freezed,
-    Object restoreState = freezed,
-    Object referenceListState = freezed,
-    Object referenceList = freezed,
-    Object surveyFailure = freezed,
-    Object respondent = freezed,
-    Object answerMap = freezed,
-    Object respondentResponseList = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionList = freezed,
-    Object pageQuestionList = freezed,
-    Object contentQuestionList = freezed,
-    Object mainQuestionList = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? answerStatusMap = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? isRecodeModule = freezed,
+    Object? loadState = freezed,
+    Object? restoreState = freezed,
+    Object? referenceListState = freezed,
+    Object? referenceList = freezed,
+    Object? surveyFailure = freezed,
+    Object? respondent = freezed,
+    Object? answerMap = freezed,
+    Object? respondentResponseList = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionList = freezed,
+    Object? pageQuestionList = freezed,
+    Object? contentQuestionList = freezed,
+    Object? mainQuestionList = freezed,
   }) {
     return _then(_value.copyWith(
-      page: page == freezed ? _value.page : page as PageNumber,
-      newestPage:
-          newestPage == freezed ? _value.newestPage : newestPage as PageNumber,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as Warning,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as Warning,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
-          : isRecodeModule as bool,
-      loadState:
-          loadState == freezed ? _value.loadState : loadState as LoadState,
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadState: loadState == freezed
+          ? _value.loadState
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       restoreState: restoreState == freezed
           ? _value.restoreState
-          : restoreState as LoadState,
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       referenceListState: referenceListState == freezed
           ? _value.referenceListState
-          : referenceListState as LoadState,
+          : referenceListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       referenceList: referenceList == freezed
           ? _value.referenceList
-          : referenceList as KtList<Reference>,
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Reference>,
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
-          : surveyFailure as Option<SurveyFailure>,
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
+          : surveyFailure // ignore: cast_nullable_to_non_nullable
+              as Option<SurveyFailure>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMap<QuestionId, Answer>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
-          : respondentResponseList as KtList<Response>,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
+          : respondentResponseList // ignore: cast_nullable_to_non_nullable
+              as KtList<Response>,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as KtList<Question>,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
-          : pageQuestionList as KtList<Question>,
+          : pageQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       contentQuestionList: contentQuestionList == freezed
           ? _value.contentQuestionList
-          : contentQuestionList as KtList<Question>,
+          : contentQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
-          : mainQuestionList as KtList<Question>,
+          : mainQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
     ));
   }
 
   @override
   $WarningCopyWith<$Res> get warning {
-    if (_value.warning == null) {
-      return null;
-    }
     return $WarningCopyWith<$Res>(_value.warning, (value) {
       return _then(_value.copyWith(warning: value));
     });
@@ -5157,9 +4548,6 @@ class _$SurveyPageStateCopyWithImpl<$Res>
 
   @override
   $LoadStateCopyWith<$Res> get loadState {
-    if (_value.loadState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.loadState, (value) {
       return _then(_value.copyWith(loadState: value));
     });
@@ -5167,9 +4555,6 @@ class _$SurveyPageStateCopyWithImpl<$Res>
 
   @override
   $LoadStateCopyWith<$Res> get restoreState {
-    if (_value.restoreState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.restoreState, (value) {
       return _then(_value.copyWith(restoreState: value));
     });
@@ -5177,9 +4562,6 @@ class _$SurveyPageStateCopyWithImpl<$Res>
 
   @override
   $LoadStateCopyWith<$Res> get referenceListState {
-    if (_value.referenceListState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.referenceListState, (value) {
       return _then(_value.copyWith(referenceListState: value));
     });
@@ -5187,9 +4569,6 @@ class _$SurveyPageStateCopyWithImpl<$Res>
 
   @override
   $RespondentCopyWith<$Res> get respondent {
-    if (_value.respondent == null) {
-      return null;
-    }
     return $RespondentCopyWith<$Res>(_value.respondent, (value) {
       return _then(_value.copyWith(respondent: value));
     });
@@ -5251,129 +4630,142 @@ class __$SurveyPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object page = freezed,
-    Object newestPage = freezed,
-    Object answerStatusMap = freezed,
-    Object isLastPage = freezed,
-    Object warning = freezed,
-    Object showWarning = freezed,
-    Object isRecodeModule = freezed,
-    Object loadState = freezed,
-    Object restoreState = freezed,
-    Object referenceListState = freezed,
-    Object referenceList = freezed,
-    Object surveyFailure = freezed,
-    Object respondent = freezed,
-    Object answerMap = freezed,
-    Object respondentResponseList = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object questionList = freezed,
-    Object pageQuestionList = freezed,
-    Object contentQuestionList = freezed,
-    Object mainQuestionList = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? answerStatusMap = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? isRecodeModule = freezed,
+    Object? loadState = freezed,
+    Object? restoreState = freezed,
+    Object? referenceListState = freezed,
+    Object? referenceList = freezed,
+    Object? surveyFailure = freezed,
+    Object? respondent = freezed,
+    Object? answerMap = freezed,
+    Object? respondentResponseList = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionList = freezed,
+    Object? pageQuestionList = freezed,
+    Object? contentQuestionList = freezed,
+    Object? mainQuestionList = freezed,
   }) {
     return _then(_SurveyPageState(
-      page: page == freezed ? _value.page : page as PageNumber,
-      newestPage:
-          newestPage == freezed ? _value.newestPage : newestPage as PageNumber,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as PageNumber,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as KtMap<QuestionId, AnswerStatus>,
-      isLastPage:
-          isLastPage == freezed ? _value.isLastPage : isLastPage as bool,
-      warning: warning == freezed ? _value.warning : warning as Warning,
-      showWarning:
-          showWarning == freezed ? _value.showWarning : showWarning as bool,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as Warning,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
-          : isRecodeModule as bool,
-      loadState:
-          loadState == freezed ? _value.loadState : loadState as LoadState,
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
+      loadState: loadState == freezed
+          ? _value.loadState
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       restoreState: restoreState == freezed
           ? _value.restoreState
-          : restoreState as LoadState,
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       referenceListState: referenceListState == freezed
           ? _value.referenceListState
-          : referenceListState as LoadState,
+          : referenceListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       referenceList: referenceList == freezed
           ? _value.referenceList
-          : referenceList as KtList<Reference>,
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Reference>,
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
-          : surveyFailure as Option<SurveyFailure>,
-      respondent:
-          respondent == freezed ? _value.respondent : respondent as Respondent,
+          : surveyFailure // ignore: cast_nullable_to_non_nullable
+              as Option<SurveyFailure>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as KtMap<QuestionId, Answer>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
-          : respondentResponseList as KtList<Response>,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as SurveyId,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as ModuleType,
+          : respondentResponseList // ignore: cast_nullable_to_non_nullable
+              as KtList<Response>,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as SurveyId,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as KtList<Question>,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
-          : pageQuestionList as KtList<Question>,
+          : pageQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       contentQuestionList: contentQuestionList == freezed
           ? _value.contentQuestionList
-          : contentQuestionList as KtList<Question>,
+          : contentQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
-          : mainQuestionList as KtList<Question>,
+          : mainQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_SurveyPageState implements _SurveyPageState {
   const _$_SurveyPageState(
-      {@required this.page,
-      @required this.newestPage,
-      @required this.answerStatusMap,
-      @required this.isLastPage,
-      @required this.warning,
-      @required this.showWarning,
-      @required this.isRecodeModule,
-      @required this.loadState,
-      @required this.restoreState,
-      @required this.referenceListState,
-      @required this.referenceList,
-      @required this.surveyFailure,
-      @required this.respondent,
-      @required this.answerMap,
-      @required this.respondentResponseList,
-      @required this.surveyId,
-      @required this.moduleType,
-      @required this.questionList,
-      @required this.pageQuestionList,
-      @required this.contentQuestionList,
-      @required this.mainQuestionList})
-      : assert(page != null),
-        assert(newestPage != null),
-        assert(answerStatusMap != null),
-        assert(isLastPage != null),
-        assert(warning != null),
-        assert(showWarning != null),
-        assert(isRecodeModule != null),
-        assert(loadState != null),
-        assert(restoreState != null),
-        assert(referenceListState != null),
-        assert(referenceList != null),
-        assert(surveyFailure != null),
-        assert(respondent != null),
-        assert(answerMap != null),
-        assert(respondentResponseList != null),
-        assert(surveyId != null),
-        assert(moduleType != null),
-        assert(questionList != null),
-        assert(pageQuestionList != null),
-        assert(contentQuestionList != null),
-        assert(mainQuestionList != null);
+      {required this.page,
+      required this.newestPage,
+      required this.answerStatusMap,
+      required this.isLastPage,
+      required this.warning,
+      required this.showWarning,
+      required this.isRecodeModule,
+      required this.loadState,
+      required this.restoreState,
+      required this.referenceListState,
+      required this.referenceList,
+      required this.surveyFailure,
+      required this.respondent,
+      required this.answerMap,
+      required this.respondentResponseList,
+      required this.surveyId,
+      required this.moduleType,
+      required this.questionList,
+      required this.pageQuestionList,
+      required this.contentQuestionList,
+      required this.mainQuestionList});
 
   @override // H_
   final PageNumber page;
@@ -5516,6 +4908,7 @@ class _$_SurveyPageState implements _SurveyPageState {
       const DeepCollectionEquality().hash(contentQuestionList) ^
       const DeepCollectionEquality().hash(mainQuestionList);
 
+  @JsonKey(ignore: true)
   @override
   _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith =>
       __$SurveyPageStateCopyWithImpl<_SurveyPageState>(this, _$identity);
@@ -5523,70 +4916,75 @@ class _$_SurveyPageState implements _SurveyPageState {
 
 abstract class _SurveyPageState implements SurveyPageState {
   const factory _SurveyPageState(
-      {@required PageNumber page,
-      @required PageNumber newestPage,
-      @required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      @required bool isLastPage,
-      @required Warning warning,
-      @required bool showWarning,
-      @required bool isRecodeModule,
-      @required LoadState loadState,
-      @required LoadState restoreState,
-      @required LoadState referenceListState,
-      @required KtList<Reference> referenceList,
-      @required Option<SurveyFailure> surveyFailure,
-      @required Respondent respondent,
-      @required KtMap<QuestionId, Answer> answerMap,
-      @required KtList<Response> respondentResponseList,
-      @required SurveyId surveyId,
-      @required ModuleType moduleType,
-      @required KtList<Question> questionList,
-      @required KtList<Question> pageQuestionList,
-      @required KtList<Question> contentQuestionList,
-      @required KtList<Question> mainQuestionList}) = _$_SurveyPageState;
+      {required PageNumber page,
+      required PageNumber newestPage,
+      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required bool isLastPage,
+      required Warning warning,
+      required bool showWarning,
+      required bool isRecodeModule,
+      required LoadState loadState,
+      required LoadState restoreState,
+      required LoadState referenceListState,
+      required KtList<Reference> referenceList,
+      required Option<SurveyFailure> surveyFailure,
+      required Respondent respondent,
+      required KtMap<QuestionId, Answer> answerMap,
+      required KtList<Response> respondentResponseList,
+      required SurveyId surveyId,
+      required ModuleType moduleType,
+      required KtList<Question> questionList,
+      required KtList<Question> pageQuestionList,
+      required KtList<Question> contentQuestionList,
+      required KtList<Question> mainQuestionList}) = _$_SurveyPageState;
 
   @override // H_
-  PageNumber get page;
+  PageNumber get page => throw _privateConstructorUsedError;
   @override
-  PageNumber get newestPage;
+  PageNumber get newestPage => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  bool get isLastPage;
+  bool get isLastPage => throw _privateConstructorUsedError;
   @override
-  Warning get warning;
+  Warning get warning => throw _privateConstructorUsedError;
   @override
-  bool get showWarning;
+  bool get showWarning => throw _privateConstructorUsedError;
   @override
-  bool get isRecodeModule;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
-  LoadState get loadState;
+  LoadState get loadState => throw _privateConstructorUsedError;
   @override
-  LoadState get restoreState;
+  LoadState get restoreState => throw _privateConstructorUsedError;
   @override // H_ reference
-  LoadState get referenceListState;
+  LoadState get referenceListState => throw _privateConstructorUsedError;
   @override
-  KtList<Reference> get referenceList;
+  KtList<Reference> get referenceList => throw _privateConstructorUsedError;
   @override
-  Option<SurveyFailure> get surveyFailure;
+  Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
   @override
-  Respondent get respondent;
+  Respondent get respondent => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, Answer> get answerMap;
+  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtList<Response> get respondentResponseList;
+  KtList<Response> get respondentResponseList =>
+      throw _privateConstructorUsedError;
   @override
-  SurveyId get surveyId;
+  SurveyId get surveyId => throw _privateConstructorUsedError;
   @override
-  ModuleType get moduleType;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
   @override // H_ questionList
-  KtList<Question> get questionList;
+  KtList<Question> get questionList => throw _privateConstructorUsedError;
   @override
-  KtList<Question> get pageQuestionList;
+  KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
   @override
-  KtList<Question> get contentQuestionList;
+  KtList<Question> get contentQuestionList =>
+      throw _privateConstructorUsedError;
   @override
-  KtList<Question> get mainQuestionList;
+  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   @override
-  _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith;
+  @JsonKey(ignore: true)
+  _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

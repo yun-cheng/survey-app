@@ -11,10 +11,10 @@ class NoteBox extends StatelessWidget {
   final String note;
 
   const NoteBox({
-    Key key,
-    @required this.question,
-    @required this.choice,
-    @required this.note,
+    Key? key,
+    required this.question,
+    required this.choice,
+    required this.note,
   }) : super(key: key);
 
   @override

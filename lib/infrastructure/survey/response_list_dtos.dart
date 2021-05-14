@@ -16,11 +16,11 @@ part 'response_list_dtos.freezed.dart';
 part 'response_list_dtos.g.dart';
 
 @freezed
-abstract class ResponseListDto implements _$ResponseListDto {
+class ResponseListDto with _$ResponseListDto {
   const ResponseListDto._();
 
   const factory ResponseListDto({
-    @required List<ResponseDto> list,
+    required List<ResponseDto> list,
   }) = _ResponseListDto;
 
   factory ResponseListDto.fromDomain(KtList<Response> responseList) {
@@ -45,34 +45,34 @@ abstract class ResponseListDto implements _$ResponseListDto {
 }
 
 @freezed
-abstract class ResponseDto implements _$ResponseDto {
+class ResponseDto with _$ResponseDto {
   const ResponseDto._();
 
   const factory ResponseDto({
     // H_ 區分不同 response
-    @required String teamId,
-    @required String projectId,
-    @required String surveyId,
-    @required String moduleType,
-    @required String respondentId,
+    required String teamId,
+    required String projectId,
+    required String surveyId,
+    required String moduleType,
+    required String respondentId,
     // H_ 區分 response 版本
-    @required String responseId,
-    @required String tempResponseId,
-    @required String ticketId,
-    @required bool editFinished,
-    @required String interviewerId,
-    @required String deviceId,
+    required String responseId,
+    required String tempResponseId,
+    required String ticketId,
+    required bool editFinished,
+    required String interviewerId,
+    required String deviceId,
     // H_ 狀態
-    @required int createdTimeStamp,
-    @required int sessionStartTimeStamp,
-    @required int sessionEndTimeStamp,
-    @required int lastChangedTimeStamp,
-    @required String responseStatus,
-    @required bool isDeleted,
+    required int createdTimeStamp,
+    required int sessionStartTimeStamp,
+    required int sessionEndTimeStamp,
+    required int lastChangedTimeStamp,
+    required String responseStatus,
+    required bool isDeleted,
     // H_ 內容
-    @required Map<String, AnswerDto> answerMap,
-    @required Map<String, AnswerStatusDto> answerStatusMap,
-    @required SimpleSurveyPageStateDto surveyPageState,
+    required Map<String, AnswerDto> answerMap,
+    required Map<String, AnswerStatusDto> answerStatusMap,
+    required SimpleSurveyPageStateDto surveyPageState,
   }) = _ResponseDto;
 
   factory ResponseDto.fromDomain(Response domain) {
@@ -93,9 +93,8 @@ abstract class ResponseDto implements _$ResponseDto {
       // H_ 狀態
       createdTimeStamp:
           domain.createdTimeStamp.getValueAnyway().microsecondsSinceEpoch,
-      sessionStartTimeStamp: domain.sessionStartTimeStamp
-          .getValueAnyway()
-          .microsecondsSinceEpoch,
+      sessionStartTimeStamp:
+          domain.sessionStartTimeStamp.getValueAnyway().microsecondsSinceEpoch,
       sessionEndTimeStamp:
           domain.sessionEndTimeStamp.getValueAnyway().microsecondsSinceEpoch,
       lastChangedTimeStamp:

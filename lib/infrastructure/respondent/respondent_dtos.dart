@@ -7,14 +7,14 @@ part 'respondent_dtos.freezed.dart';
 part 'respondent_dtos.g.dart';
 
 @freezed
-abstract class RespondentDto implements _$RespondentDto {
+class RespondentDto with _$RespondentDto {
   const RespondentDto._();
 
   const factory RespondentDto({
-    @required String respondentId,
-    @required String countyTown,
-    @required String village,
-    @required String remainAddress,
+    required String respondentId,
+    required String countyTown,
+    required String village,
+    required String remainAddress,
   }) = _RespondentDto;
 
   factory RespondentDto.fromDomain(Respondent respondent) {

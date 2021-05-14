@@ -21,7 +21,7 @@ class RespondentsPage extends StatelessWidget {
                       page: NavigationPage.overview(),
                     ),
                   );
-              context.navigator.maybePop();
+              context.router.pop();
             }),
         actions: [
           IconButton(

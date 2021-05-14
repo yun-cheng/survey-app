@@ -7,17 +7,17 @@ import 'value_objects.dart';
 part 'answer.freezed.dart';
 
 @freezed
-abstract class Answer implements _$Answer {
+class Answer with _$Answer {
   const Answer._();
 
   const factory Answer({
-    @required AnswerType type,
-    @required bool withNote,
-    String stringValue,
-    int intValue,
-    SimpleChoice choiceValue,
-    KtList<SimpleChoice> choiceListValue,
-    KtMap<ChoiceId, String> noteMap,
+    required AnswerType type,
+    required bool withNote,
+    String? stringValue,
+    int? intValue,
+    SimpleChoice? choiceValue,
+    KtList<SimpleChoice>? choiceListValue,
+    KtMap<ChoiceId, String>? noteMap,
   }) = _Answer;
 
   // H_ 產生
@@ -55,7 +55,7 @@ abstract class Answer implements _$Answer {
     } else if (type == AnswerType.choice()) {
       return choiceValue == SimpleChoice.empty();
     } else if (type == AnswerType.choiceList()) {
-      return choiceListValue.isEmpty();
+      return choiceListValue!.isEmpty();
     }
 
     return true;
@@ -98,13 +98,13 @@ abstract class Answer implements _$Answer {
   }
 
   String choiceToString(SimpleChoice choice) {
-    String noteString = noteMap?.get(choice.id);
+    String? noteString = noteMap?.get(choice.id);
     noteString = noteString != null ? '：$noteString' : '';
     return '${choice.body.getValueAnyway()}$noteString';
   }
 
   String get stringBody {
-    String result;
+    String? result;
     if (type == AnswerType.int()) {
       result = intValue?.toString();
     } else if (type == AnswerType.string()) {
@@ -113,9 +113,9 @@ abstract class Answer implements _$Answer {
       // String noteString = noteMap?.get(choiceValue.id);
       // noteString = noteString != null ? '：$noteString' : '';
       // result = '${choiceValue.body.getValueAnyway()}$noteString';
-      result = choiceToString(choiceValue);
+      result = choiceToString(choiceValue!);
     } else if (type == AnswerType.choiceList()) {
-      result = choiceListValue
+      result = choiceListValue!
           .map((choice) => choiceToString(choice))
           .joinToString(separator: '、');
     }
@@ -129,7 +129,7 @@ abstract class Answer implements _$Answer {
     } else if (type == AnswerType.string()) {
       comparableValue = stringValue;
     } else if (type == AnswerType.choice()) {
-      comparableValue = choiceValue?.id?.getValueAnyway();
+      comparableValue = choiceValue?.id.getValueAnyway();
     } else if (type == AnswerType.choiceList()) {
       comparableValue =
           choiceListValue?.map((choice) => choice.id.getValueAnyway());
@@ -140,7 +140,7 @@ abstract class Answer implements _$Answer {
 
   bool contains(SimpleChoice choice) {
     if (type == AnswerType.choiceList()) {
-      return choiceListValue.contains(choice);
+      return choiceListValue!.contains(choice);
     } else {
       return value == choice;
     }
@@ -156,14 +156,14 @@ abstract class Answer implements _$Answer {
 
   // H_ 初始化 note
   Answer initNote({
-    @required ChoiceId choiceId,
-    @required bool asNote,
+    required ChoiceId choiceId,
+    required bool asNote,
   }) {
-    KtMutableMap<ChoiceId, String> newNoteMap;
+    KtMutableMap<ChoiceId, String>? newNoteMap;
 
     if (asNote) {
       newNoteMap = KtMutableMap<ChoiceId, String>.from(noteMap?.asMap() ?? {});
-      if (noteMap == null || !noteMap.containsKey(choiceId)) {
+      if (noteMap == null || !noteMap!.containsKey(choiceId)) {
         newNoteMap.put(choiceId, '');
       }
     }
@@ -177,8 +177,8 @@ abstract class Answer implements _$Answer {
   // H_ 單選操作
   // TODO 是否要清除其他選項 note 的資料?
   Answer setChoice({
-    @required SimpleChoice choice,
-    @required bool asNote,
+    required SimpleChoice choice,
+    required bool asNote,
   }) {
     return clearValue()
         .copyWith(
@@ -193,17 +193,17 @@ abstract class Answer implements _$Answer {
 
   // H_ 多選操作
   Answer toggleChoice({
-    @required SimpleChoice choice,
-    @required bool asNote,
+    required SimpleChoice choice,
+    required bool asNote,
   }) {
     if (type == AnswerType.choiceList()) {
-      if (choiceListValue.contains(choice)) {
+      if (choiceListValue!.contains(choice)) {
         return copyWith(
-          choiceListValue: choiceListValue.minusElement(choice),
+          choiceListValue: choiceListValue!.minusElement(choice),
         );
       } else {
         return copyWith(
-          choiceListValue: choiceListValue.plusElement(choice),
+          choiceListValue: choiceListValue!.plusElement(choice),
         ).initNote(
           choiceId: choice.id,
           asNote: asNote,
@@ -224,7 +224,7 @@ abstract class Answer implements _$Answer {
 
   // H_ note 操作
   Answer setNote(String noteValue, ChoiceId noteOf) {
-    final newNoteMap = KtMutableMap.from(noteMap.asMap());
+    final newNoteMap = KtMutableMap.from(noteMap!.asMap());
     newNoteMap.put(noteOf, noteValue);
 
     return copyWith(

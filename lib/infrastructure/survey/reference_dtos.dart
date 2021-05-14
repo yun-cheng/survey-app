@@ -12,15 +12,15 @@ part 'reference_dtos.freezed.dart';
 part 'reference_dtos.g.dart';
 
 @freezed
-abstract class ReferenceDto implements _$ReferenceDto {
+class ReferenceDto with _$ReferenceDto {
   const ReferenceDto._();
 
   const factory ReferenceDto({
-    @required String respondentId,
-    @required String surveyId,
-    @required String moduleType,
-    @required String questionId,
-    @required AnswerDto answer,
+    required String respondentId,
+    required String surveyId,
+    required String moduleType,
+    required String questionId,
+    required AnswerDto answer,
   }) = _ReferenceDto;
 
   factory ReferenceDto.fromDomain(Reference domain) {
@@ -48,11 +48,11 @@ abstract class ReferenceDto implements _$ReferenceDto {
 }
 
 @freezed
-abstract class ReferenceListDto implements _$ReferenceListDto {
+class ReferenceListDto with _$ReferenceListDto {
   const ReferenceListDto._();
 
   const factory ReferenceListDto({
-    @required List<ReferenceDto> list,
+    required List<ReferenceDto> list,
   }) = _ReferenceListDto;
 
   factory ReferenceListDto.fromDomain(KtList<Reference> domain) {
@@ -73,7 +73,7 @@ abstract class ReferenceListDto implements _$ReferenceListDto {
   factory ReferenceListDto.fromFirestore(QuerySnapshot snapshot) {
     // NOTE 直接合併不同 survey 的 referenceList
     final list = snapshot.docs
-        .map((doc) => doc.data()['list'] as List)
+        .map((doc) => (doc.data()! as Map)['list'] as List)
         .expand((i) => i)
         .toList();
 

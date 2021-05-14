@@ -8,14 +8,14 @@ part 'warning_dtos.freezed.dart';
 part 'warning_dtos.g.dart';
 
 @freezed
-abstract class WarningDto implements _$WarningDto {
+class WarningDto with _$WarningDto {
   const WarningDto._();
 
   const factory WarningDto({
-    @required String questionId,
-    @required int serialNumber,
-    @required int pageNumber,
-    @required String warningType,
+    required String questionId,
+    required int serialNumber,
+    required int pageNumber,
+    required String warningType,
   }) = _WarningDto;
 
   factory WarningDto.fromDomain(Warning warning) {

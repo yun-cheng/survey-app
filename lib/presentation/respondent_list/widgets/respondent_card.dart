@@ -15,8 +15,8 @@ class RespondentCard extends StatelessWidget {
   final Respondent respondent;
 
   const RespondentCard({
-    Key key,
-    @required this.respondent,
+    Key? key,
+    required this.respondent,
   }) : super(key: key);
 
   @override
@@ -58,11 +58,8 @@ class RespondentCard extends StatelessWidget {
                     const SizedBox(height: 16),
                     Row(
                       children: <Widget>[
-                        FlatButton(
-                          color: kCardRedTextColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                          ),
+                        TextButton(
+                          style: kCardRedButtonStyle,
                           onPressed: () {
                             context.read<ResponseBloc>().add(
                                   ResponseEvent.responseStartedWith(
@@ -76,7 +73,7 @@ class RespondentCard extends StatelessWidget {
                                     respondentId: respondent.id,
                                   ),
                                 );
-                            context.navigator.push(
+                            context.router.pushNamed(
                               '/respondent/${respondent.id.getOrCrash()}',
                             );
                           },
@@ -88,11 +85,8 @@ class RespondentCard extends StatelessWidget {
                         const SizedBox(
                           width: kH1FontSize,
                         ),
-                        FlatButton(
-                          color: kCardBlueTextColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                          ),
+                        TextButton(
+                          style: kCardBlueButtonStyle,
                           onPressed: () {
                             context.read<ResponseBloc>().add(
                                   ResponseEvent.responseStartedWith(
@@ -106,7 +100,7 @@ class RespondentCard extends StatelessWidget {
                                     respondentId: respondent.id,
                                   ),
                                 );
-                            context.navigator.push(
+                            context.router.pushNamed(
                               '/respondent/${respondent.id.getOrCrash()}',
                             );
                           },
@@ -118,11 +112,8 @@ class RespondentCard extends StatelessWidget {
                         const SizedBox(
                           width: kH1FontSize,
                         ),
-                        FlatButton(
-                          color: kCardBlueTextColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                          ),
+                        TextButton(
+                          style: kCardBlueButtonStyle,
                           onPressed: () {
                             context.read<ResponseBloc>().add(
                                   ResponseEvent.responseStartedWith(
@@ -136,7 +127,7 @@ class RespondentCard extends StatelessWidget {
                                     respondentId: respondent.id,
                                   ),
                                 );
-                            context.navigator.push(
+                            context.router.pushNamed(
                               '/respondent/${respondent.id.getOrCrash()}',
                             );
                           },
@@ -150,11 +141,8 @@ class RespondentCard extends StatelessWidget {
                     const SizedBox(height: 16),
                     Row(
                       children: [
-                        FlatButton(
-                          color: kCardBlueTextColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                          ),
+                        TextButton(
+                          style: kCardBlueButtonStyle,
                           onPressed: () {
                             context.read<ResponseBloc>().add(
                                   ResponseEvent.responseStartedWith(
@@ -168,7 +156,7 @@ class RespondentCard extends StatelessWidget {
                                     respondentId: respondent.id,
                                   ),
                                 );
-                            context.navigator.push(
+                            context.router.pushNamed(
                               '/respondent/${respondent.id.getOrCrash()}',
                             );
                           },
@@ -180,11 +168,8 @@ class RespondentCard extends StatelessWidget {
                         const SizedBox(
                           width: kH1FontSize,
                         ),
-                        FlatButton(
-                          color: kCardBlueTextColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(18.0),
-                          ),
+                        TextButton(
+                          style: kCardBlueButtonStyle,
                           onPressed: () {
                             context.read<ResponseBloc>().add(
                                   ResponseEvent.responseStartedWith(
@@ -198,7 +183,7 @@ class RespondentCard extends StatelessWidget {
                                     respondentId: respondent.id,
                                   ),
                                 );
-                            context.navigator.push(
+                            context.router.pushNamed(
                               '/respondent/${respondent.id.getOrCrash()}',
                             );
                           },

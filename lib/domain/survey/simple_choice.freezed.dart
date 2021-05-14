@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'simple_choice.dart';
 
@@ -9,12 +9,14 @@ part of 'simple_choice.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$SimpleChoiceTearOff {
   const _$SimpleChoiceTearOff();
 
-// ignore: unused_element
-  _Choice call({@required ChoiceId id, @required ChoiceBody body}) {
+  _Choice call({required ChoiceId id, required ChoiceBody body}) {
     return _Choice(
       id: id,
       body: body,
@@ -23,15 +25,16 @@ class _$SimpleChoiceTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $SimpleChoice = _$SimpleChoiceTearOff();
 
 /// @nodoc
 mixin _$SimpleChoice {
-  ChoiceId get id;
-  ChoiceBody get body;
+  ChoiceId get id => throw _privateConstructorUsedError;
+  ChoiceBody get body => throw _privateConstructorUsedError;
 
-  $SimpleChoiceCopyWith<SimpleChoice> get copyWith;
+  @JsonKey(ignore: true)
+  $SimpleChoiceCopyWith<SimpleChoice> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -52,12 +55,18 @@ class _$SimpleChoiceCopyWithImpl<$Res> implements $SimpleChoiceCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object body = freezed,
+    Object? id = freezed,
+    Object? body = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as ChoiceId,
-      body: body == freezed ? _value.body : body as ChoiceBody,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as ChoiceId,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as ChoiceBody,
     ));
   }
 }
@@ -81,22 +90,26 @@ class __$ChoiceCopyWithImpl<$Res> extends _$SimpleChoiceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object body = freezed,
+    Object? id = freezed,
+    Object? body = freezed,
   }) {
     return _then(_Choice(
-      id: id == freezed ? _value.id : id as ChoiceId,
-      body: body == freezed ? _value.body : body as ChoiceBody,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as ChoiceId,
+      body: body == freezed
+          ? _value.body
+          : body // ignore: cast_nullable_to_non_nullable
+              as ChoiceBody,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_Choice extends _Choice {
-  const _$_Choice({@required this.id, @required this.body})
-      : assert(id != null),
-        assert(body != null),
-        super._();
+  const _$_Choice({required this.id, required this.body}) : super._();
 
   @override
   final ChoiceId id;
@@ -124,20 +137,22 @@ class _$_Choice extends _Choice {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(body);
 
+  @JsonKey(ignore: true)
   @override
   _$ChoiceCopyWith<_Choice> get copyWith =>
       __$ChoiceCopyWithImpl<_Choice>(this, _$identity);
 }
 
 abstract class _Choice extends SimpleChoice {
-  const _Choice._() : super._();
-  const factory _Choice({@required ChoiceId id, @required ChoiceBody body}) =
+  const factory _Choice({required ChoiceId id, required ChoiceBody body}) =
       _$_Choice;
+  const _Choice._() : super._();
 
   @override
-  ChoiceId get id;
+  ChoiceId get id => throw _privateConstructorUsedError;
   @override
-  ChoiceBody get body;
+  ChoiceBody get body => throw _privateConstructorUsedError;
   @override
-  _$ChoiceCopyWith<_Choice> get copyWith;
+  @JsonKey(ignore: true)
+  _$ChoiceCopyWith<_Choice> get copyWith => throw _privateConstructorUsedError;
 }

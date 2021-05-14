@@ -9,11 +9,11 @@ part 'interviewer_dtos.freezed.dart';
 part 'interviewer_dtos.g.dart';
 
 @freezed
-abstract class InterviewerListDto implements _$InterviewerListDto {
+class InterviewerListDto with _$InterviewerListDto {
   const InterviewerListDto._();
 
   const factory InterviewerListDto({
-    @required List<InterviewerDto> list,
+    required List<InterviewerDto> list,
   }) = _InterviewerListDto;
 
   factory InterviewerListDto.fromDomain(KtList<Interviewer> interviewerList) {
@@ -33,18 +33,18 @@ abstract class InterviewerListDto implements _$InterviewerListDto {
       _$InterviewerListDtoFromJson(json);
 
   factory InterviewerListDto.fromFirestore(DocumentSnapshot doc) {
-    return InterviewerListDto.fromJson(doc.data());
+    return InterviewerListDto.fromJson(doc.data()! as Map<String, dynamic>);
   }
 }
 
 @freezed
-abstract class InterviewerDto implements _$InterviewerDto {
+class InterviewerDto with _$InterviewerDto {
   const InterviewerDto._();
 
   const factory InterviewerDto({
-    @required String interviewerId,
-    @required String interviewerName,
-    @required String interviewerPassword,
+    required String interviewerId,
+    required String interviewerName,
+    required String interviewerPassword,
   }) = _InterviewerDto;
 
   factory InterviewerDto.fromDomain(Interviewer interviewer) {

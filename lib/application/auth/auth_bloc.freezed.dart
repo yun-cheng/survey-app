@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'auth_bloc.dart';
 
@@ -9,16 +9,17 @@ part of 'auth_bloc.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$AuthEventTearOff {
   const _$AuthEventTearOff();
 
-// ignore: unused_element
   _WatchTeamListStarted watchTeamListStarted() {
     return const _WatchTeamListStarted();
   }
 
-// ignore: unused_element
   _TeamListReceived teamListReceived(
       Either<AuthFailure, KtList<Team>> failureOrTeamList) {
     return _TeamListReceived(
@@ -26,19 +27,16 @@ class _$AuthEventTearOff {
     );
   }
 
-// ignore: unused_element
   _TeamSelected teamSelected(Team team) {
     return _TeamSelected(
       team,
     );
   }
 
-// ignore: unused_element
   _WatchInterviewerListStarted watchInterviewerListStarted() {
     return const _WatchInterviewerListStarted();
   }
 
-// ignore: unused_element
   _InterviewerListReceived interviewerListReceived(
       Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList) {
     return _InterviewerListReceived(
@@ -46,94 +44,96 @@ class _$AuthEventTearOff {
     );
   }
 
-// ignore: unused_element
   _IdChanged idChanged(String idStr) {
     return _IdChanged(
       idStr,
     );
   }
 
-// ignore: unused_element
   _PasswordChanged passwordChanged(String passwordStr) {
     return _PasswordChanged(
       passwordStr,
     );
   }
 
-// ignore: unused_element
   _SignInPressed signInPressed() {
     return const _SignInPressed();
   }
 
-// ignore: unused_element
   _SignOutPressed signOutPressed() {
     return const _SignOutPressed();
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AuthEvent = _$AuthEventTearOff();
 
 /// @nodoc
 mixin _$AuthEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -171,6 +171,7 @@ class __$WatchTeamListStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WatchTeamListStarted implements _WatchTeamListStarted {
   const _$_WatchTeamListStarted();
 
@@ -189,50 +190,41 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return watchTeamListStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchTeamListStarted != null) {
       return watchTeamListStarted();
     }
@@ -241,45 +233,37 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return watchTeamListStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchTeamListStarted != null) {
       return watchTeamListStarted(this);
     }
@@ -312,20 +296,21 @@ class __$TeamListReceivedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrTeamList = freezed,
+    Object? failureOrTeamList = freezed,
   }) {
     return _then(_TeamListReceived(
       failureOrTeamList == freezed
           ? _value.failureOrTeamList
-          : failureOrTeamList as Either<AuthFailure, KtList<Team>>,
+          : failureOrTeamList // ignore: cast_nullable_to_non_nullable
+              as Either<AuthFailure, KtList<Team>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_TeamListReceived implements _TeamListReceived {
-  const _$_TeamListReceived(this.failureOrTeamList)
-      : assert(failureOrTeamList != null);
+  const _$_TeamListReceived(this.failureOrTeamList);
 
   @override
   final Either<AuthFailure, KtList<Team>> failureOrTeamList;
@@ -349,56 +334,48 @@ class _$_TeamListReceived implements _TeamListReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrTeamList);
 
+  @JsonKey(ignore: true)
   @override
   _$TeamListReceivedCopyWith<_TeamListReceived> get copyWith =>
       __$TeamListReceivedCopyWithImpl<_TeamListReceived>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return teamListReceived(failureOrTeamList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (teamListReceived != null) {
       return teamListReceived(failureOrTeamList);
     }
@@ -407,45 +384,37 @@ class _$_TeamListReceived implements _TeamListReceived {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return teamListReceived(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (teamListReceived != null) {
       return teamListReceived(this);
     }
@@ -458,8 +427,11 @@ abstract class _TeamListReceived implements AuthEvent {
           Either<AuthFailure, KtList<Team>> failureOrTeamList) =
       _$_TeamListReceived;
 
-  Either<AuthFailure, KtList<Team>> get failureOrTeamList;
-  _$TeamListReceivedCopyWith<_TeamListReceived> get copyWith;
+  Either<AuthFailure, KtList<Team>> get failureOrTeamList =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$TeamListReceivedCopyWith<_TeamListReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -484,18 +456,18 @@ class __$TeamSelectedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object team = freezed,
+    Object? team = freezed,
   }) {
     return _then(_TeamSelected(
-      team == freezed ? _value.team : team as Team,
+      team == freezed
+          ? _value.team
+          : team // ignore: cast_nullable_to_non_nullable
+              as Team,
     ));
   }
 
   @override
   $TeamCopyWith<$Res> get team {
-    if (_value.team == null) {
-      return null;
-    }
     return $TeamCopyWith<$Res>(_value.team, (value) {
       return _then(_value.copyWith(team: value));
     });
@@ -503,8 +475,9 @@ class __$TeamSelectedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_TeamSelected implements _TeamSelected {
-  const _$_TeamSelected(this.team) : assert(team != null);
+  const _$_TeamSelected(this.team);
 
   @override
   final Team team;
@@ -526,56 +499,48 @@ class _$_TeamSelected implements _TeamSelected {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(team);
 
+  @JsonKey(ignore: true)
   @override
   _$TeamSelectedCopyWith<_TeamSelected> get copyWith =>
       __$TeamSelectedCopyWithImpl<_TeamSelected>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return teamSelected(team);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (teamSelected != null) {
       return teamSelected(team);
     }
@@ -584,45 +549,37 @@ class _$_TeamSelected implements _TeamSelected {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return teamSelected(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (teamSelected != null) {
       return teamSelected(this);
     }
@@ -633,8 +590,10 @@ class _$_TeamSelected implements _TeamSelected {
 abstract class _TeamSelected implements AuthEvent {
   const factory _TeamSelected(Team team) = _$_TeamSelected;
 
-  Team get team;
-  _$TeamSelectedCopyWith<_TeamSelected> get copyWith;
+  Team get team => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$TeamSelectedCopyWith<_TeamSelected> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -660,6 +619,7 @@ class __$WatchInterviewerListStartedCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
   const _$_WatchInterviewerListStarted();
 
@@ -678,50 +638,41 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return watchInterviewerListStarted();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchInterviewerListStarted != null) {
       return watchInterviewerListStarted();
     }
@@ -730,45 +681,37 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return watchInterviewerListStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (watchInterviewerListStarted != null) {
       return watchInterviewerListStarted(this);
     }
@@ -803,21 +746,21 @@ class __$InterviewerListReceivedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object failureOrInterviewerList = freezed,
+    Object? failureOrInterviewerList = freezed,
   }) {
     return _then(_InterviewerListReceived(
       failureOrInterviewerList == freezed
           ? _value.failureOrInterviewerList
-          : failureOrInterviewerList
+          : failureOrInterviewerList // ignore: cast_nullable_to_non_nullable
               as Either<AuthFailure, KtList<Interviewer>>,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_InterviewerListReceived implements _InterviewerListReceived {
-  const _$_InterviewerListReceived(this.failureOrInterviewerList)
-      : assert(failureOrInterviewerList != null);
+  const _$_InterviewerListReceived(this.failureOrInterviewerList);
 
   @override
   final Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList;
@@ -842,6 +785,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(failureOrInterviewerList);
 
+  @JsonKey(ignore: true)
   @override
   _$InterviewerListReceivedCopyWith<_InterviewerListReceived> get copyWith =>
       __$InterviewerListReceivedCopyWithImpl<_InterviewerListReceived>(
@@ -849,50 +793,41 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return interviewerListReceived(failureOrInterviewerList);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (interviewerListReceived != null) {
       return interviewerListReceived(failureOrInterviewerList);
     }
@@ -901,45 +836,37 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return interviewerListReceived(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (interviewerListReceived != null) {
       return interviewerListReceived(this);
     }
@@ -952,8 +879,11 @@ abstract class _InterviewerListReceived implements AuthEvent {
           Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList) =
       _$_InterviewerListReceived;
 
-  Either<AuthFailure, KtList<Interviewer>> get failureOrInterviewerList;
-  _$InterviewerListReceivedCopyWith<_InterviewerListReceived> get copyWith;
+  Either<AuthFailure, KtList<Interviewer>> get failureOrInterviewerList =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$InterviewerListReceivedCopyWith<_InterviewerListReceived> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -975,17 +905,21 @@ class __$IdChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object idStr = freezed,
+    Object? idStr = freezed,
   }) {
     return _then(_IdChanged(
-      idStr == freezed ? _value.idStr : idStr as String,
+      idStr == freezed
+          ? _value.idStr
+          : idStr // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_IdChanged implements _IdChanged {
-  const _$_IdChanged(this.idStr) : assert(idStr != null);
+  const _$_IdChanged(this.idStr);
 
   @override
   final String idStr;
@@ -1007,56 +941,48 @@ class _$_IdChanged implements _IdChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(idStr);
 
+  @JsonKey(ignore: true)
   @override
   _$IdChangedCopyWith<_IdChanged> get copyWith =>
       __$IdChangedCopyWithImpl<_IdChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return idChanged(idStr);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idChanged != null) {
       return idChanged(idStr);
     }
@@ -1065,45 +991,37 @@ class _$_IdChanged implements _IdChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return idChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (idChanged != null) {
       return idChanged(this);
     }
@@ -1114,8 +1032,10 @@ class _$_IdChanged implements _IdChanged {
 abstract class _IdChanged implements AuthEvent {
   const factory _IdChanged(String idStr) = _$_IdChanged;
 
-  String get idStr;
-  _$IdChangedCopyWith<_IdChanged> get copyWith;
+  String get idStr => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$IdChangedCopyWith<_IdChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1138,17 +1058,21 @@ class __$PasswordChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object passwordStr = freezed,
+    Object? passwordStr = freezed,
   }) {
     return _then(_PasswordChanged(
-      passwordStr == freezed ? _value.passwordStr : passwordStr as String,
+      passwordStr == freezed
+          ? _value.passwordStr
+          : passwordStr // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_PasswordChanged implements _PasswordChanged {
-  const _$_PasswordChanged(this.passwordStr) : assert(passwordStr != null);
+  const _$_PasswordChanged(this.passwordStr);
 
   @override
   final String passwordStr;
@@ -1171,56 +1095,48 @@ class _$_PasswordChanged implements _PasswordChanged {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(passwordStr);
 
+  @JsonKey(ignore: true)
   @override
   _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
       __$PasswordChangedCopyWithImpl<_PasswordChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return passwordChanged(passwordStr);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (passwordChanged != null) {
       return passwordChanged(passwordStr);
     }
@@ -1229,45 +1145,37 @@ class _$_PasswordChanged implements _PasswordChanged {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return passwordChanged(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (passwordChanged != null) {
       return passwordChanged(this);
     }
@@ -1278,8 +1186,10 @@ class _$_PasswordChanged implements _PasswordChanged {
 abstract class _PasswordChanged implements AuthEvent {
   const factory _PasswordChanged(String passwordStr) = _$_PasswordChanged;
 
-  String get passwordStr;
-  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith;
+  String get passwordStr => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1301,6 +1211,7 @@ class __$SignInPressedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SignInPressed implements _SignInPressed {
   const _$_SignInPressed();
 
@@ -1319,50 +1230,41 @@ class _$_SignInPressed implements _SignInPressed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return signInPressed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signInPressed != null) {
       return signInPressed();
     }
@@ -1371,45 +1273,37 @@ class _$_SignInPressed implements _SignInPressed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return signInPressed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signInPressed != null) {
       return signInPressed(this);
     }
@@ -1440,6 +1334,7 @@ class __$SignOutPressedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
+
 class _$_SignOutPressed implements _SignOutPressed {
   const _$_SignOutPressed();
 
@@ -1458,50 +1353,41 @@ class _$_SignOutPressed implements _SignOutPressed {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object>({
-    @required TResult watchTeamListStarted(),
-    @required
-        TResult teamListReceived(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    @required TResult teamSelected(Team team),
-    @required TResult watchInterviewerListStarted(),
-    @required
-        TResult interviewerListReceived(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    @required TResult idChanged(String idStr),
-    @required TResult passwordChanged(String passwordStr),
-    @required TResult signInPressed(),
-    @required TResult signOutPressed(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String idStr) idChanged,
+    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return signOutPressed();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object>({
-    TResult watchTeamListStarted(),
-    TResult teamListReceived(
-        Either<AuthFailure, KtList<Team>> failureOrTeamList),
-    TResult teamSelected(Team team),
-    TResult watchInterviewerListStarted(),
-    TResult interviewerListReceived(
-        Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList),
-    TResult idChanged(String idStr),
-    TResult passwordChanged(String passwordStr),
-    TResult signInPressed(),
-    TResult signOutPressed(),
-    @required TResult orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String idStr)? idChanged,
+    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signOutPressed != null) {
       return signOutPressed();
     }
@@ -1510,45 +1396,37 @@ class _$_SignOutPressed implements _SignOutPressed {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object>({
-    @required TResult watchTeamListStarted(_WatchTeamListStarted value),
-    @required TResult teamListReceived(_TeamListReceived value),
-    @required TResult teamSelected(_TeamSelected value),
-    @required
-        TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    @required TResult interviewerListReceived(_InterviewerListReceived value),
-    @required TResult idChanged(_IdChanged value),
-    @required TResult passwordChanged(_PasswordChanged value),
-    @required TResult signInPressed(_SignInPressed value),
-    @required TResult signOutPressed(_SignOutPressed value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_SignOutPressed value) signOutPressed,
   }) {
-    assert(watchTeamListStarted != null);
-    assert(teamListReceived != null);
-    assert(teamSelected != null);
-    assert(watchInterviewerListStarted != null);
-    assert(interviewerListReceived != null);
-    assert(idChanged != null);
-    assert(passwordChanged != null);
-    assert(signInPressed != null);
-    assert(signOutPressed != null);
     return signOutPressed(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object>({
-    TResult watchTeamListStarted(_WatchTeamListStarted value),
-    TResult teamListReceived(_TeamListReceived value),
-    TResult teamSelected(_TeamSelected value),
-    TResult watchInterviewerListStarted(_WatchInterviewerListStarted value),
-    TResult interviewerListReceived(_InterviewerListReceived value),
-    TResult idChanged(_IdChanged value),
-    TResult passwordChanged(_PasswordChanged value),
-    TResult signInPressed(_SignInPressed value),
-    TResult signOutPressed(_SignOutPressed value),
-    @required TResult orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_SignOutPressed value)? signOutPressed,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (signOutPressed != null) {
       return signOutPressed(this);
     }
@@ -1564,19 +1442,18 @@ abstract class _SignOutPressed implements AuthEvent {
 class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
-// ignore: unused_element
   _AuthState call(
-      {@required LoadState teamListState,
-      @required KtList<Team> teamList,
-      @required Team team,
-      @required LoadState interviewerListState,
-      @required KtList<Interviewer> interviewerList,
-      @required InterviewerId id,
-      @required Password password,
-      @required LoadState signInState,
-      @required Interviewer interviewer,
-      @required Option<AuthFailure> authFailure,
-      @required bool showErrorMessages}) {
+      {required LoadState teamListState,
+      required KtList<Team> teamList,
+      required Team team,
+      required LoadState interviewerListState,
+      required KtList<Interviewer> interviewerList,
+      required InterviewerId id,
+      required Password password,
+      required LoadState signInState,
+      required Interviewer interviewer,
+      required Option<AuthFailure> authFailure,
+      required bool showErrorMessages}) {
     return _AuthState(
       teamListState: teamListState,
       teamList: teamList,
@@ -1594,24 +1471,25 @@ class _$AuthStateTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AuthState = _$AuthStateTearOff();
 
 /// @nodoc
 mixin _$AuthState {
-  LoadState get teamListState;
-  KtList<Team> get teamList;
-  Team get team;
-  LoadState get interviewerListState;
-  KtList<Interviewer> get interviewerList;
-  InterviewerId get id;
-  Password get password;
-  LoadState get signInState;
-  Interviewer get interviewer;
-  Option<AuthFailure> get authFailure;
-  bool get showErrorMessages;
+  LoadState get teamListState => throw _privateConstructorUsedError;
+  KtList<Team> get teamList => throw _privateConstructorUsedError;
+  Team get team => throw _privateConstructorUsedError;
+  LoadState get interviewerListState => throw _privateConstructorUsedError;
+  KtList<Interviewer> get interviewerList => throw _privateConstructorUsedError;
+  InterviewerId get id => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
+  LoadState get signInState => throw _privateConstructorUsedError;
+  Interviewer get interviewer => throw _privateConstructorUsedError;
+  Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
 
-  $AuthStateCopyWith<AuthState> get copyWith;
+  @JsonKey(ignore: true)
+  $AuthStateCopyWith<AuthState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1648,53 +1526,68 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object teamListState = freezed,
-    Object teamList = freezed,
-    Object team = freezed,
-    Object interviewerListState = freezed,
-    Object interviewerList = freezed,
-    Object id = freezed,
-    Object password = freezed,
-    Object signInState = freezed,
-    Object interviewer = freezed,
-    Object authFailure = freezed,
-    Object showErrorMessages = freezed,
+    Object? teamListState = freezed,
+    Object? teamList = freezed,
+    Object? team = freezed,
+    Object? interviewerListState = freezed,
+    Object? interviewerList = freezed,
+    Object? id = freezed,
+    Object? password = freezed,
+    Object? signInState = freezed,
+    Object? interviewer = freezed,
+    Object? authFailure = freezed,
+    Object? showErrorMessages = freezed,
   }) {
     return _then(_value.copyWith(
       teamListState: teamListState == freezed
           ? _value.teamListState
-          : teamListState as LoadState,
-      teamList:
-          teamList == freezed ? _value.teamList : teamList as KtList<Team>,
-      team: team == freezed ? _value.team : team as Team,
+          : teamListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      teamList: teamList == freezed
+          ? _value.teamList
+          : teamList // ignore: cast_nullable_to_non_nullable
+              as KtList<Team>,
+      team: team == freezed
+          ? _value.team
+          : team // ignore: cast_nullable_to_non_nullable
+              as Team,
       interviewerListState: interviewerListState == freezed
           ? _value.interviewerListState
-          : interviewerListState as LoadState,
+          : interviewerListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
-          : interviewerList as KtList<Interviewer>,
-      id: id == freezed ? _value.id : id as InterviewerId,
-      password: password == freezed ? _value.password : password as Password,
+          : interviewerList // ignore: cast_nullable_to_non_nullable
+              as KtList<Interviewer>,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
       signInState: signInState == freezed
           ? _value.signInState
-          : signInState as LoadState,
+          : signInState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       interviewer: interviewer == freezed
           ? _value.interviewer
-          : interviewer as Interviewer,
+          : interviewer // ignore: cast_nullable_to_non_nullable
+              as Interviewer,
       authFailure: authFailure == freezed
           ? _value.authFailure
-          : authFailure as Option<AuthFailure>,
+          : authFailure // ignore: cast_nullable_to_non_nullable
+              as Option<AuthFailure>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
-          : showErrorMessages as bool,
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
   @override
   $LoadStateCopyWith<$Res> get teamListState {
-    if (_value.teamListState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.teamListState, (value) {
       return _then(_value.copyWith(teamListState: value));
     });
@@ -1702,9 +1595,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $TeamCopyWith<$Res> get team {
-    if (_value.team == null) {
-      return null;
-    }
     return $TeamCopyWith<$Res>(_value.team, (value) {
       return _then(_value.copyWith(team: value));
     });
@@ -1712,9 +1602,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $LoadStateCopyWith<$Res> get interviewerListState {
-    if (_value.interviewerListState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.interviewerListState, (value) {
       return _then(_value.copyWith(interviewerListState: value));
     });
@@ -1722,9 +1609,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $LoadStateCopyWith<$Res> get signInState {
-    if (_value.signInState == null) {
-      return null;
-    }
     return $LoadStateCopyWith<$Res>(_value.signInState, (value) {
       return _then(_value.copyWith(signInState: value));
     });
@@ -1732,9 +1616,6 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $InterviewerCopyWith<$Res> get interviewer {
-    if (_value.interviewer == null) {
-      return null;
-    }
     return $InterviewerCopyWith<$Res>(_value.interviewer, (value) {
       return _then(_value.copyWith(interviewer: value));
     });
@@ -1783,74 +1664,82 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object teamListState = freezed,
-    Object teamList = freezed,
-    Object team = freezed,
-    Object interviewerListState = freezed,
-    Object interviewerList = freezed,
-    Object id = freezed,
-    Object password = freezed,
-    Object signInState = freezed,
-    Object interviewer = freezed,
-    Object authFailure = freezed,
-    Object showErrorMessages = freezed,
+    Object? teamListState = freezed,
+    Object? teamList = freezed,
+    Object? team = freezed,
+    Object? interviewerListState = freezed,
+    Object? interviewerList = freezed,
+    Object? id = freezed,
+    Object? password = freezed,
+    Object? signInState = freezed,
+    Object? interviewer = freezed,
+    Object? authFailure = freezed,
+    Object? showErrorMessages = freezed,
   }) {
     return _then(_AuthState(
       teamListState: teamListState == freezed
           ? _value.teamListState
-          : teamListState as LoadState,
-      teamList:
-          teamList == freezed ? _value.teamList : teamList as KtList<Team>,
-      team: team == freezed ? _value.team : team as Team,
+          : teamListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      teamList: teamList == freezed
+          ? _value.teamList
+          : teamList // ignore: cast_nullable_to_non_nullable
+              as KtList<Team>,
+      team: team == freezed
+          ? _value.team
+          : team // ignore: cast_nullable_to_non_nullable
+              as Team,
       interviewerListState: interviewerListState == freezed
           ? _value.interviewerListState
-          : interviewerListState as LoadState,
+          : interviewerListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
-          : interviewerList as KtList<Interviewer>,
-      id: id == freezed ? _value.id : id as InterviewerId,
-      password: password == freezed ? _value.password : password as Password,
+          : interviewerList // ignore: cast_nullable_to_non_nullable
+              as KtList<Interviewer>,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as InterviewerId,
+      password: password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as Password,
       signInState: signInState == freezed
           ? _value.signInState
-          : signInState as LoadState,
+          : signInState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       interviewer: interviewer == freezed
           ? _value.interviewer
-          : interviewer as Interviewer,
+          : interviewer // ignore: cast_nullable_to_non_nullable
+              as Interviewer,
       authFailure: authFailure == freezed
           ? _value.authFailure
-          : authFailure as Option<AuthFailure>,
+          : authFailure // ignore: cast_nullable_to_non_nullable
+              as Option<AuthFailure>,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
-          : showErrorMessages as bool,
+          : showErrorMessages // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
+
 class _$_AuthState implements _AuthState {
   const _$_AuthState(
-      {@required this.teamListState,
-      @required this.teamList,
-      @required this.team,
-      @required this.interviewerListState,
-      @required this.interviewerList,
-      @required this.id,
-      @required this.password,
-      @required this.signInState,
-      @required this.interviewer,
-      @required this.authFailure,
-      @required this.showErrorMessages})
-      : assert(teamListState != null),
-        assert(teamList != null),
-        assert(team != null),
-        assert(interviewerListState != null),
-        assert(interviewerList != null),
-        assert(id != null),
-        assert(password != null),
-        assert(signInState != null),
-        assert(interviewer != null),
-        assert(authFailure != null),
-        assert(showErrorMessages != null);
+      {required this.teamListState,
+      required this.teamList,
+      required this.team,
+      required this.interviewerListState,
+      required this.interviewerList,
+      required this.id,
+      required this.password,
+      required this.signInState,
+      required this.interviewer,
+      required this.authFailure,
+      required this.showErrorMessages});
 
   @override
   final LoadState teamListState;
@@ -1932,6 +1821,7 @@ class _$_AuthState implements _AuthState {
       const DeepCollectionEquality().hash(authFailure) ^
       const DeepCollectionEquality().hash(showErrorMessages);
 
+  @JsonKey(ignore: true)
   @override
   _$AuthStateCopyWith<_AuthState> get copyWith =>
       __$AuthStateCopyWithImpl<_AuthState>(this, _$identity);
@@ -1939,40 +1829,42 @@ class _$_AuthState implements _AuthState {
 
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
-      {@required LoadState teamListState,
-      @required KtList<Team> teamList,
-      @required Team team,
-      @required LoadState interviewerListState,
-      @required KtList<Interviewer> interviewerList,
-      @required InterviewerId id,
-      @required Password password,
-      @required LoadState signInState,
-      @required Interviewer interviewer,
-      @required Option<AuthFailure> authFailure,
-      @required bool showErrorMessages}) = _$_AuthState;
+      {required LoadState teamListState,
+      required KtList<Team> teamList,
+      required Team team,
+      required LoadState interviewerListState,
+      required KtList<Interviewer> interviewerList,
+      required InterviewerId id,
+      required Password password,
+      required LoadState signInState,
+      required Interviewer interviewer,
+      required Option<AuthFailure> authFailure,
+      required bool showErrorMessages}) = _$_AuthState;
 
   @override
-  LoadState get teamListState;
+  LoadState get teamListState => throw _privateConstructorUsedError;
   @override
-  KtList<Team> get teamList;
+  KtList<Team> get teamList => throw _privateConstructorUsedError;
   @override
-  Team get team;
+  Team get team => throw _privateConstructorUsedError;
   @override
-  LoadState get interviewerListState;
+  LoadState get interviewerListState => throw _privateConstructorUsedError;
   @override
-  KtList<Interviewer> get interviewerList;
+  KtList<Interviewer> get interviewerList => throw _privateConstructorUsedError;
   @override
-  InterviewerId get id;
+  InterviewerId get id => throw _privateConstructorUsedError;
   @override
-  Password get password;
+  Password get password => throw _privateConstructorUsedError;
   @override
-  LoadState get signInState;
+  LoadState get signInState => throw _privateConstructorUsedError;
   @override
-  Interviewer get interviewer;
+  Interviewer get interviewer => throw _privateConstructorUsedError;
   @override
-  Option<AuthFailure> get authFailure;
+  Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
   @override
-  bool get showErrorMessages;
+  bool get showErrorMessages => throw _privateConstructorUsedError;
   @override
-  _$AuthStateCopyWith<_AuthState> get copyWith;
+  @JsonKey(ignore: true)
+  _$AuthStateCopyWith<_AuthState> get copyWith =>
+      throw _privateConstructorUsedError;
 }

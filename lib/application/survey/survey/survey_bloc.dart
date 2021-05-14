@@ -18,7 +18,7 @@ part 'survey_state.dart';
 
 class SurveyBloc extends HydratedBloc<SurveyEvent, SurveyState> {
   final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, KtList<Survey>>>
+  StreamSubscription<Either<SurveyFailure, KtList<Survey>>>?
       _surveyListSubscription;
 
   SurveyBloc(this._surveyRepository) : super(SurveyState.initial());
@@ -73,7 +73,7 @@ class SurveyBloc extends HydratedBloc<SurveyEvent, SurveyState> {
   }
 
   @override
-  SurveyState fromJson(Map<String, dynamic> json) {
+  SurveyState? fromJson(Map<String, dynamic> json) {
     try {
       return SurveyStateDto.fromJson(json).toDomain();
     } catch (_) {
@@ -82,7 +82,7 @@ class SurveyBloc extends HydratedBloc<SurveyEvent, SurveyState> {
   }
 
   @override
-  Map<String, dynamic> toJson(SurveyState state) {
+  Map<String, dynamic>? toJson(SurveyState state) {
     // try {
     if (state.surveyListState is LoadSuccess) {
       return SurveyStateDto.fromDomain(state).toJson();

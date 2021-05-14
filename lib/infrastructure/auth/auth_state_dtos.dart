@@ -13,21 +13,21 @@ part 'auth_state_dtos.freezed.dart';
 part 'auth_state_dtos.g.dart';
 
 @freezed
-abstract class AuthStateDto implements _$AuthStateDto {
+class AuthStateDto with _$AuthStateDto {
   const AuthStateDto._();
 
   const factory AuthStateDto({
-    @required Map<String, dynamic> teamListState,
-    @required List<TeamDto> teamList,
-    @required TeamDto team,
-    @required Map<String, dynamic> interviewerListState,
-    @required List<InterviewerDto> interviewerList,
-    @required String id,
-    @required String password,
-    @required Map<String, dynamic> signInState,
-    @required InterviewerDto interviewer,
-    Map<String, dynamic> authFailure,
-    @required bool showErrorMessages,
+    required Map<String, dynamic> teamListState,
+    required List<TeamDto> teamList,
+    required TeamDto team,
+    required Map<String, dynamic> interviewerListState,
+    required List<InterviewerDto> interviewerList,
+    required String id,
+    required String password,
+    required Map<String, dynamic> signInState,
+    required InterviewerDto interviewer,
+    Map<String, dynamic>? authFailure,
+    required bool showErrorMessages,
   }) = _AuthStateDto;
 
   factory AuthStateDto.fromDomain(AuthState authState) {

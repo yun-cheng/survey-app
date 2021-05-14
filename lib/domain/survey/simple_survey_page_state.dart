@@ -7,16 +7,16 @@ import 'warning.dart';
 part 'simple_survey_page_state.freezed.dart';
 
 @freezed
-abstract class SimpleSurveyPageState implements _$SimpleSurveyPageState {
+class SimpleSurveyPageState with _$SimpleSurveyPageState {
   const SimpleSurveyPageState._();
 
   const factory SimpleSurveyPageState({
-    @required PageNumber page,
-    @required PageNumber newestPage,
-    @required bool isLastPage,
-    @required Warning warning,
-    @required bool showWarning,
-    @required LoadState loadState,
+    required PageNumber page,
+    required PageNumber newestPage,
+    required bool isLastPage,
+    required Warning warning,
+    required bool showWarning,
+    required LoadState loadState,
   }) = _SimpleSurveyPageState;
 
   factory SimpleSurveyPageState.empty() => SimpleSurveyPageState(

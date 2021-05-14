@@ -13,8 +13,8 @@ class DateTimeBox extends HookWidget {
   final Question question;
 
   const DateTimeBox({
-    Key key,
-    @required this.question,
+    Key? key,
+    required this.question,
   }) : super(key: key);
 
   @override
@@ -51,16 +51,16 @@ class DateTimeBox extends HookWidget {
         final answerMap =
             state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
         final isReadOnly = state.isReadOnly || state.isRecodeModule;
-        final thisAnswer = answerMap[question.id].value as String ?? '';
+        final thisAnswer = answerMap[question.id]?.value as String? ?? '';
 
-        final dateTime = DateTimeX.fromDateTimeString(thisAnswer);
+        final dateTime = DateTimeX.fromDateTimeString(thisAnswer)!;
 
         if (thisAnswer == '' && !isReadOnly) {
           updateAnswer(dateTime);
         }
 
         Future _selectDate(BuildContext context) async {
-          final DateTime pickedDate = await showDatePicker(
+          final DateTime? pickedDate = await showDatePicker(
             context: context,
             locale: const Locale('zh', 'TW'),
             initialDate: dateTime,
@@ -74,7 +74,7 @@ class DateTimeBox extends HookWidget {
         }
 
         Future _selectTime(BuildContext context) async {
-          final TimeOfDay pickedTime = await showTimePicker(
+          final TimeOfDay? pickedTime = await showTimePicker(
             context: context,
             initialTime: TimeOfDay.fromDateTime(dateTime),
             builder: (context, child) {
@@ -95,7 +95,7 @@ class DateTimeBox extends HookWidget {
           children: [
             if ([QuestionType.date(), QuestionType.dateTime()]
                 .contains(question.type)) ...[
-              FlatButton(
+              TextButton(
                 // NOTE 如果是唯讀，讓按鈕無效
                 onPressed: () => isReadOnly ? null : _selectDate(context),
                 child: Text(
@@ -106,7 +106,7 @@ class DateTimeBox extends HookWidget {
             ],
             if ([QuestionType.time(), QuestionType.dateTime()]
                 .contains(question.type)) ...[
-              FlatButton(
+              TextButton(
                 onPressed: () => isReadOnly ? null : _selectTime(context),
                 child: Text(
                   dateTime.toTimeString(),

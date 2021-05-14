@@ -10,13 +10,13 @@ import 'warning.dart';
 part 'answer_status.freezed.dart';
 
 @freezed
-abstract class AnswerStatus implements _$AnswerStatus {
+class AnswerStatus with _$AnswerStatus {
   const AnswerStatus._();
 
   const factory AnswerStatus({
-    @required AnswerStatusType type,
-    @required bool isSpecialAnswer,
-    @required KtMap<ChoiceId, AnswerStatusType> noteMap,
+    required AnswerStatusType type,
+    required bool isSpecialAnswer,
+    required KtMap<ChoiceId, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
   factory AnswerStatus.empty() => AnswerStatus(
@@ -27,8 +27,8 @@ abstract class AnswerStatus implements _$AnswerStatus {
 
   // H_ 更新狀態
   AnswerStatus update({
-    @required Answer answer,
-    @required FullExpression expression,
+    required Answer answer,
+    required FullExpression expression,
   }) {
     return updateType(
       answer: answer,
@@ -37,10 +37,10 @@ abstract class AnswerStatus implements _$AnswerStatus {
   }
 
   AnswerStatus updateType({
-    @required Answer answer,
-    @required FullExpression expression,
+    required Answer answer,
+    required FullExpression expression,
   }) {
-    AnswerStatusType newType;
+    late final AnswerStatusType newType;
 
     if (answer.value == null) {
       newType = AnswerStatusType.unanswered();
@@ -55,9 +55,9 @@ abstract class AnswerStatus implements _$AnswerStatus {
             : AnswerStatusType.invalid();
       }
     } else if (answer.type == AnswerType.choice()) {
-      newType = AnswerStatusType.fromChoice(answer.choiceValue);
+      newType = AnswerStatusType.fromChoice(answer.choiceValue!);
     } else if (answer.type == AnswerType.choiceList()) {
-      newType = AnswerStatusType.fromChoiceList(answer.choiceListValue);
+      newType = AnswerStatusType.fromChoiceList(answer.choiceListValue!);
     }
 
     return copyWith(
@@ -70,17 +70,17 @@ abstract class AnswerStatus implements _$AnswerStatus {
     if (answer.withNote) {
       if (answer.type == AnswerType.choice()) {
         newNoteMap.put(
-          answer.choiceValue.id,
+          answer.choiceValue!.id,
           AnswerStatusType.fromString(
-            answer.noteMap.getOrDefault(answer.choiceValue.id, ''),
+            answer.noteMap!.getOrDefault(answer.choiceValue!.id, '')!,
           ),
         );
       } else if (answer.type == AnswerType.choiceList()) {
-        answer.choiceListValue.forEach((choice) {
+        answer.choiceListValue!.forEach((choice) {
           newNoteMap.put(
             choice.id,
             AnswerStatusType.fromString(
-              answer.noteMap.getOrDefault(choice.id, ''),
+              answer.noteMap!.getOrDefault(choice.id, '')!,
             ),
           );
         });

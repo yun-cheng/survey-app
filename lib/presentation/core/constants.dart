@@ -8,6 +8,29 @@ const kCardRedTextColor = Color(0xffff5e5b);
 const kCardGreenTextColor = Color(0xff0c8346);
 const kCardBlueTextColor = Color(0xff507dbc);
 
+final kButtonShape = RoundedRectangleBorder(
+  borderRadius: BorderRadius.circular(18.0),
+);
+
+final kWarningButtonStyle = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all<Color>(kWarningButtonColor),
+  shape: MaterialStateProperty.all<OutlinedBorder>(kButtonShape),
+);
+
+final kCardRedButtonStyle = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all<Color>(kCardRedTextColor),
+  shape: MaterialStateProperty.all<OutlinedBorder>(kButtonShape),
+);
+
+final kCardBlueButtonStyle = ButtonStyle(
+  backgroundColor: MaterialStateProperty.all<Color>(kCardBlueTextColor),
+  shape: MaterialStateProperty.all<OutlinedBorder>(kButtonShape),
+);
+
+final kVisitHistoryStyle = ButtonStyle(
+  foregroundColor: MaterialStateProperty.all<Color>(kCardTextColor),
+);
+
 const kH1FontSize = 32.0;
 const kH2FontSize = 28.0;
 const kH3FontSize = 24.0;

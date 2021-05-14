@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'answer_state_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'answer_state_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 AnswerStateDto _$AnswerStateDtoFromJson(Map<String, dynamic> json) {
   return _AnswerStateDto.fromJson(json);
 }
@@ -16,17 +20,16 @@ AnswerStateDto _$AnswerStateDtoFromJson(Map<String, dynamic> json) {
 class _$AnswerStateDtoTearOff {
   const _$AnswerStateDtoTearOff();
 
-// ignore: unused_element
   _AnswerStateDto call(
-      {@required Map<String, AnswerDto> answerMap,
-      @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required List<QuestionDto> questionList,
-      @required QuestionDto question,
-      @required bool isReadOnly,
-      @required bool isRecodeModule,
-      @required Map<String, AnswerDto> mainAnswerMap,
-      @required Map<String, AnswerStatusDto> mainAnswerStatusMap,
-      @required Map<String, dynamic> loadState}) {
+      {required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required List<QuestionDto> questionList,
+      required QuestionDto question,
+      required bool isReadOnly,
+      required bool isRecodeModule,
+      required Map<String, AnswerDto> mainAnswerMap,
+      required Map<String, AnswerStatusDto> mainAnswerStatusMap,
+      required Map<String, dynamic> loadState}) {
     return _AnswerStateDto(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -40,30 +43,33 @@ class _$AnswerStateDtoTearOff {
     );
   }
 
-// ignore: unused_element
   AnswerStateDto fromJson(Map<String, Object> json) {
     return AnswerStateDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AnswerStateDto = _$AnswerStateDtoTearOff();
 
 /// @nodoc
 mixin _$AnswerStateDto {
-  Map<String, AnswerDto> get answerMap;
-  Map<String, AnswerStatusDto> get answerStatusMap;
-  List<QuestionDto> get questionList;
-  QuestionDto get question;
-  bool get isReadOnly;
-  bool get isRecodeModule;
-  Map<String, AnswerDto> get mainAnswerMap;
-  Map<String, AnswerStatusDto> get mainAnswerStatusMap;
-  Map<String, dynamic> get loadState;
+  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  QuestionDto get question => throw _privateConstructorUsedError;
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  Map<String, AnswerDto> get mainAnswerMap =>
+      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get mainAnswerStatusMap =>
+      throw _privateConstructorUsedError;
+  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $AnswerStateDtoCopyWith<AnswerStateDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AnswerStateDtoCopyWith<AnswerStateDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -96,49 +102,58 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
-    Object questionList = freezed,
-    Object question = freezed,
-    Object isReadOnly = freezed,
-    Object isRecodeModule = freezed,
-    Object mainAnswerMap = freezed,
-    Object mainAnswerStatusMap = freezed,
-    Object loadState = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? questionList = freezed,
+    Object? question = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
+    Object? mainAnswerMap = freezed,
+    Object? mainAnswerStatusMap = freezed,
+    Object? loadState = freezed,
   }) {
     return _then(_value.copyWith(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as Map<String, AnswerDto>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as Map<String, AnswerStatusDto>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as List<QuestionDto>,
-      question: question == freezed ? _value.question : question as QuestionDto,
-      isReadOnly:
-          isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
+      question: question == freezed
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as QuestionDto,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
-          : isRecodeModule as bool,
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
-          : mainAnswerMap as Map<String, AnswerDto>,
+          : mainAnswerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
-          : mainAnswerStatusMap as Map<String, AnswerStatusDto>,
+          : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
       loadState: loadState == freezed
           ? _value.loadState
-          : loadState as Map<String, dynamic>,
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 
   @override
   $QuestionDtoCopyWith<$Res> get question {
-    if (_value.question == null) {
-      return null;
-    }
     return $QuestionDtoCopyWith<$Res>(_value.question, (value) {
       return _then(_value.copyWith(question: value));
     });
@@ -180,69 +195,71 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
-    Object questionList = freezed,
-    Object question = freezed,
-    Object isReadOnly = freezed,
-    Object isRecodeModule = freezed,
-    Object mainAnswerMap = freezed,
-    Object mainAnswerStatusMap = freezed,
-    Object loadState = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? questionList = freezed,
+    Object? question = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
+    Object? mainAnswerMap = freezed,
+    Object? mainAnswerStatusMap = freezed,
+    Object? loadState = freezed,
   }) {
     return _then(_AnswerStateDto(
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as Map<String, AnswerDto>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as Map<String, AnswerStatusDto>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
       questionList: questionList == freezed
           ? _value.questionList
-          : questionList as List<QuestionDto>,
-      question: question == freezed ? _value.question : question as QuestionDto,
-      isReadOnly:
-          isReadOnly == freezed ? _value.isReadOnly : isReadOnly as bool,
+          : questionList // ignore: cast_nullable_to_non_nullable
+              as List<QuestionDto>,
+      question: question == freezed
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as QuestionDto,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
-          : isRecodeModule as bool,
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
-          : mainAnswerMap as Map<String, AnswerDto>,
+          : mainAnswerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
-          : mainAnswerStatusMap as Map<String, AnswerStatusDto>,
+          : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
       loadState: loadState == freezed
           ? _value.loadState
-          : loadState as Map<String, dynamic>,
+          : loadState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_AnswerStateDto extends _AnswerStateDto {
   const _$_AnswerStateDto(
-      {@required this.answerMap,
-      @required this.answerStatusMap,
-      @required this.questionList,
-      @required this.question,
-      @required this.isReadOnly,
-      @required this.isRecodeModule,
-      @required this.mainAnswerMap,
-      @required this.mainAnswerStatusMap,
-      @required this.loadState})
-      : assert(answerMap != null),
-        assert(answerStatusMap != null),
-        assert(questionList != null),
-        assert(question != null),
-        assert(isReadOnly != null),
-        assert(isRecodeModule != null),
-        assert(mainAnswerMap != null),
-        assert(mainAnswerStatusMap != null),
-        assert(loadState != null),
-        super._();
+      {required this.answerMap,
+      required this.answerStatusMap,
+      required this.questionList,
+      required this.question,
+      required this.isReadOnly,
+      required this.isRecodeModule,
+      required this.mainAnswerMap,
+      required this.mainAnswerStatusMap,
+      required this.loadState})
+      : super._();
 
   factory _$_AnswerStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_AnswerStateDtoFromJson(json);
@@ -317,6 +334,7 @@ class _$_AnswerStateDto extends _AnswerStateDto {
       const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
       const DeepCollectionEquality().hash(loadState);
 
+  @JsonKey(ignore: true)
   @override
   _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith =>
       __$AnswerStateDtoCopyWithImpl<_AnswerStateDto>(this, _$identity);
@@ -328,39 +346,44 @@ class _$_AnswerStateDto extends _AnswerStateDto {
 }
 
 abstract class _AnswerStateDto extends AnswerStateDto {
-  const _AnswerStateDto._() : super._();
   const factory _AnswerStateDto(
-      {@required Map<String, AnswerDto> answerMap,
-      @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required List<QuestionDto> questionList,
-      @required QuestionDto question,
-      @required bool isReadOnly,
-      @required bool isRecodeModule,
-      @required Map<String, AnswerDto> mainAnswerMap,
-      @required Map<String, AnswerStatusDto> mainAnswerStatusMap,
-      @required Map<String, dynamic> loadState}) = _$_AnswerStateDto;
+      {required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required List<QuestionDto> questionList,
+      required QuestionDto question,
+      required bool isReadOnly,
+      required bool isRecodeModule,
+      required Map<String, AnswerDto> mainAnswerMap,
+      required Map<String, AnswerStatusDto> mainAnswerStatusMap,
+      required Map<String, dynamic> loadState}) = _$_AnswerStateDto;
+  const _AnswerStateDto._() : super._();
 
   factory _AnswerStateDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerStateDto.fromJson;
 
   @override
-  Map<String, AnswerDto> get answerMap;
+  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap;
+  Map<String, AnswerStatusDto> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get questionList;
+  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
   @override
-  QuestionDto get question;
+  QuestionDto get question => throw _privateConstructorUsedError;
   @override
-  bool get isReadOnly;
+  bool get isReadOnly => throw _privateConstructorUsedError;
   @override
-  bool get isRecodeModule;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerDto> get mainAnswerMap;
+  Map<String, AnswerDto> get mainAnswerMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusDto> get mainAnswerStatusMap;
+  Map<String, AnswerStatusDto> get mainAnswerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get loadState;
+  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
   @override
-  _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

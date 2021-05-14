@@ -11,13 +11,13 @@ part 'survey_module_dtos.freezed.dart';
 part 'survey_module_dtos.g.dart';
 
 @freezed
-abstract class SurveyModuleDto implements _$SurveyModuleDto {
+class SurveyModuleDto with _$SurveyModuleDto {
   const SurveyModuleDto._();
 
   const factory SurveyModuleDto({
-    @required List<QuestionDto> questionList,
-    @required Map<String, AnswerDto> initialAnswerList,
-    @required Map<String, AnswerStatusDto> initialAnswerStatusList,
+    required List<QuestionDto> questionList,
+    required Map<String, AnswerDto> initialAnswerList,
+    required Map<String, AnswerStatusDto> initialAnswerStatusList,
   }) = _SurveyModuleDto;
 
   factory SurveyModuleDto.fromDomain(SurveyModule surveyModule) {

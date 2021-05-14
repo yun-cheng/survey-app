@@ -56,13 +56,12 @@ class UniqueId extends ValueObject<String> {
   // NOTE 一般從套件產生
   factory UniqueId() {
     return UniqueId._(
-      right(Uuid().v1()),
+      right(const Uuid().v1()),
     );
   }
 
   // NOTE 也可以從字串回復
   factory UniqueId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
     return UniqueId._(
       right(uniqueId),
     );
@@ -76,7 +75,6 @@ class SerialNumber extends ValueObject<int> {
   final Either<ValueFailure<int>, int> value;
 
   factory SerialNumber(int input) {
-    assert(input != null);
     return SerialNumber._(
       right(input),
     );

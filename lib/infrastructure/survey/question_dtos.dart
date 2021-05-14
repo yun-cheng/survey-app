@@ -12,24 +12,24 @@ part 'question_dtos.freezed.dart';
 part 'question_dtos.g.dart';
 
 @freezed
-abstract class QuestionDto implements _$QuestionDto {
+class QuestionDto with _$QuestionDto {
   const QuestionDto._();
 
   const factory QuestionDto({
-    @required String questionId,
-    @required bool hideQuestionId,
-    @required int serialNumber,
-    @required List<FormattedTextDto> questionBody,
-    @required String stringBody,
-    @required String questionNote,
-    @required String questionType,
-    @required FullExpressionDto showQuestion,
-    @required List<ChoiceDto> choiceList,
-    @required bool hasSpecialAnswer,
-    @required FullExpressionDto validateAnswer,
-    @required String upperQuestionId,
-    @required int pageNumber,
-    @required bool recodeNeeded,
+    required String questionId,
+    required bool hideQuestionId,
+    required int serialNumber,
+    required List<FormattedTextDto> questionBody,
+    required String stringBody,
+    required String questionNote,
+    required String questionType,
+    required FullExpressionDto showQuestion,
+    required List<ChoiceDto> choiceList,
+    required bool hasSpecialAnswer,
+    required FullExpressionDto validateAnswer,
+    required String upperQuestionId,
+    required int pageNumber,
+    required bool recodeNeeded,
   }) = _QuestionDto;
 
   factory QuestionDto.fromDomain(Question domain) {
@@ -37,9 +37,8 @@ abstract class QuestionDto implements _$QuestionDto {
       questionId: domain.id.getValueAnyway(),
       hideQuestionId: domain.hideId,
       serialNumber: domain.serialNumber.getValueAnyway(),
-      questionBody: domain.body
-          .map((item) => FormattedTextDto.fromDomain(item))
-          .asList(),
+      questionBody:
+          domain.body.map((item) => FormattedTextDto.fromDomain(item)).asList(),
       stringBody: domain.stringBody,
       questionNote: domain.note.getValueAnyway(),
       questionType: domain.type.getValueAnyway(),

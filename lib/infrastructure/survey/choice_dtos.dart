@@ -8,18 +8,18 @@ part 'choice_dtos.freezed.dart';
 part 'choice_dtos.g.dart';
 
 @freezed
-abstract class ChoiceDto implements _$ChoiceDto {
+class ChoiceDto with _$ChoiceDto {
   const ChoiceDto._();
 
   const factory ChoiceDto({
-    @required int serialNumber,
-    @required String choiceId,
-    @required String choiceBody,
-    @required bool asNote,
-    @required bool asSingle,
-    @required bool isSpecialAnswer,
-    @required String choiceGroup,
-    @required String upperChoiceId,
+    required int serialNumber,
+    required String choiceId,
+    required String choiceBody,
+    required bool asNote,
+    required bool asSingle,
+    required bool isSpecialAnswer,
+    required String choiceGroup,
+    required String upperChoiceId,
   }) = _ChoiceDto;
 
   factory ChoiceDto.fromDomain(Choice choice) {

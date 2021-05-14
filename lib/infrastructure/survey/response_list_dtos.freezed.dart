@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'response_list_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'response_list_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 ResponseListDto _$ResponseListDtoFromJson(Map<String, dynamic> json) {
   return _ResponseListDto.fromJson(json);
 }
@@ -16,29 +20,28 @@ ResponseListDto _$ResponseListDtoFromJson(Map<String, dynamic> json) {
 class _$ResponseListDtoTearOff {
   const _$ResponseListDtoTearOff();
 
-// ignore: unused_element
-  _ResponseListDto call({@required List<ResponseDto> list}) {
+  _ResponseListDto call({required List<ResponseDto> list}) {
     return _ResponseListDto(
       list: list,
     );
   }
 
-// ignore: unused_element
   ResponseListDto fromJson(Map<String, Object> json) {
     return ResponseListDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ResponseListDto = _$ResponseListDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseListDto {
-  List<ResponseDto> get list;
+  List<ResponseDto> get list => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ResponseListDtoCopyWith<ResponseListDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ResponseListDtoCopyWith<ResponseListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -60,10 +63,13 @@ class _$ResponseListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed ? _value.list : list as List<ResponseDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<ResponseDto>,
     ));
   }
 }
@@ -91,21 +97,21 @@ class __$ResponseListDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object list = freezed,
+    Object? list = freezed,
   }) {
     return _then(_ResponseListDto(
-      list: list == freezed ? _value.list : list as List<ResponseDto>,
+      list: list == freezed
+          ? _value.list
+          : list // ignore: cast_nullable_to_non_nullable
+              as List<ResponseDto>,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ResponseListDto extends _ResponseListDto {
-  const _$_ResponseListDto({@required this.list})
-      : assert(list != null),
-        super._();
+  const _$_ResponseListDto({required this.list}) : super._();
 
   factory _$_ResponseListDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ResponseListDtoFromJson(json);
@@ -130,6 +136,7 @@ class _$_ResponseListDto extends _ResponseListDto {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
 
+  @JsonKey(ignore: true)
   @override
   _$ResponseListDtoCopyWith<_ResponseListDto> get copyWith =>
       __$ResponseListDtoCopyWithImpl<_ResponseListDto>(this, _$identity);
@@ -141,17 +148,19 @@ class _$_ResponseListDto extends _ResponseListDto {
 }
 
 abstract class _ResponseListDto extends ResponseListDto {
-  const _ResponseListDto._() : super._();
-  const factory _ResponseListDto({@required List<ResponseDto> list}) =
+  const factory _ResponseListDto({required List<ResponseDto> list}) =
       _$_ResponseListDto;
+  const _ResponseListDto._() : super._();
 
   factory _ResponseListDto.fromJson(Map<String, dynamic> json) =
       _$_ResponseListDto.fromJson;
 
   @override
-  List<ResponseDto> get list;
+  List<ResponseDto> get list => throw _privateConstructorUsedError;
   @override
-  _$ResponseListDtoCopyWith<_ResponseListDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$ResponseListDtoCopyWith<_ResponseListDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ResponseDto _$ResponseDtoFromJson(Map<String, dynamic> json) {
@@ -162,28 +171,27 @@ ResponseDto _$ResponseDtoFromJson(Map<String, dynamic> json) {
 class _$ResponseDtoTearOff {
   const _$ResponseDtoTearOff();
 
-// ignore: unused_element
   _ResponseDto call(
-      {@required String teamId,
-      @required String projectId,
-      @required String surveyId,
-      @required String moduleType,
-      @required String respondentId,
-      @required String responseId,
-      @required String tempResponseId,
-      @required String ticketId,
-      @required bool editFinished,
-      @required String interviewerId,
-      @required String deviceId,
-      @required int createdTimeStamp,
-      @required int sessionStartTimeStamp,
-      @required int sessionEndTimeStamp,
-      @required int lastChangedTimeStamp,
-      @required String responseStatus,
-      @required bool isDeleted,
-      @required Map<String, AnswerDto> answerMap,
-      @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required SimpleSurveyPageStateDto surveyPageState}) {
+      {required String teamId,
+      required String projectId,
+      required String surveyId,
+      required String moduleType,
+      required String respondentId,
+      required String responseId,
+      required String tempResponseId,
+      required String ticketId,
+      required bool editFinished,
+      required String interviewerId,
+      required String deviceId,
+      required int createdTimeStamp,
+      required int sessionStartTimeStamp,
+      required int sessionEndTimeStamp,
+      required int lastChangedTimeStamp,
+      required String responseStatus,
+      required bool isDeleted,
+      required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required SimpleSurveyPageStateDto surveyPageState}) {
     return _ResponseDto(
       teamId: teamId,
       projectId: projectId,
@@ -208,42 +216,45 @@ class _$ResponseDtoTearOff {
     );
   }
 
-// ignore: unused_element
   ResponseDto fromJson(Map<String, Object> json) {
     return ResponseDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $ResponseDto = _$ResponseDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseDto {
 // H_ 區分不同 response
-  String get teamId;
-  String get projectId;
-  String get surveyId;
-  String get moduleType;
-  String get respondentId; // H_ 區分 response 版本
-  String get responseId;
-  String get tempResponseId;
-  String get ticketId;
-  bool get editFinished;
-  String get interviewerId;
-  String get deviceId; // H_ 狀態
-  int get createdTimeStamp;
-  int get sessionStartTimeStamp;
-  int get sessionEndTimeStamp;
-  int get lastChangedTimeStamp;
-  String get responseStatus;
-  bool get isDeleted; // H_ 內容
-  Map<String, AnswerDto> get answerMap;
-  Map<String, AnswerStatusDto> get answerStatusMap;
-  SimpleSurveyPageStateDto get surveyPageState;
+  String get teamId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get moduleType => throw _privateConstructorUsedError;
+  String get respondentId =>
+      throw _privateConstructorUsedError; // H_ 區分 response 版本
+  String get responseId => throw _privateConstructorUsedError;
+  String get tempResponseId => throw _privateConstructorUsedError;
+  String get ticketId => throw _privateConstructorUsedError;
+  bool get editFinished => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
+  String get deviceId => throw _privateConstructorUsedError; // H_ 狀態
+  int get createdTimeStamp => throw _privateConstructorUsedError;
+  int get sessionStartTimeStamp => throw _privateConstructorUsedError;
+  int get sessionEndTimeStamp => throw _privateConstructorUsedError;
+  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
+  String get responseStatus => throw _privateConstructorUsedError;
+  bool get isDeleted => throw _privateConstructorUsedError; // H_ 內容
+  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  SimpleSurveyPageStateDto get surveyPageState =>
+      throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ResponseDtoCopyWith<ResponseDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ResponseDtoCopyWith<ResponseDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -286,81 +297,113 @@ class _$ResponseDtoCopyWithImpl<$Res> implements $ResponseDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object respondentId = freezed,
-    Object responseId = freezed,
-    Object tempResponseId = freezed,
-    Object ticketId = freezed,
-    Object editFinished = freezed,
-    Object interviewerId = freezed,
-    Object deviceId = freezed,
-    Object createdTimeStamp = freezed,
-    Object sessionStartTimeStamp = freezed,
-    Object sessionEndTimeStamp = freezed,
-    Object lastChangedTimeStamp = freezed,
-    Object responseStatus = freezed,
-    Object isDeleted = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
-    Object surveyPageState = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? respondentId = freezed,
+    Object? responseId = freezed,
+    Object? tempResponseId = freezed,
+    Object? ticketId = freezed,
+    Object? editFinished = freezed,
+    Object? interviewerId = freezed,
+    Object? deviceId = freezed,
+    Object? createdTimeStamp = freezed,
+    Object? sessionStartTimeStamp = freezed,
+    Object? sessionEndTimeStamp = freezed,
+    Object? lastChangedTimeStamp = freezed,
+    Object? responseStatus = freezed,
+    Object? isDeleted = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? surveyPageState = freezed,
   }) {
     return _then(_value.copyWith(
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      responseId:
-          responseId == freezed ? _value.responseId : responseId as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String,
       tempResponseId: tempResponseId == freezed
           ? _value.tempResponseId
-          : tempResponseId as String,
-      ticketId: ticketId == freezed ? _value.ticketId : ticketId as String,
-      editFinished:
-          editFinished == freezed ? _value.editFinished : editFinished as bool,
+          : tempResponseId // ignore: cast_nullable_to_non_nullable
+              as String,
+      ticketId: ticketId == freezed
+          ? _value.ticketId
+          : ticketId // ignore: cast_nullable_to_non_nullable
+              as String,
+      editFinished: editFinished == freezed
+          ? _value.editFinished
+          : editFinished // ignore: cast_nullable_to_non_nullable
+              as bool,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as String,
-      deviceId: deviceId == freezed ? _value.deviceId : deviceId as String,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      deviceId: deviceId == freezed
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
+              as String,
       createdTimeStamp: createdTimeStamp == freezed
           ? _value.createdTimeStamp
-          : createdTimeStamp as int,
+          : createdTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionStartTimeStamp: sessionStartTimeStamp == freezed
           ? _value.sessionStartTimeStamp
-          : sessionStartTimeStamp as int,
+          : sessionStartTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionEndTimeStamp: sessionEndTimeStamp == freezed
           ? _value.sessionEndTimeStamp
-          : sessionEndTimeStamp as int,
+          : sessionEndTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       lastChangedTimeStamp: lastChangedTimeStamp == freezed
           ? _value.lastChangedTimeStamp
-          : lastChangedTimeStamp as int,
+          : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       responseStatus: responseStatus == freezed
           ? _value.responseStatus
-          : responseStatus as String,
-      isDeleted: isDeleted == freezed ? _value.isDeleted : isDeleted as bool,
+          : responseStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDeleted: isDeleted == freezed
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as Map<String, AnswerDto>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as Map<String, AnswerStatusDto>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
-          : surveyPageState as SimpleSurveyPageStateDto,
+          : surveyPageState // ignore: cast_nullable_to_non_nullable
+              as SimpleSurveyPageStateDto,
     ));
   }
 
   @override
   $SimpleSurveyPageStateDtoCopyWith<$Res> get surveyPageState {
-    if (_value.surveyPageState == null) {
-      return null;
-    }
     return $SimpleSurveyPageStateDtoCopyWith<$Res>(_value.surveyPageState,
         (value) {
       return _then(_value.copyWith(surveyPageState: value));
@@ -413,123 +456,137 @@ class __$ResponseDtoCopyWithImpl<$Res> extends _$ResponseDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object teamId = freezed,
-    Object projectId = freezed,
-    Object surveyId = freezed,
-    Object moduleType = freezed,
-    Object respondentId = freezed,
-    Object responseId = freezed,
-    Object tempResponseId = freezed,
-    Object ticketId = freezed,
-    Object editFinished = freezed,
-    Object interviewerId = freezed,
-    Object deviceId = freezed,
-    Object createdTimeStamp = freezed,
-    Object sessionStartTimeStamp = freezed,
-    Object sessionEndTimeStamp = freezed,
-    Object lastChangedTimeStamp = freezed,
-    Object responseStatus = freezed,
-    Object isDeleted = freezed,
-    Object answerMap = freezed,
-    Object answerStatusMap = freezed,
-    Object surveyPageState = freezed,
+    Object? teamId = freezed,
+    Object? projectId = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? respondentId = freezed,
+    Object? responseId = freezed,
+    Object? tempResponseId = freezed,
+    Object? ticketId = freezed,
+    Object? editFinished = freezed,
+    Object? interviewerId = freezed,
+    Object? deviceId = freezed,
+    Object? createdTimeStamp = freezed,
+    Object? sessionStartTimeStamp = freezed,
+    Object? sessionEndTimeStamp = freezed,
+    Object? lastChangedTimeStamp = freezed,
+    Object? responseStatus = freezed,
+    Object? isDeleted = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? surveyPageState = freezed,
   }) {
     return _then(_ResponseDto(
-      teamId: teamId == freezed ? _value.teamId : teamId as String,
-      projectId: projectId == freezed ? _value.projectId : projectId as String,
-      surveyId: surveyId == freezed ? _value.surveyId : surveyId as String,
-      moduleType:
-          moduleType == freezed ? _value.moduleType : moduleType as String,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      projectId: projectId == freezed
+          ? _value.projectId
+          : projectId // ignore: cast_nullable_to_non_nullable
+              as String,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as String,
       respondentId: respondentId == freezed
           ? _value.respondentId
-          : respondentId as String,
-      responseId:
-          responseId == freezed ? _value.responseId : responseId as String,
+          : respondentId // ignore: cast_nullable_to_non_nullable
+              as String,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String,
       tempResponseId: tempResponseId == freezed
           ? _value.tempResponseId
-          : tempResponseId as String,
-      ticketId: ticketId == freezed ? _value.ticketId : ticketId as String,
-      editFinished:
-          editFinished == freezed ? _value.editFinished : editFinished as bool,
+          : tempResponseId // ignore: cast_nullable_to_non_nullable
+              as String,
+      ticketId: ticketId == freezed
+          ? _value.ticketId
+          : ticketId // ignore: cast_nullable_to_non_nullable
+              as String,
+      editFinished: editFinished == freezed
+          ? _value.editFinished
+          : editFinished // ignore: cast_nullable_to_non_nullable
+              as bool,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
-          : interviewerId as String,
-      deviceId: deviceId == freezed ? _value.deviceId : deviceId as String,
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      deviceId: deviceId == freezed
+          ? _value.deviceId
+          : deviceId // ignore: cast_nullable_to_non_nullable
+              as String,
       createdTimeStamp: createdTimeStamp == freezed
           ? _value.createdTimeStamp
-          : createdTimeStamp as int,
+          : createdTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionStartTimeStamp: sessionStartTimeStamp == freezed
           ? _value.sessionStartTimeStamp
-          : sessionStartTimeStamp as int,
+          : sessionStartTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionEndTimeStamp: sessionEndTimeStamp == freezed
           ? _value.sessionEndTimeStamp
-          : sessionEndTimeStamp as int,
+          : sessionEndTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       lastChangedTimeStamp: lastChangedTimeStamp == freezed
           ? _value.lastChangedTimeStamp
-          : lastChangedTimeStamp as int,
+          : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       responseStatus: responseStatus == freezed
           ? _value.responseStatus
-          : responseStatus as String,
-      isDeleted: isDeleted == freezed ? _value.isDeleted : isDeleted as bool,
+          : responseStatus // ignore: cast_nullable_to_non_nullable
+              as String,
+      isDeleted: isDeleted == freezed
+          ? _value.isDeleted
+          : isDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
-          : answerMap as Map<String, AnswerDto>,
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
-          : answerStatusMap as Map<String, AnswerStatusDto>,
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
-          : surveyPageState as SimpleSurveyPageStateDto,
+          : surveyPageState // ignore: cast_nullable_to_non_nullable
+              as SimpleSurveyPageStateDto,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_ResponseDto extends _ResponseDto {
   const _$_ResponseDto(
-      {@required this.teamId,
-      @required this.projectId,
-      @required this.surveyId,
-      @required this.moduleType,
-      @required this.respondentId,
-      @required this.responseId,
-      @required this.tempResponseId,
-      @required this.ticketId,
-      @required this.editFinished,
-      @required this.interviewerId,
-      @required this.deviceId,
-      @required this.createdTimeStamp,
-      @required this.sessionStartTimeStamp,
-      @required this.sessionEndTimeStamp,
-      @required this.lastChangedTimeStamp,
-      @required this.responseStatus,
-      @required this.isDeleted,
-      @required this.answerMap,
-      @required this.answerStatusMap,
-      @required this.surveyPageState})
-      : assert(teamId != null),
-        assert(projectId != null),
-        assert(surveyId != null),
-        assert(moduleType != null),
-        assert(respondentId != null),
-        assert(responseId != null),
-        assert(tempResponseId != null),
-        assert(ticketId != null),
-        assert(editFinished != null),
-        assert(interviewerId != null),
-        assert(deviceId != null),
-        assert(createdTimeStamp != null),
-        assert(sessionStartTimeStamp != null),
-        assert(sessionEndTimeStamp != null),
-        assert(lastChangedTimeStamp != null),
-        assert(responseStatus != null),
-        assert(isDeleted != null),
-        assert(answerMap != null),
-        assert(answerStatusMap != null),
-        assert(surveyPageState != null),
-        super._();
+      {required this.teamId,
+      required this.projectId,
+      required this.surveyId,
+      required this.moduleType,
+      required this.respondentId,
+      required this.responseId,
+      required this.tempResponseId,
+      required this.ticketId,
+      required this.editFinished,
+      required this.interviewerId,
+      required this.deviceId,
+      required this.createdTimeStamp,
+      required this.sessionStartTimeStamp,
+      required this.sessionEndTimeStamp,
+      required this.lastChangedTimeStamp,
+      required this.responseStatus,
+      required this.isDeleted,
+      required this.answerMap,
+      required this.answerStatusMap,
+      required this.surveyPageState})
+      : super._();
 
   factory _$_ResponseDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ResponseDtoFromJson(json);
@@ -669,6 +726,7 @@ class _$_ResponseDto extends _ResponseDto {
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(surveyPageState);
 
+  @JsonKey(ignore: true)
   @override
   _$ResponseDtoCopyWith<_ResponseDto> get copyWith =>
       __$ResponseDtoCopyWithImpl<_ResponseDto>(this, _$identity);
@@ -680,72 +738,76 @@ class _$_ResponseDto extends _ResponseDto {
 }
 
 abstract class _ResponseDto extends ResponseDto {
-  const _ResponseDto._() : super._();
   const factory _ResponseDto(
-      {@required String teamId,
-      @required String projectId,
-      @required String surveyId,
-      @required String moduleType,
-      @required String respondentId,
-      @required String responseId,
-      @required String tempResponseId,
-      @required String ticketId,
-      @required bool editFinished,
-      @required String interviewerId,
-      @required String deviceId,
-      @required int createdTimeStamp,
-      @required int sessionStartTimeStamp,
-      @required int sessionEndTimeStamp,
-      @required int lastChangedTimeStamp,
-      @required String responseStatus,
-      @required bool isDeleted,
-      @required Map<String, AnswerDto> answerMap,
-      @required Map<String, AnswerStatusDto> answerStatusMap,
-      @required SimpleSurveyPageStateDto surveyPageState}) = _$_ResponseDto;
+      {required String teamId,
+      required String projectId,
+      required String surveyId,
+      required String moduleType,
+      required String respondentId,
+      required String responseId,
+      required String tempResponseId,
+      required String ticketId,
+      required bool editFinished,
+      required String interviewerId,
+      required String deviceId,
+      required int createdTimeStamp,
+      required int sessionStartTimeStamp,
+      required int sessionEndTimeStamp,
+      required int lastChangedTimeStamp,
+      required String responseStatus,
+      required bool isDeleted,
+      required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required SimpleSurveyPageStateDto surveyPageState}) = _$_ResponseDto;
+  const _ResponseDto._() : super._();
 
   factory _ResponseDto.fromJson(Map<String, dynamic> json) =
       _$_ResponseDto.fromJson;
 
   @override // H_ 區分不同 response
-  String get teamId;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  String get projectId;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  String get surveyId;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  String get moduleType;
+  String get moduleType => throw _privateConstructorUsedError;
   @override
-  String get respondentId;
+  String get respondentId => throw _privateConstructorUsedError;
   @override // H_ 區分 response 版本
-  String get responseId;
+  String get responseId => throw _privateConstructorUsedError;
   @override
-  String get tempResponseId;
+  String get tempResponseId => throw _privateConstructorUsedError;
   @override
-  String get ticketId;
+  String get ticketId => throw _privateConstructorUsedError;
   @override
-  bool get editFinished;
+  bool get editFinished => throw _privateConstructorUsedError;
   @override
-  String get interviewerId;
+  String get interviewerId => throw _privateConstructorUsedError;
   @override
-  String get deviceId;
+  String get deviceId => throw _privateConstructorUsedError;
   @override // H_ 狀態
-  int get createdTimeStamp;
+  int get createdTimeStamp => throw _privateConstructorUsedError;
   @override
-  int get sessionStartTimeStamp;
+  int get sessionStartTimeStamp => throw _privateConstructorUsedError;
   @override
-  int get sessionEndTimeStamp;
+  int get sessionEndTimeStamp => throw _privateConstructorUsedError;
   @override
-  int get lastChangedTimeStamp;
+  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
   @override
-  String get responseStatus;
+  String get responseStatus => throw _privateConstructorUsedError;
   @override
-  bool get isDeleted;
+  bool get isDeleted => throw _privateConstructorUsedError;
   @override // H_ 內容
-  Map<String, AnswerDto> get answerMap;
+  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap;
+  Map<String, AnswerStatusDto> get answerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
-  SimpleSurveyPageStateDto get surveyPageState;
+  SimpleSurveyPageStateDto get surveyPageState =>
+      throw _privateConstructorUsedError;
   @override
-  _$ResponseDtoCopyWith<_ResponseDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$ResponseDtoCopyWith<_ResponseDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }

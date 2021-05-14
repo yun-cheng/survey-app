@@ -10,15 +10,15 @@ import 'respondent.dart';
 part 'respondent_list.freezed.dart';
 
 @freezed
-abstract class RespondentList implements _$RespondentList {
+class RespondentList with _$RespondentList {
   const RespondentList._();
 
   const factory RespondentList({
-    @required SurveyId surveyId,
-    @required InterviewerId interviewerId,
-    @required TeamId teamId,
-    @required ProjectId projectId,
-    @required KtList<Respondent> respondentList,
+    required SurveyId surveyId,
+    required InterviewerId interviewerId,
+    required TeamId teamId,
+    required ProjectId projectId,
+    required KtList<Respondent> respondentList,
   }) = _RespondentList;
 
   factory RespondentList.empty() => RespondentList(

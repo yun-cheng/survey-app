@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'answer_dtos.dart';
 
@@ -8,6 +8,10 @@ part of 'answer_dtos.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 AnswerDto _$AnswerDtoFromJson(Map<String, dynamic> json) {
   return _AnswerDto.fromJson(json);
 }
@@ -16,15 +20,14 @@ AnswerDto _$AnswerDtoFromJson(Map<String, dynamic> json) {
 class _$AnswerDtoTearOff {
   const _$AnswerDtoTearOff();
 
-// ignore: unused_element
   _AnswerDto call(
-      {String type,
-      bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoiceDto choiceValue,
-      List<SimpleChoiceDto> choiceListValue,
-      Map<String, String> noteMap}) {
+      {String? type,
+      bool? withNote,
+      String? stringValue,
+      int? intValue,
+      SimpleChoiceDto? choiceValue,
+      List<SimpleChoiceDto>? choiceListValue,
+      Map<String, String>? noteMap}) {
     return _AnswerDto(
       type: type,
       withNote: withNote,
@@ -36,28 +39,29 @@ class _$AnswerDtoTearOff {
     );
   }
 
-// ignore: unused_element
   AnswerDto fromJson(Map<String, Object> json) {
     return AnswerDto.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $AnswerDto = _$AnswerDtoTearOff();
 
 /// @nodoc
 mixin _$AnswerDto {
-  String get type;
-  bool get withNote;
-  String get stringValue;
-  int get intValue;
-  SimpleChoiceDto get choiceValue;
-  List<SimpleChoiceDto> get choiceListValue;
-  Map<String, String> get noteMap;
+  String? get type => throw _privateConstructorUsedError;
+  bool? get withNote => throw _privateConstructorUsedError;
+  String? get stringValue => throw _privateConstructorUsedError;
+  int? get intValue => throw _privateConstructorUsedError;
+  SimpleChoiceDto? get choiceValue => throw _privateConstructorUsedError;
+  List<SimpleChoiceDto>? get choiceListValue =>
+      throw _privateConstructorUsedError;
+  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $AnswerDtoCopyWith<AnswerDto> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AnswerDtoCopyWith<AnswerDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,15 +69,15 @@ abstract class $AnswerDtoCopyWith<$Res> {
   factory $AnswerDtoCopyWith(AnswerDto value, $Res Function(AnswerDto) then) =
       _$AnswerDtoCopyWithImpl<$Res>;
   $Res call(
-      {String type,
-      bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoiceDto choiceValue,
-      List<SimpleChoiceDto> choiceListValue,
-      Map<String, String> noteMap});
+      {String? type,
+      bool? withNote,
+      String? stringValue,
+      int? intValue,
+      SimpleChoiceDto? choiceValue,
+      List<SimpleChoiceDto>? choiceListValue,
+      Map<String, String>? noteMap});
 
-  $SimpleChoiceDtoCopyWith<$Res> get choiceValue;
+  $SimpleChoiceDtoCopyWith<$Res>? get choiceValue;
 }
 
 /// @nodoc
@@ -86,37 +90,53 @@ class _$AnswerDtoCopyWithImpl<$Res> implements $AnswerDtoCopyWith<$Res> {
 
   @override
   $Res call({
-    Object type = freezed,
-    Object withNote = freezed,
-    Object stringValue = freezed,
-    Object intValue = freezed,
-    Object choiceValue = freezed,
-    Object choiceListValue = freezed,
-    Object noteMap = freezed,
+    Object? type = freezed,
+    Object? withNote = freezed,
+    Object? stringValue = freezed,
+    Object? intValue = freezed,
+    Object? choiceValue = freezed,
+    Object? choiceListValue = freezed,
+    Object? noteMap = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed ? _value.type : type as String,
-      withNote: withNote == freezed ? _value.withNote : withNote as bool,
-      stringValue:
-          stringValue == freezed ? _value.stringValue : stringValue as String,
-      intValue: intValue == freezed ? _value.intValue : intValue as int,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      withNote: withNote == freezed
+          ? _value.withNote
+          : withNote // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      stringValue: stringValue == freezed
+          ? _value.stringValue
+          : stringValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      intValue: intValue == freezed
+          ? _value.intValue
+          : intValue // ignore: cast_nullable_to_non_nullable
+              as int?,
       choiceValue: choiceValue == freezed
           ? _value.choiceValue
-          : choiceValue as SimpleChoiceDto,
+          : choiceValue // ignore: cast_nullable_to_non_nullable
+              as SimpleChoiceDto?,
       choiceListValue: choiceListValue == freezed
           ? _value.choiceListValue
-          : choiceListValue as List<SimpleChoiceDto>,
-      noteMap:
-          noteMap == freezed ? _value.noteMap : noteMap as Map<String, String>,
+          : choiceListValue // ignore: cast_nullable_to_non_nullable
+              as List<SimpleChoiceDto>?,
+      noteMap: noteMap == freezed
+          ? _value.noteMap
+          : noteMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 
   @override
-  $SimpleChoiceDtoCopyWith<$Res> get choiceValue {
+  $SimpleChoiceDtoCopyWith<$Res>? get choiceValue {
     if (_value.choiceValue == null) {
       return null;
     }
-    return $SimpleChoiceDtoCopyWith<$Res>(_value.choiceValue, (value) {
+
+    return $SimpleChoiceDtoCopyWith<$Res>(_value.choiceValue!, (value) {
       return _then(_value.copyWith(choiceValue: value));
     });
   }
@@ -129,16 +149,16 @@ abstract class _$AnswerDtoCopyWith<$Res> implements $AnswerDtoCopyWith<$Res> {
       __$AnswerDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String type,
-      bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoiceDto choiceValue,
-      List<SimpleChoiceDto> choiceListValue,
-      Map<String, String> noteMap});
+      {String? type,
+      bool? withNote,
+      String? stringValue,
+      int? intValue,
+      SimpleChoiceDto? choiceValue,
+      List<SimpleChoiceDto>? choiceListValue,
+      Map<String, String>? noteMap});
 
   @override
-  $SimpleChoiceDtoCopyWith<$Res> get choiceValue;
+  $SimpleChoiceDtoCopyWith<$Res>? get choiceValue;
 }
 
 /// @nodoc
@@ -152,35 +172,49 @@ class __$AnswerDtoCopyWithImpl<$Res> extends _$AnswerDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object type = freezed,
-    Object withNote = freezed,
-    Object stringValue = freezed,
-    Object intValue = freezed,
-    Object choiceValue = freezed,
-    Object choiceListValue = freezed,
-    Object noteMap = freezed,
+    Object? type = freezed,
+    Object? withNote = freezed,
+    Object? stringValue = freezed,
+    Object? intValue = freezed,
+    Object? choiceValue = freezed,
+    Object? choiceListValue = freezed,
+    Object? noteMap = freezed,
   }) {
     return _then(_AnswerDto(
-      type: type == freezed ? _value.type : type as String,
-      withNote: withNote == freezed ? _value.withNote : withNote as bool,
-      stringValue:
-          stringValue == freezed ? _value.stringValue : stringValue as String,
-      intValue: intValue == freezed ? _value.intValue : intValue as int,
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String?,
+      withNote: withNote == freezed
+          ? _value.withNote
+          : withNote // ignore: cast_nullable_to_non_nullable
+              as bool?,
+      stringValue: stringValue == freezed
+          ? _value.stringValue
+          : stringValue // ignore: cast_nullable_to_non_nullable
+              as String?,
+      intValue: intValue == freezed
+          ? _value.intValue
+          : intValue // ignore: cast_nullable_to_non_nullable
+              as int?,
       choiceValue: choiceValue == freezed
           ? _value.choiceValue
-          : choiceValue as SimpleChoiceDto,
+          : choiceValue // ignore: cast_nullable_to_non_nullable
+              as SimpleChoiceDto?,
       choiceListValue: choiceListValue == freezed
           ? _value.choiceListValue
-          : choiceListValue as List<SimpleChoiceDto>,
-      noteMap:
-          noteMap == freezed ? _value.noteMap : noteMap as Map<String, String>,
+          : choiceListValue // ignore: cast_nullable_to_non_nullable
+              as List<SimpleChoiceDto>?,
+      noteMap: noteMap == freezed
+          ? _value.noteMap
+          : noteMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, String>?,
     ));
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_AnswerDto extends _AnswerDto {
   const _$_AnswerDto(
       {this.type,
@@ -196,19 +230,19 @@ class _$_AnswerDto extends _AnswerDto {
       _$_$_AnswerDtoFromJson(json);
 
   @override
-  final String type;
+  final String? type;
   @override
-  final bool withNote;
+  final bool? withNote;
   @override
-  final String stringValue;
+  final String? stringValue;
   @override
-  final int intValue;
+  final int? intValue;
   @override
-  final SimpleChoiceDto choiceValue;
+  final SimpleChoiceDto? choiceValue;
   @override
-  final List<SimpleChoiceDto> choiceListValue;
+  final List<SimpleChoiceDto>? choiceListValue;
   @override
-  final Map<String, String> noteMap;
+  final Map<String, String>? noteMap;
 
   @override
   String toString() {
@@ -251,6 +285,7 @@ class _$_AnswerDto extends _AnswerDto {
       const DeepCollectionEquality().hash(choiceListValue) ^
       const DeepCollectionEquality().hash(noteMap);
 
+  @JsonKey(ignore: true)
   @override
   _$AnswerDtoCopyWith<_AnswerDto> get copyWith =>
       __$AnswerDtoCopyWithImpl<_AnswerDto>(this, _$identity);
@@ -262,33 +297,36 @@ class _$_AnswerDto extends _AnswerDto {
 }
 
 abstract class _AnswerDto extends AnswerDto {
-  const _AnswerDto._() : super._();
   const factory _AnswerDto(
-      {String type,
-      bool withNote,
-      String stringValue,
-      int intValue,
-      SimpleChoiceDto choiceValue,
-      List<SimpleChoiceDto> choiceListValue,
-      Map<String, String> noteMap}) = _$_AnswerDto;
+      {String? type,
+      bool? withNote,
+      String? stringValue,
+      int? intValue,
+      SimpleChoiceDto? choiceValue,
+      List<SimpleChoiceDto>? choiceListValue,
+      Map<String, String>? noteMap}) = _$_AnswerDto;
+  const _AnswerDto._() : super._();
 
   factory _AnswerDto.fromJson(Map<String, dynamic> json) =
       _$_AnswerDto.fromJson;
 
   @override
-  String get type;
+  String? get type => throw _privateConstructorUsedError;
   @override
-  bool get withNote;
+  bool? get withNote => throw _privateConstructorUsedError;
   @override
-  String get stringValue;
+  String? get stringValue => throw _privateConstructorUsedError;
   @override
-  int get intValue;
+  int? get intValue => throw _privateConstructorUsedError;
   @override
-  SimpleChoiceDto get choiceValue;
+  SimpleChoiceDto? get choiceValue => throw _privateConstructorUsedError;
   @override
-  List<SimpleChoiceDto> get choiceListValue;
+  List<SimpleChoiceDto>? get choiceListValue =>
+      throw _privateConstructorUsedError;
   @override
-  Map<String, String> get noteMap;
+  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
   @override
-  _$AnswerDtoCopyWith<_AnswerDto> get copyWith;
+  @JsonKey(ignore: true)
+  _$AnswerDtoCopyWith<_AnswerDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
