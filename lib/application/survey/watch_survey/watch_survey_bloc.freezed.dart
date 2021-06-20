@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'survey_bloc.dart';
+part of 'watch_survey_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,8 +13,8 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$SurveyEventTearOff {
-  const _$SurveyEventTearOff();
+class _$WatchSurveyEventTearOff {
+  const _$WatchSurveyEventTearOff();
 
   _WatchSurveyListStarted watchSurveyListStarted(
       {required TeamId teamId, required InterviewerId interviewerId}) {
@@ -39,10 +39,10 @@ class _$SurveyEventTearOff {
 }
 
 /// @nodoc
-const $SurveyEvent = _$SurveyEventTearOff();
+const $WatchSurveyEvent = _$WatchSurveyEventTearOff();
 
 /// @nodoc
-mixin _$SurveyEvent {
+mixin _$WatchSurveyEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(TeamId teamId, InterviewerId interviewerId)
@@ -82,19 +82,20 @@ mixin _$SurveyEvent {
 }
 
 /// @nodoc
-abstract class $SurveyEventCopyWith<$Res> {
-  factory $SurveyEventCopyWith(
-          SurveyEvent value, $Res Function(SurveyEvent) then) =
-      _$SurveyEventCopyWithImpl<$Res>;
+abstract class $WatchSurveyEventCopyWith<$Res> {
+  factory $WatchSurveyEventCopyWith(
+          WatchSurveyEvent value, $Res Function(WatchSurveyEvent) then) =
+      _$WatchSurveyEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$SurveyEventCopyWithImpl<$Res> implements $SurveyEventCopyWith<$Res> {
-  _$SurveyEventCopyWithImpl(this._value, this._then);
+class _$WatchSurveyEventCopyWithImpl<$Res>
+    implements $WatchSurveyEventCopyWith<$Res> {
+  _$WatchSurveyEventCopyWithImpl(this._value, this._then);
 
-  final SurveyEvent _value;
+  final WatchSurveyEvent _value;
   // ignore: unused_field
-  final $Res Function(SurveyEvent) _then;
+  final $Res Function(WatchSurveyEvent) _then;
 }
 
 /// @nodoc
@@ -107,7 +108,7 @@ abstract class _$WatchSurveyListStartedCopyWith<$Res> {
 
 /// @nodoc
 class __$WatchSurveyListStartedCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res>
+    extends _$WatchSurveyEventCopyWithImpl<$Res>
     implements _$WatchSurveyListStartedCopyWith<$Res> {
   __$WatchSurveyListStartedCopyWithImpl(_WatchSurveyListStarted _value,
       $Res Function(_WatchSurveyListStarted) _then)
@@ -147,7 +148,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
 
   @override
   String toString() {
-    return 'SurveyEvent.watchSurveyListStarted(teamId: $teamId, interviewerId: $interviewerId)';
+    return 'WatchSurveyEvent.watchSurveyListStarted(teamId: $teamId, interviewerId: $interviewerId)';
   }
 
   @override
@@ -228,7 +229,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
   }
 }
 
-abstract class _WatchSurveyListStarted implements SurveyEvent {
+abstract class _WatchSurveyListStarted implements WatchSurveyEvent {
   const factory _WatchSurveyListStarted(
       {required TeamId teamId,
       required InterviewerId interviewerId}) = _$_WatchSurveyListStarted;
@@ -250,7 +251,7 @@ abstract class _$SurveyListReceivedCopyWith<$Res> {
 
 /// @nodoc
 class __$SurveyListReceivedCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res>
+    extends _$WatchSurveyEventCopyWithImpl<$Res>
     implements _$SurveyListReceivedCopyWith<$Res> {
   __$SurveyListReceivedCopyWithImpl(
       _SurveyListReceived _value, $Res Function(_SurveyListReceived) _then)
@@ -282,7 +283,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
 
   @override
   String toString() {
-    return 'SurveyEvent.surveyListReceived(failureOrSurveyList: $failureOrSurveyList)';
+    return 'WatchSurveyEvent.surveyListReceived(failureOrSurveyList: $failureOrSurveyList)';
   }
 
   @override
@@ -359,7 +360,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
   }
 }
 
-abstract class _SurveyListReceived implements SurveyEvent {
+abstract class _SurveyListReceived implements WatchSurveyEvent {
   const factory _SurveyListReceived(
           Either<SurveyFailure, KtList<Survey>> failureOrSurveyList) =
       _$_SurveyListReceived;
@@ -383,7 +384,7 @@ abstract class _$SurveySelectedCopyWith<$Res> {
 
 /// @nodoc
 class __$SurveySelectedCopyWithImpl<$Res>
-    extends _$SurveyEventCopyWithImpl<$Res>
+    extends _$WatchSurveyEventCopyWithImpl<$Res>
     implements _$SurveySelectedCopyWith<$Res> {
   __$SurveySelectedCopyWithImpl(
       _SurveySelected _value, $Res Function(_SurveySelected) _then)
@@ -422,7 +423,7 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   String toString() {
-    return 'SurveyEvent.surveySelected(survey: $survey)';
+    return 'WatchSurveyEvent.surveySelected(survey: $survey)';
   }
 
   @override
@@ -497,7 +498,7 @@ class _$_SurveySelected implements _SurveySelected {
   }
 }
 
-abstract class _SurveySelected implements SurveyEvent {
+abstract class _SurveySelected implements WatchSurveyEvent {
   const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
 
   Survey get survey => throw _privateConstructorUsedError;
@@ -507,8 +508,8 @@ abstract class _SurveySelected implements SurveyEvent {
 }
 
 /// @nodoc
-class _$SurveyStateTearOff {
-  const _$SurveyStateTearOff();
+class _$WatchSurveyStateTearOff {
+  const _$WatchSurveyStateTearOff();
 
   _SurveyState call(
       {required LoadState surveyListState,
@@ -525,25 +526,25 @@ class _$SurveyStateTearOff {
 }
 
 /// @nodoc
-const $SurveyState = _$SurveyStateTearOff();
+const $WatchSurveyState = _$WatchSurveyStateTearOff();
 
 /// @nodoc
-mixin _$SurveyState {
+mixin _$WatchSurveyState {
   LoadState get surveyListState => throw _privateConstructorUsedError;
   KtList<Survey> get surveyList => throw _privateConstructorUsedError;
   Survey get survey => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SurveyStateCopyWith<SurveyState> get copyWith =>
+  $WatchSurveyStateCopyWith<WatchSurveyState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SurveyStateCopyWith<$Res> {
-  factory $SurveyStateCopyWith(
-          SurveyState value, $Res Function(SurveyState) then) =
-      _$SurveyStateCopyWithImpl<$Res>;
+abstract class $WatchSurveyStateCopyWith<$Res> {
+  factory $WatchSurveyStateCopyWith(
+          WatchSurveyState value, $Res Function(WatchSurveyState) then) =
+      _$WatchSurveyStateCopyWithImpl<$Res>;
   $Res call(
       {LoadState surveyListState,
       KtList<Survey> surveyList,
@@ -555,12 +556,13 @@ abstract class $SurveyStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
-  _$SurveyStateCopyWithImpl(this._value, this._then);
+class _$WatchSurveyStateCopyWithImpl<$Res>
+    implements $WatchSurveyStateCopyWith<$Res> {
+  _$WatchSurveyStateCopyWithImpl(this._value, this._then);
 
-  final SurveyState _value;
+  final WatchSurveyState _value;
   // ignore: unused_field
-  final $Res Function(SurveyState) _then;
+  final $Res Function(WatchSurveyState) _then;
 
   @override
   $Res call({
@@ -606,7 +608,7 @@ class _$SurveyStateCopyWithImpl<$Res> implements $SurveyStateCopyWith<$Res> {
 
 /// @nodoc
 abstract class _$SurveyStateCopyWith<$Res>
-    implements $SurveyStateCopyWith<$Res> {
+    implements $WatchSurveyStateCopyWith<$Res> {
   factory _$SurveyStateCopyWith(
           _SurveyState value, $Res Function(_SurveyState) then) =
       __$SurveyStateCopyWithImpl<$Res>;
@@ -624,7 +626,8 @@ abstract class _$SurveyStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SurveyStateCopyWithImpl<$Res> extends _$SurveyStateCopyWithImpl<$Res>
+class __$SurveyStateCopyWithImpl<$Res>
+    extends _$WatchSurveyStateCopyWithImpl<$Res>
     implements _$SurveyStateCopyWith<$Res> {
   __$SurveyStateCopyWithImpl(
       _SurveyState _value, $Res Function(_SurveyState) _then)
@@ -681,7 +684,7 @@ class _$_SurveyState implements _SurveyState {
 
   @override
   String toString() {
-    return 'SurveyState(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, surveyFailure: $surveyFailure)';
+    return 'WatchSurveyState(surveyListState: $surveyListState, surveyList: $surveyList, survey: $survey, surveyFailure: $surveyFailure)';
   }
 
   @override
@@ -715,7 +718,7 @@ class _$_SurveyState implements _SurveyState {
       __$SurveyStateCopyWithImpl<_SurveyState>(this, _$identity);
 }
 
-abstract class _SurveyState implements SurveyState {
+abstract class _SurveyState implements WatchSurveyState {
   const factory _SurveyState(
       {required LoadState surveyListState,
       required KtList<Survey> surveyList,

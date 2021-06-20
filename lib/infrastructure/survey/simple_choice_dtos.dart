@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/simple_choice.dart';
 
+import '../../domain/survey/simple_choice.dart';
 import '../../domain/survey/value_objects.dart';
 
 part 'simple_choice_dtos.freezed.dart';

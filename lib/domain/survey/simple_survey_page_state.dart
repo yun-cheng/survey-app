@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/load_state.dart';
 import 'value_objects.dart';
 import 'warning.dart';
 
@@ -16,7 +15,6 @@ class SimpleSurveyPageState with _$SimpleSurveyPageState {
     required bool isLastPage,
     required Warning warning,
     required bool showWarning,
-    required LoadState loadState,
   }) = _SimpleSurveyPageState;
 
   factory SimpleSurveyPageState.empty() => SimpleSurveyPageState(
@@ -25,6 +23,5 @@ class SimpleSurveyPageState with _$SimpleSurveyPageState {
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
-        loadState: const LoadState.initial(),
       );
 }

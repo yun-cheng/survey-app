@@ -3,27 +3,30 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/date_time_extensions.dart';
 import '../../core/constants.dart';
 
 class DateTimeBox extends HookWidget {
-  final Question question;
+  final QuestionId questionId;
+  final QuestionType questionType;
 
   const DateTimeBox({
     Key? key,
-    required this.question,
+    required this.questionId,
+    required this.questionType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     void updateAnswer(DateTime dateTime) {
       String newAnswer;
-      if (question.type == QuestionType.date()) {
+      if (questionType == QuestionType.date()) {
         newAnswer = dateTime.toDateString();
-      } else if (question.type == QuestionType.time()) {
+      } else if (questionType == QuestionType.time()) {
         newAnswer = dateTime.toTimeString();
       } else {
         newAnswer = dateTime.toDateTimeString();
@@ -31,27 +34,23 @@ class DateTimeBox extends HookWidget {
 
       context.read<AnswerBloc>().add(
             AnswerEvent.answerChangedWith(
-              question: question,
+              questionId: questionId,
               body: newAnswer,
             ),
           );
     }
 
-    return BlocBuilder<AnswerBloc, AnswerState>(
-      // NOTE 答案有變更時才要 rebuild
+    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
       buildWhen: (p, c) =>
-          p.answerMap[question.id] != c.answerMap[question.id] ||
-          p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
-          p.answerMap[question.upperQuestionId] !=
-              c.answerMap[question.upperQuestionId] ||
-          p.isReadOnly != c.isReadOnly,
+          (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
+          ((c.questionId == questionId &&
+                  p.answerMap[questionId] != c.answerMap[questionId]) ||
+              p.isReadOnly != c.isReadOnly),
       builder: (context, state) {
-        LoggerService.simple.i('DateTimeBox rebuild!!!');
+        logger('Build').i('DateTimeBox');
 
-        final answerMap =
-            state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
         final isReadOnly = state.isReadOnly || state.isRecodeModule;
-        final thisAnswer = answerMap[question.id]?.value as String? ?? '';
+        final thisAnswer = state.answerMap[questionId]?.value as String? ?? '';
 
         final dateTime = DateTimeX.fromDateTimeString(thisAnswer)!;
 
@@ -94,7 +93,7 @@ class DateTimeBox extends HookWidget {
         return Row(
           children: [
             if ([QuestionType.date(), QuestionType.dateTime()]
-                .contains(question.type)) ...[
+                .contains(questionType)) ...[
               TextButton(
                 // NOTE 如果是唯讀，讓按鈕無效
                 onPressed: () => isReadOnly ? null : _selectDate(context),
@@ -105,7 +104,7 @@ class DateTimeBox extends HookWidget {
               ),
             ],
             if ([QuestionType.time(), QuestionType.dateTime()]
-                .contains(question.type)) ...[
+                .contains(questionType)) ...[
               TextButton(
                 onPressed: () => isReadOnly ? null : _selectTime(context),
                 child: Text(

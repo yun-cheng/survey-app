@@ -6,8 +6,9 @@ part of 'survey_state_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SurveyStateDto _$_$_SurveyStateDtoFromJson(Map<String, dynamic> json) {
-  return _$_SurveyStateDto(
+_$_WatchSurveyStateDto _$_$_WatchSurveyStateDtoFromJson(
+    Map<String, dynamic> json) {
+  return _$_WatchSurveyStateDto(
     surveyListState: json['surveyListState'] as Map<String, dynamic>,
     surveyList: (json['surveyList'] as List<dynamic>)
         .map((e) => SurveyDto.fromJson(e as Map<String, dynamic>))
@@ -17,7 +18,8 @@ _$_SurveyStateDto _$_$_SurveyStateDtoFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$_$_SurveyStateDtoToJson(_$_SurveyStateDto instance) =>
+Map<String, dynamic> _$_$_WatchSurveyStateDtoToJson(
+        _$_WatchSurveyStateDto instance) =>
     <String, dynamic>{
       'surveyListState': instance.surveyListState,
       'surveyList': instance.surveyList.map((e) => e.toJson()).toList(),

@@ -97,6 +97,15 @@ class Answer with _$Answer {
     }
   }
 
+  // H_ 單選題使用
+  ChoiceId? get groupValue {
+    if (type == AnswerType.choice()) {
+      return choiceValue?.id;
+    } else {
+      return null;
+    }
+  }
+
   String choiceToString(SimpleChoice choice) {
     String? noteString = noteMap?.get(choice.id);
     noteString = noteString != null ? '：$noteString' : '';

@@ -13,12 +13,12 @@ export 'router.gr.dart';
 @MaterialAutoRouter(
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
-    AutoRoute(page: SplashPage, initial: true),
-    AutoRoute(page: SignInPage),
-    AutoRoute(page: OverviewPage, path: '/overview'),
-    AutoRoute(page: RespondentsPage, path: '/respondents'),
-    AutoRoute(page: SurveyPage, path: '/respondent/:respondentId'),
-    AutoRoute(page: SurveyContentPage),
+    MaterialRoute(page: SplashPage, initial: true),
+    MaterialRoute(page: SignInPage),
+    MaterialRoute(page: OverviewPage, path: '/overview'),
+    MaterialRoute(page: RespondentsPage, path: '/respondents'),
+    MaterialRoute(page: SurveyPage, path: '/respondent/:respondentId'),
+    MaterialRoute(page: SurveyContentPage),
   ],
 )
 class $RootRouter {}

@@ -62,3 +62,19 @@ class RemainAddress extends ValueObject<String> {
 
   const RemainAddress._(this.value);
 }
+
+class ProgressType extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ProgressType(String input) {
+    return ProgressType._(
+      right(input),
+    );
+  }
+
+  factory ProgressType.finished() => ProgressType('finished');
+
+
+  const ProgressType._(this.value);
+}

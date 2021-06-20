@@ -2,26 +2,31 @@ part of 'response_bloc.dart';
 
 @freezed
 class ResponseEvent with _$ResponseEvent {
-  // H_1 開始監聽 responseList
+  // H_ 監聽 responseList
   const factory ResponseEvent.watchResponseListStarted({
     required TeamId teamId,
     required Interviewer interviewer,
   }) = _WatchResponseListStarted;
 
-  // H_2 接收到 responseList
   const factory ResponseEvent.responseListReceived(
     Either<SurveyFailure, KtList<Response>> failureOrResponseList,
   ) = _ResponseListReceived;
 
-  // H_3 同步 responseList
+  // H_ 合併下載的與本地的 responseList
+  const factory ResponseEvent.responseListMerged() = _ResponseListMerged;
+
+  // H_ 上傳倒數計時
+  const factory ResponseEvent.uploadTimerUpdated() = _UploadTimerUpdated;
+
+  // H_ 上傳 responseList
   const factory ResponseEvent.responseListSynced() = _ResponseListSynced;
 
-  // H_4 使用者選擇問卷
+  // H_ 使用者選擇問卷
   const factory ResponseEvent.surveySelected({
     required Survey survey,
   }) = _SurveySelected;
 
-  // H_5 使用者選擇要開始進行的問卷模組
+  // H_ 使用者選擇要開始進行的問卷模組
   const factory ResponseEvent.responseStarted({
     required Respondent respondent,
     required ModuleType moduleType,
@@ -42,24 +47,23 @@ class ResponseEvent with _$ResponseEvent {
         responseId: responseId ?? UniqueId(),
       );
 
-  // H_6 從 responseList 回復要進行的 response
+  // H_ 從 responseList 回復要進行的 response
   const factory ResponseEvent.responseRestored() = _ResponseRestored;
 
-  // H_7 接收更新的作答
+  // H_ 作答或切換頁數時更新 response
   const factory ResponseEvent.responseUpdated({
-    KtMap<QuestionId, Answer>? answerMap,
-    KtMap<QuestionId, AnswerStatus>? answerStatusMap,
-    SimpleSurveyPageState? surveyPageState,
-    required bool isFinished,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required SimpleSurveyPageState surveyPageState,
   }) = _ResponseUpdated;
 
-  // H_8 使用者結束編輯這次的問卷回覆階段
+  // H_ 使用者結束編輯這次問卷模組的回覆
   const factory ResponseEvent.editFinished({
     // NOTE 是否完成這份問卷
     required bool responseFinished,
   }) = _EditFinished;
 
-  // H_9 更新 respondentResponseList，也就是此受訪者在不同模組的最新 response
+  // H_ 更新當前受訪者在其他模組的 responses
   const factory ResponseEvent.respondentResponseListUpdated() =
       _RespondentResponseListUpdated;
 }

@@ -4,38 +4,37 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
-import '../../../domain/survey/question.dart';
+import '../../../domain/survey/value_objects.dart';
 
 class PhoneBox extends StatelessWidget {
-  final Question question;
+  final QuestionId questionId;
+  final QuestionType questionType;
 
   const PhoneBox({
     Key? key,
-    required this.question,
+    required this.questionId,
+    required this.questionType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final isReadOnly =
-        context.select((AnswerBloc bloc) => bloc.state.isReadOnly);
-    final isRecodeModule =
-        context.select((AnswerBloc bloc) => bloc.state.isRecodeModule);
-    // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
-    final note = context.select((AnswerBloc bloc) =>
-            (isRecodeModule ? bloc.state.mainAnswerMap : bloc.state.answerMap)
-                .getOrDefault(question.id, Answer.empty())!
-                .value as String?) ??
-        '';
-
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-        // HIGHLIGHT 該頁題目有變更，且包含該題時，才要 rebuild，答案變更時則不須 rebuild
         buildWhen: (p, c) =>
-            c.pageQuestionList.contains(question) &&
-            p.pageQuestionList != c.pageQuestionList,
+            (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
+            ((c.questionId == questionId &&
+                    p.answerMap[questionId] != c.answerMap[questionId]) ||
+                p.isReadOnly != c.isReadOnly),
         builder: (context, state) {
-          LoggerService.simple.i('PhoneBox rebuild!!');
+          logger('Build').i('PhoneBox');
+
+          final isReadOnly = state.isReadOnly;
+          final isRecodeModule = state.isRecodeModule;
+          final note = (state.answerMap[questionId] ?? Answer.empty()).value
+                  as String? ??
+              '';
 
           return Padding(
             padding: const EdgeInsets.all(10),
@@ -52,7 +51,7 @@ class PhoneBox extends StatelessWidget {
               onChanged: (value) {
                 context.read<AnswerBloc>().add(
                       AnswerEvent.answerChangedWith(
-                        question: question,
+                        questionId: questionId,
                         body: value,
                       ),
                     );

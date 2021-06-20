@@ -3,16 +3,15 @@ import 'dart:async';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../../domain/survey/answer.dart';
-import '../../../domain/survey/answer_status.dart';
-import '../../../domain/survey/i_answer_algorithm.dart';
-import '../../../domain/survey/i_answer_status_algorithm.dart';
+import '../../../domain/core/load_state.dart';
+import '../../../domain/core/logger.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/survey/answer_state_dtos.dart';
+import '../update_answer/update_answer_bloc.dart';
+import '../update_answer_status/update_answer_status_bloc.dart';
 
 part 'answer_bloc.freezed.dart';
 part 'answer_event.dart';
@@ -20,12 +19,12 @@ part 'answer_state.dart';
 
 @injectable
 class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
-  final IAnswerAlgorithm _answerAlgorithm;
-  final IAnswerStatusAlgorithm _answerStatusAlgorithm;
+  final UpdateAnswerBloc _updateAnswerBloc;
+  final UpdateAnswerStatusBloc _updateAnswerStatusBloc;
 
   AnswerBloc(
-    this._answerAlgorithm,
-    this._answerStatusAlgorithm,
+    this._updateAnswerBloc,
+    this._updateAnswerStatusBloc,
   ) : super(AnswerState.initial());
 
   @override
@@ -33,82 +32,52 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
     AnswerEvent event,
   ) async* {
     yield* event.map(
-      // H_1 從 response 恢復 answerState
-      answerRestored: (e) async* {
+      // H_ 要開始問卷時載入模組
+      moduleLoaded: (e) async* {
+        logger('Event').i('AnswerBloc: moduleLoaded');
+
         yield state.copyWith(
-          loadState: const LoadState.inProgress(),
-          answerMap: e.answerMap,
-          answerStatusMap: e.answerStatusMap,
           questionList: e.questionList,
           question: Question.empty(),
-          mainAnswerMap: e.mainAnswerMap,
-          mainAnswerStatusMap: e.mainAnswerStatusMap,
           isRecodeModule: e.isRecodeModule,
         );
-
-        add(const AnswerEvent.answerStatusUpdated());
       },
-      // H_2 重整 answerStatus
-      answerStatusUpdated: (e) async* {
-        final tupleResult = _answerStatusAlgorithm.updateAnswerStatus(
-          answerMap: state.answerMap,
-          answerStatusMap: state.answerStatusMap,
-          questionList: state.questionList,
-          question: state.question,
-          answerAlgorithm: _answerAlgorithm,
-          isRecodeModule: state.isRecodeModule,
-          mainAnswerStatusMap: state.mainAnswerStatusMap,
-        );
-
-        yield state.copyWith(
-          loadState: const LoadState.success(),
-          answerMap: tupleResult.item2,
-          answerStatusMap: tupleResult.item1,
-        );
-      },
-      // H_3 變更作答
+      // H_ 變更某題作答
       answerChanged: (e) async* {
+        logger('Event').i('AnswerBloc: answerChanged');
+
         if ((!state.isReadOnly && !state.isRecodeModule) || e.isRecode) {
-          final newAnswerMap = _answerAlgorithm.updateAnswer(
-            answerMap: state.answerMap,
-            question: e.question,
+          final question =
+              state.questionList.first((q) => q.id == e.questionId);
+
+          _updateAnswerBloc.add(UpdateAnswerEvent.answerUpdated(
+            question: question,
             answerValue: e.body,
             toggle: e.toggle,
             isNote: e.isNote,
             noteOf: e.noteOf,
-          );
-
-          yield state.copyWith(
-            loadState: const LoadState.inProgress(),
-            answerMap: newAnswerMap,
-            question: e.question,
-          );
-
-          add(const AnswerEvent.answerStatusUpdated());
+          ));
         }
       },
-      // H_4 切換特殊作答
+      // H_ 切換特殊作答
       specialAnswerSwitched: (e) async* {
+        logger('Event').i('AnswerBloc: specialAnswerSwitched');
+
         if (!state.isReadOnly && !state.isRecodeModule) {
-          final tupleResult = _answerStatusAlgorithm.switchSpecialAnswer(
-            answerMap: state.answerMap,
-            answerStatusMap: state.answerStatusMap,
-            question: e.question,
-            answerAlgorithm: _answerAlgorithm,
+          _updateAnswerBloc.add(
+            UpdateAnswerEvent.answerCleared(questionId: e.questionId),
           );
 
-          yield state.copyWith(
-            loadState: const LoadState.inProgress(),
-            answerMap: tupleResult.item2,
-            answerStatusMap: tupleResult.item1,
-            question: e.question,
-          );
-
-          add(const AnswerEvent.answerStatusUpdated());
+          _updateAnswerStatusBloc
+              .add(UpdateAnswerStatusEvent.specialAnswerSwitched(
+            questionId: e.questionId,
+          ));
         }
       },
-      // H_5 切換唯讀模式
+      // H_ 切換唯讀模式
       readOnlyToggled: (e) async* {
+        logger('Event').i('AnswerBloc: readOnlyToggled');
+
         yield state.copyWith(
           isReadOnly: !state.isReadOnly,
         );
@@ -128,11 +97,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
   @override
   Map<String, dynamic>? toJson(AnswerState state) {
     // try {
-    if (state.answerMap.isNotEmpty()) {
-      return AnswerStateDto.fromDomain(state).toJson();
-    } else {
-      return null;
-    }
+    return AnswerStateDto.fromDomain(state).toJson();
     // } catch (_) {
     //   return null;
     // }

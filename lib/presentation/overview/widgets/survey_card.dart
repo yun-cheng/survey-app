@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
-import '../../../application/survey/survey/survey_bloc.dart';
+import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../../domain/core/navigation_page.dart';
 import '../../../domain/overview/survey.dart';
 import '../../core/constants.dart';
@@ -32,8 +32,8 @@ class SurveyCard extends StatelessWidget {
               .read<RespondentBloc>()
               .add(RespondentEvent.surveySelected(survey: survey));
           context
-              .read<SurveyBloc>()
-              .add(SurveyEvent.surveySelected(survey: survey));
+              .read<WatchSurveyBloc>()
+              .add(WatchSurveyEvent.surveySelected(survey: survey));
           context
               .read<ResponseBloc>()
               .add(ResponseEvent.surveySelected(survey: survey));
@@ -51,12 +51,13 @@ class SurveyCard extends StatelessWidget {
             children: <Widget>[
               Text(
                 survey.projectId.getOrCrash(),
-                style: kCardTextStyle,
+                style: kCardH4TextStyle,
               ),
               Text(
                 survey.name.getOrCrash(),
-                style: kCardTextStyle,
+                style: kCardH2TextStyle,
               ),
+              // AudioRecorderIndicator(),
             ],
           ),
         ),

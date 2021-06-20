@@ -4,64 +4,59 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/survey/choice.dart';
-import '../../../domain/survey/question.dart';
+import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import 'note_box.dart';
 
 class ChoicesBox extends StatelessWidget {
-  final Question question;
+  final QuestionId questionId;
+  final QuestionType questionType;
 
   const ChoicesBox({
     Key? key,
-    required this.question,
+    required this.questionId,
+    required this.questionType,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AnswerBloc, AnswerState>(
-      // NOTE 答案有變更時才要 rebuild
-      buildWhen: (p, c) =>
-          p.answerMap[question.id] != c.answerMap[question.id] ||
-          p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
-          p.answerMap[question.upperQuestionId] !=
-              c.answerMap[question.upperQuestionId] ||
-          p.isReadOnly != c.isReadOnly,
+    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
+      // NOTE 1.在該題選項有變更時 rebuild
+      buildWhen: (p, c) {
+        if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
+          // S_ 該題作答有變更時
+          if (c.questionId == questionId &&
+              p.answerMap[questionId] != c.answerMap[questionId]) {
+            return true;
+          }
+
+          // S_ 該題選項有變更時
+          if (p.pageQuestionList
+                  .firstOrNull((q) => q.id == questionId)
+                  ?.choiceList !=
+              c.pageQuestionList
+                  .firstOrNull((q) => q.id == questionId)
+                  ?.choiceList) {
+            return true;
+          }
+        }
+        return false;
+      },
       builder: (context, state) {
-        final answerMap =
-            state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
-        final answerStatusMap = state.isRecodeModule
-            ? state.mainAnswerStatusMap
-            : state.answerStatusMap;
+        final thisAnswer = state.answerMap[questionId] ?? Answer.empty();
 
-        final thisAnswer = answerMap[question.id]!;
-        final isSpecialAnswer = answerStatusMap[question.id]!.isSpecialAnswer;
-        KtList<Choice> thisChoiceList = question.choiceList;
+        final isSpecialAnswer =
+            state.answerStatusMap[questionId]!.isSpecialAnswer;
 
-        // H_ 如果是連鎖題下層要篩選選項
-        if (question.upperQuestionId.isNotEmpty && !isSpecialAnswer) {
-          final upperAnswer = state.answerMap[question.upperQuestionId];
-          thisChoiceList = question.choiceList.filter(
-              (choice) => choice.upperChoiceId == upperAnswer!.value?.id);
-        }
+        final choiceList =
+            state.pageQuestionList.first((q) => q.id == questionId).choiceList;
+        final size = choiceList.size;
 
-        // H_ 篩是否為特殊作答的題目
-        thisChoiceList = thisChoiceList
-            .filter((choice) => choice.isSpecialAnswer == isSpecialAnswer);
-
-        // H_ 如果是唯讀，只保留選擇的選項
-        if (state.isReadOnly || state.isRecodeModule) {
-          thisChoiceList = thisChoiceList
-              .filter((choice) => thisAnswer.contains(choice.simple()));
-        }
-
-        final size = thisChoiceList.size;
-
-        LoggerService.simple.i('AnswerBox rebuild!!!');
-
-        return StaggeredGridView.countBuilder(
+        final returnWidget = StaggeredGridView.countBuilder(
           physics: const NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
           shrinkWrap: true,
@@ -71,9 +66,9 @@ class ChoicesBox extends StatelessWidget {
           itemBuilder: (context, int index) {
             final int newIndex =
                 index.isEven ? index ~/ 2 : (index + size) ~/ 2;
-            final choice = thisChoiceList[size < 4 ? index : newIndex];
+            final choice = choiceList[size < 4 ? index : newIndex];
 
-            if ((question.type == QuestionType.single()) ||
+            if ((questionType == QuestionType.single()) ||
                 choice.asSingle ||
                 isSpecialAnswer) {
               return RadioListTile(
@@ -87,7 +82,7 @@ class ChoicesBox extends StatelessWidget {
                     if (choice.asNote &&
                         thisAnswer.contains(choice.simple())) ...[
                       NoteBox(
-                        question: question,
+                        questionId: questionId,
                         choice: choice,
                         note: thisAnswer.noteMap!.getOrDefault(choice.id, '')!,
                       ),
@@ -95,11 +90,11 @@ class ChoicesBox extends StatelessWidget {
                   ],
                 ),
                 value: choice.id,
-                groupValue: thisAnswer.value?.id,
+                groupValue: thisAnswer.groupValue,
                 onChanged: (_) {
                   context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
-                          question: question,
+                          questionId: questionId,
                           body: choice,
                           isSpecialAnswer: isSpecialAnswer,
                         ),
@@ -107,7 +102,7 @@ class ChoicesBox extends StatelessWidget {
                 },
               );
             } else if ([QuestionType.multiple(), QuestionType.popupMultiple()]
-                .contains(question.type)) {
+                .contains(questionType)) {
               return CheckboxListTile(
                 controlAffinity: ListTileControlAffinity.leading,
                 title: Column(
@@ -120,7 +115,7 @@ class ChoicesBox extends StatelessWidget {
                     if (choice.asNote &&
                         thisAnswer.contains(choice.simple())) ...[
                       NoteBox(
-                        question: question,
+                        questionId: questionId,
                         choice: choice,
                         note: thisAnswer.noteMap!.getOrDefault(choice.id, '')!,
                       ),
@@ -131,7 +126,7 @@ class ChoicesBox extends StatelessWidget {
                 onChanged: (_) {
                   context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
-                          question: question,
+                          questionId: questionId,
                           body: choice,
                           toggle: true,
                         ),
@@ -142,6 +137,11 @@ class ChoicesBox extends StatelessWidget {
             return Container();
           },
         );
+
+        // context.read<AnswerBloc>().add(const AnswerEvent.widgetRebuilt());
+        logger('Build').i('ChoicesBox');
+
+        return returnWidget;
       },
     );
   }

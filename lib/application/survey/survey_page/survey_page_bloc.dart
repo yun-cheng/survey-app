@@ -1,23 +1,14 @@
 import 'dart:async';
 
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../../domain/auth/value_objects.dart';
 import '../../../domain/core/load_state.dart';
-import '../../../domain/overview/value_objects.dart';
-import '../../../domain/respondent/respondent.dart';
+import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
-import '../../../domain/survey/i_survey_repository.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/reference.dart';
-import '../../../domain/survey/response.dart';
-import '../../../domain/survey/simple_survey_page_state.dart';
-import '../../../domain/survey/survey_failure.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
 import '../../../infrastructure/survey/survey_page_state_dtos.dart';
@@ -26,306 +17,84 @@ part 'survey_page_bloc.freezed.dart';
 part 'survey_page_event.dart';
 part 'survey_page_state.dart';
 
-@injectable
 class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
-  final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, KtList<Reference>>>?
-      _referenceListSubscription;
+  SurveyPageBloc() : super(SurveyPageState.initial()) {
+    add(const SurveyPageEvent.stateLoadInProgress());
+  }
 
-  SurveyPageBloc(this._surveyRepository) : super(SurveyPageState.initial());
   @override
   Stream<SurveyPageState> mapEventToState(
     SurveyPageEvent event,
   ) async* {
     yield* event.map(
-      // H_1 監聽 ReferenceList
-      watchReferenceListStarted: (e) async* {
-        yield state.copyWith(
-          referenceListState: const LoadState.inProgress(),
-          surveyFailure: none(),
-        );
-        await _referenceListSubscription?.cancel();
-        _referenceListSubscription = _surveyRepository
-            .watchReferenceList(
-              teamId: e.teamId,
-              interviewerId: e.interviewerId,
-            )
-            .listen(
-              (failureOrReferenceList) => add(
-                  SurveyPageEvent.referenceListReceived(
-                      failureOrReferenceList)),
-            );
-      },
-      referenceListReceived: (e) async* {
-        yield e.failureOrReferenceList.fold(
-          (f) => state.copyWith(
-            referenceListState: const LoadState.failure(),
-            surveyFailure: some(f),
-          ),
-          (referenceList) => state.copyWith(
-            referenceListState: const LoadState.success(),
-            referenceList: referenceList,
-            surveyFailure: none(),
-          ),
-        );
-      },
-      // H_2 從 response 恢復 state
-      stateRestoring: (e) async* {
-        yield state.copyWith(
-          restoreState: const LoadState.inProgress(),
-        );
-      },
-      stateRestoreSuccess: (e) async* {
-        yield state.copyWith(
-          restoreState: const LoadState.success(),
-        );
-      },
-      stateRestored: (e) async* {
-        yield state.copyWith(
-          page: e.surveyPageState.page,
-          newestPage: e.surveyPageState.newestPage,
-          isLastPage: e.surveyPageState.isLastPage,
-          warning: e.surveyPageState.warning,
-          showWarning: e.surveyPageState.showWarning,
-          loadState: e.surveyPageState.loadState,
-          questionList: e.questionList,
-          answerStatusMap: e.answerStatusMap,
-          isRecodeModule: e.isRecodeModule,
-          mainQuestionList: e.mainQuestionList,
-          respondent: e.respondent,
-          surveyId: e.surveyId,
-          moduleType: e.moduleType,
-        );
+      // H_ answerMap
+      answerMapUpdated: (e) async* {
+        logger('Event').i('SurveyPageEvent: answerMapUpdated');
 
-        // S_ 載入回覆時更新 questionBody
-        add(const SurveyPageEvent.questionBodyUpdated());
-        add(const SurveyPageEvent.stateRestoreSuccess());
-      },
-      // H_3 接收此受訪者其他 module 的 responses
-      respondentResponseListUpdated: (e) async* {
-        yield state.copyWith(
-          respondentResponseList: e.respondentResponseList,
-        );
-        add(const SurveyPageEvent.questionBodyUpdated());
-      },
-      // H_4 接收更新的作答
-      // NOTE 作答有變更時，更新該頁面，並檢查是否有未完成的題目
-      answerChanged: (e) async* {
-        yield state.copyWith(
-          answerMap: e.answerMap,
-          answerStatusMap: e.answerStatusMap,
-          loadState: const LoadState.inProgress(),
-        );
-
-        // S_ 更新 questionList
-        add(const SurveyPageEvent.questionBodyUpdated());
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.current));
-        add(const SurveyPageEvent.checkIsLastPage());
-        add(const SurveyPageEvent.firstWarningUpdated());
-        if (state.page != state.newestPage) {
-          add(const SurveyPageEvent.showWarningUpdated());
-        }
-
-        add(const SurveyPageEvent.stateLoadSuccess());
-      },
-      // H_5 更新 questionBody
-      questionBodyUpdated: (e) async* {
-        final questionList = state.questionList.map(
-          (question) => question.updateBody(
-            referenceList: state.referenceList,
-            responseList: state.respondentResponseList,
-            surveyId: state.surveyId,
-            moduleType: state.moduleType,
-            answerMap: state.answerMap,
-            respondentId: state.respondent.id,
-          ),
-        );
-        final pageQuestionList = questionList.filter((question) =>
-            question.pageNumber == state.page &&
-            !state.answerStatusMap[question.id]!.isHidden);
-        final contentQuestionList = questionList.filter((question) =>
-            !state.answerStatusMap[question.id]!.isHidden &&
-            question.pageNumber.getOrCrash() <= state.newestPage.getOrCrash());
-
-        yield state.copyWith(
-          questionList: questionList,
-          pageQuestionList: pageQuestionList,
-          contentQuestionList: contentQuestionList,
-        );
-      },
-      // H_6 切換頁面相關 events
-      // NOTE 單純更新頁數、該頁題目
-      pageUpdated: (e) async* {
-        Question? firstQuestion;
-        if (e.direction == Direction.current) {
-          firstQuestion = state.questionList.firstOrNull((question) =>
-              question.pageNumber == state.page &&
-              !state.answerStatusMap[question.id]!.isHidden);
-        } else if (e.direction == Direction.next) {
-          firstQuestion = state.questionList.firstOrNull((question) =>
-              question.pageNumber.getOrCrash() > state.page.getOrCrash() &&
-              !state.answerStatusMap[question.id]!.isHidden);
-        } else if (e.direction == Direction.previous) {
-          firstQuestion = state.questionList.lastOrNull((question) =>
-              question.pageNumber.getOrCrash() < state.page.getOrCrash() &&
-              !state.answerStatusMap[question.id]!.isHidden);
-        }
-
-        if (firstQuestion != null) {
-          final newPage = firstQuestion.pageNumber;
-          final newestPage =
-              newPage.getOrCrash() > state.newestPage.getOrCrash()
-                  ? newPage
-                  : state.newestPage;
-          final pageQuestionList = state.questionList.filter((question) =>
-              question.pageNumber == newPage &&
-              !state.answerStatusMap[question.id]!.isHidden);
-          final contentQuestionList = state.questionList.filter((question) =>
-              !state.answerStatusMap[question.id]!.isHidden &&
-              question.pageNumber.getOrCrash() <= newestPage.getOrCrash());
-
-          yield state.copyWith(
-            page: newPage,
-            newestPage: newestPage,
-            pageQuestionList: pageQuestionList,
-            contentQuestionList: contentQuestionList,
-          );
-        }
-      },
-      nextPagePressed: (e) async* {
-        yield state.copyWith(
-          loadState: const LoadState.inProgress(),
-        );
-
-        // H_c1 不是在最新一頁
-        if (state.page != state.newestPage) {
-          add(const SurveyPageEvent.pageUpdated(direction: Direction.next));
-          add(const SurveyPageEvent.checkIsLastPage());
-          add(const SurveyPageEvent.stateLoadSuccess());
-          // H_c2 在最新一頁，沒有 warning
-          // NOTE stateLoadSuccess event 要放在 wentToNewestPage 裡面，才不會提早執行
-        } else if (state.warning.isEmpty) {
-          add(const SurveyPageEvent.wentToNewestPage());
-          // H_c2 在最新一頁，有 warning
-        } else {
-          yield state.copyWith(
-            showWarning: true,
-          );
-          add(const SurveyPageEvent.stateLoadSuccess());
-        }
-      },
-      previousPagePressed: (e) async* {
-        yield state.copyWith(
-          loadState: const LoadState.inProgress(),
-        );
-
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.previous));
-        add(const SurveyPageEvent.checkIsLastPage());
-
-        add(const SurveyPageEvent.stateLoadSuccess());
-      },
-      wentToNewestPage: (e) async* {
-        yield state.copyWith(
-          showWarning: false,
-          loadState: const LoadState.inProgress(),
-        );
-
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.next));
-        add(const SurveyPageEvent.checkIsLastPage());
-        add(const SurveyPageEvent.firstWarningUpdated());
-
-        add(const SurveyPageEvent.stateLoadSuccess());
-      },
-      wentToPage: (e) async* {
-        yield state.copyWith(
-          page: e.page,
-          loadState: const LoadState.inProgress(),
-        );
-
-        add(const SurveyPageEvent.pageUpdated(direction: Direction.current));
-        add(const SurveyPageEvent.checkIsLastPage());
-
-        add(const SurveyPageEvent.stateLoadSuccess());
-      },
-      // H_7 檢查是否是最後一頁
-      checkIsLastPage: (e) async* {
-        Question? firstQuestion;
-
-        // NOTE 篩出第一題不是隱藏的題目
-        firstQuestion = state.questionList.firstOrNull((question) =>
-            question.pageNumber.getOrCrash() > state.page.getOrCrash() &&
-            !state.answerStatusMap[question.id]!.isHidden);
-
-        yield state.copyWith(
-          isLastPage: firstQuestion == null,
-        );
-      },
-      // H_8 warning 相關 events
-      // NOTE 更新第一個作答未完成的 warning
-      firstWarningUpdated: (e) async* {
-        Question? firstQuestion;
-
-        firstQuestion = state.questionList.firstOrNull(
-            (question) => !state.answerStatusMap[question.id]!.isCompleted);
-
-        // NOTE 有未完成的題目
-        if (firstQuestion != null &&
-            firstQuestion.pageNumber.getOrCrash() <=
-                state.newestPage.getOrCrash()) {
-          yield state.copyWith(
-            warning: state.answerStatusMap[firstQuestion.id]!
-                .toWarning(firstQuestion),
-          );
-        } else {
-          yield state.copyWith(
-            warning: Warning.empty(),
-          );
-        }
-      },
-      showWarningUpdated: (e) async* {
-        // NOTE 若不在最新一頁，
-        if (state.page != state.newestPage) {
-          // NOTE 則顯示除了最新一頁以外的 warning
-          if (!state.warning.isEmpty &&
-              state.warning.pageNumber != state.newestPage) {
-            yield state.copyWith(
-              showWarning: true,
-            );
-          } else {
-            yield state.copyWith(
-              showWarning: false,
-            );
-          }
-        }
-      },
-      // H_9 使用者點擊完成問卷
-      finishedButtonPressed: (e) async* {
-        yield state.copyWith(
-          showWarning: !state.warning.isEmpty,
-        );
-      },
-      // H_10 state 更新成功
-      stateLoadSuccess: (e) async* {
+        add(const SurveyPageEvent.stateLoadInProgress());
         yield state.copyWith(
           loadState: const LoadState.success(),
+          rebuildState: const LoadState.inProgress(),
+          answerMap: e.answerMap,
+          questionId: e.questionId,
         );
       },
-      // H_11 清除 referenceList 以外的 state
-      stateCleared: (e) async* {
-        // NOTE 不要清除 referenceList 相關 state
-        yield SurveyPageState.initial().copyWith(
-          referenceList: state.referenceList,
-          referenceListState: state.referenceListState,
-          surveyFailure: state.surveyFailure,
+      // H_ answerStatusMap
+      answerStatusMapUpdated: (e) async* {
+        logger('Event').i('SurveyPageEvent: answerStatusMapUpdated');
+
+        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.success(),
+          answerStatusMap: e.answerStatusMap,
         );
+      },
+      // H_ page
+      pageUpdated: (e) async* {
+        logger('Event').i('SurveyPageEvent: pageUpdated');
+
+        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.success(),
+          page: e.page,
+          pageQuestionList: e.pageQuestionList,
+          isLastPage: e.isLastPage,
+        );
+      },
+      // H_ contentQuestionList
+      contentQuestionListUpdated: (e) async* {
+        logger('Event').i('SurveyPageEvent: contentQuestionListUpdated');
+
+        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.success(),
+          contentQuestionList: e.contentQuestionList,
+        );
+      },
+      // H_ warning
+      warningUpdated: (e) async* {
+        logger('Event').i('SurveyPageEvent: warningUpdated');
+
+        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.success(),
+          warning: e.warning,
+          showWarning: e.showWarning,
+        );
+      },
+      stateLoadInProgress: (e) async* {
+        logger('InProgress').i('SurveyPageEvent: stateLoadInProgress');
+
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
+      },
+      stateCleared: (e) async* {
+        logger('Event').i('SurveyPageEvent: stateCleared');
+
+        yield SurveyPageState.initial();
       },
     );
-  }
-
-  @override
-  Future<void> close() {
-    _referenceListSubscription?.cancel();
-    return super.close();
   }
 
   @override
@@ -333,6 +102,7 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
     try {
       return SurveyPageStateDto.fromJson(json).toDomain();
     } catch (_) {
+      logger('Error', 3).e('SurveyPageBloc: fromJson');
       return null;
     }
   }
@@ -340,7 +110,11 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
   @override
   Map<String, dynamic>? toJson(SurveyPageState state) {
     // try {
-    return SurveyPageStateDto.fromDomain(state).toJson();
+    if (state.loadState is LoadSuccess) {
+      return SurveyPageStateDto.fromDomain(state).toJson();
+    } else {
+      return null;
+    }
     // } catch (_) {
     //   return null;
     // }

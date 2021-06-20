@@ -2,22 +2,15 @@ part of 'answer_bloc.dart';
 
 @freezed
 class AnswerEvent with _$AnswerEvent {
-  // H_1 從 response 恢復 answerState
-  const factory AnswerEvent.answerRestored({
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+  // H_ 要開始問卷時載入模組
+  const factory AnswerEvent.moduleLoaded({
     required KtList<Question> questionList,
-    required KtMap<QuestionId, Answer> mainAnswerMap,
-    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
     required bool isRecodeModule,
-  }) = _AnswerRestored;
+  }) = _ModuleLoaded;
 
-  // H_2 重整 answerStatus
-  const factory AnswerEvent.answerStatusUpdated() = _AnswerStatusUpdated;
-
-  // H_3 變更作答
+  // H_ 變更某題作答
   const factory AnswerEvent.answerChanged({
-    required Question question,
+    required QuestionId questionId,
     required dynamic body,
     required bool isNote,
     required bool isSpecialAnswer,
@@ -27,7 +20,7 @@ class AnswerEvent with _$AnswerEvent {
   }) = _AnswerChanged;
 
   factory AnswerEvent.answerChangedWith({
-    required Question question,
+    required QuestionId questionId,
     required dynamic body,
     bool isSpecialAnswer = false,
     bool isNote = false,
@@ -36,7 +29,7 @@ class AnswerEvent with _$AnswerEvent {
     bool isRecode = false,
   }) =>
       _AnswerChanged(
-        question: question,
+        questionId: questionId,
         body: body,
         isSpecialAnswer: isSpecialAnswer,
         isNote: isNote,
@@ -45,11 +38,11 @@ class AnswerEvent with _$AnswerEvent {
         isRecode: isRecode,
       );
 
-  // H_4 切換特殊作答
+  // H_ 切換特殊作答
   const factory AnswerEvent.specialAnswerSwitched({
-    required Question question,
+    required QuestionId questionId,
   }) = _SpecialAnswerSwitched;
 
-  // H_5 切換唯讀模式
+  // H_ 切換唯讀模式
   const factory AnswerEvent.readOnlyToggled() = _ReadOnlyToggled;
 }

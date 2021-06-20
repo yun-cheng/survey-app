@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'themes.dart';
 
 const kDarkestColor = Color(0xff007066);
 const kWarningButtonColor = Color(0xffF5BB00);
@@ -31,11 +32,11 @@ final kVisitHistoryStyle = ButtonStyle(
   foregroundColor: MaterialStateProperty.all<Color>(kCardTextColor),
 );
 
-const kH1FontSize = 32.0;
-const kH2FontSize = 28.0;
-const kH3FontSize = 24.0;
-const kH4FontSize = 20.0;
-const kPFontSize = 18.0;
+const kH1FontSize = 24.0;
+const kH2FontSize = 22.0;
+const kH3FontSize = 20.0; // 正常標題
+const kH4FontSize = 18.0;
+const kPFontSize = 16.0;
 
 const kH1TextStyle = TextStyle(
   fontSize: kH1FontSize,
@@ -53,12 +54,38 @@ const kPTextStyle = TextStyle(
   fontSize: kPFontSize,
 );
 
-const kCardTextStyle = TextStyle(
+const kCardH1TextStyle = TextStyle(
   fontSize: kH1FontSize,
+  color: kCardTextColor,
+);
+
+const kCardH2TextStyle = TextStyle(
+  fontSize: kH2FontSize,
+  color: kCardTextColor,
+);
+
+const kCardH3TextStyle = TextStyle(
+  fontSize: kH3FontSize,
+  color: kCardTextColor,
+);
+
+const kCardH4TextStyle = TextStyle(
+  fontSize: kH4FontSize,
   color: kCardTextColor,
 );
 
 const kRoundedButtonTextStyle = TextStyle(
   fontSize: kH3FontSize,
+  color: Colors.white,
+);
+
+const kPageControlButtonHeight = 50.0;
+const kPageControlButtonWidth = 80.0;
+
+const kCardMaxWith = BoxConstraints(maxWidth: 730.0);
+
+const kAppBarTextStyle = TextStyle(
+  fontSize: kH3FontSize,
+  fontWeight: FontWeight.w500,
   color: Colors.white,
 );

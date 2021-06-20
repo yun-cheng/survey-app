@@ -3,53 +3,43 @@ part of 'survey_page_bloc.dart';
 @freezed
 class SurveyPageState with _$SurveyPageState {
   const factory SurveyPageState({
-    // H_
+    // H_ page
     required PageNumber page,
     required PageNumber newestPage,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
     required bool isLastPage,
+    // H_ warning
     required Warning warning,
     required bool showWarning,
-    required bool isRecodeModule,
-    required LoadState loadState,
-    required LoadState restoreState,
-    // H_ reference
-    required LoadState referenceListState,
-    required KtList<Reference> referenceList,
-    required Option<SurveyFailure> surveyFailure,
-    required Respondent respondent,
+    // H_ answer
     required KtMap<QuestionId, Answer> answerMap,
-    required KtList<Response> respondentResponseList,
-    required SurveyId surveyId,
-    required ModuleType moduleType,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required QuestionId questionId,
     // H_ questionList
-    required KtList<Question> questionList,
     required KtList<Question> pageQuestionList,
     required KtList<Question> contentQuestionList,
-    required KtList<Question> mainQuestionList,
+    // H_ state
+    required LoadState loadState,
+    required LoadState rebuildState,
+    required bool isRecodeModule,
+    required bool isReadOnly,
+    // required LoadState restoreState,
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
-        referenceListState: const LoadState.initial(),
-        referenceList: const KtList<Reference>.empty(),
-        surveyFailure: none(),
-        respondent: Respondent.empty(),
         page: PageNumber(0),
         newestPage: PageNumber(0),
-        questionList: const KtList<Question>.empty(),
-        pageQuestionList: const KtList<Question>.empty(),
-        contentQuestionList: const KtList<Question>.empty(),
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
+        answerMap: const KtMap<QuestionId, Answer>.empty(),
+        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+        questionId: QuestionId.empty(),
+        pageQuestionList: const KtList<Question>.empty(),
+        contentQuestionList: const KtList<Question>.empty(),
         loadState: const LoadState.initial(),
-        restoreState: const LoadState.initial(),
+        rebuildState: const LoadState.initial(),
         isRecodeModule: false,
-        mainQuestionList: const KtList<Question>.empty(),
-        respondentResponseList: const KtList<Response>.empty(),
-        surveyId: SurveyId.empty(),
-        moduleType: ModuleType.empty(),
+        isReadOnly: false,
+        // restoreState: const LoadState.initial(),
       );
 }

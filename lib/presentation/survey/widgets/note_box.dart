@@ -3,16 +3,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/survey/choice.dart';
-import '../../../domain/survey/question.dart';
+import '../../../domain/survey/value_objects.dart';
 
 class NoteBox extends StatelessWidget {
-  final Question question;
+  final QuestionId questionId;
   final Choice choice;
   final String note;
 
   const NoteBox({
     Key? key,
-    required this.question,
+    required this.questionId,
     required this.choice,
     required this.note,
   }) : super(key: key);
@@ -35,7 +35,7 @@ class NoteBox extends StatelessWidget {
         onChanged: (value) {
           context.read<AnswerBloc>().add(
                 AnswerEvent.answerChangedWith(
-                  question: question,
+                  questionId: questionId,
                   body: value,
                   isNote: true,
                   noteOf: choice.id,

@@ -6,34 +6,29 @@ import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
-import '../../../domain/survey/question.dart';
+import '../../../domain/survey/value_objects.dart';
 
 class RecodeBox extends StatelessWidget {
-  final Question question;
+  final QuestionId questionId;
 
   const RecodeBox({
     Key? key,
-    required this.question,
+    required this.questionId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final isReadOnly =
-        context.select((AnswerBloc bloc) => bloc.state.isReadOnly);
-
-    // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
-    final note = context.select((AnswerBloc bloc) => bloc.state.answerMap
-            .getOrDefault(question.id, Answer.empty())!
-            .value as String?) ??
-        '';
-
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-        // HIGHLIGHT 該頁題目有變更，且包含該題時，才要 rebuild，答案變更時則不須 rebuild
-        buildWhen: (p, c) =>
-            c.pageQuestionList.contains(question) &&
-            p.pageQuestionList != c.pageQuestionList,
+        buildWhen: (p, c) => false,
         builder: (context, state) {
-          LoggerService.simple.i('RecodeBox rebuild!!');
+          logger('Build').i('RecodeBox');
+
+          final isReadOnly = state.isReadOnly;
+
+          // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
+          final note = (state.answerMap[questionId] ?? Answer.empty()).value
+                  as String? ??
+              '';
 
           return Padding(
             padding: const EdgeInsets.all(10),
@@ -52,7 +47,7 @@ class RecodeBox extends StatelessWidget {
               onChanged: (value) {
                 context.read<AnswerBloc>().add(
                       AnswerEvent.answerChangedWith(
-                        question: question,
+                        questionId: questionId,
                         body: value,
                         isRecode: true,
                       ),

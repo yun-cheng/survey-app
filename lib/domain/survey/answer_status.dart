@@ -25,6 +25,25 @@ class AnswerStatus with _$AnswerStatus {
         noteMap: const KtMap<ChoiceId, AnswerStatusType>.empty(),
       );
 
+  // H_ 直接改變狀態
+  AnswerStatus setAnswered() => copyWith(
+        type: AnswerStatusType.answered(),
+      );
+
+  AnswerStatus setUnanswered() => copyWith(
+        type: AnswerStatusType.unanswered(),
+      );
+
+  AnswerStatus setHidden() => AnswerStatus.empty().copyWith(
+        type: AnswerStatusType.hidden(),
+      );
+
+  AnswerStatus reset() => AnswerStatus(
+        type: AnswerStatusType.unanswered(),
+        isSpecialAnswer: false,
+        noteMap: const KtMap<ChoiceId, AnswerStatusType>.empty(),
+      );
+
   // H_ 更新狀態
   AnswerStatus update({
     required Answer answer,
@@ -111,8 +130,11 @@ class AnswerStatus with _$AnswerStatus {
     );
   }
 
-  AnswerStatus switchSpecialAnswer() =>
-      copyWith(isSpecialAnswer: !isSpecialAnswer);
+  AnswerStatus switchSpecialAnswer() => AnswerStatus(
+        type: AnswerStatusType.unanswered(),
+        isSpecialAnswer: !isSpecialAnswer,
+        noteMap: const KtMap<ChoiceId, AnswerStatusType>.empty(),
+      );
 
   // H_ 取得狀態
   bool get noteIsAnswered {

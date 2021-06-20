@@ -36,6 +36,7 @@ class ResponseStateDto with _$ResponseStateDto {
     required String responseId,
     required ResponseDto mainResponse,
     required List<ResponseDto> respondentResponseList,
+    required Map<String, dynamic> updateState,
   }) = _ResponseStateDto;
 
   factory ResponseStateDto.fromDomain(ResponseState domain) {
@@ -60,6 +61,7 @@ class ResponseStateDto with _$ResponseStateDto {
       respondentResponseList: domain.respondentResponseList
           .map((e) => ResponseDto.fromDomain(e))
           .asList(),
+      updateState: domain.updateState.toJson(),
     );
   }
 
@@ -81,6 +83,7 @@ class ResponseStateDto with _$ResponseStateDto {
       mainResponse: mainResponse.toDomain(),
       respondentResponseList:
           respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
+      updateState: LoadState.fromJson(updateState),
     );
   }
 

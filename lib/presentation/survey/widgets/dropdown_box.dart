@@ -1,52 +1,59 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/survey/choice.dart';
-import '../../../domain/survey/question.dart';
+import '../../../domain/survey/answer.dart';
+import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 
 class DropdownBox extends StatelessWidget {
-  final Question question;
+  final QuestionId questionId;
 
   const DropdownBox({
     Key? key,
-    required this.question,
+    required this.questionId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AnswerBloc, AnswerState>(
-      // NOTE 答案有變更時才要 rebuild
-      buildWhen: (p, c) =>
-          p.answerMap[question.id] != c.answerMap[question.id] ||
-          p.answerStatusMap[question.id] != c.answerStatusMap[question.id] ||
-          p.answerMap[question.upperQuestionId] !=
-              c.answerMap[question.upperQuestionId] ||
-          p.isReadOnly != c.isReadOnly,
+    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
+      buildWhen: (p, c) {
+        if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
+          // S_ 該題作答有變更時
+          if (c.questionId == questionId &&
+              p.answerMap[questionId] != c.answerMap[questionId]) {
+            return true;
+          }
+
+          // S_ 該題切換特殊作答時
+          if (p.answerStatusMap[questionId]!.isSpecialAnswer !=
+              c.answerStatusMap[questionId]!.isSpecialAnswer) {
+            return true;
+          }
+
+          // S_ 該題選項有變更時
+          if (p.pageQuestionList
+                  .firstOrNull((q) => q.id == questionId)
+                  ?.choiceList !=
+              c.pageQuestionList
+                  .firstOrNull((q) => q.id == questionId)
+                  ?.choiceList) {
+            return true;
+          }
+        }
+        return false;
+      },
       builder: (context, state) {
-        final answerMap =
-            state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
-        final thisAnswer = answerMap[question.id]!;
-        KtList<Choice> thisChoiceList = question.choiceList;
+        final thisAnswer = state.answerMap[questionId] ?? Answer.empty();
 
-        // H_ 如果是連鎖題下層要篩選選項
-        if (question.upperQuestionId.isNotEmpty) {
-          final upperAnswer = answerMap[question.upperQuestionId]!;
-          thisChoiceList = question.choiceList.filter(
-              (choice) => choice.upperChoiceId == upperAnswer.value?.id);
-        }
+        final choiceList =
+            state.pageQuestionList.first((q) => q.id == questionId).choiceList;
 
-        // H_ 如果是唯讀，只保留選擇的選項
-        if (state.isReadOnly || state.isRecodeModule) {
-          thisChoiceList = thisChoiceList
-              .filter((choice) => thisAnswer.contains(choice.simple()));
-        }
-
-        LoggerService.simple.i('DropdownBox rebuild!!!');
+        logger('Build').i('DropdownBox');
 
         return DropdownButton<ChoiceId>(
           value: thisAnswer.value?.id,
@@ -67,7 +74,7 @@ class DropdownBox extends StatelessWidget {
           //       )
           //       .asList();
           // },
-          items: thisChoiceList
+          items: choiceList
               .map(
                 (choice) => DropdownMenuItem(
                   value: choice.id,
@@ -79,8 +86,8 @@ class DropdownBox extends StatelessWidget {
               .asList(),
           onChanged: (ChoiceId? value) => context.read<AnswerBloc>().add(
                 AnswerEvent.answerChangedWith(
-                  question: question,
-                  body: thisChoiceList.first((choice) => choice.id == value),
+                  questionId: questionId,
+                  body: choiceList.first((choice) => choice.id == value),
                   // asSingle: choice.asSingle,
                 ),
               ),

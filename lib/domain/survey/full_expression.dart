@@ -3,7 +3,9 @@ import 'package:expression_language/expression_language.dart'
     as expression_parser;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/expression.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
@@ -35,27 +37,31 @@ class FullExpression with _$FullExpression {
   bool evaluate({
     Answer? answer,
     KtMap<QuestionId, Answer>? answerMap,
+    KtMap<QuestionId, AnswerStatus>? answerStatusMap,
   }) {
     if (isEmpty) {
       return true;
     }
-    // NOTE (((A || B) && C) || D) -> true/false
-    // NOTE A -> (Q1 != 3)
+    // NOTE 目標是將 (((A || B) && C) || D) 轉換成 true/false，
+    //  其中 A、B、C、D 都代表著類似 (Q1 != 3) 的 expression
 
     final newExpressionMap = KtMutableMap<ExpressionId, bool>.empty();
 
-    // H_ 各個 expression 轉成 bool
+    // H_1 各個 expression 轉成 bool
+    // S_c1 validateAnswer 使用
     if (answer != null) {
-      // NOTE validateAnswer 使用
       expressionMap.mapValuesTo(
         newExpressionMap,
-        (entry) => entry.value.evaluate(answer),
+        (entry) => entry.value.evaluate(answer: answer),
       );
+      // S_c2 showQuestion 使用
     } else {
-      // NOTE showQuestion 使用
       expressionMap.mapValuesTo(
         newExpressionMap,
-        (entry) => entry.value.evaluate(answerMap![entry.value.field]!),
+        (entry) => entry.value.evaluate(
+          answer: answerMap![entry.value.field]!,
+          answerStatus: answerStatusMap?[entry.value.field],
+        ),
       );
     }
 
@@ -81,6 +87,7 @@ class FullExpression with _$FullExpression {
 
       return evaluateResult;
     } on Exception {
+      logger('').e('Parsing expression failed!!');
       return false;
     }
   }

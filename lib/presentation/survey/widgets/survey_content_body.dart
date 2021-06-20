@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/constants.dart';
@@ -10,13 +10,14 @@ import '../../core/constants.dart';
 class SurveyContentBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
+    return BlocBuilder<UpdateSurveyPageBloc, UpdateSurveyPageState>(
       // NOTE 回復 response 或該頁題目有變更時才需要 rebuild
       buildWhen: (p, c) =>
           (p.restoreState != c.restoreState && c.restoreState is LoadSuccess) ||
           p.contentQuestionList != c.contentQuestionList,
       builder: (context, state) {
-        LoggerService.simple.i('SurveyContentBody rebuild!!!');
+        logger('Build').i('SurveyContentBody');
+
         return ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
@@ -61,8 +62,8 @@ class SurveyContentBody extends StatelessWidget {
                   softWrap: false,
                 ),
                 onTap: () {
-                  context.read<SurveyPageBloc>().add(
-                        SurveyPageEvent.wentToPage(question.pageNumber),
+                  context.read<UpdateSurveyPageBloc>().add(
+                        UpdateSurveyPageEvent.wentToPage(question.pageNumber),
                       );
                   context.router.pop();
                 },

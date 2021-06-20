@@ -24,10 +24,11 @@ class VisitHistory extends StatelessWidget {
     return BlocBuilder<RespondentBloc, RespondentState>(
       buildWhen: (p, c) => p.visitRecordsMap != c.visitRecordsMap,
       builder: (context, state) {
-        LoggerService.simple.i('VisitHistory Rebuild!!');
+        logger('Build').i('VisitHistory');
 
         final visitRecords = state.visitRecordsMap[respondent.id];
         return ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(horizontal: 15),
           itemBuilder: (context, index) {
@@ -55,12 +56,15 @@ class VisitHistory extends StatelessWidget {
                   '/respondent/${respondent.id.getOrCrash()}',
                 );
               },
-              child: Text(
-                '${record.visitTime.toTimeString()}  ${record.description}',
-                style: kH3TextStyle,
-                maxLines: 1,
-                overflow: TextOverflow.fade,
-                softWrap: false,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  '${record.visitTime.toTimeString()}  ${record.description}',
+                  style: kPTextStyle,
+                  maxLines: 1,
+                  overflow: TextOverflow.fade,
+                  softWrap: false,
+                ),
               ),
             );
           },

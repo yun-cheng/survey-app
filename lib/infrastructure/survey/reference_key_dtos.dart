@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import '../../domain/overview/value_objects.dart';
 import '../../domain/survey/reference_key.dart';
-
 import '../../domain/survey/value_objects.dart';
 
 part 'reference_key_dtos.freezed.dart';

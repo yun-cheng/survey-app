@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import 'answer.dart';
+import 'answer_status.dart';
 import 'value_objects.dart';
 
 part 'expression.freezed.dart';
@@ -16,8 +17,12 @@ class Expression with _$Expression {
     required Answer comparisonValue,
   }) = _Expression;
 
-  bool evaluate(Answer answer) {
-    if (answer.valueIsFinished) {
+  bool evaluate({
+    required Answer answer,
+    AnswerStatus? answerStatus,
+  }) {
+    if (answer.valueIsFinished &&
+        (answerStatus == null || answerStatus.type.isAnswered)) {
       final answerComparableValue = answer.toComparableValue();
       final comparisonComparableValue = comparisonValue.toComparableValue();
 

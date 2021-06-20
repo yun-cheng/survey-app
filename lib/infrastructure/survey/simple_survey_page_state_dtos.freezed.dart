@@ -26,15 +26,13 @@ class _$SimpleSurveyPageStateDtoTearOff {
       required int newestPage,
       required bool isLastPage,
       required WarningDto warning,
-      required bool showWarning,
-      required Map<String, dynamic> loadState}) {
+      required bool showWarning}) {
     return _SimpleSurveyPageStateDto(
       page: page,
       newestPage: newestPage,
       isLastPage: isLastPage,
       warning: warning,
       showWarning: showWarning,
-      loadState: loadState,
     );
   }
 
@@ -53,7 +51,6 @@ mixin _$SimpleSurveyPageStateDto {
   bool get isLastPage => throw _privateConstructorUsedError;
   WarningDto get warning => throw _privateConstructorUsedError;
   bool get showWarning => throw _privateConstructorUsedError;
-  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -71,8 +68,7 @@ abstract class $SimpleSurveyPageStateDtoCopyWith<$Res> {
       int newestPage,
       bool isLastPage,
       WarningDto warning,
-      bool showWarning,
-      Map<String, dynamic> loadState});
+      bool showWarning});
 
   $WarningDtoCopyWith<$Res> get warning;
 }
@@ -93,7 +89,6 @@ class _$SimpleSurveyPageStateDtoCopyWithImpl<$Res>
     Object? isLastPage = freezed,
     Object? warning = freezed,
     Object? showWarning = freezed,
-    Object? loadState = freezed,
   }) {
     return _then(_value.copyWith(
       page: page == freezed
@@ -116,10 +111,6 @@ class _$SimpleSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.showWarning
           : showWarning // ignore: cast_nullable_to_non_nullable
               as bool,
-      loadState: loadState == freezed
-          ? _value.loadState
-          : loadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
     ));
   }
 
@@ -143,8 +134,7 @@ abstract class _$SimpleSurveyPageStateDtoCopyWith<$Res>
       int newestPage,
       bool isLastPage,
       WarningDto warning,
-      bool showWarning,
-      Map<String, dynamic> loadState});
+      bool showWarning});
 
   @override
   $WarningDtoCopyWith<$Res> get warning;
@@ -169,7 +159,6 @@ class __$SimpleSurveyPageStateDtoCopyWithImpl<$Res>
     Object? isLastPage = freezed,
     Object? warning = freezed,
     Object? showWarning = freezed,
-    Object? loadState = freezed,
   }) {
     return _then(_SimpleSurveyPageStateDto(
       page: page == freezed
@@ -192,10 +181,6 @@ class __$SimpleSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.showWarning
           : showWarning // ignore: cast_nullable_to_non_nullable
               as bool,
-      loadState: loadState == freezed
-          ? _value.loadState
-          : loadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
     ));
   }
 }
@@ -208,8 +193,7 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
       required this.newestPage,
       required this.isLastPage,
       required this.warning,
-      required this.showWarning,
-      required this.loadState})
+      required this.showWarning})
       : super._();
 
   factory _$_SimpleSurveyPageStateDto.fromJson(Map<String, dynamic> json) =>
@@ -225,12 +209,10 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
   final WarningDto warning;
   @override
   final bool showWarning;
-  @override
-  final Map<String, dynamic> loadState;
 
   @override
   String toString() {
-    return 'SimpleSurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, loadState: $loadState)';
+    return 'SimpleSurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning)';
   }
 
   @override
@@ -250,10 +232,7 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
                     .equals(other.warning, warning)) &&
             (identical(other.showWarning, showWarning) ||
                 const DeepCollectionEquality()
-                    .equals(other.showWarning, showWarning)) &&
-            (identical(other.loadState, loadState) ||
-                const DeepCollectionEquality()
-                    .equals(other.loadState, loadState)));
+                    .equals(other.showWarning, showWarning)));
   }
 
   @override
@@ -263,8 +242,7 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
       const DeepCollectionEquality().hash(newestPage) ^
       const DeepCollectionEquality().hash(isLastPage) ^
       const DeepCollectionEquality().hash(warning) ^
-      const DeepCollectionEquality().hash(showWarning) ^
-      const DeepCollectionEquality().hash(loadState);
+      const DeepCollectionEquality().hash(showWarning);
 
   @JsonKey(ignore: true)
   @override
@@ -284,8 +262,7 @@ abstract class _SimpleSurveyPageStateDto extends SimpleSurveyPageStateDto {
       required int newestPage,
       required bool isLastPage,
       required WarningDto warning,
-      required bool showWarning,
-      required Map<String, dynamic> loadState}) = _$_SimpleSurveyPageStateDto;
+      required bool showWarning}) = _$_SimpleSurveyPageStateDto;
   const _SimpleSurveyPageStateDto._() : super._();
 
   factory _SimpleSurveyPageStateDto.fromJson(Map<String, dynamic> json) =
@@ -301,8 +278,6 @@ abstract class _SimpleSurveyPageStateDto extends SimpleSurveyPageStateDto {
   WarningDto get warning => throw _privateConstructorUsedError;
   @override
   bool get showWarning => throw _privateConstructorUsedError;
-  @override
-  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SimpleSurveyPageStateDtoCopyWith<_SimpleSurveyPageStateDto> get copyWith =>

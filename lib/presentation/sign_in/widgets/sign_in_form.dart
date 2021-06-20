@@ -29,7 +29,7 @@ class SignInForm extends StatelessWidget {
         BlocListener<AuthBloc, AuthState>(
           listenWhen: (p, c) => p.authFailure != c.authFailure,
           listener: (context, state) {
-            LoggerService.simple.i(state.authFailure.toString());
+            logger('Listen').i(state.authFailure.toString());
             // state.authFailure.fold(
             //   () {},
             //   (failure) => failure.maybeMap(
@@ -45,7 +45,7 @@ class SignInForm extends StatelessWidget {
           listenWhen: (p, c) =>
               c.signInState is LoadSuccess && p.signInState != c.signInState,
           listener: (context, state) {
-            LoggerService.simple.i('Push to OverviewPage!!');
+            logger('Listen').i('Push to OverviewPage');
 
             context.pushRoute(const OverviewRoute());
 
@@ -69,14 +69,14 @@ class SignInForm extends StatelessWidget {
               children: <Widget>[
                 const Text(
                   '請選擇單位',
-                  style: kH2TextStyle,
+                  style: kH3TextStyle,
                 ),
                 const SizedBox(height: 24.0),
                 const Teambox(),
                 const SizedBox(height: 24.0),
                 const Text(
                   '登入',
-                  style: kH2TextStyle,
+                  style: kH3TextStyle,
                 ),
                 const SizedBox(height: 24.0),
                 const AccountBox(),

@@ -25,6 +25,13 @@ class _$RespondentStateDtoTearOff {
       required List<RespondentListDto> respondentListList,
       required SurveyDto survey,
       required List<RespondentDto> respondentList,
+      required List<RespondentDto> villageFirstRespondentList,
+      required List<RespondentDto> townFirstRespondentList,
+      required int firstCardIndex,
+      required double firstCardAlignment,
+      required RespondentDto firstRespondent,
+      required bool needToJump,
+      required int jumpToIndex,
       required String selectedRespondentId,
       Map<String, dynamic>? respondentFailure,
       required Map<String, List<VisitRecordDto>> visitRecordsMap}) {
@@ -33,6 +40,13 @@ class _$RespondentStateDtoTearOff {
       respondentListList: respondentListList,
       survey: survey,
       respondentList: respondentList,
+      villageFirstRespondentList: villageFirstRespondentList,
+      townFirstRespondentList: townFirstRespondentList,
+      firstCardIndex: firstCardIndex,
+      firstCardAlignment: firstCardAlignment,
+      firstRespondent: firstRespondent,
+      needToJump: needToJump,
+      jumpToIndex: jumpToIndex,
       selectedRespondentId: selectedRespondentId,
       respondentFailure: respondentFailure,
       visitRecordsMap: visitRecordsMap,
@@ -55,6 +69,15 @@ mixin _$RespondentStateDto {
       throw _privateConstructorUsedError;
   SurveyDto get survey => throw _privateConstructorUsedError;
   List<RespondentDto> get respondentList => throw _privateConstructorUsedError;
+  List<RespondentDto> get villageFirstRespondentList =>
+      throw _privateConstructorUsedError;
+  List<RespondentDto> get townFirstRespondentList =>
+      throw _privateConstructorUsedError;
+  int get firstCardIndex => throw _privateConstructorUsedError;
+  double get firstCardAlignment => throw _privateConstructorUsedError;
+  RespondentDto get firstRespondent => throw _privateConstructorUsedError;
+  bool get needToJump => throw _privateConstructorUsedError;
+  int get jumpToIndex => throw _privateConstructorUsedError;
   String get selectedRespondentId => throw _privateConstructorUsedError;
   Map<String, dynamic>? get respondentFailure =>
       throw _privateConstructorUsedError;
@@ -77,11 +100,19 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
       List<RespondentListDto> respondentListList,
       SurveyDto survey,
       List<RespondentDto> respondentList,
+      List<RespondentDto> villageFirstRespondentList,
+      List<RespondentDto> townFirstRespondentList,
+      int firstCardIndex,
+      double firstCardAlignment,
+      RespondentDto firstRespondent,
+      bool needToJump,
+      int jumpToIndex,
       String selectedRespondentId,
       Map<String, dynamic>? respondentFailure,
       Map<String, List<VisitRecordDto>> visitRecordsMap});
 
   $SurveyDtoCopyWith<$Res> get survey;
+  $RespondentDtoCopyWith<$Res> get firstRespondent;
 }
 
 /// @nodoc
@@ -99,6 +130,13 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
     Object? respondentListList = freezed,
     Object? survey = freezed,
     Object? respondentList = freezed,
+    Object? villageFirstRespondentList = freezed,
+    Object? townFirstRespondentList = freezed,
+    Object? firstCardIndex = freezed,
+    Object? firstCardAlignment = freezed,
+    Object? firstRespondent = freezed,
+    Object? needToJump = freezed,
+    Object? jumpToIndex = freezed,
     Object? selectedRespondentId = freezed,
     Object? respondentFailure = freezed,
     Object? visitRecordsMap = freezed,
@@ -120,6 +158,34 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.respondentList
           : respondentList // ignore: cast_nullable_to_non_nullable
               as List<RespondentDto>,
+      villageFirstRespondentList: villageFirstRespondentList == freezed
+          ? _value.villageFirstRespondentList
+          : villageFirstRespondentList // ignore: cast_nullable_to_non_nullable
+              as List<RespondentDto>,
+      townFirstRespondentList: townFirstRespondentList == freezed
+          ? _value.townFirstRespondentList
+          : townFirstRespondentList // ignore: cast_nullable_to_non_nullable
+              as List<RespondentDto>,
+      firstCardIndex: firstCardIndex == freezed
+          ? _value.firstCardIndex
+          : firstCardIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      firstCardAlignment: firstCardAlignment == freezed
+          ? _value.firstCardAlignment
+          : firstCardAlignment // ignore: cast_nullable_to_non_nullable
+              as double,
+      firstRespondent: firstRespondent == freezed
+          ? _value.firstRespondent
+          : firstRespondent // ignore: cast_nullable_to_non_nullable
+              as RespondentDto,
+      needToJump: needToJump == freezed
+          ? _value.needToJump
+          : needToJump // ignore: cast_nullable_to_non_nullable
+              as bool,
+      jumpToIndex: jumpToIndex == freezed
+          ? _value.jumpToIndex
+          : jumpToIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
           : selectedRespondentId // ignore: cast_nullable_to_non_nullable
@@ -141,6 +207,13 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
       return _then(_value.copyWith(survey: value));
     });
   }
+
+  @override
+  $RespondentDtoCopyWith<$Res> get firstRespondent {
+    return $RespondentDtoCopyWith<$Res>(_value.firstRespondent, (value) {
+      return _then(_value.copyWith(firstRespondent: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -155,12 +228,21 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       List<RespondentListDto> respondentListList,
       SurveyDto survey,
       List<RespondentDto> respondentList,
+      List<RespondentDto> villageFirstRespondentList,
+      List<RespondentDto> townFirstRespondentList,
+      int firstCardIndex,
+      double firstCardAlignment,
+      RespondentDto firstRespondent,
+      bool needToJump,
+      int jumpToIndex,
       String selectedRespondentId,
       Map<String, dynamic>? respondentFailure,
       Map<String, List<VisitRecordDto>> visitRecordsMap});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
+  @override
+  $RespondentDtoCopyWith<$Res> get firstRespondent;
 }
 
 /// @nodoc
@@ -180,6 +262,13 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
     Object? respondentListList = freezed,
     Object? survey = freezed,
     Object? respondentList = freezed,
+    Object? villageFirstRespondentList = freezed,
+    Object? townFirstRespondentList = freezed,
+    Object? firstCardIndex = freezed,
+    Object? firstCardAlignment = freezed,
+    Object? firstRespondent = freezed,
+    Object? needToJump = freezed,
+    Object? jumpToIndex = freezed,
     Object? selectedRespondentId = freezed,
     Object? respondentFailure = freezed,
     Object? visitRecordsMap = freezed,
@@ -201,6 +290,34 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.respondentList
           : respondentList // ignore: cast_nullable_to_non_nullable
               as List<RespondentDto>,
+      villageFirstRespondentList: villageFirstRespondentList == freezed
+          ? _value.villageFirstRespondentList
+          : villageFirstRespondentList // ignore: cast_nullable_to_non_nullable
+              as List<RespondentDto>,
+      townFirstRespondentList: townFirstRespondentList == freezed
+          ? _value.townFirstRespondentList
+          : townFirstRespondentList // ignore: cast_nullable_to_non_nullable
+              as List<RespondentDto>,
+      firstCardIndex: firstCardIndex == freezed
+          ? _value.firstCardIndex
+          : firstCardIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      firstCardAlignment: firstCardAlignment == freezed
+          ? _value.firstCardAlignment
+          : firstCardAlignment // ignore: cast_nullable_to_non_nullable
+              as double,
+      firstRespondent: firstRespondent == freezed
+          ? _value.firstRespondent
+          : firstRespondent // ignore: cast_nullable_to_non_nullable
+              as RespondentDto,
+      needToJump: needToJump == freezed
+          ? _value.needToJump
+          : needToJump // ignore: cast_nullable_to_non_nullable
+              as bool,
+      jumpToIndex: jumpToIndex == freezed
+          ? _value.jumpToIndex
+          : jumpToIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
           : selectedRespondentId // ignore: cast_nullable_to_non_nullable
@@ -225,6 +342,13 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       required this.respondentListList,
       required this.survey,
       required this.respondentList,
+      required this.villageFirstRespondentList,
+      required this.townFirstRespondentList,
+      required this.firstCardIndex,
+      required this.firstCardAlignment,
+      required this.firstRespondent,
+      required this.needToJump,
+      required this.jumpToIndex,
       required this.selectedRespondentId,
       this.respondentFailure,
       required this.visitRecordsMap})
@@ -242,6 +366,20 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   @override
   final List<RespondentDto> respondentList;
   @override
+  final List<RespondentDto> villageFirstRespondentList;
+  @override
+  final List<RespondentDto> townFirstRespondentList;
+  @override
+  final int firstCardIndex;
+  @override
+  final double firstCardAlignment;
+  @override
+  final RespondentDto firstRespondent;
+  @override
+  final bool needToJump;
+  @override
+  final int jumpToIndex;
+  @override
   final String selectedRespondentId;
   @override
   final Map<String, dynamic>? respondentFailure;
@@ -250,15 +388,14 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 
   @override
   String toString() {
-    return 'RespondentStateDto(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure, visitRecordsMap: $visitRecordsMap)';
+    return 'RespondentStateDto(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, villageFirstRespondentList: $villageFirstRespondentList, townFirstRespondentList: $townFirstRespondentList, firstCardIndex: $firstCardIndex, firstCardAlignment: $firstCardAlignment, firstRespondent: $firstRespondent, needToJump: $needToJump, jumpToIndex: $jumpToIndex, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure, visitRecordsMap: $visitRecordsMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RespondentStateDto &&
-            (identical(
-                    other.respondentListListState, respondentListListState) ||
+            (identical(other.respondentListListState, respondentListListState) ||
                 const DeepCollectionEquality().equals(
                     other.respondentListListState, respondentListListState)) &&
             (identical(other.respondentListList, respondentListList) ||
@@ -269,15 +406,34 @@ class _$_RespondentStateDto extends _RespondentStateDto {
             (identical(other.respondentList, respondentList) ||
                 const DeepCollectionEquality()
                     .equals(other.respondentList, respondentList)) &&
+            (identical(other.villageFirstRespondentList, villageFirstRespondentList) ||
+                const DeepCollectionEquality().equals(
+                    other.villageFirstRespondentList,
+                    villageFirstRespondentList)) &&
+            (identical(other.townFirstRespondentList, townFirstRespondentList) ||
+                const DeepCollectionEquality().equals(
+                    other.townFirstRespondentList, townFirstRespondentList)) &&
+            (identical(other.firstCardIndex, firstCardIndex) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstCardIndex, firstCardIndex)) &&
+            (identical(other.firstCardAlignment, firstCardAlignment) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstCardAlignment, firstCardAlignment)) &&
+            (identical(other.firstRespondent, firstRespondent) ||
+                const DeepCollectionEquality()
+                    .equals(other.firstRespondent, firstRespondent)) &&
+            (identical(other.needToJump, needToJump) ||
+                const DeepCollectionEquality()
+                    .equals(other.needToJump, needToJump)) &&
+            (identical(other.jumpToIndex, jumpToIndex) ||
+                const DeepCollectionEquality()
+                    .equals(other.jumpToIndex, jumpToIndex)) &&
             (identical(other.selectedRespondentId, selectedRespondentId) ||
                 const DeepCollectionEquality().equals(
                     other.selectedRespondentId, selectedRespondentId)) &&
             (identical(other.respondentFailure, respondentFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentFailure, respondentFailure)) &&
-            (identical(other.visitRecordsMap, visitRecordsMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.visitRecordsMap, visitRecordsMap)));
+                const DeepCollectionEquality().equals(other.respondentFailure, respondentFailure)) &&
+            (identical(other.visitRecordsMap, visitRecordsMap) || const DeepCollectionEquality().equals(other.visitRecordsMap, visitRecordsMap)));
   }
 
   @override
@@ -287,6 +443,13 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       const DeepCollectionEquality().hash(respondentListList) ^
       const DeepCollectionEquality().hash(survey) ^
       const DeepCollectionEquality().hash(respondentList) ^
+      const DeepCollectionEquality().hash(villageFirstRespondentList) ^
+      const DeepCollectionEquality().hash(townFirstRespondentList) ^
+      const DeepCollectionEquality().hash(firstCardIndex) ^
+      const DeepCollectionEquality().hash(firstCardAlignment) ^
+      const DeepCollectionEquality().hash(firstRespondent) ^
+      const DeepCollectionEquality().hash(needToJump) ^
+      const DeepCollectionEquality().hash(jumpToIndex) ^
       const DeepCollectionEquality().hash(selectedRespondentId) ^
       const DeepCollectionEquality().hash(respondentFailure) ^
       const DeepCollectionEquality().hash(visitRecordsMap);
@@ -308,6 +471,13 @@ abstract class _RespondentStateDto extends RespondentStateDto {
           required List<RespondentListDto> respondentListList,
           required SurveyDto survey,
           required List<RespondentDto> respondentList,
+          required List<RespondentDto> villageFirstRespondentList,
+          required List<RespondentDto> townFirstRespondentList,
+          required int firstCardIndex,
+          required double firstCardAlignment,
+          required RespondentDto firstRespondent,
+          required bool needToJump,
+          required int jumpToIndex,
           required String selectedRespondentId,
           Map<String, dynamic>? respondentFailure,
           required Map<String, List<VisitRecordDto>> visitRecordsMap}) =
@@ -327,6 +497,22 @@ abstract class _RespondentStateDto extends RespondentStateDto {
   SurveyDto get survey => throw _privateConstructorUsedError;
   @override
   List<RespondentDto> get respondentList => throw _privateConstructorUsedError;
+  @override
+  List<RespondentDto> get villageFirstRespondentList =>
+      throw _privateConstructorUsedError;
+  @override
+  List<RespondentDto> get townFirstRespondentList =>
+      throw _privateConstructorUsedError;
+  @override
+  int get firstCardIndex => throw _privateConstructorUsedError;
+  @override
+  double get firstCardAlignment => throw _privateConstructorUsedError;
+  @override
+  RespondentDto get firstRespondent => throw _privateConstructorUsedError;
+  @override
+  bool get needToJump => throw _privateConstructorUsedError;
+  @override
+  int get jumpToIndex => throw _privateConstructorUsedError;
   @override
   String get selectedRespondentId => throw _privateConstructorUsedError;
   @override

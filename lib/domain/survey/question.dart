@@ -1,17 +1,17 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/overview/value_objects.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/response.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../core/failures.dart';
 import '../core/value_objects.dart';
+import '../overview/value_objects.dart';
 import '../respondent/value_objects.dart';
 import 'answer.dart';
 import 'choice.dart';
 import 'formatted_text.dart';
 import 'full_expression.dart';
 import 'reference.dart';
+import 'response.dart';
 import 'value_objects.dart';
 
 part 'question.freezed.dart';

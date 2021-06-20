@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../application/survey/survey/survey_bloc.dart';
+import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/core/load_state.dart';
 import '../../domain/survey/survey_failure.dart';
 import 'survey_list_dtos.dart';
@@ -11,18 +11,18 @@ part 'survey_state_dtos.freezed.dart';
 part 'survey_state_dtos.g.dart';
 
 @freezed
-class SurveyStateDto with _$SurveyStateDto {
-  const SurveyStateDto._();
+class WatchSurveyStateDto with _$WatchSurveyStateDto {
+  const WatchSurveyStateDto._();
 
-  const factory SurveyStateDto({
+  const factory WatchSurveyStateDto({
     required Map<String, dynamic> surveyListState,
     required List<SurveyDto> surveyList,
     required SurveyDto survey,
     Map<String, dynamic>? surveyFailure,
-  }) = _SurveyStateDto;
+  }) = _WatchSurveyStateDto;
 
-  factory SurveyStateDto.fromDomain(SurveyState domain) {
-    return SurveyStateDto(
+  factory WatchSurveyStateDto.fromDomain(WatchSurveyState domain) {
+    return WatchSurveyStateDto(
       surveyListState: domain.surveyListState.toJson(),
       surveyList:
           domain.surveyList.map((e) => SurveyDto.fromDomain(e)).asList(),
@@ -32,8 +32,8 @@ class SurveyStateDto with _$SurveyStateDto {
     );
   }
 
-  SurveyState toDomain() {
-    return SurveyState.initial().copyWith(
+  WatchSurveyState toDomain() {
+    return WatchSurveyState.initial().copyWith(
       surveyListState: LoadState.fromJson(surveyListState),
       surveyList: surveyList.map((dto) => dto.toDomain()).toImmutableList(),
       survey: survey.toDomain(),
@@ -42,6 +42,6 @@ class SurveyStateDto with _$SurveyStateDto {
     );
   }
 
-  factory SurveyStateDto.fromJson(Map<String, dynamic> json) =>
-      _$SurveyStateDtoFromJson(json);
+  factory WatchSurveyStateDto.fromJson(Map<String, dynamic> json) =>
+      _$WatchSurveyStateDtoFromJson(json);
 }

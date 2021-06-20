@@ -1,13 +1,16 @@
 import 'dart:async';
 
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../../domain/auth/interviewer.dart';
 import '../../../domain/auth/value_objects.dart';
 import '../../../domain/core/load_state.dart';
+import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/overview/survey.dart';
 import '../../../domain/respondent/respondent.dart';
@@ -19,17 +22,25 @@ import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../../infrastructure/core/load_balancer.dart';
 import '../../../infrastructure/survey/response_state_dtos.dart';
 
 part 'response_bloc.freezed.dart';
+part 'response_compute.dart';
 part 'response_event.dart';
 part 'response_state.dart';
 
+@injectable
 class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
+  final MyLoadBalancer _loadBalancer;
   final ISurveyRepository _surveyRepository;
   StreamSubscription<Either<SurveyFailure, KtList<Response>>>?
       _responseListSubscription;
+  Timer? _activeTimer;
+  Timer? _inactiveTimer;
+
   ResponseBloc(
+    this._loadBalancer,
     this._surveyRepository,
   ) : super(ResponseState.initial());
 
@@ -38,256 +49,141 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
     ResponseEvent event,
   ) async* {
     yield* event.map(
-        // H_1 開始監聽 responseList
-        watchResponseListStarted: (e) async* {
-      yield state.copyWith(
-        interviewer: e.interviewer,
-        responseListState: const LoadState.inProgress(),
-        responseFailure: none(),
-      );
-      await _responseListSubscription?.cancel();
-      _responseListSubscription = _surveyRepository
-          .watchResponseList(
-            teamId: e.teamId,
-            interviewerId: e.interviewer.id,
-          )
-          .listen(
-            (failureOrResponseList) =>
-                add(ResponseEvent.responseListReceived(failureOrResponseList)),
-          );
-    },
-        // H_2 接收到 responseList
-        responseListReceived: (e) async* {
-      yield e.failureOrResponseList.fold(
-        (f) => state.copyWith(
-          responseListState: const LoadState.failure(),
-          responseFailure: some(f),
-        ),
-        (responseList) => state.copyWith(
-          responseListState: const LoadState.success(),
-          downloadedResponseList: responseList,
+      // H_ 監聽 responseList
+      watchResponseListStarted: (e) async* {
+        logger('Watch').i('ResponseBloc: watchResponseListStarted');
+
+        yield state.copyWith(
+          interviewer: e.interviewer,
+          responseListState: const LoadState.inProgress(),
           responseFailure: none(),
-        ),
-      );
-
-      add(const ResponseEvent.responseListSynced());
-    },
-        // H_3 同步 responseList
-        responseListSynced: (e) async* {
-      // S_ 合併剛下載的 responseList 與當前的 responseList
-      //  如果同 responseId，則保留 lastChangedTimeStamp 較晚者
-      KtList<Response> newList =
-          state.responseList.plus(state.downloadedResponseList);
-
-      newList = newList
-          .groupBy((r) => r.responseId)
-          .mapValues(
-            (r) => r.value
-                .sortedByDescending((r) => r.lastChangedTimeStamp.toInt())
-                .getOrNull(0),
-          )
-          .toList()
-          .map((p) => p.second!)
-          .toList();
-
-      if (newList.isNotEmpty()) {
-        final failureOrSuccess = await _surveyRepository.uploadResponseList(
-          responseList: newList,
         );
-
-        // S_ 存回 responseList
-        yield state.copyWith(
-          responseList: newList,
-        );
-      }
-    },
-        // H_4 使用者選擇問卷
-        surveySelected: (e) async* {
-      yield state.copyWith(
-        survey: e.survey,
-      );
-    },
-        // H_5 使用者選擇要開始進行的問卷模組
-        responseStarted: (e) async* {
-      yield state.copyWith(
-        respondent: e.respondent,
-        moduleType: e.moduleType,
-        responseId: e.responseId,
-        withResponseId: e.withResponseId,
-      );
-
-      add(const ResponseEvent.responseRestored());
-      add(const ResponseEvent.respondentResponseListUpdated());
-    },
-        // H_6 從 responseList 回復要進行的 response
-        responseRestored: (e) async* {
-      yield state.copyWith(
-        responseRestoreState: const LoadState.inProgress(),
-      );
-
-      // S_1 篩出 response
-      Response? response;
-      // S_1-c1 如果有 responseId 則直接篩出來
-      if (state.withResponseId) {
-        response = state.responseList
-            .firstOrNull((r) => r.responseId == state.responseId);
-      } else if (state.moduleType != ModuleType.visitReport()) {
-        // S_1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
-        final lastResponse = state.responseList
-            .filter(
-              (r) =>
-                  r.respondentId == state.respondent.id &&
-                  r.surveyId == state.survey.id &&
-                  r.moduleType == state.moduleType,
+        await _responseListSubscription?.cancel();
+        _responseListSubscription = _surveyRepository
+            .watchResponseList(
+              teamId: e.teamId,
+              interviewerId: e.interviewer.id,
             )
-            .sortedByDescending(
-              (r) => r.lastChangedTimeStamp.toInt(),
-            )
-            .firstOrNull();
-
-        // S_1-c2-2 若最近一筆在 answering，則回復該 response
-        if (lastResponse != null &&
-            lastResponse.responseStatus == ResponseStatus.answering()) {
-          response = lastResponse;
-        }
-      }
-
-      // S_2 若無篩出，則新創一個 response
-      final module = state.survey.module.get(state.moduleType)!;
-      response ??= Response.empty().copyWith(
-        teamId: state.survey.teamId,
-        projectId: state.survey.projectId,
-        surveyId: state.survey.id,
-        moduleType: state.moduleType,
-        respondentId: state.respondent.id,
-        interviewerId: state.interviewer.id,
-        // TODO deviceId
-        answerMap: module.answerMap,
-        answerStatusMap: module.answerStatusMap,
-      );
-
-      // S_3 無論是否是新的 response，都要產生新的 responseId、tempResponseId
-      final now = DeviceTimeStamp.now();
-      response = response.copyWith(
-        responseId: UniqueId(),
-        tempResponseId: UniqueId(),
-        editFinished: false,
-        sessionStartTimeStamp: now,
-        sessionEndTimeStamp: now,
-        lastChangedTimeStamp: now,
-      );
-
-      // S_4 如果是預過錄，則需要 mainResponse
-      Response? mainResponse;
-      if (state.moduleType == ModuleType.recode()) {
-        final mainResponseList = state.responseList
-            .filter(
-              (r) =>
-                  r.respondentId == state.respondent.id &&
-                  r.surveyId == state.survey.id &&
-                  r.moduleType == ModuleType.main(),
-            )
-            .sortedByDescending(
-              (r) => r.lastChangedTimeStamp.toInt(),
+            .listen(
+              (failureOrResponseList) => add(
+                  ResponseEvent.responseListReceived(failureOrResponseList)),
             );
+      },
+      // H_2 接收到 responseList
+      responseListReceived: (e) async* {
+        logger('Receive').i('ResponseBloc: responseListReceived');
 
-        mainResponse = mainResponseList.firstOrNull();
-      }
-      mainResponse ??= Response.empty();
-
-      yield state.copyWith(
-        response: response,
-        questionList: module.questionList,
-        responseRestoreState: const LoadState.success(),
-        withResponseId: false,
-        mainResponse: mainResponse,
-      );
-    },
-        // H_7 接收更新的作答
-        // NOTE 每次更新作答會觸發兩次 responseUpdated，一次是更新 answerMap、answerStatusMap，
-        //  另一次是更新 surveyPageState
-        responseUpdated: (e) async* {
-      // S_1 newResponse
-      final newResponse = state.response.copyWith(
-        tempResponseId: UniqueId(),
-        lastChangedTimeStamp: DeviceTimeStamp.now(),
-        answerMap: e.answerMap ?? state.response.answerMap,
-        answerStatusMap: e.answerStatusMap ?? state.response.answerStatusMap,
-        surveyPageState: e.surveyPageState ?? state.response.surveyPageState,
-      );
-
-      // S_2 在 surveyPageState 也更新完成時再更新 responseList
-      if (e.isFinished) {
-        KtList<Response> newList = state.responseList
-            .filterNot((r) => r.responseId == newResponse.responseId);
-
-        newList = newList.plusElement(newResponse);
-
-        yield state.copyWith(
-          response: newResponse,
-          responseList: newList,
+        yield e.failureOrResponseList.fold(
+          (f) => state.copyWith(
+            responseListState: const LoadState.failure(),
+            responseFailure: some(f),
+          ),
+          (responseList) => state.copyWith(
+            responseListState: const LoadState.success(),
+            updateState: const LoadState.inProgress(),
+            downloadedResponseList: responseList,
+            responseFailure: none(),
+          ),
         );
 
-        add(const ResponseEvent.responseListSynced());
+        add(const ResponseEvent.responseListMerged());
+      },
+      // H_ 合併下載的與本地的 responseList
+      // TODO updateState
+      responseListMerged: (e) async* {
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(responseListMerged, state);
+      },
+      // H_ 上傳倒數計時
+      uploadTimerUpdated: (e) async* {
+        _inactiveTimer?.cancel();
+
+        // S_1 若閒置 10 秒未更新則上傳，
+        _inactiveTimer = Timer(
+          const Duration(seconds: 2),
+          () => add(const ResponseEvent.responseListSynced()),
+        );
+
+        // S_2 或從同步後第一次更新開始算 30 秒未閒置則依然上傳
+        if (_activeTimer == null || !_activeTimer!.isActive) {
+          _activeTimer = Timer(
+            const Duration(seconds: 30),
+            () => add(const ResponseEvent.responseListSynced()),
+          );
+        }
+      },
+      // H_ 上傳 responseList
+      responseListSynced: (e) async* {
+        _activeTimer?.cancel();
+        _inactiveTimer?.cancel();
+
+        if (state.responseList.isNotEmpty()) {
+          logger('Upload').i('uploadResponseList');
+          final failureOrSuccess = await _surveyRepository.uploadResponseList(
+            responseList: state.responseList,
+          );
+        }
+      },
+      // H_ 使用者選擇問卷
+      surveySelected: (e) async* {
+        yield state.copyWith(
+          updateState: const LoadState.inProgress(),
+        );
+        yield state.copyWith(
+          updateState: const LoadState.success(),
+          survey: e.survey,
+        );
+      },
+      // H_ 使用者選擇要開始進行的問卷模組
+      responseStarted: (e) async* {
+        yield state.copyWith(
+          respondent: e.respondent,
+          moduleType: e.moduleType,
+          responseId: e.responseId,
+          withResponseId: e.withResponseId,
+        );
+
+        add(const ResponseEvent.responseRestored());
         add(const ResponseEvent.respondentResponseListUpdated());
-      } else {
+      },
+      // H_ 從 responseList 回復要進行的 response
+      responseRestored: (e) async* {
+        logger('Event').i('ResponseBloc: responseRestored');
+
         yield state.copyWith(
-          response: newResponse,
+          responseRestoreState: const LoadState.inProgress(),
         );
-      }
-    },
-        // H_8 使用者結束編輯這次的問卷回覆階段
-        editFinished: (e) async* {
-      // S_1 newResponse
-      final now = DeviceTimeStamp.now();
-      final newResponse = state.response.copyWith(
-        tempResponseId: state.response.responseId,
-        editFinished: true,
-        sessionEndTimeStamp: now,
-        lastChangedTimeStamp: now,
-        responseStatus: e.responseFinished
-            ? ResponseStatus.finished()
-            : ResponseStatus.answering(),
-      );
 
-      final newList = state.responseList
-          .minusElement(state.response)
-          .plusElement(newResponse);
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(responseRestored, state);
+      },
+      // H_ 作答或切換頁數時更新 response
+      responseUpdated: (e) async* {
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(responseUpdated, Tuple2(e, state));
 
-      yield state.copyWith(
-        response: newResponse,
-        responseList: newList,
-      );
+        add(const ResponseEvent.uploadTimerUpdated());
+      },
+      // H_ 使用者結束編輯這次問卷模組的回覆
+      editFinished: (e) async* {
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(editFinished, Tuple2(e, state));
 
-      add(const ResponseEvent.responseListSynced());
-    },
-        // H_9 更新 respondentResponseList，也就是此受訪者在不同模組的最新 response
-        respondentResponseListUpdated: (e) async* {
-      // NOTE 篩出當前 moduleType 以外的不同 moduleType 最後更新那筆
-      final subsetList = state.responseList
-          .filter(
-            (r) =>
-                r.respondentId == state.respondent.id &&
-                r.surveyId == state.survey.id &&
-                r.moduleType != state.moduleType,
-          )
-          .sortedByDescending(
-            (r) => r.lastChangedTimeStamp.toInt(),
-          )
-          .groupBy((r) => r.moduleType)
-          .mapValues((r) => r.value.getOrNull(0))
-          .toList()
-          .map((p) => p.second!);
-
-      yield state.copyWith(
-        respondentResponseList: subsetList,
-      );
-    });
+        add(const ResponseEvent.uploadTimerUpdated());
+      },
+      // H_ 更新當前受訪者在其他模組的 responses
+      respondentResponseListUpdated: (e) async* {
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(respondentResponseListUpdated, state);
+      },
+    );
   }
 
   @override
   Future<void> close() {
     _responseListSubscription?.cancel();
+    _inactiveTimer?.cancel();
+    _activeTimer?.cancel();
     return super.close();
   }
 

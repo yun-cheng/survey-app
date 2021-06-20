@@ -31,6 +31,7 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
     respondentResponseList: (json['respondentResponseList'] as List<dynamic>)
         .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
         .toList(),
+    updateState: json['updateState'] as Map<String, dynamic>,
   );
 }
 
@@ -52,4 +53,5 @@ Map<String, dynamic> _$_$_ResponseStateDtoToJson(
       'mainResponse': instance.mainResponse.toJson(),
       'respondentResponseList':
           instance.respondentResponseList.map((e) => e.toJson()).toList(),
+      'updateState': instance.updateState,
     };

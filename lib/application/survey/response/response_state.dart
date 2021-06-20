@@ -18,6 +18,7 @@ class ResponseState with _$ResponseState {
     required UniqueId responseId,
     required Response mainResponse,
     required KtList<Response> respondentResponseList,
+    required LoadState updateState,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
@@ -36,5 +37,6 @@ class ResponseState with _$ResponseState {
         responseId: UniqueId(),
         mainResponse: Response.empty(),
         respondentResponseList: const KtList<Response>.empty(),
+        updateState: const LoadState.initial(),
       );
 }

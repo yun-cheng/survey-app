@@ -9,24 +9,11 @@ part of 'survey_page_state_dtos.dart';
 _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
     Map<String, dynamic> json) {
   return _$_SurveyPageStateDto(
-    referenceListState: json['referenceListState'] as Map<String, dynamic>,
-    referenceList: (json['referenceList'] as List<dynamic>)
-        .map((e) => ReferenceDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    surveyFailure: json['surveyFailure'] as Map<String, dynamic>?,
-    respondent:
-        RespondentDto.fromJson(json['respondent'] as Map<String, dynamic>),
     page: json['page'] as int,
     newestPage: json['newestPage'] as int,
-    questionList: (json['questionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    pageQuestionList: (json['pageQuestionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    contentQuestionList: (json['contentQuestionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    isLastPage: json['isLastPage'] as bool,
+    warning: WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
+    showWarning: json['showWarning'] as bool,
     answerMap: (json['answerMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
@@ -34,50 +21,38 @@ _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
       (k, e) =>
           MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
-    isLastPage: json['isLastPage'] as bool,
-    warning: WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
-    showWarning: json['showWarning'] as bool,
-    loadState: json['loadState'] as Map<String, dynamic>,
-    restoreState: json['restoreState'] as Map<String, dynamic>,
-    isRecodeModule: json['isRecodeModule'] as bool,
-    mainQuestionList: (json['mainQuestionList'] as List<dynamic>)
+    questionId: json['questionId'] as String,
+    pageQuestionList: (json['pageQuestionList'] as List<dynamic>)
         .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
         .toList(),
-    respondentResponseList: (json['respondentResponseList'] as List<dynamic>)
-        .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
+    contentQuestionList: (json['contentQuestionList'] as List<dynamic>)
+        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
         .toList(),
-    surveyId: json['surveyId'] as String,
-    moduleType: json['moduleType'] as String,
+    loadState: json['loadState'] as Map<String, dynamic>,
+    rebuildState: json['rebuildState'] as Map<String, dynamic>,
+    isRecodeModule: json['isRecodeModule'] as bool,
+    isReadOnly: json['isReadOnly'] as bool,
   );
 }
 
 Map<String, dynamic> _$_$_SurveyPageStateDtoToJson(
         _$_SurveyPageStateDto instance) =>
     <String, dynamic>{
-      'referenceListState': instance.referenceListState,
-      'referenceList': instance.referenceList.map((e) => e.toJson()).toList(),
-      'surveyFailure': instance.surveyFailure,
-      'respondent': instance.respondent.toJson(),
       'page': instance.page,
       'newestPage': instance.newestPage,
-      'questionList': instance.questionList.map((e) => e.toJson()).toList(),
+      'isLastPage': instance.isLastPage,
+      'warning': instance.warning.toJson(),
+      'showWarning': instance.showWarning,
+      'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
+      'answerStatusMap':
+          instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
+      'questionId': instance.questionId,
       'pageQuestionList':
           instance.pageQuestionList.map((e) => e.toJson()).toList(),
       'contentQuestionList':
           instance.contentQuestionList.map((e) => e.toJson()).toList(),
-      'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
-      'answerStatusMap':
-          instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
-      'isLastPage': instance.isLastPage,
-      'warning': instance.warning.toJson(),
-      'showWarning': instance.showWarning,
       'loadState': instance.loadState,
-      'restoreState': instance.restoreState,
+      'rebuildState': instance.rebuildState,
       'isRecodeModule': instance.isRecodeModule,
-      'mainQuestionList':
-          instance.mainQuestionList.map((e) => e.toJson()).toList(),
-      'respondentResponseList':
-          instance.respondentResponseList.map((e) => e.toJson()).toList(),
-      'surveyId': instance.surveyId,
-      'moduleType': instance.moduleType,
+      'isReadOnly': instance.isReadOnly,
     };

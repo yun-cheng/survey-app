@@ -14,8 +14,8 @@ class PageControlButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 70.0,
-      width: 120.0,
+      height: kPageControlButtonHeight,
+      width: kPageControlButtonWidth,
       child: TextButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith<Color?>(

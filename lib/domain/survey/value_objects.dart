@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../core/failures.dart';
@@ -438,4 +439,15 @@ class DeviceTimeStamp extends ValueObject<DateTime> {
   }
 
   const DeviceTimeStamp._(this.value);
+}
+
+enum SurveyPageUpdateType {
+  @JsonValue('')
+  empty,
+  @JsonValue('page')
+  page,
+  @JsonValue('contentQuestionList')
+  contentQuestionList,
+  @JsonValue('warning')
+  warning,
 }

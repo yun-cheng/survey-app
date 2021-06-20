@@ -1,17 +1,17 @@
-part of 'survey_bloc.dart';
+part of 'watch_survey_bloc.dart';
 
 @freezed
-class SurveyEvent with _$SurveyEvent {
-  const factory SurveyEvent.watchSurveyListStarted({
+class WatchSurveyEvent with _$WatchSurveyEvent {
+  const factory WatchSurveyEvent.watchSurveyListStarted({
     required TeamId teamId,
     required InterviewerId interviewerId,
   }) = _WatchSurveyListStarted;
 
-  const factory SurveyEvent.surveyListReceived(
+  const factory WatchSurveyEvent.surveyListReceived(
     Either<SurveyFailure, KtList<Survey>> failureOrSurveyList,
   ) = _SurveyListReceived;
 
-  const factory SurveyEvent.surveySelected({
+  const factory WatchSurveyEvent.surveySelected({
     required Survey survey,
   }) = _SurveySelected;
 }
