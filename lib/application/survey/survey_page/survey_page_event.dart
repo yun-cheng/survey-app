@@ -26,6 +26,15 @@ class SurveyPageEvent with _$SurveyPageEvent {
     required bool showWarning,
   }) = _WarningUpdated;
 
+  const factory SurveyPageEvent.infoUpdated({
+    required bool isReadOnly,
+    required bool isRecodeModule,
+    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<QuestionId, Answer> mainAnswerMap,
+    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+  }) = _InfoUpdated;
+
   const factory SurveyPageEvent.stateLoadInProgress() = _StateLoadInprogress;
 
   const factory SurveyPageEvent.stateCleared() = _StateCleared;

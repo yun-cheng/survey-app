@@ -16,6 +16,7 @@ class VisitRecordDto with _$VisitRecordDto {
     required String respondentId,
     required String responseId,
     required VisitTimeDto visitTime,
+    required String status,
     required String description,
   }) = _VisitRecordDto;
 
@@ -24,6 +25,7 @@ class VisitRecordDto with _$VisitRecordDto {
       respondentId: domain.respondentId.getValueAnyway(),
       responseId: domain.responseId.getValueAnyway(),
       visitTime: VisitTimeDto.fromDomain(domain.visitTime),
+      status: domain.status,
       description: domain.description,
     );
   }
@@ -33,6 +35,7 @@ class VisitRecordDto with _$VisitRecordDto {
       respondentId: RespondentId(respondentId),
       responseId: UniqueId.fromUniqueString(responseId),
       visitTime: visitTime.toDomain(),
+      status: status,
       description: description,
     );
   }

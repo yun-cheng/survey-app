@@ -60,6 +60,8 @@ class SignInForm extends StatelessWidget {
       child: BlocBuilder<AuthBloc, AuthState>(
         buildWhen: (p, c) => p.showErrorMessages != c.showErrorMessages,
         builder: (context, state) {
+          logger('Build').i('SignInForm');
+
           return Form(
             autovalidateMode: state.showErrorMessages
                 ? AutovalidateMode.onUserInteraction

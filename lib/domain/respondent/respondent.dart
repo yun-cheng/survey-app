@@ -15,6 +15,8 @@ class Respondent with _$Respondent {
     required CountyTown countyTown,
     required Village village,
     required RemainAddress remainAddress,
+    required bool isCountyTownFirst,
+    required bool isVillageFirst,
   }) = _Respondent;
 
   factory Respondent.empty() => Respondent(
@@ -22,6 +24,8 @@ class Respondent with _$Respondent {
         countyTown: CountyTown.empty(),
         village: Village.empty(),
         remainAddress: RemainAddress.empty(),
+        isCountyTownFirst: false,
+        isVillageFirst: false,
       );
 
   Option<ValueFailure<dynamic>> get failureOption {

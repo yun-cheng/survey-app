@@ -17,6 +17,7 @@ class UpdateAnswerEvent with _$UpdateAnswerEvent {
     required Question question,
     required dynamic answerValue,
     required bool toggle,
+    required bool isSpecialAnswer,
     required bool isNote,
     ChoiceId? noteOf,
   }) = AnswerUpdated;

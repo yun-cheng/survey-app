@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/survey/response_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/respondent/respondent_bloc.dart';
@@ -7,6 +8,7 @@ import '../../domain/core/load_state.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/value_objects.dart';
 import '../survey/survey_list_dtos.dart';
+import 'card_scroll_position_dtos.dart';
 import 'respondent_dtos.dart';
 import 'respondent_list_dtos.dart';
 import 'visit_record_dtos.dart';
@@ -23,16 +25,15 @@ class RespondentStateDto with _$RespondentStateDto {
     required List<RespondentListDto> respondentListList,
     required SurveyDto survey,
     required List<RespondentDto> respondentList,
-    required List<RespondentDto> villageFirstRespondentList,
-    required List<RespondentDto> townFirstRespondentList,
-    required int firstCardIndex,
-    required double firstCardAlignment,
-    required RespondentDto firstRespondent,
-       required bool needToJump,
+    required TabType currentTab,
+    required Map<TabType, CardScrollPositionDto> tabScrollPosition,
+    required bool needToJump,
     required int jumpToIndex,
     required String selectedRespondentId,
     Map<String, dynamic>? respondentFailure,
     required Map<String, List<VisitRecordDto>> visitRecordsMap,
+    required Map<TabType, List<RespondentDto>> tabRespondentsMap,
+    required List<ResponseDto> responseInfoList,
   }) = _RespondentStateDto;
 
   factory RespondentStateDto.fromDomain(RespondentState domain) {
@@ -45,15 +46,10 @@ class RespondentStateDto with _$RespondentStateDto {
       respondentList: domain.respondentList
           .map((e) => RespondentDto.fromDomain(e))
           .asList(),
-      villageFirstRespondentList: domain.villageFirstRespondentList
-          .map((e) => RespondentDto.fromDomain(e))
-          .asList(),
-      townFirstRespondentList: domain.townFirstRespondentList
-          .map((e) => RespondentDto.fromDomain(e))
-          .asList(),
-      firstCardIndex: domain.firstCardIndex,
-      firstCardAlignment: domain.firstCardAlignment,
-      firstRespondent: RespondentDto.fromDomain(domain.firstRespondent),
+      currentTab: domain.currentTab,
+      tabScrollPosition: domain.tabScrollPosition
+          .mapValues((e) => CardScrollPositionDto.fromDomain(e.value))
+          .asMap(),
       needToJump: domain.needToJump,
       jumpToIndex: domain.jumpToIndex,
       selectedRespondentId: domain.selectedRespondentId.getValueAnyway(),
@@ -64,6 +60,13 @@ class RespondentStateDto with _$RespondentStateDto {
           .mapValues((entry) =>
               entry.value.map((e) => VisitRecordDto.fromDomain(e)).asList())
           .asMap(),
+      tabRespondentsMap: domain.tabRespondentsMap
+          .mapValues((entry) =>
+              entry.value.map((e) => RespondentDto.fromDomain(e)).asList())
+          .asMap(),
+      responseInfoList: domain.responseInfoList
+          .map((e) => ResponseDto.fromDomain(e))
+          .asList(),
     );
   }
 
@@ -75,15 +78,9 @@ class RespondentStateDto with _$RespondentStateDto {
       survey: survey.toDomain(),
       respondentList:
           respondentList.map((dto) => dto.toDomain()).toImmutableList(),
-      villageFirstRespondentList: villageFirstRespondentList
-          .map((dto) => dto.toDomain())
-          .toImmutableList(),
-      townFirstRespondentList: townFirstRespondentList
-          .map((dto) => dto.toDomain())
-          .toImmutableList(),
-      firstCardIndex: firstCardIndex,
-      firstCardAlignment: firstCardAlignment,
-      firstRespondent: firstRespondent.toDomain(),
+      currentTab: currentTab,
+      tabScrollPosition:
+          KtMap.from(tabScrollPosition).mapValues((e) => e.value.toDomain()),
       needToJump: needToJump,
       jumpToIndex: jumpToIndex,
       selectedRespondentId: RespondentId(selectedRespondentId),
@@ -93,6 +90,10 @@ class RespondentStateDto with _$RespondentStateDto {
           .mapKeys((entry) => RespondentId(entry.key))
           .mapValues((entry) =>
               entry.value.map((dto) => dto.toDomain()).toImmutableList()),
+      tabRespondentsMap: KtMap.from(tabRespondentsMap).mapValues((entry) =>
+          entry.value.map((dto) => dto.toDomain()).toImmutableList()),
+      responseInfoList:
+          responseInfoList.map((dto) => dto.toDomain()).toImmutableList(),
     );
   }
 

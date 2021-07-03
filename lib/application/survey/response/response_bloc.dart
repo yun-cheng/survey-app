@@ -91,6 +91,11 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       // H_ 合併下載的與本地的 responseList
       // TODO updateState
       responseListMerged: (e) async* {
+        yield state.copyWith(
+          updateVisitReportsMap: false,
+          updateTabRespondentsMap: false,
+        );
+
         final lb = await _loadBalancer.loadBalancer;
         yield await lb.run(responseListMerged, state);
       },
@@ -100,7 +105,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
 
         // S_1 若閒置 10 秒未更新則上傳，
         _inactiveTimer = Timer(
-          const Duration(seconds: 2),
+          const Duration(seconds: 10),
           () => add(const ResponseEvent.responseListSynced()),
         );
 
@@ -166,6 +171,11 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       },
       // H_ 使用者結束編輯這次問卷模組的回覆
       editFinished: (e) async* {
+        yield state.copyWith(
+          updateVisitReportsMap: false,
+          updateTabRespondentsMap: false,
+        );
+
         final lb = await _loadBalancer.loadBalancer;
         yield await lb.run(editFinished, Tuple2(e, state));
 
@@ -175,6 +185,16 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       respondentResponseListUpdated: (e) async* {
         final lb = await _loadBalancer.loadBalancer;
         yield await lb.run(respondentResponseListUpdated, state);
+      },
+      loggedOut: (e) async* {
+        _responseListSubscription?.cancel();
+        final failureOrSuccess = await _surveyRepository.cleanResponseList(
+          teamId: state.survey.teamId,
+          interviewerId: state.interviewer.id,
+        );
+        _inactiveTimer?.cancel();
+        _activeTimer?.cancel();
+        yield ResponseState.initial();
       },
     );
   }

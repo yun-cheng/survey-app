@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer/update_answer_bloc.dart';
@@ -41,22 +42,26 @@ class SurveyBody extends StatelessWidget {
           builder: (context, state) {
             logger('Build').i('SurveyBody: List of QaCard');
 
-            return ListView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              padding: const EdgeInsets.symmetric(
-                vertical: 10.0,
-                horizontal: 15.0,
-              ),
-              itemBuilder: (context, index) {
-                final question = state.pageQuestionList[index];
+            if (state.restoreState is LoadSuccess) {
+              return ScrollablePositionedList.builder(
+                shrinkWrap: true,
+                itemCount: state.pageQuestionList.size,
+                // TODO
+                // itemScrollController: controller,
+                // itemPositionsListener: listener,
+                itemBuilder: (context, index) {
+                  final question = state.pageQuestionList[index];
 
-                return QaCard(
-                  key: Key(question.id.getValueAnyway()),
-                  questionId: question.id,
-                );
-              },
-              itemCount: state.pageQuestionList.size,
+                  return QaCard(
+                    key: Key(question.id.getValueAnyway()),
+                    index: index,
+                    questionId: question.id,
+                  );
+                },
+              );
+            }
+            return const Center(
+              child: CircularProgressIndicator(),
             );
           },
         );

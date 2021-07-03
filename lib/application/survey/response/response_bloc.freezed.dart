@@ -86,6 +86,10 @@ class _$ResponseEventTearOff {
   _RespondentResponseListUpdated respondentResponseListUpdated() {
     return const _RespondentResponseListUpdated();
   }
+
+  _LoggedOut loggedOut() {
+    return const _LoggedOut();
+  }
 }
 
 /// @nodoc
@@ -115,6 +119,7 @@ mixin _$ResponseEvent {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -139,6 +144,7 @@ mixin _$ResponseEvent {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,6 +163,7 @@ mixin _$ResponseEvent {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -173,6 +180,7 @@ mixin _$ResponseEvent {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -304,6 +312,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return watchResponseListStarted(teamId, interviewer);
   }
@@ -331,6 +340,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (watchResponseListStarted != null) {
@@ -355,6 +365,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchResponseListStarted(this);
   }
@@ -374,6 +385,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (watchResponseListStarted != null) {
@@ -483,6 +495,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return responseListReceived(failureOrResponseList);
   }
@@ -510,6 +523,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (responseListReceived != null) {
@@ -534,6 +548,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseListReceived(this);
   }
@@ -553,6 +568,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (responseListReceived != null) {
@@ -634,6 +650,7 @@ class _$_ResponseListMerged implements _ResponseListMerged {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return responseListMerged();
   }
@@ -661,6 +678,7 @@ class _$_ResponseListMerged implements _ResponseListMerged {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (responseListMerged != null) {
@@ -685,6 +703,7 @@ class _$_ResponseListMerged implements _ResponseListMerged {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseListMerged(this);
   }
@@ -704,6 +723,7 @@ class _$_ResponseListMerged implements _ResponseListMerged {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (responseListMerged != null) {
@@ -777,6 +797,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return uploadTimerUpdated();
   }
@@ -804,6 +825,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -828,6 +850,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return uploadTimerUpdated(this);
   }
@@ -847,6 +870,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -920,6 +944,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return responseListSynced();
   }
@@ -947,6 +972,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (responseListSynced != null) {
@@ -971,6 +997,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseListSynced(this);
   }
@@ -990,6 +1017,7 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (responseListSynced != null) {
@@ -1097,6 +1125,7 @@ class _$_SurveySelected implements _SurveySelected {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return surveySelected(survey);
   }
@@ -1124,6 +1153,7 @@ class _$_SurveySelected implements _SurveySelected {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -1148,6 +1178,7 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return surveySelected(this);
   }
@@ -1167,6 +1198,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -1322,6 +1354,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return responseStarted(respondent, moduleType, withResponseId, responseId);
   }
@@ -1349,6 +1382,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -1374,6 +1408,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseStarted(this);
   }
@@ -1393,6 +1428,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -1478,6 +1514,7 @@ class _$_ResponseRestored implements _ResponseRestored {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return responseRestored();
   }
@@ -1505,6 +1542,7 @@ class _$_ResponseRestored implements _ResponseRestored {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (responseRestored != null) {
@@ -1529,6 +1567,7 @@ class _$_ResponseRestored implements _ResponseRestored {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseRestored(this);
   }
@@ -1548,6 +1587,7 @@ class _$_ResponseRestored implements _ResponseRestored {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (responseRestored != null) {
@@ -1686,6 +1726,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return responseUpdated(answerMap, answerStatusMap, surveyPageState);
   }
@@ -1713,6 +1754,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -1737,6 +1779,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseUpdated(this);
   }
@@ -1756,6 +1799,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -1868,6 +1912,7 @@ class _$_EditFinished implements _EditFinished {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return editFinished(responseFinished);
   }
@@ -1895,6 +1940,7 @@ class _$_EditFinished implements _EditFinished {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -1919,6 +1965,7 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return editFinished(this);
   }
@@ -1938,6 +1985,7 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -2022,6 +2070,7 @@ class _$_RespondentResponseListUpdated
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
   }) {
     return respondentResponseListUpdated();
   }
@@ -2049,6 +2098,7 @@ class _$_RespondentResponseListUpdated
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -2073,6 +2123,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentResponseListUpdated(this);
   }
@@ -2092,6 +2143,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -2104,6 +2156,151 @@ class _$_RespondentResponseListUpdated
 abstract class _RespondentResponseListUpdated implements ResponseEvent {
   const factory _RespondentResponseListUpdated() =
       _$_RespondentResponseListUpdated;
+}
+
+/// @nodoc
+abstract class _$LoggedOutCopyWith<$Res> {
+  factory _$LoggedOutCopyWith(
+          _LoggedOut value, $Res Function(_LoggedOut) then) =
+      __$LoggedOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoggedOutCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$LoggedOutCopyWith<$Res> {
+  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _LoggedOut));
+
+  @override
+  _LoggedOut get _value => super._value as _LoggedOut;
+}
+
+/// @nodoc
+
+class _$_LoggedOut implements _LoggedOut {
+  const _$_LoggedOut();
+
+  @override
+  String toString() {
+    return 'ResponseEvent.loggedOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoggedOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, Interviewer interviewer)
+        watchResponseListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
+        responseListReceived,
+    required TResult Function() responseListMerged,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseListSynced,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)
+        responseStarted,
+    required TResult Function() responseRestored,
+    required TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function() respondentResponseListUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return loggedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, Interviewer interviewer)?
+        watchResponseListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
+        responseListReceived,
+    TResult Function()? responseListMerged,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseListSynced,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)?
+        responseStarted,
+    TResult Function()? responseRestored,
+    TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function()? respondentResponseListUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseListStarted value)
+        watchResponseListStarted,
+    required TResult Function(_ResponseListReceived value) responseListReceived,
+    required TResult Function(_ResponseListMerged value) responseListMerged,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseRestored value) responseRestored,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
+    TResult Function(_ResponseListReceived value)? responseListReceived,
+    TResult Function(_ResponseListMerged value)? responseListMerged,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseRestored value)? responseRestored,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoggedOut implements ResponseEvent {
+  const factory _LoggedOut() = _$_LoggedOut;
 }
 
 /// @nodoc
@@ -2126,7 +2323,9 @@ class _$ResponseStateTearOff {
       required UniqueId responseId,
       required Response mainResponse,
       required KtList<Response> respondentResponseList,
-      required LoadState updateState}) {
+      required LoadState updateState,
+      required bool updateVisitReportsMap,
+      required bool updateTabRespondentsMap}) {
     return _ResponseState(
       survey: survey,
       respondent: respondent,
@@ -2144,6 +2343,8 @@ class _$ResponseStateTearOff {
       mainResponse: mainResponse,
       respondentResponseList: respondentResponseList,
       updateState: updateState,
+      updateVisitReportsMap: updateVisitReportsMap,
+      updateTabRespondentsMap: updateTabRespondentsMap,
     );
   }
 }
@@ -2172,6 +2373,8 @@ mixin _$ResponseState {
   KtList<Response> get respondentResponseList =>
       throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
+  bool get updateVisitReportsMap => throw _privateConstructorUsedError;
+  bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ResponseStateCopyWith<ResponseState> get copyWith =>
@@ -2199,7 +2402,9 @@ abstract class $ResponseStateCopyWith<$Res> {
       UniqueId responseId,
       Response mainResponse,
       KtList<Response> respondentResponseList,
-      LoadState updateState});
+      LoadState updateState,
+      bool updateVisitReportsMap,
+      bool updateTabRespondentsMap});
 
   $SurveyCopyWith<$Res> get survey;
   $RespondentCopyWith<$Res> get respondent;
@@ -2238,6 +2443,8 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
     Object? updateState = freezed,
+    Object? updateVisitReportsMap = freezed,
+    Object? updateTabRespondentsMap = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed
@@ -2304,6 +2511,14 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
+      updateVisitReportsMap: updateVisitReportsMap == freezed
+          ? _value.updateVisitReportsMap
+          : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateTabRespondentsMap: updateTabRespondentsMap == freezed
+          ? _value.updateTabRespondentsMap
+          : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -2387,7 +2602,9 @@ abstract class _$ResponseStateCopyWith<$Res>
       UniqueId responseId,
       Response mainResponse,
       KtList<Response> respondentResponseList,
-      LoadState updateState});
+      LoadState updateState,
+      bool updateVisitReportsMap,
+      bool updateTabRespondentsMap});
 
   @override
   $SurveyCopyWith<$Res> get survey;
@@ -2436,6 +2653,8 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
     Object? updateState = freezed,
+    Object? updateVisitReportsMap = freezed,
+    Object? updateTabRespondentsMap = freezed,
   }) {
     return _then(_ResponseState(
       survey: survey == freezed
@@ -2502,6 +2721,14 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
+      updateVisitReportsMap: updateVisitReportsMap == freezed
+          ? _value.updateVisitReportsMap
+          : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateTabRespondentsMap: updateTabRespondentsMap == freezed
+          ? _value.updateTabRespondentsMap
+          : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -2525,7 +2752,9 @@ class _$_ResponseState implements _ResponseState {
       required this.responseId,
       required this.mainResponse,
       required this.respondentResponseList,
-      required this.updateState});
+      required this.updateState,
+      required this.updateVisitReportsMap,
+      required this.updateTabRespondentsMap});
 
   @override
   final Survey survey;
@@ -2559,10 +2788,14 @@ class _$_ResponseState implements _ResponseState {
   final KtList<Response> respondentResponseList;
   @override
   final LoadState updateState;
+  @override
+  final bool updateVisitReportsMap;
+  @override
+  final bool updateTabRespondentsMap;
 
   @override
   String toString() {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState)';
+    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap)';
   }
 
   @override
@@ -2615,7 +2848,14 @@ class _$_ResponseState implements _ResponseState {
                     other.respondentResponseList, respondentResponseList)) &&
             (identical(other.updateState, updateState) ||
                 const DeepCollectionEquality()
-                    .equals(other.updateState, updateState)));
+                    .equals(other.updateState, updateState)) &&
+            (identical(other.updateVisitReportsMap, updateVisitReportsMap) ||
+                const DeepCollectionEquality().equals(
+                    other.updateVisitReportsMap, updateVisitReportsMap)) &&
+            (identical(
+                    other.updateTabRespondentsMap, updateTabRespondentsMap) ||
+                const DeepCollectionEquality().equals(
+                    other.updateTabRespondentsMap, updateTabRespondentsMap)));
   }
 
   @override
@@ -2636,7 +2876,9 @@ class _$_ResponseState implements _ResponseState {
       const DeepCollectionEquality().hash(responseId) ^
       const DeepCollectionEquality().hash(mainResponse) ^
       const DeepCollectionEquality().hash(respondentResponseList) ^
-      const DeepCollectionEquality().hash(updateState);
+      const DeepCollectionEquality().hash(updateState) ^
+      const DeepCollectionEquality().hash(updateVisitReportsMap) ^
+      const DeepCollectionEquality().hash(updateTabRespondentsMap);
 
   @JsonKey(ignore: true)
   @override
@@ -2661,7 +2903,9 @@ abstract class _ResponseState implements ResponseState {
       required UniqueId responseId,
       required Response mainResponse,
       required KtList<Response> respondentResponseList,
-      required LoadState updateState}) = _$_ResponseState;
+      required LoadState updateState,
+      required bool updateVisitReportsMap,
+      required bool updateTabRespondentsMap}) = _$_ResponseState;
 
   @override
   Survey get survey => throw _privateConstructorUsedError;
@@ -2698,6 +2942,10 @@ abstract class _ResponseState implements ResponseState {
       throw _privateConstructorUsedError;
   @override
   LoadState get updateState => throw _privateConstructorUsedError;
+  @override
+  bool get updateVisitReportsMap => throw _privateConstructorUsedError;
+  @override
+  bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateCopyWith<_ResponseState> get copyWith =>

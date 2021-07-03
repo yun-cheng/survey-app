@@ -20,12 +20,16 @@ class _$RespondentTearOff {
       {required RespondentId id,
       required CountyTown countyTown,
       required Village village,
-      required RemainAddress remainAddress}) {
+      required RemainAddress remainAddress,
+      required bool isCountyTownFirst,
+      required bool isVillageFirst}) {
     return _Respondent(
       id: id,
       countyTown: countyTown,
       village: village,
       remainAddress: remainAddress,
+      isCountyTownFirst: isCountyTownFirst,
+      isVillageFirst: isVillageFirst,
     );
   }
 }
@@ -39,6 +43,8 @@ mixin _$Respondent {
   CountyTown get countyTown => throw _privateConstructorUsedError;
   Village get village => throw _privateConstructorUsedError;
   RemainAddress get remainAddress => throw _privateConstructorUsedError;
+  bool get isCountyTownFirst => throw _privateConstructorUsedError;
+  bool get isVillageFirst => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RespondentCopyWith<Respondent> get copyWith =>
@@ -54,7 +60,9 @@ abstract class $RespondentCopyWith<$Res> {
       {RespondentId id,
       CountyTown countyTown,
       Village village,
-      RemainAddress remainAddress});
+      RemainAddress remainAddress,
+      bool isCountyTownFirst,
+      bool isVillageFirst});
 }
 
 /// @nodoc
@@ -71,6 +79,8 @@ class _$RespondentCopyWithImpl<$Res> implements $RespondentCopyWith<$Res> {
     Object? countyTown = freezed,
     Object? village = freezed,
     Object? remainAddress = freezed,
+    Object? isCountyTownFirst = freezed,
+    Object? isVillageFirst = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -89,6 +99,14 @@ class _$RespondentCopyWithImpl<$Res> implements $RespondentCopyWith<$Res> {
           ? _value.remainAddress
           : remainAddress // ignore: cast_nullable_to_non_nullable
               as RemainAddress,
+      isCountyTownFirst: isCountyTownFirst == freezed
+          ? _value.isCountyTownFirst
+          : isCountyTownFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isVillageFirst: isVillageFirst == freezed
+          ? _value.isVillageFirst
+          : isVillageFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -103,7 +121,9 @@ abstract class _$RespondentCopyWith<$Res> implements $RespondentCopyWith<$Res> {
       {RespondentId id,
       CountyTown countyTown,
       Village village,
-      RemainAddress remainAddress});
+      RemainAddress remainAddress,
+      bool isCountyTownFirst,
+      bool isVillageFirst});
 }
 
 /// @nodoc
@@ -122,6 +142,8 @@ class __$RespondentCopyWithImpl<$Res> extends _$RespondentCopyWithImpl<$Res>
     Object? countyTown = freezed,
     Object? village = freezed,
     Object? remainAddress = freezed,
+    Object? isCountyTownFirst = freezed,
+    Object? isVillageFirst = freezed,
   }) {
     return _then(_Respondent(
       id: id == freezed
@@ -140,6 +162,14 @@ class __$RespondentCopyWithImpl<$Res> extends _$RespondentCopyWithImpl<$Res>
           ? _value.remainAddress
           : remainAddress // ignore: cast_nullable_to_non_nullable
               as RemainAddress,
+      isCountyTownFirst: isCountyTownFirst == freezed
+          ? _value.isCountyTownFirst
+          : isCountyTownFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isVillageFirst: isVillageFirst == freezed
+          ? _value.isVillageFirst
+          : isVillageFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -151,7 +181,9 @@ class _$_Respondent extends _Respondent {
       {required this.id,
       required this.countyTown,
       required this.village,
-      required this.remainAddress})
+      required this.remainAddress,
+      required this.isCountyTownFirst,
+      required this.isVillageFirst})
       : super._();
 
   @override
@@ -162,10 +194,14 @@ class _$_Respondent extends _Respondent {
   final Village village;
   @override
   final RemainAddress remainAddress;
+  @override
+  final bool isCountyTownFirst;
+  @override
+  final bool isVillageFirst;
 
   @override
   String toString() {
-    return 'Respondent(id: $id, countyTown: $countyTown, village: $village, remainAddress: $remainAddress)';
+    return 'Respondent(id: $id, countyTown: $countyTown, village: $village, remainAddress: $remainAddress, isCountyTownFirst: $isCountyTownFirst, isVillageFirst: $isVillageFirst)';
   }
 
   @override
@@ -182,7 +218,13 @@ class _$_Respondent extends _Respondent {
                     .equals(other.village, village)) &&
             (identical(other.remainAddress, remainAddress) ||
                 const DeepCollectionEquality()
-                    .equals(other.remainAddress, remainAddress)));
+                    .equals(other.remainAddress, remainAddress)) &&
+            (identical(other.isCountyTownFirst, isCountyTownFirst) ||
+                const DeepCollectionEquality()
+                    .equals(other.isCountyTownFirst, isCountyTownFirst)) &&
+            (identical(other.isVillageFirst, isVillageFirst) ||
+                const DeepCollectionEquality()
+                    .equals(other.isVillageFirst, isVillageFirst)));
   }
 
   @override
@@ -191,7 +233,9 @@ class _$_Respondent extends _Respondent {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(countyTown) ^
       const DeepCollectionEquality().hash(village) ^
-      const DeepCollectionEquality().hash(remainAddress);
+      const DeepCollectionEquality().hash(remainAddress) ^
+      const DeepCollectionEquality().hash(isCountyTownFirst) ^
+      const DeepCollectionEquality().hash(isVillageFirst);
 
   @JsonKey(ignore: true)
   @override
@@ -204,7 +248,9 @@ abstract class _Respondent extends Respondent {
       {required RespondentId id,
       required CountyTown countyTown,
       required Village village,
-      required RemainAddress remainAddress}) = _$_Respondent;
+      required RemainAddress remainAddress,
+      required bool isCountyTownFirst,
+      required bool isVillageFirst}) = _$_Respondent;
   const _Respondent._() : super._();
 
   @override
@@ -215,6 +261,10 @@ abstract class _Respondent extends Respondent {
   Village get village => throw _privateConstructorUsedError;
   @override
   RemainAddress get remainAddress => throw _privateConstructorUsedError;
+  @override
+  bool get isCountyTownFirst => throw _privateConstructorUsedError;
+  @override
+  bool get isVillageFirst => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RespondentCopyWith<_Respondent> get copyWith =>

@@ -5,6 +5,7 @@ class AnswerEvent with _$AnswerEvent {
   // H_ 要開始問卷時載入模組
   const factory AnswerEvent.moduleLoaded({
     required KtList<Question> questionList,
+    required bool isReadOnly,
     required bool isRecodeModule,
   }) = _ModuleLoaded;
 
@@ -45,4 +46,7 @@ class AnswerEvent with _$AnswerEvent {
 
   // H_ 切換唯讀模式
   const factory AnswerEvent.readOnlyToggled() = _ReadOnlyToggled;
+
+  // H_ 離開問卷時清空 state
+  const factory AnswerEvent.stateCleared() = _StateCleared;
 }

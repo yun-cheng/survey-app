@@ -139,7 +139,9 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
           );
         }
       },
-      signOutPressed: (e) async* {
+      loggedOut: (e) async* {
+        _teamListSubscription?.cancel();
+        _interviewerListSubscription?.cancel();
         yield AuthState.initial();
       },
     );

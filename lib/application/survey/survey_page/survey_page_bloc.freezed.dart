@@ -58,6 +58,23 @@ class _$SurveyPageEventTearOff {
     );
   }
 
+  _InfoUpdated infoUpdated(
+      {required bool isReadOnly,
+      required bool isRecodeModule,
+      required KtMap<QuestionId, Answer> answerMap,
+      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required KtMap<QuestionId, Answer> mainAnswerMap,
+      required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) {
+    return _InfoUpdated(
+      isReadOnly: isReadOnly,
+      isRecodeModule: isRecodeModule,
+      answerMap: answerMap,
+      answerStatusMap: answerStatusMap,
+      mainAnswerMap: mainAnswerMap,
+      mainAnswerStatusMap: mainAnswerStatusMap,
+    );
+  }
+
   _StateLoadInprogress stateLoadInProgress() {
     return const _StateLoadInprogress();
   }
@@ -85,6 +102,14 @@ mixin _$SurveyPageEvent {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) =>
@@ -102,6 +127,14 @@ mixin _$SurveyPageEvent {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -116,6 +149,7 @@ mixin _$SurveyPageEvent {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) =>
@@ -128,6 +162,7 @@ mixin _$SurveyPageEvent {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -242,6 +277,14 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
@@ -262,6 +305,14 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -282,6 +333,7 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
@@ -297,6 +349,7 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -399,6 +452,14 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
@@ -419,6 +480,14 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -439,6 +508,7 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
@@ -454,6 +524,7 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -580,6 +651,14 @@ class _$_PageUpdated implements _PageUpdated {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
@@ -600,6 +679,14 @@ class _$_PageUpdated implements _PageUpdated {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -620,6 +707,7 @@ class _$_PageUpdated implements _PageUpdated {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
@@ -635,6 +723,7 @@ class _$_PageUpdated implements _PageUpdated {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -741,6 +830,14 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
@@ -761,6 +858,14 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -781,6 +886,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
@@ -796,6 +902,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -917,6 +1024,14 @@ class _$_WarningUpdated implements _WarningUpdated {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
@@ -937,6 +1052,14 @@ class _$_WarningUpdated implements _WarningUpdated {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -957,6 +1080,7 @@ class _$_WarningUpdated implements _WarningUpdated {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
@@ -972,6 +1096,7 @@ class _$_WarningUpdated implements _WarningUpdated {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -992,6 +1117,261 @@ abstract class _WarningUpdated implements SurveyPageEvent {
   bool get showWarning => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$WarningUpdatedCopyWith<_WarningUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$InfoUpdatedCopyWith<$Res> {
+  factory _$InfoUpdatedCopyWith(
+          _InfoUpdated value, $Res Function(_InfoUpdated) then) =
+      __$InfoUpdatedCopyWithImpl<$Res>;
+  $Res call(
+      {bool isReadOnly,
+      bool isRecodeModule,
+      KtMap<QuestionId, Answer> answerMap,
+      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<QuestionId, Answer> mainAnswerMap,
+      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
+}
+
+/// @nodoc
+class __$InfoUpdatedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$InfoUpdatedCopyWith<$Res> {
+  __$InfoUpdatedCopyWithImpl(
+      _InfoUpdated _value, $Res Function(_InfoUpdated) _then)
+      : super(_value, (v) => _then(v as _InfoUpdated));
+
+  @override
+  _InfoUpdated get _value => super._value as _InfoUpdated;
+
+  @override
+  $Res call({
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? mainAnswerMap = freezed,
+    Object? mainAnswerStatusMap = freezed,
+  }) {
+    return _then(_InfoUpdated(
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
+      mainAnswerMap: mainAnswerMap == freezed
+          ? _value.mainAnswerMap
+          : mainAnswerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
+      mainAnswerStatusMap: mainAnswerStatusMap == freezed
+          ? _value.mainAnswerStatusMap
+          : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_InfoUpdated implements _InfoUpdated {
+  const _$_InfoUpdated(
+      {required this.isReadOnly,
+      required this.isRecodeModule,
+      required this.answerMap,
+      required this.answerStatusMap,
+      required this.mainAnswerMap,
+      required this.mainAnswerStatusMap});
+
+  @override
+  final bool isReadOnly;
+  @override
+  final bool isRecodeModule;
+  @override
+  final KtMap<QuestionId, Answer> answerMap;
+  @override
+  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  @override
+  final KtMap<QuestionId, Answer> mainAnswerMap;
+  @override
+  final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.infoUpdated(isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _InfoUpdated &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecodeModule, isRecodeModule)) &&
+            (identical(other.answerMap, answerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerMap, answerMap)) &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)) &&
+            (identical(other.mainAnswerMap, mainAnswerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainAnswerMap, mainAnswerMap)) &&
+            (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
+      const DeepCollectionEquality().hash(answerMap) ^
+      const DeepCollectionEquality().hash(answerStatusMap) ^
+      const DeepCollectionEquality().hash(mainAnswerMap) ^
+      const DeepCollectionEquality().hash(mainAnswerStatusMap);
+
+  @JsonKey(ignore: true)
+  @override
+  _$InfoUpdatedCopyWith<_InfoUpdated> get copyWith =>
+      __$InfoUpdatedCopyWithImpl<_InfoUpdated>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+        answerMapUpdated,
+    required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerStatusMapUpdated,
+    required TResult Function(
+            PageNumber page, KtList<Question> pageQuestionList, bool isLastPage)
+        pageUpdated,
+    required TResult Function(KtList<Question> contentQuestionList)
+        contentQuestionListUpdated,
+    required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
+    required TResult Function() stateLoadInProgress,
+    required TResult Function() stateCleared,
+  }) {
+    return infoUpdated(isReadOnly, isRecodeModule, answerMap, answerStatusMap,
+        mainAnswerMap, mainAnswerStatusMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+        answerMapUpdated,
+    TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerStatusMapUpdated,
+    TResult Function(PageNumber page, KtList<Question> pageQuestionList,
+            bool isLastPage)?
+        pageUpdated,
+    TResult Function(KtList<Question> contentQuestionList)?
+        contentQuestionListUpdated,
+    TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
+    TResult Function()? stateLoadInProgress,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
+  }) {
+    if (infoUpdated != null) {
+      return infoUpdated(isReadOnly, isRecodeModule, answerMap, answerStatusMap,
+          mainAnswerMap, mainAnswerStatusMap);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerStatusMapUpdated value)
+        answerStatusMapUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
+    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
+    required TResult Function(_StateCleared value) stateCleared,
+  }) {
+    return infoUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerStatusMapUpdated value)? answerStatusMapUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
+    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
+  }) {
+    if (infoUpdated != null) {
+      return infoUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InfoUpdated implements SurveyPageEvent {
+  const factory _InfoUpdated(
+          {required bool isReadOnly,
+          required bool isRecodeModule,
+          required KtMap<QuestionId, Answer> answerMap,
+          required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+          required KtMap<QuestionId, Answer> mainAnswerMap,
+          required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
+      _$_InfoUpdated;
+
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+      throw _privateConstructorUsedError;
+  KtMap<QuestionId, Answer> get mainAnswerMap =>
+      throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$InfoUpdatedCopyWith<_InfoUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1046,6 +1426,14 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
@@ -1066,6 +1454,14 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -1086,6 +1482,7 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
@@ -1101,6 +1498,7 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -1167,6 +1565,14 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(KtList<Question> contentQuestionList)
         contentQuestionListUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
@@ -1187,6 +1593,14 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(KtList<Question> contentQuestionList)?
         contentQuestionListUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     required TResult orElse(),
@@ -1207,6 +1621,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
   }) {
@@ -1222,6 +1637,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
@@ -1252,10 +1668,13 @@ class _$SurveyPageStateTearOff {
       required QuestionId questionId,
       required KtList<Question> pageQuestionList,
       required KtList<Question> contentQuestionList,
+      required bool isReadOnly,
+      required bool isRecodeModule,
       required LoadState loadState,
       required LoadState rebuildState,
-      required bool isRecodeModule,
-      required bool isReadOnly}) {
+      required LoadState restoreState,
+      required KtMap<QuestionId, Answer> recodeAnswerMap,
+      required KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap}) {
     return _SurveyPageState(
       page: page,
       newestPage: newestPage,
@@ -1267,10 +1686,13 @@ class _$SurveyPageStateTearOff {
       questionId: questionId,
       pageQuestionList: pageQuestionList,
       contentQuestionList: contentQuestionList,
+      isReadOnly: isReadOnly,
+      isRecodeModule: isRecodeModule,
       loadState: loadState,
       rebuildState: rebuildState,
-      isRecodeModule: isRecodeModule,
-      isReadOnly: isReadOnly,
+      restoreState: restoreState,
+      recodeAnswerMap: recodeAnswerMap,
+      recodeAnswerStatusMap: recodeAnswerStatusMap,
     );
   }
 }
@@ -1293,11 +1715,16 @@ mixin _$SurveyPageState {
       throw _privateConstructorUsedError; // H_ questionList
   KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
   KtList<Question> get contentQuestionList =>
-      throw _privateConstructorUsedError; // H_ state
+      throw _privateConstructorUsedError; // H_ info
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError; // H_ state
   LoadState get loadState => throw _privateConstructorUsedError;
   LoadState get rebuildState => throw _privateConstructorUsedError;
-  bool get isRecodeModule => throw _privateConstructorUsedError;
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  LoadState get restoreState => throw _privateConstructorUsedError; // H_ recode
+  KtMap<QuestionId, Answer> get recodeAnswerMap =>
+      throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get recodeAnswerStatusMap =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SurveyPageStateCopyWith<SurveyPageState> get copyWith =>
@@ -1320,14 +1747,18 @@ abstract class $SurveyPageStateCopyWith<$Res> {
       QuestionId questionId,
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
+      bool isReadOnly,
+      bool isRecodeModule,
       LoadState loadState,
       LoadState rebuildState,
-      bool isRecodeModule,
-      bool isReadOnly});
+      LoadState restoreState,
+      KtMap<QuestionId, Answer> recodeAnswerMap,
+      KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap});
 
   $WarningCopyWith<$Res> get warning;
   $LoadStateCopyWith<$Res> get loadState;
   $LoadStateCopyWith<$Res> get rebuildState;
+  $LoadStateCopyWith<$Res> get restoreState;
 }
 
 /// @nodoc
@@ -1351,10 +1782,13 @@ class _$SurveyPageStateCopyWithImpl<$Res>
     Object? questionId = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
     Object? loadState = freezed,
     Object? rebuildState = freezed,
-    Object? isRecodeModule = freezed,
-    Object? isReadOnly = freezed,
+    Object? restoreState = freezed,
+    Object? recodeAnswerMap = freezed,
+    Object? recodeAnswerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
       page: page == freezed
@@ -1397,6 +1831,14 @@ class _$SurveyPageStateCopyWithImpl<$Res>
           ? _value.contentQuestionList
           : contentQuestionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
@@ -1405,14 +1847,18 @@ class _$SurveyPageStateCopyWithImpl<$Res>
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      isRecodeModule: isRecodeModule == freezed
-          ? _value.isRecodeModule
-          : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isReadOnly: isReadOnly == freezed
-          ? _value.isReadOnly
-          : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      recodeAnswerMap: recodeAnswerMap == freezed
+          ? _value.recodeAnswerMap
+          : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
+      recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
+          ? _value.recodeAnswerStatusMap
+          : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 
@@ -1436,6 +1882,13 @@ class _$SurveyPageStateCopyWithImpl<$Res>
       return _then(_value.copyWith(rebuildState: value));
     });
   }
+
+  @override
+  $LoadStateCopyWith<$Res> get restoreState {
+    return $LoadStateCopyWith<$Res>(_value.restoreState, (value) {
+      return _then(_value.copyWith(restoreState: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1456,10 +1909,13 @@ abstract class _$SurveyPageStateCopyWith<$Res>
       QuestionId questionId,
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
+      bool isReadOnly,
+      bool isRecodeModule,
       LoadState loadState,
       LoadState rebuildState,
-      bool isRecodeModule,
-      bool isReadOnly});
+      LoadState restoreState,
+      KtMap<QuestionId, Answer> recodeAnswerMap,
+      KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap});
 
   @override
   $WarningCopyWith<$Res> get warning;
@@ -1467,6 +1923,8 @@ abstract class _$SurveyPageStateCopyWith<$Res>
   $LoadStateCopyWith<$Res> get loadState;
   @override
   $LoadStateCopyWith<$Res> get rebuildState;
+  @override
+  $LoadStateCopyWith<$Res> get restoreState;
 }
 
 /// @nodoc
@@ -1492,10 +1950,13 @@ class __$SurveyPageStateCopyWithImpl<$Res>
     Object? questionId = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
     Object? loadState = freezed,
     Object? rebuildState = freezed,
-    Object? isRecodeModule = freezed,
-    Object? isReadOnly = freezed,
+    Object? restoreState = freezed,
+    Object? recodeAnswerMap = freezed,
+    Object? recodeAnswerStatusMap = freezed,
   }) {
     return _then(_SurveyPageState(
       page: page == freezed
@@ -1538,6 +1999,14 @@ class __$SurveyPageStateCopyWithImpl<$Res>
           ? _value.contentQuestionList
           : contentQuestionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
@@ -1546,14 +2015,18 @@ class __$SurveyPageStateCopyWithImpl<$Res>
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      isRecodeModule: isRecodeModule == freezed
-          ? _value.isRecodeModule
-          : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
-      isReadOnly: isReadOnly == freezed
-          ? _value.isReadOnly
-          : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      recodeAnswerMap: recodeAnswerMap == freezed
+          ? _value.recodeAnswerMap
+          : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
+      recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
+          ? _value.recodeAnswerStatusMap
+          : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 }
@@ -1572,10 +2045,13 @@ class _$_SurveyPageState implements _SurveyPageState {
       required this.questionId,
       required this.pageQuestionList,
       required this.contentQuestionList,
+      required this.isReadOnly,
+      required this.isRecodeModule,
       required this.loadState,
       required this.rebuildState,
-      required this.isRecodeModule,
-      required this.isReadOnly});
+      required this.restoreState,
+      required this.recodeAnswerMap,
+      required this.recodeAnswerStatusMap});
 
   @override // H_ page
   final PageNumber page;
@@ -1597,18 +2073,24 @@ class _$_SurveyPageState implements _SurveyPageState {
   final KtList<Question> pageQuestionList;
   @override
   final KtList<Question> contentQuestionList;
+  @override // H_ info
+  final bool isReadOnly;
+  @override
+  final bool isRecodeModule;
   @override // H_ state
   final LoadState loadState;
   @override
   final LoadState rebuildState;
   @override
-  final bool isRecodeModule;
+  final LoadState restoreState;
+  @override // H_ recode
+  final KtMap<QuestionId, Answer> recodeAnswerMap;
   @override
-  final bool isReadOnly;
+  final KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap;
 
   @override
   String toString() {
-    return 'SurveyPageState(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, loadState: $loadState, rebuildState: $rebuildState, isRecodeModule: $isRecodeModule, isReadOnly: $isReadOnly)';
+    return 'SurveyPageState(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
   }
 
   @override
@@ -1644,18 +2126,27 @@ class _$_SurveyPageState implements _SurveyPageState {
             (identical(other.contentQuestionList, contentQuestionList) ||
                 const DeepCollectionEquality()
                     .equals(other.contentQuestionList, contentQuestionList)) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecodeModule, isRecodeModule)) &&
             (identical(other.loadState, loadState) ||
                 const DeepCollectionEquality()
                     .equals(other.loadState, loadState)) &&
             (identical(other.rebuildState, rebuildState) ||
                 const DeepCollectionEquality()
                     .equals(other.rebuildState, rebuildState)) &&
-            (identical(other.isRecodeModule, isRecodeModule) ||
+            (identical(other.restoreState, restoreState) ||
                 const DeepCollectionEquality()
-                    .equals(other.isRecodeModule, isRecodeModule)) &&
-            (identical(other.isReadOnly, isReadOnly) ||
+                    .equals(other.restoreState, restoreState)) &&
+            (identical(other.recodeAnswerMap, recodeAnswerMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)));
+                    .equals(other.recodeAnswerMap, recodeAnswerMap)) &&
+            (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
+                const DeepCollectionEquality().equals(
+                    other.recodeAnswerStatusMap, recodeAnswerStatusMap)));
   }
 
   @override
@@ -1671,10 +2162,13 @@ class _$_SurveyPageState implements _SurveyPageState {
       const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
       const DeepCollectionEquality().hash(contentQuestionList) ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(loadState) ^
       const DeepCollectionEquality().hash(rebuildState) ^
-      const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(isReadOnly);
+      const DeepCollectionEquality().hash(restoreState) ^
+      const DeepCollectionEquality().hash(recodeAnswerMap) ^
+      const DeepCollectionEquality().hash(recodeAnswerStatusMap);
 
   @JsonKey(ignore: true)
   @override
@@ -1684,20 +2178,24 @@ class _$_SurveyPageState implements _SurveyPageState {
 
 abstract class _SurveyPageState implements SurveyPageState {
   const factory _SurveyPageState(
-      {required PageNumber page,
-      required PageNumber newestPage,
-      required bool isLastPage,
-      required Warning warning,
-      required bool showWarning,
-      required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      required QuestionId questionId,
-      required KtList<Question> pageQuestionList,
-      required KtList<Question> contentQuestionList,
-      required LoadState loadState,
-      required LoadState rebuildState,
-      required bool isRecodeModule,
-      required bool isReadOnly}) = _$_SurveyPageState;
+          {required PageNumber page,
+          required PageNumber newestPage,
+          required bool isLastPage,
+          required Warning warning,
+          required bool showWarning,
+          required KtMap<QuestionId, Answer> answerMap,
+          required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+          required QuestionId questionId,
+          required KtList<Question> pageQuestionList,
+          required KtList<Question> contentQuestionList,
+          required bool isReadOnly,
+          required bool isRecodeModule,
+          required LoadState loadState,
+          required LoadState rebuildState,
+          required LoadState restoreState,
+          required KtMap<QuestionId, Answer> recodeAnswerMap,
+          required KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap}) =
+      _$_SurveyPageState;
 
   @override // H_ page
   PageNumber get page => throw _privateConstructorUsedError;
@@ -1721,14 +2219,22 @@ abstract class _SurveyPageState implements SurveyPageState {
   @override
   KtList<Question> get contentQuestionList =>
       throw _privateConstructorUsedError;
+  @override // H_ info
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  @override
+  bool get isRecodeModule => throw _privateConstructorUsedError;
   @override // H_ state
   LoadState get loadState => throw _privateConstructorUsedError;
   @override
   LoadState get rebuildState => throw _privateConstructorUsedError;
   @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
+  LoadState get restoreState => throw _privateConstructorUsedError;
+  @override // H_ recode
+  KtMap<QuestionId, Answer> get recodeAnswerMap =>
+      throw _privateConstructorUsedError;
   @override
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get recodeAnswerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SurveyPageStateCopyWith<_SurveyPageState> get copyWith =>

@@ -19,6 +19,8 @@ class ResponseState with _$ResponseState {
     required Response mainResponse,
     required KtList<Response> respondentResponseList,
     required LoadState updateState,
+    required bool updateVisitReportsMap,
+    required bool updateTabRespondentsMap,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
@@ -38,5 +40,7 @@ class ResponseState with _$ResponseState {
         mainResponse: Response.empty(),
         respondentResponseList: const KtList<Response>.empty(),
         updateState: const LoadState.initial(),
+        updateVisitReportsMap: false,
+        updateTabRespondentsMap: false,
       );
 }

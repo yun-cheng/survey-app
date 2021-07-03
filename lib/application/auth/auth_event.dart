@@ -15,5 +15,5 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.passwordChanged(String passwordStr) =
       _PasswordChanged;
   const factory AuthEvent.signInPressed() = _SignInPressed;
-  const factory AuthEvent.signOutPressed() = _SignOutPressed;
+  const factory AuthEvent.loggedOut() = _LoggedOut;
 }

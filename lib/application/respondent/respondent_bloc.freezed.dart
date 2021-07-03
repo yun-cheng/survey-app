@@ -42,17 +42,31 @@ class _$RespondentEventTearOff {
     return const _RespondentListLoaded();
   }
 
+  _TabSelected tabSelected() {
+    return const _TabSelected();
+  }
+
+  _TextSearched textSearched() {
+    return const _TextSearched();
+  }
+
   _RespondentSelected respondentSelected({required RespondentId respondentId}) {
     return _RespondentSelected(
       respondentId: respondentId,
     );
   }
 
+  _TabSwitched tabSwitched({required int index}) {
+    return _TabSwitched(
+      index: index,
+    );
+  }
+
   _PageScrolled pageScrolled(
-      {required int firstCardIndex, required double firstCardAlignment}) {
+      {required TabType tabType, required List<ItemPosition> positions}) {
     return _PageScrolled(
-      firstCardIndex: firstCardIndex,
-      firstCardAlignment: firstCardAlignment,
+      tabType: tabType,
+      positions: positions,
     );
   }
 
@@ -62,15 +76,22 @@ class _$RespondentEventTearOff {
     );
   }
 
-  _JumpFinished jumpFinished() {
-    return const _JumpFinished();
-  }
-
   _VisitReportUpdated visitReportUpdated(
       {required KtList<Response> responseList}) {
     return _VisitReportUpdated(
       responseList: responseList,
     );
+  }
+
+  _TabRespondentsUpdated tabRespondentsUpdated(
+      {required KtList<Response> responseList}) {
+    return _TabRespondentsUpdated(
+      responseList: responseList,
+    );
+  }
+
+  _LoggedOut loggedOut() {
+    return const _LoggedOut();
   }
 }
 
@@ -89,12 +110,17 @@ mixin _$RespondentEvent {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,12 +133,16 @@ mixin _$RespondentEvent {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,11 +154,16 @@ mixin _$RespondentEvent {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -139,11 +174,15 @@ mixin _$RespondentEvent {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -257,12 +296,17 @@ class _$_WatchRespondentListListStarted
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
     return watchRespondentListListStarted(teamId, interviewerId);
   }
@@ -278,12 +322,16 @@ class _$_WatchRespondentListListStarted
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (watchRespondentListListStarted != null) {
@@ -301,11 +349,16 @@ class _$_WatchRespondentListListStarted
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchRespondentListListStarted(this);
   }
@@ -319,11 +372,15 @@ class _$_WatchRespondentListListStarted
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (watchRespondentListListStarted != null) {
@@ -428,12 +485,17 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
     return respondentListListReceived(failureOrRespondentListList);
   }
@@ -449,12 +511,16 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentListListReceived != null) {
@@ -472,11 +538,16 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentListListReceived(this);
   }
@@ -490,11 +561,15 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentListListReceived != null) {
@@ -598,12 +673,17 @@ class _$_SurveySelected implements _SurveySelected {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
     return surveySelected(survey);
   }
@@ -619,12 +699,16 @@ class _$_SurveySelected implements _SurveySelected {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -642,11 +726,16 @@ class _$_SurveySelected implements _SurveySelected {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return surveySelected(this);
   }
@@ -660,11 +749,15 @@ class _$_SurveySelected implements _SurveySelected {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -731,12 +824,17 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
     return respondentListLoaded();
   }
@@ -752,12 +850,16 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentListLoaded != null) {
@@ -775,11 +877,16 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentListLoaded(this);
   }
@@ -793,11 +900,15 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentListLoaded != null) {
@@ -809,6 +920,298 @@ class _$_RespondentListLoaded implements _RespondentListLoaded {
 
 abstract class _RespondentListLoaded implements RespondentEvent {
   const factory _RespondentListLoaded() = _$_RespondentListLoaded;
+}
+
+/// @nodoc
+abstract class _$TabSelectedCopyWith<$Res> {
+  factory _$TabSelectedCopyWith(
+          _TabSelected value, $Res Function(_TabSelected) then) =
+      __$TabSelectedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$TabSelectedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$TabSelectedCopyWith<$Res> {
+  __$TabSelectedCopyWithImpl(
+      _TabSelected _value, $Res Function(_TabSelected) _then)
+      : super(_value, (v) => _then(v as _TabSelected));
+
+  @override
+  _TabSelected get _value => super._value as _TabSelected;
+}
+
+/// @nodoc
+
+class _$_TabSelected implements _TabSelected {
+  const _$_TabSelected();
+
+  @override
+  String toString() {
+    return 'RespondentEvent.tabSelected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _TabSelected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
+        pageScrolled,
+    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return tabSelected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (tabSelected != null) {
+      return tabSelected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return tabSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (tabSelected != null) {
+      return tabSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TabSelected implements RespondentEvent {
+  const factory _TabSelected() = _$_TabSelected;
+}
+
+/// @nodoc
+abstract class _$TextSearchedCopyWith<$Res> {
+  factory _$TextSearchedCopyWith(
+          _TextSearched value, $Res Function(_TextSearched) then) =
+      __$TextSearchedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$TextSearchedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$TextSearchedCopyWith<$Res> {
+  __$TextSearchedCopyWithImpl(
+      _TextSearched _value, $Res Function(_TextSearched) _then)
+      : super(_value, (v) => _then(v as _TextSearched));
+
+  @override
+  _TextSearched get _value => super._value as _TextSearched;
+}
+
+/// @nodoc
+
+class _$_TextSearched implements _TextSearched {
+  const _$_TextSearched();
+
+  @override
+  String toString() {
+    return 'RespondentEvent.textSearched()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _TextSearched);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
+        pageScrolled,
+    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return textSearched();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (textSearched != null) {
+      return textSearched();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return textSearched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (textSearched != null) {
+      return textSearched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TextSearched implements RespondentEvent {
+  const factory _TextSearched() = _$_TextSearched;
 }
 
 /// @nodoc
@@ -885,12 +1288,17 @@ class _$_RespondentSelected implements _RespondentSelected {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
     return respondentSelected(respondentId);
   }
@@ -906,12 +1314,16 @@ class _$_RespondentSelected implements _RespondentSelected {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentSelected != null) {
@@ -929,11 +1341,16 @@ class _$_RespondentSelected implements _RespondentSelected {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentSelected(this);
   }
@@ -947,11 +1364,15 @@ class _$_RespondentSelected implements _RespondentSelected {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentSelected != null) {
@@ -972,11 +1393,187 @@ abstract class _RespondentSelected implements RespondentEvent {
 }
 
 /// @nodoc
+abstract class _$TabSwitchedCopyWith<$Res> {
+  factory _$TabSwitchedCopyWith(
+          _TabSwitched value, $Res Function(_TabSwitched) then) =
+      __$TabSwitchedCopyWithImpl<$Res>;
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$TabSwitchedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$TabSwitchedCopyWith<$Res> {
+  __$TabSwitchedCopyWithImpl(
+      _TabSwitched _value, $Res Function(_TabSwitched) _then)
+      : super(_value, (v) => _then(v as _TabSwitched));
+
+  @override
+  _TabSwitched get _value => super._value as _TabSwitched;
+
+  @override
+  $Res call({
+    Object? index = freezed,
+  }) {
+    return _then(_TabSwitched(
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TabSwitched implements _TabSwitched {
+  const _$_TabSwitched({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.tabSwitched(index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _TabSwitched &&
+            (identical(other.index, index) ||
+                const DeepCollectionEquality().equals(other.index, index)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(index);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TabSwitchedCopyWith<_TabSwitched> get copyWith =>
+      __$TabSwitchedCopyWithImpl<_TabSwitched>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
+        pageScrolled,
+    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return tabSwitched(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (tabSwitched != null) {
+      return tabSwitched(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return tabSwitched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (tabSwitched != null) {
+      return tabSwitched(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TabSwitched implements RespondentEvent {
+  const factory _TabSwitched({required int index}) = _$_TabSwitched;
+
+  int get index => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$TabSwitchedCopyWith<_TabSwitched> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$PageScrolledCopyWith<$Res> {
   factory _$PageScrolledCopyWith(
           _PageScrolled value, $Res Function(_PageScrolled) then) =
       __$PageScrolledCopyWithImpl<$Res>;
-  $Res call({int firstCardIndex, double firstCardAlignment});
+  $Res call({TabType tabType, List<ItemPosition> positions});
 }
 
 /// @nodoc
@@ -992,18 +1589,18 @@ class __$PageScrolledCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? firstCardIndex = freezed,
-    Object? firstCardAlignment = freezed,
+    Object? tabType = freezed,
+    Object? positions = freezed,
   }) {
     return _then(_PageScrolled(
-      firstCardIndex: firstCardIndex == freezed
-          ? _value.firstCardIndex
-          : firstCardIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      firstCardAlignment: firstCardAlignment == freezed
-          ? _value.firstCardAlignment
-          : firstCardAlignment // ignore: cast_nullable_to_non_nullable
-              as double,
+      tabType: tabType == freezed
+          ? _value.tabType
+          : tabType // ignore: cast_nullable_to_non_nullable
+              as TabType,
+      positions: positions == freezed
+          ? _value.positions
+          : positions // ignore: cast_nullable_to_non_nullable
+              as List<ItemPosition>,
     ));
   }
 }
@@ -1011,36 +1608,35 @@ class __$PageScrolledCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PageScrolled implements _PageScrolled {
-  const _$_PageScrolled(
-      {required this.firstCardIndex, required this.firstCardAlignment});
+  const _$_PageScrolled({required this.tabType, required this.positions});
 
   @override
-  final int firstCardIndex;
+  final TabType tabType;
   @override
-  final double firstCardAlignment;
+  final List<ItemPosition> positions;
 
   @override
   String toString() {
-    return 'RespondentEvent.pageScrolled(firstCardIndex: $firstCardIndex, firstCardAlignment: $firstCardAlignment)';
+    return 'RespondentEvent.pageScrolled(tabType: $tabType, positions: $positions)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PageScrolled &&
-            (identical(other.firstCardIndex, firstCardIndex) ||
+            (identical(other.tabType, tabType) ||
                 const DeepCollectionEquality()
-                    .equals(other.firstCardIndex, firstCardIndex)) &&
-            (identical(other.firstCardAlignment, firstCardAlignment) ||
+                    .equals(other.tabType, tabType)) &&
+            (identical(other.positions, positions) ||
                 const DeepCollectionEquality()
-                    .equals(other.firstCardAlignment, firstCardAlignment)));
+                    .equals(other.positions, positions)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(firstCardIndex) ^
-      const DeepCollectionEquality().hash(firstCardAlignment);
+      const DeepCollectionEquality().hash(tabType) ^
+      const DeepCollectionEquality().hash(positions);
 
   @JsonKey(ignore: true)
   @override
@@ -1058,14 +1654,19 @@ class _$_PageScrolled implements _PageScrolled {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
-    return pageScrolled(firstCardIndex, firstCardAlignment);
+    return pageScrolled(tabType, positions);
   }
 
   @override
@@ -1079,16 +1680,20 @@ class _$_PageScrolled implements _PageScrolled {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (pageScrolled != null) {
-      return pageScrolled(firstCardIndex, firstCardAlignment);
+      return pageScrolled(tabType, positions);
     }
     return orElse();
   }
@@ -1102,11 +1707,16 @@ class _$_PageScrolled implements _PageScrolled {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return pageScrolled(this);
   }
@@ -1120,11 +1730,15 @@ class _$_PageScrolled implements _PageScrolled {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (pageScrolled != null) {
@@ -1136,11 +1750,11 @@ class _$_PageScrolled implements _PageScrolled {
 
 abstract class _PageScrolled implements RespondentEvent {
   const factory _PageScrolled(
-      {required int firstCardIndex,
-      required double firstCardAlignment}) = _$_PageScrolled;
+      {required TabType tabType,
+      required List<ItemPosition> positions}) = _$_PageScrolled;
 
-  int get firstCardIndex => throw _privateConstructorUsedError;
-  double get firstCardAlignment => throw _privateConstructorUsedError;
+  TabType get tabType => throw _privateConstructorUsedError;
+  List<ItemPosition> get positions => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$PageScrolledCopyWith<_PageScrolled> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1220,12 +1834,17 @@ class _$_JumpedToTown implements _JumpedToTown {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
     return jumpedToTown(countyTown);
   }
@@ -1241,12 +1860,16 @@ class _$_JumpedToTown implements _JumpedToTown {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (jumpedToTown != null) {
@@ -1264,11 +1887,16 @@ class _$_JumpedToTown implements _JumpedToTown {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return jumpedToTown(this);
   }
@@ -1282,11 +1910,15 @@ class _$_JumpedToTown implements _JumpedToTown {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (jumpedToTown != null) {
@@ -1304,134 +1936,6 @@ abstract class _JumpedToTown implements RespondentEvent {
   @JsonKey(ignore: true)
   _$JumpedToTownCopyWith<_JumpedToTown> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$JumpFinishedCopyWith<$Res> {
-  factory _$JumpFinishedCopyWith(
-          _JumpFinished value, $Res Function(_JumpFinished) then) =
-      __$JumpFinishedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$JumpFinishedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$JumpFinishedCopyWith<$Res> {
-  __$JumpFinishedCopyWithImpl(
-      _JumpFinished _value, $Res Function(_JumpFinished) _then)
-      : super(_value, (v) => _then(v as _JumpFinished));
-
-  @override
-  _JumpFinished get _value => super._value as _JumpFinished;
-}
-
-/// @nodoc
-
-class _$_JumpFinished implements _JumpFinished {
-  const _$_JumpFinished();
-
-  @override
-  String toString() {
-    return 'RespondentEvent.jumpFinished()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _JumpFinished);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchRespondentListListStarted,
-    required TResult Function(
-            Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList)
-        respondentListListReceived,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
-        pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
-    required TResult Function(KtList<Response> responseList) visitReportUpdated,
-  }) {
-    return jumpFinished();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchRespondentListListStarted,
-    TResult Function(
-            Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList)?
-        respondentListListReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
-        pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
-    TResult Function(KtList<Response> responseList)? visitReportUpdated,
-    required TResult orElse(),
-  }) {
-    if (jumpFinished != null) {
-      return jumpFinished();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchRespondentListListStarted value)
-        watchRespondentListListStarted,
-    required TResult Function(_RespondentListListReceived value)
-        respondentListListReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-  }) {
-    return jumpFinished(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchRespondentListListStarted value)?
-        watchRespondentListListStarted,
-    TResult Function(_RespondentListListReceived value)?
-        respondentListListReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    required TResult orElse(),
-  }) {
-    if (jumpFinished != null) {
-      return jumpFinished(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _JumpFinished implements RespondentEvent {
-  const factory _JumpFinished() = _$_JumpFinished;
 }
 
 /// @nodoc
@@ -1508,12 +2012,17 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int firstCardIndex, double firstCardAlignment)
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
     required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function() jumpFinished,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
   }) {
     return visitReportUpdated(responseList);
   }
@@ -1529,12 +2038,16 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int firstCardIndex, double firstCardAlignment)?
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
     TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function()? jumpFinished,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (visitReportUpdated != null) {
@@ -1552,11 +2065,16 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_JumpFinished value) jumpFinished,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return visitReportUpdated(this);
   }
@@ -1570,11 +2088,15 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_JumpFinished value)? jumpFinished,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (visitReportUpdated != null) {
@@ -1595,6 +2117,329 @@ abstract class _VisitReportUpdated implements RespondentEvent {
 }
 
 /// @nodoc
+abstract class _$TabRespondentsUpdatedCopyWith<$Res> {
+  factory _$TabRespondentsUpdatedCopyWith(_TabRespondentsUpdated value,
+          $Res Function(_TabRespondentsUpdated) then) =
+      __$TabRespondentsUpdatedCopyWithImpl<$Res>;
+  $Res call({KtList<Response> responseList});
+}
+
+/// @nodoc
+class __$TabRespondentsUpdatedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$TabRespondentsUpdatedCopyWith<$Res> {
+  __$TabRespondentsUpdatedCopyWithImpl(_TabRespondentsUpdated _value,
+      $Res Function(_TabRespondentsUpdated) _then)
+      : super(_value, (v) => _then(v as _TabRespondentsUpdated));
+
+  @override
+  _TabRespondentsUpdated get _value => super._value as _TabRespondentsUpdated;
+
+  @override
+  $Res call({
+    Object? responseList = freezed,
+  }) {
+    return _then(_TabRespondentsUpdated(
+      responseList: responseList == freezed
+          ? _value.responseList
+          : responseList // ignore: cast_nullable_to_non_nullable
+              as KtList<Response>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
+  const _$_TabRespondentsUpdated({required this.responseList});
+
+  @override
+  final KtList<Response> responseList;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.tabRespondentsUpdated(responseList: $responseList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _TabRespondentsUpdated &&
+            (identical(other.responseList, responseList) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseList, responseList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(responseList);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TabRespondentsUpdatedCopyWith<_TabRespondentsUpdated> get copyWith =>
+      __$TabRespondentsUpdatedCopyWithImpl<_TabRespondentsUpdated>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
+        pageScrolled,
+    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return tabRespondentsUpdated(responseList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (tabRespondentsUpdated != null) {
+      return tabRespondentsUpdated(responseList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return tabRespondentsUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (tabRespondentsUpdated != null) {
+      return tabRespondentsUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TabRespondentsUpdated implements RespondentEvent {
+  const factory _TabRespondentsUpdated(
+      {required KtList<Response> responseList}) = _$_TabRespondentsUpdated;
+
+  KtList<Response> get responseList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$TabRespondentsUpdatedCopyWith<_TabRespondentsUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$LoggedOutCopyWith<$Res> {
+  factory _$LoggedOutCopyWith(
+          _LoggedOut value, $Res Function(_LoggedOut) then) =
+      __$LoggedOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoggedOutCopyWithImpl<$Res> extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$LoggedOutCopyWith<$Res> {
+  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _LoggedOut));
+
+  @override
+  _LoggedOut get _value => super._value as _LoggedOut;
+}
+
+/// @nodoc
+
+class _$_LoggedOut implements _LoggedOut {
+  const _$_LoggedOut();
+
+  @override
+  String toString() {
+    return 'RespondentEvent.loggedOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoggedOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() respondentListLoaded,
+    required TResult Function() tabSelected,
+    required TResult Function() textSearched,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
+        pageScrolled,
+    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return loggedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? respondentListLoaded,
+    TResult Function()? tabSelected,
+    TResult Function()? textSearched,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
+    required TResult Function(_TabSelected value) tabSelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
+    TResult Function(_TabSelected value)? tabSelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoggedOut implements RespondentEvent {
+  const factory _LoggedOut() = _$_LoggedOut;
+}
+
+/// @nodoc
 class _$RespondentStateTearOff {
   const _$RespondentStateTearOff();
 
@@ -1603,31 +2448,29 @@ class _$RespondentStateTearOff {
       required KtList<RespondentList> respondentListList,
       required Survey survey,
       required KtList<Respondent> respondentList,
-      required KtList<Respondent> villageFirstRespondentList,
-      required KtList<Respondent> townFirstRespondentList,
-      required int firstCardIndex,
-      required double firstCardAlignment,
-      required Respondent firstRespondent,
+      required TabType currentTab,
+      required KtMap<TabType, CardScrollPosition> tabScrollPosition,
       required bool needToJump,
       required int jumpToIndex,
       required Option<RespondentFailure> respondentFailure,
       required RespondentId selectedRespondentId,
-      required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap}) {
+      required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      required KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      required KtList<Response> responseInfoList}) {
     return _RespondentState(
       respondentListListState: respondentListListState,
       respondentListList: respondentListList,
       survey: survey,
       respondentList: respondentList,
-      villageFirstRespondentList: villageFirstRespondentList,
-      townFirstRespondentList: townFirstRespondentList,
-      firstCardIndex: firstCardIndex,
-      firstCardAlignment: firstCardAlignment,
-      firstRespondent: firstRespondent,
+      currentTab: currentTab,
+      tabScrollPosition: tabScrollPosition,
       needToJump: needToJump,
       jumpToIndex: jumpToIndex,
       respondentFailure: respondentFailure,
       selectedRespondentId: selectedRespondentId,
       visitRecordsMap: visitRecordsMap,
+      tabRespondentsMap: tabRespondentsMap,
+      responseInfoList: responseInfoList,
     );
   }
 }
@@ -1642,13 +2485,9 @@ mixin _$RespondentState {
       throw _privateConstructorUsedError;
   Survey get survey => throw _privateConstructorUsedError;
   KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
-  KtList<Respondent> get villageFirstRespondentList =>
+  TabType get currentTab => throw _privateConstructorUsedError;
+  KtMap<TabType, CardScrollPosition> get tabScrollPosition =>
       throw _privateConstructorUsedError;
-  KtList<Respondent> get townFirstRespondentList =>
-      throw _privateConstructorUsedError;
-  int get firstCardIndex => throw _privateConstructorUsedError;
-  double get firstCardAlignment => throw _privateConstructorUsedError;
-  Respondent get firstRespondent => throw _privateConstructorUsedError;
   bool get needToJump => throw _privateConstructorUsedError;
   int get jumpToIndex => throw _privateConstructorUsedError;
   Option<RespondentFailure> get respondentFailure =>
@@ -1656,6 +2495,9 @@ mixin _$RespondentState {
   RespondentId get selectedRespondentId => throw _privateConstructorUsedError;
   KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
+  KtMap<TabType, KtList<Respondent>> get tabRespondentsMap =>
+      throw _privateConstructorUsedError;
+  KtList<Response> get responseInfoList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RespondentStateCopyWith<RespondentState> get copyWith =>
@@ -1672,20 +2514,18 @@ abstract class $RespondentStateCopyWith<$Res> {
       KtList<RespondentList> respondentListList,
       Survey survey,
       KtList<Respondent> respondentList,
-      KtList<Respondent> villageFirstRespondentList,
-      KtList<Respondent> townFirstRespondentList,
-      int firstCardIndex,
-      double firstCardAlignment,
-      Respondent firstRespondent,
+      TabType currentTab,
+      KtMap<TabType, CardScrollPosition> tabScrollPosition,
       bool needToJump,
       int jumpToIndex,
       Option<RespondentFailure> respondentFailure,
       RespondentId selectedRespondentId,
-      KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap});
+      KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      KtList<Response> responseInfoList});
 
   $LoadStateCopyWith<$Res> get respondentListListState;
   $SurveyCopyWith<$Res> get survey;
-  $RespondentCopyWith<$Res> get firstRespondent;
 }
 
 /// @nodoc
@@ -1703,16 +2543,15 @@ class _$RespondentStateCopyWithImpl<$Res>
     Object? respondentListList = freezed,
     Object? survey = freezed,
     Object? respondentList = freezed,
-    Object? villageFirstRespondentList = freezed,
-    Object? townFirstRespondentList = freezed,
-    Object? firstCardIndex = freezed,
-    Object? firstCardAlignment = freezed,
-    Object? firstRespondent = freezed,
+    Object? currentTab = freezed,
+    Object? tabScrollPosition = freezed,
     Object? needToJump = freezed,
     Object? jumpToIndex = freezed,
     Object? respondentFailure = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? tabRespondentsMap = freezed,
+    Object? responseInfoList = freezed,
   }) {
     return _then(_value.copyWith(
       respondentListListState: respondentListListState == freezed
@@ -1731,26 +2570,14 @@ class _$RespondentStateCopyWithImpl<$Res>
           ? _value.respondentList
           : respondentList // ignore: cast_nullable_to_non_nullable
               as KtList<Respondent>,
-      villageFirstRespondentList: villageFirstRespondentList == freezed
-          ? _value.villageFirstRespondentList
-          : villageFirstRespondentList // ignore: cast_nullable_to_non_nullable
-              as KtList<Respondent>,
-      townFirstRespondentList: townFirstRespondentList == freezed
-          ? _value.townFirstRespondentList
-          : townFirstRespondentList // ignore: cast_nullable_to_non_nullable
-              as KtList<Respondent>,
-      firstCardIndex: firstCardIndex == freezed
-          ? _value.firstCardIndex
-          : firstCardIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      firstCardAlignment: firstCardAlignment == freezed
-          ? _value.firstCardAlignment
-          : firstCardAlignment // ignore: cast_nullable_to_non_nullable
-              as double,
-      firstRespondent: firstRespondent == freezed
-          ? _value.firstRespondent
-          : firstRespondent // ignore: cast_nullable_to_non_nullable
-              as Respondent,
+      currentTab: currentTab == freezed
+          ? _value.currentTab
+          : currentTab // ignore: cast_nullable_to_non_nullable
+              as TabType,
+      tabScrollPosition: tabScrollPosition == freezed
+          ? _value.tabScrollPosition
+          : tabScrollPosition // ignore: cast_nullable_to_non_nullable
+              as KtMap<TabType, CardScrollPosition>,
       needToJump: needToJump == freezed
           ? _value.needToJump
           : needToJump // ignore: cast_nullable_to_non_nullable
@@ -1771,6 +2598,14 @@ class _$RespondentStateCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as KtMap<RespondentId, KtList<VisitRecord>>,
+      tabRespondentsMap: tabRespondentsMap == freezed
+          ? _value.tabRespondentsMap
+          : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<TabType, KtList<Respondent>>,
+      responseInfoList: responseInfoList == freezed
+          ? _value.responseInfoList
+          : responseInfoList // ignore: cast_nullable_to_non_nullable
+              as KtList<Response>,
     ));
   }
 
@@ -1787,13 +2622,6 @@ class _$RespondentStateCopyWithImpl<$Res>
       return _then(_value.copyWith(survey: value));
     });
   }
-
-  @override
-  $RespondentCopyWith<$Res> get firstRespondent {
-    return $RespondentCopyWith<$Res>(_value.firstRespondent, (value) {
-      return _then(_value.copyWith(firstRespondent: value));
-    });
-  }
 }
 
 /// @nodoc
@@ -1808,23 +2636,20 @@ abstract class _$RespondentStateCopyWith<$Res>
       KtList<RespondentList> respondentListList,
       Survey survey,
       KtList<Respondent> respondentList,
-      KtList<Respondent> villageFirstRespondentList,
-      KtList<Respondent> townFirstRespondentList,
-      int firstCardIndex,
-      double firstCardAlignment,
-      Respondent firstRespondent,
+      TabType currentTab,
+      KtMap<TabType, CardScrollPosition> tabScrollPosition,
       bool needToJump,
       int jumpToIndex,
       Option<RespondentFailure> respondentFailure,
       RespondentId selectedRespondentId,
-      KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap});
+      KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      KtList<Response> responseInfoList});
 
   @override
   $LoadStateCopyWith<$Res> get respondentListListState;
   @override
   $SurveyCopyWith<$Res> get survey;
-  @override
-  $RespondentCopyWith<$Res> get firstRespondent;
 }
 
 /// @nodoc
@@ -1844,16 +2669,15 @@ class __$RespondentStateCopyWithImpl<$Res>
     Object? respondentListList = freezed,
     Object? survey = freezed,
     Object? respondentList = freezed,
-    Object? villageFirstRespondentList = freezed,
-    Object? townFirstRespondentList = freezed,
-    Object? firstCardIndex = freezed,
-    Object? firstCardAlignment = freezed,
-    Object? firstRespondent = freezed,
+    Object? currentTab = freezed,
+    Object? tabScrollPosition = freezed,
     Object? needToJump = freezed,
     Object? jumpToIndex = freezed,
     Object? respondentFailure = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? tabRespondentsMap = freezed,
+    Object? responseInfoList = freezed,
   }) {
     return _then(_RespondentState(
       respondentListListState: respondentListListState == freezed
@@ -1872,26 +2696,14 @@ class __$RespondentStateCopyWithImpl<$Res>
           ? _value.respondentList
           : respondentList // ignore: cast_nullable_to_non_nullable
               as KtList<Respondent>,
-      villageFirstRespondentList: villageFirstRespondentList == freezed
-          ? _value.villageFirstRespondentList
-          : villageFirstRespondentList // ignore: cast_nullable_to_non_nullable
-              as KtList<Respondent>,
-      townFirstRespondentList: townFirstRespondentList == freezed
-          ? _value.townFirstRespondentList
-          : townFirstRespondentList // ignore: cast_nullable_to_non_nullable
-              as KtList<Respondent>,
-      firstCardIndex: firstCardIndex == freezed
-          ? _value.firstCardIndex
-          : firstCardIndex // ignore: cast_nullable_to_non_nullable
-              as int,
-      firstCardAlignment: firstCardAlignment == freezed
-          ? _value.firstCardAlignment
-          : firstCardAlignment // ignore: cast_nullable_to_non_nullable
-              as double,
-      firstRespondent: firstRespondent == freezed
-          ? _value.firstRespondent
-          : firstRespondent // ignore: cast_nullable_to_non_nullable
-              as Respondent,
+      currentTab: currentTab == freezed
+          ? _value.currentTab
+          : currentTab // ignore: cast_nullable_to_non_nullable
+              as TabType,
+      tabScrollPosition: tabScrollPosition == freezed
+          ? _value.tabScrollPosition
+          : tabScrollPosition // ignore: cast_nullable_to_non_nullable
+              as KtMap<TabType, CardScrollPosition>,
       needToJump: needToJump == freezed
           ? _value.needToJump
           : needToJump // ignore: cast_nullable_to_non_nullable
@@ -1912,6 +2724,14 @@ class __$RespondentStateCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as KtMap<RespondentId, KtList<VisitRecord>>,
+      tabRespondentsMap: tabRespondentsMap == freezed
+          ? _value.tabRespondentsMap
+          : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<TabType, KtList<Respondent>>,
+      responseInfoList: responseInfoList == freezed
+          ? _value.responseInfoList
+          : responseInfoList // ignore: cast_nullable_to_non_nullable
+              as KtList<Response>,
     ));
   }
 }
@@ -1924,16 +2744,15 @@ class _$_RespondentState implements _RespondentState {
       required this.respondentListList,
       required this.survey,
       required this.respondentList,
-      required this.villageFirstRespondentList,
-      required this.townFirstRespondentList,
-      required this.firstCardIndex,
-      required this.firstCardAlignment,
-      required this.firstRespondent,
+      required this.currentTab,
+      required this.tabScrollPosition,
       required this.needToJump,
       required this.jumpToIndex,
       required this.respondentFailure,
       required this.selectedRespondentId,
-      required this.visitRecordsMap});
+      required this.visitRecordsMap,
+      required this.tabRespondentsMap,
+      required this.responseInfoList});
 
   @override
   final LoadState respondentListListState;
@@ -1944,15 +2763,9 @@ class _$_RespondentState implements _RespondentState {
   @override
   final KtList<Respondent> respondentList;
   @override
-  final KtList<Respondent> villageFirstRespondentList;
+  final TabType currentTab;
   @override
-  final KtList<Respondent> townFirstRespondentList;
-  @override
-  final int firstCardIndex;
-  @override
-  final double firstCardAlignment;
-  @override
-  final Respondent firstRespondent;
+  final KtMap<TabType, CardScrollPosition> tabScrollPosition;
   @override
   final bool needToJump;
   @override
@@ -1963,17 +2776,22 @@ class _$_RespondentState implements _RespondentState {
   final RespondentId selectedRespondentId;
   @override
   final KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap;
+  @override
+  final KtMap<TabType, KtList<Respondent>> tabRespondentsMap;
+  @override
+  final KtList<Response> responseInfoList;
 
   @override
   String toString() {
-    return 'RespondentState(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, villageFirstRespondentList: $villageFirstRespondentList, townFirstRespondentList: $townFirstRespondentList, firstCardIndex: $firstCardIndex, firstCardAlignment: $firstCardAlignment, firstRespondent: $firstRespondent, needToJump: $needToJump, jumpToIndex: $jumpToIndex, respondentFailure: $respondentFailure, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap)';
+    return 'RespondentState(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, needToJump: $needToJump, jumpToIndex: $jumpToIndex, respondentFailure: $respondentFailure, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentsMap: $tabRespondentsMap, responseInfoList: $responseInfoList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RespondentState &&
-            (identical(other.respondentListListState, respondentListListState) ||
+            (identical(
+                    other.respondentListListState, respondentListListState) ||
                 const DeepCollectionEquality().equals(
                     other.respondentListListState, respondentListListState)) &&
             (identical(other.respondentListList, respondentListList) ||
@@ -1984,22 +2802,12 @@ class _$_RespondentState implements _RespondentState {
             (identical(other.respondentList, respondentList) ||
                 const DeepCollectionEquality()
                     .equals(other.respondentList, respondentList)) &&
-            (identical(other.villageFirstRespondentList, villageFirstRespondentList) ||
-                const DeepCollectionEquality().equals(
-                    other.villageFirstRespondentList,
-                    villageFirstRespondentList)) &&
-            (identical(other.townFirstRespondentList, townFirstRespondentList) ||
-                const DeepCollectionEquality().equals(
-                    other.townFirstRespondentList, townFirstRespondentList)) &&
-            (identical(other.firstCardIndex, firstCardIndex) ||
+            (identical(other.currentTab, currentTab) ||
                 const DeepCollectionEquality()
-                    .equals(other.firstCardIndex, firstCardIndex)) &&
-            (identical(other.firstCardAlignment, firstCardAlignment) ||
+                    .equals(other.currentTab, currentTab)) &&
+            (identical(other.tabScrollPosition, tabScrollPosition) ||
                 const DeepCollectionEquality()
-                    .equals(other.firstCardAlignment, firstCardAlignment)) &&
-            (identical(other.firstRespondent, firstRespondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstRespondent, firstRespondent)) &&
+                    .equals(other.tabScrollPosition, tabScrollPosition)) &&
             (identical(other.needToJump, needToJump) ||
                 const DeepCollectionEquality()
                     .equals(other.needToJump, needToJump)) &&
@@ -2010,8 +2818,17 @@ class _$_RespondentState implements _RespondentState {
                 const DeepCollectionEquality()
                     .equals(other.respondentFailure, respondentFailure)) &&
             (identical(other.selectedRespondentId, selectedRespondentId) ||
-                const DeepCollectionEquality().equals(other.selectedRespondentId, selectedRespondentId)) &&
-            (identical(other.visitRecordsMap, visitRecordsMap) || const DeepCollectionEquality().equals(other.visitRecordsMap, visitRecordsMap)));
+                const DeepCollectionEquality().equals(
+                    other.selectedRespondentId, selectedRespondentId)) &&
+            (identical(other.visitRecordsMap, visitRecordsMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.visitRecordsMap, visitRecordsMap)) &&
+            (identical(other.tabRespondentsMap, tabRespondentsMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.tabRespondentsMap, tabRespondentsMap)) &&
+            (identical(other.responseInfoList, responseInfoList) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseInfoList, responseInfoList)));
   }
 
   @override
@@ -2021,16 +2838,15 @@ class _$_RespondentState implements _RespondentState {
       const DeepCollectionEquality().hash(respondentListList) ^
       const DeepCollectionEquality().hash(survey) ^
       const DeepCollectionEquality().hash(respondentList) ^
-      const DeepCollectionEquality().hash(villageFirstRespondentList) ^
-      const DeepCollectionEquality().hash(townFirstRespondentList) ^
-      const DeepCollectionEquality().hash(firstCardIndex) ^
-      const DeepCollectionEquality().hash(firstCardAlignment) ^
-      const DeepCollectionEquality().hash(firstRespondent) ^
+      const DeepCollectionEquality().hash(currentTab) ^
+      const DeepCollectionEquality().hash(tabScrollPosition) ^
       const DeepCollectionEquality().hash(needToJump) ^
       const DeepCollectionEquality().hash(jumpToIndex) ^
       const DeepCollectionEquality().hash(respondentFailure) ^
       const DeepCollectionEquality().hash(selectedRespondentId) ^
-      const DeepCollectionEquality().hash(visitRecordsMap);
+      const DeepCollectionEquality().hash(visitRecordsMap) ^
+      const DeepCollectionEquality().hash(tabRespondentsMap) ^
+      const DeepCollectionEquality().hash(responseInfoList);
 
   @JsonKey(ignore: true)
   @override
@@ -2040,21 +2856,19 @@ class _$_RespondentState implements _RespondentState {
 
 abstract class _RespondentState implements RespondentState {
   const factory _RespondentState(
-          {required LoadState respondentListListState,
-          required KtList<RespondentList> respondentListList,
-          required Survey survey,
-          required KtList<Respondent> respondentList,
-          required KtList<Respondent> villageFirstRespondentList,
-          required KtList<Respondent> townFirstRespondentList,
-          required int firstCardIndex,
-          required double firstCardAlignment,
-          required Respondent firstRespondent,
-          required bool needToJump,
-          required int jumpToIndex,
-          required Option<RespondentFailure> respondentFailure,
-          required RespondentId selectedRespondentId,
-          required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap}) =
-      _$_RespondentState;
+      {required LoadState respondentListListState,
+      required KtList<RespondentList> respondentListList,
+      required Survey survey,
+      required KtList<Respondent> respondentList,
+      required TabType currentTab,
+      required KtMap<TabType, CardScrollPosition> tabScrollPosition,
+      required bool needToJump,
+      required int jumpToIndex,
+      required Option<RespondentFailure> respondentFailure,
+      required RespondentId selectedRespondentId,
+      required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      required KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      required KtList<Response> responseInfoList}) = _$_RespondentState;
 
   @override
   LoadState get respondentListListState => throw _privateConstructorUsedError;
@@ -2066,17 +2880,10 @@ abstract class _RespondentState implements RespondentState {
   @override
   KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
   @override
-  KtList<Respondent> get villageFirstRespondentList =>
+  TabType get currentTab => throw _privateConstructorUsedError;
+  @override
+  KtMap<TabType, CardScrollPosition> get tabScrollPosition =>
       throw _privateConstructorUsedError;
-  @override
-  KtList<Respondent> get townFirstRespondentList =>
-      throw _privateConstructorUsedError;
-  @override
-  int get firstCardIndex => throw _privateConstructorUsedError;
-  @override
-  double get firstCardAlignment => throw _privateConstructorUsedError;
-  @override
-  Respondent get firstRespondent => throw _privateConstructorUsedError;
   @override
   bool get needToJump => throw _privateConstructorUsedError;
   @override
@@ -2089,6 +2896,11 @@ abstract class _RespondentState implements RespondentState {
   @override
   KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
+  @override
+  KtMap<TabType, KtList<Respondent>> get tabRespondentsMap =>
+      throw _privateConstructorUsedError;
+  @override
+  KtList<Response> get responseInfoList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RespondentStateCopyWith<_RespondentState> get copyWith =>

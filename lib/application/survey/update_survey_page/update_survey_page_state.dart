@@ -28,9 +28,10 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required KtList<Question> questionList,
     required KtList<Question> pageQuestionList,
     required KtList<Question> contentQuestionList,
-    required KtList<Question> mainQuestionList,
     // H_
     required bool isReadOnly,
+    // H_ recode
+    required KtList<Question> mainQuestionList,
     required KtMap<QuestionId, Answer> mainAnswerMap,
     required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateSurveyPageState;

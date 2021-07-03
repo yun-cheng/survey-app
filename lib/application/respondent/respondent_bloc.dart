@@ -1,23 +1,29 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../domain/auth/value_objects.dart';
 import '../../domain/core/load_state.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/overview/survey.dart';
+import '../../domain/respondent/card_scroll_position.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/respondent/respondent.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/respondent_list.dart';
+import '../../domain/respondent/typedefs.dart';
 import '../../domain/respondent/value_objects.dart';
 import '../../domain/respondent/visit_record.dart';
 import '../../domain/respondent/visit_time.dart';
+import '../../domain/survey/answer.dart';
+import '../../domain/survey/choice.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/value_objects.dart';
 import '../../infrastructure/core/date_time_extensions.dart';
@@ -91,6 +97,14 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
         );
         add(const RespondentEvent.respondentListLoaded());
       },
+      // H_ 使用者切換分頁
+      tabSelected: (e) async* {
+        logger('Event').i('RespondentBloc: tabSelected');
+      },
+      // H_ 使用者搜尋文字
+      textSearched: (e) async* {
+        logger('Event').i('RespondentBloc: textSearched');
+      },
       // H_ 載入受訪者名單
       respondentListLoaded: (e) async* {
         logger('Event').i('RespondentBloc: respondentListLoaded');
@@ -109,34 +123,54 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
           respondentFailure: none(),
         );
       },
+      // H_ 切換分頁時
+      tabSwitched: (e) async* {
+        logger('Event').i('RespondentBloc: tabSwitched');
+
+        final currentTab = TabType.values[e.index];
+        Respondent? firstRespondent;
+        final tabScrollPosition = state.tabScrollPosition.toMutableMap();
+
+        if (state.tabScrollPosition[currentTab]!.firstRespondent ==
+            Respondent.empty()) {
+          firstRespondent = state.tabRespondentsMap[currentTab]!.getOrNull(0);
+
+          if (firstRespondent != null) {
+            tabScrollPosition.put(
+                currentTab,
+                CardScrollPosition(
+                  firstCardIndex: 0,
+                  firstCardAlignment: 0.0,
+                  firstRespondent: firstRespondent,
+                ));
+          }
+        }
+        yield state.copyWith(
+          currentTab: currentTab,
+          tabScrollPosition: tabScrollPosition.toMap(),
+        );
+      },
       // H_ 滾動頁面時
       pageScrolled: (e) async* {
         // logger('Event').i('RespondentBloc: pageScrolled');
 
-        final firstRespondent = state.respondentList[e.firstCardIndex];
-        yield state.copyWith(
-          firstCardIndex: e.firstCardIndex,
-          firstCardAlignment: e.firstCardAlignment,
-          firstRespondent: firstRespondent,
-        );
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(pageScrolled, Tuple2(e, state));
       },
       // H_ 切換鄉鎮市區
       jumpedToTown: (e) async* {
         logger('Event').i('RespondentBloc: jumpedToTown');
 
+        yield state.copyWith(
+          needToJump: false,
+        );
+
         final jumpToIndex = state.respondentList
             .indexOfFirst((r) => r.countyTown == e.countyTown);
+
         yield state.copyWith(
           needToJump: true,
           jumpToIndex: jumpToIndex,
-        );
-      },
-      // H_ 切換鄉鎮市區完成
-      jumpFinished: (e) async* {
-        logger('Event').i('RespondentBloc: jumpFinished');
-
-        yield state.copyWith(
-          needToJump: false,
         );
       },
       // H_ 查址紀錄更新時
@@ -145,6 +179,17 @@ class RespondentBloc extends HydratedBloc<RespondentEvent, RespondentState> {
 
         final lb = await _loadBalancer.loadBalancer;
         yield await lb.run(visitReportUpdated, Tuple2(e, state));
+      },
+      // H_ 分頁受訪者名單更新時
+      tabRespondentsUpdated: (e) async* {
+        logger('Event').i('RespondentBloc: tabRespondentsUpdated');
+
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(tabRespondentsUpdated, Tuple2(e, state));
+      },
+      loggedOut: (e) async* {
+        _respondentListListSubscription?.cancel();
+        yield RespondentState.initial();
       },
     );
   }

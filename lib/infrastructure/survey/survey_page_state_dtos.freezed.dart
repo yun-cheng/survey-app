@@ -33,8 +33,11 @@ class _$SurveyPageStateDtoTearOff {
       required List<QuestionDto> contentQuestionList,
       required Map<String, dynamic> loadState,
       required Map<String, dynamic> rebuildState,
+      required Map<String, dynamic> restoreState,
       required bool isRecodeModule,
-      required bool isReadOnly}) {
+      required bool isReadOnly,
+      required Map<String, AnswerDto> recodeAnswerMap,
+      required Map<String, AnswerStatusDto> recodeAnswerStatusMap}) {
     return _SurveyPageStateDto(
       page: page,
       newestPage: newestPage,
@@ -48,8 +51,11 @@ class _$SurveyPageStateDtoTearOff {
       contentQuestionList: contentQuestionList,
       loadState: loadState,
       rebuildState: rebuildState,
+      restoreState: restoreState,
       isRecodeModule: isRecodeModule,
       isReadOnly: isReadOnly,
+      recodeAnswerMap: recodeAnswerMap,
+      recodeAnswerStatusMap: recodeAnswerStatusMap,
     );
   }
 
@@ -77,8 +83,13 @@ mixin _$SurveyPageStateDto {
       throw _privateConstructorUsedError;
   Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
   Map<String, dynamic> get rebuildState => throw _privateConstructorUsedError;
+  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
+  Map<String, AnswerDto> get recodeAnswerMap =>
+      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get recodeAnswerStatusMap =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -104,8 +115,11 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
       List<QuestionDto> contentQuestionList,
       Map<String, dynamic> loadState,
       Map<String, dynamic> rebuildState,
+      Map<String, dynamic> restoreState,
       bool isRecodeModule,
-      bool isReadOnly});
+      bool isReadOnly,
+      Map<String, AnswerDto> recodeAnswerMap,
+      Map<String, AnswerStatusDto> recodeAnswerStatusMap});
 
   $WarningDtoCopyWith<$Res> get warning;
 }
@@ -133,8 +147,11 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
     Object? contentQuestionList = freezed,
     Object? loadState = freezed,
     Object? rebuildState = freezed,
+    Object? restoreState = freezed,
     Object? isRecodeModule = freezed,
     Object? isReadOnly = freezed,
+    Object? recodeAnswerMap = freezed,
+    Object? recodeAnswerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
       page: page == freezed
@@ -185,6 +202,10 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -193,6 +214,14 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      recodeAnswerMap: recodeAnswerMap == freezed
+          ? _value.recodeAnswerMap
+          : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
+      recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
+          ? _value.recodeAnswerStatusMap
+          : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
     ));
   }
 
@@ -224,8 +253,11 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       List<QuestionDto> contentQuestionList,
       Map<String, dynamic> loadState,
       Map<String, dynamic> rebuildState,
+      Map<String, dynamic> restoreState,
       bool isRecodeModule,
-      bool isReadOnly});
+      bool isReadOnly,
+      Map<String, AnswerDto> recodeAnswerMap,
+      Map<String, AnswerStatusDto> recodeAnswerStatusMap});
 
   @override
   $WarningDtoCopyWith<$Res> get warning;
@@ -256,8 +288,11 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
     Object? contentQuestionList = freezed,
     Object? loadState = freezed,
     Object? rebuildState = freezed,
+    Object? restoreState = freezed,
     Object? isRecodeModule = freezed,
     Object? isReadOnly = freezed,
+    Object? recodeAnswerMap = freezed,
+    Object? recodeAnswerStatusMap = freezed,
   }) {
     return _then(_SurveyPageStateDto(
       page: page == freezed
@@ -308,6 +343,10 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -316,6 +355,14 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      recodeAnswerMap: recodeAnswerMap == freezed
+          ? _value.recodeAnswerMap
+          : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerDto>,
+      recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
+          ? _value.recodeAnswerStatusMap
+          : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatusDto>,
     ));
   }
 }
@@ -336,8 +383,11 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       required this.contentQuestionList,
       required this.loadState,
       required this.rebuildState,
+      required this.restoreState,
       required this.isRecodeModule,
-      required this.isReadOnly})
+      required this.isReadOnly,
+      required this.recodeAnswerMap,
+      required this.recodeAnswerStatusMap})
       : super._();
 
   factory _$_SurveyPageStateDto.fromJson(Map<String, dynamic> json) =>
@@ -368,13 +418,19 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   @override
   final Map<String, dynamic> rebuildState;
   @override
+  final Map<String, dynamic> restoreState;
+  @override
   final bool isRecodeModule;
   @override
   final bool isReadOnly;
+  @override
+  final Map<String, AnswerDto> recodeAnswerMap;
+  @override
+  final Map<String, AnswerStatusDto> recodeAnswerStatusMap;
 
   @override
   String toString() {
-    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, loadState: $loadState, rebuildState: $rebuildState, isRecodeModule: $isRecodeModule, isReadOnly: $isReadOnly)';
+    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, isReadOnly: $isReadOnly, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
   }
 
   @override
@@ -416,12 +472,21 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
             (identical(other.rebuildState, rebuildState) ||
                 const DeepCollectionEquality()
                     .equals(other.rebuildState, rebuildState)) &&
+            (identical(other.restoreState, restoreState) ||
+                const DeepCollectionEquality()
+                    .equals(other.restoreState, restoreState)) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)) &&
             (identical(other.isReadOnly, isReadOnly) ||
                 const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)));
+                    .equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.recodeAnswerMap, recodeAnswerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.recodeAnswerMap, recodeAnswerMap)) &&
+            (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
+                const DeepCollectionEquality().equals(
+                    other.recodeAnswerStatusMap, recodeAnswerStatusMap)));
   }
 
   @override
@@ -439,8 +504,11 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       const DeepCollectionEquality().hash(contentQuestionList) ^
       const DeepCollectionEquality().hash(loadState) ^
       const DeepCollectionEquality().hash(rebuildState) ^
+      const DeepCollectionEquality().hash(restoreState) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(isReadOnly);
+      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(recodeAnswerMap) ^
+      const DeepCollectionEquality().hash(recodeAnswerStatusMap);
 
   @JsonKey(ignore: true)
   @override
@@ -455,20 +523,24 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
 
 abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   const factory _SurveyPageStateDto(
-      {required int page,
-      required int newestPage,
-      required bool isLastPage,
-      required WarningDto warning,
-      required bool showWarning,
-      required Map<String, AnswerDto> answerMap,
-      required Map<String, AnswerStatusDto> answerStatusMap,
-      required String questionId,
-      required List<QuestionDto> pageQuestionList,
-      required List<QuestionDto> contentQuestionList,
-      required Map<String, dynamic> loadState,
-      required Map<String, dynamic> rebuildState,
-      required bool isRecodeModule,
-      required bool isReadOnly}) = _$_SurveyPageStateDto;
+          {required int page,
+          required int newestPage,
+          required bool isLastPage,
+          required WarningDto warning,
+          required bool showWarning,
+          required Map<String, AnswerDto> answerMap,
+          required Map<String, AnswerStatusDto> answerStatusMap,
+          required String questionId,
+          required List<QuestionDto> pageQuestionList,
+          required List<QuestionDto> contentQuestionList,
+          required Map<String, dynamic> loadState,
+          required Map<String, dynamic> rebuildState,
+          required Map<String, dynamic> restoreState,
+          required bool isRecodeModule,
+          required bool isReadOnly,
+          required Map<String, AnswerDto> recodeAnswerMap,
+          required Map<String, AnswerStatusDto> recodeAnswerStatusMap}) =
+      _$_SurveyPageStateDto;
   const _SurveyPageStateDto._() : super._();
 
   factory _SurveyPageStateDto.fromJson(Map<String, dynamic> json) =
@@ -501,9 +573,17 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   @override
   Map<String, dynamic> get rebuildState => throw _privateConstructorUsedError;
   @override
+  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  @override
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
   bool get isReadOnly => throw _privateConstructorUsedError;
+  @override
+  Map<String, AnswerDto> get recodeAnswerMap =>
+      throw _privateConstructorUsedError;
+  @override
+  Map<String, AnswerStatusDto> get recodeAnswerStatusMap =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$SurveyPageStateDtoCopyWith<_SurveyPageStateDto> get copyWith =>

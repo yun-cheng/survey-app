@@ -36,6 +36,8 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
     context.read<AnswerBloc>().add(
           AnswerEvent.moduleLoaded(
             questionList: state.questionList,
+            isReadOnly:
+                state.response.responseStatus == ResponseStatus.finished(),
             isRecodeModule: state.moduleType == ModuleType.recode(),
           ),
         );
@@ -43,16 +45,19 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
     context.read<UpdateSurveyPageBloc>().add(
           UpdateSurveyPageEvent.stateRestored(
             surveyId: state.survey.id,
+            respondent: state.respondent,
             moduleType: state.moduleType,
             surveyPageState: state.response.surveyPageState,
             questionList: state.questionList,
+            answerMap: state.response.answerMap,
             answerStatusMap: state.response.answerStatusMap,
+            isReadOnly:
+                state.response.responseStatus == ResponseStatus.finished(),
             isRecodeModule: state.moduleType == ModuleType.recode(),
             mainAnswerMap: state.mainResponse.answerMap,
             mainAnswerStatusMap: state.mainResponse.answerStatusMap,
             mainQuestionList:
                 state.survey.module[ModuleType.main()]!.questionList,
-            respondent: state.respondent,
           ),
         );
   },

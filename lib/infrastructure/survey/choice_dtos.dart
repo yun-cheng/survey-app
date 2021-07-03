@@ -19,19 +19,21 @@ class ChoiceDto with _$ChoiceDto {
     required bool asSingle,
     required bool isSpecialAnswer,
     required String choiceGroup,
+    required bool isGroupFirst,
     required String upperChoiceId,
   }) = _ChoiceDto;
 
-  factory ChoiceDto.fromDomain(Choice choice) {
+  factory ChoiceDto.fromDomain(Choice domain) {
     return ChoiceDto(
-      serialNumber: choice.serialNumber.getValueAnyway(),
-      choiceId: choice.id.getValueAnyway(),
-      choiceBody: choice.body.getValueAnyway(),
-      asNote: choice.asNote,
-      asSingle: choice.asSingle,
-      isSpecialAnswer: choice.isSpecialAnswer,
-      choiceGroup: choice.group.getValueAnyway(),
-      upperChoiceId: choice.upperChoiceId.getValueAnyway(),
+      serialNumber: domain.serialNumber.getValueAnyway(),
+      choiceId: domain.id.getValueAnyway(),
+      choiceBody: domain.body.getValueAnyway(),
+      asNote: domain.asNote,
+      asSingle: domain.asSingle,
+      isSpecialAnswer: domain.isSpecialAnswer,
+      choiceGroup: domain.group.getValueAnyway(),
+      isGroupFirst: domain.isGroupFirst,
+      upperChoiceId: domain.upperChoiceId.getValueAnyway(),
     );
   }
 
@@ -44,6 +46,7 @@ class ChoiceDto with _$ChoiceDto {
       asSingle: asSingle,
       isSpecialAnswer: isSpecialAnswer,
       group: ChoiceGroup(choiceGroup),
+      isGroupFirst: isGroupFirst,
       upperChoiceId: ChoiceId(upperChoiceId),
     );
   }

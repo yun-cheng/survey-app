@@ -26,4 +26,9 @@ abstract class ISurveyRepository {
   Future<Either<SurveyFailure, Unit>> uploadResponseList({
     required KtList<Response> responseList,
   });
+
+  Future<Either<SurveyFailure, Unit>> cleanResponseList({
+    required TeamId teamId,
+    required InterviewerId interviewerId,
+  });
 }

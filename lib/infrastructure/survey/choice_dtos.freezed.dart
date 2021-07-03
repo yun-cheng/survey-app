@@ -28,6 +28,7 @@ class _$ChoiceDtoTearOff {
       required bool asSingle,
       required bool isSpecialAnswer,
       required String choiceGroup,
+      required bool isGroupFirst,
       required String upperChoiceId}) {
     return _ChoiceDto(
       serialNumber: serialNumber,
@@ -37,6 +38,7 @@ class _$ChoiceDtoTearOff {
       asSingle: asSingle,
       isSpecialAnswer: isSpecialAnswer,
       choiceGroup: choiceGroup,
+      isGroupFirst: isGroupFirst,
       upperChoiceId: upperChoiceId,
     );
   }
@@ -58,6 +60,7 @@ mixin _$ChoiceDto {
   bool get asSingle => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   String get choiceGroup => throw _privateConstructorUsedError;
+  bool get isGroupFirst => throw _privateConstructorUsedError;
   String get upperChoiceId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -78,6 +81,7 @@ abstract class $ChoiceDtoCopyWith<$Res> {
       bool asSingle,
       bool isSpecialAnswer,
       String choiceGroup,
+      bool isGroupFirst,
       String upperChoiceId});
 }
 
@@ -98,6 +102,7 @@ class _$ChoiceDtoCopyWithImpl<$Res> implements $ChoiceDtoCopyWith<$Res> {
     Object? asSingle = freezed,
     Object? isSpecialAnswer = freezed,
     Object? choiceGroup = freezed,
+    Object? isGroupFirst = freezed,
     Object? upperChoiceId = freezed,
   }) {
     return _then(_value.copyWith(
@@ -129,6 +134,10 @@ class _$ChoiceDtoCopyWithImpl<$Res> implements $ChoiceDtoCopyWith<$Res> {
           ? _value.choiceGroup
           : choiceGroup // ignore: cast_nullable_to_non_nullable
               as String,
+      isGroupFirst: isGroupFirst == freezed
+          ? _value.isGroupFirst
+          : isGroupFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId // ignore: cast_nullable_to_non_nullable
@@ -151,6 +160,7 @@ abstract class _$ChoiceDtoCopyWith<$Res> implements $ChoiceDtoCopyWith<$Res> {
       bool asSingle,
       bool isSpecialAnswer,
       String choiceGroup,
+      bool isGroupFirst,
       String upperChoiceId});
 }
 
@@ -172,6 +182,7 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
     Object? asSingle = freezed,
     Object? isSpecialAnswer = freezed,
     Object? choiceGroup = freezed,
+    Object? isGroupFirst = freezed,
     Object? upperChoiceId = freezed,
   }) {
     return _then(_ChoiceDto(
@@ -203,6 +214,10 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
           ? _value.choiceGroup
           : choiceGroup // ignore: cast_nullable_to_non_nullable
               as String,
+      isGroupFirst: isGroupFirst == freezed
+          ? _value.isGroupFirst
+          : isGroupFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId // ignore: cast_nullable_to_non_nullable
@@ -222,6 +237,7 @@ class _$_ChoiceDto extends _ChoiceDto {
       required this.asSingle,
       required this.isSpecialAnswer,
       required this.choiceGroup,
+      required this.isGroupFirst,
       required this.upperChoiceId})
       : super._();
 
@@ -243,11 +259,13 @@ class _$_ChoiceDto extends _ChoiceDto {
   @override
   final String choiceGroup;
   @override
+  final bool isGroupFirst;
+  @override
   final String upperChoiceId;
 
   @override
   String toString() {
-    return 'ChoiceDto(serialNumber: $serialNumber, choiceId: $choiceId, choiceBody: $choiceBody, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, choiceGroup: $choiceGroup, upperChoiceId: $upperChoiceId)';
+    return 'ChoiceDto(serialNumber: $serialNumber, choiceId: $choiceId, choiceBody: $choiceBody, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, choiceGroup: $choiceGroup, isGroupFirst: $isGroupFirst, upperChoiceId: $upperChoiceId)';
   }
 
   @override
@@ -274,6 +292,9 @@ class _$_ChoiceDto extends _ChoiceDto {
             (identical(other.choiceGroup, choiceGroup) ||
                 const DeepCollectionEquality()
                     .equals(other.choiceGroup, choiceGroup)) &&
+            (identical(other.isGroupFirst, isGroupFirst) ||
+                const DeepCollectionEquality()
+                    .equals(other.isGroupFirst, isGroupFirst)) &&
             (identical(other.upperChoiceId, upperChoiceId) ||
                 const DeepCollectionEquality()
                     .equals(other.upperChoiceId, upperChoiceId)));
@@ -289,6 +310,7 @@ class _$_ChoiceDto extends _ChoiceDto {
       const DeepCollectionEquality().hash(asSingle) ^
       const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(choiceGroup) ^
+      const DeepCollectionEquality().hash(isGroupFirst) ^
       const DeepCollectionEquality().hash(upperChoiceId);
 
   @JsonKey(ignore: true)
@@ -311,6 +333,7 @@ abstract class _ChoiceDto extends ChoiceDto {
       required bool asSingle,
       required bool isSpecialAnswer,
       required String choiceGroup,
+      required bool isGroupFirst,
       required String upperChoiceId}) = _$_ChoiceDto;
   const _ChoiceDto._() : super._();
 
@@ -331,6 +354,8 @@ abstract class _ChoiceDto extends ChoiceDto {
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
   String get choiceGroup => throw _privateConstructorUsedError;
+  @override
+  bool get isGroupFirst => throw _privateConstructorUsedError;
   @override
   String get upperChoiceId => throw _privateConstructorUsedError;
   @override

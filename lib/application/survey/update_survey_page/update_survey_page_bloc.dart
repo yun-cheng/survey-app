@@ -88,8 +88,13 @@ class UpdateSurveyPageBloc
         logger('Success').i('UpdateSurveyPageEvent: stateRestoreSuccess');
 
         yield state.copyWith(
+          updateState: const LoadState.inProgress(),
+        );
+
+        yield state.copyWith(
           restoreState: const LoadState.success(),
           updateState: const LoadState.success(),
+          updateType: SurveyPageUpdateType.info,
         );
       },
       // H_ 進入問卷時載入必要 state
@@ -105,7 +110,9 @@ class UpdateSurveyPageBloc
           warning: e.surveyPageState.warning,
           showWarning: e.surveyPageState.showWarning,
           questionList: e.questionList,
+          answerMap: e.answerMap,
           answerStatusMap: e.answerStatusMap,
+          isReadOnly: e.isReadOnly,
           isRecodeModule: e.isRecodeModule,
           mainQuestionList: e.mainQuestionList,
           mainAnswerMap: e.mainAnswerMap,
@@ -140,8 +147,11 @@ class UpdateSurveyPageBloc
           answerStatusMap: e.answerStatusMap,
         );
 
-        // S_ 更新 page
-        add(const UpdateSurveyPageEvent.pageQuestionListUpdated());
+        if (!state.isRecodeModule) {
+          // S_ 更新 page
+          add(const UpdateSurveyPageEvent.pageQuestionListUpdated());
+        }
+
         // S_ 更新 warning
         add(const UpdateSurveyPageEvent.warningUpdated());
       },
@@ -224,8 +234,8 @@ class UpdateSurveyPageBloc
 
         yield state.copyWith(
           updateState: const LoadState.success(),
-          showWarning: true,
           updateType: SurveyPageUpdateType.warning,
+          showWarning: true,
         );
       },
       // H_ 更新 warning
@@ -245,8 +255,13 @@ class UpdateSurveyPageBloc
         logger('Event').i('UpdateSurveyPageEvent: finishedButtonPressed');
 
         yield state.copyWith(
-          showWarning: !state.warning.isEmpty,
+          updateState: const LoadState.inProgress(),
+        );
+
+        yield state.copyWith(
+          updateState: const LoadState.success(),
           updateType: SurveyPageUpdateType.warning,
+          showWarning: !state.warning.isEmpty,
         );
       },
       // H_
@@ -282,6 +297,10 @@ class UpdateSurveyPageBloc
         yield state.copyWith(
           isReadOnly: !state.isReadOnly,
         );
+      },
+      loggedOut: (e) async* {
+        _referenceListSubscription?.cancel();
+        yield UpdateSurveyPageState.initial();
       },
     );
   }

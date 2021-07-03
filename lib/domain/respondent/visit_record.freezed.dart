@@ -20,11 +20,13 @@ class _$VisitRecordTearOff {
       {required RespondentId respondentId,
       required UniqueId responseId,
       required VisitTime visitTime,
+      required String status,
       required String description}) {
     return _VisitRecord(
       respondentId: respondentId,
       responseId: responseId,
       visitTime: visitTime,
+      status: status,
       description: description,
     );
   }
@@ -38,6 +40,7 @@ mixin _$VisitRecord {
   RespondentId get respondentId => throw _privateConstructorUsedError;
   UniqueId get responseId => throw _privateConstructorUsedError;
   VisitTime get visitTime => throw _privateConstructorUsedError;
+  String get status => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -54,6 +57,7 @@ abstract class $VisitRecordCopyWith<$Res> {
       {RespondentId respondentId,
       UniqueId responseId,
       VisitTime visitTime,
+      String status,
       String description});
 
   $VisitTimeCopyWith<$Res> get visitTime;
@@ -72,6 +76,7 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
     Object? respondentId = freezed,
     Object? responseId = freezed,
     Object? visitTime = freezed,
+    Object? status = freezed,
     Object? description = freezed,
   }) {
     return _then(_value.copyWith(
@@ -87,6 +92,10 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
           ? _value.visitTime
           : visitTime // ignore: cast_nullable_to_non_nullable
               as VisitTime,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -113,6 +122,7 @@ abstract class _$VisitRecordCopyWith<$Res>
       {RespondentId respondentId,
       UniqueId responseId,
       VisitTime visitTime,
+      String status,
       String description});
 
   @override
@@ -134,6 +144,7 @@ class __$VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
     Object? respondentId = freezed,
     Object? responseId = freezed,
     Object? visitTime = freezed,
+    Object? status = freezed,
     Object? description = freezed,
   }) {
     return _then(_VisitRecord(
@@ -149,6 +160,10 @@ class __$VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
           ? _value.visitTime
           : visitTime // ignore: cast_nullable_to_non_nullable
               as VisitTime,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
       description: description == freezed
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -164,6 +179,7 @@ class _$_VisitRecord extends _VisitRecord {
       {required this.respondentId,
       required this.responseId,
       required this.visitTime,
+      required this.status,
       required this.description})
       : super._();
 
@@ -174,11 +190,13 @@ class _$_VisitRecord extends _VisitRecord {
   @override
   final VisitTime visitTime;
   @override
+  final String status;
+  @override
   final String description;
 
   @override
   String toString() {
-    return 'VisitRecord(respondentId: $respondentId, responseId: $responseId, visitTime: $visitTime, description: $description)';
+    return 'VisitRecord(respondentId: $respondentId, responseId: $responseId, visitTime: $visitTime, status: $status, description: $description)';
   }
 
   @override
@@ -194,6 +212,8 @@ class _$_VisitRecord extends _VisitRecord {
             (identical(other.visitTime, visitTime) ||
                 const DeepCollectionEquality()
                     .equals(other.visitTime, visitTime)) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)) &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality()
                     .equals(other.description, description)));
@@ -205,6 +225,7 @@ class _$_VisitRecord extends _VisitRecord {
       const DeepCollectionEquality().hash(respondentId) ^
       const DeepCollectionEquality().hash(responseId) ^
       const DeepCollectionEquality().hash(visitTime) ^
+      const DeepCollectionEquality().hash(status) ^
       const DeepCollectionEquality().hash(description);
 
   @JsonKey(ignore: true)
@@ -218,6 +239,7 @@ abstract class _VisitRecord extends VisitRecord {
       {required RespondentId respondentId,
       required UniqueId responseId,
       required VisitTime visitTime,
+      required String status,
       required String description}) = _$_VisitRecord;
   const _VisitRecord._() : super._();
 
@@ -227,6 +249,8 @@ abstract class _VisitRecord extends VisitRecord {
   UniqueId get responseId => throw _privateConstructorUsedError;
   @override
   VisitTime get visitTime => throw _privateConstructorUsedError;
+  @override
+  String get status => throw _privateConstructorUsedError;
   @override
   String get description => throw _privateConstructorUsedError;
   @override

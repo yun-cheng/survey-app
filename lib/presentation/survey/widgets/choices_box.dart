@@ -25,7 +25,6 @@ class ChoicesBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-      // NOTE 1.在該題選項有變更時 rebuild
       buildWhen: (p, c) {
         if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
           // S_ 該題作答有變更時
@@ -35,14 +34,17 @@ class ChoicesBox extends StatelessWidget {
           }
 
           // S_ 該題選項有變更時
-          if (p.pageQuestionList
-                  .firstOrNull((q) => q.id == questionId)
-                  ?.choiceList !=
-              c.pageQuestionList
-                  .firstOrNull((q) => q.id == questionId)
-                  ?.choiceList) {
-            return true;
+          final pQuestion =
+              p.pageQuestionList.firstOrNull((q) => q.id == questionId);
+          final cQuestion =
+              c.pageQuestionList.firstOrNull((q) => q.id == questionId);
+
+          // S_ 若 question 前或後不存在，交由上層 widget 處理
+          if (pQuestion == null || cQuestion == null) {
+            return false;
           }
+
+          return pQuestion.choiceList != cQuestion.choiceList;
         }
         return false;
       },
@@ -84,7 +86,8 @@ class ChoicesBox extends StatelessWidget {
                       NoteBox(
                         questionId: questionId,
                         choice: choice,
-                        note: thisAnswer.noteMap!.getOrDefault(choice.id, '')!,
+                        note: thisAnswer.noteMap?.getOrDefault(choice.id, '') ??
+                            '',
                       ),
                     ]
                   ],
@@ -117,7 +120,8 @@ class ChoicesBox extends StatelessWidget {
                       NoteBox(
                         questionId: questionId,
                         choice: choice,
-                        note: thisAnswer.noteMap!.getOrDefault(choice.id, '')!,
+                        note: thisAnswer.noteMap?.getOrDefault(choice.id, '') ??
+                            '',
                       ),
                     ]
                   ],

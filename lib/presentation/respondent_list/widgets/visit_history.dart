@@ -22,7 +22,8 @@ class VisitHistory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(
-      buildWhen: (p, c) => p.visitRecordsMap != c.visitRecordsMap,
+      buildWhen: (p, c) =>
+          p.visitRecordsMap[respondent.id] != c.visitRecordsMap[respondent.id],
       builder: (context, state) {
         logger('Build').i('VisitHistory');
 

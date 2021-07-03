@@ -24,6 +24,7 @@ class _$ChoiceTearOff {
       required bool asSingle,
       required bool isSpecialAnswer,
       required ChoiceGroup group,
+      required bool isGroupFirst,
       required ChoiceId upperChoiceId}) {
     return _Choice(
       serialNumber: serialNumber,
@@ -33,6 +34,7 @@ class _$ChoiceTearOff {
       asSingle: asSingle,
       isSpecialAnswer: isSpecialAnswer,
       group: group,
+      isGroupFirst: isGroupFirst,
       upperChoiceId: upperChoiceId,
     );
   }
@@ -50,6 +52,7 @@ mixin _$Choice {
   bool get asSingle => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   ChoiceGroup get group => throw _privateConstructorUsedError;
+  bool get isGroupFirst => throw _privateConstructorUsedError;
   ChoiceId get upperChoiceId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -68,6 +71,7 @@ abstract class $ChoiceCopyWith<$Res> {
       bool asSingle,
       bool isSpecialAnswer,
       ChoiceGroup group,
+      bool isGroupFirst,
       ChoiceId upperChoiceId});
 }
 
@@ -88,6 +92,7 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
     Object? asSingle = freezed,
     Object? isSpecialAnswer = freezed,
     Object? group = freezed,
+    Object? isGroupFirst = freezed,
     Object? upperChoiceId = freezed,
   }) {
     return _then(_value.copyWith(
@@ -119,6 +124,10 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
               as ChoiceGroup,
+      isGroupFirst: isGroupFirst == freezed
+          ? _value.isGroupFirst
+          : isGroupFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId // ignore: cast_nullable_to_non_nullable
@@ -140,6 +149,7 @@ abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
       bool asSingle,
       bool isSpecialAnswer,
       ChoiceGroup group,
+      bool isGroupFirst,
       ChoiceId upperChoiceId});
 }
 
@@ -161,6 +171,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
     Object? asSingle = freezed,
     Object? isSpecialAnswer = freezed,
     Object? group = freezed,
+    Object? isGroupFirst = freezed,
     Object? upperChoiceId = freezed,
   }) {
     return _then(_Choice(
@@ -192,6 +203,10 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
               as ChoiceGroup,
+      isGroupFirst: isGroupFirst == freezed
+          ? _value.isGroupFirst
+          : isGroupFirst // ignore: cast_nullable_to_non_nullable
+              as bool,
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId // ignore: cast_nullable_to_non_nullable
@@ -211,6 +226,7 @@ class _$_Choice extends _Choice {
       required this.asSingle,
       required this.isSpecialAnswer,
       required this.group,
+      required this.isGroupFirst,
       required this.upperChoiceId})
       : super._();
 
@@ -229,11 +245,13 @@ class _$_Choice extends _Choice {
   @override
   final ChoiceGroup group;
   @override
+  final bool isGroupFirst;
+  @override
   final ChoiceId upperChoiceId;
 
   @override
   String toString() {
-    return 'Choice(serialNumber: $serialNumber, id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, group: $group, upperChoiceId: $upperChoiceId)';
+    return 'Choice(serialNumber: $serialNumber, id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, group: $group, isGroupFirst: $isGroupFirst, upperChoiceId: $upperChoiceId)';
   }
 
   @override
@@ -257,6 +275,9 @@ class _$_Choice extends _Choice {
                     .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
             (identical(other.group, group) ||
                 const DeepCollectionEquality().equals(other.group, group)) &&
+            (identical(other.isGroupFirst, isGroupFirst) ||
+                const DeepCollectionEquality()
+                    .equals(other.isGroupFirst, isGroupFirst)) &&
             (identical(other.upperChoiceId, upperChoiceId) ||
                 const DeepCollectionEquality()
                     .equals(other.upperChoiceId, upperChoiceId)));
@@ -272,6 +293,7 @@ class _$_Choice extends _Choice {
       const DeepCollectionEquality().hash(asSingle) ^
       const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(group) ^
+      const DeepCollectionEquality().hash(isGroupFirst) ^
       const DeepCollectionEquality().hash(upperChoiceId);
 
   @JsonKey(ignore: true)
@@ -289,6 +311,7 @@ abstract class _Choice extends Choice {
       required bool asSingle,
       required bool isSpecialAnswer,
       required ChoiceGroup group,
+      required bool isGroupFirst,
       required ChoiceId upperChoiceId}) = _$_Choice;
   const _Choice._() : super._();
 
@@ -306,6 +329,8 @@ abstract class _Choice extends Choice {
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
   ChoiceGroup get group => throw _privateConstructorUsedError;
+  @override
+  bool get isGroupFirst => throw _privateConstructorUsedError;
   @override
   ChoiceId get upperChoiceId => throw _privateConstructorUsedError;
   @override

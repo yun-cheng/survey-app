@@ -15,7 +15,7 @@ UpdateAnswerState answerUpdated(
 
   if (e.isNote) {
     newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
-  } else if (!e.question.type.isChoice) {
+  } else if (!e.question.type.isChoice & !e.isSpecialAnswer) {
     newAnswer = oldAnswer.setString(e.answerValue);
   } else if ((e.answerValue as Choice).asSingle || !e.toggle) {
     newAnswer = oldAnswer.setChoice(

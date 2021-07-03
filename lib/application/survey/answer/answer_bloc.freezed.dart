@@ -17,9 +17,12 @@ class _$AnswerEventTearOff {
   const _$AnswerEventTearOff();
 
   _ModuleLoaded moduleLoaded(
-      {required KtList<Question> questionList, required bool isRecodeModule}) {
+      {required KtList<Question> questionList,
+      required bool isReadOnly,
+      required bool isRecodeModule}) {
     return _ModuleLoaded(
       questionList: questionList,
+      isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
     );
   }
@@ -53,6 +56,10 @@ class _$AnswerEventTearOff {
   _ReadOnlyToggled readOnlyToggled() {
     return const _ReadOnlyToggled();
   }
+
+  _StateCleared stateCleared() {
+    return const _StateCleared();
+  }
 }
 
 /// @nodoc
@@ -63,24 +70,27 @@ mixin _$AnswerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            KtList<Question> questionList, bool isRecodeModule)
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
         answerChanged,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isRecodeModule)?
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
         moduleLoaded,
     TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
         answerChanged,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,6 +101,7 @@ mixin _$AnswerEvent {
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -99,6 +110,7 @@ mixin _$AnswerEvent {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -125,7 +137,8 @@ abstract class _$ModuleLoadedCopyWith<$Res> {
   factory _$ModuleLoadedCopyWith(
           _ModuleLoaded value, $Res Function(_ModuleLoaded) then) =
       __$ModuleLoadedCopyWithImpl<$Res>;
-  $Res call({KtList<Question> questionList, bool isRecodeModule});
+  $Res call(
+      {KtList<Question> questionList, bool isReadOnly, bool isRecodeModule});
 }
 
 /// @nodoc
@@ -141,6 +154,7 @@ class __$ModuleLoadedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? questionList = freezed,
+    Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
   }) {
     return _then(_ModuleLoaded(
@@ -148,6 +162,10 @@ class __$ModuleLoadedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -160,16 +178,20 @@ class __$ModuleLoadedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
 
 class _$_ModuleLoaded implements _ModuleLoaded {
   const _$_ModuleLoaded(
-      {required this.questionList, required this.isRecodeModule});
+      {required this.questionList,
+      required this.isReadOnly,
+      required this.isRecodeModule});
 
   @override
   final KtList<Question> questionList;
+  @override
+  final bool isReadOnly;
   @override
   final bool isRecodeModule;
 
   @override
   String toString() {
-    return 'AnswerEvent.moduleLoaded(questionList: $questionList, isRecodeModule: $isRecodeModule)';
+    return 'AnswerEvent.moduleLoaded(questionList: $questionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule)';
   }
 
   @override
@@ -179,6 +201,9 @@ class _$_ModuleLoaded implements _ModuleLoaded {
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionList, questionList)) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)));
@@ -188,6 +213,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule);
 
   @JsonKey(ignore: true)
@@ -199,31 +225,34 @@ class _$_ModuleLoaded implements _ModuleLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            KtList<Question> questionList, bool isRecodeModule)
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
         answerChanged,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
   }) {
-    return moduleLoaded(questionList, isRecodeModule);
+    return moduleLoaded(questionList, isReadOnly, isRecodeModule);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isRecodeModule)?
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
         moduleLoaded,
     TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
         answerChanged,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
-      return moduleLoaded(questionList, isRecodeModule);
+      return moduleLoaded(questionList, isReadOnly, isRecodeModule);
     }
     return orElse();
   }
@@ -236,6 +265,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return moduleLoaded(this);
   }
@@ -247,6 +277,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -259,9 +290,11 @@ class _$_ModuleLoaded implements _ModuleLoaded {
 abstract class _ModuleLoaded implements AnswerEvent {
   const factory _ModuleLoaded(
       {required KtList<Question> questionList,
+      required bool isReadOnly,
       required bool isRecodeModule}) = _$_ModuleLoaded;
 
   KtList<Question> get questionList => throw _privateConstructorUsedError;
+  bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ModuleLoadedCopyWith<_ModuleLoaded> get copyWith =>
@@ -411,13 +444,14 @@ class _$_AnswerChanged implements _AnswerChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            KtList<Question> questionList, bool isRecodeModule)
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
         answerChanged,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
   }) {
     return answerChanged(
         questionId, body, isNote, isSpecialAnswer, toggle, isRecode, noteOf);
@@ -426,13 +460,15 @@ class _$_AnswerChanged implements _AnswerChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isRecodeModule)?
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
         moduleLoaded,
     TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
         answerChanged,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -450,6 +486,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return answerChanged(this);
   }
@@ -461,6 +498,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -560,13 +598,14 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            KtList<Question> questionList, bool isRecodeModule)
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
         answerChanged,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
   }) {
     return specialAnswerSwitched(questionId);
   }
@@ -574,13 +613,15 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isRecodeModule)?
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
         moduleLoaded,
     TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
         answerChanged,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -597,6 +638,7 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return specialAnswerSwitched(this);
   }
@@ -608,6 +650,7 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -668,13 +711,14 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            KtList<Question> questionList, bool isRecodeModule)
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
         answerChanged,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
   }) {
     return readOnlyToggled();
   }
@@ -682,13 +726,15 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isRecodeModule)?
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
         moduleLoaded,
     TResult Function(QuestionId questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
         answerChanged,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -705,6 +751,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
   }) {
     return readOnlyToggled(this);
   }
@@ -716,6 +763,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -727,6 +775,112 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
 
 abstract class _ReadOnlyToggled implements AnswerEvent {
   const factory _ReadOnlyToggled() = _$_ReadOnlyToggled;
+}
+
+/// @nodoc
+abstract class _$StateClearedCopyWith<$Res> {
+  factory _$StateClearedCopyWith(
+          _StateCleared value, $Res Function(_StateCleared) then) =
+      __$StateClearedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$StateClearedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
+    implements _$StateClearedCopyWith<$Res> {
+  __$StateClearedCopyWithImpl(
+      _StateCleared _value, $Res Function(_StateCleared) _then)
+      : super(_value, (v) => _then(v as _StateCleared));
+
+  @override
+  _StateCleared get _value => super._value as _StateCleared;
+}
+
+/// @nodoc
+
+class _$_StateCleared implements _StateCleared {
+  const _$_StateCleared();
+
+  @override
+  String toString() {
+    return 'AnswerEvent.stateCleared()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _StateCleared);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+        moduleLoaded,
+    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+        answerChanged,
+    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
+  }) {
+    return stateCleared();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
+        moduleLoaded,
+    TResult Function(QuestionId questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+        answerChanged,
+    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
+    required TResult orElse(),
+  }) {
+    if (stateCleared != null) {
+      return stateCleared();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_SpecialAnswerSwitched value)
+        specialAnswerSwitched,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
+  }) {
+    return stateCleared(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
+    required TResult orElse(),
+  }) {
+    if (stateCleared != null) {
+      return stateCleared(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateCleared implements AnswerEvent {
+  const factory _StateCleared() = _$_StateCleared;
 }
 
 /// @nodoc

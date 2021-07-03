@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
@@ -19,15 +20,18 @@ class RecodeBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-        buildWhen: (p, c) => false,
+        buildWhen: (p, c) =>
+            (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
+            ((p.recodeAnswerMap[questionId] != c.recodeAnswerMap[questionId]) ||
+                p.isReadOnly != c.isReadOnly),
         builder: (context, state) {
           logger('Build').i('RecodeBox');
 
           final isReadOnly = state.isReadOnly;
 
           // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
-          final note = (state.answerMap[questionId] ?? Answer.empty()).value
-                  as String? ??
+          final note = (state.recodeAnswerMap[questionId] ?? Answer.empty())
+                  .value as String? ??
               '';
 
           return Padding(

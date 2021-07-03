@@ -66,4 +66,6 @@ class ResponseEvent with _$ResponseEvent {
   // H_ 更新當前受訪者在其他模組的 responses
   const factory ResponseEvent.respondentResponseListUpdated() =
       _RespondentResponseListUpdated;
+
+  const factory ResponseEvent.loggedOut() = _LoggedOut;
 }

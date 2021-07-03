@@ -30,8 +30,17 @@ _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
         .toList(),
     loadState: json['loadState'] as Map<String, dynamic>,
     rebuildState: json['rebuildState'] as Map<String, dynamic>,
+    restoreState: json['restoreState'] as Map<String, dynamic>,
     isRecodeModule: json['isRecodeModule'] as bool,
     isReadOnly: json['isReadOnly'] as bool,
+    recodeAnswerMap: (json['recodeAnswerMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
+    ),
+    recodeAnswerStatusMap:
+        (json['recodeAnswerStatusMap'] as Map<String, dynamic>).map(
+      (k, e) =>
+          MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
+    ),
   );
 }
 
@@ -53,6 +62,11 @@ Map<String, dynamic> _$_$_SurveyPageStateDtoToJson(
           instance.contentQuestionList.map((e) => e.toJson()).toList(),
       'loadState': instance.loadState,
       'rebuildState': instance.rebuildState,
+      'restoreState': instance.restoreState,
       'isRecodeModule': instance.isRecodeModule,
       'isReadOnly': instance.isReadOnly,
+      'recodeAnswerMap':
+          instance.recodeAnswerMap.map((k, e) => MapEntry(k, e.toJson())),
+      'recodeAnswerStatusMap':
+          instance.recodeAnswerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
     };

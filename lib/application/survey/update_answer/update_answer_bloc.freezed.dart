@@ -34,12 +34,14 @@ class _$UpdateAnswerEventTearOff {
       {required Question question,
       required dynamic answerValue,
       required bool toggle,
+      required bool isSpecialAnswer,
       required bool isNote,
       ChoiceId? noteOf}) {
     return AnswerUpdated(
       question: question,
       answerValue: answerValue,
       toggle: toggle,
+      isSpecialAnswer: isSpecialAnswer,
       isNote: isNote,
       noteOf: noteOf,
     );
@@ -63,7 +65,7 @@ mixin _$UpdateAnswerEvent {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isNote, ChoiceId? noteOf)
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(QuestionId questionId) answerCleared,
   }) =>
@@ -74,7 +76,7 @@ mixin _$UpdateAnswerEvent {
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isNote, ChoiceId? noteOf)?
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(QuestionId questionId)? answerCleared,
     required TResult orElse(),
@@ -188,7 +190,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isNote, ChoiceId? noteOf)
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(QuestionId questionId) answerCleared,
   }) {
@@ -202,7 +204,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isNote, ChoiceId? noteOf)?
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(QuestionId questionId)? answerCleared,
     required TResult orElse(),
@@ -296,7 +298,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isNote, ChoiceId? noteOf)
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(QuestionId questionId) answerCleared,
   }) {
@@ -310,7 +312,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isNote, ChoiceId? noteOf)?
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(QuestionId questionId)? answerCleared,
     required TResult orElse(),
@@ -398,7 +400,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isNote, ChoiceId? noteOf)
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(QuestionId questionId) answerCleared,
   }) {
@@ -412,7 +414,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isNote, ChoiceId? noteOf)?
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(QuestionId questionId)? answerCleared,
     required TResult orElse(),
@@ -465,6 +467,7 @@ abstract class $AnswerUpdatedCopyWith<$Res> {
       {Question question,
       dynamic answerValue,
       bool toggle,
+      bool isSpecialAnswer,
       bool isNote,
       ChoiceId? noteOf});
 
@@ -487,6 +490,7 @@ class _$AnswerUpdatedCopyWithImpl<$Res>
     Object? question = freezed,
     Object? answerValue = freezed,
     Object? toggle = freezed,
+    Object? isSpecialAnswer = freezed,
     Object? isNote = freezed,
     Object? noteOf = freezed,
   }) {
@@ -502,6 +506,10 @@ class _$AnswerUpdatedCopyWithImpl<$Res>
       toggle: toggle == freezed
           ? _value.toggle
           : toggle // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSpecialAnswer: isSpecialAnswer == freezed
+          ? _value.isSpecialAnswer
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
       isNote: isNote == freezed
           ? _value.isNote
@@ -529,6 +537,7 @@ class _$AnswerUpdated implements AnswerUpdated {
       {required this.question,
       required this.answerValue,
       required this.toggle,
+      required this.isSpecialAnswer,
       required this.isNote,
       this.noteOf});
 
@@ -539,13 +548,15 @@ class _$AnswerUpdated implements AnswerUpdated {
   @override
   final bool toggle;
   @override
+  final bool isSpecialAnswer;
+  @override
   final bool isNote;
   @override
   final ChoiceId? noteOf;
 
   @override
   String toString() {
-    return 'UpdateAnswerEvent.answerUpdated(question: $question, answerValue: $answerValue, toggle: $toggle, isNote: $isNote, noteOf: $noteOf)';
+    return 'UpdateAnswerEvent.answerUpdated(question: $question, answerValue: $answerValue, toggle: $toggle, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, noteOf: $noteOf)';
   }
 
   @override
@@ -560,6 +571,9 @@ class _$AnswerUpdated implements AnswerUpdated {
                     .equals(other.answerValue, answerValue)) &&
             (identical(other.toggle, toggle) ||
                 const DeepCollectionEquality().equals(other.toggle, toggle)) &&
+            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
+                const DeepCollectionEquality()
+                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
             (identical(other.isNote, isNote) ||
                 const DeepCollectionEquality().equals(other.isNote, isNote)) &&
             (identical(other.noteOf, noteOf) ||
@@ -572,6 +586,7 @@ class _$AnswerUpdated implements AnswerUpdated {
       const DeepCollectionEquality().hash(question) ^
       const DeepCollectionEquality().hash(answerValue) ^
       const DeepCollectionEquality().hash(toggle) ^
+      const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(isNote) ^
       const DeepCollectionEquality().hash(noteOf);
 
@@ -587,11 +602,12 @@ class _$AnswerUpdated implements AnswerUpdated {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isNote, ChoiceId? noteOf)
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(QuestionId questionId) answerCleared,
   }) {
-    return answerUpdated(question, answerValue, toggle, isNote, noteOf);
+    return answerUpdated(
+        question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
   }
 
   @override
@@ -601,13 +617,14 @@ class _$AnswerUpdated implements AnswerUpdated {
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isNote, ChoiceId? noteOf)?
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(QuestionId questionId)? answerCleared,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
-      return answerUpdated(question, answerValue, toggle, isNote, noteOf);
+      return answerUpdated(
+          question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
     }
     return orElse();
   }
@@ -646,12 +663,14 @@ abstract class AnswerUpdated implements UpdateAnswerEvent {
       {required Question question,
       required dynamic answerValue,
       required bool toggle,
+      required bool isSpecialAnswer,
       required bool isNote,
       ChoiceId? noteOf}) = _$AnswerUpdated;
 
   Question get question => throw _privateConstructorUsedError;
   dynamic get answerValue => throw _privateConstructorUsedError;
   bool get toggle => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
   bool get isNote => throw _privateConstructorUsedError;
   ChoiceId? get noteOf => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -729,7 +748,7 @@ class _$_AnswerCleared implements _AnswerCleared {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isNote, ChoiceId? noteOf)
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(QuestionId questionId) answerCleared,
   }) {
@@ -743,7 +762,7 @@ class _$_AnswerCleared implements _AnswerCleared {
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isNote, ChoiceId? noteOf)?
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(QuestionId questionId)? answerCleared,
     required TResult orElse(),

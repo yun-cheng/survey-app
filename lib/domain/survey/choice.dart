@@ -20,6 +20,7 @@ class Choice with _$Choice {
     required bool asSingle,
     required bool isSpecialAnswer,
     required ChoiceGroup group,
+    required bool isGroupFirst,
     required ChoiceId upperChoiceId,
   }) = _Choice;
 
@@ -31,6 +32,7 @@ class Choice with _$Choice {
         asSingle: false,
         isSpecialAnswer: false,
         group: ChoiceGroup.empty(),
+        isGroupFirst: false,
         upperChoiceId: ChoiceId.empty(),
       );
 

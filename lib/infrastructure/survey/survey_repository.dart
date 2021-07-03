@@ -114,4 +114,37 @@ class SurveyRepository implements ISurveyRepository {
       }
     }
   }
+
+  @override
+  Future<Either<SurveyFailure, Unit>> cleanResponseList({
+    required TeamId teamId,
+    required InterviewerId interviewerId,
+  }) async {
+    try {
+      final responseCollection = _firestore.responseCollection;
+
+      final batch = _firestore.batch();
+
+      responseCollection
+          .where('teamId', isEqualTo: teamId.getOrCrash())
+          .where('interviewerId', isEqualTo: interviewerId.getOrCrash())
+          .where('isDeleted', isEqualTo: false)
+          .get()
+          // NOTE 因為沒有要 return 東西，所以不能用 => 寫
+          .then((snapshot) {
+        snapshot.docs.forEach((doc) {
+          batch.delete(doc.reference);
+        });
+        return batch.commit();
+      });
+
+      return right(unit);
+    } catch (e) {
+      if (e is FirebaseException && e.code == 'permission-denied') {
+        return left(const SurveyFailure.insufficientPermission());
+      } else {
+        return left(const SurveyFailure.unexpected());
+      }
+    }
+  }
 }

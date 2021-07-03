@@ -6,12 +6,13 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required LoadState restoreState,
     required LoadState updateState,
     required KtList<Question> questionList,
-    required bool isRecodeModule,
     required KtMap<QuestionId, Answer> answerMap,
     required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
     required QuestionId questionId,
     required KtList<QuestionId> clearAnswerQIdList,
+    // H_ recode
+    required bool isRecodeModule,
+    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateAnswerStatusState;
 
   factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(

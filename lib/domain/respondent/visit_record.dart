@@ -14,6 +14,7 @@ class VisitRecord with _$VisitRecord {
     required RespondentId respondentId,
     required UniqueId responseId,
     required VisitTime visitTime,
+    required String status,
     required String description,
   }) = _VisitRecord;
 
@@ -21,6 +22,7 @@ class VisitRecord with _$VisitRecord {
         respondentId: RespondentId.empty(),
         responseId: UniqueId(),
         visitTime: VisitTime.empty(),
+        status: '',
         description: '',
       );
 }

@@ -24,11 +24,15 @@ class WarningBox extends StatelessWidget {
       buildWhen: (p, c) =>
           (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
           (p.answerStatusMap[questionId] != c.answerStatusMap[questionId] ||
+              p.recodeAnswerStatusMap[questionId] !=
+                  c.recodeAnswerStatusMap[questionId] ||
               p.showWarning != c.showWarning),
       builder: (context, state) {
         logger('Build').i('WarningBox');
 
-        final answerStatus = state.answerStatusMap[questionId];
+        final answerStatus = (state.isRecodeModule
+            ? state.recodeAnswerStatusMap
+            : state.answerStatusMap)[questionId];
 
         if (answerStatus != null) {
           // FIXME 不該在這處理?

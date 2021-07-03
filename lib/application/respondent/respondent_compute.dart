@@ -4,33 +4,29 @@ part of 'respondent_bloc.dart';
 RespondentState respondentListLoaded(RespondentState state) {
   logger('Compute').i('respondentListLoaded');
 
+  // S_ 必須要已選擇問卷
   if (state.survey.id.isValid() && state.respondentListList.isNotEmpty()) {
     final respondentList = state.respondentListList
         .first((respondentList) => respondentList.surveyId == state.survey.id)
         .respondentList;
-    final villageFirstRespondentList = respondentList
-        .groupBy(
-            (r) => r.countyTown.getValueAnyway() + r.village.getValueAnyway())
-        .mapValues((r) => r.value.get(0))
-        .toList()
-        .map((p) => p.second);
-    final townFirstRespondentList = villageFirstRespondentList
-        .groupBy((r) => r.countyTown.getValueAnyway())
-        .mapValues((r) => r.value.get(0))
-        .toList()
-        .map((p) => p.second);
-    final firstRespondent = respondentList.get(0);
 
-    return state.copyWith(
+    final state1 = state.copyWith(
       respondentList: respondentList,
-      villageFirstRespondentList: villageFirstRespondentList,
-      townFirstRespondentList: townFirstRespondentList,
-      firstRespondent: firstRespondent,
       respondentFailure: none(),
     );
+
+    return tabRespondentsUpdatedJob(state1);
   } else {
     return state;
   }
+}
+
+// H_
+RespondentState responseInfoListUpdated(
+    KtList<Response> responseList, RespondentState state) {
+  return state.copyWith(
+    responseInfoList: responseList.map((r) => r.onlyInfo()),
+  );
 }
 
 // H_ 查址紀錄更新時
@@ -41,41 +37,214 @@ RespondentState visitReportUpdated(
   final e = tuple.item1;
   final state = tuple.item2;
 
-  final visitRecordsMap = e.responseList
+  final state1 = responseInfoListUpdated(e.responseList, state);
+
+  return visitReportUpdatedJob(state1);
+}
+
+// H_ 查址紀錄更新時
+RespondentState visitReportUpdatedJob(RespondentState state) {
+  logger('Compute').i('visitReportUpdatedJob');
+
+  final visitRecordsMap = state.responseInfoList
       .filter(
         (r) =>
+            r.responseStatus == ResponseStatus.finished() &&
             r.surveyId == state.survey.id &&
             r.moduleType == ModuleType.visitReport(),
       )
       .sortedByDescending((r) => r.lastChangedTimeStamp.toInt())
       .groupBy((r) => KtPair(r.respondentId, r.ticketId))
-      .mapValues((r) => r.value.getOrNull(0))
+      .mapValues((e) => e.value.getOrNull(0))
       .toList()
       .map((p) => p.second!)
       .map(
-        (r) => VisitRecord(
-          respondentId: r.respondentId,
-          responseId: r.responseId,
-          visitTime: VisitTime(
-            date: DateTimeX.fromDateTimeString(
-              r.answerMap.get(QuestionId('V1'))!.value,
-            )!,
-            timeSession: r.answerMap
-                    .get(QuestionId('V2'))!
+        (r) {
+          late final DateTime date;
+          late final String timeSession;
+
+          final dateStr = r.answerMap
+              .getOrDefault(QuestionId('date'), Answer.empty())
+              .value;
+
+          if (dateStr != null) {
+            date = DateTimeX.fromDateTimeString(dateStr)!;
+            timeSession = r.answerMap
+                    .getOrDefault(QuestionId('time'), Answer.empty())
                     .choiceValue
                     ?.id
                     .getValueAnyway() ??
-                '',
-          ),
-          description: r.answerMap.get(QuestionId('V3'))!.stringBody,
-        ),
+                '';
+          } else {
+            date = r.createdTimeStamp.getValueAnyway();
+            if (date.hour < 12) {
+              timeSession = '1';
+            } else if (date.hour < 18) {
+              timeSession = '2';
+            } else {
+              timeSession = '3';
+            }
+          }
+
+          // S_ 要取得所選選項之分組
+          final statusChoiceList = state
+              .survey.module[ModuleType.visitReport()]!.questionList
+              .firstOrNull((q) => q.id == QuestionId('status'))
+              ?.choiceList;
+
+          final statusChoiceId = r.answerMap
+              .getOrDefault(QuestionId('status'), Answer.empty())
+              .choiceValue
+              ?.id;
+
+          final statusChoice =
+              statusChoiceList?.firstOrNull((c) => c.id == statusChoiceId) ??
+                  Choice.empty();
+
+          return VisitRecord(
+            respondentId: r.respondentId,
+            responseId: r.responseId,
+            visitTime: VisitTime(
+              date: date,
+              timeSession: timeSession,
+            ),
+            status: statusChoice.group.getValueAnyway(),
+            description: r.answerMap
+                .getOrDefault(QuestionId('status'), Answer.empty())
+                .stringBody,
+          );
+        },
       )
       .sortedByDescending((v) => v.visitTime.toInt())
       .groupBy((r) => r.respondentId);
 
   return state.copyWith(
-    // NOTE 確保真的有轉成 KtMap
-    // QUESTION 有需要嗎？本來是 KtMutableMap？
-    visitRecordsMap: KtMap.from(visitRecordsMap.asMap()),
+    visitRecordsMap: visitRecordsMap.toMap(),
   );
+}
+
+// H_ 分頁受訪者名單更新時
+RespondentState tabRespondentsUpdated(
+    Tuple2<_TabRespondentsUpdated, RespondentState> tuple) {
+  logger('Compute').i('tabRespondentsUpdated');
+
+  final e = tuple.item1;
+  final state = tuple.item2;
+
+  final state1 = responseInfoListUpdated(e.responseList, state);
+
+  return tabRespondentsUpdatedJob(state1);
+}
+
+// H_ 分頁受訪者名單更新時
+RespondentState tabRespondentsUpdatedJob(RespondentState state) {
+  logger('Compute').i('tabRespondentsUpdatedJob');
+
+  final tabRespondentsMap = TabRespondentsMMap.empty();
+
+  KtPair<KtList<Response>, KtList<Response>> pResponseList;
+  KtPair<KtList<Respondent>, KtList<Respondent>> pRespondentList;
+  KtList<Respondent> respondentList;
+  KtList<Response> finishedResponseList;
+
+  // S_1-1
+  respondentList = state.respondentList;
+  finishedResponseList = state.responseInfoList.filter(
+    (r) => r.surveyId == state.survey.id && r.responseStatus.isFinished,
+  );
+
+  // S_1-2 finished tab
+  pResponseList = finishedResponseList
+      .partition((r) => r.moduleType == ModuleType.recode());
+
+  pRespondentList = respondentList
+      .partition((r) => pResponseList.first.any((s) => s.respondentId == r.id));
+
+  tabRespondentsMap[TabType.finished] = pRespondentList.first;
+
+  // S_2-1
+  respondentList = pRespondentList.second;
+  finishedResponseList = pResponseList.second;
+
+  // S_2-2 recode tab
+  pResponseList = finishedResponseList
+      .partition((r) => r.moduleType == ModuleType.interviewReport());
+
+  pRespondentList = respondentList
+      .partition((r) => pResponseList.first.any((s) => s.respondentId == r.id));
+
+  tabRespondentsMap[TabType.recode] = pRespondentList.first;
+
+  // S_3-1
+  respondentList = pRespondentList.second;
+  finishedResponseList = pResponseList.second;
+
+  // S_3-2 interviewReport tab
+  pResponseList =
+      finishedResponseList.partition((r) => r.moduleType == ModuleType.main());
+
+  pRespondentList = respondentList
+      .partition((r) => pResponseList.first.any((s) => s.respondentId == r.id));
+
+  tabRespondentsMap[TabType.interviewReport] = pRespondentList.first;
+
+  // S_4-1 start tab
+  tabRespondentsMap[TabType.start] = pRespondentList.second;
+
+  tabRespondentsMap.mapValuesTo(
+    tabRespondentsMap,
+    (e) => e.value
+        .groupBy((r) => r.countyTown)
+        .mapValues(
+          (e1) => e1.value.mapIndexed(
+              (i, r) => i == 0 ? r.copyWith(isCountyTownFirst: true) : r),
+        )
+        .toList()
+        .flatMap((p) => p.second)
+        .groupBy((r) => KtPair(r.countyTown, r.village))
+        .mapValues(
+          (e1) => e1.value.mapIndexed(
+              (i, r) => i == 0 ? r.copyWith(isVillageFirst: true) : r),
+        )
+        .toList()
+        .flatMap((p) => p.second),
+  );
+
+  return state.copyWith(
+    tabRespondentsMap: tabRespondentsMap.toMap(),
+  );
+}
+
+RespondentState pageScrolled(Tuple2<_PageScrolled, RespondentState> tuple) {
+  // logger('Compute').i('pageScrolled');
+
+  final e = tuple.item1;
+  final state = tuple.item2;
+
+  final firstCardIndex =
+      e.positions.isEmpty ? 0 : e.positions.map((p) => p.index).reduce(min);
+  final firstCardAlignment = e.positions.isEmpty
+      ? 0.0
+      : e.positions
+          .firstWhere((e) => e.index == firstCardIndex)
+          .itemLeadingEdge;
+  final firstRespondent =
+      state.tabRespondentsMap[state.currentTab]!.getOrNull(0);
+
+  if (firstRespondent != null) {
+    final tabScrollPosition = state.tabScrollPosition.toMutableMap();
+    tabScrollPosition.put(
+        e.tabType,
+        CardScrollPosition(
+          firstCardIndex: firstCardIndex,
+          firstCardAlignment: firstCardAlignment,
+          firstRespondent: firstRespondent,
+        ));
+
+    return state.copyWith(
+      tabScrollPosition: tabScrollPosition.toMap(),
+    );
+  } else {
+    return state;
+  }
 }

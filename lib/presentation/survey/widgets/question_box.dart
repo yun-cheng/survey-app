@@ -19,19 +19,21 @@ class QuestionBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-      // NOTE 只在該題 body 有變更時才 rebuild
+      // NOTE 只在該題前後 body 都存在，且 body 有變更時，才 rebuild
       buildWhen: (p, c) {
         if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
-          if (p.pageQuestionList != c.pageQuestionList) {
-            final pQuestion =
-                p.pageQuestionList.firstOrNull((q) => q.id == questionId);
-            final cQuestion =
-                c.pageQuestionList.firstOrNull((q) => q.id == questionId);
+          final pQuestion =
+              p.pageQuestionList.firstOrNull((q) => q.id == questionId);
+          final cQuestion =
+              c.pageQuestionList.firstOrNull((q) => q.id == questionId);
 
-            return pQuestion?.body != cQuestion?.body;
+          // NOTE 若 question 前或後不存在，交由上層 widget 處理
+          if (pQuestion == null || cQuestion == null) {
+            return false;
           }
-        }
 
+          return pQuestion.body != cQuestion.body;
+        }
         return false;
       },
       builder: (context, state) {

@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kt_dart/collection.dart';
 
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
@@ -8,16 +9,18 @@ import '../../../application/survey/response/response_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/navigation_page.dart';
 import '../../../domain/respondent/respondent.dart';
+import '../../../domain/respondent/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
-import '../../core/widgets/max_width_box.dart';
 import 'visit_history.dart';
 
 class RespondentCard extends StatelessWidget {
+  final TabType tabType;
   final Respondent respondent;
 
   const RespondentCard({
     Key? key,
+    required this.tabType,
     required this.respondent,
   }) : super(key: key);
 
@@ -43,133 +46,190 @@ class RespondentCard extends StatelessWidget {
 
     return BlocBuilder<RespondentBloc, RespondentState>(
       buildWhen: (p, c) =>
+          // S_ 改變前後跟此卡片有關
           (p.selectedRespondentId == respondent.id ||
-              c.selectedRespondentId == respondent.id) &&
-          (p.selectedRespondentId != c.selectedRespondentId),
+              c.selectedRespondentId == respondent.id) ||
+          // S_ 此卡片展開且查址紀錄有變
+          (c.selectedRespondentId == respondent.id &&
+              (p.visitRecordsMap[respondent.id] !=
+                  c.visitRecordsMap[respondent.id])),
       builder: (context, state) {
         logger('Build').i('RespondentCard');
 
         final isSelected = state.selectedRespondentId == respondent.id;
-        final isFirst = state.villageFirstRespondentList.contains(respondent);
+        final isFirst = respondent.isVillageFirst;
 
-        return MaxWidthBox(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Visibility(
-                visible: isFirst,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      respondent.countyTown.getOrCrash(),
-                      style: kCardH2TextStyle,
-                    ),
-                    Text(
-                      respondent.village.getOrCrash(),
-                      style: kCardH2TextStyle,
-                    ),
-                  ],
-                ),
+        final lastVisitRecordStatus =
+            state.visitRecordsMap[respondent.id]?.getOrNull(0)?.status ?? '';
+
+        // H_ module buttons
+        Visibility moduleButton(
+          String text,
+          ModuleType moduelType, {
+          bool isCurrentTab = false,
+          bool enabled = true,
+        }) {
+          ButtonStyle buttonStyle = kModuleButtonStyle;
+          if (isCurrentTab) {
+            buttonStyle = kCurrentModuleButtonStyle;
+          } else if (!enabled) {
+            buttonStyle = kDisabledModuleButtonStyle;
+          }
+          return Visibility(
+            visible: enabled,
+            maintainAnimation: true,
+            maintainState: true,
+            maintainSize: true,
+            child: TextButton(
+              style: buttonStyle,
+              onPressed: () {
+                if (enabled) {
+                  moduleButtonPressed(moduelType);
+                }
+              },
+              child: Text(
+                text,
+                style: kCardH3TextStyle,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15.0),
+            ),
+          );
+        }
+
+        final mainModuleButton = moduleButton(
+          '開始訪問',
+          ModuleType.main(),
+          isCurrentTab: tabType.index == 0,
+        );
+
+        final visitReportModuleButton = moduleButton(
+          '查址',
+          ModuleType.visitReport(),
+        );
+
+        final housingTypeModuleButton = moduleButton(
+          '住屋',
+          ModuleType.housingType(),
+          isCurrentTab: tabType.index == 1,
+        );
+
+        final interviewReportModuleButton = moduleButton(
+          '訪問紀錄',
+          ModuleType.interviewReport(),
+          isCurrentTab: tabType.index == 1,
+          enabled: tabType.index >= 1,
+        );
+
+        final recodeModuleButton = moduleButton(
+          '預過錄',
+          ModuleType.recode(),
+          isCurrentTab: tabType.index == 2,
+          enabled: tabType.index >= 2,
+        );
+
+        return Align(
+          alignment: Alignment.topCenter,
+          child: ConstrainedBox(
+            constraints: kCardMaxWith,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Visibility(
+                  visible: isFirst,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        respondent.countyTown.getOrCrash(),
+                        style: kCardH2TextStyle,
+                      ),
+                      Text(
+                        respondent.village.getOrCrash(),
+                        style: kCardH2TextStyle,
+                      ),
+                    ],
+                  ),
                 ),
-                margin: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
-                child: InkWell(
-                  onTap: () {
-                    context.read<RespondentBloc>().add(
-                          RespondentEvent.respondentSelected(
-                            respondentId: respondent.id,
-                          ),
-                        );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(24.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          respondent.id.getOrCrash(),
-                          style: kCardH4TextStyle,
-                        ),
-                        Text(
-                          respondent.remainAddress.getOrCrash(),
-                          style: kCardH2TextStyle,
-                        ),
-                        Visibility(
-                          visible: isSelected,
-                          child: Column(
-                            // crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              const SizedBox(height: kPFontSize),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: <Widget>[
-                                  TextButton(
-                                    style: kCardRedButtonStyle,
-                                    onPressed: () =>
-                                        moduleButtonPressed(ModuleType.main()),
-                                    child: const Text(
-                                      '開始訪問',
-                                      style: kCardH3TextStyle,
-                                    ),
-                                  ),
-                                  const SizedBox(width: kH4FontSize),
-                                  TextButton(
-                                    style: kCardBlueButtonStyle,
-                                    onPressed: () => moduleButtonPressed(
-                                        ModuleType.housingType()),
-                                    child: const Text(
-                                      '住屋',
-                                      style: kCardH3TextStyle,
-                                    ),
-                                  ),
-                                  const SizedBox(width: kH4FontSize),
-                                  TextButton(
-                                    style: kCardBlueButtonStyle,
-                                    onPressed: () => moduleButtonPressed(
-                                        ModuleType.visitReport()),
-                                    child: const Text(
-                                      '查址',
-                                      style: kCardH3TextStyle,
-                                    ),
-                                  ),
-                                  const SizedBox(width: kH4FontSize),
-                                  TextButton(
-                                    style: kCardBlueButtonStyle,
-                                    onPressed: () => moduleButtonPressed(
-                                        ModuleType.interviewReport()),
-                                    child: const Text(
-                                      '訪問紀錄',
-                                      style: kCardH3TextStyle,
-                                    ),
-                                  ),
-                                  const SizedBox(width: kH4FontSize),
-                                  TextButton(
-                                    style: kCardBlueButtonStyle,
-                                    onPressed: () => moduleButtonPressed(
-                                        ModuleType.recode()),
-                                    child: const Text(
-                                      '預過錄',
-                                      style: kCardH3TextStyle,
-                                    ),
-                                  ),
-                                ],
+                Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                  margin: const EdgeInsets.only(top: 10.0),
+                  child: InkWell(
+                    onTap: () {
+                      context.read<RespondentBloc>().add(
+                            RespondentEvent.respondentSelected(
+                              respondentId: respondent.id,
+                            ),
+                          );
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 18.0,
+                        horizontal: 18.0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                respondent.id.getOrCrash(),
+                                style: kCardH4TextStyle,
                               ),
-                              const SizedBox(height: kPFontSize),
-                              VisitHistory(respondent: respondent),
+                              Text(
+                                lastVisitRecordStatus,
+                                style: kCardH4TextStyle,
+                              ),
                             ],
                           ),
-                        ),
-                      ],
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                respondent.remainAddress.getOrCrash(),
+                                style: kCardH2TextStyle,
+                              ),
+                              Icon(
+                                isSelected
+                                    ? Icons.expand_less
+                                    : Icons.expand_more,
+                              ),
+                            ],
+                          ),
+                          Visibility(
+                            visible: isSelected,
+                            child: Column(
+                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                const SizedBox(height: kPFontSize),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    mainModuleButton,
+                                    const SizedBox(width: kH4FontSize),
+                                    visitReportModuleButton,
+                                    const SizedBox(width: kH4FontSize),
+                                    housingTypeModuleButton,
+                                    const SizedBox(width: kH4FontSize),
+                                    interviewReportModuleButton,
+                                    const SizedBox(width: kH4FontSize),
+                                    recodeModuleButton,
+                                  ],
+                                ),
+                                const SizedBox(height: kPFontSize),
+                                VisitHistory(respondent: respondent),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         );
       },

@@ -70,6 +70,10 @@ class WatchSurveyBloc extends HydratedBloc<WatchSurveyEvent, WatchSurveyState> {
           surveyFailure: none(),
         );
       },
+      loggedOut: (e) async* {
+        _surveyListSubscription?.cancel();
+        yield WatchSurveyState.initial();
+      },
     );
   }
 

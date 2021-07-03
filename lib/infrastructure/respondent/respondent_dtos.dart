@@ -15,14 +15,18 @@ class RespondentDto with _$RespondentDto {
     required String countyTown,
     required String village,
     required String remainAddress,
+    bool? isCountyTownFirst,
+    bool? isVillageFirst,
   }) = _RespondentDto;
 
-  factory RespondentDto.fromDomain(Respondent respondent) {
+  factory RespondentDto.fromDomain(Respondent domain) {
     return RespondentDto(
-      respondentId: respondent.id.getValueAnyway(),
-      countyTown: respondent.countyTown.getValueAnyway(),
-      village: respondent.village.getValueAnyway(),
-      remainAddress: respondent.remainAddress.getValueAnyway(),
+      respondentId: domain.id.getValueAnyway(),
+      countyTown: domain.countyTown.getValueAnyway(),
+      village: domain.village.getValueAnyway(),
+      remainAddress: domain.remainAddress.getValueAnyway(),
+      isCountyTownFirst: domain.isCountyTownFirst,
+      isVillageFirst: domain.isVillageFirst,
     );
   }
 
@@ -32,6 +36,8 @@ class RespondentDto with _$RespondentDto {
       countyTown: CountyTown(countyTown),
       village: Village(village),
       remainAddress: RemainAddress(remainAddress),
+      isCountyTownFirst: isCountyTownFirst ?? false,
+      isVillageFirst: isVillageFirst ?? false,
     );
   }
 

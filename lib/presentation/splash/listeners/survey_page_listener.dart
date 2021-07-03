@@ -13,7 +13,6 @@ final surveyPageListener =
   listenWhen: (p, c) =>
       p.updateState != c.updateState && c.updateState is LoadSuccess,
   listener: (context, state) {
-    // TODO isReadOnly 也要傳
     if (state.updateType == SurveyPageUpdateType.page) {
       logger('Listen').i('SurveyPageBloc: page');
       context.read<SurveyPageBloc>().add(
@@ -38,9 +37,23 @@ final surveyPageListener =
               showWarning: state.showWarning,
             ),
           );
+    } else if (state.updateType == SurveyPageUpdateType.info) {
+      logger('Listen').i('SurveyPageBloc: info');
+      context.read<SurveyPageBloc>().add(
+            SurveyPageEvent.infoUpdated(
+              isReadOnly: state.isReadOnly,
+              isRecodeModule: state.isRecodeModule,
+              answerMap: state.answerMap,
+              answerStatusMap: state.answerStatusMap,
+              mainAnswerMap: state.mainAnswerMap,
+              mainAnswerStatusMap: state.mainAnswerStatusMap,
+            ),
+          );
     }
 
-    if (state.updateType != SurveyPageUpdateType.contentQuestionList) {
+    if (!state.isReadOnly &&
+        ![SurveyPageUpdateType.contentQuestionList, SurveyPageUpdateType.info]
+            .contains(state.updateType)) {
       // logger('Listen').i('SurveyPageBloc: ${state.updateType}');
       // H_ 存回 response
       context.read<ResponseBloc>().add(

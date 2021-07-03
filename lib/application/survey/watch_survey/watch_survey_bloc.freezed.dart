@@ -36,6 +36,10 @@ class _$WatchSurveyEventTearOff {
       survey: survey,
     );
   }
+
+  _LoggedOut loggedOut() {
+    return const _LoggedOut();
+  }
 }
 
 /// @nodoc
@@ -51,6 +55,7 @@ mixin _$WatchSurveyEvent {
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
+    required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +65,7 @@ mixin _$WatchSurveyEvent {
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -69,6 +75,7 @@ mixin _$WatchSurveyEvent {
         watchSurveyListStarted,
     required TResult Function(_SurveyListReceived value) surveyListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +83,7 @@ mixin _$WatchSurveyEvent {
     TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
     TResult Function(_SurveyListReceived value)? surveyListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -183,6 +191,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
+    required TResult Function() loggedOut,
   }) {
     return watchSurveyListStarted(teamId, interviewerId);
   }
@@ -195,6 +204,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (watchSurveyListStarted != null) {
@@ -210,6 +220,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
         watchSurveyListStarted,
     required TResult Function(_SurveyListReceived value) surveyListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchSurveyListStarted(this);
   }
@@ -220,6 +231,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
     TResult Function(_SurveyListReceived value)? surveyListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (watchSurveyListStarted != null) {
@@ -314,6 +326,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
+    required TResult Function() loggedOut,
   }) {
     return surveyListReceived(failureOrSurveyList);
   }
@@ -326,6 +339,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (surveyListReceived != null) {
@@ -341,6 +355,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
         watchSurveyListStarted,
     required TResult Function(_SurveyListReceived value) surveyListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return surveyListReceived(this);
   }
@@ -351,6 +366,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
     TResult Function(_SurveyListReceived value)? surveyListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (surveyListReceived != null) {
@@ -452,6 +468,7 @@ class _$_SurveySelected implements _SurveySelected {
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
+    required TResult Function() loggedOut,
   }) {
     return surveySelected(survey);
   }
@@ -464,6 +481,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -479,6 +497,7 @@ class _$_SurveySelected implements _SurveySelected {
         watchSurveyListStarted,
     required TResult Function(_SurveyListReceived value) surveyListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return surveySelected(this);
   }
@@ -489,6 +508,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
     TResult Function(_SurveyListReceived value)? surveyListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -505,6 +525,105 @@ abstract class _SurveySelected implements WatchSurveyEvent {
   @JsonKey(ignore: true)
   _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$LoggedOutCopyWith<$Res> {
+  factory _$LoggedOutCopyWith(
+          _LoggedOut value, $Res Function(_LoggedOut) then) =
+      __$LoggedOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoggedOutCopyWithImpl<$Res>
+    extends _$WatchSurveyEventCopyWithImpl<$Res>
+    implements _$LoggedOutCopyWith<$Res> {
+  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _LoggedOut));
+
+  @override
+  _LoggedOut get _value => super._value as _LoggedOut;
+}
+
+/// @nodoc
+
+class _$_LoggedOut implements _LoggedOut {
+  const _$_LoggedOut();
+
+  @override
+  String toString() {
+    return 'WatchSurveyEvent.loggedOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoggedOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchSurveyListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
+        surveyListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() loggedOut,
+  }) {
+    return loggedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchSurveyListStarted,
+    TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
+        surveyListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchSurveyListStarted value)
+        watchSurveyListStarted,
+    required TResult Function(_SurveyListReceived value) surveyListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
+    TResult Function(_SurveyListReceived value)? surveyListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoggedOut implements WatchSurveyEvent {
+  const factory _LoggedOut() = _$_LoggedOut;
 }
 
 /// @nodoc

@@ -1,6 +1,7 @@
 part of 'update_survey_page_bloc.dart';
 
 // H_ 更新當前頁面題目內容
+// NOTE 若是預過錄模組，則拿主問卷的題目跟答案來處理
 UpdateSurveyPageState pageQuestionListUpdated(UpdateSurveyPageState state) {
   logger('Compute').i('PageQuestionListUpdated');
 
@@ -14,19 +15,23 @@ UpdateSurveyPageState pageQuestionListUpdated(UpdateSurveyPageState state) {
       state.isRecodeModule ? state.mainAnswerStatusMap : state.answerStatusMap;
 
   final newPageQuestionList = pageQuestionList.map((_question) {
+    Question question = _question;
+
+    // S_ 若是預過錄模組，篩出原題目，但保留 recodeNeeded
+    if (state.isRecodeModule) {
+      question = state.mainQuestionList.first((q) => q.id == _question.id);
+      question = question.copyWith(recodeNeeded: _question.recodeNeeded);
+    }
+
     // S_ 將題目敘述中有連結其他作答的地方更新
-    Question question = _question.updateBody(
+    question = question.updateBody(
       referenceList: state.referenceList,
       responseList: state.respondentResponseList,
       surveyId: state.surveyId,
       moduleType: state.moduleType,
-      answerMap: state.answerMap,
+      answerMap: answerMap,
       respondentId: state.respondent.id,
     );
-
-    if (state.isRecodeModule) {
-      question = state.mainQuestionList.first((q) => q.id == _question.id);
-    }
 
     if (question.type.isChoice) {
       KtList<Choice> choiceList = question.choiceList;
@@ -46,7 +51,7 @@ UpdateSurveyPageState pageQuestionListUpdated(UpdateSurveyPageState state) {
       choiceList = choiceList
           .filter((choice) => choice.isSpecialAnswer == isSpecialAnswer);
 
-      // H_ 如果是唯讀，只保留選擇的選項
+      // H_ 如果是唯讀或預過錄模組，只保留選擇的選項
       if (state.isReadOnly || state.isRecodeModule) {
         choiceList =
             choiceList.filter((choice) => thisAnswer.contains(choice.simple()));
@@ -153,8 +158,6 @@ UpdateSurveyPageState warningUpdated(UpdateSurveyPageState state) {
     showWarning = state.showWarning;
   }
 
-  // logger('').e('[] $warning');
-
   return state.copyWith(
     updateState: const LoadState.success(),
     updateType: SurveyPageUpdateType.warning,
@@ -167,21 +170,31 @@ UpdateSurveyPageState warningUpdated(UpdateSurveyPageState state) {
 UpdateSurveyPageState contentQuestionListUpdated(UpdateSurveyPageState state) {
   logger('Compute').i('ContentQuestionListUpdated');
 
+  final answerMap =
+      state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
+
   final contentQuestionList = state.questionList
       .filter((question) =>
           !state.answerStatusMap[question.id]!.isHidden &&
           question.pageNumber.getOrCrash() <= state.newestPage.getOrCrash())
       // S_ 將題目敘述中有連結其他作答的地方更新
-      .map(
-        (question) => question.updateBody(
-          referenceList: state.referenceList,
-          responseList: state.respondentResponseList,
-          surveyId: state.surveyId,
-          moduleType: state.moduleType,
-          answerMap: state.answerMap,
-          respondentId: state.respondent.id,
-        ),
-      );
+      .map((_question) {
+    Question question = _question;
+
+    // S_ 若是預過錄模組，篩出原題目
+    if (state.isRecodeModule) {
+      question = state.mainQuestionList.first((q) => q.id == _question.id);
+    }
+
+    return question.updateBody(
+      referenceList: state.referenceList,
+      responseList: state.respondentResponseList,
+      surveyId: state.surveyId,
+      moduleType: state.moduleType,
+      answerMap: answerMap,
+      respondentId: state.respondent.id,
+    );
+  });
 
   return state.copyWith(
     contentQuestionList: contentQuestionList,

@@ -78,4 +78,15 @@ class Response with _$Response {
     lastChangedTimeStamp: $lastChangedTimeStamp),\n
     ''';
   }
+
+  // H_ 簡化
+  Response onlyInfo() {
+    return copyWith(
+      answerMap: moduleType == ModuleType.visitReport()
+          ? answerMap
+          : const KtMap<QuestionId, Answer>.empty(),
+      answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+      surveyPageState: SimpleSurveyPageState.empty(),
+    );
+  }
 }

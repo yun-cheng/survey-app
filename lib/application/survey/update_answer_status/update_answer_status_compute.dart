@@ -5,8 +5,13 @@ UpdateAnswerStatusState answerMapUpdated(UpdateAnswerStatusState state) {
   logger('Compute').i('AnswerMapUpdated');
 
   final state1 = answerStatusTypeUpdated(state);
-  final state2 = chainQuestionChecked(state1);
-  return showQuestionChecked(state2);
+
+  if (!state.isRecodeModule) {
+    final state2 = chainQuestionChecked(state1);
+    return showQuestionChecked(state2);
+  } else {
+    return state1;
+  }
 }
 
 // H_ 更新該題答題狀態
@@ -80,39 +85,52 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   );
 }
 
+// H_ 抽出預過錄模組的 showQuestionChecked
+UpdateAnswerStatusState showQuestionCheckedRecodeJob(
+    UpdateAnswerStatusState state) {
+  logger('Compute').i('showQuestionCheckedRecodeJob');
+
+  final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
+
+  // S_ 在 mainAnswerStatusMap 隱藏的，也將 answerStatusMap 隱藏，其餘不變
+  state.questionList.forEach((question) {
+    if (state.mainAnswerStatusMap[question.id]!.isHidden) {
+      newAnswerStatusMap[question.id] =
+          newAnswerStatusMap[question.id]!.setHidden();
+    }
+  });
+
+  return state.copyWith(
+    answerStatusMap: newAnswerStatusMap.toMap(),
+  );
+}
+
 // H_ 判斷有設定題目出現條件的題目是否顯示
 UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
   logger('Compute').i('ShowQuestionListChecked');
+
+  if (state.isRecodeModule) {
+    return showQuestionCheckedRecodeJob(state);
+  }
 
   final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
 
   KtList<QuestionId> clearAnswerQIdList = state.clearAnswerQIdList;
 
-  KtList<Question> showQuestionList;
-
-  // FIXME 如果是 recodeModule 應該不用每次檢查
-  if (!state.isRecodeModule) {
-    // S_ 篩出有設定題目出現條件的題目
-    showQuestionList =
-        state.questionList.filter((question) => !question.show.isEmpty);
-  } else {
-    showQuestionList = state.questionList;
-  }
+  // S_ 篩出有設定題目出現條件的題目
+  final showQuestionList =
+      state.questionList.filter((question) => !question.show.isEmpty);
 
   showQuestionList.forEach((question) {
     AnswerStatus newAnswerStatus = newAnswerStatusMap[question.id]!;
     bool showQuestion;
 
-    if (!state.isRecodeModule) {
-      // S_1 判斷該題是否要出現
-      // NOTE 有可能取到還未清空的答案，因此同時參考答題狀態
-      showQuestion = question.show.evaluate(
-        answerMap: state.answerMap,
-        answerStatusMap: state.answerStatusMap,
-      );
-    } else {
-      showQuestion = !state.mainAnswerStatusMap[question.id]!.isHidden;
-    }
+    // S_1 判斷該題是否要出現
+    // NOTE 有可能取到還未清空的答案，因此同時參考答題狀態
+    showQuestion = question.show.evaluate(
+      answerMap: state.answerMap,
+      answerStatusMap: state.answerStatusMap,
+    );
 
     // S_2 改變該題的 answerStatus
     // S_2-c1 過去隱藏，現在要顯示時

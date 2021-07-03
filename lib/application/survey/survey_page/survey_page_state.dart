@@ -17,12 +17,16 @@ class SurveyPageState with _$SurveyPageState {
     // H_ questionList
     required KtList<Question> pageQuestionList,
     required KtList<Question> contentQuestionList,
+    // H_ info
+    required bool isReadOnly,
+    required bool isRecodeModule,
     // H_ state
     required LoadState loadState,
     required LoadState rebuildState,
-    required bool isRecodeModule,
-    required bool isReadOnly,
-    // required LoadState restoreState,
+    required LoadState restoreState,
+    // H_ recode
+    required KtMap<QuestionId, Answer> recodeAnswerMap,
+    required KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap,
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
@@ -36,10 +40,12 @@ class SurveyPageState with _$SurveyPageState {
         questionId: QuestionId.empty(),
         pageQuestionList: const KtList<Question>.empty(),
         contentQuestionList: const KtList<Question>.empty(),
+        isReadOnly: false,
+        isRecodeModule: false,
         loadState: const LoadState.initial(),
         rebuildState: const LoadState.initial(),
-        isRecodeModule: false,
-        isReadOnly: false,
-        // restoreState: const LoadState.initial(),
+        restoreState: const LoadState.initial(),
+        recodeAnswerMap: const KtMap<QuestionId, Answer>.empty(),
+        recodeAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
       );
 }

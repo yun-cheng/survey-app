@@ -91,7 +91,7 @@ class AnswerStatus with _$AnswerStatus {
         newNoteMap.put(
           answer.choiceValue!.id,
           AnswerStatusType.fromString(
-            answer.noteMap!.getOrDefault(answer.choiceValue!.id, '')!,
+            answer.noteMap!.getOrDefault(answer.choiceValue!.id, ''),
           ),
         );
       } else if (answer.type == AnswerType.choiceList()) {
@@ -99,7 +99,7 @@ class AnswerStatus with _$AnswerStatus {
           newNoteMap.put(
             choice.id,
             AnswerStatusType.fromString(
-              answer.noteMap!.getOrDefault(choice.id, '')!,
+              answer.noteMap!.getOrDefault(choice.id, ''),
             ),
           );
         });

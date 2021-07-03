@@ -19,8 +19,14 @@ Logger logger([String? tag, int? methodShow]) {
   ];
   final alwaysAllowFilePathList = <String>[
     'splash/listeners',
+    // H_ respondent
+    // 'presentation/respondent_list',
+    // 'application/respondent',
+    // H_ survey
+    'application/survey',
     'presentation/survey',
-    // 'survey/update_answer/'
+    // H_
+    // 'presentation',
   ];
   final alwaysAllowFileNameList = <String>[
     // 'update_answer_bloc',

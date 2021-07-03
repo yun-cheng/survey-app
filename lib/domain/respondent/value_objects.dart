@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:kt_dart/collection.dart';
 
 import '../core/failures.dart';
 import '../core/value_objects.dart';
@@ -63,18 +65,21 @@ class RemainAddress extends ValueObject<String> {
   const RemainAddress._(this.value);
 }
 
-class ProgressType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+enum TabType {
+  @JsonValue('start')
+  start,
+  @JsonValue('interviewReport')
+  interviewReport,
+  @JsonValue('recode')
+  recode,
+  @JsonValue('finished')
+  finished,
+}
 
-  factory ProgressType(String input) {
-    return ProgressType._(
-      right(input),
-    );
-  }
-
-  factory ProgressType.finished() => ProgressType('finished');
-
-
-  const ProgressType._(this.value);
+extension TabTypeX on TabType {
+  static KtMap<TabType, dynamic> toImmutableMap() => TabType.values
+      .asMap()
+      .toImmutableMap()
+      .mapKeys((e) => e.value)
+      .mapValues((_) => null);
 }

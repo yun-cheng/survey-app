@@ -383,6 +383,13 @@ class ModuleType extends ValueObject<String> {
   factory ModuleType.recode() => ModuleType('recode');
   factory ModuleType.empty() => ModuleType('');
 
+  bool get needUpdateTab {
+    return value.fold(
+        (l) => false,
+        (r) =>
+            ['main', 'housingType', 'interviewReport', 'recode'].contains(r));
+  }
+
   const ModuleType._(this.value);
 }
 
@@ -399,6 +406,10 @@ class ResponseStatus extends ValueObject<String> {
   factory ResponseStatus.answering() => ResponseStatus('answering');
   factory ResponseStatus.finished() => ResponseStatus('finished');
   factory ResponseStatus.empty() => ResponseStatus('');
+
+  bool get isFinished {
+    return value.fold((l) => false, (r) => r == 'finished');
+  }
 
   const ResponseStatus._(this.value);
 }
@@ -450,4 +461,6 @@ enum SurveyPageUpdateType {
   contentQuestionList,
   @JsonValue('warning')
   warning,
+  @JsonValue('info')
+  info,
 }

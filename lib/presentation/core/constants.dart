@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'themes.dart';
 
 const kDarkestColor = Color(0xff007066);
 const kWarningButtonColor = Color(0xffF5BB00);
-const kWarningBoxTextColor = Color(0xffff5e5b);
+const kWarningBoxTextColor = Color(0xffFF7E7C);
 const kCardTextColor = Color(0xff323031);
-const kCardRedTextColor = Color(0xffff5e5b);
+const kCardRedTextColor = Color(0xffFF7E7C);
 const kCardGreenTextColor = Color(0xff0c8346);
-const kCardBlueTextColor = Color(0xff507dbc);
+const kCardBlueTextColor = Color(0xff6B91C7);
+const kDisabledColor = Color(0xffb8b8b8);
 
 final kButtonShape = RoundedRectangleBorder(
-  borderRadius: BorderRadius.circular(18.0),
+  borderRadius: BorderRadius.circular(8.0),
 );
 
 final kWarningButtonStyle = ButtonStyle(
@@ -18,14 +18,19 @@ final kWarningButtonStyle = ButtonStyle(
   shape: MaterialStateProperty.all<OutlinedBorder>(kButtonShape),
 );
 
-final kCardRedButtonStyle = ButtonStyle(
-  backgroundColor: MaterialStateProperty.all<Color>(kCardRedTextColor),
-  shape: MaterialStateProperty.all<OutlinedBorder>(kButtonShape),
-);
-
-final kCardBlueButtonStyle = ButtonStyle(
+final kModuleButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(kCardBlueTextColor),
   shape: MaterialStateProperty.all<OutlinedBorder>(kButtonShape),
+  minimumSize:
+      MaterialStateProperty.all(const Size(kH3FontSize * 5, kH3FontSize)),
+);
+
+final kCurrentModuleButtonStyle = kModuleButtonStyle.copyWith(
+  backgroundColor: MaterialStateProperty.all<Color>(kCardRedTextColor),
+);
+
+final kDisabledModuleButtonStyle = kModuleButtonStyle.copyWith(
+  backgroundColor: MaterialStateProperty.all<Color>(kDisabledColor),
 );
 
 final kVisitHistoryStyle = ButtonStyle(
@@ -88,4 +93,9 @@ const kAppBarTextStyle = TextStyle(
   fontSize: kH3FontSize,
   fontWeight: FontWeight.w500,
   color: Colors.white,
+);
+
+const kChoiceGroupTextStyle = TextStyle(
+  // color: Colors.blue,
+  fontWeight: FontWeight.bold,
 );

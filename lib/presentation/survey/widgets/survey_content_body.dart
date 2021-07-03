@@ -19,11 +19,9 @@ class SurveyContentBody extends StatelessWidget {
         logger('Build').i('SurveyContentBody');
 
         return ListView.builder(
-          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(
             vertical: 10.0,
-            horizontal: 15.0,
           ),
           itemBuilder: (context, index) {
             final question = state.contentQuestionList[index];
@@ -51,22 +49,29 @@ class SurveyContentBody extends StatelessWidget {
 
             final contentText = question.toPlainTextBody(withId: true);
 
-            return Card(
-              child: ListTile(
-                leading: leadingIcon,
-                title: Text(
-                  contentText,
-                  style: kH4TextStyle,
-                  maxLines: 1,
-                  overflow: TextOverflow.fade,
-                  softWrap: false,
+            return Align(
+              alignment: Alignment.topCenter,
+              child: ConstrainedBox(
+                constraints: kCardMaxWith,
+                child: Card(
+                  child: ListTile(
+                    leading: leadingIcon,
+                    title: Text(
+                      contentText,
+                      style: kH4TextStyle,
+                      maxLines: 1,
+                      overflow: TextOverflow.clip,
+                      softWrap: false,
+                    ),
+                    onTap: () {
+                      context.read<UpdateSurveyPageBloc>().add(
+                            UpdateSurveyPageEvent.wentToPage(
+                                question.pageNumber),
+                          );
+                      context.router.pop();
+                    },
+                  ),
                 ),
-                onTap: () {
-                  context.read<UpdateSurveyPageBloc>().add(
-                        UpdateSurveyPageEvent.wentToPage(question.pageNumber),
-                      );
-                  context.router.pop();
-                },
               ),
             );
           },

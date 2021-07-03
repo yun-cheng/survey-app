@@ -26,6 +26,7 @@ class PageControlBar extends StatelessWidget {
           c.loadState is LoadSuccess &&
           (p.page != c.page ||
               p.isLastPage != c.isLastPage ||
+              p.isReadOnly != c.isReadOnly ||
               p.warning != c.warning ||
               p.showWarning != c.showWarning),
       builder: (context, state) {
@@ -33,115 +34,135 @@ class PageControlBar extends StatelessWidget {
 
         final currentPage = state.page;
         final isLastPage = state.isLastPage;
+        final isReadOnly = state.isReadOnly;
         final showWarning = state.showWarning;
         final warning = state.warning;
         final warningIsEmpty = warning.isEmpty;
+        final hasWarning = showWarning && !warningIsEmpty;
+        final canFinish = isLastPage && !hasWarning && !isReadOnly;
 
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // H_ 往前按鈕
+        final previousButton = Visibility(
+          visible: currentPage.getOrCrash() != 0,
+          maintainSize: true,
+          maintainAnimation: true,
+          maintainState: true,
+          child: PageControlButton(
+            Icons.arrow_back_ios_sharp,
+            onPressed: () {
+              context.read<UpdateSurveyPageBloc>().add(
+                    const UpdateSurveyPageEvent.previousPagePressed(),
+                  );
+            },
+          ),
+        );
+
+        // H_ 往後按鈕
+        final nextButton = Visibility(
+          visible: !isLastPage,
+          maintainAnimation: true,
+          maintainState: true,
+          child: PageControlButton(
+            Icons.arrow_forward_ios_sharp,
+            onPressed: () {
+              context.read<UpdateSurveyPageBloc>().add(
+                    const UpdateSurveyPageEvent.nextPagePressed(),
+                  );
+            },
+          ),
+        );
+
+        // H_ warning 按鈕
+        final warningButton = Visibility(
+          visible: hasWarning,
+          maintainSize: !isLastPage,
+          maintainAnimation: true,
+          maintainState: true,
+          child: Container(
+            height: kPageControlButtonHeight,
+            // width: 140.0,
+            child: TextButton(
+              style: kWarningButtonStyle,
+              onPressed: () {
+                context.read<UpdateSurveyPageBloc>().add(
+                      UpdateSurveyPageEvent.wentToPage(warning.pageNumber),
+                    );
+              },
+              child: Text(
+                warning.toFullText(),
+                style: kH3TextStyle.copyWith(
+                  color: kCardTextColor,
+                ),
+              ),
+            ),
+          ),
+        );
+
+        // H_ 完成按鈕
+        final finishButton = Visibility(
+          visible: canFinish,
+          maintainAnimation: true,
+          maintainState: true,
+          child: Container(
+            height: kPageControlButtonHeight,
+            width: 140.0,
+            child: TextButton(
+              style: kWarningButtonStyle,
+              onPressed: () {
+                context.read<UpdateSurveyPageBloc>().add(
+                      const UpdateSurveyPageEvent.finishedButtonPressed(),
+                    );
+                if (warningIsEmpty) {
+                  context.read<ResponseBloc>().add(
+                        const ResponseEvent.editFinished(
+                            responseFinished: true),
+                      );
+                  context.read<NavigationBloc>().add(
+                        const NavigationEvent.pageChanged(
+                          page: NavigationPage.respondent(),
+                        ),
+                      );
+                  context.router.pop();
+                  context.read<UpdateAnswerBloc>().add(
+                        const UpdateAnswerEvent.stateCleared(),
+                      );
+                  context.read<UpdateAnswerStatusBloc>().add(
+                        const UpdateAnswerStatusEvent.stateCleared(),
+                      );
+                  context.read<UpdateSurveyPageBloc>().add(
+                        const UpdateSurveyPageEvent.stateCleared(),
+                      );
+                  context.read<SurveyPageBloc>().add(
+                        const SurveyPageEvent.stateCleared(),
+                      );
+                }
+              },
+              child: Text(
+                '完成問卷',
+                style: kH3TextStyle.copyWith(
+                  color: kCardTextColor,
+                ),
+              ),
+            ),
+          ),
+        );
+
+        return Stack(
           children: <Widget>[
-            // H_ 往前
-            Visibility(
-              visible: currentPage.getOrCrash() != 0,
-              maintainSize: true,
-              maintainAnimation: true,
-              maintainState: true,
-              child: PageControlButton(
-                Icons.arrow_back_ios_sharp,
-                onPressed: () {
-                  context.read<UpdateSurveyPageBloc>().add(
-                        const UpdateSurveyPageEvent.previousPagePressed(),
-                      );
-                },
-              ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: previousButton,
             ),
-            // H_ warning
-            Visibility(
-              visible: showWarning && !warningIsEmpty,
-              maintainSize: !isLastPage,
-              maintainAnimation: true,
-              maintainState: true,
-              child: Container(
-                height: kPageControlButtonHeight,
-                width: 140.0,
-                child: TextButton(
-                  style: kWarningButtonStyle,
-                  onPressed: () {
-                    context.read<UpdateSurveyPageBloc>().add(
-                          UpdateSurveyPageEvent.wentToPage(warning.pageNumber),
-                        );
-                  },
-                  child: Text(
-                    warning.toFullText(),
-                    style: kH3TextStyle.copyWith(
-                      color: kCardTextColor,
-                    ),
-                  ),
-                ),
-              ),
+            Align(
+              child: warningButton,
             ),
-            // H_ 完成
-            Visibility(
-              visible: isLastPage && (!showWarning || warningIsEmpty),
-              maintainAnimation: true,
-              maintainState: true,
-              child: Container(
-                height: kPageControlButtonHeight,
-                width: 140.0,
-                child: TextButton(
-                  style: kWarningButtonStyle,
-                  onPressed: () {
-                    context.read<UpdateSurveyPageBloc>().add(
-                          const UpdateSurveyPageEvent.finishedButtonPressed(),
-                        );
-                    if (warningIsEmpty) {
-                      context.read<ResponseBloc>().add(
-                            const ResponseEvent.editFinished(
-                                responseFinished: true),
-                          );
-                      context.read<NavigationBloc>().add(
-                            const NavigationEvent.pageChanged(
-                              page: NavigationPage.respondent(),
-                            ),
-                          );
-                      context.router.pop();
-                      context.read<UpdateAnswerBloc>().add(
-                            const UpdateAnswerEvent.stateCleared(),
-                          );
-                      context.read<UpdateAnswerStatusBloc>().add(
-                            const UpdateAnswerStatusEvent.stateCleared(),
-                          );
-                      context.read<UpdateSurveyPageBloc>().add(
-                            const UpdateSurveyPageEvent.stateCleared(),
-                          );
-                      context.read<SurveyPageBloc>().add(
-                            const SurveyPageEvent.stateCleared(),
-                          );
-                    }
-                  },
-                  child: Text(
-                    '完成問卷',
-                    style: kH3TextStyle.copyWith(
-                      color: kCardTextColor,
-                    ),
-                  ),
-                ),
-              ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: finishButton,
             ),
-            // H_ 往後
-            Visibility(
-              visible: !isLastPage,
-              maintainSize: isLastPage,
-              maintainAnimation: true,
-              maintainState: true,
-              child: PageControlButton(
-                Icons.arrow_forward_ios_sharp,
-                onPressed: () {
-                  context.read<UpdateSurveyPageBloc>().add(
-                        const UpdateSurveyPageEvent.nextPagePressed(),
-                      );
-                },
-              ),
+            Align(
+              alignment: Alignment.centerRight,
+              child: nextButton,
             ),
           ],
         );

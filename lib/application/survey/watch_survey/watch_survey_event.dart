@@ -14,4 +14,6 @@ class WatchSurveyEvent with _$WatchSurveyEvent {
   const factory WatchSurveyEvent.surveySelected({
     required Survey survey,
   }) = _SurveySelected;
+
+    const factory WatchSurveyEvent.loggedOut() = _LoggedOut;
 }

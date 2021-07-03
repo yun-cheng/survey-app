@@ -15,6 +15,7 @@ _$_ChoiceDto _$_$_ChoiceDtoFromJson(Map<String, dynamic> json) {
     asSingle: json['asSingle'] as bool,
     isSpecialAnswer: json['isSpecialAnswer'] as bool,
     choiceGroup: json['choiceGroup'] as String,
+    isGroupFirst: json['isGroupFirst'] as bool,
     upperChoiceId: json['upperChoiceId'] as String,
   );
 }
@@ -28,5 +29,6 @@ Map<String, dynamic> _$_$_ChoiceDtoToJson(_$_ChoiceDto instance) =>
       'asSingle': instance.asSingle,
       'isSpecialAnswer': instance.isSpecialAnswer,
       'choiceGroup': instance.choiceGroup,
+      'isGroupFirst': instance.isGroupFirst,
       'upperChoiceId': instance.upperChoiceId,
     };

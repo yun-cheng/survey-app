@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/presentation/core/constants.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
@@ -17,11 +18,13 @@ import 'text_box.dart';
 import 'warning_box.dart';
 
 class QaCard extends StatelessWidget {
+  final int index;
   final QuestionId questionId;
 
   // HIGHLIGHT 即便沒有 field 需要 input 也該使用 key
   const QaCard({
     Key? key,
+    required this.index,
     required this.questionId,
   }) : super(key: key);
 
@@ -33,12 +36,17 @@ class QaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
       buildWhen: (p, c) {
-        // NOTE 在該題變換顯示/隱藏、切換特殊作答時才需要 rebuild
         if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
-          final pAnswerStatus = p.answerStatusMap[questionId]!;
-          final cAnswerStatus = c.answerStatusMap[questionId]!;
-          if (pAnswerStatus.isHidden != cAnswerStatus.isHidden ||
-              pAnswerStatus.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
+          final pAnswerStatus = p.answerStatusMap[questionId];
+          final cAnswerStatus = c.answerStatusMap[questionId];
+
+          if (cAnswerStatus == null) {
+            return false;
+          }
+
+        // S_ 在該題變換顯示/隱藏、切換特殊作答時才需要 rebuild
+          if (pAnswerStatus?.isHidden != cAnswerStatus.isHidden ||
+              pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
             return true;
           }
         }
@@ -49,7 +57,6 @@ class QaCard extends StatelessWidget {
 
         final answerStatus = state.answerStatusMap[questionId]!;
 
-        // FIXME 要使用哪個模組的 question?
         final isSpecialAnswer = answerStatus.isSpecialAnswer;
 
         final thisQuestion =
@@ -57,70 +64,85 @@ class QaCard extends StatelessWidget {
 
         final visible = !answerStatus.isHidden;
 
-        return Visibility(
+        return Column(
           key: Key(questionId.getOrCrash()),
-          visible: visible,
-          child: Card(
-            // NOTE 避免 widget 沒有刷新的問題
-            key: Key(questionId.getOrCrash()),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.0),
-            ),
-            margin: const EdgeInsets.symmetric(vertical: 6.0),
-            child: Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  QuestionBox(questionId: questionId),
-                  // FIXME 要使用哪個模組的 question?
-                  WarningBox(
-                    question: thisQuestion,
-                    questionId: thisQuestion.id,
-                  ),
-                  if (thisQuestion.hasSpecialAnswer) ...[
-                    SpecialAnswerSwitch(
-                      questionId: thisQuestion.id,
-                      isSpecialAnswer: isSpecialAnswer,
+          children: [
+            if (index == 0) const SizedBox(height: 10.0),
+            Visibility(
+              visible: visible,
+              child: Align(
+                alignment: Alignment.topCenter,
+                child: ConstrainedBox(
+                  constraints: kCardMaxWith,
+                  child: Card(
+                    // NOTE 避免 widget 沒有刷新的問題
+                    key: Key(questionId.getOrCrash()),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15.0),
                     ),
-                  ],
-                  if (thisQuestion.type.isValid()) ...[
-                    if (thisQuestion.type.isNormalChoice ||
-                        isSpecialAnswer) ...[
-                      ChoicesBox(
-                        questionId: thisQuestion.id,
-                        questionType: thisQuestion.type,
+                    margin: const EdgeInsets.only(bottom: 10.0),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 18.0,
+                        horizontal: 18.0,
                       ),
-                    ] else if (thisQuestion.type ==
-                        QuestionType.popupSingle()) ...[
-                      DropdownBox(questionId: thisQuestion.id),
-                    ] else if ([QuestionType.number(), QuestionType.text()]
-                        .contains(thisQuestion.type)) ...[
-                      TextBox(
-                        questionId: thisQuestion.id,
-                        questionType: thisQuestion.type,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          QuestionBox(questionId: questionId),
+                          WarningBox(
+                            question: thisQuestion,
+                            questionId: thisQuestion.id,
+                          ),
+                          if (thisQuestion.hasSpecialAnswer) ...[
+                            SpecialAnswerSwitch(
+                              questionId: thisQuestion.id,
+                              isSpecialAnswer: isSpecialAnswer,
+                            ),
+                          ],
+                          if (thisQuestion.type.isValid()) ...[
+                            if (thisQuestion.type.isNormalChoice ||
+                                isSpecialAnswer) ...[
+                              ChoicesBox(
+                                questionId: thisQuestion.id,
+                                questionType: thisQuestion.type,
+                              ),
+                            ] else if (thisQuestion.type ==
+                                QuestionType.popupSingle()) ...[
+                              DropdownBox(questionId: thisQuestion.id),
+                            ] else if ([
+                              QuestionType.number(),
+                              QuestionType.text()
+                            ].contains(thisQuestion.type)) ...[
+                              TextBox(
+                                questionId: thisQuestion.id,
+                                questionType: thisQuestion.type,
+                              ),
+                            ] else if (thisQuestion.type.isDateTime) ...[
+                              DateTimeBox(
+                                questionId: thisQuestion.id,
+                                questionType: thisQuestion.type,
+                              ),
+                            ] else if (thisQuestion.type.isPhone) ...[
+                              PhoneBox(
+                                questionId: thisQuestion.id,
+                                questionType: thisQuestion.type,
+                              ),
+                            ]
+                          ],
+                          // H_ 只在 recode module 呈現
+                          if (state.isRecodeModule &&
+                              thisQuestion.recodeNeeded) ...[
+                            RecodeBox(questionId: thisQuestion.id),
+                          ]
+                        ],
                       ),
-                    ] else if (thisQuestion.type.isDateTime) ...[
-                      DateTimeBox(
-                        questionId: thisQuestion.id,
-                        questionType: thisQuestion.type,
-                      ),
-                    ] else if (thisQuestion.type.isPhone) ...[
-                      PhoneBox(
-                        questionId: thisQuestion.id,
-                        questionType: thisQuestion.type,
-                      ),
-                    ]
-                  ],
-                  // H_ 只在 recode module 呈現
-                  // FIXME 要使用哪個模組的 question?
-                  if (state.isRecodeModule && thisQuestion.recodeNeeded) ...[
-                    RecodeBox(questionId: thisQuestion.id),
-                  ]
-                ],
+                    ),
+                  ),
+                ),
               ),
             ),
-          ),
+          ],
         );
       },
     );

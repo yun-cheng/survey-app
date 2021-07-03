@@ -29,8 +29,11 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
     required List<QuestionDto> contentQuestionList,
     required Map<String, dynamic> loadState,
     required Map<String, dynamic> rebuildState,
+    required Map<String, dynamic> restoreState,
     required bool isRecodeModule,
     required bool isReadOnly,
+    required Map<String, AnswerDto> recodeAnswerMap,
+    required Map<String, AnswerStatusDto> recodeAnswerStatusMap,
   }) = _SurveyPageStateDto;
 
   factory SurveyPageStateDto.fromDomain(SurveyPageState domain) {
@@ -57,8 +60,17 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
           .asList(),
       loadState: domain.loadState.toJson(),
       rebuildState: domain.rebuildState.toJson(),
+      restoreState: domain.restoreState.toJson(),
       isRecodeModule: domain.isRecodeModule,
       isReadOnly: domain.isReadOnly,
+      recodeAnswerMap: domain.recodeAnswerMap
+          .mapKeys((entry) => entry.key.getOrCrash())
+          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
+          .asMap(),
+      recodeAnswerStatusMap: domain.recodeAnswerStatusMap
+          .mapKeys((entry) => entry.key.getValueAnyway())
+          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
+          .asMap(),
     );
   }
 
@@ -82,8 +94,15 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
           contentQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
       loadState: LoadState.fromJson(loadState),
       rebuildState: LoadState.fromJson(rebuildState),
+      restoreState: LoadState.fromJson(restoreState),
       isRecodeModule: isRecodeModule,
       isReadOnly: isReadOnly,
+      recodeAnswerMap: KtMap.from(recodeAnswerMap)
+          .mapKeys((entry) => QuestionId(entry.key))
+          .mapValues((entry) => entry.value.toDomain()),
+      recodeAnswerStatusMap: KtMap.from(recodeAnswerStatusMap)
+          .mapKeys((entry) => QuestionId(entry.key))
+          .mapValues((entry) => entry.value.toDomain()),
     );
   }
 

@@ -29,10 +29,10 @@ class SurveyPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final keyboardVisibilityController = KeyboardVisibilityController();
-    bool isKeyboardVisible = keyboardVisibilityController.isVisible;
-    keyboardVisibilityController.onChange.listen((bool visible) {
-      isKeyboardVisible = visible;
-    });
+    final isKeyboardVisible = useStream(
+      keyboardVisibilityController.onChange,
+      initialData: keyboardVisibilityController.isVisible,
+    );
 
     return Scaffold(
       appBar: AppBar(
@@ -67,6 +67,9 @@ class SurveyPage extends HookWidget {
               context.read<SurveyPageBloc>().add(
                     const SurveyPageEvent.stateCleared(),
                   );
+              context.read<AnswerBloc>().add(
+                    const AnswerEvent.stateCleared(),
+                  );
             }),
         actions: [
           IconButton(
@@ -78,17 +81,17 @@ class SurveyPage extends HookWidget {
               context.pushRoute(const SurveyContentRoute());
             },
           ),
-          IconButton(
-            icon: const Icon(Icons.toggle_on),
-            onPressed: () {
-              context.read<AnswerBloc>().add(
-                    const AnswerEvent.readOnlyToggled(),
-                  );
-              context.read<UpdateSurveyPageBloc>().add(
-                    const UpdateSurveyPageEvent.readOnlyToggled(),
-                  );
-            },
-          ),
+          // IconButton(
+          //   icon: const Icon(Icons.toggle_on),
+          //   onPressed: () {
+          //     context.read<AnswerBloc>().add(
+          //           const AnswerEvent.readOnlyToggled(),
+          //         );
+          //     context.read<UpdateSurveyPageBloc>().add(
+          //           const UpdateSurveyPageEvent.readOnlyToggled(),
+          //         );
+          //   },
+          // ),
         ],
       ),
       body: SafeArea(
@@ -96,25 +99,18 @@ class SurveyPage extends HookWidget {
           child: Column(
             children: [
               Expanded(
-                child: SingleChildScrollView(
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: ConstrainedBox(
-                      constraints: kCardMaxWith,
-                      child: SurveyBody(),
-                    ),
-                  ),
-                ),
+                child: SurveyBody(),
               ),
               Visibility(
-                visible: !isKeyboardVisible,
+                visible: !isKeyboardVisible.data!,
                 maintainState: true,
                 child: Container(
                   color: kDarkestColor,
                   height: 70.0,
                   alignment: Alignment.center,
                   child: ConstrainedBox(
-                    constraints: const BoxConstraints.expand(width: 800.0),
+                    constraints:
+                        BoxConstraints.expand(width: kCardMaxWith.maxWidth),
                     child: const PageControlBar(),
                   ),
                 ),

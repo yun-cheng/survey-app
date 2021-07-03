@@ -20,25 +20,42 @@ class RespondentEvent with _$RespondentEvent {
   // H_ 載入受訪者名單
   const factory RespondentEvent.respondentListLoaded() = _RespondentListLoaded;
 
+  // H_ 使用者切換分頁
+  const factory RespondentEvent.tabSelected() = _TabSelected;
+
+  // H_ 使用者搜尋文字
+  const factory RespondentEvent.textSearched() = _TextSearched;
+
   // H_ 使用者選擇受訪者
   const factory RespondentEvent.respondentSelected({
     required RespondentId respondentId,
   }) = _RespondentSelected;
 
+  // H_ 切換分頁時
+  const factory RespondentEvent.tabSwitched({
+    required int index,
+  }) = _TabSwitched;
+
+  // H_ 滾動頁面時
   const factory RespondentEvent.pageScrolled({
-    required int firstCardIndex,
-    required double firstCardAlignment,
+    required TabType tabType,
+    required List<ItemPosition> positions,
   }) = _PageScrolled;
 
   // H_ 切換鄉鎮市區
-  const factory RespondentEvent.jumpedToTown({required CountyTown countyTown}) =
-      _JumpedToTown;
-
-  // H_ 切換鄉鎮市區完成
-  const factory RespondentEvent.jumpFinished() = _JumpFinished;
+  const factory RespondentEvent.jumpedToTown({
+    required CountyTown countyTown,
+  }) = _JumpedToTown;
 
   // H_ 查址紀錄更新時
   const factory RespondentEvent.visitReportUpdated({
     required KtList<Response> responseList,
   }) = _VisitReportUpdated;
+
+  // H_ 分頁受訪者名單更新時
+  const factory RespondentEvent.tabRespondentsUpdated({
+    required KtList<Response> responseList,
+  }) = _TabRespondentsUpdated;
+
+  const factory RespondentEvent.loggedOut() = _LoggedOut;
 }

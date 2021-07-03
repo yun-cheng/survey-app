@@ -40,7 +40,9 @@ class _$UpdateSurveyPageEventTearOff {
       required ModuleType moduleType,
       required SimpleSurveyPageState surveyPageState,
       required KtList<Question> questionList,
+      required KtMap<QuestionId, Answer> answerMap,
       required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required bool isReadOnly,
       required bool isRecodeModule,
       required KtList<Question> mainQuestionList,
       required KtMap<QuestionId, Answer> mainAnswerMap,
@@ -51,7 +53,9 @@ class _$UpdateSurveyPageEventTearOff {
       moduleType: moduleType,
       surveyPageState: surveyPageState,
       questionList: questionList,
+      answerMap: answerMap,
       answerStatusMap: answerStatusMap,
+      isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
       mainQuestionList: mainQuestionList,
       mainAnswerMap: mainAnswerMap,
@@ -133,6 +137,10 @@ class _$UpdateSurveyPageEventTearOff {
   _ReadOnlyToggled readOnlyToggled() {
     return const _ReadOnlyToggled();
   }
+
+  _LoggedOut loggedOut() {
+    return const _LoggedOut();
+  }
 }
 
 /// @nodoc
@@ -153,7 +161,9 @@ mixin _$UpdateSurveyPageEvent {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -179,6 +189,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -194,7 +205,9 @@ mixin _$UpdateSurveyPageEvent {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -220,6 +233,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -252,6 +266,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -279,6 +294,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -405,7 +421,9 @@ class _$_WatchReferenceListStarted
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -431,6 +449,7 @@ class _$_WatchReferenceListStarted
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return watchReferenceListStarted(teamId, interviewerId);
   }
@@ -449,7 +468,9 @@ class _$_WatchReferenceListStarted
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -475,6 +496,7 @@ class _$_WatchReferenceListStarted
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (watchReferenceListStarted != null) {
@@ -513,6 +535,7 @@ class _$_WatchReferenceListStarted
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchReferenceListStarted(this);
   }
@@ -543,6 +566,7 @@ class _$_WatchReferenceListStarted
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (watchReferenceListStarted != null) {
@@ -655,7 +679,9 @@ class _$_ReferenceListReceived
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -681,6 +707,7 @@ class _$_ReferenceListReceived
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return referenceListReceived(failureOrReferenceList);
   }
@@ -699,7 +726,9 @@ class _$_ReferenceListReceived
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -725,6 +754,7 @@ class _$_ReferenceListReceived
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -763,6 +793,7 @@ class _$_ReferenceListReceived
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return referenceListReceived(this);
   }
@@ -793,6 +824,7 @@ class _$_ReferenceListReceived
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -875,7 +907,9 @@ class _$_StateRestoreSuccess
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -901,6 +935,7 @@ class _$_StateRestoreSuccess
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return stateRestoreSuccess();
   }
@@ -919,7 +954,9 @@ class _$_StateRestoreSuccess
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -945,6 +982,7 @@ class _$_StateRestoreSuccess
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (stateRestoreSuccess != null) {
@@ -983,6 +1021,7 @@ class _$_StateRestoreSuccess
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateRestoreSuccess(this);
   }
@@ -1013,6 +1052,7 @@ class _$_StateRestoreSuccess
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (stateRestoreSuccess != null) {
@@ -1036,7 +1076,9 @@ abstract class _$StateRestoredCopyWith<$Res> {
       ModuleType moduleType,
       SimpleSurveyPageState surveyPageState,
       KtList<Question> questionList,
+      KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      bool isReadOnly,
       bool isRecodeModule,
       KtList<Question> mainQuestionList,
       KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1064,7 +1106,9 @@ class __$StateRestoredCopyWithImpl<$Res>
     Object? moduleType = freezed,
     Object? surveyPageState = freezed,
     Object? questionList = freezed,
+    Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
+    Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
     Object? mainQuestionList = freezed,
     Object? mainAnswerMap = freezed,
@@ -1088,10 +1132,18 @@ class __$StateRestoredCopyWithImpl<$Res>
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, AnswerStatus>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -1139,7 +1191,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
       required this.moduleType,
       required this.surveyPageState,
       required this.questionList,
+      required this.answerMap,
       required this.answerStatusMap,
+      required this.isReadOnly,
       required this.isRecodeModule,
       required this.mainQuestionList,
       required this.mainAnswerMap,
@@ -1155,7 +1209,11 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   @override
   final KtList<Question> questionList;
   @override
+  final KtMap<QuestionId, Answer> answerMap;
+  @override
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  @override
+  final bool isReadOnly;
   @override
   final bool isRecodeModule;
   @override
@@ -1169,7 +1227,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageEvent.stateRestored(surveyId: $surveyId, moduleType: $moduleType, surveyPageState: $surveyPageState, questionList: $questionList, answerStatusMap: $answerStatusMap, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, respondent: $respondent)';
+    return 'UpdateSurveyPageEvent.stateRestored(surveyId: $surveyId, moduleType: $moduleType, surveyPageState: $surveyPageState, questionList: $questionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, respondent: $respondent)';
   }
 
   @override
@@ -1181,7 +1239,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
       ..add(DiagnosticsProperty('moduleType', moduleType))
       ..add(DiagnosticsProperty('surveyPageState', surveyPageState))
       ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
       ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
@@ -1205,9 +1265,15 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionList, questionList)) &&
+            (identical(other.answerMap, answerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerMap, answerMap)) &&
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)) &&
@@ -1232,7 +1298,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(surveyPageState) ^
       const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(mainQuestionList) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
@@ -1258,7 +1326,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1284,13 +1354,16 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return stateRestored(
         surveyId,
         moduleType,
         surveyPageState,
         questionList,
+        answerMap,
         answerStatusMap,
+        isReadOnly,
         isRecodeModule,
         mainQuestionList,
         mainAnswerMap,
@@ -1312,7 +1385,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1338,6 +1413,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1346,7 +1422,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
           moduleType,
           surveyPageState,
           questionList,
+          answerMap,
           answerStatusMap,
+          isReadOnly,
           isRecodeModule,
           mainQuestionList,
           mainAnswerMap,
@@ -1386,6 +1464,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateRestored(this);
   }
@@ -1416,6 +1495,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1431,7 +1511,9 @@ abstract class _StateRestored implements UpdateSurveyPageEvent {
       required ModuleType moduleType,
       required SimpleSurveyPageState surveyPageState,
       required KtList<Question> questionList,
+      required KtMap<QuestionId, Answer> answerMap,
       required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required bool isReadOnly,
       required bool isRecodeModule,
       required KtList<Question> mainQuestionList,
       required KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1443,8 +1525,10 @@ abstract class _StateRestored implements UpdateSurveyPageEvent {
   SimpleSurveyPageState get surveyPageState =>
       throw _privateConstructorUsedError;
   KtList<Question> get questionList => throw _privateConstructorUsedError;
+  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
+  bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   KtMap<QuestionId, Answer> get mainAnswerMap =>
@@ -1552,7 +1636,9 @@ class _$_RespondentResponseListUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1578,6 +1664,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return respondentResponseListUpdated(respondentResponseList);
   }
@@ -1596,7 +1683,9 @@ class _$_RespondentResponseListUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1622,6 +1711,7 @@ class _$_RespondentResponseListUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -1660,6 +1750,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentResponseListUpdated(this);
   }
@@ -1690,6 +1781,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -1812,7 +1904,9 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1838,6 +1932,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return answerChanged(answerMap, answerStatusMap);
   }
@@ -1856,7 +1951,9 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -1882,6 +1979,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -1920,6 +2018,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return answerChanged(this);
   }
@@ -1950,6 +2049,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -2035,7 +2135,9 @@ class _$_PageQuestionListUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2061,6 +2163,7 @@ class _$_PageQuestionListUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return pageQuestionListUpdated();
   }
@@ -2079,7 +2182,9 @@ class _$_PageQuestionListUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2105,6 +2210,7 @@ class _$_PageQuestionListUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (pageQuestionListUpdated != null) {
@@ -2143,6 +2249,7 @@ class _$_PageQuestionListUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return pageQuestionListUpdated(this);
   }
@@ -2173,6 +2280,7 @@ class _$_PageQuestionListUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (pageQuestionListUpdated != null) {
@@ -2249,7 +2357,9 @@ class _$_ContentQuestionListUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2275,6 +2385,7 @@ class _$_ContentQuestionListUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return contentQuestionListUpdated();
   }
@@ -2293,7 +2404,9 @@ class _$_ContentQuestionListUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2319,6 +2432,7 @@ class _$_ContentQuestionListUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -2357,6 +2471,7 @@ class _$_ContentQuestionListUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return contentQuestionListUpdated(this);
   }
@@ -2387,6 +2502,7 @@ class _$_ContentQuestionListUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -2458,7 +2574,9 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2484,6 +2602,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return pageUpdated();
   }
@@ -2502,7 +2621,9 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2528,6 +2649,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -2566,6 +2688,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return pageUpdated(this);
   }
@@ -2596,6 +2719,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -2670,7 +2794,9 @@ class _$_NextPagePressed
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2696,6 +2822,7 @@ class _$_NextPagePressed
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return nextPagePressed();
   }
@@ -2714,7 +2841,9 @@ class _$_NextPagePressed
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2740,6 +2869,7 @@ class _$_NextPagePressed
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (nextPagePressed != null) {
@@ -2778,6 +2908,7 @@ class _$_NextPagePressed
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return nextPagePressed(this);
   }
@@ -2808,6 +2939,7 @@ class _$_NextPagePressed
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (nextPagePressed != null) {
@@ -2882,7 +3014,9 @@ class _$_PreviousPagePressed
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2908,6 +3042,7 @@ class _$_PreviousPagePressed
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return previousPagePressed();
   }
@@ -2926,7 +3061,9 @@ class _$_PreviousPagePressed
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -2952,6 +3089,7 @@ class _$_PreviousPagePressed
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (previousPagePressed != null) {
@@ -2990,6 +3128,7 @@ class _$_PreviousPagePressed
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return previousPagePressed(this);
   }
@@ -3020,6 +3159,7 @@ class _$_PreviousPagePressed
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (previousPagePressed != null) {
@@ -3094,7 +3234,9 @@ class _$_WentToNewestPage
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3120,6 +3262,7 @@ class _$_WentToNewestPage
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return wentToNewestPage();
   }
@@ -3138,7 +3281,9 @@ class _$_WentToNewestPage
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3164,6 +3309,7 @@ class _$_WentToNewestPage
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (wentToNewestPage != null) {
@@ -3202,6 +3348,7 @@ class _$_WentToNewestPage
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return wentToNewestPage(this);
   }
@@ -3232,6 +3379,7 @@ class _$_WentToNewestPage
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (wentToNewestPage != null) {
@@ -3329,7 +3477,9 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3355,6 +3505,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return wentToPage(page);
   }
@@ -3373,7 +3524,9 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3399,6 +3552,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (wentToPage != null) {
@@ -3437,6 +3591,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return wentToPage(this);
   }
@@ -3467,6 +3622,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (wentToPage != null) {
@@ -3546,7 +3702,9 @@ class _$_WarningUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3572,6 +3730,7 @@ class _$_WarningUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return warningUpdated();
   }
@@ -3590,7 +3749,9 @@ class _$_WarningUpdated
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3616,6 +3777,7 @@ class _$_WarningUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -3654,6 +3816,7 @@ class _$_WarningUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return warningUpdated(this);
   }
@@ -3684,6 +3847,7 @@ class _$_WarningUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -3755,7 +3919,9 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3781,6 +3947,7 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return warningShowed();
   }
@@ -3799,7 +3966,9 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3825,6 +3994,7 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (warningShowed != null) {
@@ -3863,6 +4033,7 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return warningShowed(this);
   }
@@ -3893,6 +4064,7 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (warningShowed != null) {
@@ -3967,7 +4139,9 @@ class _$_FinishedButtonPressed
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -3993,6 +4167,7 @@ class _$_FinishedButtonPressed
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return finishedButtonPressed();
   }
@@ -4011,7 +4186,9 @@ class _$_FinishedButtonPressed
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4037,6 +4214,7 @@ class _$_FinishedButtonPressed
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -4075,6 +4253,7 @@ class _$_FinishedButtonPressed
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return finishedButtonPressed(this);
   }
@@ -4105,6 +4284,7 @@ class _$_FinishedButtonPressed
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -4179,7 +4359,9 @@ class _$_StateUpdateInprogress
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4205,6 +4387,7 @@ class _$_StateUpdateInprogress
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return stateUpdateInProgress();
   }
@@ -4223,7 +4406,9 @@ class _$_StateUpdateInprogress
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4249,6 +4434,7 @@ class _$_StateUpdateInprogress
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (stateUpdateInProgress != null) {
@@ -4287,6 +4473,7 @@ class _$_StateUpdateInprogress
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateUpdateInProgress(this);
   }
@@ -4317,6 +4504,7 @@ class _$_StateUpdateInprogress
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (stateUpdateInProgress != null) {
@@ -4391,7 +4579,9 @@ class _$_StateUpdateSuccess
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4417,6 +4607,7 @@ class _$_StateUpdateSuccess
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return stateUpdateSuccess();
   }
@@ -4435,7 +4626,9 @@ class _$_StateUpdateSuccess
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4461,6 +4654,7 @@ class _$_StateUpdateSuccess
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (stateUpdateSuccess != null) {
@@ -4499,6 +4693,7 @@ class _$_StateUpdateSuccess
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateUpdateSuccess(this);
   }
@@ -4529,6 +4724,7 @@ class _$_StateUpdateSuccess
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (stateUpdateSuccess != null) {
@@ -4600,7 +4796,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4626,6 +4824,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return stateCleared();
   }
@@ -4644,7 +4843,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4670,6 +4871,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -4708,6 +4910,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateCleared(this);
   }
@@ -4738,6 +4941,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -4812,7 +5016,9 @@ class _$_ReadOnlyToggled
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4838,6 +5044,7 @@ class _$_ReadOnlyToggled
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
   }) {
     return readOnlyToggled();
   }
@@ -4856,7 +5063,9 @@ class _$_ReadOnlyToggled
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
             KtMap<QuestionId, Answer> mainAnswerMap,
@@ -4882,6 +5091,7 @@ class _$_ReadOnlyToggled
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -4920,6 +5130,7 @@ class _$_ReadOnlyToggled
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return readOnlyToggled(this);
   }
@@ -4950,6 +5161,7 @@ class _$_ReadOnlyToggled
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -4961,6 +5173,222 @@ class _$_ReadOnlyToggled
 
 abstract class _ReadOnlyToggled implements UpdateSurveyPageEvent {
   const factory _ReadOnlyToggled() = _$_ReadOnlyToggled;
+}
+
+/// @nodoc
+abstract class _$LoggedOutCopyWith<$Res> {
+  factory _$LoggedOutCopyWith(
+          _LoggedOut value, $Res Function(_LoggedOut) then) =
+      __$LoggedOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LoggedOutCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
+    implements _$LoggedOutCopyWith<$Res> {
+  __$LoggedOutCopyWithImpl(_LoggedOut _value, $Res Function(_LoggedOut) _then)
+      : super(_value, (v) => _then(v as _LoggedOut));
+
+  @override
+  _LoggedOut get _value => super._value as _LoggedOut;
+}
+
+/// @nodoc
+
+class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
+  const _$_LoggedOut();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateSurveyPageEvent.loggedOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.loggedOut'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LoggedOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() pageQuestionListUpdated,
+    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() warningUpdated,
+    required TResult Function() warningShowed,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateUpdateInProgress,
+    required TResult Function() stateUpdateSuccess,
+    required TResult Function() stateCleared,
+    required TResult Function() readOnlyToggled,
+    required TResult Function() loggedOut,
+  }) {
+    return loggedOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? pageQuestionListUpdated,
+    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? warningUpdated,
+    TResult Function()? warningShowed,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateUpdateInProgress,
+    TResult Function()? stateUpdateSuccess,
+    TResult Function()? stateCleared,
+    TResult Function()? readOnlyToggled,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_PageQuestionListUpdated value)
+        pageQuestionListUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_WarningShowed value) warningShowed,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateUpdateInprogress value)
+        stateUpdateInProgress,
+    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_WarningShowed value)? warningShowed,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
+    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (loggedOut != null) {
+      return loggedOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoggedOut implements UpdateSurveyPageEvent {
+  const factory _LoggedOut() = _$_LoggedOut;
 }
 
 /// @nodoc
@@ -4990,8 +5418,8 @@ class _$UpdateSurveyPageStateTearOff {
       required KtList<Question> questionList,
       required KtList<Question> pageQuestionList,
       required KtList<Question> contentQuestionList,
-      required KtList<Question> mainQuestionList,
       required bool isReadOnly,
+      required KtList<Question> mainQuestionList,
       required KtMap<QuestionId, Answer> mainAnswerMap,
       required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) {
     return _UpdateSurveyPageState(
@@ -5017,8 +5445,8 @@ class _$UpdateSurveyPageStateTearOff {
       questionList: questionList,
       pageQuestionList: pageQuestionList,
       contentQuestionList: contentQuestionList,
-      mainQuestionList: mainQuestionList,
       isReadOnly: isReadOnly,
+      mainQuestionList: mainQuestionList,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
     );
@@ -5057,10 +5485,9 @@ mixin _$UpdateSurveyPageState {
   KtList<Question> get questionList => throw _privateConstructorUsedError;
   KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
   KtList<Question> get contentQuestionList =>
-      throw _privateConstructorUsedError;
-  KtList<Question> get mainQuestionList =>
       throw _privateConstructorUsedError; // H_
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isReadOnly => throw _privateConstructorUsedError; // H_ recode
+  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   KtMap<QuestionId, Answer> get mainAnswerMap =>
       throw _privateConstructorUsedError;
   KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
@@ -5099,8 +5526,8 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
-      KtList<Question> mainQuestionList,
       bool isReadOnly,
+      KtList<Question> mainQuestionList,
       KtMap<QuestionId, Answer> mainAnswerMap,
       KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
 
@@ -5144,8 +5571,8 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? questionList = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
-    Object? mainQuestionList = freezed,
     Object? isReadOnly = freezed,
+    Object? mainQuestionList = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -5238,14 +5665,14 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.contentQuestionList
           : contentQuestionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
-      mainQuestionList: mainQuestionList == freezed
-          ? _value.mainQuestionList
-          : mainQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      mainQuestionList: mainQuestionList == freezed
+          ? _value.mainQuestionList
+          : mainQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -5323,8 +5750,8 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
-      KtList<Question> mainQuestionList,
       bool isReadOnly,
+      KtList<Question> mainQuestionList,
       KtMap<QuestionId, Answer> mainAnswerMap,
       KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
 
@@ -5375,8 +5802,8 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? questionList = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
-    Object? mainQuestionList = freezed,
     Object? isReadOnly = freezed,
+    Object? mainQuestionList = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -5469,14 +5896,14 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.contentQuestionList
           : contentQuestionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
-      mainQuestionList: mainQuestionList == freezed
-          ? _value.mainQuestionList
-          : mainQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      mainQuestionList: mainQuestionList == freezed
+          ? _value.mainQuestionList
+          : mainQuestionList // ignore: cast_nullable_to_non_nullable
+              as KtList<Question>,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -5517,8 +5944,8 @@ class _$_UpdateSurveyPageState
       required this.questionList,
       required this.pageQuestionList,
       required this.contentQuestionList,
-      required this.mainQuestionList,
       required this.isReadOnly,
+      required this.mainQuestionList,
       required this.mainAnswerMap,
       required this.mainAnswerStatusMap});
 
@@ -5566,10 +5993,10 @@ class _$_UpdateSurveyPageState
   final KtList<Question> pageQuestionList;
   @override
   final KtList<Question> contentQuestionList;
-  @override
-  final KtList<Question> mainQuestionList;
   @override // H_
   final bool isReadOnly;
+  @override // H_ recode
+  final KtList<Question> mainQuestionList;
   @override
   final KtMap<QuestionId, Answer> mainAnswerMap;
   @override
@@ -5577,7 +6004,7 @@ class _$_UpdateSurveyPageState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, mainQuestionList: $mainQuestionList, isReadOnly: $isReadOnly, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -5608,8 +6035,8 @@ class _$_UpdateSurveyPageState
       ..add(DiagnosticsProperty('questionList', questionList))
       ..add(DiagnosticsProperty('pageQuestionList', pageQuestionList))
       ..add(DiagnosticsProperty('contentQuestionList', contentQuestionList))
-      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
       ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
       ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
   }
@@ -5683,8 +6110,8 @@ class _$_UpdateSurveyPageState
             (identical(other.contentQuestionList, contentQuestionList) ||
                 const DeepCollectionEquality()
                     .equals(other.contentQuestionList, contentQuestionList)) &&
-            (identical(other.mainQuestionList, mainQuestionList) || const DeepCollectionEquality().equals(other.mainQuestionList, mainQuestionList)) &&
             (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.mainQuestionList, mainQuestionList) || const DeepCollectionEquality().equals(other.mainQuestionList, mainQuestionList)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) || const DeepCollectionEquality().equals(other.mainAnswerMap, mainAnswerMap)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
   }
@@ -5714,8 +6141,8 @@ class _$_UpdateSurveyPageState
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
       const DeepCollectionEquality().hash(contentQuestionList) ^
-      const DeepCollectionEquality().hash(mainQuestionList) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(mainQuestionList) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap);
 
@@ -5750,8 +6177,8 @@ abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
           required KtList<Question> questionList,
           required KtList<Question> pageQuestionList,
           required KtList<Question> contentQuestionList,
-          required KtList<Question> mainQuestionList,
           required bool isReadOnly,
+          required KtList<Question> mainQuestionList,
           required KtMap<QuestionId, Answer> mainAnswerMap,
           required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
       _$_UpdateSurveyPageState;
@@ -5803,10 +6230,10 @@ abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
   @override
   KtList<Question> get contentQuestionList =>
       throw _privateConstructorUsedError;
-  @override
-  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   @override // H_
   bool get isReadOnly => throw _privateConstructorUsedError;
+  @override // H_ recode
+  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   @override
   KtMap<QuestionId, Answer> get mainAnswerMap =>
       throw _privateConstructorUsedError;

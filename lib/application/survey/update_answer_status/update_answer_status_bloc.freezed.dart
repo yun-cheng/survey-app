@@ -1294,22 +1294,22 @@ class _$UpdateAnswerStatusStateTearOff {
       {required LoadState restoreState,
       required LoadState updateState,
       required KtList<Question> questionList,
-      required bool isRecodeModule,
       required KtMap<QuestionId, Answer> answerMap,
       required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
       required QuestionId questionId,
-      required KtList<QuestionId> clearAnswerQIdList}) {
+      required KtList<QuestionId> clearAnswerQIdList,
+      required bool isRecodeModule,
+      required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) {
     return _UpdateAnswerStatusState(
       restoreState: restoreState,
       updateState: updateState,
       questionList: questionList,
-      isRecodeModule: isRecodeModule,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
-      mainAnswerStatusMap: mainAnswerStatusMap,
       questionId: questionId,
       clearAnswerQIdList: clearAnswerQIdList,
+      isRecodeModule: isRecodeModule,
+      mainAnswerStatusMap: mainAnswerStatusMap,
     );
   }
 }
@@ -1322,14 +1322,14 @@ mixin _$UpdateAnswerStatusState {
   LoadState get restoreState => throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
   KtList<Question> get questionList => throw _privateConstructorUsedError;
-  bool get isRecodeModule => throw _privateConstructorUsedError;
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
-      throw _privateConstructorUsedError;
   QuestionId get questionId => throw _privateConstructorUsedError;
   KtList<QuestionId> get clearAnswerQIdList =>
+      throw _privateConstructorUsedError; // H_ recode
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1346,12 +1346,12 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       {LoadState restoreState,
       LoadState updateState,
       KtList<Question> questionList,
-      bool isRecodeModule,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
       QuestionId questionId,
-      KtList<QuestionId> clearAnswerQIdList});
+      KtList<QuestionId> clearAnswerQIdList,
+      bool isRecodeModule,
+      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
 
   $LoadStateCopyWith<$Res> get restoreState;
   $LoadStateCopyWith<$Res> get updateState;
@@ -1371,12 +1371,12 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? restoreState = freezed,
     Object? updateState = freezed,
     Object? questionList = freezed,
-    Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? mainAnswerStatusMap = freezed,
     Object? questionId = freezed,
     Object? clearAnswerQIdList = freezed,
+    Object? isRecodeModule = freezed,
+    Object? mainAnswerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
       restoreState: restoreState == freezed
@@ -1391,10 +1391,6 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
-      isRecodeModule: isRecodeModule == freezed
-          ? _value.isRecodeModule
-          : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -1402,10 +1398,6 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
-      mainAnswerStatusMap: mainAnswerStatusMap == freezed
-          ? _value.mainAnswerStatusMap
-          : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, AnswerStatus>,
       questionId: questionId == freezed
           ? _value.questionId
@@ -1415,6 +1407,14 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.clearAnswerQIdList
           : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
               as KtList<QuestionId>,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mainAnswerStatusMap: mainAnswerStatusMap == freezed
+          ? _value.mainAnswerStatusMap
+          : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 
@@ -1444,12 +1444,12 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       {LoadState restoreState,
       LoadState updateState,
       KtList<Question> questionList,
-      bool isRecodeModule,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
       QuestionId questionId,
-      KtList<QuestionId> clearAnswerQIdList});
+      KtList<QuestionId> clearAnswerQIdList,
+      bool isRecodeModule,
+      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
 
   @override
   $LoadStateCopyWith<$Res> get restoreState;
@@ -1474,12 +1474,12 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? restoreState = freezed,
     Object? updateState = freezed,
     Object? questionList = freezed,
-    Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? mainAnswerStatusMap = freezed,
     Object? questionId = freezed,
     Object? clearAnswerQIdList = freezed,
+    Object? isRecodeModule = freezed,
+    Object? mainAnswerStatusMap = freezed,
   }) {
     return _then(_UpdateAnswerStatusState(
       restoreState: restoreState == freezed
@@ -1494,10 +1494,6 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
               as KtList<Question>,
-      isRecodeModule: isRecodeModule == freezed
-          ? _value.isRecodeModule
-          : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -1505,10 +1501,6 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
-      mainAnswerStatusMap: mainAnswerStatusMap == freezed
-          ? _value.mainAnswerStatusMap
-          : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, AnswerStatus>,
       questionId: questionId == freezed
           ? _value.questionId
@@ -1518,6 +1510,14 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.clearAnswerQIdList
           : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
               as KtList<QuestionId>,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
+      mainAnswerStatusMap: mainAnswerStatusMap == freezed
+          ? _value.mainAnswerStatusMap
+          : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as KtMap<QuestionId, AnswerStatus>,
     ));
   }
 }
@@ -1531,12 +1531,12 @@ class _$_UpdateAnswerStatusState
       {required this.restoreState,
       required this.updateState,
       required this.questionList,
-      required this.isRecodeModule,
       required this.answerMap,
       required this.answerStatusMap,
-      required this.mainAnswerStatusMap,
       required this.questionId,
-      required this.clearAnswerQIdList});
+      required this.clearAnswerQIdList,
+      required this.isRecodeModule,
+      required this.mainAnswerStatusMap});
 
   @override
   final LoadState restoreState;
@@ -1545,21 +1545,21 @@ class _$_UpdateAnswerStatusState
   @override
   final KtList<Question> questionList;
   @override
-  final bool isRecodeModule;
-  @override
   final KtMap<QuestionId, Answer> answerMap;
   @override
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
-  @override
   final QuestionId questionId;
   @override
   final KtList<QuestionId> clearAnswerQIdList;
+  @override // H_ recode
+  final bool isRecodeModule;
+  @override
+  final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(restoreState: $restoreState, updateState: $updateState, questionList: $questionList, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, mainAnswerStatusMap: $mainAnswerStatusMap, questionId: $questionId, clearAnswerQIdList: $clearAnswerQIdList)';
+    return 'UpdateAnswerStatusState(restoreState: $restoreState, updateState: $updateState, questionList: $questionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, clearAnswerQIdList: $clearAnswerQIdList, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -1570,12 +1570,12 @@ class _$_UpdateAnswerStatusState
       ..add(DiagnosticsProperty('restoreState', restoreState))
       ..add(DiagnosticsProperty('updateState', updateState))
       ..add(DiagnosticsProperty('questionList', questionList))
-      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
-      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap))
       ..add(DiagnosticsProperty('questionId', questionId))
-      ..add(DiagnosticsProperty('clearAnswerQIdList', clearAnswerQIdList));
+      ..add(DiagnosticsProperty('clearAnswerQIdList', clearAnswerQIdList))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
   }
 
   @override
@@ -1591,24 +1591,24 @@ class _$_UpdateAnswerStatusState
             (identical(other.questionList, questionList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionList, questionList)) &&
-            (identical(other.isRecodeModule, isRecodeModule) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRecodeModule, isRecodeModule)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)) &&
             (identical(other.questionId, questionId) ||
                 const DeepCollectionEquality()
                     .equals(other.questionId, questionId)) &&
             (identical(other.clearAnswerQIdList, clearAnswerQIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.clearAnswerQIdList, clearAnswerQIdList)));
+                    .equals(other.clearAnswerQIdList, clearAnswerQIdList)) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecodeModule, isRecodeModule)) &&
+            (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
   }
 
   @override
@@ -1617,12 +1617,12 @@ class _$_UpdateAnswerStatusState
       const DeepCollectionEquality().hash(restoreState) ^
       const DeepCollectionEquality().hash(updateState) ^
       const DeepCollectionEquality().hash(questionList) ^
-      const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
       const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(clearAnswerQIdList);
+      const DeepCollectionEquality().hash(clearAnswerQIdList) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
+      const DeepCollectionEquality().hash(mainAnswerStatusMap);
 
   @JsonKey(ignore: true)
   @override
@@ -1636,12 +1636,12 @@ abstract class _UpdateAnswerStatusState implements UpdateAnswerStatusState {
           {required LoadState restoreState,
           required LoadState updateState,
           required KtList<Question> questionList,
-          required bool isRecodeModule,
           required KtMap<QuestionId, Answer> answerMap,
           required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-          required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
           required QuestionId questionId,
-          required KtList<QuestionId> clearAnswerQIdList}) =
+          required KtList<QuestionId> clearAnswerQIdList,
+          required bool isRecodeModule,
+          required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
       _$_UpdateAnswerStatusState;
 
   @override
@@ -1651,19 +1651,19 @@ abstract class _UpdateAnswerStatusState implements UpdateAnswerStatusState {
   @override
   KtList<Question> get questionList => throw _privateConstructorUsedError;
   @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
-  @override
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
   KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
-      throw _privateConstructorUsedError;
-  @override
   QuestionId get questionId => throw _privateConstructorUsedError;
   @override
   KtList<QuestionId> get clearAnswerQIdList =>
+      throw _privateConstructorUsedError;
+  @override // H_ recode
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  @override
+  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

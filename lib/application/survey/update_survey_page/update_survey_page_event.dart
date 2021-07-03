@@ -21,7 +21,9 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
     required ModuleType moduleType,
     required SimpleSurveyPageState surveyPageState,
     required KtList<Question> questionList,
+    required KtMap<QuestionId, Answer> answerMap,
     required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required bool isReadOnly,
     required bool isRecodeModule,
     required KtList<Question> mainQuestionList,
     required KtMap<QuestionId, Answer> mainAnswerMap,
@@ -77,4 +79,7 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
 
   // H_ 切換唯讀
   const factory UpdateSurveyPageEvent.readOnlyToggled() = _ReadOnlyToggled;
+
+  const factory UpdateSurveyPageEvent.loggedOut() = _LoggedOut;
+
 }

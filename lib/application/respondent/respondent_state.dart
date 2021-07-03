@@ -7,16 +7,15 @@ class RespondentState with _$RespondentState {
     required KtList<RespondentList> respondentListList,
     required Survey survey,
     required KtList<Respondent> respondentList,
-    required KtList<Respondent> villageFirstRespondentList,
-    required KtList<Respondent> townFirstRespondentList,
-    required int firstCardIndex,
-    required double firstCardAlignment,
-    required Respondent firstRespondent,
+    required TabType currentTab,
+    required TabScrollPosition tabScrollPosition,
     required bool needToJump,
     required int jumpToIndex,
     required Option<RespondentFailure> respondentFailure,
     required RespondentId selectedRespondentId,
-    required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+    required VisitRecordsMap visitRecordsMap,
+    required TabRespondentsMap tabRespondentsMap,
+    required KtList<Response> responseInfoList,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(
@@ -24,15 +23,15 @@ class RespondentState with _$RespondentState {
         respondentListListState: const LoadState.initial(),
         respondentListList: const KtList<RespondentList>.empty(),
         respondentList: const KtList<Respondent>.empty(),
-        villageFirstRespondentList: const KtList<Respondent>.empty(),
-        townFirstRespondentList: const KtList<Respondent>.empty(),
-        firstCardIndex: 0,
-        firstCardAlignment: 0.0,
-        firstRespondent: Respondent.empty(),
+        currentTab: TabType.start,
+        tabScrollPosition: TabTypeX.toImmutableMap()
+            .mapValues((_) => CardScrollPosition.empty()),
         needToJump: false,
         jumpToIndex: 0,
         respondentFailure: none(),
         selectedRespondentId: RespondentId.empty(),
-        visitRecordsMap: const KtMap<RespondentId, KtList<VisitRecord>>.empty(),
+        visitRecordsMap: const VisitRecordsMap.empty(),
+        tabRespondentsMap: const TabRespondentsMap.empty(),
+        responseInfoList: const KtList<Response>.empty(),
       );
 }

@@ -35,7 +35,9 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
         yield state.copyWith(
           loadState: const LoadState.success(),
           rebuildState: const LoadState.inProgress(),
-          answerMap: e.answerMap,
+          answerMap: state.isRecodeModule ? state.answerMap : e.answerMap,
+          recodeAnswerMap:
+              state.isRecodeModule ? e.answerMap : state.recodeAnswerMap,
           questionId: e.questionId,
         );
       },
@@ -46,7 +48,11 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
         add(const SurveyPageEvent.stateLoadInProgress());
         yield state.copyWith(
           loadState: const LoadState.success(),
-          answerStatusMap: e.answerStatusMap,
+          answerStatusMap:
+              state.isRecodeModule ? state.answerStatusMap : e.answerStatusMap,
+          recodeAnswerStatusMap: state.isRecodeModule
+              ? e.answerStatusMap
+              : state.recodeAnswerStatusMap,
         );
       },
       // H_ page
@@ -80,6 +86,24 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
           loadState: const LoadState.success(),
           warning: e.warning,
           showWarning: e.showWarning,
+        );
+      },
+      // H_ info
+      infoUpdated: (e) async* {
+        logger('Event').i('SurveyPageEvent: infoUpdated');
+
+        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.success(),
+          restoreState: const LoadState.success(),
+          isReadOnly: e.isReadOnly,
+          isRecodeModule: e.isRecodeModule,
+          answerMap: e.isRecodeModule ? e.mainAnswerMap : e.answerMap,
+          answerStatusMap:
+              e.isRecodeModule ? e.mainAnswerStatusMap : e.answerStatusMap,
+          recodeAnswerMap: e.isRecodeModule ? e.answerMap : e.mainAnswerMap,
+          recodeAnswerStatusMap:
+              e.isRecodeModule ? e.answerStatusMap : e.mainAnswerStatusMap,
         );
       },
       stateLoadInProgress: (e) async* {

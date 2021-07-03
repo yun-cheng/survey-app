@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/navigation_page.dart';

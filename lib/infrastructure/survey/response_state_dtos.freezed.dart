@@ -35,7 +35,9 @@ class _$ResponseStateDtoTearOff {
       required String responseId,
       required ResponseDto mainResponse,
       required List<ResponseDto> respondentResponseList,
-      required Map<String, dynamic> updateState}) {
+      required Map<String, dynamic> updateState,
+      required bool updateVisitReportsMap,
+      required bool updateTabRespondentsMap}) {
     return _ResponseStateDto(
       survey: survey,
       respondent: respondent,
@@ -52,6 +54,8 @@ class _$ResponseStateDtoTearOff {
       mainResponse: mainResponse,
       respondentResponseList: respondentResponseList,
       updateState: updateState,
+      updateVisitReportsMap: updateVisitReportsMap,
+      updateTabRespondentsMap: updateTabRespondentsMap,
     );
   }
 
@@ -85,6 +89,8 @@ mixin _$ResponseStateDto {
   List<ResponseDto> get respondentResponseList =>
       throw _privateConstructorUsedError;
   Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  bool get updateVisitReportsMap => throw _privateConstructorUsedError;
+  bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -112,7 +118,9 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       String responseId,
       ResponseDto mainResponse,
       List<ResponseDto> respondentResponseList,
-      Map<String, dynamic> updateState});
+      Map<String, dynamic> updateState,
+      bool updateVisitReportsMap,
+      bool updateTabRespondentsMap});
 
   $SurveyDtoCopyWith<$Res> get survey;
   $RespondentDtoCopyWith<$Res> get respondent;
@@ -147,6 +155,8 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
     Object? updateState = freezed,
+    Object? updateVisitReportsMap = freezed,
+    Object? updateTabRespondentsMap = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed
@@ -209,6 +219,14 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      updateVisitReportsMap: updateVisitReportsMap == freezed
+          ? _value.updateVisitReportsMap
+          : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateTabRespondentsMap: updateTabRespondentsMap == freezed
+          ? _value.updateTabRespondentsMap
+          : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -270,7 +288,9 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       String responseId,
       ResponseDto mainResponse,
       List<ResponseDto> respondentResponseList,
-      Map<String, dynamic> updateState});
+      Map<String, dynamic> updateState,
+      bool updateVisitReportsMap,
+      bool updateTabRespondentsMap});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
@@ -312,6 +332,8 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
     Object? updateState = freezed,
+    Object? updateVisitReportsMap = freezed,
+    Object? updateTabRespondentsMap = freezed,
   }) {
     return _then(_ResponseStateDto(
       survey: survey == freezed
@@ -374,6 +396,14 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      updateVisitReportsMap: updateVisitReportsMap == freezed
+          ? _value.updateVisitReportsMap
+          : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updateTabRespondentsMap: updateTabRespondentsMap == freezed
+          ? _value.updateTabRespondentsMap
+          : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -396,7 +426,9 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       required this.responseId,
       required this.mainResponse,
       required this.respondentResponseList,
-      required this.updateState})
+      required this.updateState,
+      required this.updateVisitReportsMap,
+      required this.updateTabRespondentsMap})
       : super._();
 
   factory _$_ResponseStateDto.fromJson(Map<String, dynamic> json) =>
@@ -432,10 +464,14 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   final List<ResponseDto> respondentResponseList;
   @override
   final Map<String, dynamic> updateState;
+  @override
+  final bool updateVisitReportsMap;
+  @override
+  final bool updateTabRespondentsMap;
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState)';
+    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap)';
   }
 
   @override
@@ -485,7 +521,14 @@ class _$_ResponseStateDto extends _ResponseStateDto {
                     other.respondentResponseList, respondentResponseList)) &&
             (identical(other.updateState, updateState) ||
                 const DeepCollectionEquality()
-                    .equals(other.updateState, updateState)));
+                    .equals(other.updateState, updateState)) &&
+            (identical(other.updateVisitReportsMap, updateVisitReportsMap) ||
+                const DeepCollectionEquality().equals(
+                    other.updateVisitReportsMap, updateVisitReportsMap)) &&
+            (identical(
+                    other.updateTabRespondentsMap, updateTabRespondentsMap) ||
+                const DeepCollectionEquality().equals(
+                    other.updateTabRespondentsMap, updateTabRespondentsMap)));
   }
 
   @override
@@ -505,7 +548,9 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(responseId) ^
       const DeepCollectionEquality().hash(mainResponse) ^
       const DeepCollectionEquality().hash(respondentResponseList) ^
-      const DeepCollectionEquality().hash(updateState);
+      const DeepCollectionEquality().hash(updateState) ^
+      const DeepCollectionEquality().hash(updateVisitReportsMap) ^
+      const DeepCollectionEquality().hash(updateTabRespondentsMap);
 
   @JsonKey(ignore: true)
   @override
@@ -534,7 +579,9 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       required String responseId,
       required ResponseDto mainResponse,
       required List<ResponseDto> respondentResponseList,
-      required Map<String, dynamic> updateState}) = _$_ResponseStateDto;
+      required Map<String, dynamic> updateState,
+      required bool updateVisitReportsMap,
+      required bool updateTabRespondentsMap}) = _$_ResponseStateDto;
   const _ResponseStateDto._() : super._();
 
   factory _ResponseStateDto.fromJson(Map<String, dynamic> json) =
@@ -574,6 +621,10 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       throw _privateConstructorUsedError;
   @override
   Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  @override
+  bool get updateVisitReportsMap => throw _privateConstructorUsedError;
+  @override
+  bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith =>

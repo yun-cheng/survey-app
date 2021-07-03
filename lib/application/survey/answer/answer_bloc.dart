@@ -17,6 +17,7 @@ part 'answer_bloc.freezed.dart';
 part 'answer_event.dart';
 part 'answer_state.dart';
 
+// NOTE 這個 bloc 用來轉發使用者的互動事件到其他 bloc
 @injectable
 class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
   final UpdateAnswerBloc _updateAnswerBloc;
@@ -34,19 +35,21 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
     yield* event.map(
       // H_ 要開始問卷時載入模組
       moduleLoaded: (e) async* {
-        logger('Event').i('AnswerBloc: moduleLoaded');
+        logger('Event').i('AnswerEvent: moduleLoaded');
 
         yield state.copyWith(
           questionList: e.questionList,
           question: Question.empty(),
+          isReadOnly: e.isReadOnly,
           isRecodeModule: e.isRecodeModule,
         );
       },
       // H_ 變更某題作答
       answerChanged: (e) async* {
-        logger('Event').i('AnswerBloc: answerChanged');
+        logger('Event').i('AnswerEvent: answerChanged');
 
-        if ((!state.isReadOnly && !state.isRecodeModule) || e.isRecode) {
+        if (!state.isReadOnly &&
+            (!state.isRecodeModule || (state.isRecodeModule && e.isRecode))) {
           final question =
               state.questionList.first((q) => q.id == e.questionId);
 
@@ -54,6 +57,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
             question: question,
             answerValue: e.body,
             toggle: e.toggle,
+            isSpecialAnswer: e.isSpecialAnswer,
             isNote: e.isNote,
             noteOf: e.noteOf,
           ));
@@ -61,7 +65,7 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
       },
       // H_ 切換特殊作答
       specialAnswerSwitched: (e) async* {
-        logger('Event').i('AnswerBloc: specialAnswerSwitched');
+        logger('Event').i('AnswerEvent: specialAnswerSwitched');
 
         if (!state.isReadOnly && !state.isRecodeModule) {
           _updateAnswerBloc.add(
@@ -76,11 +80,17 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
       },
       // H_ 切換唯讀模式
       readOnlyToggled: (e) async* {
-        logger('Event').i('AnswerBloc: readOnlyToggled');
+        logger('Event').i('AnswerEvent: readOnlyToggled');
 
         yield state.copyWith(
           isReadOnly: !state.isReadOnly,
         );
+      },
+      // H_ 離開問卷時清空 state
+      stateCleared: (e) async* {
+        logger('Event').i('AnswerEvent: stateCleared');
+
+        yield AnswerState.initial();
       },
     );
   }

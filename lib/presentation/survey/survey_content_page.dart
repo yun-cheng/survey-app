@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../core/widgets/responsive_layout.dart';
 import 'widgets/survey_content_body.dart';
 
 class SurveyContentPage extends StatelessWidget {
@@ -16,7 +15,7 @@ class SurveyContentPage extends StatelessWidget {
               context.router.pop();
             }),
       ),
-      body: ResponsiveLayout(
+      body: SafeArea(
         child: SurveyContentBody(),
       ),
     );

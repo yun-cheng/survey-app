@@ -9,11 +9,27 @@ ResponseState responseListMerged(ResponseState state) {
   final newList =
       state.responseList.union(state.downloadedResponseList).toList();
 
+  final diffList = state.downloadedResponseList.minus(state.responseList);
+
+  // S_ 新下載的 responseList 包含查址模組
+  final updateVisitReportsMap = diffList.any(
+    (r) =>
+        r.surveyId == state.survey.id &&
+        r.moduleType == ModuleType.visitReport(),
+  );
+
+  // S_ 新下載的 responseList 包含完成的 response
+  final updateTabRespondentsMap = diffList.any(
+    (r) => r.surveyId == state.survey.id && r.responseStatus.isFinished,
+  );
+
   // TODO 如果在其他 device 剛好更新當前 respondent 的不同模組新 response，
   //  則要更新 respondentResponseList
 
   return state.copyWith(
     responseList: newList,
+    updateVisitReportsMap: updateVisitReportsMap,
+    updateTabRespondentsMap: updateTabRespondentsMap,
   );
 }
 
@@ -30,7 +46,7 @@ ResponseState responseRestored(ResponseState state) {
   } else if (state.moduleType != ModuleType.visitReport()) {
     // S_1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
     // FIXME 可能要再加上篩同 deviceId
-    final lastResponse = state.responseList
+    response = state.responseList
         .filter(
           (r) =>
               r.respondentId == state.respondent.id &&
@@ -41,12 +57,6 @@ ResponseState responseRestored(ResponseState state) {
           (r) => r.lastChangedTimeStamp.toInt(),
         )
         .firstOrNull();
-
-    // S_1-c2-2 若最近一筆在 answering，則回復該 response
-    if (lastResponse != null &&
-        lastResponse.responseStatus == ResponseStatus.answering()) {
-      response = lastResponse;
-    }
   }
 
   // S_2 若無篩出，則新創一個 response
@@ -63,16 +73,18 @@ ResponseState responseRestored(ResponseState state) {
     answerStatusMap: module.answerStatusMap,
   );
 
-  // S_3 無論是否是新的 response，都要產生新的 responseId、tempResponseId
-  final now = DeviceTimeStamp.now();
-  response = response.copyWith(
-    responseId: UniqueId(),
-    tempResponseId: UniqueId(),
-    editFinished: false,
-    sessionStartTimeStamp: now,
-    sessionEndTimeStamp: now,
-    lastChangedTimeStamp: now,
-  );
+  // S_3 無論是否是新的 response，只要不是已完成，都要產生新的 responseId、tempResponseId
+  if (response.responseStatus != ResponseStatus.finished()) {
+    final now = DeviceTimeStamp.now();
+    response = response.copyWith(
+      responseId: UniqueId(),
+      tempResponseId: UniqueId(),
+      editFinished: false,
+      sessionStartTimeStamp: now,
+      sessionEndTimeStamp: now,
+      lastChangedTimeStamp: now,
+    );
+  }
 
   // S_4 如果是預過錄，則需要參考 mainResponse
   Response? mainResponse;
@@ -80,6 +92,7 @@ ResponseState responseRestored(ResponseState state) {
     final mainResponseList = state.responseList
         .filter(
           (r) =>
+              r.responseStatus == ResponseStatus.finished() &&
               r.respondentId == state.respondent.id &&
               r.surveyId == state.survey.id &&
               r.moduleType == ModuleType.main(),
@@ -136,27 +149,42 @@ ResponseState editFinished(Tuple2<_EditFinished, ResponseState> tuple) {
   final e = tuple.item1;
   final state = tuple.item2;
 
-  // S_1 newResponse
-  final now = DeviceTimeStamp.now();
-  final newResponse = state.response.copyWith(
-    tempResponseId: state.response.responseId,
-    editFinished: true,
-    sessionEndTimeStamp: now,
-    lastChangedTimeStamp: now,
-    responseStatus: e.responseFinished
-        ? ResponseStatus.finished()
-        : ResponseStatus.answering(),
-  );
+  if (state.response.responseStatus != ResponseStatus.finished()) {
+    // S_1 newResponse
+    final now = DeviceTimeStamp.now();
+    Response newResponse = state.response.copyWith(
+      tempResponseId: state.response.responseId,
+      editFinished: true,
+      sessionEndTimeStamp: now,
+      lastChangedTimeStamp: now,
+      responseStatus: ResponseStatus.answering(),
+    );
 
-  // S_2
-  final newList = state.responseList
-      .filterNot((r) => r.responseId == newResponse.responseId)
-      .plusElement(newResponse);
+    if (e.responseFinished) {
+      newResponse = newResponse.copyWith(
+        responseStatus: ResponseStatus.finished(),
+        surveyPageState: newResponse.surveyPageState.copyWith(
+          page: PageNumber(0),
+          isLastPage: false,
+        ),
+      );
+    }
 
-  return state.copyWith(
-    response: newResponse,
-    responseList: newList,
-  );
+    // S_2
+    final newList = state.responseList
+        .filterNot((r) => r.responseId == newResponse.responseId)
+        .plusElement(newResponse);
+
+    return state.copyWith(
+      response: newResponse,
+      responseList: newList,
+      updateVisitReportsMap: newResponse.moduleType == ModuleType.visitReport(),
+      updateTabRespondentsMap:
+          e.responseFinished && newResponse.moduleType.needUpdateTab,
+    );
+  } else {
+    return state;
+  }
 }
 
 // H_ 更新當前受訪者在其他模組的 responses
