@@ -28,9 +28,12 @@ dependencies:
   # H_ firebase
   firebase_core: ^1.3.0
   cloud_firestore: ^2.3.0
+  firebase_storage: ^9.0.0
+  # H_ network
+  connectivity_plus: ^1.0.4
   # H_ recorder
-  flutter_sound: ^8.1.4
-  permission_handler: ^7.1.0
+  flutter_sound_lite: ^8.1.9
+  permission_handler: ^8.1.2
   # H_ route
   auto_route: ^2.2.0
   # H_ widget/presentation
@@ -48,6 +51,7 @@ dependencies:
   # FIXME 從 git 匯入會出現奇怪的問題，先用 local 解決
   scrollable_positioned_list:
     path: C://Users/z/AndroidStudioProjects/flutter.widgets/packages/scrollable_positioned_list
+  flash: ^2.0.1
   # H_ others
   dartz: ^0.10.0-nullsafety.2
   kt_dart: ^0.9.1

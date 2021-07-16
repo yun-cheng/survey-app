@@ -1,35 +1,15 @@
-import 'package:dartz/dartz.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/failures.dart';
-import '../core/value_objects.dart';
+part 'value_objects.freezed.dart';
 
-// class FileName extends ValueObject<String> {
-//   @override
-//   final Either<ValueFailure<String>, String> value;
+@freezed
+class AudioType with _$AudioType {
+  const AudioType._();
 
-//   factory FileName(String input) {
-//     return FileName._(
-//       right(input),
-//     );
-//   }
+  const factory AudioType(String value) = _AudioType;
 
-//   factory FileName.empty() => FileName('');
-
-//   const FileName._(this.value);
-// }
-
-class AudioType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory AudioType(String input) {
-    return AudioType._(
-      right(input),
-    );
-  }
-
-  factory AudioType.aac() => AudioType('aac');
-  factory AudioType.empty() => AudioType('');
-
-  const AudioType._(this.value);
+  factory AudioType.empty() => const AudioType('');
+  factory AudioType.aac() => const AudioType('aac');
+  factory AudioType.opus() => const AudioType('opus');
+  factory AudioType.m4a() => const AudioType('m4a');
 }

@@ -3,7 +3,7 @@ part of 'update_survey_page_bloc.dart';
 @freezed
 class UpdateSurveyPageState with _$UpdateSurveyPageState {
   const factory UpdateSurveyPageState({
-    // H_
+    // H_ restore
     required PageNumber page,
     required PageNumber newestPage,
     required Direction direction,
@@ -28,8 +28,12 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required KtList<Question> questionList,
     required KtList<Question> pageQuestionList,
     required KtList<Question> contentQuestionList,
-    // H_
+    // H_ page state
     required bool isReadOnly,
+    required bool appIsPaused,
+    required bool showDialog,
+    required bool leavePage,
+    required bool finishResponse,
     // H_ recode
     required KtList<Question> mainQuestionList,
     required KtMap<QuestionId, Answer> mainAnswerMap,
@@ -61,6 +65,10 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         surveyId: SurveyId.empty(),
         moduleType: ModuleType.empty(),
         isReadOnly: false,
+        appIsPaused: false,
+        showDialog: false,
+        leavePage: false,
+        finishResponse: false,
         mainAnswerMap: const KtMap<QuestionId, Answer>.empty(),
         mainAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
       );

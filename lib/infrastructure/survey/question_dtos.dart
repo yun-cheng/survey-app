@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../domain/core/value_objects.dart';
 import '../../domain/survey/question.dart';
 import '../../domain/survey/value_objects.dart';
 import 'choice_dtos.dart';
@@ -36,7 +35,7 @@ class QuestionDto with _$QuestionDto {
     return QuestionDto(
       questionId: domain.id.getValueAnyway(),
       hideQuestionId: domain.hideId,
-      serialNumber: domain.serialNumber.getValueAnyway(),
+      serialNumber: domain.serialNumber,
       questionBody:
           domain.body.map((item) => FormattedTextDto.fromDomain(item)).asList(),
       stringBody: domain.stringBody,
@@ -58,7 +57,7 @@ class QuestionDto with _$QuestionDto {
     return Question(
       id: QuestionId(questionId),
       hideId: hideQuestionId,
-      serialNumber: SerialNumber(serialNumber),
+      serialNumber: serialNumber,
       body: questionBody.map((dto) => dto.toDomain()).toImmutableList(),
       stringBody: stringBody,
       note: QuestionNote(questionNote),

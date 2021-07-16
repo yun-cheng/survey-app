@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 
 import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../core/widgets/center_progress_indicator.dart';
@@ -8,6 +9,8 @@ import 'survey_card.dart';
 class OverviewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    logger('Build').i('OverviewBody');
+
     return BlocBuilder<WatchSurveyBloc, WatchSurveyState>(
       buildWhen: (p, c) =>
           p.surveyListState != c.surveyListState ||

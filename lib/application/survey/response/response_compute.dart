@@ -59,26 +59,45 @@ ResponseState responseRestored(ResponseState state) {
         .firstOrNull();
   }
 
-  // S_2 若無篩出，則新創一個 response
   final module = state.survey.module.get(state.moduleType)!;
-  response ??= Response.empty().copyWith(
-    teamId: state.survey.teamId,
-    projectId: state.survey.projectId,
-    surveyId: state.survey.id,
-    moduleType: state.moduleType,
-    respondentId: state.respondent.id,
-    interviewerId: state.interviewer.id,
-    // TODO deviceId
-    answerMap: module.answerMap,
-    answerStatusMap: module.answerStatusMap,
-  );
+
+  // S_2 若無篩出，則新創一個 response
+
+  if (response == null) {
+    // S_ 填入預設答案
+    //  如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
+    final initAnswerList = state.referenceList.filter(
+      (r) =>
+          r.respondentId == state.respondent.id &&
+          r.surveyId == state.survey.id &&
+          r.moduleType == state.moduleType,
+    );
+
+    final initAnswerMap = module.answerMap.toMutableMap();
+
+    initAnswerList.forEach((reference) {
+      initAnswerMap[reference.questionId] = reference.answer;
+    });
+
+    response = Response.empty().copyWith(
+      teamId: state.survey.teamId,
+      projectId: state.survey.projectId,
+      surveyId: state.survey.id,
+      moduleType: state.moduleType,
+      respondentId: state.respondent.id,
+      interviewerId: state.interviewer.id,
+      // TODO deviceId
+      answerMap: initAnswerMap.toMap(),
+      answerStatusMap: module.answerStatusMap,
+    );
+  }
 
   // S_3 無論是否是新的 response，只要不是已完成，都要產生新的 responseId、tempResponseId
   if (response.responseStatus != ResponseStatus.finished()) {
     final now = DeviceTimeStamp.now();
     response = response.copyWith(
-      responseId: UniqueId(),
-      tempResponseId: UniqueId(),
+      responseId: UniqueId.v1(),
+      tempResponseId: UniqueId.v1(),
       editFinished: false,
       sessionStartTimeStamp: now,
       sessionEndTimeStamp: now,
@@ -124,7 +143,7 @@ ResponseState responseUpdated(Tuple2<_ResponseUpdated, ResponseState> tuple) {
 
   // S_1 newResponse
   final newResponse = state.response.copyWith(
-    tempResponseId: UniqueId(),
+    tempResponseId: UniqueId.v1(),
     lastChangedTimeStamp: DeviceTimeStamp.now(),
     answerMap: e.answerMap,
     answerStatusMap: e.answerStatusMap,
@@ -149,7 +168,7 @@ ResponseState editFinished(Tuple2<_EditFinished, ResponseState> tuple) {
   final e = tuple.item1;
   final state = tuple.item2;
 
-  if (state.response.responseStatus != ResponseStatus.finished()) {
+  if (!state.response.editFinished) {
     // S_1 newResponse
     final now = DeviceTimeStamp.now();
     Response newResponse = state.response.copyWith(
@@ -181,6 +200,32 @@ ResponseState editFinished(Tuple2<_EditFinished, ResponseState> tuple) {
       updateVisitReportsMap: newResponse.moduleType == ModuleType.visitReport(),
       updateTabRespondentsMap:
           e.responseFinished && newResponse.moduleType.needUpdateTab,
+    );
+  } else {
+    return state;
+  }
+}
+
+// H_ 使用者在閒置後，選擇繼續訪問
+ResponseState responseResumed(Tuple2<_ResponseResumed, ResponseState> tuple) {
+  logger('Compute').i('ResponseResumed');
+
+  final e = tuple.item1;
+  final state = tuple.item2;
+
+  if (state.response.editFinished) {
+    final now = DeviceTimeStamp.now();
+    final newResponse = state.response.copyWith(
+      responseId: e.responseId,
+      tempResponseId: UniqueId.v1(),
+      editFinished: false,
+      sessionStartTimeStamp: now,
+      sessionEndTimeStamp: now,
+      lastChangedTimeStamp: now,
+    );
+
+    return state.copyWith(
+      response: newResponse,
     );
   } else {
     return state;

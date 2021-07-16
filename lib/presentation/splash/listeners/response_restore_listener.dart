@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/update_answer/update_answer_bloc.dart';
@@ -17,6 +18,10 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
   listener: (context, state) {
     logger('Listen').i('ResponseBloc');
 
+    final isRecodeModule = state.moduleType == ModuleType.recode();
+    final isReadOnly =
+        state.response.responseStatus == ResponseStatus.finished();
+
     context.read<UpdateAnswerBloc>().add(
           UpdateAnswerEvent.moduleLoaded(
             answerMap: state.response.answerMap,
@@ -26,7 +31,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
     context.read<UpdateAnswerStatusBloc>().add(
           UpdateAnswerStatusEvent.moduleLoaded(
             questionList: state.questionList,
-            isRecodeModule: state.moduleType == ModuleType.recode(),
+            isRecodeModule: isRecodeModule,
             answerMap: state.response.answerMap,
             answerStatusMap: state.response.answerStatusMap,
             mainAnswerStatusMap: state.mainResponse.answerStatusMap,
@@ -36,9 +41,8 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
     context.read<AnswerBloc>().add(
           AnswerEvent.moduleLoaded(
             questionList: state.questionList,
-            isReadOnly:
-                state.response.responseStatus == ResponseStatus.finished(),
-            isRecodeModule: state.moduleType == ModuleType.recode(),
+            isReadOnly: isReadOnly,
+            isRecodeModule: isRecodeModule,
           ),
         );
 
@@ -51,14 +55,20 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
             questionList: state.questionList,
             answerMap: state.response.answerMap,
             answerStatusMap: state.response.answerStatusMap,
-            isReadOnly:
-                state.response.responseStatus == ResponseStatus.finished(),
-            isRecodeModule: state.moduleType == ModuleType.recode(),
+            isReadOnly: isReadOnly,
+            isRecodeModule: isRecodeModule,
             mainAnswerMap: state.mainResponse.answerMap,
             mainAnswerStatusMap: state.mainResponse.answerStatusMap,
             mainQuestionList:
                 state.survey.module[ModuleType.main()]!.questionList,
           ),
         );
+
+    // S_ 開始錄音
+    if (state.moduleType == ModuleType.main() && !isReadOnly) {
+      context
+          .read<AudioRecorderBloc>()
+          .add(AudioRecorderEvent.recordStarted(state.response.responseId));
+    }
   },
 );

@@ -12,6 +12,7 @@ import '../../../domain/respondent/respondent.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
+import '../../routes/router.gr.dart';
 import 'visit_history.dart';
 
 class RespondentCard extends StatelessWidget {
@@ -39,8 +40,11 @@ class RespondentCard extends StatelessWidget {
               respondentId: respondent.id,
             ),
           );
-      context.router.pushNamed(
-        '/respondent/${respondent.id.getOrCrash()}',
+      context.router.push(
+        SurveyRoute(
+          respondentId: respondent.id.getValueAnyway(),
+          showDialogOnRestart: false,
+        ),
       );
     }
 
@@ -94,6 +98,12 @@ class RespondentCard extends StatelessWidget {
             ),
           );
         }
+
+        final samplingWithinHouseholdModuleButton = moduleButton(
+          '戶中抽樣',
+          ModuleType.samplingWithinHousehold(),
+          isCurrentTab: tabType.index == 0,
+        );
 
         final mainModuleButton = moduleButton(
           '開始訪問',
@@ -207,6 +217,8 @@ class RespondentCard extends StatelessWidget {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: <Widget>[
+                                    samplingWithinHouseholdModuleButton,
+                                    const SizedBox(width: kH4FontSize),
                                     mainModuleButton,
                                     const SizedBox(width: kH4FontSize),
                                     visitReportModuleButton,

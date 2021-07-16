@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -258,10 +257,14 @@ class UpdateSurveyPageBloc
           updateState: const LoadState.inProgress(),
         );
 
+        final warningIsEmpty = state.warning.isEmpty;
+
         yield state.copyWith(
           updateState: const LoadState.success(),
           updateType: SurveyPageUpdateType.warning,
-          showWarning: !state.warning.isEmpty,
+          showWarning: !warningIsEmpty,
+          leavePage: warningIsEmpty,
+          finishResponse: warningIsEmpty,
         );
       },
       // H_
@@ -298,6 +301,42 @@ class UpdateSurveyPageBloc
           isReadOnly: !state.isReadOnly,
         );
       },
+      // H_ lifeCycle 變更時
+      appLifeCycleChanged: (e) async* {
+        logger('Event').i('UpdateSurveyPageEvent: appLifeCycleChanged');
+
+        bool showDialog = state.showDialog;
+
+        if (e.isPaused &&
+            state.moduleType == ModuleType.main() &&
+            !state.isReadOnly) {
+          showDialog = true;
+        }
+
+        yield state.copyWith(
+          appIsPaused: e.isPaused,
+          showDialog: showDialog,
+        );
+      },
+      // H_ 關閉 dialog
+      dialogClosed: (e) async* {
+        logger('Event').i('UpdateSurveyPageEvent: dialogClosed');
+
+        yield state.copyWith(
+          showDialog: false,
+        );
+      },
+      // H_ 點擊離開按鈕時
+      leaveButtonPressed: (e) async* {
+        logger('Event').i('UpdateSurveyPageEvent: leaveButtonPressed');
+
+        yield state.copyWith(
+          showDialog:
+              state.moduleType == ModuleType.main() && !state.isReadOnly,
+          leavePage: state.moduleType != ModuleType.main() || state.isReadOnly,
+        );
+      },
+      // H_ 登出
       loggedOut: (e) async* {
         _referenceListSubscription?.cancel();
         yield UpdateSurveyPageState.initial();

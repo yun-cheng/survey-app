@@ -1,8 +1,5 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/failures.dart';
-import '../core/value_objects.dart';
 import 'simple_choice.dart';
 import 'value_objects.dart';
 
@@ -13,7 +10,7 @@ class Choice with _$Choice {
   const Choice._();
 
   const factory Choice({
-    required SerialNumber serialNumber,
+    required int serialNumber,
     required ChoiceId id,
     required ChoiceBody body,
     required bool asNote,
@@ -25,7 +22,7 @@ class Choice with _$Choice {
   }) = _Choice;
 
   factory Choice.empty() => Choice(
-        serialNumber: SerialNumber(0),
+        serialNumber: 0,
         id: ChoiceId.empty(),
         body: ChoiceBody.empty(),
         asNote: false,
@@ -38,17 +35,8 @@ class Choice with _$Choice {
 
   SimpleChoice simple() {
     return SimpleChoice(
-      id: this.id,
+      id: id,
       body: body,
     );
-  }
-
-  Option<ValueFailure<dynamic>> get failureOption {
-    return (this.id.failureOrUnit)
-        .andThen(serialNumber.failureOrUnit)
-        .andThen(body.failureOrUnit)
-        .andThen(group.failureOrUnit)
-        .andThen(upperChoiceId.failureOrUnit)
-        .fold((f) => some(f), (_) => none());
   }
 }

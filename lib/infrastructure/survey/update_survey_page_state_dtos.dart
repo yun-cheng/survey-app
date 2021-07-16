@@ -46,8 +46,11 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     required List<ResponseDto> respondentResponseList,
     required String surveyId,
     required String moduleType,
-    // required QuestionDto question,
     required bool isReadOnly,
+    required bool appIsPaused,
+    required bool showDialog,
+    required bool leavePage,
+    required bool finishResponse,
     required Map<String, AnswerDto> mainAnswerMap,
     required Map<String, AnswerStatusDto> mainAnswerStatusMap,
   }) = _UpdateSurveyPageStateDto;
@@ -94,8 +97,11 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
           .asList(),
       surveyId: domain.surveyId.getValueAnyway(),
       moduleType: domain.moduleType.getValueAnyway(),
-      // question: QuestionDto.fromDomain(domain.question),
       isReadOnly: domain.isReadOnly,
+      appIsPaused: domain.appIsPaused,
+      showDialog: domain.showDialog,
+      leavePage: domain.leavePage,
+      finishResponse: domain.finishResponse,
       mainAnswerMap: domain.mainAnswerMap
           .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
@@ -142,8 +148,11 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
           respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
       surveyId: SurveyId(surveyId),
       moduleType: ModuleType(moduleType),
-      // question: question.toDomain(),
       isReadOnly: isReadOnly,
+      appIsPaused: appIsPaused,
+      showDialog: showDialog,
+      leavePage: leavePage,
+      finishResponse: finishResponse,
       mainAnswerMap: KtMap.from(mainAnswerMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),

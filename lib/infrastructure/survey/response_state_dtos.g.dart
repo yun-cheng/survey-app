@@ -34,6 +34,9 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
     updateState: json['updateState'] as Map<String, dynamic>,
     updateVisitReportsMap: json['updateVisitReportsMap'] as bool,
     updateTabRespondentsMap: json['updateTabRespondentsMap'] as bool,
+    referenceList: (json['referenceList'] as List<dynamic>)
+        .map((e) => ReferenceDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
   );
 }
 
@@ -58,4 +61,5 @@ Map<String, dynamic> _$_$_ResponseStateDtoToJson(
       'updateState': instance.updateState,
       'updateVisitReportsMap': instance.updateVisitReportsMap,
       'updateTabRespondentsMap': instance.updateTabRespondentsMap,
+      'referenceList': instance.referenceList.map((e) => e.toJson()).toList(),
     };

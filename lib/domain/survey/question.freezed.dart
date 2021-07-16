@@ -19,7 +19,7 @@ class _$QuestionTearOff {
   _Question call(
       {required QuestionId id,
       required bool hideId,
-      required SerialNumber serialNumber,
+      required int serialNumber,
       required KtList<FormattedText> body,
       required String stringBody,
       required QuestionNote note,
@@ -57,7 +57,7 @@ const $Question = _$QuestionTearOff();
 mixin _$Question {
   QuestionId get id => throw _privateConstructorUsedError;
   bool get hideId => throw _privateConstructorUsedError;
-  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
   KtList<FormattedText> get body => throw _privateConstructorUsedError;
   String get stringBody => throw _privateConstructorUsedError;
   QuestionNote get note => throw _privateConstructorUsedError;
@@ -82,7 +82,7 @@ abstract class $QuestionCopyWith<$Res> {
   $Res call(
       {QuestionId id,
       bool hideId,
-      SerialNumber serialNumber,
+      int serialNumber,
       KtList<FormattedText> body,
       String stringBody,
       QuestionNote note,
@@ -136,7 +136,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
-              as SerialNumber,
+              as int,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -207,7 +207,7 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
   $Res call(
       {QuestionId id,
       bool hideId,
-      SerialNumber serialNumber,
+      int serialNumber,
       KtList<FormattedText> body,
       String stringBody,
       QuestionNote note,
@@ -264,7 +264,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
-              as SerialNumber,
+              as int,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -338,7 +338,7 @@ class _$_Question extends _Question {
   @override
   final bool hideId;
   @override
-  final SerialNumber serialNumber;
+  final int serialNumber;
   @override
   final KtList<FormattedText> body;
   @override
@@ -437,7 +437,7 @@ abstract class _Question extends Question {
   const factory _Question(
       {required QuestionId id,
       required bool hideId,
-      required SerialNumber serialNumber,
+      required int serialNumber,
       required KtList<FormattedText> body,
       required String stringBody,
       required QuestionNote note,
@@ -456,7 +456,7 @@ abstract class _Question extends Question {
   @override
   bool get hideId => throw _privateConstructorUsedError;
   @override
-  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
   KtList<FormattedText> get body => throw _privateConstructorUsedError;
   @override

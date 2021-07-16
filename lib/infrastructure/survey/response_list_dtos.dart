@@ -84,12 +84,12 @@ class ResponseDto with _$ResponseDto {
       moduleType: domain.moduleType.getValueAnyway(),
       respondentId: domain.respondentId.getValueAnyway(),
       // H_ 區分 response 版本
-      responseId: domain.responseId.getValueAnyway(),
-      tempResponseId: domain.tempResponseId.getValueAnyway(),
-      ticketId: domain.ticketId.getValueAnyway(),
+      responseId: domain.responseId.value,
+      tempResponseId: domain.tempResponseId.value,
+      ticketId: domain.ticketId.value,
       editFinished: domain.editFinished,
       interviewerId: domain.interviewerId.getValueAnyway(),
-      deviceId: domain.deviceId.getValueAnyway(),
+      deviceId: domain.deviceId.value,
       // H_ 狀態
       createdTimeStamp:
           domain.createdTimeStamp.getValueAnyway().microsecondsSinceEpoch,
@@ -124,12 +124,12 @@ class ResponseDto with _$ResponseDto {
       moduleType: ModuleType(moduleType),
       respondentId: RespondentId(respondentId),
       // H_ 區分 response 版本
-      responseId: UniqueId.fromUniqueString(responseId),
-      tempResponseId: UniqueId.fromUniqueString(tempResponseId),
-      ticketId: UniqueId.fromUniqueString(ticketId),
+      responseId: UniqueId(responseId),
+      tempResponseId: UniqueId(tempResponseId),
+      ticketId: UniqueId(ticketId),
       editFinished: editFinished,
       interviewerId: InterviewerId(interviewerId),
-      deviceId: UniqueId.fromUniqueString(deviceId),
+      deviceId: UniqueId(deviceId),
       // H_ 狀態
       createdTimeStamp: DeviceTimeStamp.fromInt(createdTimeStamp),
       sessionStartTimeStamp: DeviceTimeStamp.fromInt(sessionStartTimeStamp),

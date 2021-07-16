@@ -13,22 +13,22 @@ class AudioRecorderIndicator extends StatelessWidget {
             Text(
               state.db.toString(),
             ),
-            TextButton(
-              onPressed: () {
-                context.read<AudioRecorderBloc>().add(
-                      const AudioRecorderEvent.recordStarted(),
-                    );
-              },
-              child: const Text('Record'),
-            ),
-             TextButton(
-              onPressed: () {
-                context.read<AudioRecorderBloc>().add(
-                      const AudioRecorderEvent.recordStopped(),
-                    );
-              },
-              child: const Text('Stop'),
-            ),
+            // TextButton(
+            //   onPressed: () {
+            //     context.read<AudioRecorderBloc>().add(
+            //           const AudioRecorderEvent.recordStarted(),
+            //         );
+            //   },
+            //   child: const Text('Record'),
+            // ),
+            //  TextButton(
+            //   onPressed: () {
+            //     context.read<AudioRecorderBloc>().add(
+            //           const AudioRecorderEvent.recordStopped(),
+            //         );
+            //   },
+            //   child: const Text('Stop'),
+            // ),
           ],
         );
       },

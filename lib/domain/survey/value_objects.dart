@@ -383,11 +383,18 @@ class ModuleType extends ValueObject<String> {
   factory ModuleType.recode() => ModuleType('recode');
   factory ModuleType.empty() => ModuleType('');
 
-  bool get needUpdateTab {
+  bool get isMainTab {
     return value.fold(
-        (l) => false,
-        (r) =>
-            ['main', 'housingType', 'interviewReport', 'recode'].contains(r));
+        (l) => false, (r) => ['samplingWithinHousehold', 'main'].contains(r));
+  }
+
+  bool get isInterviewReportTab {
+    return value.fold(
+        (l) => false, (r) => ['housingType', 'interviewReport'].contains(r));
+  }
+
+  bool get needUpdateTab {
+    return value.fold((l) => false, (r) => r != 'visitReport');
   }
 
   const ModuleType._(this.value);

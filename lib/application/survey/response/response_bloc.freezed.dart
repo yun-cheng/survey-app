@@ -39,8 +39,15 @@ class _$ResponseEventTearOff {
     return const _UploadTimerUpdated();
   }
 
-  _ResponseListSynced responseListSynced() {
-    return const _ResponseListSynced();
+  _ResponseListUploading responseListUploading() {
+    return const _ResponseListUploading();
+  }
+
+  _ResponseListUploaded responseListUploaded(
+      Either<SurveyFailure, Unit> failureOrSuccess) {
+    return _ResponseListUploaded(
+      failureOrSuccess,
+    );
   }
 
   _SurveySelected surveySelected({required Survey survey}) {
@@ -83,8 +90,21 @@ class _$ResponseEventTearOff {
     );
   }
 
+  _ResponseResumed responseResumed(UniqueId responseId) {
+    return _ResponseResumed(
+      responseId,
+    );
+  }
+
   _RespondentResponseListUpdated respondentResponseListUpdated() {
     return const _RespondentResponseListUpdated();
+  }
+
+  _ReferenceListUpdated referenceListUpdated(
+      {required KtList<Reference> referenceList}) {
+    return _ReferenceListUpdated(
+      referenceList: referenceList,
+    );
   }
 
   _LoggedOut loggedOut() {
@@ -106,7 +126,9 @@ mixin _$ResponseEvent {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -118,7 +140,10 @@ mixin _$ResponseEvent {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -131,7 +156,9 @@ mixin _$ResponseEvent {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -143,7 +170,9 @@ mixin _$ResponseEvent {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
@@ -155,14 +184,18 @@ mixin _$ResponseEvent {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -172,14 +205,17 @@ mixin _$ResponseEvent {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
@@ -299,7 +335,9 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -311,7 +349,10 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return watchResponseListStarted(teamId, interviewer);
@@ -327,7 +368,9 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -339,7 +382,9 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -357,14 +402,18 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchResponseListStarted(this);
@@ -377,14 +426,17 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -482,7 +534,9 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -494,7 +548,10 @@ class _$_ResponseListReceived implements _ResponseListReceived {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return responseListReceived(failureOrResponseList);
@@ -510,7 +567,9 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -522,7 +581,9 @@ class _$_ResponseListReceived implements _ResponseListReceived {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -540,14 +601,18 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseListReceived(this);
@@ -560,14 +625,17 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -637,7 +705,9 @@ class _$_ResponseListMerged implements _ResponseListMerged {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -649,7 +719,10 @@ class _$_ResponseListMerged implements _ResponseListMerged {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return responseListMerged();
@@ -665,7 +738,9 @@ class _$_ResponseListMerged implements _ResponseListMerged {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -677,7 +752,9 @@ class _$_ResponseListMerged implements _ResponseListMerged {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -695,14 +772,18 @@ class _$_ResponseListMerged implements _ResponseListMerged {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseListMerged(this);
@@ -715,14 +796,17 @@ class _$_ResponseListMerged implements _ResponseListMerged {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -784,7 +868,9 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -796,7 +882,10 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return uploadTimerUpdated();
@@ -812,7 +901,9 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -824,7 +915,9 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -842,14 +935,18 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return uploadTimerUpdated(this);
@@ -862,14 +959,17 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -885,37 +985,37 @@ abstract class _UploadTimerUpdated implements ResponseEvent {
 }
 
 /// @nodoc
-abstract class _$ResponseListSyncedCopyWith<$Res> {
-  factory _$ResponseListSyncedCopyWith(
-          _ResponseListSynced value, $Res Function(_ResponseListSynced) then) =
-      __$ResponseListSyncedCopyWithImpl<$Res>;
+abstract class _$ResponseListUploadingCopyWith<$Res> {
+  factory _$ResponseListUploadingCopyWith(_ResponseListUploading value,
+          $Res Function(_ResponseListUploading) then) =
+      __$ResponseListUploadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ResponseListSyncedCopyWithImpl<$Res>
+class __$ResponseListUploadingCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseListSyncedCopyWith<$Res> {
-  __$ResponseListSyncedCopyWithImpl(
-      _ResponseListSynced _value, $Res Function(_ResponseListSynced) _then)
-      : super(_value, (v) => _then(v as _ResponseListSynced));
+    implements _$ResponseListUploadingCopyWith<$Res> {
+  __$ResponseListUploadingCopyWithImpl(_ResponseListUploading _value,
+      $Res Function(_ResponseListUploading) _then)
+      : super(_value, (v) => _then(v as _ResponseListUploading));
 
   @override
-  _ResponseListSynced get _value => super._value as _ResponseListSynced;
+  _ResponseListUploading get _value => super._value as _ResponseListUploading;
 }
 
 /// @nodoc
 
-class _$_ResponseListSynced implements _ResponseListSynced {
-  const _$_ResponseListSynced();
+class _$_ResponseListUploading implements _ResponseListUploading {
+  const _$_ResponseListUploading();
 
   @override
   String toString() {
-    return 'ResponseEvent.responseListSynced()';
+    return 'ResponseEvent.responseListUploading()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ResponseListSynced);
+    return identical(this, other) || (other is _ResponseListUploading);
   }
 
   @override
@@ -931,7 +1031,9 @@ class _$_ResponseListSynced implements _ResponseListSynced {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -943,10 +1045,13 @@ class _$_ResponseListSynced implements _ResponseListSynced {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
-    return responseListSynced();
+    return responseListUploading();
   }
 
   @override
@@ -959,7 +1064,9 @@ class _$_ResponseListSynced implements _ResponseListSynced {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -971,12 +1078,14 @@ class _$_ResponseListSynced implements _ResponseListSynced {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
-    if (responseListSynced != null) {
-      return responseListSynced();
+    if (responseListUploading != null) {
+      return responseListUploading();
     }
     return orElse();
   }
@@ -989,17 +1098,21 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
-    return responseListSynced(this);
+    return responseListUploading(this);
   }
 
   @override
@@ -1009,26 +1122,227 @@ class _$_ResponseListSynced implements _ResponseListSynced {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
-    if (responseListSynced != null) {
-      return responseListSynced(this);
+    if (responseListUploading != null) {
+      return responseListUploading(this);
     }
     return orElse();
   }
 }
 
-abstract class _ResponseListSynced implements ResponseEvent {
-  const factory _ResponseListSynced() = _$_ResponseListSynced;
+abstract class _ResponseListUploading implements ResponseEvent {
+  const factory _ResponseListUploading() = _$_ResponseListUploading;
+}
+
+/// @nodoc
+abstract class _$ResponseListUploadedCopyWith<$Res> {
+  factory _$ResponseListUploadedCopyWith(_ResponseListUploaded value,
+          $Res Function(_ResponseListUploaded) then) =
+      __$ResponseListUploadedCopyWithImpl<$Res>;
+  $Res call({Either<SurveyFailure, Unit> failureOrSuccess});
+}
+
+/// @nodoc
+class __$ResponseListUploadedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$ResponseListUploadedCopyWith<$Res> {
+  __$ResponseListUploadedCopyWithImpl(
+      _ResponseListUploaded _value, $Res Function(_ResponseListUploaded) _then)
+      : super(_value, (v) => _then(v as _ResponseListUploaded));
+
+  @override
+  _ResponseListUploaded get _value => super._value as _ResponseListUploaded;
+
+  @override
+  $Res call({
+    Object? failureOrSuccess = freezed,
+  }) {
+    return _then(_ResponseListUploaded(
+      failureOrSuccess == freezed
+          ? _value.failureOrSuccess
+          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
+              as Either<SurveyFailure, Unit>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ResponseListUploaded implements _ResponseListUploaded {
+  const _$_ResponseListUploaded(this.failureOrSuccess);
+
+  @override
+  final Either<SurveyFailure, Unit> failureOrSuccess;
+
+  @override
+  String toString() {
+    return 'ResponseEvent.responseListUploaded(failureOrSuccess: $failureOrSuccess)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ResponseListUploaded &&
+            (identical(other.failureOrSuccess, failureOrSuccess) ||
+                const DeepCollectionEquality()
+                    .equals(other.failureOrSuccess, failureOrSuccess)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrSuccess);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ResponseListUploadedCopyWith<_ResponseListUploaded> get copyWith =>
+      __$ResponseListUploadedCopyWithImpl<_ResponseListUploaded>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, Interviewer interviewer)
+        watchResponseListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
+        responseListReceived,
+    required TResult Function() responseListMerged,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)
+        responseStarted,
+    required TResult Function() responseRestored,
+    required TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return responseListUploaded(failureOrSuccess);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, Interviewer interviewer)?
+        watchResponseListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
+        responseListReceived,
+    TResult Function()? responseListMerged,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)?
+        responseStarted,
+    TResult Function()? responseRestored,
+    TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (responseListUploaded != null) {
+      return responseListUploaded(failureOrSuccess);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseListStarted value)
+        watchResponseListStarted,
+    required TResult Function(_ResponseListReceived value) responseListReceived,
+    required TResult Function(_ResponseListMerged value) responseListMerged,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseRestored value) responseRestored,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return responseListUploaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
+    TResult Function(_ResponseListReceived value)? responseListReceived,
+    TResult Function(_ResponseListMerged value)? responseListMerged,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseRestored value)? responseRestored,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (responseListUploaded != null) {
+      return responseListUploaded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResponseListUploaded implements ResponseEvent {
+  const factory _ResponseListUploaded(
+      Either<SurveyFailure, Unit> failureOrSuccess) = _$_ResponseListUploaded;
+
+  Either<SurveyFailure, Unit> get failureOrSuccess =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ResponseListUploadedCopyWith<_ResponseListUploaded> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1112,7 +1426,9 @@ class _$_SurveySelected implements _SurveySelected {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -1124,7 +1440,10 @@ class _$_SurveySelected implements _SurveySelected {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return surveySelected(survey);
@@ -1140,7 +1459,9 @@ class _$_SurveySelected implements _SurveySelected {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -1152,7 +1473,9 @@ class _$_SurveySelected implements _SurveySelected {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1170,14 +1493,18 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return surveySelected(this);
@@ -1190,14 +1517,17 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1229,6 +1559,7 @@ abstract class _$ResponseStartedCopyWith<$Res> {
       UniqueId responseId});
 
   $RespondentCopyWith<$Res> get respondent;
+  $UniqueIdCopyWith<$Res> get responseId;
 }
 
 /// @nodoc
@@ -1273,6 +1604,13 @@ class __$ResponseStartedCopyWithImpl<$Res>
   $RespondentCopyWith<$Res> get respondent {
     return $RespondentCopyWith<$Res>(_value.respondent, (value) {
       return _then(_value.copyWith(respondent: value));
+    });
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get responseId {
+    return $UniqueIdCopyWith<$Res>(_value.responseId, (value) {
+      return _then(_value.copyWith(responseId: value));
     });
   }
 }
@@ -1341,7 +1679,9 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -1353,7 +1693,10 @@ class _$_ResponseStarted implements _ResponseStarted {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return responseStarted(respondent, moduleType, withResponseId, responseId);
@@ -1369,7 +1712,9 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -1381,7 +1726,9 @@ class _$_ResponseStarted implements _ResponseStarted {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1400,14 +1747,18 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseStarted(this);
@@ -1420,14 +1771,17 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1501,7 +1855,9 @@ class _$_ResponseRestored implements _ResponseRestored {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -1513,7 +1869,10 @@ class _$_ResponseRestored implements _ResponseRestored {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return responseRestored();
@@ -1529,7 +1888,9 @@ class _$_ResponseRestored implements _ResponseRestored {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -1541,7 +1902,9 @@ class _$_ResponseRestored implements _ResponseRestored {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1559,14 +1922,18 @@ class _$_ResponseRestored implements _ResponseRestored {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseRestored(this);
@@ -1579,14 +1946,17 @@ class _$_ResponseRestored implements _ResponseRestored {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1713,7 +2083,9 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -1725,7 +2097,10 @@ class _$_ResponseUpdated implements _ResponseUpdated {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return responseUpdated(answerMap, answerStatusMap, surveyPageState);
@@ -1741,7 +2116,9 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -1753,7 +2130,9 @@ class _$_ResponseUpdated implements _ResponseUpdated {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1771,14 +2150,18 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return responseUpdated(this);
@@ -1791,14 +2174,17 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1899,7 +2285,9 @@ class _$_EditFinished implements _EditFinished {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -1911,7 +2299,10 @@ class _$_EditFinished implements _EditFinished {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return editFinished(responseFinished);
@@ -1927,7 +2318,9 @@ class _$_EditFinished implements _EditFinished {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -1939,7 +2332,9 @@ class _$_EditFinished implements _EditFinished {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1957,14 +2352,18 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return editFinished(this);
@@ -1977,14 +2376,17 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2003,6 +2405,209 @@ abstract class _EditFinished implements ResponseEvent {
   bool get responseFinished => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$EditFinishedCopyWith<_EditFinished> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ResponseResumedCopyWith<$Res> {
+  factory _$ResponseResumedCopyWith(
+          _ResponseResumed value, $Res Function(_ResponseResumed) then) =
+      __$ResponseResumedCopyWithImpl<$Res>;
+  $Res call({UniqueId responseId});
+
+  $UniqueIdCopyWith<$Res> get responseId;
+}
+
+/// @nodoc
+class __$ResponseResumedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$ResponseResumedCopyWith<$Res> {
+  __$ResponseResumedCopyWithImpl(
+      _ResponseResumed _value, $Res Function(_ResponseResumed) _then)
+      : super(_value, (v) => _then(v as _ResponseResumed));
+
+  @override
+  _ResponseResumed get _value => super._value as _ResponseResumed;
+
+  @override
+  $Res call({
+    Object? responseId = freezed,
+  }) {
+    return _then(_ResponseResumed(
+      responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+    ));
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get responseId {
+    return $UniqueIdCopyWith<$Res>(_value.responseId, (value) {
+      return _then(_value.copyWith(responseId: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_ResponseResumed implements _ResponseResumed {
+  const _$_ResponseResumed(this.responseId);
+
+  @override
+  final UniqueId responseId;
+
+  @override
+  String toString() {
+    return 'ResponseEvent.responseResumed(responseId: $responseId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ResponseResumed &&
+            (identical(other.responseId, responseId) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseId, responseId)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(responseId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
+      __$ResponseResumedCopyWithImpl<_ResponseResumed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, Interviewer interviewer)
+        watchResponseListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
+        responseListReceived,
+    required TResult Function() responseListMerged,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)
+        responseStarted,
+    required TResult Function() responseRestored,
+    required TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return responseResumed(responseId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, Interviewer interviewer)?
+        watchResponseListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
+        responseListReceived,
+    TResult Function()? responseListMerged,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)?
+        responseStarted,
+    TResult Function()? responseRestored,
+    TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (responseResumed != null) {
+      return responseResumed(responseId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseListStarted value)
+        watchResponseListStarted,
+    required TResult Function(_ResponseListReceived value) responseListReceived,
+    required TResult Function(_ResponseListMerged value) responseListMerged,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseRestored value) responseRestored,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return responseResumed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
+    TResult Function(_ResponseListReceived value)? responseListReceived,
+    TResult Function(_ResponseListMerged value)? responseListMerged,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseRestored value)? responseRestored,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (responseResumed != null) {
+      return responseResumed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ResponseResumed implements ResponseEvent {
+  const factory _ResponseResumed(UniqueId responseId) = _$_ResponseResumed;
+
+  UniqueId get responseId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2057,7 +2662,9 @@ class _$_RespondentResponseListUpdated
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -2069,7 +2676,10 @@ class _$_RespondentResponseListUpdated
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return respondentResponseListUpdated();
@@ -2085,7 +2695,9 @@ class _$_RespondentResponseListUpdated
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -2097,7 +2709,9 @@ class _$_RespondentResponseListUpdated
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2115,14 +2729,18 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentResponseListUpdated(this);
@@ -2135,14 +2753,17 @@ class _$_RespondentResponseListUpdated
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2156,6 +2777,202 @@ class _$_RespondentResponseListUpdated
 abstract class _RespondentResponseListUpdated implements ResponseEvent {
   const factory _RespondentResponseListUpdated() =
       _$_RespondentResponseListUpdated;
+}
+
+/// @nodoc
+abstract class _$ReferenceListUpdatedCopyWith<$Res> {
+  factory _$ReferenceListUpdatedCopyWith(_ReferenceListUpdated value,
+          $Res Function(_ReferenceListUpdated) then) =
+      __$ReferenceListUpdatedCopyWithImpl<$Res>;
+  $Res call({KtList<Reference> referenceList});
+}
+
+/// @nodoc
+class __$ReferenceListUpdatedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$ReferenceListUpdatedCopyWith<$Res> {
+  __$ReferenceListUpdatedCopyWithImpl(
+      _ReferenceListUpdated _value, $Res Function(_ReferenceListUpdated) _then)
+      : super(_value, (v) => _then(v as _ReferenceListUpdated));
+
+  @override
+  _ReferenceListUpdated get _value => super._value as _ReferenceListUpdated;
+
+  @override
+  $Res call({
+    Object? referenceList = freezed,
+  }) {
+    return _then(_ReferenceListUpdated(
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Reference>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ReferenceListUpdated implements _ReferenceListUpdated {
+  const _$_ReferenceListUpdated({required this.referenceList});
+
+  @override
+  final KtList<Reference> referenceList;
+
+  @override
+  String toString() {
+    return 'ResponseEvent.referenceListUpdated(referenceList: $referenceList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ReferenceListUpdated &&
+            (identical(other.referenceList, referenceList) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceList, referenceList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(referenceList);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ReferenceListUpdatedCopyWith<_ReferenceListUpdated> get copyWith =>
+      __$ReferenceListUpdatedCopyWithImpl<_ReferenceListUpdated>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, Interviewer interviewer)
+        watchResponseListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
+        responseListReceived,
+    required TResult Function() responseListMerged,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)
+        responseStarted,
+    required TResult Function() responseRestored,
+    required TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() loggedOut,
+  }) {
+    return referenceListUpdated(referenceList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, Interviewer interviewer)?
+        watchResponseListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
+        responseListReceived,
+    TResult Function()? responseListMerged,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, UniqueId responseId)?
+        responseStarted,
+    TResult Function()? responseRestored,
+    TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (referenceListUpdated != null) {
+      return referenceListUpdated(referenceList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseListStarted value)
+        watchResponseListStarted,
+    required TResult Function(_ResponseListReceived value) responseListReceived,
+    required TResult Function(_ResponseListMerged value) responseListMerged,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseRestored value) responseRestored,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return referenceListUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
+    TResult Function(_ResponseListReceived value)? responseListReceived,
+    TResult Function(_ResponseListMerged value)? responseListMerged,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseRestored value)? responseRestored,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (referenceListUpdated != null) {
+      return referenceListUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReferenceListUpdated implements ResponseEvent {
+  const factory _ReferenceListUpdated(
+      {required KtList<Reference> referenceList}) = _$_ReferenceListUpdated;
+
+  KtList<Reference> get referenceList => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ReferenceListUpdatedCopyWith<_ReferenceListUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2203,7 +3020,9 @@ class _$_LoggedOut implements _LoggedOut {
         responseListReceived,
     required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListSynced,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)
@@ -2215,7 +3034,10 @@ class _$_LoggedOut implements _LoggedOut {
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() respondentResponseListUpdated,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
     return loggedOut();
@@ -2231,7 +3053,9 @@ class _$_LoggedOut implements _LoggedOut {
         responseListReceived,
     TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListSynced,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, UniqueId responseId)?
@@ -2243,7 +3067,9 @@ class _$_LoggedOut implements _LoggedOut {
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? respondentResponseListUpdated,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2261,14 +3087,18 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_ResponseListReceived value) responseListReceived,
     required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListSynced value) responseListSynced,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
     required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return loggedOut(this);
@@ -2281,14 +3111,17 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_ResponseListReceived value)? responseListReceived,
     TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListSynced value)? responseListSynced,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
     TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2325,7 +3158,8 @@ class _$ResponseStateTearOff {
       required KtList<Response> respondentResponseList,
       required LoadState updateState,
       required bool updateVisitReportsMap,
-      required bool updateTabRespondentsMap}) {
+      required bool updateTabRespondentsMap,
+      required KtList<Reference> referenceList}) {
     return _ResponseState(
       survey: survey,
       respondent: respondent,
@@ -2345,6 +3179,7 @@ class _$ResponseStateTearOff {
       updateState: updateState,
       updateVisitReportsMap: updateVisitReportsMap,
       updateTabRespondentsMap: updateTabRespondentsMap,
+      referenceList: referenceList,
     );
   }
 }
@@ -2375,6 +3210,7 @@ mixin _$ResponseState {
   LoadState get updateState => throw _privateConstructorUsedError;
   bool get updateVisitReportsMap => throw _privateConstructorUsedError;
   bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
+  KtList<Reference> get referenceList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ResponseStateCopyWith<ResponseState> get copyWith =>
@@ -2404,7 +3240,8 @@ abstract class $ResponseStateCopyWith<$Res> {
       KtList<Response> respondentResponseList,
       LoadState updateState,
       bool updateVisitReportsMap,
-      bool updateTabRespondentsMap});
+      bool updateTabRespondentsMap,
+      KtList<Reference> referenceList});
 
   $SurveyCopyWith<$Res> get survey;
   $RespondentCopyWith<$Res> get respondent;
@@ -2412,6 +3249,7 @@ abstract class $ResponseStateCopyWith<$Res> {
   $LoadStateCopyWith<$Res> get responseListState;
   $ResponseCopyWith<$Res> get response;
   $LoadStateCopyWith<$Res> get responseRestoreState;
+  $UniqueIdCopyWith<$Res> get responseId;
   $ResponseCopyWith<$Res> get mainResponse;
   $LoadStateCopyWith<$Res> get updateState;
 }
@@ -2445,6 +3283,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? updateState = freezed,
     Object? updateVisitReportsMap = freezed,
     Object? updateTabRespondentsMap = freezed,
+    Object? referenceList = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed
@@ -2519,6 +3358,10 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.updateTabRespondentsMap
           : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Reference>,
     ));
   }
 
@@ -2565,6 +3408,13 @@ class _$ResponseStateCopyWithImpl<$Res>
   }
 
   @override
+  $UniqueIdCopyWith<$Res> get responseId {
+    return $UniqueIdCopyWith<$Res>(_value.responseId, (value) {
+      return _then(_value.copyWith(responseId: value));
+    });
+  }
+
+  @override
   $ResponseCopyWith<$Res> get mainResponse {
     return $ResponseCopyWith<$Res>(_value.mainResponse, (value) {
       return _then(_value.copyWith(mainResponse: value));
@@ -2604,7 +3454,8 @@ abstract class _$ResponseStateCopyWith<$Res>
       KtList<Response> respondentResponseList,
       LoadState updateState,
       bool updateVisitReportsMap,
-      bool updateTabRespondentsMap});
+      bool updateTabRespondentsMap,
+      KtList<Reference> referenceList});
 
   @override
   $SurveyCopyWith<$Res> get survey;
@@ -2618,6 +3469,8 @@ abstract class _$ResponseStateCopyWith<$Res>
   $ResponseCopyWith<$Res> get response;
   @override
   $LoadStateCopyWith<$Res> get responseRestoreState;
+  @override
+  $UniqueIdCopyWith<$Res> get responseId;
   @override
   $ResponseCopyWith<$Res> get mainResponse;
   @override
@@ -2655,6 +3508,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? updateState = freezed,
     Object? updateVisitReportsMap = freezed,
     Object? updateTabRespondentsMap = freezed,
+    Object? referenceList = freezed,
   }) {
     return _then(_ResponseState(
       survey: survey == freezed
@@ -2729,6 +3583,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.updateTabRespondentsMap
           : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Reference>,
     ));
   }
 }
@@ -2754,7 +3612,8 @@ class _$_ResponseState implements _ResponseState {
       required this.respondentResponseList,
       required this.updateState,
       required this.updateVisitReportsMap,
-      required this.updateTabRespondentsMap});
+      required this.updateTabRespondentsMap,
+      required this.referenceList});
 
   @override
   final Survey survey;
@@ -2792,10 +3651,12 @@ class _$_ResponseState implements _ResponseState {
   final bool updateVisitReportsMap;
   @override
   final bool updateTabRespondentsMap;
+  @override
+  final KtList<Reference> referenceList;
 
   @override
   String toString() {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap)';
+    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
   }
 
   @override
@@ -2855,7 +3716,10 @@ class _$_ResponseState implements _ResponseState {
             (identical(
                     other.updateTabRespondentsMap, updateTabRespondentsMap) ||
                 const DeepCollectionEquality().equals(
-                    other.updateTabRespondentsMap, updateTabRespondentsMap)));
+                    other.updateTabRespondentsMap, updateTabRespondentsMap)) &&
+            (identical(other.referenceList, referenceList) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceList, referenceList)));
   }
 
   @override
@@ -2878,7 +3742,8 @@ class _$_ResponseState implements _ResponseState {
       const DeepCollectionEquality().hash(respondentResponseList) ^
       const DeepCollectionEquality().hash(updateState) ^
       const DeepCollectionEquality().hash(updateVisitReportsMap) ^
-      const DeepCollectionEquality().hash(updateTabRespondentsMap);
+      const DeepCollectionEquality().hash(updateTabRespondentsMap) ^
+      const DeepCollectionEquality().hash(referenceList);
 
   @JsonKey(ignore: true)
   @override
@@ -2905,7 +3770,8 @@ abstract class _ResponseState implements ResponseState {
       required KtList<Response> respondentResponseList,
       required LoadState updateState,
       required bool updateVisitReportsMap,
-      required bool updateTabRespondentsMap}) = _$_ResponseState;
+      required bool updateTabRespondentsMap,
+      required KtList<Reference> referenceList}) = _$_ResponseState;
 
   @override
   Survey get survey => throw _privateConstructorUsedError;
@@ -2946,6 +3812,8 @@ abstract class _ResponseState implements ResponseState {
   bool get updateVisitReportsMap => throw _privateConstructorUsedError;
   @override
   bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
+  @override
+  KtList<Reference> get referenceList => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateCopyWith<_ResponseState> get copyWith =>

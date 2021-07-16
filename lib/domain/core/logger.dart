@@ -18,13 +18,14 @@ Logger logger([String? tag, int? methodShow]) {
     // 'Success',
   ];
   final alwaysAllowFilePathList = <String>[
-    'splash/listeners',
+    // 'splash/listeners',
     // H_ respondent
     // 'presentation/respondent_list',
     // 'application/respondent',
     // H_ survey
-    'application/survey',
-    'presentation/survey',
+    // 'application/survey',
+    // 'presentation/survey',
+    // 'presentation/overview',
     // H_
     // 'presentation',
   ];

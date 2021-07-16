@@ -60,6 +60,7 @@ abstract class $VisitRecordCopyWith<$Res> {
       String status,
       String description});
 
+  $UniqueIdCopyWith<$Res> get responseId;
   $VisitTimeCopyWith<$Res> get visitTime;
 }
 
@@ -104,6 +105,13 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
   }
 
   @override
+  $UniqueIdCopyWith<$Res> get responseId {
+    return $UniqueIdCopyWith<$Res>(_value.responseId, (value) {
+      return _then(_value.copyWith(responseId: value));
+    });
+  }
+
+  @override
   $VisitTimeCopyWith<$Res> get visitTime {
     return $VisitTimeCopyWith<$Res>(_value.visitTime, (value) {
       return _then(_value.copyWith(visitTime: value));
@@ -125,6 +133,8 @@ abstract class _$VisitRecordCopyWith<$Res>
       String status,
       String description});
 
+  @override
+  $UniqueIdCopyWith<$Res> get responseId;
   @override
   $VisitTimeCopyWith<$Res> get visitTime;
 }

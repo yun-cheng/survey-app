@@ -6,6 +6,8 @@ import 'package:uuid/uuid.dart';
 import 'errors.dart';
 import 'failures.dart';
 
+part 'value_objects.freezed.dart';
+
 // NOTE ValueObject 原型
 @immutable
 abstract class ValueObject<T> {
@@ -48,39 +50,38 @@ abstract class ValueObject<T> {
   String toString() => 'Value($value)';
 }
 
-// NOTE 定義會共用的 ValueObject，這邊是 UniqueId
-class UniqueId extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class UniqueId with _$UniqueId {
+  const UniqueId._();
 
-  // NOTE 一般從套件產生
-  factory UniqueId() {
-    return UniqueId._(
-      right(const Uuid().v1()),
-    );
-  }
+  factory UniqueId(String value) = _UniqueId;
 
-  // NOTE 也可以從字串回復
-  factory UniqueId.fromUniqueString(String uniqueId) {
-    return UniqueId._(
-      right(uniqueId),
-    );
-  }
-
-  const UniqueId._(this.value);
+  factory UniqueId.v1() => UniqueId(const Uuid().v1());
 }
 
-class SerialNumber extends ValueObject<int> {
-  @override
-  final Either<ValueFailure<int>, int> value;
+@freezed
+class NetworkType with _$NetworkType {
+  const NetworkType._();
 
-  factory SerialNumber(int input) {
-    return SerialNumber._(
-      right(input),
-    );
+  const factory NetworkType(String value) = _NetworkType;
+
+  factory NetworkType.empty() => const NetworkType('');
+  factory NetworkType.none() => const NetworkType('none');
+  factory NetworkType.wifi() => const NetworkType('wifi');
+  factory NetworkType.mobile() => const NetworkType('mobile');
+
+  factory NetworkType.fromIndex(int index) {
+    switch (index) {
+      case 0:
+        return NetworkType.wifi();
+      case 1:
+        return NetworkType.mobile();
+      case 2:
+        return NetworkType.none();
+      default:
+        return NetworkType.empty();
+    }
   }
 
-  factory SerialNumber.initial() => SerialNumber(0);
-
-  const SerialNumber._(this.value);
+  bool get isConnected => ['wifi', 'mobile'].contains(value);
 }

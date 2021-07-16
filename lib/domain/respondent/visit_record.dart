@@ -20,7 +20,7 @@ class VisitRecord with _$VisitRecord {
 
   factory VisitRecord.empty() => VisitRecord(
         respondentId: RespondentId.empty(),
-        responseId: UniqueId(),
+        responseId: UniqueId.v1(),
         visitTime: VisitTime.empty(),
         status: '',
         description: '',

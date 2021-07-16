@@ -43,8 +43,9 @@ UpdateSurveyPageState pageQuestionListUpdated(UpdateSurveyPageState state) {
       // H_ 如果是連鎖題下層則要篩選對應的選項（如篩出某鄉鎮市區的村里）
       if (question.upperQuestionId.isNotEmpty && !isSpecialAnswer) {
         final upperAnswer = answerMap[question.upperQuestionId];
-        choiceList = question.choiceList
-            .filter((choice) => choice.upperChoiceId == upperAnswer!.value?.id);
+        // NOTE 用 id 文字比對
+        choiceList = question.choiceList.filter((choice) =>
+            choice.upperChoiceId.getValueAnyway() == upperAnswer!.valueString);
       }
 
       // H_ 篩選是否為特殊作答的選項

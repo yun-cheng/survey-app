@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/core/value_objects.dart';
 import '../../domain/survey/value_objects.dart';
 import '../../domain/survey/warning.dart';
 
@@ -21,7 +20,7 @@ class WarningDto with _$WarningDto {
   factory WarningDto.fromDomain(Warning warning) {
     return WarningDto(
       questionId: warning.id.getValueAnyway(),
-      serialNumber: warning.serialNumber.getValueAnyway(),
+      serialNumber: warning.serialNumber,
       pageNumber: warning.pageNumber.getValueAnyway(),
       warningType: warning.type.getValueAnyway(),
     );
@@ -30,7 +29,7 @@ class WarningDto with _$WarningDto {
   Warning toDomain() {
     return Warning(
       id: QuestionId(questionId),
-      serialNumber: SerialNumber(serialNumber),
+      serialNumber: serialNumber,
       pageNumber: PageNumber(pageNumber),
       type: WarningType(warningType),
     );

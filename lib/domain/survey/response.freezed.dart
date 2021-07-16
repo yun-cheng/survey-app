@@ -125,6 +125,10 @@ abstract class $ResponseCopyWith<$Res> {
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
+  $UniqueIdCopyWith<$Res> get responseId;
+  $UniqueIdCopyWith<$Res> get tempResponseId;
+  $UniqueIdCopyWith<$Res> get ticketId;
+  $UniqueIdCopyWith<$Res> get deviceId;
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
 }
 
@@ -244,6 +248,34 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
   }
 
   @override
+  $UniqueIdCopyWith<$Res> get responseId {
+    return $UniqueIdCopyWith<$Res>(_value.responseId, (value) {
+      return _then(_value.copyWith(responseId: value));
+    });
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get tempResponseId {
+    return $UniqueIdCopyWith<$Res>(_value.tempResponseId, (value) {
+      return _then(_value.copyWith(tempResponseId: value));
+    });
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get ticketId {
+    return $UniqueIdCopyWith<$Res>(_value.ticketId, (value) {
+      return _then(_value.copyWith(ticketId: value));
+    });
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get deviceId {
+    return $UniqueIdCopyWith<$Res>(_value.deviceId, (value) {
+      return _then(_value.copyWith(deviceId: value));
+    });
+  }
+
+  @override
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState {
     return $SimpleSurveyPageStateCopyWith<$Res>(_value.surveyPageState,
         (value) {
@@ -279,6 +311,14 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
+  @override
+  $UniqueIdCopyWith<$Res> get responseId;
+  @override
+  $UniqueIdCopyWith<$Res> get tempResponseId;
+  @override
+  $UniqueIdCopyWith<$Res> get ticketId;
+  @override
+  $UniqueIdCopyWith<$Res> get deviceId;
   @override
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
 }

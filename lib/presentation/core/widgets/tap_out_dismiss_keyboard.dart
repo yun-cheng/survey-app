@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 
 class TapOutDismissKeyboard extends StatelessWidget {
   final Widget child;
@@ -12,15 +11,12 @@ class TapOutDismissKeyboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        final FocusScopeNode currentFocus = FocusScope.of(context);
+        final focusScope = FocusScope.of(context);
 
-        // logger('Test').e(currentFocus.hasPrimaryFocus);
-        // logger('Test').e(currentFocus.focusedChild);
+        // logger('Test').e(focusScope.hasPrimaryFocus);
+        // logger('Test').e(focusScope.focusedChild);
 
-        if (!currentFocus.hasPrimaryFocus &&
-            currentFocus.focusedChild != null) {
-          FocusManager.instance.primaryFocus?.unfocus();
-        }
+        FocusManager.instance.primaryFocus?.unfocus();
       },
       child: child,
     );

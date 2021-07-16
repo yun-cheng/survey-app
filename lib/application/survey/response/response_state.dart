@@ -21,6 +21,7 @@ class ResponseState with _$ResponseState {
     required LoadState updateState,
     required bool updateVisitReportsMap,
     required bool updateTabRespondentsMap,
+    required KtList<Reference> referenceList,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
@@ -36,11 +37,12 @@ class ResponseState with _$ResponseState {
         responseRestoreState: const LoadState.initial(),
         questionList: const KtList<Question>.empty(),
         withResponseId: false,
-        responseId: UniqueId(),
+        responseId: UniqueId.v1(),
         mainResponse: Response.empty(),
         respondentResponseList: const KtList<Response>.empty(),
         updateState: const LoadState.initial(),
         updateVisitReportsMap: false,
         updateTabRespondentsMap: false,
+        referenceList: const KtList<Reference>.empty(),
       );
 }

@@ -43,11 +43,10 @@ class RootRouter extends _i1.RootStackRouter {
     SurveyRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
-          final pathParams = data.pathParams;
-          final args = data.argsAs<SurveyRouteArgs>(
-              orElse: () => SurveyRouteArgs(
-                  respondentId: pathParams.getString('respondentId')));
-          return _i7.SurveyPage(respondentId: args.respondentId);
+          final args = data.argsAs<SurveyRouteArgs>();
+          return _i7.SurveyPage(
+              respondentId: args.respondentId,
+              showDialogOnRestart: args.showDialogOnRestart);
         }),
     SurveyContentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
@@ -62,7 +61,7 @@ class RootRouter extends _i1.RootStackRouter {
         _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
         _i1.RouteConfig(OverviewRoute.name, path: '/overview'),
         _i1.RouteConfig(RespondentsRoute.name, path: '/respondents'),
-        _i1.RouteConfig(SurveyRoute.name, path: '/respondent/:respondentId'),
+        _i1.RouteConfig(SurveyRoute.name, path: '/survey'),
         _i1.RouteConfig(SurveyContentRoute.name, path: '/survey-content-page')
       ];
 }
@@ -92,19 +91,23 @@ class RespondentsRoute extends _i1.PageRouteInfo {
 }
 
 class SurveyRoute extends _i1.PageRouteInfo<SurveyRouteArgs> {
-  SurveyRoute({required String respondentId})
+  SurveyRoute({required String respondentId, required bool showDialogOnRestart})
       : super(name,
-            path: '/respondent/:respondentId',
-            args: SurveyRouteArgs(respondentId: respondentId),
-            rawPathParams: {'respondentId': respondentId});
+            path: '/survey',
+            args: SurveyRouteArgs(
+                respondentId: respondentId,
+                showDialogOnRestart: showDialogOnRestart));
 
   static const String name = 'SurveyRoute';
 }
 
 class SurveyRouteArgs {
-  const SurveyRouteArgs({required this.respondentId});
+  const SurveyRouteArgs(
+      {required this.respondentId, required this.showDialogOnRestart});
 
   final String respondentId;
+
+  final bool showDialogOnRestart;
 }
 
 class SurveyContentRoute extends _i1.PageRouteInfo {

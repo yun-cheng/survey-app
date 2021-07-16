@@ -17,7 +17,7 @@ class _$ChoiceTearOff {
   const _$ChoiceTearOff();
 
   _Choice call(
-      {required SerialNumber serialNumber,
+      {required int serialNumber,
       required ChoiceId id,
       required ChoiceBody body,
       required bool asNote,
@@ -45,7 +45,7 @@ const $Choice = _$ChoiceTearOff();
 
 /// @nodoc
 mixin _$Choice {
-  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
   ChoiceId get id => throw _privateConstructorUsedError;
   ChoiceBody get body => throw _privateConstructorUsedError;
   bool get asNote => throw _privateConstructorUsedError;
@@ -64,7 +64,7 @@ abstract class $ChoiceCopyWith<$Res> {
   factory $ChoiceCopyWith(Choice value, $Res Function(Choice) then) =
       _$ChoiceCopyWithImpl<$Res>;
   $Res call(
-      {SerialNumber serialNumber,
+      {int serialNumber,
       ChoiceId id,
       ChoiceBody body,
       bool asNote,
@@ -99,7 +99,7 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
-              as SerialNumber,
+              as int,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
       __$ChoiceCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SerialNumber serialNumber,
+      {int serialNumber,
       ChoiceId id,
       ChoiceBody body,
       bool asNote,
@@ -178,7 +178,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
-              as SerialNumber,
+              as int,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -231,7 +231,7 @@ class _$_Choice extends _Choice {
       : super._();
 
   @override
-  final SerialNumber serialNumber;
+  final int serialNumber;
   @override
   final ChoiceId id;
   @override
@@ -304,7 +304,7 @@ class _$_Choice extends _Choice {
 
 abstract class _Choice extends Choice {
   const factory _Choice(
-      {required SerialNumber serialNumber,
+      {required int serialNumber,
       required ChoiceId id,
       required ChoiceBody body,
       required bool asNote,
@@ -316,7 +316,7 @@ abstract class _Choice extends Choice {
   const _Choice._() : super._();
 
   @override
-  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
   ChoiceId get id => throw _privateConstructorUsedError;
   @override

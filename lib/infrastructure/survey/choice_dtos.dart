@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/core/value_objects.dart';
 import '../../domain/survey/choice.dart';
 import '../../domain/survey/value_objects.dart';
 
@@ -25,7 +24,7 @@ class ChoiceDto with _$ChoiceDto {
 
   factory ChoiceDto.fromDomain(Choice domain) {
     return ChoiceDto(
-      serialNumber: domain.serialNumber.getValueAnyway(),
+      serialNumber: domain.serialNumber,
       choiceId: domain.id.getValueAnyway(),
       choiceBody: domain.body.getValueAnyway(),
       asNote: domain.asNote,
@@ -39,7 +38,7 @@ class ChoiceDto with _$ChoiceDto {
 
   Choice toDomain() {
     return Choice(
-      serialNumber: SerialNumber(serialNumber),
+      serialNumber: serialNumber,
       id: ChoiceId(choiceId),
       body: ChoiceBody(choiceBody),
       asNote: asNote,

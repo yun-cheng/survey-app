@@ -10,6 +10,7 @@ import '../../domain/survey/value_objects.dart';
 import '../auth/interviewer_dtos.dart';
 import '../respondent/respondent_dtos.dart';
 import 'question_dtos.dart';
+import 'reference_dtos.dart';
 import 'response_list_dtos.dart';
 import 'survey_list_dtos.dart';
 
@@ -39,6 +40,7 @@ class ResponseStateDto with _$ResponseStateDto {
     required Map<String, dynamic> updateState,
     required bool updateVisitReportsMap,
     required bool updateTabRespondentsMap,
+    required List<ReferenceDto> referenceList,
   }) = _ResponseStateDto;
 
   factory ResponseStateDto.fromDomain(ResponseState domain) {
@@ -58,7 +60,7 @@ class ResponseStateDto with _$ResponseStateDto {
           .map((question) => QuestionDto.fromDomain(question))
           .asList(),
       withResponseId: domain.withResponseId,
-      responseId: domain.responseId.getValueAnyway(),
+      responseId: domain.responseId.value,
       mainResponse: ResponseDto.fromDomain(domain.mainResponse),
       respondentResponseList: domain.respondentResponseList
           .map((e) => ResponseDto.fromDomain(e))
@@ -66,6 +68,8 @@ class ResponseStateDto with _$ResponseStateDto {
       updateState: domain.updateState.toJson(),
       updateVisitReportsMap: domain.updateVisitReportsMap,
       updateTabRespondentsMap: domain.updateTabRespondentsMap,
+      referenceList:
+          domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).asList(),
     );
   }
 
@@ -83,13 +87,15 @@ class ResponseStateDto with _$ResponseStateDto {
       responseRestoreState: LoadState.fromJson(responseRestoreState),
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
       withResponseId: withResponseId,
-      responseId: UniqueId.fromUniqueString(responseId),
+      responseId: UniqueId(responseId),
       mainResponse: mainResponse.toDomain(),
       respondentResponseList:
           respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
       updateState: LoadState.fromJson(updateState),
       updateVisitReportsMap: updateVisitReportsMap,
       updateTabRespondentsMap: updateTabRespondentsMap,
+      referenceList:
+          referenceList.map((dto) => dto.toDomain()).toImmutableList(),
     );
   }
 

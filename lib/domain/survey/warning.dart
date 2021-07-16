@@ -1,8 +1,5 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../core/failures.dart';
-import '../core/value_objects.dart';
 import 'value_objects.dart';
 
 part 'warning.freezed.dart';
@@ -13,14 +10,14 @@ class Warning with _$Warning {
 
   const factory Warning({
     required QuestionId id,
-    required SerialNumber serialNumber,
+    required int serialNumber,
     required PageNumber pageNumber,
     required WarningType type,
   }) = _Warning;
 
   factory Warning.empty() => Warning(
         id: QuestionId.empty(),
-        serialNumber: SerialNumber(0),
+        serialNumber: 0,
         pageNumber: PageNumber(0),
         type: WarningType.empty(),
       );
@@ -30,18 +27,10 @@ class Warning with _$Warning {
   }
 
   String toFullText() {
-    return '${this.id.getOrCrash()} 須修正';
+    return '${id.getOrCrash()} 須修正';
   }
 
   bool get isEmpty {
     return type.isEmpty;
-  }
-
-  Option<ValueFailure<dynamic>> get failureOption {
-    return (this.id.failureOrUnit)
-        .andThen(serialNumber.failureOrUnit)
-        .andThen(pageNumber.failureOrUnit)
-        .andThen(type.failureOrUnit)
-        .fold((f) => some(f), (_) => none());
   }
 }

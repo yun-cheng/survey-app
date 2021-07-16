@@ -80,6 +80,18 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   // H_ 切換唯讀
   const factory UpdateSurveyPageEvent.readOnlyToggled() = _ReadOnlyToggled;
 
-  const factory UpdateSurveyPageEvent.loggedOut() = _LoggedOut;
+  // H_ lifeCycle 變更時
+  const factory UpdateSurveyPageEvent.appLifeCycleChanged({
+    required bool isPaused,
+  }) = _AppLifeCycleChanged;
 
+  // H_ 關閉 dialog
+  const factory UpdateSurveyPageEvent.dialogClosed() = _DialogClosed;
+
+  // H_ 點擊離開按鈕時
+  const factory UpdateSurveyPageEvent.leaveButtonPressed() =
+      _LeaveButtonPressed;
+
+  // H_ 登出
+  const factory UpdateSurveyPageEvent.loggedOut() = _LoggedOut;
 }

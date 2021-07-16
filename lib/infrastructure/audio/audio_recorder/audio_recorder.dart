@@ -1,14 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter_sound/flutter_sound.dart';
+import 'package:flutter_sound_lite/flutter_sound.dart';
 import 'package:injectable/injectable.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../../domain/audio/audio.dart';
 import '../../../domain/audio/audio_failure.dart';
 import '../../../domain/audio/audio_recorder/i_audio_recorder.dart';
 
-@LazySingleton(as: IAudioRecorder)
+@Injectable(as: IAudioRecorder)
 class AudioRecorder implements IAudioRecorder {
   final FlutterSoundRecorder _recorder = FlutterSoundRecorder();
 
@@ -34,11 +35,24 @@ class AudioRecorder implements IAudioRecorder {
         return permissionResult;
       }
 
-      await _recorder.openAudioSession();
+      late final Codec codec;
+      if (audio == Audio.m4a()) {
+        codec = Codec.aacMP4;
+      } else if (audio == Audio.opus()) {
+        codec = Codec.opusWebM;
+      } else {
+        codec = Codec.aacADTS;
+      }
+
+      await _recorder.closeAudioSession();
+      await _recorder.openAudioSession(
+        category: SessionCategory.record,
+      );
       await _recorder
           .setSubscriptionDuration(const Duration(milliseconds: 100));
       await _recorder.startRecorder(
-        toFile: '${audio.fileName.getValueAnyway()}.aac',
+        toFile: audio.toFileNameString(),
+        codec: codec,
       );
       return right(unit);
     } catch (e) {
@@ -49,6 +63,7 @@ class AudioRecorder implements IAudioRecorder {
   @override
   Future<Either<AudioFailure, Unit>> stopRecording() async {
     try {
+      await _recorder.stopRecorder();
       await _recorder.closeAudioSession();
 
       return right(unit);

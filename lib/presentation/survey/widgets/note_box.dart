@@ -27,6 +27,7 @@ class NoteBox extends StatelessWidget {
       child: TextFormField(
         initialValue: note,
         enabled: !isReadOnly,
+        autofocus: true,
         decoration: const InputDecoration(
           labelText: '',
           counterText: '',

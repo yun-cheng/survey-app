@@ -16,8 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AudioRecorderEventTearOff {
   const _$AudioRecorderEventTearOff();
 
-  _RecordStarted recordStarted() {
-    return const _RecordStarted();
+  _RecordStarted recordStarted(UniqueId fileName) {
+    return _RecordStarted(
+      fileName,
+    );
   }
 
   _RecordStopped recordStopped() {
@@ -42,7 +44,7 @@ const $AudioRecorderEvent = _$AudioRecorderEventTearOff();
 mixin _$AudioRecorderEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() recordStarted,
+    required TResult Function(UniqueId fileName) recordStarted,
     required TResult Function() recordStopped,
     required TResult Function() watchDbStreamStarted,
     required TResult Function(double db) dbUpdated,
@@ -50,7 +52,7 @@ mixin _$AudioRecorderEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? recordStarted,
+    TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
     TResult Function()? watchDbStreamStarted,
     TResult Function(double db)? dbUpdated,
@@ -98,6 +100,9 @@ abstract class _$RecordStartedCopyWith<$Res> {
   factory _$RecordStartedCopyWith(
           _RecordStarted value, $Res Function(_RecordStarted) then) =
       __$RecordStartedCopyWithImpl<$Res>;
+  $Res call({UniqueId fileName});
+
+  $UniqueIdCopyWith<$Res> get fileName;
 }
 
 /// @nodoc
@@ -110,48 +115,88 @@ class __$RecordStartedCopyWithImpl<$Res>
 
   @override
   _RecordStarted get _value => super._value as _RecordStarted;
+
+  @override
+  $Res call({
+    Object? fileName = freezed,
+  }) {
+    return _then(_RecordStarted(
+      fileName == freezed
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
+    ));
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get fileName {
+    return $UniqueIdCopyWith<$Res>(_value.fileName, (value) {
+      return _then(_value.copyWith(fileName: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$_RecordStarted implements _RecordStarted {
-  const _$_RecordStarted();
+class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
+  const _$_RecordStarted(this.fileName);
 
   @override
-  String toString() {
-    return 'AudioRecorderEvent.recordStarted()';
+  final UniqueId fileName;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AudioRecorderEvent.recordStarted(fileName: $fileName)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioRecorderEvent.recordStarted'))
+      ..add(DiagnosticsProperty('fileName', fileName));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RecordStarted);
+    return identical(this, other) ||
+        (other is _RecordStarted &&
+            (identical(other.fileName, fileName) ||
+                const DeepCollectionEquality()
+                    .equals(other.fileName, fileName)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(fileName);
+
+  @JsonKey(ignore: true)
+  @override
+  _$RecordStartedCopyWith<_RecordStarted> get copyWith =>
+      __$RecordStartedCopyWithImpl<_RecordStarted>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() recordStarted,
+    required TResult Function(UniqueId fileName) recordStarted,
     required TResult Function() recordStopped,
     required TResult Function() watchDbStreamStarted,
     required TResult Function(double db) dbUpdated,
   }) {
-    return recordStarted();
+    return recordStarted(fileName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? recordStarted,
+    TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
     TResult Function()? watchDbStreamStarted,
     TResult Function(double db)? dbUpdated,
     required TResult orElse(),
   }) {
     if (recordStarted != null) {
-      return recordStarted();
+      return recordStarted(fileName);
     }
     return orElse();
   }
@@ -184,7 +229,12 @@ class _$_RecordStarted implements _RecordStarted {
 }
 
 abstract class _RecordStarted implements AudioRecorderEvent {
-  const factory _RecordStarted() = _$_RecordStarted;
+  const factory _RecordStarted(UniqueId fileName) = _$_RecordStarted;
+
+  UniqueId get fileName => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$RecordStartedCopyWith<_RecordStarted> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -208,12 +258,19 @@ class __$RecordStoppedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RecordStopped implements _RecordStopped {
+class _$_RecordStopped with DiagnosticableTreeMixin implements _RecordStopped {
   const _$_RecordStopped();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioRecorderEvent.recordStopped()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioRecorderEvent.recordStopped'));
   }
 
   @override
@@ -227,7 +284,7 @@ class _$_RecordStopped implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() recordStarted,
+    required TResult Function(UniqueId fileName) recordStarted,
     required TResult Function() recordStopped,
     required TResult Function() watchDbStreamStarted,
     required TResult Function(double db) dbUpdated,
@@ -238,7 +295,7 @@ class _$_RecordStopped implements _RecordStopped {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? recordStarted,
+    TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
     TResult Function()? watchDbStreamStarted,
     TResult Function(double db)? dbUpdated,
@@ -302,12 +359,22 @@ class __$WatchDbStreamStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchDbStreamStarted implements _WatchDbStreamStarted {
+class _$_WatchDbStreamStarted
+    with DiagnosticableTreeMixin
+    implements _WatchDbStreamStarted {
   const _$_WatchDbStreamStarted();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioRecorderEvent.watchDbStreamStarted()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'AudioRecorderEvent.watchDbStreamStarted'));
   }
 
   @override
@@ -321,7 +388,7 @@ class _$_WatchDbStreamStarted implements _WatchDbStreamStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() recordStarted,
+    required TResult Function(UniqueId fileName) recordStarted,
     required TResult Function() recordStopped,
     required TResult Function() watchDbStreamStarted,
     required TResult Function(double db) dbUpdated,
@@ -332,7 +399,7 @@ class _$_WatchDbStreamStarted implements _WatchDbStreamStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? recordStarted,
+    TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
     TResult Function()? watchDbStreamStarted,
     TResult Function(double db)? dbUpdated,
@@ -408,15 +475,23 @@ class __$DbUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DbUpdated implements _DbUpdated {
+class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
   const _$_DbUpdated(this.db);
 
   @override
   final double db;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioRecorderEvent.dbUpdated(db: $db)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioRecorderEvent.dbUpdated'))
+      ..add(DiagnosticsProperty('db', db));
   }
 
   @override
@@ -439,7 +514,7 @@ class _$_DbUpdated implements _DbUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() recordStarted,
+    required TResult Function(UniqueId fileName) recordStarted,
     required TResult Function() recordStopped,
     required TResult Function() watchDbStreamStarted,
     required TResult Function(double db) dbUpdated,
@@ -450,7 +525,7 @@ class _$_DbUpdated implements _DbUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? recordStarted,
+    TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
     TResult Function()? watchDbStreamStarted,
     TResult Function(double db)? dbUpdated,
@@ -672,7 +747,9 @@ class __$AudioRecorderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AudioRecorderState implements _AudioRecorderState {
+class _$_AudioRecorderState
+    with DiagnosticableTreeMixin
+    implements _AudioRecorderState {
   const _$_AudioRecorderState(
       {required this.db,
       required this.isRecording,
@@ -692,8 +769,20 @@ class _$_AudioRecorderState implements _AudioRecorderState {
   final Option<AudioFailure> audioFailure;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AudioRecorderState(db: $db, isRecording: $isRecording, audio: $audio, recorderState: $recorderState, audioFailure: $audioFailure)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AudioRecorderState'))
+      ..add(DiagnosticsProperty('db', db))
+      ..add(DiagnosticsProperty('isRecording', isRecording))
+      ..add(DiagnosticsProperty('audio', audio))
+      ..add(DiagnosticsProperty('recorderState', recorderState))
+      ..add(DiagnosticsProperty('audioFailure', audioFailure));
   }
 
   @override

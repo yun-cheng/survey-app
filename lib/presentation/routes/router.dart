@@ -17,7 +17,7 @@ export 'router.gr.dart';
     MaterialRoute(page: SignInPage),
     MaterialRoute(page: OverviewPage, path: '/overview'),
     MaterialRoute(page: RespondentsPage, path: '/respondents'),
-    MaterialRoute(page: SurveyPage, path: '/respondent/:respondentId'),
+    MaterialRoute(page: SurveyPage, path: '/survey'),
     MaterialRoute(page: SurveyContentPage),
   ],
 )

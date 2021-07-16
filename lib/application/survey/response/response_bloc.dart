@@ -18,6 +18,7 @@ import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/i_survey_repository.dart';
 import '../../../domain/survey/question.dart';
+import '../../../domain/survey/reference.dart';
 import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
@@ -106,28 +107,38 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
         // S_1 若閒置 10 秒未更新則上傳，
         _inactiveTimer = Timer(
           const Duration(seconds: 10),
-          () => add(const ResponseEvent.responseListSynced()),
+          () => add(const ResponseEvent.responseListUploading()),
         );
 
         // S_2 或從同步後第一次更新開始算 30 秒未閒置則依然上傳
         if (_activeTimer == null || !_activeTimer!.isActive) {
           _activeTimer = Timer(
             const Duration(seconds: 30),
-            () => add(const ResponseEvent.responseListSynced()),
+            () => add(const ResponseEvent.responseListUploading()),
           );
         }
       },
       // H_ 上傳 responseList
-      responseListSynced: (e) async* {
+      responseListUploading: (e) async* {
         _activeTimer?.cancel();
         _inactiveTimer?.cancel();
 
         if (state.responseList.isNotEmpty()) {
-          logger('Upload').i('uploadResponseList');
-          final failureOrSuccess = await _surveyRepository.uploadResponseList(
-            responseList: state.responseList,
-          );
+          logger('Upload').i('responseListUploading');
+          _surveyRepository
+              .uploadResponseList(
+                responseList: state.responseList,
+              )
+              .then(
+                (failureOrSuccess) =>
+                    add(ResponseEvent.responseListUploaded(failureOrSuccess)),
+              );
         }
+      },
+      responseListUploaded: (e) async* {
+        logger('Test').e('ResponseEvent: responseListUploaded');
+
+        // TODO
       },
       // H_ 使用者選擇問卷
       surveySelected: (e) async* {
@@ -141,6 +152,8 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       },
       // H_ 使用者選擇要開始進行的問卷模組
       responseStarted: (e) async* {
+        logger('Event').i('ResponseEvent: responseStarted');
+
         yield state.copyWith(
           respondent: e.respondent,
           moduleType: e.moduleType,
@@ -153,7 +166,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       },
       // H_ 從 responseList 回復要進行的 response
       responseRestored: (e) async* {
-        logger('Event').i('ResponseBloc: responseRestored');
+        logger('Event').i('ResponseEvent: responseRestored');
 
         yield state.copyWith(
           responseRestoreState: const LoadState.inProgress(),
@@ -171,6 +184,8 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
       },
       // H_ 使用者結束編輯這次問卷模組的回覆
       editFinished: (e) async* {
+        logger('Event').i('ResponseEvent: editFinished');
+
         yield state.copyWith(
           updateVisitReportsMap: false,
           updateTabRespondentsMap: false,
@@ -181,14 +196,29 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
 
         add(const ResponseEvent.uploadTimerUpdated());
       },
+      // H_ 使用者在閒置後，選擇繼續訪問
+      responseResumed: (e) async* {
+        logger('Event').i('ResponseEvent: responseResumed');
+
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(responseResumed, Tuple2(e, state));
+
+        add(const ResponseEvent.uploadTimerUpdated());
+      },
       // H_ 更新當前受訪者在其他模組的 responses
       respondentResponseListUpdated: (e) async* {
         final lb = await _loadBalancer.loadBalancer;
         yield await lb.run(respondentResponseListUpdated, state);
       },
+      // H_ referenceList 更新時
+      referenceListUpdated: (e) async* {
+        yield state.copyWith(
+          referenceList: e.referenceList,
+        );
+      },
       loggedOut: (e) async* {
         _responseListSubscription?.cancel();
-        final failureOrSuccess = await _surveyRepository.cleanResponseList(
+        _surveyRepository.cleanResponseList(
           teamId: state.survey.teamId,
           interviewerId: state.interviewer.id,
         );

@@ -99,7 +99,7 @@ class SurveyRepository implements ISurveyRepository {
       final batch = _firestore.batch();
 
       for (final response in responseList.iter) {
-        batch.set(responseCollection.doc(response.responseId.getOrCrash()),
+        batch.set(responseCollection.doc(response.responseId.value),
             ResponseDto.fromDomain(response).toJson());
       }
 

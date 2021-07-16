@@ -138,6 +138,20 @@ class _$UpdateSurveyPageEventTearOff {
     return const _ReadOnlyToggled();
   }
 
+  _AppLifeCycleChanged appLifeCycleChanged({required bool isPaused}) {
+    return _AppLifeCycleChanged(
+      isPaused: isPaused,
+    );
+  }
+
+  _DialogClosed dialogClosed() {
+    return const _DialogClosed();
+  }
+
+  _LeaveButtonPressed leaveButtonPressed() {
+    return const _LeaveButtonPressed();
+  }
+
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
@@ -189,6 +203,9 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -233,6 +250,9 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
@@ -266,6 +286,9 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -294,6 +317,9 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
@@ -357,9 +383,7 @@ class __$WatchReferenceListStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchReferenceListStarted
-    with DiagnosticableTreeMixin
-    implements _WatchReferenceListStarted {
+class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
   const _$_WatchReferenceListStarted(
       {required this.teamId, required this.interviewerId});
 
@@ -369,18 +393,8 @@ class _$_WatchReferenceListStarted
   final InterviewerId interviewerId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.watchReferenceListStarted(teamId: $teamId, interviewerId: $interviewerId)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.watchReferenceListStarted'))
-      ..add(DiagnosticsProperty('teamId', teamId))
-      ..add(DiagnosticsProperty('interviewerId', interviewerId));
   }
 
   @override
@@ -449,6 +463,9 @@ class _$_WatchReferenceListStarted
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return watchReferenceListStarted(teamId, interviewerId);
@@ -496,6 +513,9 @@ class _$_WatchReferenceListStarted
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -535,6 +555,9 @@ class _$_WatchReferenceListStarted
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchReferenceListStarted(this);
@@ -566,6 +589,9 @@ class _$_WatchReferenceListStarted
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -622,27 +648,15 @@ class __$ReferenceListReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReferenceListReceived
-    with DiagnosticableTreeMixin
-    implements _ReferenceListReceived {
+class _$_ReferenceListReceived implements _ReferenceListReceived {
   const _$_ReferenceListReceived(this.failureOrReferenceList);
 
   @override
   final Either<SurveyFailure, KtList<Reference>> failureOrReferenceList;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.referenceListReceived(failureOrReferenceList: $failureOrReferenceList)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.referenceListReceived'))
-      ..add(DiagnosticsProperty(
-          'failureOrReferenceList', failureOrReferenceList));
   }
 
   @override
@@ -707,6 +721,9 @@ class _$_ReferenceListReceived
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return referenceListReceived(failureOrReferenceList);
@@ -754,6 +771,9 @@ class _$_ReferenceListReceived
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -793,6 +813,9 @@ class _$_ReferenceListReceived
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return referenceListReceived(this);
@@ -824,6 +847,9 @@ class _$_ReferenceListReceived
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -867,22 +893,12 @@ class __$StateRestoreSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateRestoreSuccess
-    with DiagnosticableTreeMixin
-    implements _StateRestoreSuccess {
+class _$_StateRestoreSuccess implements _StateRestoreSuccess {
   const _$_StateRestoreSuccess();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.stateRestoreSuccess()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.stateRestoreSuccess'));
   }
 
   @override
@@ -935,6 +951,9 @@ class _$_StateRestoreSuccess
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return stateRestoreSuccess();
@@ -982,6 +1001,9 @@ class _$_StateRestoreSuccess
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1021,6 +1043,9 @@ class _$_StateRestoreSuccess
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateRestoreSuccess(this);
@@ -1052,6 +1077,9 @@ class _$_StateRestoreSuccess
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1185,7 +1213,7 @@ class __$StateRestoredCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
+class _$_StateRestored implements _StateRestored {
   const _$_StateRestored(
       {required this.surveyId,
       required this.moduleType,
@@ -1226,27 +1254,8 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   final Respondent respondent;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.stateRestored(surveyId: $surveyId, moduleType: $moduleType, surveyPageState: $surveyPageState, questionList: $questionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, respondent: $respondent)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.stateRestored'))
-      ..add(DiagnosticsProperty('surveyId', surveyId))
-      ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('surveyPageState', surveyPageState))
-      ..add(DiagnosticsProperty('questionList', questionList))
-      ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
-      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
-      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
-      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
-      ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
-      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap))
-      ..add(DiagnosticsProperty('respondent', respondent));
   }
 
   @override
@@ -1354,6 +1363,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return stateRestored(
@@ -1413,6 +1425,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1464,6 +1479,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateRestored(this);
@@ -1495,6 +1513,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1579,7 +1600,6 @@ class __$RespondentResponseListUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RespondentResponseListUpdated
-    with DiagnosticableTreeMixin
     implements _RespondentResponseListUpdated {
   const _$_RespondentResponseListUpdated(
       {required this.respondentResponseList});
@@ -1588,18 +1608,8 @@ class _$_RespondentResponseListUpdated
   final KtList<Response> respondentResponseList;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.respondentResponseListUpdated(respondentResponseList: $respondentResponseList)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.respondentResponseListUpdated'))
-      ..add(DiagnosticsProperty(
-          'respondentResponseList', respondentResponseList));
   }
 
   @override
@@ -1664,6 +1674,9 @@ class _$_RespondentResponseListUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return respondentResponseListUpdated(respondentResponseList);
@@ -1711,6 +1724,9 @@ class _$_RespondentResponseListUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1750,6 +1766,9 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentResponseListUpdated(this);
@@ -1781,6 +1800,9 @@ class _$_RespondentResponseListUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1844,7 +1866,7 @@ class __$AnswerChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
+class _$_AnswerChanged implements _AnswerChanged {
   const _$_AnswerChanged(
       {required this.answerMap, required this.answerStatusMap});
 
@@ -1854,17 +1876,8 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.answerChanged(answerMap: $answerMap, answerStatusMap: $answerStatusMap)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.answerChanged'))
-      ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap));
   }
 
   @override
@@ -1932,6 +1945,9 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return answerChanged(answerMap, answerStatusMap);
@@ -1979,6 +1995,9 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2018,6 +2037,9 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return answerChanged(this);
@@ -2049,6 +2071,9 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2095,22 +2120,12 @@ class __$PageQuestionListUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PageQuestionListUpdated
-    with DiagnosticableTreeMixin
-    implements _PageQuestionListUpdated {
+class _$_PageQuestionListUpdated implements _PageQuestionListUpdated {
   const _$_PageQuestionListUpdated();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.pageQuestionListUpdated()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.pageQuestionListUpdated'));
   }
 
   @override
@@ -2163,6 +2178,9 @@ class _$_PageQuestionListUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return pageQuestionListUpdated();
@@ -2210,6 +2228,9 @@ class _$_PageQuestionListUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2249,6 +2270,9 @@ class _$_PageQuestionListUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return pageQuestionListUpdated(this);
@@ -2280,6 +2304,9 @@ class _$_PageQuestionListUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2317,22 +2344,12 @@ class __$ContentQuestionListUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ContentQuestionListUpdated
-    with DiagnosticableTreeMixin
-    implements _ContentQuestionListUpdated {
+class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
   const _$_ContentQuestionListUpdated();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.contentQuestionListUpdated()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.contentQuestionListUpdated'));
   }
 
   @override
@@ -2385,6 +2402,9 @@ class _$_ContentQuestionListUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return contentQuestionListUpdated();
@@ -2432,6 +2452,9 @@ class _$_ContentQuestionListUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2471,6 +2494,9 @@ class _$_ContentQuestionListUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return contentQuestionListUpdated(this);
@@ -2502,6 +2528,9 @@ class _$_ContentQuestionListUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2537,19 +2566,12 @@ class __$PageUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
+class _$_PageUpdated implements _PageUpdated {
   const _$_PageUpdated();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.pageUpdated()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.pageUpdated'));
   }
 
   @override
@@ -2602,6 +2624,9 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return pageUpdated();
@@ -2649,6 +2674,9 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2688,6 +2716,9 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return pageUpdated(this);
@@ -2719,6 +2750,9 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2754,22 +2788,12 @@ class __$NextPagePressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NextPagePressed
-    with DiagnosticableTreeMixin
-    implements _NextPagePressed {
+class _$_NextPagePressed implements _NextPagePressed {
   const _$_NextPagePressed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.nextPagePressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.nextPagePressed'));
   }
 
   @override
@@ -2822,6 +2846,9 @@ class _$_NextPagePressed
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return nextPagePressed();
@@ -2869,6 +2896,9 @@ class _$_NextPagePressed
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2908,6 +2938,9 @@ class _$_NextPagePressed
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return nextPagePressed(this);
@@ -2939,6 +2972,9 @@ class _$_NextPagePressed
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2974,22 +3010,12 @@ class __$PreviousPagePressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PreviousPagePressed
-    with DiagnosticableTreeMixin
-    implements _PreviousPagePressed {
+class _$_PreviousPagePressed implements _PreviousPagePressed {
   const _$_PreviousPagePressed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.previousPagePressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.previousPagePressed'));
   }
 
   @override
@@ -3042,6 +3068,9 @@ class _$_PreviousPagePressed
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return previousPagePressed();
@@ -3089,6 +3118,9 @@ class _$_PreviousPagePressed
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3128,6 +3160,9 @@ class _$_PreviousPagePressed
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return previousPagePressed(this);
@@ -3159,6 +3194,9 @@ class _$_PreviousPagePressed
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3194,22 +3232,12 @@ class __$WentToNewestPageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WentToNewestPage
-    with DiagnosticableTreeMixin
-    implements _WentToNewestPage {
+class _$_WentToNewestPage implements _WentToNewestPage {
   const _$_WentToNewestPage();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.wentToNewestPage()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.wentToNewestPage'));
   }
 
   @override
@@ -3262,6 +3290,9 @@ class _$_WentToNewestPage
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return wentToNewestPage();
@@ -3309,6 +3340,9 @@ class _$_WentToNewestPage
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3348,6 +3382,9 @@ class _$_WentToNewestPage
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return wentToNewestPage(this);
@@ -3379,6 +3416,9 @@ class _$_WentToNewestPage
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3427,23 +3467,15 @@ class __$WentToPageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
+class _$_WentToPage implements _WentToPage {
   const _$_WentToPage(this.page);
 
   @override
   final PageNumber page;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.wentToPage(page: $page)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.wentToPage'))
-      ..add(DiagnosticsProperty('page', page));
   }
 
   @override
@@ -3505,6 +3537,9 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return wentToPage(page);
@@ -3552,6 +3587,9 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3591,6 +3629,9 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return wentToPage(this);
@@ -3622,6 +3663,9 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3662,22 +3706,12 @@ class __$WarningUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WarningUpdated
-    with DiagnosticableTreeMixin
-    implements _WarningUpdated {
+class _$_WarningUpdated implements _WarningUpdated {
   const _$_WarningUpdated();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.warningUpdated()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.warningUpdated'));
   }
 
   @override
@@ -3730,6 +3764,9 @@ class _$_WarningUpdated
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return warningUpdated();
@@ -3777,6 +3814,9 @@ class _$_WarningUpdated
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3816,6 +3856,9 @@ class _$_WarningUpdated
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return warningUpdated(this);
@@ -3847,6 +3890,9 @@ class _$_WarningUpdated
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3882,19 +3928,12 @@ class __$WarningShowedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
+class _$_WarningShowed implements _WarningShowed {
   const _$_WarningShowed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.warningShowed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.warningShowed'));
   }
 
   @override
@@ -3947,6 +3986,9 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return warningShowed();
@@ -3994,6 +4036,9 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4033,6 +4078,9 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return warningShowed(this);
@@ -4064,6 +4112,9 @@ class _$_WarningShowed with DiagnosticableTreeMixin implements _WarningShowed {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4099,22 +4150,12 @@ class __$FinishedButtonPressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FinishedButtonPressed
-    with DiagnosticableTreeMixin
-    implements _FinishedButtonPressed {
+class _$_FinishedButtonPressed implements _FinishedButtonPressed {
   const _$_FinishedButtonPressed();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.finishedButtonPressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.finishedButtonPressed'));
   }
 
   @override
@@ -4167,6 +4208,9 @@ class _$_FinishedButtonPressed
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return finishedButtonPressed();
@@ -4214,6 +4258,9 @@ class _$_FinishedButtonPressed
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4253,6 +4300,9 @@ class _$_FinishedButtonPressed
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return finishedButtonPressed(this);
@@ -4284,6 +4334,9 @@ class _$_FinishedButtonPressed
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4319,22 +4372,12 @@ class __$StateUpdateInprogressCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateUpdateInprogress
-    with DiagnosticableTreeMixin
-    implements _StateUpdateInprogress {
+class _$_StateUpdateInprogress implements _StateUpdateInprogress {
   const _$_StateUpdateInprogress();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.stateUpdateInProgress()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.stateUpdateInProgress'));
   }
 
   @override
@@ -4387,6 +4430,9 @@ class _$_StateUpdateInprogress
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return stateUpdateInProgress();
@@ -4434,6 +4480,9 @@ class _$_StateUpdateInprogress
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4473,6 +4522,9 @@ class _$_StateUpdateInprogress
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateUpdateInProgress(this);
@@ -4504,6 +4556,9 @@ class _$_StateUpdateInprogress
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4539,22 +4594,12 @@ class __$StateUpdateSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateUpdateSuccess
-    with DiagnosticableTreeMixin
-    implements _StateUpdateSuccess {
+class _$_StateUpdateSuccess implements _StateUpdateSuccess {
   const _$_StateUpdateSuccess();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.stateUpdateSuccess()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.stateUpdateSuccess'));
   }
 
   @override
@@ -4607,6 +4652,9 @@ class _$_StateUpdateSuccess
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return stateUpdateSuccess();
@@ -4654,6 +4702,9 @@ class _$_StateUpdateSuccess
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4693,6 +4744,9 @@ class _$_StateUpdateSuccess
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateUpdateSuccess(this);
@@ -4724,6 +4778,9 @@ class _$_StateUpdateSuccess
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4759,19 +4816,12 @@ class __$StateClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
+class _$_StateCleared implements _StateCleared {
   const _$_StateCleared();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.stateCleared()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.stateCleared'));
   }
 
   @override
@@ -4824,6 +4874,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return stateCleared();
@@ -4871,6 +4924,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4910,6 +4966,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateCleared(this);
@@ -4941,6 +5000,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4976,22 +5038,12 @@ class __$ReadOnlyToggledCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReadOnlyToggled
-    with DiagnosticableTreeMixin
-    implements _ReadOnlyToggled {
+class _$_ReadOnlyToggled implements _ReadOnlyToggled {
   const _$_ReadOnlyToggled();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.readOnlyToggled()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(
-          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.readOnlyToggled'));
   }
 
   @override
@@ -5044,6 +5096,9 @@ class _$_ReadOnlyToggled
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return readOnlyToggled();
@@ -5091,6 +5146,9 @@ class _$_ReadOnlyToggled
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -5130,6 +5188,9 @@ class _$_ReadOnlyToggled
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return readOnlyToggled(this);
@@ -5161,6 +5222,9 @@ class _$_ReadOnlyToggled
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -5173,6 +5237,705 @@ class _$_ReadOnlyToggled
 
 abstract class _ReadOnlyToggled implements UpdateSurveyPageEvent {
   const factory _ReadOnlyToggled() = _$_ReadOnlyToggled;
+}
+
+/// @nodoc
+abstract class _$AppLifeCycleChangedCopyWith<$Res> {
+  factory _$AppLifeCycleChangedCopyWith(_AppLifeCycleChanged value,
+          $Res Function(_AppLifeCycleChanged) then) =
+      __$AppLifeCycleChangedCopyWithImpl<$Res>;
+  $Res call({bool isPaused});
+}
+
+/// @nodoc
+class __$AppLifeCycleChangedCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
+    implements _$AppLifeCycleChangedCopyWith<$Res> {
+  __$AppLifeCycleChangedCopyWithImpl(
+      _AppLifeCycleChanged _value, $Res Function(_AppLifeCycleChanged) _then)
+      : super(_value, (v) => _then(v as _AppLifeCycleChanged));
+
+  @override
+  _AppLifeCycleChanged get _value => super._value as _AppLifeCycleChanged;
+
+  @override
+  $Res call({
+    Object? isPaused = freezed,
+  }) {
+    return _then(_AppLifeCycleChanged(
+      isPaused: isPaused == freezed
+          ? _value.isPaused
+          : isPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
+  const _$_AppLifeCycleChanged({required this.isPaused});
+
+  @override
+  final bool isPaused;
+
+  @override
+  String toString() {
+    return 'UpdateSurveyPageEvent.appLifeCycleChanged(isPaused: $isPaused)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _AppLifeCycleChanged &&
+            (identical(other.isPaused, isPaused) ||
+                const DeepCollectionEquality()
+                    .equals(other.isPaused, isPaused)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isPaused);
+
+  @JsonKey(ignore: true)
+  @override
+  _$AppLifeCycleChangedCopyWith<_AppLifeCycleChanged> get copyWith =>
+      __$AppLifeCycleChangedCopyWithImpl<_AppLifeCycleChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() pageQuestionListUpdated,
+    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() warningUpdated,
+    required TResult Function() warningShowed,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateUpdateInProgress,
+    required TResult Function() stateUpdateSuccess,
+    required TResult Function() stateCleared,
+    required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() loggedOut,
+  }) {
+    return appLifeCycleChanged(isPaused);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? pageQuestionListUpdated,
+    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? warningUpdated,
+    TResult Function()? warningShowed,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateUpdateInProgress,
+    TResult Function()? stateUpdateSuccess,
+    TResult Function()? stateCleared,
+    TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (appLifeCycleChanged != null) {
+      return appLifeCycleChanged(isPaused);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_PageQuestionListUpdated value)
+        pageQuestionListUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_WarningShowed value) warningShowed,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateUpdateInprogress value)
+        stateUpdateInProgress,
+    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return appLifeCycleChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_WarningShowed value)? warningShowed,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
+    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (appLifeCycleChanged != null) {
+      return appLifeCycleChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AppLifeCycleChanged implements UpdateSurveyPageEvent {
+  const factory _AppLifeCycleChanged({required bool isPaused}) =
+      _$_AppLifeCycleChanged;
+
+  bool get isPaused => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$AppLifeCycleChangedCopyWith<_AppLifeCycleChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$DialogClosedCopyWith<$Res> {
+  factory _$DialogClosedCopyWith(
+          _DialogClosed value, $Res Function(_DialogClosed) then) =
+      __$DialogClosedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$DialogClosedCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
+    implements _$DialogClosedCopyWith<$Res> {
+  __$DialogClosedCopyWithImpl(
+      _DialogClosed _value, $Res Function(_DialogClosed) _then)
+      : super(_value, (v) => _then(v as _DialogClosed));
+
+  @override
+  _DialogClosed get _value => super._value as _DialogClosed;
+}
+
+/// @nodoc
+
+class _$_DialogClosed implements _DialogClosed {
+  const _$_DialogClosed();
+
+  @override
+  String toString() {
+    return 'UpdateSurveyPageEvent.dialogClosed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _DialogClosed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() pageQuestionListUpdated,
+    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() warningUpdated,
+    required TResult Function() warningShowed,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateUpdateInProgress,
+    required TResult Function() stateUpdateSuccess,
+    required TResult Function() stateCleared,
+    required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() loggedOut,
+  }) {
+    return dialogClosed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? pageQuestionListUpdated,
+    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? warningUpdated,
+    TResult Function()? warningShowed,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateUpdateInProgress,
+    TResult Function()? stateUpdateSuccess,
+    TResult Function()? stateCleared,
+    TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (dialogClosed != null) {
+      return dialogClosed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_PageQuestionListUpdated value)
+        pageQuestionListUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_WarningShowed value) warningShowed,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateUpdateInprogress value)
+        stateUpdateInProgress,
+    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return dialogClosed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_WarningShowed value)? warningShowed,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
+    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (dialogClosed != null) {
+      return dialogClosed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DialogClosed implements UpdateSurveyPageEvent {
+  const factory _DialogClosed() = _$_DialogClosed;
+}
+
+/// @nodoc
+abstract class _$LeaveButtonPressedCopyWith<$Res> {
+  factory _$LeaveButtonPressedCopyWith(
+          _LeaveButtonPressed value, $Res Function(_LeaveButtonPressed) then) =
+      __$LeaveButtonPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LeaveButtonPressedCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
+    implements _$LeaveButtonPressedCopyWith<$Res> {
+  __$LeaveButtonPressedCopyWithImpl(
+      _LeaveButtonPressed _value, $Res Function(_LeaveButtonPressed) _then)
+      : super(_value, (v) => _then(v as _LeaveButtonPressed));
+
+  @override
+  _LeaveButtonPressed get _value => super._value as _LeaveButtonPressed;
+}
+
+/// @nodoc
+
+class _$_LeaveButtonPressed implements _LeaveButtonPressed {
+  const _$_LeaveButtonPressed();
+
+  @override
+  String toString() {
+    return 'UpdateSurveyPageEvent.leaveButtonPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LeaveButtonPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() pageQuestionListUpdated,
+    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() warningUpdated,
+    required TResult Function() warningShowed,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateUpdateInProgress,
+    required TResult Function() stateUpdateSuccess,
+    required TResult Function() stateCleared,
+    required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() loggedOut,
+  }) {
+    return leaveButtonPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? pageQuestionListUpdated,
+    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? warningUpdated,
+    TResult Function()? warningShowed,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateUpdateInProgress,
+    TResult Function()? stateUpdateSuccess,
+    TResult Function()? stateCleared,
+    TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (leaveButtonPressed != null) {
+      return leaveButtonPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_PageQuestionListUpdated value)
+        pageQuestionListUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_WarningShowed value) warningShowed,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateUpdateInprogress value)
+        stateUpdateInProgress,
+    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return leaveButtonPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_WarningShowed value)? warningShowed,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
+    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (leaveButtonPressed != null) {
+      return leaveButtonPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LeaveButtonPressed implements UpdateSurveyPageEvent {
+  const factory _LeaveButtonPressed() = _$_LeaveButtonPressed;
 }
 
 /// @nodoc
@@ -5195,19 +5958,12 @@ class __$LoggedOutCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
+class _$_LoggedOut implements _LoggedOut {
   const _$_LoggedOut();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UpdateSurveyPageEvent.loggedOut()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.loggedOut'));
   }
 
   @override
@@ -5260,6 +6016,9 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
     required TResult Function() loggedOut,
   }) {
     return loggedOut();
@@ -5307,6 +6066,9 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -5346,6 +6108,9 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return loggedOut(this);
@@ -5377,6 +6142,9 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -5419,6 +6187,10 @@ class _$UpdateSurveyPageStateTearOff {
       required KtList<Question> pageQuestionList,
       required KtList<Question> contentQuestionList,
       required bool isReadOnly,
+      required bool appIsPaused,
+      required bool showDialog,
+      required bool leavePage,
+      required bool finishResponse,
       required KtList<Question> mainQuestionList,
       required KtMap<QuestionId, Answer> mainAnswerMap,
       required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) {
@@ -5446,6 +6218,10 @@ class _$UpdateSurveyPageStateTearOff {
       pageQuestionList: pageQuestionList,
       contentQuestionList: contentQuestionList,
       isReadOnly: isReadOnly,
+      appIsPaused: appIsPaused,
+      showDialog: showDialog,
+      leavePage: leavePage,
+      finishResponse: finishResponse,
       mainQuestionList: mainQuestionList,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
@@ -5458,7 +6234,7 @@ const $UpdateSurveyPageState = _$UpdateSurveyPageStateTearOff();
 
 /// @nodoc
 mixin _$UpdateSurveyPageState {
-// H_
+// H_ restore
   PageNumber get page => throw _privateConstructorUsedError;
   PageNumber get newestPage => throw _privateConstructorUsedError;
   Direction get direction => throw _privateConstructorUsedError;
@@ -5485,8 +6261,12 @@ mixin _$UpdateSurveyPageState {
   KtList<Question> get questionList => throw _privateConstructorUsedError;
   KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
   KtList<Question> get contentQuestionList =>
-      throw _privateConstructorUsedError; // H_
-  bool get isReadOnly => throw _privateConstructorUsedError; // H_ recode
+      throw _privateConstructorUsedError; // H_ page state
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get appIsPaused => throw _privateConstructorUsedError;
+  bool get showDialog => throw _privateConstructorUsedError;
+  bool get leavePage => throw _privateConstructorUsedError;
+  bool get finishResponse => throw _privateConstructorUsedError; // H_ recode
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   KtMap<QuestionId, Answer> get mainAnswerMap =>
       throw _privateConstructorUsedError;
@@ -5527,6 +6307,10 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
       bool isReadOnly,
+      bool appIsPaused,
+      bool showDialog,
+      bool leavePage,
+      bool finishResponse,
       KtList<Question> mainQuestionList,
       KtMap<QuestionId, Answer> mainAnswerMap,
       KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
@@ -5572,6 +6356,10 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
     Object? isReadOnly = freezed,
+    Object? appIsPaused = freezed,
+    Object? showDialog = freezed,
+    Object? leavePage = freezed,
+    Object? finishResponse = freezed,
     Object? mainQuestionList = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
@@ -5669,6 +6457,22 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      appIsPaused: appIsPaused == freezed
+          ? _value.appIsPaused
+          : appIsPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showDialog: showDialog == freezed
+          ? _value.showDialog
+          : showDialog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      leavePage: leavePage == freezed
+          ? _value.leavePage
+          : leavePage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finishResponse: finishResponse == freezed
+          ? _value.finishResponse
+          : finishResponse // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
           : mainQuestionList // ignore: cast_nullable_to_non_nullable
@@ -5751,6 +6555,10 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
       bool isReadOnly,
+      bool appIsPaused,
+      bool showDialog,
+      bool leavePage,
+      bool finishResponse,
       KtList<Question> mainQuestionList,
       KtMap<QuestionId, Answer> mainAnswerMap,
       KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
@@ -5803,6 +6611,10 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
     Object? isReadOnly = freezed,
+    Object? appIsPaused = freezed,
+    Object? showDialog = freezed,
+    Object? leavePage = freezed,
+    Object? finishResponse = freezed,
     Object? mainQuestionList = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
@@ -5900,6 +6712,22 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      appIsPaused: appIsPaused == freezed
+          ? _value.appIsPaused
+          : appIsPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showDialog: showDialog == freezed
+          ? _value.showDialog
+          : showDialog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      leavePage: leavePage == freezed
+          ? _value.leavePage
+          : leavePage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finishResponse: finishResponse == freezed
+          ? _value.finishResponse
+          : finishResponse // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
           : mainQuestionList // ignore: cast_nullable_to_non_nullable
@@ -5918,9 +6746,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateSurveyPageState
-    with DiagnosticableTreeMixin
-    implements _UpdateSurveyPageState {
+class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
   const _$_UpdateSurveyPageState(
       {required this.page,
       required this.newestPage,
@@ -5945,11 +6771,15 @@ class _$_UpdateSurveyPageState
       required this.pageQuestionList,
       required this.contentQuestionList,
       required this.isReadOnly,
+      required this.appIsPaused,
+      required this.showDialog,
+      required this.leavePage,
+      required this.finishResponse,
       required this.mainQuestionList,
       required this.mainAnswerMap,
       required this.mainAnswerStatusMap});
 
-  @override // H_
+  @override // H_ restore
   final PageNumber page;
   @override
   final PageNumber newestPage;
@@ -5993,8 +6823,16 @@ class _$_UpdateSurveyPageState
   final KtList<Question> pageQuestionList;
   @override
   final KtList<Question> contentQuestionList;
-  @override // H_
+  @override // H_ page state
   final bool isReadOnly;
+  @override
+  final bool appIsPaused;
+  @override
+  final bool showDialog;
+  @override
+  final bool leavePage;
+  @override
+  final bool finishResponse;
   @override // H_ recode
   final KtList<Question> mainQuestionList;
   @override
@@ -6003,42 +6841,8 @@ class _$_UpdateSurveyPageState
   final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageState'))
-      ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('newestPage', newestPage))
-      ..add(DiagnosticsProperty('direction', direction))
-      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
-      ..add(DiagnosticsProperty('isLastPage', isLastPage))
-      ..add(DiagnosticsProperty('warning', warning))
-      ..add(DiagnosticsProperty('showWarning', showWarning))
-      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
-      ..add(DiagnosticsProperty('updateState', updateState))
-      ..add(DiagnosticsProperty('updateType', updateType))
-      ..add(DiagnosticsProperty('restoreState', restoreState))
-      ..add(DiagnosticsProperty('referenceListState', referenceListState))
-      ..add(DiagnosticsProperty('referenceList', referenceList))
-      ..add(DiagnosticsProperty('surveyFailure', surveyFailure))
-      ..add(DiagnosticsProperty('respondent', respondent))
-      ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(
-          DiagnosticsProperty('respondentResponseList', respondentResponseList))
-      ..add(DiagnosticsProperty('surveyId', surveyId))
-      ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('questionList', questionList))
-      ..add(DiagnosticsProperty('pageQuestionList', pageQuestionList))
-      ..add(DiagnosticsProperty('contentQuestionList', contentQuestionList))
-      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
-      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
-      ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
-      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
+  String toString() {
+    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -6111,6 +6915,10 @@ class _$_UpdateSurveyPageState
                 const DeepCollectionEquality()
                     .equals(other.contentQuestionList, contentQuestionList)) &&
             (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.appIsPaused, appIsPaused) || const DeepCollectionEquality().equals(other.appIsPaused, appIsPaused)) &&
+            (identical(other.showDialog, showDialog) || const DeepCollectionEquality().equals(other.showDialog, showDialog)) &&
+            (identical(other.leavePage, leavePage) || const DeepCollectionEquality().equals(other.leavePage, leavePage)) &&
+            (identical(other.finishResponse, finishResponse) || const DeepCollectionEquality().equals(other.finishResponse, finishResponse)) &&
             (identical(other.mainQuestionList, mainQuestionList) || const DeepCollectionEquality().equals(other.mainQuestionList, mainQuestionList)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) || const DeepCollectionEquality().equals(other.mainAnswerMap, mainAnswerMap)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
@@ -6142,6 +6950,10 @@ class _$_UpdateSurveyPageState
       const DeepCollectionEquality().hash(pageQuestionList) ^
       const DeepCollectionEquality().hash(contentQuestionList) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(appIsPaused) ^
+      const DeepCollectionEquality().hash(showDialog) ^
+      const DeepCollectionEquality().hash(leavePage) ^
+      const DeepCollectionEquality().hash(finishResponse) ^
       const DeepCollectionEquality().hash(mainQuestionList) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap);
@@ -6178,12 +6990,16 @@ abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
           required KtList<Question> pageQuestionList,
           required KtList<Question> contentQuestionList,
           required bool isReadOnly,
+          required bool appIsPaused,
+          required bool showDialog,
+          required bool leavePage,
+          required bool finishResponse,
           required KtList<Question> mainQuestionList,
           required KtMap<QuestionId, Answer> mainAnswerMap,
           required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
       _$_UpdateSurveyPageState;
 
-  @override // H_
+  @override // H_ restore
   PageNumber get page => throw _privateConstructorUsedError;
   @override
   PageNumber get newestPage => throw _privateConstructorUsedError;
@@ -6230,8 +7046,16 @@ abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
   @override
   KtList<Question> get contentQuestionList =>
       throw _privateConstructorUsedError;
-  @override // H_
+  @override // H_ page state
   bool get isReadOnly => throw _privateConstructorUsedError;
+  @override
+  bool get appIsPaused => throw _privateConstructorUsedError;
+  @override
+  bool get showDialog => throw _privateConstructorUsedError;
+  @override
+  bool get leavePage => throw _privateConstructorUsedError;
+  @override
+  bool get finishResponse => throw _privateConstructorUsedError;
   @override // H_ recode
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   @override

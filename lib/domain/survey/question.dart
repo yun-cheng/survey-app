@@ -1,9 +1,6 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../core/failures.dart';
-import '../core/value_objects.dart';
 import '../overview/value_objects.dart';
 import '../respondent/value_objects.dart';
 import 'answer.dart';
@@ -23,7 +20,7 @@ class Question with _$Question {
   const factory Question({
     required QuestionId id,
     required bool hideId,
-    required SerialNumber serialNumber,
+    required int serialNumber,
     required KtList<FormattedText> body,
     required String stringBody,
     required QuestionNote note,
@@ -40,7 +37,7 @@ class Question with _$Question {
   factory Question.empty() => Question(
         id: QuestionId.empty(),
         hideId: false,
-        serialNumber: SerialNumber(0),
+        serialNumber: 0,
         body: emptyList<FormattedText>(),
         stringBody: '',
         note: QuestionNote.empty(),
@@ -54,7 +51,7 @@ class Question with _$Question {
         recodeNeeded: false,
       );
 
-  bool get isEmpty => this.id.isEmpty;
+  bool get isEmpty => id.isEmpty;
 
   Question updateBody({
     required KtList<Reference> referenceList,
@@ -87,27 +84,7 @@ class Question with _$Question {
   String toPlainTextBody({
     required bool withId,
   }) {
-    final idText = withId ? '${this.id.getValueAnyway()}. ' : '';
+    final idText = withId ? '${id.getValueAnyway()}. ' : '';
     return idText + stringBody;
-  }
-
-  Option<ValueFailure<dynamic>> get failureOption {
-    return (this.id.failureOrUnit)
-        .andThen(serialNumber.failureOrUnit)
-        // .andThen(body.failureOrUnit)
-        .andThen(note.failureOrUnit)
-        .andThen(type.failureOrUnit)
-        // .andThen(show.failureOrUnit)
-        // .andThen(validateAnswer.failureOrUnit)
-        .andThen(upperQuestionId.failureOrUnit)
-        .andThen(pageNumber.failureOrUnit)
-        .andThen(
-          choiceList
-              .map((choice) => choice.failureOption)
-              .filter((o) => o.isSome())
-              .getOrElse(0, (_) => none())
-              .fold(() => right(unit), (f) => left(f)),
-        )
-        .fold((f) => some(f), (_) => none());
   }
 }

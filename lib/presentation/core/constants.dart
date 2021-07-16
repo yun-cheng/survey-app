@@ -89,6 +89,8 @@ const kPageControlButtonWidth = 80.0;
 
 const kCardMaxWith = BoxConstraints(maxWidth: 730.0);
 
+const kDialogMaxWith = BoxConstraints(maxWidth: 450.0);
+
 const kAppBarTextStyle = TextStyle(
   fontSize: kH3FontSize,
   fontWeight: FontWeight.w500,

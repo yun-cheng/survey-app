@@ -19,7 +19,11 @@ class ResponseEvent with _$ResponseEvent {
   const factory ResponseEvent.uploadTimerUpdated() = _UploadTimerUpdated;
 
   // H_ 上傳 responseList
-  const factory ResponseEvent.responseListSynced() = _ResponseListSynced;
+  const factory ResponseEvent.responseListUploading() = _ResponseListUploading;
+
+  const factory ResponseEvent.responseListUploaded(
+    Either<SurveyFailure, Unit> failureOrSuccess,
+  ) = _ResponseListUploaded;
 
   // H_ 使用者選擇問卷
   const factory ResponseEvent.surveySelected({
@@ -44,7 +48,7 @@ class ResponseEvent with _$ResponseEvent {
         respondent: respondent,
         moduleType: moduleType,
         withResponseId: withResponseId,
-        responseId: responseId ?? UniqueId(),
+        responseId: responseId ?? UniqueId.v1(),
       );
 
   // H_ 從 responseList 回復要進行的 response
@@ -63,9 +67,18 @@ class ResponseEvent with _$ResponseEvent {
     required bool responseFinished,
   }) = _EditFinished;
 
+  // H_ 使用者在閒置後，選擇繼續訪問
+  const factory ResponseEvent.responseResumed(UniqueId responseId) =
+      _ResponseResumed;
+
   // H_ 更新當前受訪者在其他模組的 responses
   const factory ResponseEvent.respondentResponseListUpdated() =
       _RespondentResponseListUpdated;
+
+  // H_ referenceList 更新時
+  const factory ResponseEvent.referenceListUpdated({
+    required KtList<Reference> referenceList,
+  }) = _ReferenceListUpdated;
 
   const factory ResponseEvent.loggedOut() = _LoggedOut;
 }

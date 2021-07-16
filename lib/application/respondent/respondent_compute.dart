@@ -147,13 +147,17 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
   KtList<Respondent> respondentList;
   KtList<Response> finishedResponseList;
 
-  // S_1-1
+  // S_1-1 先篩出除了查址外已完成的 responses
   respondentList = state.respondentList;
   finishedResponseList = state.responseInfoList.filter(
-    (r) => r.surveyId == state.survey.id && r.responseStatus.isFinished,
+    (r) =>
+        r.surveyId == state.survey.id &&
+        r.responseStatus.isFinished &&
+        r.moduleType != ModuleType.visitReport(),
   );
 
-  // S_1-2 finished tab
+  // NOTE 從最後一個分頁開始篩
+  // S_1-2 篩出預過錄已完成，代表全部都已完成
   pResponseList = finishedResponseList
       .partition((r) => r.moduleType == ModuleType.recode());
 
@@ -162,16 +166,22 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
 
   tabRespondentsMap[TabType.finished] = pRespondentList.first;
 
-  // S_2-1
+  // S_2-1 篩剩餘的往下繼續篩
   respondentList = pRespondentList.second;
   finishedResponseList = pResponseList.second;
 
-  // S_2-2 recode tab
-  pResponseList = finishedResponseList
-      .partition((r) => r.moduleType == ModuleType.interviewReport());
+  // S_2-2 篩出住屋、訪問紀錄都已完成，代表進到預過錄分頁
+  pResponseList =
+      finishedResponseList.partition((r) => r.moduleType.isInterviewReportTab);
 
-  pRespondentList = respondentList
-      .partition((r) => pResponseList.first.any((s) => s.respondentId == r.id));
+  pRespondentList = respondentList.partition(
+    (r) => pResponseList.first
+        .filter((s) => s.respondentId == r.id)
+        .map((s) => s.moduleType)
+        .containsAll(
+          KtList.of(ModuleType.interviewReport(), ModuleType.housingType()),
+        ),
+  );
 
   tabRespondentsMap[TabType.recode] = pRespondentList.first;
 
@@ -179,16 +189,21 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
   respondentList = pRespondentList.second;
   finishedResponseList = pResponseList.second;
 
-  // S_3-2 interviewReport tab
-  pResponseList =
-      finishedResponseList.partition((r) => r.moduleType == ModuleType.main());
+  // S_3-2 篩出戶抽、主問卷都已完成，代表進到訪問紀錄分頁
+  pResponseList = finishedResponseList.partition((r) => r.moduleType.isMainTab);
 
-  pRespondentList = respondentList
-      .partition((r) => pResponseList.first.any((s) => s.respondentId == r.id));
+  pRespondentList = respondentList.partition(
+    (r) => pResponseList.first
+        .filter((s) => s.respondentId == r.id)
+        .map((s) => s.moduleType)
+        .containsAll(
+          KtList.of(ModuleType.samplingWithinHousehold(), ModuleType.main()),
+        ),
+  );
 
   tabRespondentsMap[TabType.interviewReport] = pRespondentList.first;
 
-  // S_4-1 start tab
+  // S_4-1 剩下的就在訪問分頁
   tabRespondentsMap[TabType.start] = pRespondentList.second;
 
   tabRespondentsMap.mapValuesTo(

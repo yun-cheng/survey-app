@@ -18,7 +18,7 @@ class _$WarningTearOff {
 
   _Warning call(
       {required QuestionId id,
-      required SerialNumber serialNumber,
+      required int serialNumber,
       required PageNumber pageNumber,
       required WarningType type}) {
     return _Warning(
@@ -36,7 +36,7 @@ const $Warning = _$WarningTearOff();
 /// @nodoc
 mixin _$Warning {
   QuestionId get id => throw _privateConstructorUsedError;
-  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
   PageNumber get pageNumber => throw _privateConstructorUsedError;
   WarningType get type => throw _privateConstructorUsedError;
 
@@ -50,7 +50,7 @@ abstract class $WarningCopyWith<$Res> {
       _$WarningCopyWithImpl<$Res>;
   $Res call(
       {QuestionId id,
-      SerialNumber serialNumber,
+      int serialNumber,
       PageNumber pageNumber,
       WarningType type});
 }
@@ -78,7 +78,7 @@ class _$WarningCopyWithImpl<$Res> implements $WarningCopyWith<$Res> {
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
-              as SerialNumber,
+              as int,
       pageNumber: pageNumber == freezed
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$WarningCopyWith<$Res> implements $WarningCopyWith<$Res> {
   @override
   $Res call(
       {QuestionId id,
-      SerialNumber serialNumber,
+      int serialNumber,
       PageNumber pageNumber,
       WarningType type});
 }
@@ -127,7 +127,7 @@ class __$WarningCopyWithImpl<$Res> extends _$WarningCopyWithImpl<$Res>
       serialNumber: serialNumber == freezed
           ? _value.serialNumber
           : serialNumber // ignore: cast_nullable_to_non_nullable
-              as SerialNumber,
+              as int,
       pageNumber: pageNumber == freezed
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ class _$_Warning extends _Warning {
   @override
   final QuestionId id;
   @override
-  final SerialNumber serialNumber;
+  final int serialNumber;
   @override
   final PageNumber pageNumber;
   @override
@@ -197,7 +197,7 @@ class _$_Warning extends _Warning {
 abstract class _Warning extends Warning {
   const factory _Warning(
       {required QuestionId id,
-      required SerialNumber serialNumber,
+      required int serialNumber,
       required PageNumber pageNumber,
       required WarningType type}) = _$_Warning;
   const _Warning._() : super._();
@@ -205,7 +205,7 @@ abstract class _Warning extends Warning {
   @override
   QuestionId get id => throw _privateConstructorUsedError;
   @override
-  SerialNumber get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber => throw _privateConstructorUsedError;
   @override
   PageNumber get pageNumber => throw _privateConstructorUsedError;
   @override

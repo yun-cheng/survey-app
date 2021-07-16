@@ -3,7 +3,7 @@ part of 'audio_recorder_bloc.dart';
 @freezed
 class AudioRecorderEvent with _$AudioRecorderEvent {
   // H_ 開始錄音
-  const factory AudioRecorderEvent.recordStarted() = _RecordStarted;
+  const factory AudioRecorderEvent.recordStarted(UniqueId fileName) = _RecordStarted;
 
   // H_ 停止錄音
   const factory AudioRecorderEvent.recordStopped() = _RecordStopped;

@@ -46,6 +46,10 @@ class _$UpdateSurveyPageStateDtoTearOff {
       required String surveyId,
       required String moduleType,
       required bool isReadOnly,
+      required bool appIsPaused,
+      required bool showDialog,
+      required bool leavePage,
+      required bool finishResponse,
       required Map<String, AnswerDto> mainAnswerMap,
       required Map<String, AnswerStatusDto> mainAnswerStatusMap}) {
     return _UpdateSurveyPageStateDto(
@@ -73,6 +77,10 @@ class _$UpdateSurveyPageStateDtoTearOff {
       surveyId: surveyId,
       moduleType: moduleType,
       isReadOnly: isReadOnly,
+      appIsPaused: appIsPaused,
+      showDialog: showDialog,
+      leavePage: leavePage,
+      finishResponse: finishResponse,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
     );
@@ -114,9 +122,12 @@ mixin _$UpdateSurveyPageStateDto {
   List<ResponseDto> get respondentResponseList =>
       throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
-  String get moduleType =>
-      throw _privateConstructorUsedError; // required QuestionDto question,
+  String get moduleType => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get appIsPaused => throw _privateConstructorUsedError;
+  bool get showDialog => throw _privateConstructorUsedError;
+  bool get leavePage => throw _privateConstructorUsedError;
+  bool get finishResponse => throw _privateConstructorUsedError;
   Map<String, AnswerDto> get mainAnswerMap =>
       throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get mainAnswerStatusMap =>
@@ -158,6 +169,10 @@ abstract class $UpdateSurveyPageStateDtoCopyWith<$Res> {
       String surveyId,
       String moduleType,
       bool isReadOnly,
+      bool appIsPaused,
+      bool showDialog,
+      bool leavePage,
+      bool finishResponse,
       Map<String, AnswerDto> mainAnswerMap,
       Map<String, AnswerStatusDto> mainAnswerStatusMap});
 
@@ -200,6 +215,10 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? surveyId = freezed,
     Object? moduleType = freezed,
     Object? isReadOnly = freezed,
+    Object? appIsPaused = freezed,
+    Object? showDialog = freezed,
+    Object? leavePage = freezed,
+    Object? finishResponse = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -300,6 +319,22 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      appIsPaused: appIsPaused == freezed
+          ? _value.appIsPaused
+          : appIsPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showDialog: showDialog == freezed
+          ? _value.showDialog
+          : showDialog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      leavePage: leavePage == freezed
+          ? _value.leavePage
+          : leavePage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finishResponse: finishResponse == freezed
+          ? _value.finishResponse
+          : finishResponse // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -358,6 +393,10 @@ abstract class _$UpdateSurveyPageStateDtoCopyWith<$Res>
       String surveyId,
       String moduleType,
       bool isReadOnly,
+      bool appIsPaused,
+      bool showDialog,
+      bool leavePage,
+      bool finishResponse,
       Map<String, AnswerDto> mainAnswerMap,
       Map<String, AnswerStatusDto> mainAnswerStatusMap});
 
@@ -405,6 +444,10 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? surveyId = freezed,
     Object? moduleType = freezed,
     Object? isReadOnly = freezed,
+    Object? appIsPaused = freezed,
+    Object? showDialog = freezed,
+    Object? leavePage = freezed,
+    Object? finishResponse = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -505,6 +548,22 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
               as bool,
+      appIsPaused: appIsPaused == freezed
+          ? _value.appIsPaused
+          : appIsPaused // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showDialog: showDialog == freezed
+          ? _value.showDialog
+          : showDialog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      leavePage: leavePage == freezed
+          ? _value.leavePage
+          : leavePage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      finishResponse: finishResponse == freezed
+          ? _value.finishResponse
+          : finishResponse // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -545,6 +604,10 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       required this.surveyId,
       required this.moduleType,
       required this.isReadOnly,
+      required this.appIsPaused,
+      required this.showDialog,
+      required this.leavePage,
+      required this.finishResponse,
       required this.mainAnswerMap,
       required this.mainAnswerStatusMap})
       : super._();
@@ -598,8 +661,16 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
   final String surveyId;
   @override
   final String moduleType;
-  @override // required QuestionDto question,
+  @override
   final bool isReadOnly;
+  @override
+  final bool appIsPaused;
+  @override
+  final bool showDialog;
+  @override
+  final bool leavePage;
+  @override
+  final bool finishResponse;
   @override
   final Map<String, AnswerDto> mainAnswerMap;
   @override
@@ -607,7 +678,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
 
   @override
   String toString() {
-    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -681,6 +752,10 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
                     .equals(other.surveyId, surveyId)) &&
             (identical(other.moduleType, moduleType) || const DeepCollectionEquality().equals(other.moduleType, moduleType)) &&
             (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.appIsPaused, appIsPaused) || const DeepCollectionEquality().equals(other.appIsPaused, appIsPaused)) &&
+            (identical(other.showDialog, showDialog) || const DeepCollectionEquality().equals(other.showDialog, showDialog)) &&
+            (identical(other.leavePage, leavePage) || const DeepCollectionEquality().equals(other.leavePage, leavePage)) &&
+            (identical(other.finishResponse, finishResponse) || const DeepCollectionEquality().equals(other.finishResponse, finishResponse)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) || const DeepCollectionEquality().equals(other.mainAnswerMap, mainAnswerMap)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
   }
@@ -712,6 +787,10 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(appIsPaused) ^
+      const DeepCollectionEquality().hash(showDialog) ^
+      const DeepCollectionEquality().hash(leavePage) ^
+      const DeepCollectionEquality().hash(finishResponse) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap);
 
@@ -753,6 +832,10 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
           required String surveyId,
           required String moduleType,
           required bool isReadOnly,
+          required bool appIsPaused,
+          required bool showDialog,
+          required bool leavePage,
+          required bool finishResponse,
           required Map<String, AnswerDto> mainAnswerMap,
           required Map<String, AnswerStatusDto> mainAnswerStatusMap}) =
       _$_UpdateSurveyPageStateDto;
@@ -811,8 +894,16 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
   String get surveyId => throw _privateConstructorUsedError;
   @override
   String get moduleType => throw _privateConstructorUsedError;
-  @override // required QuestionDto question,
+  @override
   bool get isReadOnly => throw _privateConstructorUsedError;
+  @override
+  bool get appIsPaused => throw _privateConstructorUsedError;
+  @override
+  bool get showDialog => throw _privateConstructorUsedError;
+  @override
+  bool get leavePage => throw _privateConstructorUsedError;
+  @override
+  bool get finishResponse => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerDto> get mainAnswerMap =>
       throw _privateConstructorUsedError;

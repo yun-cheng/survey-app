@@ -3,7 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import '../../application/audio/audio_recorder/audio_recorder_bloc.dart';
+import '../../application/audio/upload_audio/upload_audio_bloc.dart';
 import '../../application/auth/auth_bloc.dart';
+import '../../application/core/device/device_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
 import '../../application/survey/answer/answer_bloc.dart';
@@ -14,6 +16,7 @@ import '../../application/survey/update_answer_status/update_answer_status_bloc.
 import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/audio/audio_recorder/i_audio_recorder.dart';
+import '../../domain/audio/i_audio_repository.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/survey/i_survey_repository.dart';
@@ -32,6 +35,10 @@ class AppWidget extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => NavigationBloc(),
+        ),
+        BlocProvider(
+          create: (_) => DeviceBloc(),
+          lazy: false,
         ),
         BlocProvider(
           create: (_) => AuthBloc(
@@ -91,6 +98,12 @@ class AppWidget extends StatelessWidget {
         BlocProvider(
           create: (_) => AudioRecorderBloc(
             getIt<IAudioRecorder>(),
+          ),
+          lazy: false,
+        ),
+        BlocProvider(
+          create: (_) => UploadAudioBloc(
+            getIt<IAudioRepository>(),
           ),
           lazy: false,
         ),

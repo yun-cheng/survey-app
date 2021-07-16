@@ -10,6 +10,7 @@ import '../../../domain/core/navigation_page.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
+import '../../routes/router.gr.dart';
 
 class VisitHistory extends StatelessWidget {
   final Respondent respondent;
@@ -53,8 +54,11 @@ class VisitHistory extends StatelessWidget {
                         respondentId: respondent.id,
                       ),
                     );
-                context.router.pushNamed(
-                  '/respondent/${respondent.id.getOrCrash()}',
+                context.router.push(
+                  SurveyRoute(
+                    respondentId: respondent.id.getValueAnyway(),
+                    showDialogOnRestart: false,
+                  ),
                 );
               },
               child: Align(

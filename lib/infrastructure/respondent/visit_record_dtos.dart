@@ -23,7 +23,7 @@ class VisitRecordDto with _$VisitRecordDto {
   factory VisitRecordDto.fromDomain(VisitRecord domain) {
     return VisitRecordDto(
       respondentId: domain.respondentId.getValueAnyway(),
-      responseId: domain.responseId.getValueAnyway(),
+      responseId: domain.responseId.value,
       visitTime: VisitTimeDto.fromDomain(domain.visitTime),
       status: domain.status,
       description: domain.description,
@@ -33,7 +33,7 @@ class VisitRecordDto with _$VisitRecordDto {
   VisitRecord toDomain() {
     return VisitRecord(
       respondentId: RespondentId(respondentId),
-      responseId: UniqueId.fromUniqueString(responseId),
+      responseId: UniqueId(responseId),
       visitTime: visitTime.toDomain(),
       status: status,
       description: description,

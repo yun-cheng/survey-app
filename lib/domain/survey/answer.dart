@@ -97,6 +97,24 @@ class Answer with _$Answer {
     }
   }
 
+  // H_ 轉成可比對的 valueString，目前用在比對連鎖題上層的值
+  String get valueString {
+    String? result;
+    if (type == AnswerType.int()) {
+      result = intValue?.toString();
+    } else if (type == AnswerType.string()) {
+      result = stringValue;
+    } else if (type == AnswerType.choice()) {
+      result = choiceValue?.id.getValueAnyway();
+    } else if (type == AnswerType.choiceList()) {
+      // TODO 如要使用，可能須排序
+      result = choiceListValue
+          ?.map((choice) => choice.id.getValueAnyway())
+          .joinToString(separator: ',');
+    }
+    return result ?? '';
+  }
+
   // H_ 單選題使用
   ChoiceId? get groupValue {
     if (type == AnswerType.choice()) {

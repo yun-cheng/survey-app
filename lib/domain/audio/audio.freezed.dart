@@ -41,6 +41,9 @@ abstract class $AudioCopyWith<$Res> {
   factory $AudioCopyWith(Audio value, $Res Function(Audio) then) =
       _$AudioCopyWithImpl<$Res>;
   $Res call({UniqueId fileName, AudioType type});
+
+  $UniqueIdCopyWith<$Res> get fileName;
+  $AudioTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -67,6 +70,20 @@ class _$AudioCopyWithImpl<$Res> implements $AudioCopyWith<$Res> {
               as AudioType,
     ));
   }
+
+  @override
+  $UniqueIdCopyWith<$Res> get fileName {
+    return $UniqueIdCopyWith<$Res>(_value.fileName, (value) {
+      return _then(_value.copyWith(fileName: value));
+    });
+  }
+
+  @override
+  $AudioTypeCopyWith<$Res> get type {
+    return $AudioTypeCopyWith<$Res>(_value.type, (value) {
+      return _then(_value.copyWith(type: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -75,6 +92,11 @@ abstract class _$AudioCopyWith<$Res> implements $AudioCopyWith<$Res> {
       __$AudioCopyWithImpl<$Res>;
   @override
   $Res call({UniqueId fileName, AudioType type});
+
+  @override
+  $UniqueIdCopyWith<$Res> get fileName;
+  @override
+  $AudioTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
