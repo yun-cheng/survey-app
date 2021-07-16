@@ -20,7 +20,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   // H_ answerMap 有變更時
   const factory UpdateAnswerStatusEvent.answerMapUpdated({
     required KtMap<QuestionId, Answer> answerMap,
-    required QuestionId questionId,
+    required KtList<QuestionId> questionIdList,
     required bool updateAnswerStatus,
   }) = _AnswerMapUpdated;
 
@@ -33,7 +33,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   const factory UpdateAnswerStatusEvent.showQuestionChecked() =
       _ShowQuestionChecked;
 
-  // H_ 清空需要清空的作答
+  // H_ 清空部分題目作答
   const factory UpdateAnswerStatusEvent.qIdListAnswerCleared() =
       _QIdListAnswerCleared;
 }

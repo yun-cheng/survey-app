@@ -21,7 +21,9 @@ _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
       (k, e) =>
           MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
-    questionId: json['questionId'] as String,
+    questionIdList: (json['questionIdList'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
     pageQuestionList: (json['pageQuestionList'] as List<dynamic>)
         .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -55,7 +57,7 @@ Map<String, dynamic> _$_$_SurveyPageStateDtoToJson(
       'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerStatusMap':
           instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
-      'questionId': instance.questionId,
+      'questionIdList': instance.questionIdList,
       'pageQuestionList':
           instance.pageQuestionList.map((e) => e.toJson()).toList(),
       'contentQuestionList':

@@ -69,12 +69,14 @@ class UpdateAnswerStatusBloc
       answerMapUpdated: (e) async* {
         logger('Event').i('UpdateAnswerStatusBloc: answerMapUpdated');
 
-        // S_ 有沒有需要更新 answerStatus
+        // S_ 有沒有需要更新 answerStatus，
+        //  第一次傳進來會是 true，第二次在清空完部分作答後會是 false，
+        //  此時才算 LoadSuccess
         if (e.updateAnswerStatus) {
           yield state.copyWith(
             updateState: const LoadState.inProgress(),
             answerMap: e.answerMap,
-            questionId: e.questionId,
+            questionId: e.questionIdList.first(),
           );
 
           final lb = await _loadBalancer.loadBalancer;
@@ -83,13 +85,15 @@ class UpdateAnswerStatusBloc
             state.copyWith(
               updateState: const LoadState.inProgress(),
               answerMap: e.answerMap,
-              questionId: e.questionId,
+              questionId: e.questionIdList.first(),
             ),
           );
 
           add(const UpdateAnswerStatusEvent.qIdListAnswerCleared());
         } else {
+          // NOTE 答案清空完才能接 UpdateSurveyPageEvent.answerChanged()
           yield state.copyWith(
+            updateState: const LoadState.success(),
             answerMap: e.answerMap,
           );
         }
@@ -119,18 +123,18 @@ class UpdateAnswerStatusBloc
         );
         add(const UpdateAnswerStatusEvent.showQuestionChecked());
       },
-      // H_ 清空需要清空的作答
+      // H_ 清空部分題目作答
       qIdListAnswerCleared: (e) async* {
         logger('Event').i('UpdateAnswerStatusBloc: qIdListAnswerCleared');
 
-        state.clearAnswerQIdList.forEach((questionId) {
-          _updateAnswerBloc.add(
-            UpdateAnswerEvent.answerCleared(questionId: questionId),
-          );
-        });
+        _updateAnswerBloc.add(
+          UpdateAnswerEvent.answerQIdListCleared(
+            questionIdList: state.clearAnswerQIdList,
+          ),
+        );
+
         // NOTE 答案清空完才能接 UpdateSurveyPageEvent.answerChanged()
         yield state.copyWith(
-          updateState: const LoadState.success(),
           clearAnswerQIdList: const KtList<QuestionId>.empty(),
         );
       },

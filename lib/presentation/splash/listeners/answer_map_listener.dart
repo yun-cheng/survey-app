@@ -6,8 +6,7 @@ import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 
 // H_ answerMap 有變更時
-final answerMapListener =
-    BlocListener<UpdateAnswerBloc, UpdateAnswerState>(
+final answerMapListener = BlocListener<UpdateAnswerBloc, UpdateAnswerState>(
   listenWhen: (p, c) =>
       p.updateState != c.updateState && c.updateState is LoadSuccess,
   listener: (context, state) {
@@ -16,14 +15,14 @@ final answerMapListener =
     context.read<SurveyPageBloc>().add(
           SurveyPageEvent.answerMapUpdated(
             answerMap: state.answerMap,
-            questionId: state.questionId,
+            questionIdList: state.questionIdList,
           ),
         );
 
     context.read<UpdateAnswerStatusBloc>().add(
           UpdateAnswerStatusEvent.answerMapUpdated(
             answerMap: state.answerMap,
-            questionId: state.questionId,
+            questionIdList: state.questionIdList,
             updateAnswerStatus: state.updateAnswerStatus,
           ),
         );

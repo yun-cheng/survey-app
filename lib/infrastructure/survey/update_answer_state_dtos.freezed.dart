@@ -23,13 +23,13 @@ class _$UpdateAnswerStateDtoTearOff {
   _UpdateAnswerStateDto call(
       {required Map<String, AnswerDto> answerMap,
       required Map<String, dynamic> updateState,
-      required String questionId,
+      required List<String> questionIdList,
       required bool updateAnswerStatus,
       required Map<String, dynamic> restoreState}) {
     return _UpdateAnswerStateDto(
       answerMap: answerMap,
       updateState: updateState,
-      questionId: questionId,
+      questionIdList: questionIdList,
       updateAnswerStatus: updateAnswerStatus,
       restoreState: restoreState,
     );
@@ -47,7 +47,7 @@ const $UpdateAnswerStateDto = _$UpdateAnswerStateDtoTearOff();
 mixin _$UpdateAnswerStateDto {
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
-  String get questionId => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
   Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
 
@@ -65,7 +65,7 @@ abstract class $UpdateAnswerStateDtoCopyWith<$Res> {
   $Res call(
       {Map<String, AnswerDto> answerMap,
       Map<String, dynamic> updateState,
-      String questionId,
+      List<String> questionIdList,
       bool updateAnswerStatus,
       Map<String, dynamic> restoreState});
 }
@@ -83,7 +83,7 @@ class _$UpdateAnswerStateDtoCopyWithImpl<$Res>
   $Res call({
     Object? answerMap = freezed,
     Object? updateState = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? updateAnswerStatus = freezed,
     Object? restoreState = freezed,
   }) {
@@ -96,10 +96,10 @@ class _$UpdateAnswerStateDtoCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as String,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       updateAnswerStatus: updateAnswerStatus == freezed
           ? _value.updateAnswerStatus
           : updateAnswerStatus // ignore: cast_nullable_to_non_nullable
@@ -122,7 +122,7 @@ abstract class _$UpdateAnswerStateDtoCopyWith<$Res>
   $Res call(
       {Map<String, AnswerDto> answerMap,
       Map<String, dynamic> updateState,
-      String questionId,
+      List<String> questionIdList,
       bool updateAnswerStatus,
       Map<String, dynamic> restoreState});
 }
@@ -142,7 +142,7 @@ class __$UpdateAnswerStateDtoCopyWithImpl<$Res>
   $Res call({
     Object? answerMap = freezed,
     Object? updateState = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? updateAnswerStatus = freezed,
     Object? restoreState = freezed,
   }) {
@@ -155,10 +155,10 @@ class __$UpdateAnswerStateDtoCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as String,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       updateAnswerStatus: updateAnswerStatus == freezed
           ? _value.updateAnswerStatus
           : updateAnswerStatus // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$_UpdateAnswerStateDto extends _UpdateAnswerStateDto {
   const _$_UpdateAnswerStateDto(
       {required this.answerMap,
       required this.updateState,
-      required this.questionId,
+      required this.questionIdList,
       required this.updateAnswerStatus,
       required this.restoreState})
       : super._();
@@ -190,7 +190,7 @@ class _$_UpdateAnswerStateDto extends _UpdateAnswerStateDto {
   @override
   final Map<String, dynamic> updateState;
   @override
-  final String questionId;
+  final List<String> questionIdList;
   @override
   final bool updateAnswerStatus;
   @override
@@ -198,7 +198,7 @@ class _$_UpdateAnswerStateDto extends _UpdateAnswerStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStateDto(answerMap: $answerMap, updateState: $updateState, questionId: $questionId, updateAnswerStatus: $updateAnswerStatus, restoreState: $restoreState)';
+    return 'UpdateAnswerStateDto(answerMap: $answerMap, updateState: $updateState, questionIdList: $questionIdList, updateAnswerStatus: $updateAnswerStatus, restoreState: $restoreState)';
   }
 
   @override
@@ -211,9 +211,9 @@ class _$_UpdateAnswerStateDto extends _UpdateAnswerStateDto {
             (identical(other.updateState, updateState) ||
                 const DeepCollectionEquality()
                     .equals(other.updateState, updateState)) &&
-            (identical(other.questionId, questionId) ||
+            (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
+                    .equals(other.questionIdList, questionIdList)) &&
             (identical(other.updateAnswerStatus, updateAnswerStatus) ||
                 const DeepCollectionEquality()
                     .equals(other.updateAnswerStatus, updateAnswerStatus)) &&
@@ -227,7 +227,7 @@ class _$_UpdateAnswerStateDto extends _UpdateAnswerStateDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(questionIdList) ^
       const DeepCollectionEquality().hash(updateAnswerStatus) ^
       const DeepCollectionEquality().hash(restoreState);
 
@@ -247,7 +247,7 @@ abstract class _UpdateAnswerStateDto extends UpdateAnswerStateDto {
   const factory _UpdateAnswerStateDto(
       {required Map<String, AnswerDto> answerMap,
       required Map<String, dynamic> updateState,
-      required String questionId,
+      required List<String> questionIdList,
       required bool updateAnswerStatus,
       required Map<String, dynamic> restoreState}) = _$_UpdateAnswerStateDto;
   const _UpdateAnswerStateDto._() : super._();
@@ -260,7 +260,7 @@ abstract class _UpdateAnswerStateDto extends UpdateAnswerStateDto {
   @override
   Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   @override
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
   @override

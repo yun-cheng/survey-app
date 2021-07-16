@@ -41,11 +41,11 @@ class _$UpdateAnswerStatusEventTearOff {
 
   _AnswerMapUpdated answerMapUpdated(
       {required KtMap<QuestionId, Answer> answerMap,
-      required QuestionId questionId,
+      required KtList<QuestionId> questionIdList,
       required bool updateAnswerStatus}) {
     return _AnswerMapUpdated(
       answerMap: answerMap,
-      questionId: questionId,
+      questionIdList: questionIdList,
       updateAnswerStatus: updateAnswerStatus,
     );
   }
@@ -83,7 +83,7 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
@@ -101,8 +101,8 @@ mixin _$UpdateAnswerStatusEvent {
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,
@@ -296,7 +296,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
@@ -318,8 +318,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,
@@ -448,7 +448,7 @@ class _$_StateRestoreSuccess
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
@@ -469,8 +469,8 @@ class _$_StateRestoreSuccess
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,
@@ -579,7 +579,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
@@ -600,8 +600,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,
@@ -659,7 +659,7 @@ abstract class _$AnswerMapUpdatedCopyWith<$Res> {
       __$AnswerMapUpdatedCopyWithImpl<$Res>;
   $Res call(
       {KtMap<QuestionId, Answer> answerMap,
-      QuestionId questionId,
+      KtList<QuestionId> questionIdList,
       bool updateAnswerStatus});
 }
 
@@ -677,7 +677,7 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? answerMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? updateAnswerStatus = freezed,
   }) {
     return _then(_AnswerMapUpdated(
@@ -685,10 +685,10 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, Answer>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
       updateAnswerStatus: updateAnswerStatus == freezed
           ? _value.updateAnswerStatus
           : updateAnswerStatus // ignore: cast_nullable_to_non_nullable
@@ -704,19 +704,19 @@ class _$_AnswerMapUpdated
     implements _AnswerMapUpdated {
   const _$_AnswerMapUpdated(
       {required this.answerMap,
-      required this.questionId,
+      required this.questionIdList,
       required this.updateAnswerStatus});
 
   @override
   final KtMap<QuestionId, Answer> answerMap;
   @override
-  final QuestionId questionId;
+  final KtList<QuestionId> questionIdList;
   @override
   final bool updateAnswerStatus;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.answerMapUpdated(answerMap: $answerMap, questionId: $questionId, updateAnswerStatus: $updateAnswerStatus)';
+    return 'UpdateAnswerStatusEvent.answerMapUpdated(answerMap: $answerMap, questionIdList: $questionIdList, updateAnswerStatus: $updateAnswerStatus)';
   }
 
   @override
@@ -726,7 +726,7 @@ class _$_AnswerMapUpdated
       ..add(DiagnosticsProperty(
           'type', 'UpdateAnswerStatusEvent.answerMapUpdated'))
       ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('questionId', questionId))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList))
       ..add(DiagnosticsProperty('updateAnswerStatus', updateAnswerStatus));
   }
 
@@ -737,9 +737,9 @@ class _$_AnswerMapUpdated
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
-            (identical(other.questionId, questionId) ||
+            (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
+                    .equals(other.questionIdList, questionIdList)) &&
             (identical(other.updateAnswerStatus, updateAnswerStatus) ||
                 const DeepCollectionEquality()
                     .equals(other.updateAnswerStatus, updateAnswerStatus)));
@@ -749,7 +749,7 @@ class _$_AnswerMapUpdated
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(questionIdList) ^
       const DeepCollectionEquality().hash(updateAnswerStatus);
 
   @JsonKey(ignore: true)
@@ -770,13 +770,13 @@ class _$_AnswerMapUpdated
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
     required TResult Function() qIdListAnswerCleared,
   }) {
-    return answerMapUpdated(answerMap, questionId, updateAnswerStatus);
+    return answerMapUpdated(answerMap, questionIdList, updateAnswerStatus);
   }
 
   @override
@@ -791,8 +791,8 @@ class _$_AnswerMapUpdated
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,
@@ -800,7 +800,7 @@ class _$_AnswerMapUpdated
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
-      return answerMapUpdated(answerMap, questionId, updateAnswerStatus);
+      return answerMapUpdated(answerMap, questionIdList, updateAnswerStatus);
     }
     return orElse();
   }
@@ -842,11 +842,11 @@ class _$_AnswerMapUpdated
 abstract class _AnswerMapUpdated implements UpdateAnswerStatusEvent {
   const factory _AnswerMapUpdated(
       {required KtMap<QuestionId, Answer> answerMap,
-      required QuestionId questionId,
+      required KtList<QuestionId> questionIdList,
       required bool updateAnswerStatus}) = _$_AnswerMapUpdated;
 
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerMapUpdatedCopyWith<_AnswerMapUpdated> get copyWith =>
@@ -941,7 +941,7 @@ class _$_SpecialAnswerSwitched
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
@@ -962,8 +962,8 @@ class _$_SpecialAnswerSwitched
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,
@@ -1080,7 +1080,7 @@ class _$_ShowQuestionChecked
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
@@ -1101,8 +1101,8 @@ class _$_ShowQuestionChecked
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,
@@ -1213,7 +1213,7 @@ class _$_QIdListAnswerCleared
     required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            QuestionId questionId, bool updateAnswerStatus)
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() showQuestionChecked,
@@ -1234,8 +1234,8 @@ class _$_QIdListAnswerCleared
         moduleLoaded,
     TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap, QuestionId questionId,
-            bool updateAnswerStatus)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? showQuestionChecked,

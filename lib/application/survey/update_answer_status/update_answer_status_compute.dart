@@ -129,7 +129,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
     // NOTE 有可能取到還未清空的答案，因此同時參考答題狀態
     showQuestion = question.show.evaluate(
       answerMap: state.answerMap,
-      answerStatusMap: state.answerStatusMap,
+      answerStatusMap: newAnswerStatusMap.toMap(),
     );
 
     // S_2 改變該題的 answerStatus

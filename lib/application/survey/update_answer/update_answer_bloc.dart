@@ -42,7 +42,7 @@ class UpdateAnswerBloc
           restoreState: const LoadState.inProgress(),
           updateState: const LoadState.success(),
           answerMap: e.answerMap,
-          questionId: QuestionId.empty(),
+          questionIdList: const KtList<QuestionId>.empty(),
           updateAnswerStatus: false,
         );
         add(const UpdateAnswerEvent.stateRestoreSuccess());
@@ -60,24 +60,17 @@ class UpdateAnswerBloc
 
         yield UpdateAnswerState.initial();
       },
-      // H_ 該題作答清空
-      answerCleared: (e) async* {
+      // H_ 清空部分題目作答
+      answerQIdListCleared: (e) async* {
         logger('Event').i('UpdateAnswerEvent: answerCleared');
 
         yield state.copyWith(
           updateState: const LoadState.inProgress(),
-          questionId: e.questionId,
+          questionIdList: e.questionIdList,
         );
 
-        final newAnswerMap = KtMutableMap.from(state.answerMap.asMap());
-        newAnswerMap[e.questionId] = Answer.empty();
-
-        yield state.copyWith(
-          updateState: const LoadState.success(),
-          updateAnswerStatus: false,
-          answerMap: newAnswerMap.toMap(),
-          questionId: e.questionId,
-        );
+        final lb = await _loadBalancer.loadBalancer;
+        yield await lb.run(answerQIdListCleared, Tuple2(e, state));
       },
       // H_ 該題作答更新
       answerUpdated: (e) async* {
@@ -85,7 +78,7 @@ class UpdateAnswerBloc
 
         yield state.copyWith(
           updateState: const LoadState.inProgress(),
-          questionId: e.question.id,
+          questionIdList: KtList.of(e.question.id),
         );
 
         final lb = await _loadBalancer.loadBalancer;

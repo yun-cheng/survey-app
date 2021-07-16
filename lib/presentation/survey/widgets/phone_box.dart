@@ -24,7 +24,7 @@ class PhoneBox extends StatelessWidget {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
         buildWhen: (p, c) =>
             (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
-            ((c.questionId == questionId &&
+            ((c.questionIdList.contains(questionId) &&
                     p.answerMap[questionId] != c.answerMap[questionId]) ||
                 p.isReadOnly != c.isReadOnly),
         builder: (context, state) {

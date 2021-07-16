@@ -4,17 +4,17 @@ part of 'update_answer_bloc.dart';
 class UpdateAnswerState with _$UpdateAnswerState {
   const factory UpdateAnswerState({
     required KtMap<QuestionId, Answer> answerMap,
-    required QuestionId questionId,
+    required KtList<QuestionId> questionIdList,
     required LoadState updateState,
     required bool updateAnswerStatus,
     required LoadState restoreState,
   }) = _UpdateAnswerState;
 
-  factory UpdateAnswerState.initial() => UpdateAnswerState(
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        questionId: QuestionId.empty(),
-        updateState: const LoadState.initial(),
+  factory UpdateAnswerState.initial() => const UpdateAnswerState(
+        answerMap: KtMap<QuestionId, Answer>.empty(),
+        questionIdList: KtList<QuestionId>.empty(),
+        updateState: LoadState.initial(),
         updateAnswerStatus: false,
-        restoreState: const LoadState.initial(),
+        restoreState: LoadState.initial(),
       );
 }

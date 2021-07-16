@@ -16,7 +16,7 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
   const factory UpdateAnswerStateDto({
     required Map<String, AnswerDto> answerMap,
     required Map<String, dynamic> updateState,
-    required String questionId,
+    required List<String> questionIdList,
     required bool updateAnswerStatus,
     required Map<String, dynamic> restoreState,
   }) = _UpdateAnswerStateDto;
@@ -28,7 +28,8 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       updateState: domain.updateState.toJson(),
-      questionId: domain.questionId.getValueAnyway(),
+      questionIdList:
+          domain.questionIdList.map((e) => e.getValueAnyway()).asList(),
       updateAnswerStatus: domain.updateAnswerStatus,
       restoreState: domain.restoreState.toJson(),
     );
@@ -40,7 +41,9 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       updateState: LoadState.fromJson(updateState),
-      questionId: QuestionId(questionId),
+      questionIdList: questionIdList
+          .map((questionId) => QuestionId(questionId))
+          .toImmutableList(),
       updateAnswerStatus: updateAnswerStatus,
       restoreState: LoadState.fromJson(restoreState),
     );

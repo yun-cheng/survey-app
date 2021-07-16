@@ -13,7 +13,9 @@ _$_UpdateAnswerStateDto _$_$_UpdateAnswerStateDtoFromJson(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
     updateState: json['updateState'] as Map<String, dynamic>,
-    questionId: json['questionId'] as String,
+    questionIdList: (json['questionIdList'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
     updateAnswerStatus: json['updateAnswerStatus'] as bool,
     restoreState: json['restoreState'] as Map<String, dynamic>,
   );
@@ -24,7 +26,7 @@ Map<String, dynamic> _$_$_UpdateAnswerStateDtoToJson(
     <String, dynamic>{
       'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'updateState': instance.updateState,
-      'questionId': instance.questionId,
+      'questionIdList': instance.questionIdList,
       'updateAnswerStatus': instance.updateAnswerStatus,
       'restoreState': instance.restoreState,
     };

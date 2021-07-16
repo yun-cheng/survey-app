@@ -28,7 +28,7 @@ class _$SurveyPageStateDtoTearOff {
       required bool showWarning,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
-      required String questionId,
+      required List<String> questionIdList,
       required List<QuestionDto> pageQuestionList,
       required List<QuestionDto> contentQuestionList,
       required Map<String, dynamic> loadState,
@@ -46,7 +46,7 @@ class _$SurveyPageStateDtoTearOff {
       showWarning: showWarning,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
-      questionId: questionId,
+      questionIdList: questionIdList,
       pageQuestionList: pageQuestionList,
       contentQuestionList: contentQuestionList,
       loadState: loadState,
@@ -77,7 +77,7 @@ mixin _$SurveyPageStateDto {
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  String get questionId => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
   List<QuestionDto> get contentQuestionList =>
       throw _privateConstructorUsedError;
@@ -110,7 +110,7 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
       bool showWarning,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
-      String questionId,
+      List<String> questionIdList,
       List<QuestionDto> pageQuestionList,
       List<QuestionDto> contentQuestionList,
       Map<String, dynamic> loadState,
@@ -142,7 +142,7 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
     Object? loadState = freezed,
@@ -182,10 +182,10 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusDto>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as String,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList // ignore: cast_nullable_to_non_nullable
@@ -248,7 +248,7 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       bool showWarning,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
-      String questionId,
+      List<String> questionIdList,
       List<QuestionDto> pageQuestionList,
       List<QuestionDto> contentQuestionList,
       Map<String, dynamic> loadState,
@@ -283,7 +283,7 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
     Object? loadState = freezed,
@@ -323,10 +323,10 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusDto>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as String,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList // ignore: cast_nullable_to_non_nullable
@@ -378,7 +378,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       required this.showWarning,
       required this.answerMap,
       required this.answerStatusMap,
-      required this.questionId,
+      required this.questionIdList,
       required this.pageQuestionList,
       required this.contentQuestionList,
       required this.loadState,
@@ -408,7 +408,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   @override
   final Map<String, AnswerStatusDto> answerStatusMap;
   @override
-  final String questionId;
+  final List<String> questionIdList;
   @override
   final List<QuestionDto> pageQuestionList;
   @override
@@ -430,7 +430,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
 
   @override
   String toString() {
-    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, isReadOnly: $isReadOnly, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
+    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, isReadOnly: $isReadOnly, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
   }
 
   @override
@@ -457,9 +457,9 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.questionId, questionId) ||
+            (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
+                    .equals(other.questionIdList, questionIdList)) &&
             (identical(other.pageQuestionList, pageQuestionList) ||
                 const DeepCollectionEquality()
                     .equals(other.pageQuestionList, pageQuestionList)) &&
@@ -499,7 +499,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(questionIdList) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
       const DeepCollectionEquality().hash(contentQuestionList) ^
       const DeepCollectionEquality().hash(loadState) ^
@@ -530,7 +530,7 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
           required bool showWarning,
           required Map<String, AnswerDto> answerMap,
           required Map<String, AnswerStatusDto> answerStatusMap,
-          required String questionId,
+          required List<String> questionIdList,
           required List<QuestionDto> pageQuestionList,
           required List<QuestionDto> contentQuestionList,
           required Map<String, dynamic> loadState,
@@ -562,7 +562,7 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   @override
   List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
   @override

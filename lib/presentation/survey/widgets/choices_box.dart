@@ -28,7 +28,7 @@ class ChoicesBox extends StatelessWidget {
       buildWhen: (p, c) {
         if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
           // S_ 該題作答有變更時
-          if (c.questionId == questionId &&
+          if (c.questionIdList.contains(questionId) &&
               p.answerMap[questionId] != c.answerMap[questionId]) {
             return true;
           }

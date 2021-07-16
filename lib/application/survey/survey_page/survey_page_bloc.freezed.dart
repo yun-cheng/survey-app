@@ -18,10 +18,10 @@ class _$SurveyPageEventTearOff {
 
   _AnswerMapUpdated answerMapUpdated(
       {required KtMap<QuestionId, Answer> answerMap,
-      required QuestionId questionId}) {
+      required KtList<QuestionId> questionIdList}) {
     return _AnswerMapUpdated(
       answerMap: answerMap,
-      questionId: questionId,
+      questionIdList: questionIdList,
     );
   }
 
@@ -91,8 +91,8 @@ const $SurveyPageEvent = _$SurveyPageEventTearOff();
 mixin _$SurveyPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -116,8 +116,8 @@ mixin _$SurveyPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -192,7 +192,8 @@ abstract class _$AnswerMapUpdatedCopyWith<$Res> {
   factory _$AnswerMapUpdatedCopyWith(
           _AnswerMapUpdated value, $Res Function(_AnswerMapUpdated) then) =
       __$AnswerMapUpdatedCopyWithImpl<$Res>;
-  $Res call({KtMap<QuestionId, Answer> answerMap, QuestionId questionId});
+  $Res call(
+      {KtMap<QuestionId, Answer> answerMap, KtList<QuestionId> questionIdList});
 }
 
 /// @nodoc
@@ -209,17 +210,17 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? answerMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
   }) {
     return _then(_AnswerMapUpdated(
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, Answer>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
     ));
   }
 }
@@ -228,16 +229,16 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
 
 class _$_AnswerMapUpdated implements _AnswerMapUpdated {
   const _$_AnswerMapUpdated(
-      {required this.answerMap, required this.questionId});
+      {required this.answerMap, required this.questionIdList});
 
   @override
   final KtMap<QuestionId, Answer> answerMap;
   @override
-  final QuestionId questionId;
+  final KtList<QuestionId> questionIdList;
 
   @override
   String toString() {
-    return 'SurveyPageEvent.answerMapUpdated(answerMap: $answerMap, questionId: $questionId)';
+    return 'SurveyPageEvent.answerMapUpdated(answerMap: $answerMap, questionIdList: $questionIdList)';
   }
 
   @override
@@ -247,16 +248,16 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
-            (identical(other.questionId, questionId) ||
+            (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)));
+                    .equals(other.questionIdList, questionIdList)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(questionId);
+      const DeepCollectionEquality().hash(questionIdList);
 
   @JsonKey(ignore: true)
   @override
@@ -266,8 +267,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -288,14 +289,14 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
   }) {
-    return answerMapUpdated(answerMap, questionId);
+    return answerMapUpdated(answerMap, questionIdList);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -318,7 +319,7 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
-      return answerMapUpdated(answerMap, questionId);
+      return answerMapUpdated(answerMap, questionIdList);
     }
     return orElse();
   }
@@ -364,10 +365,10 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
 abstract class _AnswerMapUpdated implements SurveyPageEvent {
   const factory _AnswerMapUpdated(
       {required KtMap<QuestionId, Answer> answerMap,
-      required QuestionId questionId}) = _$_AnswerMapUpdated;
+      required KtList<QuestionId> questionIdList}) = _$_AnswerMapUpdated;
 
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerMapUpdatedCopyWith<_AnswerMapUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -441,8 +442,8 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -469,8 +470,8 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -640,8 +641,8 @@ class _$_PageUpdated implements _PageUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -668,8 +669,8 @@ class _$_PageUpdated implements _PageUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -819,8 +820,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -847,8 +848,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1013,8 +1014,8 @@ class _$_WarningUpdated implements _WarningUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1041,8 +1042,8 @@ class _$_WarningUpdated implements _WarningUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1254,8 +1255,8 @@ class _$_InfoUpdated implements _InfoUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1283,8 +1284,8 @@ class _$_InfoUpdated implements _InfoUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1415,8 +1416,8 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1443,8 +1444,8 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1554,8 +1555,8 @@ class _$_StateCleared implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
         answerMapUpdated,
     required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1582,8 +1583,8 @@ class _$_StateCleared implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap, QuestionId questionId)?
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
         answerMapUpdated,
     TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1665,7 +1666,7 @@ class _$SurveyPageStateTearOff {
       required bool showWarning,
       required KtMap<QuestionId, Answer> answerMap,
       required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      required QuestionId questionId,
+      required KtList<QuestionId> questionIdList,
       required KtList<Question> pageQuestionList,
       required KtList<Question> contentQuestionList,
       required bool isReadOnly,
@@ -1683,7 +1684,7 @@ class _$SurveyPageStateTearOff {
       showWarning: showWarning,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
-      questionId: questionId,
+      questionIdList: questionIdList,
       pageQuestionList: pageQuestionList,
       contentQuestionList: contentQuestionList,
       isReadOnly: isReadOnly,
@@ -1711,7 +1712,7 @@ mixin _$SurveyPageState {
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
   KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  QuestionId get questionId =>
+  KtList<QuestionId> get questionIdList =>
       throw _privateConstructorUsedError; // H_ questionList
   KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
   KtList<Question> get contentQuestionList =>
@@ -1744,7 +1745,7 @@ abstract class $SurveyPageStateCopyWith<$Res> {
       bool showWarning,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      QuestionId questionId,
+      KtList<QuestionId> questionIdList,
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
       bool isReadOnly,
@@ -1779,7 +1780,7 @@ class _$SurveyPageStateCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
     Object? isReadOnly = freezed,
@@ -1819,10 +1820,10 @@ class _$SurveyPageStateCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, AnswerStatus>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList // ignore: cast_nullable_to_non_nullable
@@ -1906,7 +1907,7 @@ abstract class _$SurveyPageStateCopyWith<$Res>
       bool showWarning,
       KtMap<QuestionId, Answer> answerMap,
       KtMap<QuestionId, AnswerStatus> answerStatusMap,
-      QuestionId questionId,
+      KtList<QuestionId> questionIdList,
       KtList<Question> pageQuestionList,
       KtList<Question> contentQuestionList,
       bool isReadOnly,
@@ -1947,7 +1948,7 @@ class __$SurveyPageStateCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? pageQuestionList = freezed,
     Object? contentQuestionList = freezed,
     Object? isReadOnly = freezed,
@@ -1987,10 +1988,10 @@ class __$SurveyPageStateCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, AnswerStatus>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
       pageQuestionList: pageQuestionList == freezed
           ? _value.pageQuestionList
           : pageQuestionList // ignore: cast_nullable_to_non_nullable
@@ -2042,7 +2043,7 @@ class _$_SurveyPageState implements _SurveyPageState {
       required this.showWarning,
       required this.answerMap,
       required this.answerStatusMap,
-      required this.questionId,
+      required this.questionIdList,
       required this.pageQuestionList,
       required this.contentQuestionList,
       required this.isReadOnly,
@@ -2068,7 +2069,7 @@ class _$_SurveyPageState implements _SurveyPageState {
   @override
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
   @override
-  final QuestionId questionId;
+  final KtList<QuestionId> questionIdList;
   @override // H_ questionList
   final KtList<Question> pageQuestionList;
   @override
@@ -2090,7 +2091,7 @@ class _$_SurveyPageState implements _SurveyPageState {
 
   @override
   String toString() {
-    return 'SurveyPageState(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
+    return 'SurveyPageState(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
   }
 
   @override
@@ -2117,9 +2118,9 @@ class _$_SurveyPageState implements _SurveyPageState {
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.questionId, questionId) ||
+            (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
+                    .equals(other.questionIdList, questionIdList)) &&
             (identical(other.pageQuestionList, pageQuestionList) ||
                 const DeepCollectionEquality()
                     .equals(other.pageQuestionList, pageQuestionList)) &&
@@ -2159,7 +2160,7 @@ class _$_SurveyPageState implements _SurveyPageState {
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(questionIdList) ^
       const DeepCollectionEquality().hash(pageQuestionList) ^
       const DeepCollectionEquality().hash(contentQuestionList) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
@@ -2185,7 +2186,7 @@ abstract class _SurveyPageState implements SurveyPageState {
           required bool showWarning,
           required KtMap<QuestionId, Answer> answerMap,
           required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-          required QuestionId questionId,
+          required KtList<QuestionId> questionIdList,
           required KtList<Question> pageQuestionList,
           required KtList<Question> contentQuestionList,
           required bool isReadOnly,
@@ -2213,7 +2214,7 @@ abstract class _SurveyPageState implements SurveyPageState {
   KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   @override // H_ questionList
   KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
   @override

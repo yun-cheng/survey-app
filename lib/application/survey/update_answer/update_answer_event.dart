@@ -22,8 +22,8 @@ class UpdateAnswerEvent with _$UpdateAnswerEvent {
     ChoiceId? noteOf,
   }) = AnswerUpdated;
 
-  // H_ 該題作答清空
-  const factory UpdateAnswerEvent.answerCleared({
-    required QuestionId questionId,
-  }) = _AnswerCleared;
+  // H_ 清空部分題目作答
+  const factory UpdateAnswerEvent.answerQIdListCleared({
+    required KtList<QuestionId> questionIdList,
+  }) = _AnswerQIdListCleared;
 }

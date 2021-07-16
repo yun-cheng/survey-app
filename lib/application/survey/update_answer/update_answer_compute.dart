@@ -35,6 +35,28 @@ UpdateAnswerState answerUpdated(
     updateState: const LoadState.success(),
     updateAnswerStatus: true,
     answerMap: newAnswerMap.toMap(),
-    questionId: e.question.id,
+    questionIdList: KtList.of(e.question.id),
+  );
+}
+
+// H_ 清空部分題目作答
+UpdateAnswerState answerQIdListCleared(
+    Tuple2<_AnswerQIdListCleared, UpdateAnswerState> tuple) {
+  logger('Compute').i('answerQIdListCleared');
+
+  final e = tuple.item1;
+  final state = tuple.item2;
+
+  final newAnswerMap = KtMutableMap.from(state.answerMap.asMap());
+
+  e.questionIdList.forEach((questionId) {
+    newAnswerMap[questionId] = Answer.empty();
+  });
+
+  return state.copyWith(
+    updateState: const LoadState.success(),
+    updateAnswerStatus: false,
+    answerMap: newAnswerMap.toMap(),
+    questionIdList: e.questionIdList,
   );
 }

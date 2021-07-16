@@ -24,7 +24,7 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
     required bool showWarning,
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
-    required String questionId,
+    required List<String> questionIdList,
     required List<QuestionDto> pageQuestionList,
     required List<QuestionDto> contentQuestionList,
     required Map<String, dynamic> loadState,
@@ -51,7 +51,8 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
           .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
-      questionId: domain.questionId.getValueAnyway(),
+      questionIdList:
+          domain.questionIdList.map((e) => e.getValueAnyway()).asList(),
       pageQuestionList: domain.pageQuestionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
@@ -87,7 +88,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       answerStatusMap: KtMap.from(answerStatusMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
-      questionId: QuestionId(questionId),
+      questionIdList: questionIdList
+          .map((questionId) => QuestionId(questionId))
+          .toImmutableList(),
       pageQuestionList:
           pageQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
       contentQuestionList:

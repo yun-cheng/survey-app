@@ -69,7 +69,9 @@ class AnswerBloc extends HydratedBloc<AnswerEvent, AnswerState> {
 
         if (!state.isReadOnly && !state.isRecodeModule) {
           _updateAnswerBloc.add(
-            UpdateAnswerEvent.answerCleared(questionId: e.questionId),
+            UpdateAnswerEvent.answerQIdListCleared(
+              questionIdList: KtList.of(e.questionId),
+            ),
           );
 
           _updateAnswerStatusBloc

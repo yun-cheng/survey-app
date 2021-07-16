@@ -38,7 +38,7 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
           answerMap: state.isRecodeModule ? state.answerMap : e.answerMap,
           recodeAnswerMap:
               state.isRecodeModule ? e.answerMap : state.recodeAnswerMap,
-          questionId: e.questionId,
+          questionIdList: e.questionIdList,
         );
       },
       // H_ answerStatusMap

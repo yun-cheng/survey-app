@@ -47,9 +47,10 @@ class _$UpdateAnswerEventTearOff {
     );
   }
 
-  _AnswerCleared answerCleared({required QuestionId questionId}) {
-    return _AnswerCleared(
-      questionId: questionId,
+  _AnswerQIdListCleared answerQIdListCleared(
+      {required KtList<QuestionId> questionIdList}) {
+    return _AnswerQIdListCleared(
+      questionIdList: questionIdList,
     );
   }
 }
@@ -67,7 +68,8 @@ mixin _$UpdateAnswerEvent {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
-    required TResult Function(QuestionId questionId) answerCleared,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -78,7 +80,7 @@ mixin _$UpdateAnswerEvent {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
-    TResult Function(QuestionId questionId)? answerCleared,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -88,7 +90,7 @@ mixin _$UpdateAnswerEvent {
     required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerCleared value) answerCleared,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -97,7 +99,7 @@ mixin _$UpdateAnswerEvent {
     TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerCleared value)? answerCleared,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -192,7 +194,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
-    required TResult Function(QuestionId questionId) answerCleared,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
   }) {
     return moduleLoaded(answerMap);
   }
@@ -206,7 +209,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
-    TResult Function(QuestionId questionId)? answerCleared,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -222,7 +225,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerCleared value) answerCleared,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
   }) {
     return moduleLoaded(this);
   }
@@ -234,7 +237,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerCleared value)? answerCleared,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -300,7 +303,8 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
-    required TResult Function(QuestionId questionId) answerCleared,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
   }) {
     return stateRestoreSuccess();
   }
@@ -314,7 +318,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
-    TResult Function(QuestionId questionId)? answerCleared,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (stateRestoreSuccess != null) {
@@ -330,7 +334,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerCleared value) answerCleared,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
   }) {
     return stateRestoreSuccess(this);
   }
@@ -342,7 +346,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerCleared value)? answerCleared,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (stateRestoreSuccess != null) {
@@ -402,7 +406,8 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
-    required TResult Function(QuestionId questionId) answerCleared,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
   }) {
     return stateCleared();
   }
@@ -416,7 +421,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
-    TResult Function(QuestionId questionId)? answerCleared,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -432,7 +437,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerCleared value) answerCleared,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
   }) {
     return stateCleared(this);
   }
@@ -444,7 +449,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerCleared value)? answerCleared,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -604,7 +609,8 @@ class _$AnswerUpdated implements AnswerUpdated {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
-    required TResult Function(QuestionId questionId) answerCleared,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
   }) {
     return answerUpdated(
         question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
@@ -619,7 +625,7 @@ class _$AnswerUpdated implements AnswerUpdated {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
-    TResult Function(QuestionId questionId)? answerCleared,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -636,7 +642,7 @@ class _$AnswerUpdated implements AnswerUpdated {
     required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerCleared value) answerCleared,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
   }) {
     return answerUpdated(this);
   }
@@ -648,7 +654,7 @@ class _$AnswerUpdated implements AnswerUpdated {
     TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerCleared value)? answerCleared,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -679,67 +685,69 @@ abstract class AnswerUpdated implements UpdateAnswerEvent {
 }
 
 /// @nodoc
-abstract class _$AnswerClearedCopyWith<$Res> {
-  factory _$AnswerClearedCopyWith(
-          _AnswerCleared value, $Res Function(_AnswerCleared) then) =
-      __$AnswerClearedCopyWithImpl<$Res>;
-  $Res call({QuestionId questionId});
+abstract class _$AnswerQIdListClearedCopyWith<$Res> {
+  factory _$AnswerQIdListClearedCopyWith(_AnswerQIdListCleared value,
+          $Res Function(_AnswerQIdListCleared) then) =
+      __$AnswerQIdListClearedCopyWithImpl<$Res>;
+  $Res call({KtList<QuestionId> questionIdList});
 }
 
 /// @nodoc
-class __$AnswerClearedCopyWithImpl<$Res>
+class __$AnswerQIdListClearedCopyWithImpl<$Res>
     extends _$UpdateAnswerEventCopyWithImpl<$Res>
-    implements _$AnswerClearedCopyWith<$Res> {
-  __$AnswerClearedCopyWithImpl(
-      _AnswerCleared _value, $Res Function(_AnswerCleared) _then)
-      : super(_value, (v) => _then(v as _AnswerCleared));
+    implements _$AnswerQIdListClearedCopyWith<$Res> {
+  __$AnswerQIdListClearedCopyWithImpl(
+      _AnswerQIdListCleared _value, $Res Function(_AnswerQIdListCleared) _then)
+      : super(_value, (v) => _then(v as _AnswerQIdListCleared));
 
   @override
-  _AnswerCleared get _value => super._value as _AnswerCleared;
+  _AnswerQIdListCleared get _value => super._value as _AnswerQIdListCleared;
 
   @override
   $Res call({
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
   }) {
-    return _then(_AnswerCleared(
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+    return _then(_AnswerQIdListCleared(
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_AnswerCleared implements _AnswerCleared {
-  const _$_AnswerCleared({required this.questionId});
+class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
+  const _$_AnswerQIdListCleared({required this.questionIdList});
 
   @override
-  final QuestionId questionId;
+  final KtList<QuestionId> questionIdList;
 
   @override
   String toString() {
-    return 'UpdateAnswerEvent.answerCleared(questionId: $questionId)';
+    return 'UpdateAnswerEvent.answerQIdListCleared(questionIdList: $questionIdList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AnswerCleared &&
-            (identical(other.questionId, questionId) ||
+        (other is _AnswerQIdListCleared &&
+            (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)));
+                    .equals(other.questionIdList, questionIdList)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(questionId);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(questionIdList);
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerClearedCopyWith<_AnswerCleared> get copyWith =>
-      __$AnswerClearedCopyWithImpl<_AnswerCleared>(this, _$identity);
+  _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
+      __$AnswerQIdListClearedCopyWithImpl<_AnswerQIdListCleared>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -750,9 +758,10 @@ class _$_AnswerCleared implements _AnswerCleared {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
-    required TResult Function(QuestionId questionId) answerCleared,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
   }) {
-    return answerCleared(questionId);
+    return answerQIdListCleared(questionIdList);
   }
 
   @override
@@ -764,11 +773,11 @@ class _$_AnswerCleared implements _AnswerCleared {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
-    TResult Function(QuestionId questionId)? answerCleared,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
     required TResult orElse(),
   }) {
-    if (answerCleared != null) {
-      return answerCleared(questionId);
+    if (answerQIdListCleared != null) {
+      return answerQIdListCleared(questionIdList);
     }
     return orElse();
   }
@@ -780,9 +789,9 @@ class _$_AnswerCleared implements _AnswerCleared {
     required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerCleared value) answerCleared,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
   }) {
-    return answerCleared(this);
+    return answerQIdListCleared(this);
   }
 
   @override
@@ -792,23 +801,23 @@ class _$_AnswerCleared implements _AnswerCleared {
     TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerCleared value)? answerCleared,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
     required TResult orElse(),
   }) {
-    if (answerCleared != null) {
-      return answerCleared(this);
+    if (answerQIdListCleared != null) {
+      return answerQIdListCleared(this);
     }
     return orElse();
   }
 }
 
-abstract class _AnswerCleared implements UpdateAnswerEvent {
-  const factory _AnswerCleared({required QuestionId questionId}) =
-      _$_AnswerCleared;
+abstract class _AnswerQIdListCleared implements UpdateAnswerEvent {
+  const factory _AnswerQIdListCleared(
+      {required KtList<QuestionId> questionIdList}) = _$_AnswerQIdListCleared;
 
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AnswerClearedCopyWith<_AnswerCleared> get copyWith =>
+  _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -818,13 +827,13 @@ class _$UpdateAnswerStateTearOff {
 
   _UpdateAnswerState call(
       {required KtMap<QuestionId, Answer> answerMap,
-      required QuestionId questionId,
+      required KtList<QuestionId> questionIdList,
       required LoadState updateState,
       required bool updateAnswerStatus,
       required LoadState restoreState}) {
     return _UpdateAnswerState(
       answerMap: answerMap,
-      questionId: questionId,
+      questionIdList: questionIdList,
       updateState: updateState,
       updateAnswerStatus: updateAnswerStatus,
       restoreState: restoreState,
@@ -838,7 +847,7 @@ const $UpdateAnswerState = _$UpdateAnswerStateTearOff();
 /// @nodoc
 mixin _$UpdateAnswerState {
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
   LoadState get restoreState => throw _privateConstructorUsedError;
@@ -855,7 +864,7 @@ abstract class $UpdateAnswerStateCopyWith<$Res> {
       _$UpdateAnswerStateCopyWithImpl<$Res>;
   $Res call(
       {KtMap<QuestionId, Answer> answerMap,
-      QuestionId questionId,
+      KtList<QuestionId> questionIdList,
       LoadState updateState,
       bool updateAnswerStatus,
       LoadState restoreState});
@@ -876,7 +885,7 @@ class _$UpdateAnswerStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? answerMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? updateState = freezed,
     Object? updateAnswerStatus = freezed,
     Object? restoreState = freezed,
@@ -886,10 +895,10 @@ class _$UpdateAnswerStateCopyWithImpl<$Res>
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, Answer>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
@@ -929,7 +938,7 @@ abstract class _$UpdateAnswerStateCopyWith<$Res>
   @override
   $Res call(
       {KtMap<QuestionId, Answer> answerMap,
-      QuestionId questionId,
+      KtList<QuestionId> questionIdList,
       LoadState updateState,
       bool updateAnswerStatus,
       LoadState restoreState});
@@ -954,7 +963,7 @@ class __$UpdateAnswerStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? answerMap = freezed,
-    Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? updateState = freezed,
     Object? updateAnswerStatus = freezed,
     Object? restoreState = freezed,
@@ -964,10 +973,10 @@ class __$UpdateAnswerStateCopyWithImpl<$Res>
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as KtMap<QuestionId, Answer>,
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
@@ -989,7 +998,7 @@ class __$UpdateAnswerStateCopyWithImpl<$Res>
 class _$_UpdateAnswerState implements _UpdateAnswerState {
   const _$_UpdateAnswerState(
       {required this.answerMap,
-      required this.questionId,
+      required this.questionIdList,
       required this.updateState,
       required this.updateAnswerStatus,
       required this.restoreState});
@@ -997,7 +1006,7 @@ class _$_UpdateAnswerState implements _UpdateAnswerState {
   @override
   final KtMap<QuestionId, Answer> answerMap;
   @override
-  final QuestionId questionId;
+  final KtList<QuestionId> questionIdList;
   @override
   final LoadState updateState;
   @override
@@ -1007,7 +1016,7 @@ class _$_UpdateAnswerState implements _UpdateAnswerState {
 
   @override
   String toString() {
-    return 'UpdateAnswerState(answerMap: $answerMap, questionId: $questionId, updateState: $updateState, updateAnswerStatus: $updateAnswerStatus, restoreState: $restoreState)';
+    return 'UpdateAnswerState(answerMap: $answerMap, questionIdList: $questionIdList, updateState: $updateState, updateAnswerStatus: $updateAnswerStatus, restoreState: $restoreState)';
   }
 
   @override
@@ -1017,9 +1026,9 @@ class _$_UpdateAnswerState implements _UpdateAnswerState {
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
-            (identical(other.questionId, questionId) ||
+            (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
+                    .equals(other.questionIdList, questionIdList)) &&
             (identical(other.updateState, updateState) ||
                 const DeepCollectionEquality()
                     .equals(other.updateState, updateState)) &&
@@ -1035,7 +1044,7 @@ class _$_UpdateAnswerState implements _UpdateAnswerState {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(questionIdList) ^
       const DeepCollectionEquality().hash(updateState) ^
       const DeepCollectionEquality().hash(updateAnswerStatus) ^
       const DeepCollectionEquality().hash(restoreState);
@@ -1049,7 +1058,7 @@ class _$_UpdateAnswerState implements _UpdateAnswerState {
 abstract class _UpdateAnswerState implements UpdateAnswerState {
   const factory _UpdateAnswerState(
       {required KtMap<QuestionId, Answer> answerMap,
-      required QuestionId questionId,
+      required KtList<QuestionId> questionIdList,
       required LoadState updateState,
       required bool updateAnswerStatus,
       required LoadState restoreState}) = _$_UpdateAnswerState;
@@ -1057,7 +1066,7 @@ abstract class _UpdateAnswerState implements UpdateAnswerState {
   @override
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   @override
   LoadState get updateState => throw _privateConstructorUsedError;
   @override

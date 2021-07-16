@@ -13,7 +13,7 @@ class SurveyPageState with _$SurveyPageState {
     // H_ answer
     required KtMap<QuestionId, Answer> answerMap,
     required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    required QuestionId questionId,
+    required KtList<QuestionId> questionIdList,
     // H_ questionList
     required KtList<Question> pageQuestionList,
     required KtList<Question> contentQuestionList,
@@ -37,7 +37,7 @@ class SurveyPageState with _$SurveyPageState {
         showWarning: false,
         answerMap: const KtMap<QuestionId, Answer>.empty(),
         answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
-        questionId: QuestionId.empty(),
+        questionIdList: const KtList<QuestionId>.empty(),
         pageQuestionList: const KtList<Question>.empty(),
         contentQuestionList: const KtList<Question>.empty(),
         isReadOnly: false,
