@@ -44,7 +44,7 @@ class QaCard extends StatelessWidget {
             return false;
           }
 
-        // S_ 在該題變換顯示/隱藏、切換特殊作答時才需要 rebuild
+          // S_ 在該題變換顯示/隱藏、切換特殊作答時才需要 rebuild
           if (pAnswerStatus?.isHidden != cAnswerStatus.isHidden ||
               pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
             return true;

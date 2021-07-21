@@ -152,6 +152,10 @@ class _$UpdateSurveyPageEventTearOff {
     return const _LeaveButtonPressed();
   }
 
+  _LeaveButtonHidden leaveButtonHidden() {
+    return const _LeaveButtonHidden();
+  }
+
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
@@ -206,6 +210,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -253,6 +258,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) =>
@@ -289,6 +295,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) =>
       throw _privateConstructorUsedError;
@@ -320,6 +327,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) =>
@@ -466,6 +474,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return watchReferenceListStarted(teamId, interviewerId);
@@ -516,6 +525,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -558,6 +568,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchReferenceListStarted(this);
@@ -592,6 +603,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -724,6 +736,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return referenceListReceived(failureOrReferenceList);
@@ -774,6 +787,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -816,6 +830,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return referenceListReceived(this);
@@ -850,6 +865,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -954,6 +970,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return stateRestoreSuccess();
@@ -1004,6 +1021,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1046,6 +1064,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateRestoreSuccess(this);
@@ -1080,6 +1099,7 @@ class _$_StateRestoreSuccess implements _StateRestoreSuccess {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1366,6 +1386,7 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return stateRestored(
@@ -1428,6 +1449,7 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1482,6 +1504,7 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateRestored(this);
@@ -1516,6 +1539,7 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1677,6 +1701,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return respondentResponseListUpdated(respondentResponseList);
@@ -1727,6 +1752,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -1769,6 +1795,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return respondentResponseListUpdated(this);
@@ -1803,6 +1830,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -1948,6 +1976,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return answerChanged(answerMap, answerStatusMap);
@@ -1998,6 +2027,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2040,6 +2070,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return answerChanged(this);
@@ -2074,6 +2105,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2181,6 +2213,7 @@ class _$_PageQuestionListUpdated implements _PageQuestionListUpdated {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return pageQuestionListUpdated();
@@ -2231,6 +2264,7 @@ class _$_PageQuestionListUpdated implements _PageQuestionListUpdated {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2273,6 +2307,7 @@ class _$_PageQuestionListUpdated implements _PageQuestionListUpdated {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return pageQuestionListUpdated(this);
@@ -2307,6 +2342,7 @@ class _$_PageQuestionListUpdated implements _PageQuestionListUpdated {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2405,6 +2441,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return contentQuestionListUpdated();
@@ -2455,6 +2492,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2497,6 +2535,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return contentQuestionListUpdated(this);
@@ -2531,6 +2570,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2627,6 +2667,7 @@ class _$_PageUpdated implements _PageUpdated {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return pageUpdated();
@@ -2677,6 +2718,7 @@ class _$_PageUpdated implements _PageUpdated {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2719,6 +2761,7 @@ class _$_PageUpdated implements _PageUpdated {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return pageUpdated(this);
@@ -2753,6 +2796,7 @@ class _$_PageUpdated implements _PageUpdated {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -2849,6 +2893,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return nextPagePressed();
@@ -2899,6 +2944,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -2941,6 +2987,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return nextPagePressed(this);
@@ -2975,6 +3022,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3071,6 +3119,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return previousPagePressed();
@@ -3121,6 +3170,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3163,6 +3213,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return previousPagePressed(this);
@@ -3197,6 +3248,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3293,6 +3345,7 @@ class _$_WentToNewestPage implements _WentToNewestPage {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return wentToNewestPage();
@@ -3343,6 +3396,7 @@ class _$_WentToNewestPage implements _WentToNewestPage {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3385,6 +3439,7 @@ class _$_WentToNewestPage implements _WentToNewestPage {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return wentToNewestPage(this);
@@ -3419,6 +3474,7 @@ class _$_WentToNewestPage implements _WentToNewestPage {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3540,6 +3596,7 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return wentToPage(page);
@@ -3590,6 +3647,7 @@ class _$_WentToPage implements _WentToPage {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3632,6 +3690,7 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return wentToPage(this);
@@ -3666,6 +3725,7 @@ class _$_WentToPage implements _WentToPage {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3767,6 +3827,7 @@ class _$_WarningUpdated implements _WarningUpdated {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return warningUpdated();
@@ -3817,6 +3878,7 @@ class _$_WarningUpdated implements _WarningUpdated {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -3859,6 +3921,7 @@ class _$_WarningUpdated implements _WarningUpdated {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return warningUpdated(this);
@@ -3893,6 +3956,7 @@ class _$_WarningUpdated implements _WarningUpdated {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -3989,6 +4053,7 @@ class _$_WarningShowed implements _WarningShowed {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return warningShowed();
@@ -4039,6 +4104,7 @@ class _$_WarningShowed implements _WarningShowed {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4081,6 +4147,7 @@ class _$_WarningShowed implements _WarningShowed {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return warningShowed(this);
@@ -4115,6 +4182,7 @@ class _$_WarningShowed implements _WarningShowed {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4211,6 +4279,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return finishedButtonPressed();
@@ -4261,6 +4330,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4303,6 +4373,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return finishedButtonPressed(this);
@@ -4337,6 +4408,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4433,6 +4505,7 @@ class _$_StateUpdateInprogress implements _StateUpdateInprogress {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return stateUpdateInProgress();
@@ -4483,6 +4556,7 @@ class _$_StateUpdateInprogress implements _StateUpdateInprogress {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4525,6 +4599,7 @@ class _$_StateUpdateInprogress implements _StateUpdateInprogress {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateUpdateInProgress(this);
@@ -4559,6 +4634,7 @@ class _$_StateUpdateInprogress implements _StateUpdateInprogress {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4655,6 +4731,7 @@ class _$_StateUpdateSuccess implements _StateUpdateSuccess {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return stateUpdateSuccess();
@@ -4705,6 +4782,7 @@ class _$_StateUpdateSuccess implements _StateUpdateSuccess {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4747,6 +4825,7 @@ class _$_StateUpdateSuccess implements _StateUpdateSuccess {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateUpdateSuccess(this);
@@ -4781,6 +4860,7 @@ class _$_StateUpdateSuccess implements _StateUpdateSuccess {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -4877,6 +4957,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return stateCleared();
@@ -4927,6 +5008,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -4969,6 +5051,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return stateCleared(this);
@@ -5003,6 +5086,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -5099,6 +5183,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return readOnlyToggled();
@@ -5149,6 +5234,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -5191,6 +5277,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return readOnlyToggled(this);
@@ -5225,6 +5312,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -5348,6 +5436,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return appLifeCycleChanged(isPaused);
@@ -5398,6 +5487,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -5440,6 +5530,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return appLifeCycleChanged(this);
@@ -5474,6 +5565,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -5576,6 +5668,7 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return dialogClosed();
@@ -5626,6 +5719,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -5668,6 +5762,7 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return dialogClosed(this);
@@ -5702,6 +5797,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -5798,6 +5894,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return leaveButtonPressed();
@@ -5848,6 +5945,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -5890,6 +5988,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return leaveButtonPressed(this);
@@ -5924,6 +6023,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -5936,6 +6036,232 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
 
 abstract class _LeaveButtonPressed implements UpdateSurveyPageEvent {
   const factory _LeaveButtonPressed() = _$_LeaveButtonPressed;
+}
+
+/// @nodoc
+abstract class _$LeaveButtonHiddenCopyWith<$Res> {
+  factory _$LeaveButtonHiddenCopyWith(
+          _LeaveButtonHidden value, $Res Function(_LeaveButtonHidden) then) =
+      __$LeaveButtonHiddenCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$LeaveButtonHiddenCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
+    implements _$LeaveButtonHiddenCopyWith<$Res> {
+  __$LeaveButtonHiddenCopyWithImpl(
+      _LeaveButtonHidden _value, $Res Function(_LeaveButtonHidden) _then)
+      : super(_value, (v) => _then(v as _LeaveButtonHidden));
+
+  @override
+  _LeaveButtonHidden get _value => super._value as _LeaveButtonHidden;
+}
+
+/// @nodoc
+
+class _$_LeaveButtonHidden implements _LeaveButtonHidden {
+  const _$_LeaveButtonHidden();
+
+  @override
+  String toString() {
+    return 'UpdateSurveyPageEvent.leaveButtonHidden()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _LeaveButtonHidden);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() stateRestoreSuccess,
+    required TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() pageQuestionListUpdated,
+    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() pageUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function() wentToNewestPage,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() warningUpdated,
+    required TResult Function() warningShowed,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateUpdateInProgress,
+    required TResult Function() stateUpdateSuccess,
+    required TResult Function() stateCleared,
+    required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
+    required TResult Function() loggedOut,
+  }) {
+    return leaveButtonHidden();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? stateRestoreSuccess,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? pageQuestionListUpdated,
+    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? pageUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function()? wentToNewestPage,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? warningUpdated,
+    TResult Function()? warningShowed,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateUpdateInProgress,
+    TResult Function()? stateUpdateSuccess,
+    TResult Function()? stateCleared,
+    TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (leaveButtonHidden != null) {
+      return leaveButtonHidden();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_PageQuestionListUpdated value)
+        pageQuestionListUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToNewestPage value) wentToNewestPage,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_WarningShowed value) warningShowed,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateUpdateInprogress value)
+        stateUpdateInProgress,
+    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_LoggedOut value) loggedOut,
+  }) {
+    return leaveButtonHidden(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToNewestPage value)? wentToNewestPage,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_WarningShowed value)? warningShowed,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
+    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_LoggedOut value)? loggedOut,
+    required TResult orElse(),
+  }) {
+    if (leaveButtonHidden != null) {
+      return leaveButtonHidden(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LeaveButtonHidden implements UpdateSurveyPageEvent {
+  const factory _LeaveButtonHidden() = _$_LeaveButtonHidden;
 }
 
 /// @nodoc
@@ -6019,6 +6345,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
   }) {
     return loggedOut();
@@ -6069,6 +6396,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
@@ -6111,6 +6439,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return loggedOut(this);
@@ -6145,6 +6474,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
     required TResult orElse(),
   }) {
@@ -6191,6 +6521,7 @@ class _$UpdateSurveyPageStateTearOff {
       required bool showDialog,
       required bool leavePage,
       required bool finishResponse,
+      required bool showLeaveButton,
       required KtList<Question> mainQuestionList,
       required KtMap<QuestionId, Answer> mainAnswerMap,
       required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) {
@@ -6222,6 +6553,7 @@ class _$UpdateSurveyPageStateTearOff {
       showDialog: showDialog,
       leavePage: leavePage,
       finishResponse: finishResponse,
+      showLeaveButton: showLeaveButton,
       mainQuestionList: mainQuestionList,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
@@ -6266,7 +6598,8 @@ mixin _$UpdateSurveyPageState {
   bool get appIsPaused => throw _privateConstructorUsedError;
   bool get showDialog => throw _privateConstructorUsedError;
   bool get leavePage => throw _privateConstructorUsedError;
-  bool get finishResponse => throw _privateConstructorUsedError; // H_ recode
+  bool get finishResponse => throw _privateConstructorUsedError;
+  bool get showLeaveButton => throw _privateConstructorUsedError; // H_ recode
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   KtMap<QuestionId, Answer> get mainAnswerMap =>
       throw _privateConstructorUsedError;
@@ -6311,6 +6644,7 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
       bool showDialog,
       bool leavePage,
       bool finishResponse,
+      bool showLeaveButton,
       KtList<Question> mainQuestionList,
       KtMap<QuestionId, Answer> mainAnswerMap,
       KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
@@ -6360,6 +6694,7 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
+    Object? showLeaveButton = freezed,
     Object? mainQuestionList = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
@@ -6473,6 +6808,10 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.finishResponse
           : finishResponse // ignore: cast_nullable_to_non_nullable
               as bool,
+      showLeaveButton: showLeaveButton == freezed
+          ? _value.showLeaveButton
+          : showLeaveButton // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
           : mainQuestionList // ignore: cast_nullable_to_non_nullable
@@ -6559,6 +6898,7 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       bool showDialog,
       bool leavePage,
       bool finishResponse,
+      bool showLeaveButton,
       KtList<Question> mainQuestionList,
       KtMap<QuestionId, Answer> mainAnswerMap,
       KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
@@ -6615,6 +6955,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
+    Object? showLeaveButton = freezed,
     Object? mainQuestionList = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
@@ -6728,6 +7069,10 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.finishResponse
           : finishResponse // ignore: cast_nullable_to_non_nullable
               as bool,
+      showLeaveButton: showLeaveButton == freezed
+          ? _value.showLeaveButton
+          : showLeaveButton // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainQuestionList: mainQuestionList == freezed
           ? _value.mainQuestionList
           : mainQuestionList // ignore: cast_nullable_to_non_nullable
@@ -6775,6 +7120,7 @@ class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
       required this.showDialog,
       required this.leavePage,
       required this.finishResponse,
+      required this.showLeaveButton,
       required this.mainQuestionList,
       required this.mainAnswerMap,
       required this.mainAnswerStatusMap});
@@ -6833,6 +7179,8 @@ class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
   final bool leavePage;
   @override
   final bool finishResponse;
+  @override
+  final bool showLeaveButton;
   @override // H_ recode
   final KtList<Question> mainQuestionList;
   @override
@@ -6842,7 +7190,7 @@ class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
 
   @override
   String toString() {
-    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -6919,6 +7267,7 @@ class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
             (identical(other.showDialog, showDialog) || const DeepCollectionEquality().equals(other.showDialog, showDialog)) &&
             (identical(other.leavePage, leavePage) || const DeepCollectionEquality().equals(other.leavePage, leavePage)) &&
             (identical(other.finishResponse, finishResponse) || const DeepCollectionEquality().equals(other.finishResponse, finishResponse)) &&
+            (identical(other.showLeaveButton, showLeaveButton) || const DeepCollectionEquality().equals(other.showLeaveButton, showLeaveButton)) &&
             (identical(other.mainQuestionList, mainQuestionList) || const DeepCollectionEquality().equals(other.mainQuestionList, mainQuestionList)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) || const DeepCollectionEquality().equals(other.mainAnswerMap, mainAnswerMap)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
@@ -6954,6 +7303,7 @@ class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
       const DeepCollectionEquality().hash(showDialog) ^
       const DeepCollectionEquality().hash(leavePage) ^
       const DeepCollectionEquality().hash(finishResponse) ^
+      const DeepCollectionEquality().hash(showLeaveButton) ^
       const DeepCollectionEquality().hash(mainQuestionList) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap);
@@ -6994,6 +7344,7 @@ abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
           required bool showDialog,
           required bool leavePage,
           required bool finishResponse,
+          required bool showLeaveButton,
           required KtList<Question> mainQuestionList,
           required KtMap<QuestionId, Answer> mainAnswerMap,
           required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
@@ -7056,6 +7407,8 @@ abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
   bool get leavePage => throw _privateConstructorUsedError;
   @override
   bool get finishResponse => throw _privateConstructorUsedError;
+  @override
+  bool get showLeaveButton => throw _privateConstructorUsedError;
   @override // H_ recode
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   @override

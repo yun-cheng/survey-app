@@ -65,15 +65,21 @@ ResponseState responseRestored(ResponseState state) {
 
   if (response == null) {
     // S_ 填入預設答案
-    //  如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
+    final initAnswerMap = module.answerMap.toMutableMap();
+
+    // S_ 如果是查址模組且 breakInterview
+    if (state.moduleType == ModuleType.visitReport() && state.breakInterview) {
+      initAnswerMap[QuestionId('break_interview')] =
+          Answer.empty().setString('1');
+    }
+
+    // S_ 如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
     final initAnswerList = state.referenceList.filter(
       (r) =>
           r.respondentId == state.respondent.id &&
           r.surveyId == state.survey.id &&
           r.moduleType == state.moduleType,
     );
-
-    final initAnswerMap = module.answerMap.toMutableMap();
 
     initAnswerList.forEach((reference) {
       initAnswerMap[reference.questionId] = reference.answer;

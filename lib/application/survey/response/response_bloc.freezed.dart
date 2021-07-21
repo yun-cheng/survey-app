@@ -60,11 +60,13 @@ class _$ResponseEventTearOff {
       {required Respondent respondent,
       required ModuleType moduleType,
       required bool withResponseId,
+      required bool breakInterview,
       required UniqueId responseId}) {
     return _ResponseStarted(
       respondent: respondent,
       moduleType: moduleType,
       withResponseId: withResponseId,
+      breakInterview: breakInterview,
       responseId: responseId,
     );
   }
@@ -131,7 +133,7 @@ mixin _$ResponseEvent {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -161,7 +163,7 @@ mixin _$ResponseEvent {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -340,7 +342,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -373,7 +375,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -539,7 +541,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -572,7 +574,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -710,7 +712,7 @@ class _$_ResponseListMerged implements _ResponseListMerged {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -743,7 +745,7 @@ class _$_ResponseListMerged implements _ResponseListMerged {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -873,7 +875,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -906,7 +908,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -1036,7 +1038,7 @@ class _$_ResponseListUploading implements _ResponseListUploading {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -1069,7 +1071,7 @@ class _$_ResponseListUploading implements _ResponseListUploading {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -1227,7 +1229,7 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -1260,7 +1262,7 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -1431,7 +1433,7 @@ class _$_SurveySelected implements _SurveySelected {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -1464,7 +1466,7 @@ class _$_SurveySelected implements _SurveySelected {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -1556,6 +1558,7 @@ abstract class _$ResponseStartedCopyWith<$Res> {
       {Respondent respondent,
       ModuleType moduleType,
       bool withResponseId,
+      bool breakInterview,
       UniqueId responseId});
 
   $RespondentCopyWith<$Res> get respondent;
@@ -1578,6 +1581,7 @@ class __$ResponseStartedCopyWithImpl<$Res>
     Object? respondent = freezed,
     Object? moduleType = freezed,
     Object? withResponseId = freezed,
+    Object? breakInterview = freezed,
     Object? responseId = freezed,
   }) {
     return _then(_ResponseStarted(
@@ -1592,6 +1596,10 @@ class __$ResponseStartedCopyWithImpl<$Res>
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
               as bool,
       responseId: responseId == freezed
           ? _value.responseId
@@ -1622,6 +1630,7 @@ class _$_ResponseStarted implements _ResponseStarted {
       {required this.respondent,
       required this.moduleType,
       required this.withResponseId,
+      required this.breakInterview,
       required this.responseId});
 
   @override
@@ -1631,11 +1640,13 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   final bool withResponseId;
   @override
+  final bool breakInterview;
+  @override
   final UniqueId responseId;
 
   @override
   String toString() {
-    return 'ResponseEvent.responseStarted(respondent: $respondent, moduleType: $moduleType, withResponseId: $withResponseId, responseId: $responseId)';
+    return 'ResponseEvent.responseStarted(respondent: $respondent, moduleType: $moduleType, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId)';
   }
 
   @override
@@ -1651,6 +1662,9 @@ class _$_ResponseStarted implements _ResponseStarted {
             (identical(other.withResponseId, withResponseId) ||
                 const DeepCollectionEquality()
                     .equals(other.withResponseId, withResponseId)) &&
+            (identical(other.breakInterview, breakInterview) ||
+                const DeepCollectionEquality()
+                    .equals(other.breakInterview, breakInterview)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
                     .equals(other.responseId, responseId)));
@@ -1662,6 +1676,7 @@ class _$_ResponseStarted implements _ResponseStarted {
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(withResponseId) ^
+      const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(responseId);
 
   @JsonKey(ignore: true)
@@ -1684,7 +1699,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -1699,7 +1714,8 @@ class _$_ResponseStarted implements _ResponseStarted {
         referenceListUpdated,
     required TResult Function() loggedOut,
   }) {
-    return responseStarted(respondent, moduleType, withResponseId, responseId);
+    return responseStarted(
+        respondent, moduleType, withResponseId, breakInterview, responseId);
   }
 
   @override
@@ -1717,7 +1733,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -1734,7 +1750,7 @@ class _$_ResponseStarted implements _ResponseStarted {
   }) {
     if (responseStarted != null) {
       return responseStarted(
-          respondent, moduleType, withResponseId, responseId);
+          respondent, moduleType, withResponseId, breakInterview, responseId);
     }
     return orElse();
   }
@@ -1797,11 +1813,13 @@ abstract class _ResponseStarted implements ResponseEvent {
       {required Respondent respondent,
       required ModuleType moduleType,
       required bool withResponseId,
+      required bool breakInterview,
       required UniqueId responseId}) = _$_ResponseStarted;
 
   Respondent get respondent => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
+  bool get breakInterview => throw _privateConstructorUsedError;
   UniqueId get responseId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ResponseStartedCopyWith<_ResponseStarted> get copyWith =>
@@ -1860,7 +1878,7 @@ class _$_ResponseRestored implements _ResponseRestored {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -1893,7 +1911,7 @@ class _$_ResponseRestored implements _ResponseRestored {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -2088,7 +2106,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -2121,7 +2139,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -2290,7 +2308,7 @@ class _$_EditFinished implements _EditFinished {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -2323,7 +2341,7 @@ class _$_EditFinished implements _EditFinished {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -2495,7 +2513,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -2528,7 +2546,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -2667,7 +2685,7 @@ class _$_RespondentResponseListUpdated
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -2700,7 +2718,7 @@ class _$_RespondentResponseListUpdated
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -2858,7 +2876,7 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -2891,7 +2909,7 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -3025,7 +3043,7 @@ class _$_LoggedOut implements _LoggedOut {
         responseListUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)
+            bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function() responseRestored,
     required TResult Function(
@@ -3058,7 +3076,7 @@ class _$_LoggedOut implements _LoggedOut {
         responseListUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, UniqueId responseId)?
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function()? responseRestored,
     TResult Function(
@@ -3153,6 +3171,7 @@ class _$ResponseStateTearOff {
       required LoadState responseRestoreState,
       required KtList<Question> questionList,
       required bool withResponseId,
+      required bool breakInterview,
       required UniqueId responseId,
       required Response mainResponse,
       required KtList<Response> respondentResponseList,
@@ -3173,6 +3192,7 @@ class _$ResponseStateTearOff {
       responseRestoreState: responseRestoreState,
       questionList: questionList,
       withResponseId: withResponseId,
+      breakInterview: breakInterview,
       responseId: responseId,
       mainResponse: mainResponse,
       respondentResponseList: respondentResponseList,
@@ -3203,6 +3223,7 @@ mixin _$ResponseState {
   LoadState get responseRestoreState => throw _privateConstructorUsedError;
   KtList<Question> get questionList => throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
+  bool get breakInterview => throw _privateConstructorUsedError;
   UniqueId get responseId => throw _privateConstructorUsedError;
   Response get mainResponse => throw _privateConstructorUsedError;
   KtList<Response> get respondentResponseList =>
@@ -3235,6 +3256,7 @@ abstract class $ResponseStateCopyWith<$Res> {
       LoadState responseRestoreState,
       KtList<Question> questionList,
       bool withResponseId,
+      bool breakInterview,
       UniqueId responseId,
       Response mainResponse,
       KtList<Response> respondentResponseList,
@@ -3277,6 +3299,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? responseRestoreState = freezed,
     Object? questionList = freezed,
     Object? withResponseId = freezed,
+    Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
@@ -3333,6 +3356,10 @@ class _$ResponseStateCopyWithImpl<$Res>
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
               as bool,
       responseId: responseId == freezed
           ? _value.responseId
@@ -3449,6 +3476,7 @@ abstract class _$ResponseStateCopyWith<$Res>
       LoadState responseRestoreState,
       KtList<Question> questionList,
       bool withResponseId,
+      bool breakInterview,
       UniqueId responseId,
       Response mainResponse,
       KtList<Response> respondentResponseList,
@@ -3502,6 +3530,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? responseRestoreState = freezed,
     Object? questionList = freezed,
     Object? withResponseId = freezed,
+    Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
@@ -3559,6 +3588,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
               as bool,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
+              as bool,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
@@ -3607,6 +3640,7 @@ class _$_ResponseState implements _ResponseState {
       required this.responseRestoreState,
       required this.questionList,
       required this.withResponseId,
+      required this.breakInterview,
       required this.responseId,
       required this.mainResponse,
       required this.respondentResponseList,
@@ -3640,6 +3674,8 @@ class _$_ResponseState implements _ResponseState {
   @override
   final bool withResponseId;
   @override
+  final bool breakInterview;
+  @override
   final UniqueId responseId;
   @override
   final Response mainResponse;
@@ -3656,7 +3692,7 @@ class _$_ResponseState implements _ResponseState {
 
   @override
   String toString() {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
+    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
   }
 
   @override
@@ -3698,6 +3734,9 @@ class _$_ResponseState implements _ResponseState {
             (identical(other.withResponseId, withResponseId) ||
                 const DeepCollectionEquality()
                     .equals(other.withResponseId, withResponseId)) &&
+            (identical(other.breakInterview, breakInterview) ||
+                const DeepCollectionEquality()
+                    .equals(other.breakInterview, breakInterview)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
                     .equals(other.responseId, responseId)) &&
@@ -3737,6 +3776,7 @@ class _$_ResponseState implements _ResponseState {
       const DeepCollectionEquality().hash(responseRestoreState) ^
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(withResponseId) ^
+      const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(responseId) ^
       const DeepCollectionEquality().hash(mainResponse) ^
       const DeepCollectionEquality().hash(respondentResponseList) ^
@@ -3765,6 +3805,7 @@ abstract class _ResponseState implements ResponseState {
       required LoadState responseRestoreState,
       required KtList<Question> questionList,
       required bool withResponseId,
+      required bool breakInterview,
       required UniqueId responseId,
       required Response mainResponse,
       required KtList<Response> respondentResponseList,
@@ -3799,6 +3840,8 @@ abstract class _ResponseState implements ResponseState {
   KtList<Question> get questionList => throw _privateConstructorUsedError;
   @override
   bool get withResponseId => throw _privateConstructorUsedError;
+  @override
+  bool get breakInterview => throw _privateConstructorUsedError;
   @override
   UniqueId get responseId => throw _privateConstructorUsedError;
   @override

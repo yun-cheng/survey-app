@@ -98,12 +98,9 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
           restoreState: const LoadState.success(),
           isReadOnly: e.isReadOnly,
           isRecodeModule: e.isRecodeModule,
-          answerMap: e.isRecodeModule ? e.mainAnswerMap : e.answerMap,
+          answerMap: e.isRecodeModule ? e.mainAnswerMap : state.answerMap,
           answerStatusMap:
-              e.isRecodeModule ? e.mainAnswerStatusMap : e.answerStatusMap,
-          recodeAnswerMap: e.isRecodeModule ? e.answerMap : e.mainAnswerMap,
-          recodeAnswerStatusMap:
-              e.isRecodeModule ? e.answerStatusMap : e.mainAnswerStatusMap,
+              e.isRecodeModule ? e.mainAnswerStatusMap : state.answerStatusMap,
         );
       },
       stateLoadInProgress: (e) async* {

@@ -50,6 +50,7 @@ class _$UpdateSurveyPageStateDtoTearOff {
       required bool showDialog,
       required bool leavePage,
       required bool finishResponse,
+      required bool showLeaveButton,
       required Map<String, AnswerDto> mainAnswerMap,
       required Map<String, AnswerStatusDto> mainAnswerStatusMap}) {
     return _UpdateSurveyPageStateDto(
@@ -81,6 +82,7 @@ class _$UpdateSurveyPageStateDtoTearOff {
       showDialog: showDialog,
       leavePage: leavePage,
       finishResponse: finishResponse,
+      showLeaveButton: showLeaveButton,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
     );
@@ -128,6 +130,7 @@ mixin _$UpdateSurveyPageStateDto {
   bool get showDialog => throw _privateConstructorUsedError;
   bool get leavePage => throw _privateConstructorUsedError;
   bool get finishResponse => throw _privateConstructorUsedError;
+  bool get showLeaveButton => throw _privateConstructorUsedError;
   Map<String, AnswerDto> get mainAnswerMap =>
       throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get mainAnswerStatusMap =>
@@ -173,6 +176,7 @@ abstract class $UpdateSurveyPageStateDtoCopyWith<$Res> {
       bool showDialog,
       bool leavePage,
       bool finishResponse,
+      bool showLeaveButton,
       Map<String, AnswerDto> mainAnswerMap,
       Map<String, AnswerStatusDto> mainAnswerStatusMap});
 
@@ -219,6 +223,7 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
+    Object? showLeaveButton = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -335,6 +340,10 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.finishResponse
           : finishResponse // ignore: cast_nullable_to_non_nullable
               as bool,
+      showLeaveButton: showLeaveButton == freezed
+          ? _value.showLeaveButton
+          : showLeaveButton // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -397,6 +406,7 @@ abstract class _$UpdateSurveyPageStateDtoCopyWith<$Res>
       bool showDialog,
       bool leavePage,
       bool finishResponse,
+      bool showLeaveButton,
       Map<String, AnswerDto> mainAnswerMap,
       Map<String, AnswerStatusDto> mainAnswerStatusMap});
 
@@ -448,6 +458,7 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
+    Object? showLeaveButton = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -564,6 +575,10 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.finishResponse
           : finishResponse // ignore: cast_nullable_to_non_nullable
               as bool,
+      showLeaveButton: showLeaveButton == freezed
+          ? _value.showLeaveButton
+          : showLeaveButton // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -608,6 +623,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       required this.showDialog,
       required this.leavePage,
       required this.finishResponse,
+      required this.showLeaveButton,
       required this.mainAnswerMap,
       required this.mainAnswerStatusMap})
       : super._();
@@ -672,13 +688,15 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
   @override
   final bool finishResponse;
   @override
+  final bool showLeaveButton;
+  @override
   final Map<String, AnswerDto> mainAnswerMap;
   @override
   final Map<String, AnswerStatusDto> mainAnswerStatusMap;
 
   @override
   String toString() {
-    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -756,6 +774,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
             (identical(other.showDialog, showDialog) || const DeepCollectionEquality().equals(other.showDialog, showDialog)) &&
             (identical(other.leavePage, leavePage) || const DeepCollectionEquality().equals(other.leavePage, leavePage)) &&
             (identical(other.finishResponse, finishResponse) || const DeepCollectionEquality().equals(other.finishResponse, finishResponse)) &&
+            (identical(other.showLeaveButton, showLeaveButton) || const DeepCollectionEquality().equals(other.showLeaveButton, showLeaveButton)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) || const DeepCollectionEquality().equals(other.mainAnswerMap, mainAnswerMap)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
   }
@@ -791,6 +810,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       const DeepCollectionEquality().hash(showDialog) ^
       const DeepCollectionEquality().hash(leavePage) ^
       const DeepCollectionEquality().hash(finishResponse) ^
+      const DeepCollectionEquality().hash(showLeaveButton) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap);
 
@@ -836,6 +856,7 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
           required bool showDialog,
           required bool leavePage,
           required bool finishResponse,
+          required bool showLeaveButton,
           required Map<String, AnswerDto> mainAnswerMap,
           required Map<String, AnswerStatusDto> mainAnswerStatusMap}) =
       _$_UpdateSurveyPageStateDto;
@@ -904,6 +925,8 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
   bool get leavePage => throw _privateConstructorUsedError;
   @override
   bool get finishResponse => throw _privateConstructorUsedError;
+  @override
+  bool get showLeaveButton => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerDto> get mainAnswerMap =>
       throw _privateConstructorUsedError;

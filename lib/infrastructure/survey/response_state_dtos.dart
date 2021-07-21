@@ -34,6 +34,7 @@ class ResponseStateDto with _$ResponseStateDto {
     required Map<String, dynamic> responseRestoreState,
     required List<QuestionDto> questionList,
     required bool withResponseId,
+    required bool breakInterview,
     required String responseId,
     required ResponseDto mainResponse,
     required List<ResponseDto> respondentResponseList,
@@ -60,6 +61,7 @@ class ResponseStateDto with _$ResponseStateDto {
           .map((question) => QuestionDto.fromDomain(question))
           .asList(),
       withResponseId: domain.withResponseId,
+      breakInterview: domain.breakInterview,
       responseId: domain.responseId.value,
       mainResponse: ResponseDto.fromDomain(domain.mainResponse),
       respondentResponseList: domain.respondentResponseList
@@ -87,6 +89,7 @@ class ResponseStateDto with _$ResponseStateDto {
       responseRestoreState: LoadState.fromJson(responseRestoreState),
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
       withResponseId: withResponseId,
+      breakInterview: breakInterview,
       responseId: UniqueId(responseId),
       mainResponse: mainResponse.toDomain(),
       respondentResponseList:

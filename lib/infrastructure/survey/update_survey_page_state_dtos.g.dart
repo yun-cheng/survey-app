@@ -55,6 +55,7 @@ _$_UpdateSurveyPageStateDto _$_$_UpdateSurveyPageStateDtoFromJson(
     showDialog: json['showDialog'] as bool,
     leavePage: json['leavePage'] as bool,
     finishResponse: json['finishResponse'] as bool,
+    showLeaveButton: json['showLeaveButton'] as bool,
     mainAnswerMap: (json['mainAnswerMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
@@ -102,6 +103,7 @@ Map<String, dynamic> _$_$_UpdateSurveyPageStateDtoToJson(
       'showDialog': instance.showDialog,
       'leavePage': instance.leavePage,
       'finishResponse': instance.finishResponse,
+      'showLeaveButton': instance.showLeaveButton,
       'mainAnswerMap':
           instance.mainAnswerMap.map((k, e) => MapEntry(k, e.toJson())),
       'mainAnswerStatusMap':

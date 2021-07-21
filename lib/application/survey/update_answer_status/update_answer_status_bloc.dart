@@ -39,7 +39,7 @@ class UpdateAnswerStatusBloc
     yield* event.map(
       // H_ 進入問卷時載入必要 state
       moduleLoaded: (e) async* {
-        logger('Event').i('UpdateAnswerStatusBloc: moduleLoaded');
+        logger('Event').i('UpdateAnswerStatusEvent: moduleLoaded');
 
         yield state.copyWith(
           restoreState: const LoadState.inProgress(),
@@ -53,21 +53,22 @@ class UpdateAnswerStatusBloc
         add(const UpdateAnswerStatusEvent.stateRestoreSuccess());
       },
       stateRestoreSuccess: (e) async* {
-        logger('Success').i('UpdateAnswerStatusBloc: stateRestoreSuccess');
+        logger('Success').i('UpdateAnswerStatusEvent: stateRestoreSuccess');
 
         yield state.copyWith(
+          updateState: const LoadState.success(),
           restoreState: const LoadState.success(),
         );
       },
       // H_ 離開問卷時清空 state
       stateCleared: (e) async* {
-        logger('Event').i('UpdateAnswerStatusBloc: stateCleared');
+        logger('Event').i('UpdateAnswerStatusEvent: stateCleared');
 
         yield UpdateAnswerStatusState.initial();
       },
       // H_ answerMap 有變更時
       answerMapUpdated: (e) async* {
-        logger('Event').i('UpdateAnswerStatusBloc: answerMapUpdated');
+        logger('Event').i('UpdateAnswerStatusEvent: answerMapUpdated');
 
         // S_ 有沒有需要更新 answerStatus，
         //  第一次傳進來會是 true，第二次在清空完部分作答後會是 false，
@@ -100,7 +101,7 @@ class UpdateAnswerStatusBloc
       },
       // H_ 判斷有設定題目出現條件的題目是否顯示
       showQuestionChecked: (e) async* {
-        logger('Event').i('UpdateAnswerStatusBloc: showQuestionChecked');
+        logger('Event').i('UpdateAnswerStatusEvent: showQuestionChecked');
 
         final lb = await _loadBalancer.loadBalancer;
         yield await lb.run(showQuestionChecked, state);
@@ -109,7 +110,7 @@ class UpdateAnswerStatusBloc
       },
       // H_ 切換該題特殊作答時
       specialAnswerSwitched: (e) async* {
-        logger('Event').i('UpdateAnswerStatusBloc: specialAnswerSwitched');
+        logger('Event').i('UpdateAnswerStatusEvent: specialAnswerSwitched');
 
         final newAnswerStatusMap =
             KtMutableMap.from(state.answerStatusMap.asMap());
@@ -125,7 +126,7 @@ class UpdateAnswerStatusBloc
       },
       // H_ 清空部分題目作答
       qIdListAnswerCleared: (e) async* {
-        logger('Event').i('UpdateAnswerStatusBloc: qIdListAnswerCleared');
+        logger('Event').i('UpdateAnswerStatusEvent: qIdListAnswerCleared');
 
         _updateAnswerBloc.add(
           UpdateAnswerEvent.answerQIdListCleared(

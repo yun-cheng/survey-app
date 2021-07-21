@@ -32,6 +32,7 @@ class _$ResponseStateDtoTearOff {
       required Map<String, dynamic> responseRestoreState,
       required List<QuestionDto> questionList,
       required bool withResponseId,
+      required bool breakInterview,
       required String responseId,
       required ResponseDto mainResponse,
       required List<ResponseDto> respondentResponseList,
@@ -51,6 +52,7 @@ class _$ResponseStateDtoTearOff {
       responseRestoreState: responseRestoreState,
       questionList: questionList,
       withResponseId: withResponseId,
+      breakInterview: breakInterview,
       responseId: responseId,
       mainResponse: mainResponse,
       respondentResponseList: respondentResponseList,
@@ -86,6 +88,7 @@ mixin _$ResponseStateDto {
       throw _privateConstructorUsedError;
   List<QuestionDto> get questionList => throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
+  bool get breakInterview => throw _privateConstructorUsedError;
   String get responseId => throw _privateConstructorUsedError;
   ResponseDto get mainResponse => throw _privateConstructorUsedError;
   List<ResponseDto> get respondentResponseList =>
@@ -118,6 +121,7 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       Map<String, dynamic> responseRestoreState,
       List<QuestionDto> questionList,
       bool withResponseId,
+      bool breakInterview,
       String responseId,
       ResponseDto mainResponse,
       List<ResponseDto> respondentResponseList,
@@ -155,6 +159,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object? responseRestoreState = freezed,
     Object? questionList = freezed,
     Object? withResponseId = freezed,
+    Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
@@ -207,6 +212,10 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
               as bool,
       responseId: responseId == freezed
           ? _value.responseId
@@ -294,6 +303,7 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       Map<String, dynamic> responseRestoreState,
       List<QuestionDto> questionList,
       bool withResponseId,
+      bool breakInterview,
       String responseId,
       ResponseDto mainResponse,
       List<ResponseDto> respondentResponseList,
@@ -338,6 +348,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? responseRestoreState = freezed,
     Object? questionList = freezed,
     Object? withResponseId = freezed,
+    Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
     Object? respondentResponseList = freezed,
@@ -391,6 +402,10 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
               as bool,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
+              as bool,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
@@ -438,6 +453,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       required this.responseRestoreState,
       required this.questionList,
       required this.withResponseId,
+      required this.breakInterview,
       required this.responseId,
       required this.mainResponse,
       required this.respondentResponseList,
@@ -473,6 +489,8 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   final bool withResponseId;
   @override
+  final bool breakInterview;
+  @override
   final String responseId;
   @override
   final ResponseDto mainResponse;
@@ -489,7 +507,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
+    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
   }
 
   @override
@@ -528,6 +546,9 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             (identical(other.withResponseId, withResponseId) ||
                 const DeepCollectionEquality()
                     .equals(other.withResponseId, withResponseId)) &&
+            (identical(other.breakInterview, breakInterview) ||
+                const DeepCollectionEquality()
+                    .equals(other.breakInterview, breakInterview)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
                     .equals(other.responseId, responseId)) &&
@@ -566,6 +587,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(responseRestoreState) ^
       const DeepCollectionEquality().hash(questionList) ^
       const DeepCollectionEquality().hash(withResponseId) ^
+      const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(responseId) ^
       const DeepCollectionEquality().hash(mainResponse) ^
       const DeepCollectionEquality().hash(respondentResponseList) ^
@@ -598,6 +620,7 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       required Map<String, dynamic> responseRestoreState,
       required List<QuestionDto> questionList,
       required bool withResponseId,
+      required bool breakInterview,
       required String responseId,
       required ResponseDto mainResponse,
       required List<ResponseDto> respondentResponseList,
@@ -635,6 +658,8 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   List<QuestionDto> get questionList => throw _privateConstructorUsedError;
   @override
   bool get withResponseId => throw _privateConstructorUsedError;
+  @override
+  bool get breakInterview => throw _privateConstructorUsedError;
   @override
   String get responseId => throw _privateConstructorUsedError;
   @override

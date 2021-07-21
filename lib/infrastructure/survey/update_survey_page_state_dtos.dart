@@ -51,6 +51,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     required bool showDialog,
     required bool leavePage,
     required bool finishResponse,
+    required bool showLeaveButton,
     required Map<String, AnswerDto> mainAnswerMap,
     required Map<String, AnswerStatusDto> mainAnswerStatusMap,
   }) = _UpdateSurveyPageStateDto;
@@ -102,6 +103,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       showDialog: domain.showDialog,
       leavePage: domain.leavePage,
       finishResponse: domain.finishResponse,
+      showLeaveButton: domain.showLeaveButton,
       mainAnswerMap: domain.mainAnswerMap
           .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
@@ -153,6 +155,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       showDialog: showDialog,
       leavePage: leavePage,
       finishResponse: finishResponse,
+      showLeaveButton: showLeaveButton,
       mainAnswerMap: KtMap.from(mainAnswerMap)
           .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),

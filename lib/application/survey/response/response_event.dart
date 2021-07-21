@@ -35,6 +35,7 @@ class ResponseEvent with _$ResponseEvent {
     required Respondent respondent,
     required ModuleType moduleType,
     required bool withResponseId,
+    required bool breakInterview,
     required UniqueId responseId,
   }) = _ResponseStarted;
 
@@ -43,11 +44,13 @@ class ResponseEvent with _$ResponseEvent {
     required ModuleType moduleType,
     UniqueId? responseId,
     bool withResponseId = false,
+    bool breakInterview = false,
   }) =>
       _ResponseStarted(
         respondent: respondent,
         moduleType: moduleType,
         withResponseId: withResponseId,
+        breakInterview: breakInterview,
         responseId: responseId ?? UniqueId.v1(),
       );
 

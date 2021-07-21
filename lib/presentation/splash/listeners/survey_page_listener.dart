@@ -43,8 +43,6 @@ final surveyPageListener =
             SurveyPageEvent.infoUpdated(
               isReadOnly: state.isReadOnly,
               isRecodeModule: state.isRecodeModule,
-              answerMap: state.answerMap,
-              answerStatusMap: state.answerStatusMap,
               mainAnswerMap: state.mainAnswerMap,
               mainAnswerStatusMap: state.mainAnswerStatusMap,
             ),

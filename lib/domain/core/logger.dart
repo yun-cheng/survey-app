@@ -15,7 +15,7 @@ Logger logger([String? tag, int? methodShow]) {
     'Debug',
     'Event',
     // 'InProgress',
-    // 'Success',
+    'Success',
   ];
   final alwaysAllowFilePathList = <String>[
     // 'splash/listeners',

@@ -58,13 +58,22 @@ class SurveyLeadingButton extends StatelessWidget {
           },
         )
       ],
-      child: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            context.read<UpdateSurveyPageBloc>().add(
-                  const UpdateSurveyPageEvent.leaveButtonPressed(),
-                );
-          }),
+      child: Builder(builder: (context) {
+        final showLeaveButton = context
+            .select((UpdateSurveyPageBloc bloc) => bloc.state.showLeaveButton);
+
+        return Visibility(
+          // NOTE 在中止訪問後的查址模組不讓使用者跳出
+          visible: showLeaveButton,
+          child: IconButton(
+              icon: const Icon(Icons.arrow_back),
+              onPressed: () {
+                context.read<UpdateSurveyPageBloc>().add(
+                      const UpdateSurveyPageEvent.leaveButtonPressed(),
+                    );
+              }),
+        );
+      }),
     );
   }
 }
@@ -73,6 +82,7 @@ class SurveyLeadingButton extends StatelessWidget {
 void showSurveyDialog(BuildContext context) {
   final show = context.read<UpdateSurveyPageBloc>().state.showDialog;
 
+  // NOTE 只有在 main module 才會 show
   if (show) {
     showFlash(
       onWillPop: () => Future.value(false),
@@ -87,20 +97,17 @@ void showSurveyDialog(BuildContext context) {
             constraints: kDialogMaxWith,
             child: FlashBar(
               content: const Text(
-                '繼續訪問或回到受訪者列表',
+                '繼續或中止訪問',
                 style: kH4TextStyle,
               ),
               actions: <Widget>[
                 TextButton(
-                  child: const Text('回到受訪者列表'),
+                  child: const Text('中止訪問'),
                   onPressed: () async {
                     controller.dismiss(true);
 
-                    // NOTE 需等待 popped 動畫結束才能退出
-                    final popped = await controller.popped;
-                    if (popped! as bool) {
-                      backToRespondentsPage(context);
-                    }
+                    // S_ 進入中止訪問後的查址模組
+                    switchToVisitReportModule(context);
                   },
                 ),
                 TextButton(
@@ -131,8 +138,30 @@ void showSurveyDialog(BuildContext context) {
   }
 }
 
+void switchToVisitReportModule(BuildContext context) {
+  context
+      .read<AudioRecorderBloc>()
+      .add(const AudioRecorderEvent.recordStopped());
+  context.read<ResponseBloc>().add(
+        const ResponseEvent.editFinished(responseFinished: false),
+      );
+  clearSurveyPageState(context);
+
+  context.read<UpdateSurveyPageBloc>().add(
+        const UpdateSurveyPageEvent.leaveButtonHidden(),
+      );
+  final respondent = context.read<ResponseBloc>().state.respondent;
+  context.read<ResponseBloc>().add(
+        ResponseEvent.responseStartedWith(
+          respondent: respondent,
+          moduleType: ModuleType.visitReport(),
+          breakInterview: true,
+        ),
+      );
+}
+
+/// NOTE 在完成問卷或要離開問卷時觸發
 void backToRespondentsPage(BuildContext context, {bool finished = false}) {
-  // S_ 停止錄音
   context
       .read<AudioRecorderBloc>()
       .add(const AudioRecorderEvent.recordStopped());
@@ -148,6 +177,10 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
   // NOTE 從目錄頁要跳兩層，所以直接用 navigate
   context.router.navigate(const RespondentsRoute());
 
+  clearSurveyPageState(context);
+}
+
+void clearSurveyPageState(BuildContext context) {
   context.read<UpdateAnswerBloc>().add(
         const UpdateAnswerEvent.stateCleared(),
       );

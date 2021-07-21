@@ -25,6 +25,7 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
         .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
         .toList(),
     withResponseId: json['withResponseId'] as bool,
+    breakInterview: json['breakInterview'] as bool,
     responseId: json['responseId'] as String,
     mainResponse:
         ResponseDto.fromJson(json['mainResponse'] as Map<String, dynamic>),
@@ -54,6 +55,7 @@ Map<String, dynamic> _$_$_ResponseStateDtoToJson(
       'responseRestoreState': instance.responseRestoreState,
       'questionList': instance.questionList.map((e) => e.toJson()).toList(),
       'withResponseId': instance.withResponseId,
+      'breakInterview': instance.breakInterview,
       'responseId': instance.responseId,
       'mainResponse': instance.mainResponse.toJson(),
       'respondentResponseList':

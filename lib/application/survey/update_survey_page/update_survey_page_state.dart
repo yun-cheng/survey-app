@@ -34,6 +34,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required bool showDialog,
     required bool leavePage,
     required bool finishResponse,
+    required bool showLeaveButton,
     // H_ recode
     required KtList<Question> mainQuestionList,
     required KtMap<QuestionId, Answer> mainAnswerMap,
@@ -69,6 +70,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         showDialog: false,
         leavePage: false,
         finishResponse: false,
+        showLeaveButton: true,
         mainAnswerMap: const KtMap<QuestionId, Answer>.empty(),
         mainAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
       );

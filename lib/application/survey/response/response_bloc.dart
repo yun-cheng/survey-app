@@ -159,6 +159,7 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
           moduleType: e.moduleType,
           responseId: e.responseId,
           withResponseId: e.withResponseId,
+          breakInterview: e.breakInterview,
         );
 
         add(const ResponseEvent.responseRestored());

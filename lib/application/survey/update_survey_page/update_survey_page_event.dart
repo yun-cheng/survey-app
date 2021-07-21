@@ -92,6 +92,9 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   const factory UpdateSurveyPageEvent.leaveButtonPressed() =
       _LeaveButtonPressed;
 
+  // H_ 隱藏離開按鈕
+  const factory UpdateSurveyPageEvent.leaveButtonHidden() = _LeaveButtonHidden;
+
   // H_ 登出
   const factory UpdateSurveyPageEvent.loggedOut() = _LoggedOut;
 }

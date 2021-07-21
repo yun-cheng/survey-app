@@ -336,6 +336,10 @@ class UpdateSurveyPageBloc
           leavePage: state.moduleType != ModuleType.main() || state.isReadOnly,
         );
       },
+      // H_ 隱藏離開按鈕
+      leaveButtonHidden: (e) async* {
+        yield state.copyWith(showLeaveButton: false);
+      },
       // H_ 登出
       loggedOut: (e) async* {
         _referenceListSubscription?.cancel();

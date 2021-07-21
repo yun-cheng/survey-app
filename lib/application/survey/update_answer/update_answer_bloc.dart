@@ -62,7 +62,7 @@ class UpdateAnswerBloc
       },
       // H_ 清空部分題目作答
       answerQIdListCleared: (e) async* {
-        logger('Event').i('UpdateAnswerEvent: answerCleared');
+        logger('Event').i('UpdateAnswerEvent: answerQIdListCleared');
 
         yield state.copyWith(
           updateState: const LoadState.inProgress(),
