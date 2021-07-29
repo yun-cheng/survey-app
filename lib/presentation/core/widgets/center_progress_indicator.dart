@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:sizer/sizer.dart';
 
 class CenterProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
+      width: 100.w,
+      height: 100.h,
       child: const Center(
         child: CircularProgressIndicator(),
       ),

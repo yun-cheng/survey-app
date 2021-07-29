@@ -64,7 +64,8 @@ class RespondentCard extends StatelessWidget {
         final isFirst = respondent.isVillageFirst;
 
         final lastVisitRecordStatus =
-            state.visitRecordsMap[respondent.id]?.getOrNull(0)?.status ?? '';
+            state.visitRecordsMap[respondent.id]?.getOrNull(0)?.description ??
+                '';
 
         // H_ module buttons
         Visibility moduleButton(

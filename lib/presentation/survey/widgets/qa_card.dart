@@ -65,7 +65,7 @@ class QaCard extends StatelessWidget {
         final visible = !answerStatus.isHidden;
 
         return Column(
-          key: Key(questionId.getOrCrash()),
+          // key: Key(questionId.getOrCrash()),
           children: [
             if (index == 0) const SizedBox(height: 10.0),
             Visibility(

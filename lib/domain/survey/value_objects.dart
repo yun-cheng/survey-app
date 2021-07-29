@@ -468,6 +468,4 @@ enum SurveyPageUpdateType {
   contentQuestionList,
   @JsonValue('warning')
   warning,
-  @JsonValue('info')
-  info,
 }

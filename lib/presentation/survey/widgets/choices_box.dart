@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
-import 'note_box.dart';
+import 'choice_item.dart';
 
-class ChoicesBox extends StatelessWidget {
+class ChoicesBox extends HookWidget {
   final QuestionId questionId;
   final QuestionType questionType;
 
@@ -24,16 +23,20 @@ class ChoicesBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-      buildWhen: (p, c) {
+    logger('Build').i('ChoicesBox');
+
+    final answer = useValueNotifier(Answer.empty());
+
+    final state = useBloc<SurveyPageBloc, SurveyPageState>(
+      onEmitted: (_, p, c) {
         if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
-          // S_ 該題作答有變更時
+          // S_ 該題作答清空時，更新 answer
           if (c.questionIdList.contains(questionId) &&
-              p.answerMap[questionId] != c.answerMap[questionId]) {
-            return true;
+              c.answerMap[questionId]! == Answer.empty()) {
+            answer.value = Answer.empty();
           }
 
-          // S_ 該題選項有變更時
+          // S_ 該題選項有變更時，需要 rebuild
           final pQuestion =
               p.pageQuestionList.firstOrNull((q) => q.id == questionId);
           final cQuestion =
@@ -48,105 +51,61 @@ class ChoicesBox extends StatelessWidget {
         }
         return false;
       },
-      builder: (context, state) {
-        final thisAnswer = state.answerMap[questionId] ?? Answer.empty();
+    ).state;
 
-        final isSpecialAnswer =
-            state.answerStatusMap[questionId]!.isSpecialAnswer;
+    final choiceList =
+        state.pageQuestionList.first((q) => q.id == questionId).choiceList;
+    final size = choiceList.size;
+    answer.value = state.answerMap[questionId] ?? Answer.empty();
+    final isSpecialAnswer = state.answerStatusMap[questionId]!.isSpecialAnswer;
+    final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-        final choiceList =
-            state.pageQuestionList.first((q) => q.id == questionId).choiceList;
-        final size = choiceList.size;
+    // S_ 大於等於 4 個選項就要用 2 個 ListView
+    int firstCount = size;
+    int secondCount = 0;
 
-        final returnWidget = StaggeredGridView.countBuilder(
-          physics: const NeverScrollableScrollPhysics(),
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          itemCount: size,
-          // NOTE 各個 tile 會佔的 column 數
-          staggeredTileBuilder: (index) => StaggeredTile.fit(size < 4 ? 2 : 1),
-          itemBuilder: (context, int index) {
-            final int newIndex =
-                index.isEven ? index ~/ 2 : (index + size) ~/ 2;
-            final choice = choiceList[size < 4 ? index : newIndex];
+    if (size >= 4) {
+      firstCount = (size / 2).ceil();
+      secondCount = size - firstCount;
+    }
 
-            if ((questionType == QuestionType.single()) ||
-                choice.asSingle ||
-                isSpecialAnswer) {
-              return RadioListTile(
-                title: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      choice.body.getOrCrash(),
-                      style: kPTextStyle,
-                    ),
-                    if (choice.asNote &&
-                        thisAnswer.contains(choice.simple())) ...[
-                      NoteBox(
-                        questionId: questionId,
-                        choice: choice,
-                        note: thisAnswer.noteMap?.getOrDefault(choice.id, '') ??
-                            '',
-                      ),
-                    ]
-                  ],
-                ),
-                value: choice.id,
-                groupValue: thisAnswer.groupValue,
-                onChanged: (_) {
-                  context.read<AnswerBloc>().add(
-                        AnswerEvent.answerChangedWith(
-                          questionId: questionId,
-                          body: choice,
-                          isSpecialAnswer: isSpecialAnswer,
-                        ),
-                      );
-                },
-              );
-            } else if ([QuestionType.multiple(), QuestionType.popupMultiple()]
-                .contains(questionType)) {
-              return CheckboxListTile(
-                controlAffinity: ListTileControlAffinity.leading,
-                title: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      choice.body.getOrCrash(),
-                      style: kPTextStyle,
-                    ),
-                    if (choice.asNote &&
-                        thisAnswer.contains(choice.simple())) ...[
-                      NoteBox(
-                        questionId: questionId,
-                        choice: choice,
-                        note: thisAnswer.noteMap?.getOrDefault(choice.id, '') ??
-                            '',
-                      ),
-                    ]
-                  ],
-                ),
-                value: thisAnswer.contains(choice.simple()),
-                onChanged: (_) {
-                  context.read<AnswerBloc>().add(
-                        AnswerEvent.answerChangedWith(
-                          questionId: questionId,
-                          body: choice,
-                          toggle: true,
-                        ),
-                      );
-                },
-              );
-            }
-            return Container();
-          },
-        );
+    Widget choiceItemListView({bool isFirst = true}) {
+      return ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: isFirst ? firstCount : secondCount,
+        itemBuilder: (context, int index) {
+          final append = isFirst ? 0 : firstCount;
+          final choice = choiceList[index + append];
 
-        // context.read<AnswerBloc>().add(const AnswerEvent.widgetRebuilt());
-        logger('Build').i('ChoicesBox');
+          return Container(
+            decoration: BoxDecoration(
+              color: canEdit ? null : kCannotEditColor,
+            ),
+            child: ChoiceItem(
+              questionId: questionId,
+              questionType: questionType,
+              choice: choice,
+              isSpecialAnswer: isSpecialAnswer,
+              answer: answer,
+            ),
+          );
+        },
+      );
+    }
 
-        return returnWidget;
-      },
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Expanded(
+          child: choiceItemListView(),
+        ),
+        if (size >= 4) ...[
+          Expanded(
+            child: choiceItemListView(isFirst: false),
+          ),
+        ],
+      ],
     );
   }
 }

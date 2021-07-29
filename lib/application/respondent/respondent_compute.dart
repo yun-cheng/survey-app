@@ -67,6 +67,7 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
               .getOrDefault(QuestionId('date'), Answer.empty())
               .value;
 
+          // S_ 紙本
           if (dateStr != null) {
             date = DateTimeX.fromDateTimeString(dateStr)!;
             timeSession = r.answerMap
@@ -101,6 +102,13 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
               statusChoiceList?.firstOrNull((c) => c.id == statusChoiceId) ??
                   Choice.empty();
 
+          final status =
+              '${statusChoice.group.getValueAnyway()} ${statusChoice.id.getValueAnyway()}';
+
+          final note = r.answerMap
+              .getOrDefault(QuestionId('note'), Answer.empty())
+              .stringBody;
+
           return VisitRecord(
             respondentId: r.respondentId,
             responseId: r.responseId,
@@ -108,10 +116,8 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
               date: date,
               timeSession: timeSession,
             ),
-            status: statusChoice.group.getValueAnyway(),
-            description: r.answerMap
-                .getOrDefault(QuestionId('status'), Answer.empty())
-                .stringBody,
+            status: status,
+            description: '$status $note',
           );
         },
       )

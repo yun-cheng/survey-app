@@ -147,5 +147,4 @@ const _$SurveyPageUpdateTypeEnumMap = {
   SurveyPageUpdateType.page: 'page',
   SurveyPageUpdateType.contentQuestionList: 'contentQuestionList',
   SurveyPageUpdateType.warning: 'warning',
-  SurveyPageUpdateType.info: 'info',
 };

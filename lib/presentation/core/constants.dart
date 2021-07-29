@@ -8,6 +8,7 @@ const kCardRedTextColor = Color(0xffFF7E7C);
 const kCardGreenTextColor = Color(0xff0c8346);
 const kCardBlueTextColor = Color(0xff6B91C7);
 const kDisabledColor = Color(0xffb8b8b8);
+const kCannotEditColor = Color(0xffA6CBC8);
 
 final kButtonShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(8.0),

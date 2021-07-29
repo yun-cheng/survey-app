@@ -40,6 +40,7 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
               state.isRecodeModule ? e.answerMap : state.recodeAnswerMap,
           questionIdList: e.questionIdList,
         );
+        add(const SurveyPageEvent.questionIdListCleared());
       },
       // H_ answerStatusMap
       answerStatusMapUpdated: (e) async* {
@@ -114,6 +115,13 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: stateCleared');
 
         yield SurveyPageState.initial();
+      },
+      questionIdListCleared: (e) async* {
+        logger('Event').i('SurveyPageEvent: questionIdListCleared');
+
+        yield state.copyWith(
+          questionIdList: const KtList<QuestionId>.empty(),
+        );
       },
     );
   }

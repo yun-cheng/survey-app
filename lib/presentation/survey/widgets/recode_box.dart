@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/load_state.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../core/constants.dart';
 
-class RecodeBox extends StatelessWidget {
+class RecodeBox extends HookWidget {
   final QuestionId questionId;
 
   const RecodeBox({
@@ -19,47 +21,46 @@ class RecodeBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
-        buildWhen: (p, c) =>
-            (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
-            ((p.recodeAnswerMap[questionId] != c.recodeAnswerMap[questionId]) ||
-                p.isReadOnly != c.isReadOnly),
-        builder: (context, state) {
-          logger('Build').i('RecodeBox');
+    logger('Build').i('RecodeBox');
 
-          final isReadOnly = state.isReadOnly;
+    // final textFieldKey = useMemoized(() => GlobalKey());
 
-          // HIGHLIGHT 這樣寫，只有在 note 變更時，才會 rebuild
-          final note = (state.recodeAnswerMap[questionId] ?? Answer.empty())
-                  .value as String? ??
-              '';
+    final state = context.read<SurveyPageBloc>().state;
+    final canEdit = !state.isReadOnly;
+    final note = (state.recodeAnswerMap[questionId] ?? Answer.empty()).value
+            as String? ??
+        '';
+    final controller = useTextEditingController(text: note);
 
-          return Padding(
-            padding: const EdgeInsets.all(10),
-            child: TextFormField(
-              initialValue: note,
-              enabled: !isReadOnly,
-              decoration: const InputDecoration(
-                labelText: '',
-                counterText: '',
-              ),
-              maxLines: null,
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly,
-              ],
-              onChanged: (value) {
-                context.read<AnswerBloc>().add(
-                      AnswerEvent.answerChangedWith(
-                        questionId: questionId,
-                        body: value,
-                        isRecode: true,
-                      ),
-                    );
-              },
-              // validator: (_) {},
-            ),
-          );
-        });
+    return Padding(
+      padding: const EdgeInsets.all(10),
+      child: TextField(
+        // key: textFieldKey,
+        controller: controller,
+        enabled: canEdit,
+        // TODO 改變外框顏色即可
+        decoration: InputDecoration(
+          labelText: '',
+          counterText: '',
+          filled: !canEdit,
+          fillColor: kCannotEditColor,
+        ),
+        maxLines: null,
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.digitsOnly,
+        ],
+        onChanged: (value) {
+          context.read<AnswerBloc>().add(
+                AnswerEvent.answerChangedWith(
+                  questionId: questionId,
+                  body: value,
+                  isRecode: true,
+                ),
+              );
+        },
+        // validator: (_) {},
+      ),
+    );
   }
 }

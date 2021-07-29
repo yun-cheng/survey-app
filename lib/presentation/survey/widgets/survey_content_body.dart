@@ -19,7 +19,6 @@ class SurveyContentBody extends StatelessWidget {
         logger('Build').i('SurveyContentBody');
 
         return ListView.builder(
-          shrinkWrap: true,
           padding: const EdgeInsets.symmetric(
             vertical: 10.0,
           ),

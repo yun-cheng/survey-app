@@ -36,4 +36,7 @@ class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.stateLoadInProgress() = _StateLoadInprogress;
 
   const factory SurveyPageEvent.stateCleared() = _StateCleared;
+
+  const factory SurveyPageEvent.questionIdListCleared() =
+      _QuestionIdListCleared;
 }

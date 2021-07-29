@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
+import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
@@ -21,6 +22,17 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
     final isRecodeModule = state.moduleType == ModuleType.recode();
     final isReadOnly =
         state.response.responseStatus == ResponseStatus.finished();
+
+    // S_ 主要是要先把 isRecodeModule 傳進去，才不會在後續 answerMap 傳進去的時候用
+    //  錯誤的 isRecodeModule 來判斷，所以要放最前面
+    context.read<SurveyPageBloc>().add(
+          SurveyPageEvent.infoUpdated(
+            isReadOnly: isReadOnly,
+            isRecodeModule: isRecodeModule,
+            mainAnswerMap: state.mainResponse.answerMap,
+            mainAnswerStatusMap: state.mainResponse.answerStatusMap,
+          ),
+        );
 
     context.read<UpdateAnswerBloc>().add(
           UpdateAnswerEvent.moduleLoaded(

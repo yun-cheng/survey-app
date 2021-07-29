@@ -11,12 +11,9 @@ class TapOutDismissKeyboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        final focusScope = FocusScope.of(context);
+        WidgetsBinding.instance?.focusManager.primaryFocus?.unfocus();
 
-        // logger('Test').e(focusScope.hasPrimaryFocus);
-        // logger('Test').e(focusScope.focusedChild);
-
-        FocusManager.instance.primaryFocus?.unfocus();
+        // FocusManager.instance.primaryFocus?.unfocus();
       },
       child: child,
     );

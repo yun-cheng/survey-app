@@ -78,6 +78,10 @@ class _$SurveyPageEventTearOff {
   _StateCleared stateCleared() {
     return const _StateCleared();
   }
+
+  _QuestionIdListCleared questionIdListCleared() {
+    return const _QuestionIdListCleared();
+  }
 }
 
 /// @nodoc
@@ -106,6 +110,7 @@ mixin _$SurveyPageEvent {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -129,6 +134,7 @@ mixin _$SurveyPageEvent {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -144,6 +150,8 @@ mixin _$SurveyPageEvent {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -157,6 +165,7 @@ mixin _$SurveyPageEvent {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -278,6 +287,7 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return answerMapUpdated(answerMap, questionIdList);
   }
@@ -304,6 +314,7 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -325,6 +336,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return answerMapUpdated(this);
   }
@@ -341,6 +354,7 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -449,6 +463,7 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return answerStatusMapUpdated(answerStatusMap);
   }
@@ -475,6 +490,7 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (answerStatusMapUpdated != null) {
@@ -496,6 +512,8 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return answerStatusMapUpdated(this);
   }
@@ -512,6 +530,7 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (answerStatusMapUpdated != null) {
@@ -644,6 +663,7 @@ class _$_PageUpdated implements _PageUpdated {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return pageUpdated(page, pageQuestionList, isLastPage);
   }
@@ -670,6 +690,7 @@ class _$_PageUpdated implements _PageUpdated {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -691,6 +712,8 @@ class _$_PageUpdated implements _PageUpdated {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return pageUpdated(this);
   }
@@ -707,6 +730,7 @@ class _$_PageUpdated implements _PageUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -819,6 +843,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return contentQuestionListUpdated(contentQuestionList);
   }
@@ -845,6 +870,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -866,6 +892,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return contentQuestionListUpdated(this);
   }
@@ -882,6 +910,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -1009,6 +1038,7 @@ class _$_WarningUpdated implements _WarningUpdated {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return warningUpdated(warning, showWarning);
   }
@@ -1035,6 +1065,7 @@ class _$_WarningUpdated implements _WarningUpdated {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -1056,6 +1087,8 @@ class _$_WarningUpdated implements _WarningUpdated {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return warningUpdated(this);
   }
@@ -1072,6 +1105,7 @@ class _$_WarningUpdated implements _WarningUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -1220,6 +1254,7 @@ class _$_InfoUpdated implements _InfoUpdated {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return infoUpdated(
         isReadOnly, isRecodeModule, mainAnswerMap, mainAnswerStatusMap);
@@ -1247,6 +1282,7 @@ class _$_InfoUpdated implements _InfoUpdated {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (infoUpdated != null) {
@@ -1269,6 +1305,8 @@ class _$_InfoUpdated implements _InfoUpdated {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return infoUpdated(this);
   }
@@ -1285,6 +1323,7 @@ class _$_InfoUpdated implements _InfoUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (infoUpdated != null) {
@@ -1372,6 +1411,7 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return stateLoadInProgress();
   }
@@ -1398,6 +1438,7 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (stateLoadInProgress != null) {
@@ -1419,6 +1460,8 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return stateLoadInProgress(this);
   }
@@ -1435,6 +1478,7 @@ class _$_StateLoadInprogress implements _StateLoadInprogress {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (stateLoadInProgress != null) {
@@ -1507,6 +1551,7 @@ class _$_StateCleared implements _StateCleared {
         infoUpdated,
     required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
   }) {
     return stateCleared();
   }
@@ -1533,6 +1578,7 @@ class _$_StateCleared implements _StateCleared {
         infoUpdated,
     TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1554,6 +1600,8 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
   }) {
     return stateCleared(this);
   }
@@ -1570,6 +1618,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1581,6 +1630,146 @@ class _$_StateCleared implements _StateCleared {
 
 abstract class _StateCleared implements SurveyPageEvent {
   const factory _StateCleared() = _$_StateCleared;
+}
+
+/// @nodoc
+abstract class _$QuestionIdListClearedCopyWith<$Res> {
+  factory _$QuestionIdListClearedCopyWith(_QuestionIdListCleared value,
+          $Res Function(_QuestionIdListCleared) then) =
+      __$QuestionIdListClearedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$QuestionIdListClearedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$QuestionIdListClearedCopyWith<$Res> {
+  __$QuestionIdListClearedCopyWithImpl(_QuestionIdListCleared _value,
+      $Res Function(_QuestionIdListCleared) _then)
+      : super(_value, (v) => _then(v as _QuestionIdListCleared));
+
+  @override
+  _QuestionIdListCleared get _value => super._value as _QuestionIdListCleared;
+}
+
+/// @nodoc
+
+class _$_QuestionIdListCleared implements _QuestionIdListCleared {
+  const _$_QuestionIdListCleared();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.questionIdListCleared()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _QuestionIdListCleared);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
+        answerMapUpdated,
+    required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerStatusMapUpdated,
+    required TResult Function(
+            PageNumber page, KtList<Question> pageQuestionList, bool isLastPage)
+        pageUpdated,
+    required TResult Function(KtList<Question> contentQuestionList)
+        contentQuestionListUpdated,
+    required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
+    required TResult Function() stateLoadInProgress,
+    required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
+  }) {
+    return questionIdListCleared();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
+        answerMapUpdated,
+    TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerStatusMapUpdated,
+    TResult Function(PageNumber page, KtList<Question> pageQuestionList,
+            bool isLastPage)?
+        pageUpdated,
+    TResult Function(KtList<Question> contentQuestionList)?
+        contentQuestionListUpdated,
+    TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
+    TResult Function()? stateLoadInProgress,
+    TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
+    required TResult orElse(),
+  }) {
+    if (questionIdListCleared != null) {
+      return questionIdListCleared();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerStatusMapUpdated value)
+        answerStatusMapUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
+    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
+  }) {
+    return questionIdListCleared(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerStatusMapUpdated value)? answerStatusMapUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
+    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    required TResult orElse(),
+  }) {
+    if (questionIdListCleared != null) {
+      return questionIdListCleared(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _QuestionIdListCleared implements SurveyPageEvent {
+  const factory _QuestionIdListCleared() = _$_QuestionIdListCleared;
 }
 
 /// @nodoc

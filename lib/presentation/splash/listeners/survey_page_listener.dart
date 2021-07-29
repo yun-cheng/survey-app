@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
@@ -37,21 +38,10 @@ final surveyPageListener =
               showWarning: state.showWarning,
             ),
           );
-    } else if (state.updateType == SurveyPageUpdateType.info) {
-      logger('Listen').i('SurveyPageBloc: info');
-      context.read<SurveyPageBloc>().add(
-            SurveyPageEvent.infoUpdated(
-              isReadOnly: state.isReadOnly,
-              isRecodeModule: state.isRecodeModule,
-              mainAnswerMap: state.mainAnswerMap,
-              mainAnswerStatusMap: state.mainAnswerStatusMap,
-            ),
-          );
     }
 
     if (!state.isReadOnly &&
-        ![SurveyPageUpdateType.contentQuestionList, SurveyPageUpdateType.info]
-            .contains(state.updateType)) {
+        state.updateType != SurveyPageUpdateType.contentQuestionList) {
       // logger('Listen').i('SurveyPageBloc: ${state.updateType}');
       // H_ 存回 response
       context.read<ResponseBloc>().add(

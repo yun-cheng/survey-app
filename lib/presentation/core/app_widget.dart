@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../application/audio/upload_audio/upload_audio_bloc.dart';
@@ -108,14 +109,20 @@ class AppWidget extends StatelessWidget {
           lazy: false,
         ),
       ],
-      child: MaterialApp.router(
-        title: '問卷',
-        debugShowCheckedModeBanner: false,
-        theme: kLightTheme,
-        localizationsDelegates: const [GlobalMaterialLocalizations.delegate],
-        supportedLocales: const [Locale('en'), Locale('zh', 'TW')],
-        routerDelegate: _rootRouter.delegate(),
-        routeInformationParser: _rootRouter.defaultRouteParser(),
+      child: Sizer(
+        builder: (context, orientation, deviceType) {
+          return MaterialApp.router(
+            title: '問卷',
+            debugShowCheckedModeBanner: false,
+            theme: kLightTheme,
+            localizationsDelegates: const [
+              GlobalMaterialLocalizations.delegate
+            ],
+            supportedLocales: const [Locale('en'), Locale('zh', 'TW')],
+            routerDelegate: _rootRouter.delegate(),
+            routeInformationParser: _rootRouter.defaultRouteParser(),
+          );
+        },
       ),
     );
   }

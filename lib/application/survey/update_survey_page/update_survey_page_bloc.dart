@@ -87,13 +87,7 @@ class UpdateSurveyPageBloc
         logger('Success').i('UpdateSurveyPageEvent: stateRestoreSuccess');
 
         yield state.copyWith(
-          updateState: const LoadState.inProgress(),
-        );
-
-        yield state.copyWith(
           restoreState: const LoadState.success(),
-          updateState: const LoadState.success(),
-          updateType: SurveyPageUpdateType.info,
         );
       },
       // H_ 進入問卷時載入必要 state
@@ -289,6 +283,7 @@ class UpdateSurveyPageBloc
         // NOTE 不要清除 referenceList 相關 state
         yield UpdateSurveyPageState.initial().copyWith(
           referenceList: state.referenceList,
+          respondentResponseList: state.respondentResponseList,
           referenceListState: state.referenceListState,
           surveyFailure: state.surveyFailure,
         );

@@ -15,12 +15,11 @@ class BadgedTabBar extends StatelessWidget {
   }) : super(key: key);
 
   Widget tabClip(int count) {
-    String countStr = count.toString();
+    final countStr = count.toString();
     double width = 22.0;
     if (count > 9 && count <= 99) {
       width = 30.0;
     } else if (count > 99) {
-      countStr = '99+';
       width = 38.0;
     }
     return Container(
