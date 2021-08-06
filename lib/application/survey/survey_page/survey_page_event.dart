@@ -33,10 +33,11 @@ class SurveyPageEvent with _$SurveyPageEvent {
     required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) = _InfoUpdated;
 
-  const factory SurveyPageEvent.stateLoadInProgress() = _StateLoadInprogress;
-
   const factory SurveyPageEvent.stateCleared() = _StateCleared;
 
   const factory SurveyPageEvent.questionIdListCleared() =
       _QuestionIdListCleared;
+
+  const factory SurveyPageEvent.isolateSpawned() = _IsolateSpawned;
+  const factory SurveyPageEvent.stateToJson() = _StateToJson;
 }

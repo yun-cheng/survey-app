@@ -17,12 +17,6 @@ class RespondentEvent with _$RespondentEvent {
     required Survey survey,
   }) = _SurveySelected;
 
-  // H_ 載入受訪者名單
-  const factory RespondentEvent.respondentListLoaded() = _RespondentListLoaded;
-
-  // H_ 使用者切換分頁
-  const factory RespondentEvent.tabSelected() = _TabSelected;
-
   // H_ 使用者搜尋文字
   const factory RespondentEvent.textSearched() = _TextSearched;
 
@@ -58,4 +52,9 @@ class RespondentEvent with _$RespondentEvent {
   }) = _TabRespondentsUpdated;
 
   const factory RespondentEvent.loggedOut() = _LoggedOut;
+
+  const factory RespondentEvent.isolateSpawned() = _IsolateSpawned;
+  const factory RespondentEvent.workerJobDone(
+    RespondentState state,
+  ) = _WorkerJobDone;
 }

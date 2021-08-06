@@ -71,16 +71,20 @@ class _$SurveyPageEventTearOff {
     );
   }
 
-  _StateLoadInprogress stateLoadInProgress() {
-    return const _StateLoadInprogress();
-  }
-
   _StateCleared stateCleared() {
     return const _StateCleared();
   }
 
   _QuestionIdListCleared questionIdListCleared() {
     return const _QuestionIdListCleared();
+  }
+
+  _IsolateSpawned isolateSpawned() {
+    return const _IsolateSpawned();
+  }
+
+  _StateToJson stateToJson() {
+    return const _StateToJson();
   }
 }
 
@@ -108,9 +112,10 @@ mixin _$SurveyPageEvent {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -132,9 +137,10 @@ mixin _$SurveyPageEvent {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -148,10 +154,11 @@ mixin _$SurveyPageEvent {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -163,9 +170,10 @@ mixin _$SurveyPageEvent {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -285,9 +293,10 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return answerMapUpdated(answerMap, questionIdList);
   }
@@ -312,9 +321,10 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -334,10 +344,11 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return answerMapUpdated(this);
   }
@@ -352,9 +363,10 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -461,9 +473,10 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return answerStatusMapUpdated(answerStatusMap);
   }
@@ -488,9 +501,10 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (answerStatusMapUpdated != null) {
@@ -510,10 +524,11 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return answerStatusMapUpdated(this);
   }
@@ -528,9 +543,10 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (answerStatusMapUpdated != null) {
@@ -661,9 +677,10 @@ class _$_PageUpdated implements _PageUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return pageUpdated(page, pageQuestionList, isLastPage);
   }
@@ -688,9 +705,10 @@ class _$_PageUpdated implements _PageUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -710,10 +728,11 @@ class _$_PageUpdated implements _PageUpdated {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return pageUpdated(this);
   }
@@ -728,9 +747,10 @@ class _$_PageUpdated implements _PageUpdated {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -841,9 +861,10 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return contentQuestionListUpdated(contentQuestionList);
   }
@@ -868,9 +889,10 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -890,10 +912,11 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return contentQuestionListUpdated(this);
   }
@@ -908,9 +931,10 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -1036,9 +1060,10 @@ class _$_WarningUpdated implements _WarningUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return warningUpdated(warning, showWarning);
   }
@@ -1063,9 +1088,10 @@ class _$_WarningUpdated implements _WarningUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -1085,10 +1111,11 @@ class _$_WarningUpdated implements _WarningUpdated {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return warningUpdated(this);
   }
@@ -1103,9 +1130,10 @@ class _$_WarningUpdated implements _WarningUpdated {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -1252,9 +1280,10 @@ class _$_InfoUpdated implements _InfoUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return infoUpdated(
         isReadOnly, isRecodeModule, mainAnswerMap, mainAnswerStatusMap);
@@ -1280,9 +1309,10 @@ class _$_InfoUpdated implements _InfoUpdated {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (infoUpdated != null) {
@@ -1303,10 +1333,11 @@ class _$_InfoUpdated implements _InfoUpdated {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return infoUpdated(this);
   }
@@ -1321,9 +1352,10 @@ class _$_InfoUpdated implements _InfoUpdated {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (infoUpdated != null) {
@@ -1350,146 +1382,6 @@ abstract class _InfoUpdated implements SurveyPageEvent {
   @JsonKey(ignore: true)
   _$InfoUpdatedCopyWith<_InfoUpdated> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$StateLoadInprogressCopyWith<$Res> {
-  factory _$StateLoadInprogressCopyWith(_StateLoadInprogress value,
-          $Res Function(_StateLoadInprogress) then) =
-      __$StateLoadInprogressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$StateLoadInprogressCopyWithImpl<$Res>
-    extends _$SurveyPageEventCopyWithImpl<$Res>
-    implements _$StateLoadInprogressCopyWith<$Res> {
-  __$StateLoadInprogressCopyWithImpl(
-      _StateLoadInprogress _value, $Res Function(_StateLoadInprogress) _then)
-      : super(_value, (v) => _then(v as _StateLoadInprogress));
-
-  @override
-  _StateLoadInprogress get _value => super._value as _StateLoadInprogress;
-}
-
-/// @nodoc
-
-class _$_StateLoadInprogress implements _StateLoadInprogress {
-  const _$_StateLoadInprogress();
-
-  @override
-  String toString() {
-    return 'SurveyPageEvent.stateLoadInProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _StateLoadInprogress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList)
-        answerMapUpdated,
-    required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerStatusMapUpdated,
-    required TResult Function(
-            PageNumber page, KtList<Question> pageQuestionList, bool isLastPage)
-        pageUpdated,
-    required TResult Function(KtList<Question> contentQuestionList)
-        contentQuestionListUpdated,
-    required TResult Function(Warning warning, bool showWarning) warningUpdated,
-    required TResult Function(
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
-        infoUpdated,
-    required TResult Function() stateLoadInProgress,
-    required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
-  }) {
-    return stateLoadInProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList)?
-        answerMapUpdated,
-    TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerStatusMapUpdated,
-    TResult Function(PageNumber page, KtList<Question> pageQuestionList,
-            bool isLastPage)?
-        pageUpdated,
-    TResult Function(KtList<Question> contentQuestionList)?
-        contentQuestionListUpdated,
-    TResult Function(Warning warning, bool showWarning)? warningUpdated,
-    TResult Function(
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
-        infoUpdated,
-    TResult Function()? stateLoadInProgress,
-    TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
-    required TResult orElse(),
-  }) {
-    if (stateLoadInProgress != null) {
-      return stateLoadInProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
-    required TResult Function(_AnswerStatusMapUpdated value)
-        answerStatusMapUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
-  }) {
-    return stateLoadInProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
-    TResult Function(_AnswerStatusMapUpdated value)? answerStatusMapUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    required TResult orElse(),
-  }) {
-    if (stateLoadInProgress != null) {
-      return stateLoadInProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateLoadInprogress implements SurveyPageEvent {
-  const factory _StateLoadInprogress() = _$_StateLoadInprogress;
 }
 
 /// @nodoc
@@ -1549,9 +1441,10 @@ class _$_StateCleared implements _StateCleared {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return stateCleared();
   }
@@ -1576,9 +1469,10 @@ class _$_StateCleared implements _StateCleared {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1598,10 +1492,11 @@ class _$_StateCleared implements _StateCleared {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return stateCleared(this);
   }
@@ -1616,9 +1511,10 @@ class _$_StateCleared implements _StateCleared {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1689,9 +1585,10 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
-    required TResult Function() stateLoadInProgress,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
   }) {
     return questionIdListCleared();
   }
@@ -1716,9 +1613,10 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
             KtMap<QuestionId, Answer> mainAnswerMap,
             KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
-    TResult Function()? stateLoadInProgress,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
     required TResult orElse(),
   }) {
     if (questionIdListCleared != null) {
@@ -1738,10 +1636,11 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
         contentQuestionListUpdated,
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateLoadInprogress value) stateLoadInProgress,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
   }) {
     return questionIdListCleared(this);
   }
@@ -1756,9 +1655,10 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
         contentQuestionListUpdated,
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateLoadInprogress value)? stateLoadInProgress,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
     required TResult orElse(),
   }) {
     if (questionIdListCleared != null) {
@@ -1770,6 +1670,294 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
 
 abstract class _QuestionIdListCleared implements SurveyPageEvent {
   const factory _QuestionIdListCleared() = _$_QuestionIdListCleared;
+}
+
+/// @nodoc
+abstract class _$IsolateSpawnedCopyWith<$Res> {
+  factory _$IsolateSpawnedCopyWith(
+          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
+      __$IsolateSpawnedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IsolateSpawnedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$IsolateSpawnedCopyWith<$Res> {
+  __$IsolateSpawnedCopyWithImpl(
+      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
+      : super(_value, (v) => _then(v as _IsolateSpawned));
+
+  @override
+  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+}
+
+/// @nodoc
+
+class _$_IsolateSpawned implements _IsolateSpawned {
+  const _$_IsolateSpawned();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.isolateSpawned()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IsolateSpawned);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
+        answerMapUpdated,
+    required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerStatusMapUpdated,
+    required TResult Function(
+            PageNumber page, KtList<Question> pageQuestionList, bool isLastPage)
+        pageUpdated,
+    required TResult Function(KtList<Question> contentQuestionList)
+        contentQuestionListUpdated,
+    required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
+    required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
+  }) {
+    return isolateSpawned();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
+        answerMapUpdated,
+    TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerStatusMapUpdated,
+    TResult Function(PageNumber page, KtList<Question> pageQuestionList,
+            bool isLastPage)?
+        pageUpdated,
+    TResult Function(KtList<Question> contentQuestionList)?
+        contentQuestionListUpdated,
+    TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
+    TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerStatusMapUpdated value)
+        answerStatusMapUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
+  }) {
+    return isolateSpawned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerStatusMapUpdated value)? answerStatusMapUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsolateSpawned implements SurveyPageEvent {
+  const factory _IsolateSpawned() = _$_IsolateSpawned;
+}
+
+/// @nodoc
+abstract class _$StateToJsonCopyWith<$Res> {
+  factory _$StateToJsonCopyWith(
+          _StateToJson value, $Res Function(_StateToJson) then) =
+      __$StateToJsonCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$StateToJsonCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$StateToJsonCopyWith<$Res> {
+  __$StateToJsonCopyWithImpl(
+      _StateToJson _value, $Res Function(_StateToJson) _then)
+      : super(_value, (v) => _then(v as _StateToJson));
+
+  @override
+  _StateToJson get _value => super._value as _StateToJson;
+}
+
+/// @nodoc
+
+class _$_StateToJson implements _StateToJson {
+  const _$_StateToJson();
+
+  @override
+  String toString() {
+    return 'SurveyPageEvent.stateToJson()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _StateToJson);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
+        answerMapUpdated,
+    required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerStatusMapUpdated,
+    required TResult Function(
+            PageNumber page, KtList<Question> pageQuestionList, bool isLastPage)
+        pageUpdated,
+    required TResult Function(KtList<Question> contentQuestionList)
+        contentQuestionListUpdated,
+    required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
+    required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function() stateToJson,
+  }) {
+    return stateToJson();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
+        answerMapUpdated,
+    TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerStatusMapUpdated,
+    TResult Function(PageNumber page, KtList<Question> pageQuestionList,
+            bool isLastPage)?
+        pageUpdated,
+    TResult Function(KtList<Question> contentQuestionList)?
+        contentQuestionListUpdated,
+    TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
+    TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function()? stateToJson,
+    required TResult orElse(),
+  }) {
+    if (stateToJson != null) {
+      return stateToJson();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerStatusMapUpdated value)
+        answerStatusMapUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_StateToJson value) stateToJson,
+  }) {
+    return stateToJson(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerStatusMapUpdated value)? answerStatusMapUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_StateToJson value)? stateToJson,
+    required TResult orElse(),
+  }) {
+    if (stateToJson != null) {
+      return stateToJson(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _StateToJson implements SurveyPageEvent {
+  const factory _StateToJson() = _$_StateToJson;
 }
 
 /// @nodoc
@@ -2152,7 +2340,7 @@ class __$SurveyPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SurveyPageState implements _SurveyPageState {
+class _$_SurveyPageState extends _SurveyPageState {
   const _$_SurveyPageState(
       {required this.page,
       required this.newestPage,
@@ -2170,7 +2358,8 @@ class _$_SurveyPageState implements _SurveyPageState {
       required this.rebuildState,
       required this.restoreState,
       required this.recodeAnswerMap,
-      required this.recodeAnswerStatusMap});
+      required this.recodeAnswerStatusMap})
+      : super._();
 
   @override // H_ page
   final PageNumber page;
@@ -2295,7 +2484,7 @@ class _$_SurveyPageState implements _SurveyPageState {
       __$SurveyPageStateCopyWithImpl<_SurveyPageState>(this, _$identity);
 }
 
-abstract class _SurveyPageState implements SurveyPageState {
+abstract class _SurveyPageState extends SurveyPageState {
   const factory _SurveyPageState(
           {required PageNumber page,
           required PageNumber newestPage,
@@ -2315,6 +2504,7 @@ abstract class _SurveyPageState implements SurveyPageState {
           required KtMap<QuestionId, Answer> recodeAnswerMap,
           required KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap}) =
       _$_SurveyPageState;
+  const _SurveyPageState._() : super._();
 
   @override // H_ page
   PageNumber get page => throw _privateConstructorUsedError;

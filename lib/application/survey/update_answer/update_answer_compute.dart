@@ -2,11 +2,10 @@ part of 'update_answer_bloc.dart';
 
 // H_ 該題作答更新
 UpdateAnswerState answerUpdated(
-    Tuple2<AnswerUpdated, UpdateAnswerState> tuple) {
+  _AnswerUpdated e,
+  UpdateAnswerState state,
+) {
   logger('Compute').i('AnswerUpdated');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   // QUESTION 複製 map，不知有無其他方法
   final newAnswerMap = KtMutableMap.from(state.answerMap.asMap());
@@ -41,11 +40,10 @@ UpdateAnswerState answerUpdated(
 
 // H_ 清空部分題目作答
 UpdateAnswerState answerQIdListCleared(
-    Tuple2<_AnswerQIdListCleared, UpdateAnswerState> tuple) {
+  _AnswerQIdListCleared e,
+  UpdateAnswerState state,
+) {
   logger('Compute').i('answerQIdListCleared');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   final newAnswerMap = KtMutableMap.from(state.answerMap.asMap());
 

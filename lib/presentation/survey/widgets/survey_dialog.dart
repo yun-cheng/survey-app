@@ -168,6 +168,9 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
   context.read<ResponseBloc>().add(
         ResponseEvent.editFinished(responseFinished: finished),
       );
+
+  clearSurveyPageState(context);
+
   context.read<NavigationBloc>().add(
         const NavigationEvent.pageChanged(
           page: NavigationPage.respondent(),
@@ -176,8 +179,6 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
 
   // NOTE 從目錄頁要跳兩層，所以直接用 navigate
   context.router.navigate(const RespondentsRoute());
-
-  clearSurveyPageState(context);
 }
 
 void clearSurveyPageState(BuildContext context) {

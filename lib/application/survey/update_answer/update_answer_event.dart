@@ -7,8 +7,6 @@ class UpdateAnswerEvent with _$UpdateAnswerEvent {
     required KtMap<QuestionId, Answer> answerMap,
   }) = _ModuleLoaded;
 
-  const factory UpdateAnswerEvent.stateRestoreSuccess() = _StateRestoreSuccess;
-
   // H_ 離開問卷時清空 state
   const factory UpdateAnswerEvent.stateCleared() = _StateCleared;
 
@@ -20,10 +18,14 @@ class UpdateAnswerEvent with _$UpdateAnswerEvent {
     required bool isSpecialAnswer,
     required bool isNote,
     ChoiceId? noteOf,
-  }) = AnswerUpdated;
+  }) = _AnswerUpdated;
 
   // H_ 清空部分題目作答
   const factory UpdateAnswerEvent.answerQIdListCleared({
     required KtList<QuestionId> questionIdList,
   }) = _AnswerQIdListCleared;
+
+  const factory UpdateAnswerEvent.isolateSpawned() = _IsolateSpawned;
+  const factory UpdateAnswerEvent.workerJobDone(UpdateAnswerState state) =
+      _WorkerJobDone;
 }

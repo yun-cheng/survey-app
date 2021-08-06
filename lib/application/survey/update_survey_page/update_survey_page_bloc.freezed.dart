@@ -31,10 +31,6 @@ class _$UpdateSurveyPageEventTearOff {
     );
   }
 
-  _StateRestoreSuccess stateRestoreSuccess() {
-    return const _StateRestoreSuccess();
-  }
-
   _StateRestored stateRestored(
       {required SurveyId surveyId,
       required ModuleType moduleType,
@@ -80,16 +76,8 @@ class _$UpdateSurveyPageEventTearOff {
     );
   }
 
-  _PageQuestionListUpdated pageQuestionListUpdated() {
-    return const _PageQuestionListUpdated();
-  }
-
   _ContentQuestionListUpdated contentQuestionListUpdated() {
     return const _ContentQuestionListUpdated();
-  }
-
-  _PageUpdated pageUpdated() {
-    return const _PageUpdated();
   }
 
   _NextPagePressed nextPagePressed() {
@@ -100,34 +88,14 @@ class _$UpdateSurveyPageEventTearOff {
     return const _PreviousPagePressed();
   }
 
-  _WentToNewestPage wentToNewestPage() {
-    return const _WentToNewestPage();
-  }
-
   _WentToPage wentToPage(PageNumber page) {
     return _WentToPage(
       page,
     );
   }
 
-  _WarningUpdated warningUpdated() {
-    return const _WarningUpdated();
-  }
-
-  _WarningShowed warningShowed() {
-    return const _WarningShowed();
-  }
-
   _FinishedButtonPressed finishedButtonPressed() {
     return const _FinishedButtonPressed();
-  }
-
-  _StateUpdateInprogress stateUpdateInProgress() {
-    return const _StateUpdateInprogress();
-  }
-
-  _StateUpdateSuccess stateUpdateSuccess() {
-    return const _StateUpdateSuccess();
   }
 
   _StateCleared stateCleared() {
@@ -159,6 +127,16 @@ class _$UpdateSurveyPageEventTearOff {
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
+
+  _IsolateSpawned isolateSpawned() {
+    return const _IsolateSpawned();
+  }
+
+  _WorkerJobDone workerJobDone(UpdateSurveyPageState state) {
+    return _WorkerJobDone(
+      state,
+    );
+  }
 }
 
 /// @nodoc
@@ -173,7 +151,6 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -193,18 +170,11 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -212,6 +182,8 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -221,7 +193,6 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -241,18 +212,11 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -260,6 +224,8 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -269,27 +235,17 @@ mixin _$UpdateSurveyPageEvent {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -297,6 +253,8 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -304,24 +262,16 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -329,6 +279,8 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -437,7 +389,6 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -457,18 +408,11 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -476,6 +420,8 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return watchReferenceListStarted(teamId, interviewerId);
   }
@@ -488,7 +434,6 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -508,18 +453,11 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -527,6 +465,8 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (watchReferenceListStarted != null) {
@@ -542,27 +482,17 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -570,6 +500,8 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return watchReferenceListStarted(this);
   }
@@ -580,24 +512,16 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -605,6 +529,8 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (watchReferenceListStarted != null) {
@@ -699,7 +625,6 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -719,18 +644,11 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -738,6 +656,8 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return referenceListReceived(failureOrReferenceList);
   }
@@ -750,7 +670,6 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -770,18 +689,11 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -789,6 +701,8 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -804,27 +718,17 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -832,6 +736,8 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return referenceListReceived(this);
   }
@@ -842,24 +748,16 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -867,6 +765,8 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -886,232 +786,6 @@ abstract class _ReferenceListReceived implements UpdateSurveyPageEvent {
   @JsonKey(ignore: true)
   _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$StateRestoreSuccessCopyWith<$Res> {
-  factory _$StateRestoreSuccessCopyWith(_StateRestoreSuccess value,
-          $Res Function(_StateRestoreSuccess) then) =
-      __$StateRestoreSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$StateRestoreSuccessCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$StateRestoreSuccessCopyWith<$Res> {
-  __$StateRestoreSuccessCopyWithImpl(
-      _StateRestoreSuccess _value, $Res Function(_StateRestoreSuccess) _then)
-      : super(_value, (v) => _then(v as _StateRestoreSuccess));
-
-  @override
-  _StateRestoreSuccess get _value => super._value as _StateRestoreSuccess;
-}
-
-/// @nodoc
-
-class _$_StateRestoreSuccess implements _StateRestoreSuccess {
-  const _$_StateRestoreSuccess();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.stateRestoreSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _StateRestoreSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return stateRestoreSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (stateRestoreSuccess != null) {
-      return stateRestoreSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return stateRestoreSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (stateRestoreSuccess != null) {
-      return stateRestoreSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateRestoreSuccess implements UpdateSurveyPageEvent {
-  const factory _StateRestoreSuccess() = _$_StateRestoreSuccess;
 }
 
 /// @nodoc
@@ -1349,7 +1023,6 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -1369,18 +1042,11 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -1388,6 +1054,8 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return stateRestored(
         surveyId,
@@ -1412,7 +1080,6 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -1432,18 +1099,11 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -1451,6 +1111,8 @@ class _$_StateRestored implements _StateRestored {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1478,27 +1140,17 @@ class _$_StateRestored implements _StateRestored {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -1506,6 +1158,8 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return stateRestored(this);
   }
@@ -1516,24 +1170,16 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -1541,6 +1187,8 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1664,7 +1312,6 @@ class _$_RespondentResponseListUpdated
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -1684,18 +1331,11 @@ class _$_RespondentResponseListUpdated
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -1703,6 +1343,8 @@ class _$_RespondentResponseListUpdated
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return respondentResponseListUpdated(respondentResponseList);
   }
@@ -1715,7 +1357,6 @@ class _$_RespondentResponseListUpdated
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -1735,18 +1376,11 @@ class _$_RespondentResponseListUpdated
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -1754,6 +1388,8 @@ class _$_RespondentResponseListUpdated
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -1769,27 +1405,17 @@ class _$_RespondentResponseListUpdated
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -1797,6 +1423,8 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return respondentResponseListUpdated(this);
   }
@@ -1807,24 +1435,16 @@ class _$_RespondentResponseListUpdated
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -1832,6 +1452,8 @@ class _$_RespondentResponseListUpdated
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -1939,7 +1561,6 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -1959,18 +1580,11 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -1978,6 +1592,8 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return answerChanged(answerMap, answerStatusMap);
   }
@@ -1990,7 +1606,6 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -2010,18 +1625,11 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -2029,6 +1637,8 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -2044,27 +1654,17 @@ class _$_AnswerChanged implements _AnswerChanged {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -2072,6 +1672,8 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return answerChanged(this);
   }
@@ -2082,24 +1684,16 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -2107,6 +1701,8 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -2128,233 +1724,6 @@ abstract class _AnswerChanged implements UpdateSurveyPageEvent {
   @JsonKey(ignore: true)
   _$AnswerChangedCopyWith<_AnswerChanged> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$PageQuestionListUpdatedCopyWith<$Res> {
-  factory _$PageQuestionListUpdatedCopyWith(_PageQuestionListUpdated value,
-          $Res Function(_PageQuestionListUpdated) then) =
-      __$PageQuestionListUpdatedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PageQuestionListUpdatedCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$PageQuestionListUpdatedCopyWith<$Res> {
-  __$PageQuestionListUpdatedCopyWithImpl(_PageQuestionListUpdated _value,
-      $Res Function(_PageQuestionListUpdated) _then)
-      : super(_value, (v) => _then(v as _PageQuestionListUpdated));
-
-  @override
-  _PageQuestionListUpdated get _value =>
-      super._value as _PageQuestionListUpdated;
-}
-
-/// @nodoc
-
-class _$_PageQuestionListUpdated implements _PageQuestionListUpdated {
-  const _$_PageQuestionListUpdated();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.pageQuestionListUpdated()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PageQuestionListUpdated);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return pageQuestionListUpdated();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (pageQuestionListUpdated != null) {
-      return pageQuestionListUpdated();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return pageQuestionListUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (pageQuestionListUpdated != null) {
-      return pageQuestionListUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PageQuestionListUpdated implements UpdateSurveyPageEvent {
-  const factory _PageQuestionListUpdated() = _$_PageQuestionListUpdated;
 }
 
 /// @nodoc
@@ -2404,7 +1773,6 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -2424,18 +1792,11 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -2443,6 +1804,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return contentQuestionListUpdated();
   }
@@ -2455,7 +1818,6 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -2475,18 +1837,11 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -2494,6 +1849,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -2509,27 +1866,17 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -2537,6 +1884,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return contentQuestionListUpdated(this);
   }
@@ -2547,24 +1896,16 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -2572,6 +1913,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -2583,232 +1926,6 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
 
 abstract class _ContentQuestionListUpdated implements UpdateSurveyPageEvent {
   const factory _ContentQuestionListUpdated() = _$_ContentQuestionListUpdated;
-}
-
-/// @nodoc
-abstract class _$PageUpdatedCopyWith<$Res> {
-  factory _$PageUpdatedCopyWith(
-          _PageUpdated value, $Res Function(_PageUpdated) then) =
-      __$PageUpdatedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PageUpdatedCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$PageUpdatedCopyWith<$Res> {
-  __$PageUpdatedCopyWithImpl(
-      _PageUpdated _value, $Res Function(_PageUpdated) _then)
-      : super(_value, (v) => _then(v as _PageUpdated));
-
-  @override
-  _PageUpdated get _value => super._value as _PageUpdated;
-}
-
-/// @nodoc
-
-class _$_PageUpdated implements _PageUpdated {
-  const _$_PageUpdated();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.pageUpdated()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PageUpdated);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return pageUpdated();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (pageUpdated != null) {
-      return pageUpdated();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return pageUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (pageUpdated != null) {
-      return pageUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PageUpdated implements UpdateSurveyPageEvent {
-  const factory _PageUpdated() = _$_PageUpdated;
 }
 
 /// @nodoc
@@ -2856,7 +1973,6 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -2876,18 +1992,11 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -2895,6 +2004,8 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return nextPagePressed();
   }
@@ -2907,7 +2018,6 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -2927,18 +2037,11 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -2946,6 +2049,8 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (nextPagePressed != null) {
@@ -2961,27 +2066,17 @@ class _$_NextPagePressed implements _NextPagePressed {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -2989,6 +2084,8 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return nextPagePressed(this);
   }
@@ -2999,24 +2096,16 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -3024,6 +2113,8 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (nextPagePressed != null) {
@@ -3082,7 +2173,6 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -3102,18 +2192,11 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -3121,6 +2204,8 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return previousPagePressed();
   }
@@ -3133,7 +2218,6 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -3153,18 +2237,11 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -3172,6 +2249,8 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (previousPagePressed != null) {
@@ -3187,27 +2266,17 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -3215,6 +2284,8 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return previousPagePressed(this);
   }
@@ -3225,24 +2296,16 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -3250,6 +2313,8 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (previousPagePressed != null) {
@@ -3261,232 +2326,6 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
 
 abstract class _PreviousPagePressed implements UpdateSurveyPageEvent {
   const factory _PreviousPagePressed() = _$_PreviousPagePressed;
-}
-
-/// @nodoc
-abstract class _$WentToNewestPageCopyWith<$Res> {
-  factory _$WentToNewestPageCopyWith(
-          _WentToNewestPage value, $Res Function(_WentToNewestPage) then) =
-      __$WentToNewestPageCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$WentToNewestPageCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$WentToNewestPageCopyWith<$Res> {
-  __$WentToNewestPageCopyWithImpl(
-      _WentToNewestPage _value, $Res Function(_WentToNewestPage) _then)
-      : super(_value, (v) => _then(v as _WentToNewestPage));
-
-  @override
-  _WentToNewestPage get _value => super._value as _WentToNewestPage;
-}
-
-/// @nodoc
-
-class _$_WentToNewestPage implements _WentToNewestPage {
-  const _$_WentToNewestPage();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.wentToNewestPage()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WentToNewestPage);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return wentToNewestPage();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (wentToNewestPage != null) {
-      return wentToNewestPage();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return wentToNewestPage(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (wentToNewestPage != null) {
-      return wentToNewestPage(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WentToNewestPage implements UpdateSurveyPageEvent {
-  const factory _WentToNewestPage() = _$_WentToNewestPage;
 }
 
 /// @nodoc
@@ -3559,7 +2398,6 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -3579,18 +2417,11 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -3598,6 +2429,8 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return wentToPage(page);
   }
@@ -3610,7 +2443,6 @@ class _$_WentToPage implements _WentToPage {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -3630,18 +2462,11 @@ class _$_WentToPage implements _WentToPage {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -3649,6 +2474,8 @@ class _$_WentToPage implements _WentToPage {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (wentToPage != null) {
@@ -3664,27 +2491,17 @@ class _$_WentToPage implements _WentToPage {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -3692,6 +2509,8 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return wentToPage(this);
   }
@@ -3702,24 +2521,16 @@ class _$_WentToPage implements _WentToPage {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -3727,6 +2538,8 @@ class _$_WentToPage implements _WentToPage {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (wentToPage != null) {
@@ -3743,458 +2556,6 @@ abstract class _WentToPage implements UpdateSurveyPageEvent {
   @JsonKey(ignore: true)
   _$WentToPageCopyWith<_WentToPage> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$WarningUpdatedCopyWith<$Res> {
-  factory _$WarningUpdatedCopyWith(
-          _WarningUpdated value, $Res Function(_WarningUpdated) then) =
-      __$WarningUpdatedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$WarningUpdatedCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$WarningUpdatedCopyWith<$Res> {
-  __$WarningUpdatedCopyWithImpl(
-      _WarningUpdated _value, $Res Function(_WarningUpdated) _then)
-      : super(_value, (v) => _then(v as _WarningUpdated));
-
-  @override
-  _WarningUpdated get _value => super._value as _WarningUpdated;
-}
-
-/// @nodoc
-
-class _$_WarningUpdated implements _WarningUpdated {
-  const _$_WarningUpdated();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.warningUpdated()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WarningUpdated);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return warningUpdated();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (warningUpdated != null) {
-      return warningUpdated();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return warningUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (warningUpdated != null) {
-      return warningUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WarningUpdated implements UpdateSurveyPageEvent {
-  const factory _WarningUpdated() = _$_WarningUpdated;
-}
-
-/// @nodoc
-abstract class _$WarningShowedCopyWith<$Res> {
-  factory _$WarningShowedCopyWith(
-          _WarningShowed value, $Res Function(_WarningShowed) then) =
-      __$WarningShowedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$WarningShowedCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$WarningShowedCopyWith<$Res> {
-  __$WarningShowedCopyWithImpl(
-      _WarningShowed _value, $Res Function(_WarningShowed) _then)
-      : super(_value, (v) => _then(v as _WarningShowed));
-
-  @override
-  _WarningShowed get _value => super._value as _WarningShowed;
-}
-
-/// @nodoc
-
-class _$_WarningShowed implements _WarningShowed {
-  const _$_WarningShowed();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.warningShowed()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WarningShowed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return warningShowed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (warningShowed != null) {
-      return warningShowed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return warningShowed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (warningShowed != null) {
-      return warningShowed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WarningShowed implements UpdateSurveyPageEvent {
-  const factory _WarningShowed() = _$_WarningShowed;
 }
 
 /// @nodoc
@@ -4242,7 +2603,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -4262,18 +2622,11 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -4281,6 +2634,8 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return finishedButtonPressed();
   }
@@ -4293,7 +2648,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -4313,18 +2667,11 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -4332,6 +2679,8 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -4347,27 +2696,17 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -4375,6 +2714,8 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return finishedButtonPressed(this);
   }
@@ -4385,24 +2726,16 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -4410,6 +2743,8 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -4421,458 +2756,6 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
 
 abstract class _FinishedButtonPressed implements UpdateSurveyPageEvent {
   const factory _FinishedButtonPressed() = _$_FinishedButtonPressed;
-}
-
-/// @nodoc
-abstract class _$StateUpdateInprogressCopyWith<$Res> {
-  factory _$StateUpdateInprogressCopyWith(_StateUpdateInprogress value,
-          $Res Function(_StateUpdateInprogress) then) =
-      __$StateUpdateInprogressCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$StateUpdateInprogressCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$StateUpdateInprogressCopyWith<$Res> {
-  __$StateUpdateInprogressCopyWithImpl(_StateUpdateInprogress _value,
-      $Res Function(_StateUpdateInprogress) _then)
-      : super(_value, (v) => _then(v as _StateUpdateInprogress));
-
-  @override
-  _StateUpdateInprogress get _value => super._value as _StateUpdateInprogress;
-}
-
-/// @nodoc
-
-class _$_StateUpdateInprogress implements _StateUpdateInprogress {
-  const _$_StateUpdateInprogress();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.stateUpdateInProgress()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _StateUpdateInprogress);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return stateUpdateInProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (stateUpdateInProgress != null) {
-      return stateUpdateInProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return stateUpdateInProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (stateUpdateInProgress != null) {
-      return stateUpdateInProgress(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateUpdateInprogress implements UpdateSurveyPageEvent {
-  const factory _StateUpdateInprogress() = _$_StateUpdateInprogress;
-}
-
-/// @nodoc
-abstract class _$StateUpdateSuccessCopyWith<$Res> {
-  factory _$StateUpdateSuccessCopyWith(
-          _StateUpdateSuccess value, $Res Function(_StateUpdateSuccess) then) =
-      __$StateUpdateSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$StateUpdateSuccessCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$StateUpdateSuccessCopyWith<$Res> {
-  __$StateUpdateSuccessCopyWithImpl(
-      _StateUpdateSuccess _value, $Res Function(_StateUpdateSuccess) _then)
-      : super(_value, (v) => _then(v as _StateUpdateSuccess));
-
-  @override
-  _StateUpdateSuccess get _value => super._value as _StateUpdateSuccess;
-}
-
-/// @nodoc
-
-class _$_StateUpdateSuccess implements _StateUpdateSuccess {
-  const _$_StateUpdateSuccess();
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.stateUpdateSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _StateUpdateSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() pageQuestionListUpdated,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-  }) {
-    return stateUpdateSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? pageQuestionListUpdated,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (stateUpdateSuccess != null) {
-      return stateUpdateSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return stateUpdateSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (stateUpdateSuccess != null) {
-      return stateUpdateSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateUpdateSuccess implements UpdateSurveyPageEvent {
-  const factory _StateUpdateSuccess() = _$_StateUpdateSuccess;
 }
 
 /// @nodoc
@@ -4920,7 +2803,6 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -4940,18 +2822,11 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -4959,6 +2834,8 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return stateCleared();
   }
@@ -4971,7 +2848,6 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -4991,18 +2867,11 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -5010,6 +2879,8 @@ class _$_StateCleared implements _StateCleared {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -5025,27 +2896,17 @@ class _$_StateCleared implements _StateCleared {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -5053,6 +2914,8 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return stateCleared(this);
   }
@@ -5063,24 +2926,16 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -5088,6 +2943,8 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -5146,7 +3003,6 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5166,18 +3022,11 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -5185,6 +3034,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return readOnlyToggled();
   }
@@ -5197,7 +3048,6 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5217,18 +3067,11 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -5236,6 +3079,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -5251,27 +3096,17 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -5279,6 +3114,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return readOnlyToggled(this);
   }
@@ -5289,24 +3126,16 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -5314,6 +3143,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -5399,7 +3230,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5419,18 +3249,11 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -5438,6 +3261,8 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return appLifeCycleChanged(isPaused);
   }
@@ -5450,7 +3275,6 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5470,18 +3294,11 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -5489,6 +3306,8 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -5504,27 +3323,17 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -5532,6 +3341,8 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return appLifeCycleChanged(this);
   }
@@ -5542,24 +3353,16 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -5567,6 +3370,8 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -5631,7 +3436,6 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5651,18 +3455,11 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -5670,6 +3467,8 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return dialogClosed();
   }
@@ -5682,7 +3481,6 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5702,18 +3500,11 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -5721,6 +3512,8 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -5736,27 +3529,17 @@ class _$_DialogClosed implements _DialogClosed {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -5764,6 +3547,8 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return dialogClosed(this);
   }
@@ -5774,24 +3559,16 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -5799,6 +3576,8 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -5857,7 +3636,6 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5877,18 +3655,11 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -5896,6 +3667,8 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return leaveButtonPressed();
   }
@@ -5908,7 +3681,6 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -5928,18 +3700,11 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -5947,6 +3712,8 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (leaveButtonPressed != null) {
@@ -5962,27 +3729,17 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -5990,6 +3747,8 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return leaveButtonPressed(this);
   }
@@ -6000,24 +3759,16 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -6025,6 +3776,8 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (leaveButtonPressed != null) {
@@ -6083,7 +3836,6 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -6103,18 +3855,11 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -6122,6 +3867,8 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return leaveButtonHidden();
   }
@@ -6134,7 +3881,6 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -6154,18 +3900,11 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -6173,6 +3912,8 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (leaveButtonHidden != null) {
@@ -6188,27 +3929,17 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -6216,6 +3947,8 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return leaveButtonHidden(this);
   }
@@ -6226,24 +3959,16 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -6251,6 +3976,8 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (leaveButtonHidden != null) {
@@ -6308,7 +4035,6 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -6328,18 +4054,11 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() pageQuestionListUpdated,
     required TResult Function() contentQuestionListUpdated,
-    required TResult Function() pageUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function() wentToNewestPage,
     required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() warningUpdated,
-    required TResult Function() warningShowed,
     required TResult Function() finishedButtonPressed,
-    required TResult Function() stateUpdateInProgress,
-    required TResult Function() stateUpdateSuccess,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
     required TResult Function(bool isPaused) appLifeCycleChanged,
@@ -6347,6 +4066,8 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
   }) {
     return loggedOut();
   }
@@ -6359,7 +4080,6 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
-    TResult Function()? stateRestoreSuccess,
     TResult Function(
             SurveyId surveyId,
             ModuleType moduleType,
@@ -6379,18 +4099,11 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? pageQuestionListUpdated,
     TResult Function()? contentQuestionListUpdated,
-    TResult Function()? pageUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function()? wentToNewestPage,
     TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? warningUpdated,
-    TResult Function()? warningShowed,
     TResult Function()? finishedButtonPressed,
-    TResult Function()? stateUpdateInProgress,
-    TResult Function()? stateUpdateSuccess,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
     TResult Function(bool isPaused)? appLifeCycleChanged,
@@ -6398,6 +4111,8 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -6413,27 +4128,17 @@ class _$_LoggedOut implements _LoggedOut {
         watchReferenceListStarted,
     required TResult Function(_ReferenceListReceived value)
         referenceListReceived,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_PageQuestionListUpdated value)
-        pageQuestionListUpdated,
     required TResult Function(_ContentQuestionListUpdated value)
         contentQuestionListUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToNewestPage value) wentToNewestPage,
     required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_WarningShowed value) warningShowed,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
-    required TResult Function(_StateUpdateInprogress value)
-        stateUpdateInProgress,
-    required TResult Function(_StateUpdateSuccess value) stateUpdateSuccess,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
@@ -6441,6 +4146,8 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return loggedOut(this);
   }
@@ -6451,24 +4158,16 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_WatchReferenceListStarted value)?
         watchReferenceListStarted,
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_PageQuestionListUpdated value)? pageQuestionListUpdated,
     TResult Function(_ContentQuestionListUpdated value)?
         contentQuestionListUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToNewestPage value)? wentToNewestPage,
     TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_WarningShowed value)? warningShowed,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateUpdateInprogress value)? stateUpdateInProgress,
-    TResult Function(_StateUpdateSuccess value)? stateUpdateSuccess,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
@@ -6476,6 +4175,8 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -6487,6 +4188,445 @@ class _$_LoggedOut implements _LoggedOut {
 
 abstract class _LoggedOut implements UpdateSurveyPageEvent {
   const factory _LoggedOut() = _$_LoggedOut;
+}
+
+/// @nodoc
+abstract class _$IsolateSpawnedCopyWith<$Res> {
+  factory _$IsolateSpawnedCopyWith(
+          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
+      __$IsolateSpawnedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IsolateSpawnedCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
+    implements _$IsolateSpawnedCopyWith<$Res> {
+  __$IsolateSpawnedCopyWithImpl(
+      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
+      : super(_value, (v) => _then(v as _IsolateSpawned));
+
+  @override
+  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+}
+
+/// @nodoc
+
+class _$_IsolateSpawned implements _IsolateSpawned {
+  const _$_IsolateSpawned();
+
+  @override
+  String toString() {
+    return 'UpdateSurveyPageEvent.isolateSpawned()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IsolateSpawned);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateCleared,
+    required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
+    required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+  }) {
+    return isolateSpawned();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateCleared,
+    TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return isolateSpawned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsolateSpawned implements UpdateSurveyPageEvent {
+  const factory _IsolateSpawned() = _$_IsolateSpawned;
+}
+
+/// @nodoc
+abstract class _$WorkerJobDoneCopyWith<$Res> {
+  factory _$WorkerJobDoneCopyWith(
+          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
+      __$WorkerJobDoneCopyWithImpl<$Res>;
+  $Res call({UpdateSurveyPageState state});
+
+  $UpdateSurveyPageStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$WorkerJobDoneCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
+    implements _$WorkerJobDoneCopyWith<$Res> {
+  __$WorkerJobDoneCopyWithImpl(
+      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
+      : super(_value, (v) => _then(v as _WorkerJobDone));
+
+  @override
+  _WorkerJobDone get _value => super._value as _WorkerJobDone;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_WorkerJobDone(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as UpdateSurveyPageState,
+    ));
+  }
+
+  @override
+  $UpdateSurveyPageStateCopyWith<$Res> get state {
+    return $UpdateSurveyPageStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_WorkerJobDone implements _WorkerJobDone {
+  const _$_WorkerJobDone(this.state);
+
+  @override
+  final UpdateSurveyPageState state;
+
+  @override
+  String toString() {
+    return 'UpdateSurveyPageEvent.workerJobDone(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WorkerJobDone &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
+
+  @JsonKey(ignore: true)
+  @override
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)
+        stateRestored,
+    required TResult Function(KtList<Response> respondentResponseList)
+        respondentResponseListUpdated,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerChanged,
+    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() nextPagePressed,
+    required TResult Function() previousPagePressed,
+    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() stateCleared,
+    required TResult Function() readOnlyToggled,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
+    required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+  }) {
+    return workerJobDone(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function(
+            SurveyId surveyId,
+            ModuleType moduleType,
+            SimpleSurveyPageState surveyPageState,
+            KtList<Question> questionList,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtList<Question> mainQuestionList,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            Respondent respondent)?
+        stateRestored,
+    TResult Function(KtList<Response> respondentResponseList)?
+        respondentResponseListUpdated,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerChanged,
+    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? nextPagePressed,
+    TResult Function()? previousPagePressed,
+    TResult Function(PageNumber page)? wentToPage,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? stateCleared,
+    TResult Function()? readOnlyToggled,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchReferenceListStarted value)
+        watchReferenceListStarted,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_StateRestored value) stateRestored,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseListUpdated,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_NextPagePressed value) nextPagePressed,
+    required TResult Function(_PreviousPagePressed value) previousPagePressed,
+    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return workerJobDone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchReferenceListStarted value)?
+        watchReferenceListStarted,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_StateRestored value)? stateRestored,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseListUpdated,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_NextPagePressed value)? nextPagePressed,
+    TResult Function(_PreviousPagePressed value)? previousPagePressed,
+    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WorkerJobDone implements UpdateSurveyPageEvent {
+  const factory _WorkerJobDone(UpdateSurveyPageState state) = _$_WorkerJobDone;
+
+  UpdateSurveyPageState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -7091,7 +5231,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
+class _$_UpdateSurveyPageState extends _UpdateSurveyPageState {
   const _$_UpdateSurveyPageState(
       {required this.page,
       required this.newestPage,
@@ -7123,7 +5263,8 @@ class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
       required this.showLeaveButton,
       required this.mainQuestionList,
       required this.mainAnswerMap,
-      required this.mainAnswerStatusMap});
+      required this.mainAnswerStatusMap})
+      : super._();
 
   @override // H_ restore
   final PageNumber page;
@@ -7315,7 +5456,7 @@ class _$_UpdateSurveyPageState implements _UpdateSurveyPageState {
           this, _$identity);
 }
 
-abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
+abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   const factory _UpdateSurveyPageState(
           {required PageNumber page,
           required PageNumber newestPage,
@@ -7349,6 +5490,7 @@ abstract class _UpdateSurveyPageState implements UpdateSurveyPageState {
           required KtMap<QuestionId, Answer> mainAnswerMap,
           required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
       _$_UpdateSurveyPageState;
+  const _UpdateSurveyPageState._() : super._();
 
   @override // H_ restore
   PageNumber get page => throw _privateConstructorUsedError;

@@ -63,8 +63,10 @@ class DropdownBox extends StatelessWidget {
 
         final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-        final choiceList =
-            state.pageQuestionList.first((q) => q.id == questionId).choiceList;
+        final choiceList = state.pageQuestionList
+                .firstOrNull((q) => q.id == questionId)
+                ?.choiceList ??
+            const KtList.empty();
 
         final selectedChoice = choiceList.firstOrNull(
                 (choice) => choice.id == thisAnswer.choiceValue?.id) ??

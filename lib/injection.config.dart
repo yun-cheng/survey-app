@@ -12,7 +12,7 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'application/audio/audio_recorder/audio_recorder_bloc.dart' as _i24;
 import 'application/audio/upload_audio/upload_audio_bloc.dart' as _i21;
 import 'application/auth/auth_bloc.dart' as _i25;
-import 'application/respondent/respondent_bloc.dart' as _i15;
+import 'application/respondent/respondent_bloc.dart' as _i16;
 import 'application/survey/answer/answer_bloc.dart' as _i23;
 import 'application/survey/response/response_bloc.dart' as _i17;
 import 'application/survey/update_answer/update_answer_bloc.dart' as _i18;
@@ -30,7 +30,7 @@ import 'infrastructure/audio/audio_recorder/audio_recorder.dart' as _i6;
 import 'infrastructure/audio/audio_repository.dart' as _i8;
 import 'infrastructure/auth/manual_auth_facade.dart' as _i10;
 import 'infrastructure/core/firebase_injectable_module.dart' as _i26;
-import 'infrastructure/core/load_balancer.dart' as _i16;
+import 'infrastructure/core/isolate.dart' as _i15;
 import 'infrastructure/respondent/respondent_repository.dart' as _i12;
 import 'infrastructure/survey/survey_repository.dart'
     as _i14; // ignore_for_file: unnecessary_lambdas
@@ -53,26 +53,26 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i12.RespondentRepository(get<_i3.FirebaseFirestore>()));
   gh.lazySingleton<_i13.ISurveyRepository>(
       () => _i14.SurveyRepository(get<_i3.FirebaseFirestore>()));
-  gh.factory<_i15.RespondentBloc>(() => _i15.RespondentBloc(
-      get<_i11.IRespondentRepository>(), get<_i16.MyLoadBalancer>()));
+  gh.factory<_i15.JsonIsolate>(() => _i15.JsonIsolate());
+  gh.factory<_i16.RespondentBloc>(() => _i16.RespondentBloc(
+      get<_i15.JsonIsolate>(), get<_i11.IRespondentRepository>()));
   gh.factory<_i17.ResponseBloc>(() => _i17.ResponseBloc(
-      get<_i16.MyLoadBalancer>(), get<_i13.ISurveyRepository>()));
+      get<_i15.JsonIsolate>(), get<_i13.ISurveyRepository>()));
   gh.factory<_i18.UpdateAnswerBloc>(
-      () => _i18.UpdateAnswerBloc(get<_i16.MyLoadBalancer>()));
+      () => _i18.UpdateAnswerBloc(get<_i15.JsonIsolate>()));
   gh.factory<_i19.UpdateAnswerStatusBloc>(() => _i19.UpdateAnswerStatusBloc(
-      get<_i18.UpdateAnswerBloc>(), get<_i16.MyLoadBalancer>()));
+      get<_i15.JsonIsolate>(), get<_i18.UpdateAnswerBloc>()));
   gh.factory<_i20.UpdateSurveyPageBloc>(() => _i20.UpdateSurveyPageBloc(
-      get<_i13.ISurveyRepository>(), get<_i16.MyLoadBalancer>()));
+      get<_i15.JsonIsolate>(), get<_i13.ISurveyRepository>()));
   gh.factory<_i21.UploadAudioBloc>(
       () => _i21.UploadAudioBloc(get<_i7.IAudioRepository>()));
   gh.factory<_i22.WatchSurveyBloc>(
       () => _i22.WatchSurveyBloc(get<_i13.ISurveyRepository>()));
-  gh.factory<_i23.AnswerBloc>(() => _i23.AnswerBloc(
+  gh.factory<_i23.AnswerBloc>(() => _i23.AnswerBloc(get<_i15.JsonIsolate>(),
       get<_i18.UpdateAnswerBloc>(), get<_i19.UpdateAnswerStatusBloc>()));
   gh.factory<_i24.AudioRecorderBloc>(
       () => _i24.AudioRecorderBloc(get<_i5.IAudioRecorder>()));
   gh.factory<_i25.AuthBloc>(() => _i25.AuthBloc(get<_i9.IAuthFacade>()));
-  gh.singleton<_i16.MyLoadBalancer>(_i16.MyLoadBalancer());
   return get;
 }
 

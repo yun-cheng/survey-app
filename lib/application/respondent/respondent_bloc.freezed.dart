@@ -38,14 +38,6 @@ class _$RespondentEventTearOff {
     );
   }
 
-  _RespondentListLoaded respondentListLoaded() {
-    return const _RespondentListLoaded();
-  }
-
-  _TabSelected tabSelected() {
-    return const _TabSelected();
-  }
-
   _TextSearched textSearched() {
     return const _TextSearched();
   }
@@ -93,6 +85,16 @@ class _$RespondentEventTearOff {
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
+
+  _IsolateSpawned isolateSpawned() {
+    return const _IsolateSpawned();
+  }
+
+  _WorkerJobDone workerJobDone(RespondentState state) {
+    return _WorkerJobDone(
+      state,
+    );
+  }
 }
 
 /// @nodoc
@@ -109,8 +111,6 @@ mixin _$RespondentEvent {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -121,6 +121,8 @@ mixin _$RespondentEvent {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -132,8 +134,6 @@ mixin _$RespondentEvent {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -143,6 +143,8 @@ mixin _$RespondentEvent {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -153,8 +155,6 @@ mixin _$RespondentEvent {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -164,6 +164,8 @@ mixin _$RespondentEvent {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -173,8 +175,6 @@ mixin _$RespondentEvent {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -183,6 +183,8 @@ mixin _$RespondentEvent {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -295,8 +297,6 @@ class _$_WatchRespondentListListStarted
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -307,6 +307,8 @@ class _$_WatchRespondentListListStarted
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return watchRespondentListListStarted(teamId, interviewerId);
   }
@@ -321,8 +323,6 @@ class _$_WatchRespondentListListStarted
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -332,6 +332,8 @@ class _$_WatchRespondentListListStarted
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (watchRespondentListListStarted != null) {
@@ -348,8 +350,6 @@ class _$_WatchRespondentListListStarted
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -359,6 +359,8 @@ class _$_WatchRespondentListListStarted
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return watchRespondentListListStarted(this);
   }
@@ -371,8 +373,6 @@ class _$_WatchRespondentListListStarted
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -381,6 +381,8 @@ class _$_WatchRespondentListListStarted
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (watchRespondentListListStarted != null) {
@@ -484,8 +486,6 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -496,6 +496,8 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return respondentListListReceived(failureOrRespondentListList);
   }
@@ -510,8 +512,6 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -521,6 +521,8 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (respondentListListReceived != null) {
@@ -537,8 +539,6 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -548,6 +548,8 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return respondentListListReceived(this);
   }
@@ -560,8 +562,6 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -570,6 +570,8 @@ class _$_RespondentListListReceived implements _RespondentListListReceived {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (respondentListListReceived != null) {
@@ -672,8 +674,6 @@ class _$_SurveySelected implements _SurveySelected {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -684,6 +684,8 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return surveySelected(survey);
   }
@@ -698,8 +700,6 @@ class _$_SurveySelected implements _SurveySelected {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -709,6 +709,8 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -725,8 +727,6 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -736,6 +736,8 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return surveySelected(this);
   }
@@ -748,8 +750,6 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -758,6 +758,8 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -774,298 +776,6 @@ abstract class _SurveySelected implements RespondentEvent {
   @JsonKey(ignore: true)
   _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$RespondentListLoadedCopyWith<$Res> {
-  factory _$RespondentListLoadedCopyWith(_RespondentListLoaded value,
-          $Res Function(_RespondentListLoaded) then) =
-      __$RespondentListLoadedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RespondentListLoadedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$RespondentListLoadedCopyWith<$Res> {
-  __$RespondentListLoadedCopyWithImpl(
-      _RespondentListLoaded _value, $Res Function(_RespondentListLoaded) _then)
-      : super(_value, (v) => _then(v as _RespondentListLoaded));
-
-  @override
-  _RespondentListLoaded get _value => super._value as _RespondentListLoaded;
-}
-
-/// @nodoc
-
-class _$_RespondentListLoaded implements _RespondentListLoaded {
-  const _$_RespondentListLoaded();
-
-  @override
-  String toString() {
-    return 'RespondentEvent.respondentListLoaded()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RespondentListLoaded);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchRespondentListListStarted,
-    required TResult Function(
-            Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList)
-        respondentListListReceived,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
-    required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function(KtList<Response> responseList) visitReportUpdated,
-    required TResult Function(KtList<Response> responseList)
-        tabRespondentsUpdated,
-    required TResult Function() loggedOut,
-  }) {
-    return respondentListLoaded();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchRespondentListListStarted,
-    TResult Function(
-            Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList)?
-        respondentListListReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
-    TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function(KtList<Response> responseList)? visitReportUpdated,
-    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (respondentListLoaded != null) {
-      return respondentListLoaded();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchRespondentListListStarted value)
-        watchRespondentListListStarted,
-    required TResult Function(_RespondentListListReceived value)
-        respondentListListReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_TabSwitched value) tabSwitched,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return respondentListLoaded(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchRespondentListListStarted value)?
-        watchRespondentListListStarted,
-    TResult Function(_RespondentListListReceived value)?
-        respondentListListReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (respondentListLoaded != null) {
-      return respondentListLoaded(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RespondentListLoaded implements RespondentEvent {
-  const factory _RespondentListLoaded() = _$_RespondentListLoaded;
-}
-
-/// @nodoc
-abstract class _$TabSelectedCopyWith<$Res> {
-  factory _$TabSelectedCopyWith(
-          _TabSelected value, $Res Function(_TabSelected) then) =
-      __$TabSelectedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$TabSelectedCopyWithImpl<$Res>
-    extends _$RespondentEventCopyWithImpl<$Res>
-    implements _$TabSelectedCopyWith<$Res> {
-  __$TabSelectedCopyWithImpl(
-      _TabSelected _value, $Res Function(_TabSelected) _then)
-      : super(_value, (v) => _then(v as _TabSelected));
-
-  @override
-  _TabSelected get _value => super._value as _TabSelected;
-}
-
-/// @nodoc
-
-class _$_TabSelected implements _TabSelected {
-  const _$_TabSelected();
-
-  @override
-  String toString() {
-    return 'RespondentEvent.tabSelected()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TabSelected);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchRespondentListListStarted,
-    required TResult Function(
-            Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList)
-        respondentListListReceived,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
-    required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
-    required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
-    required TResult Function(KtList<Response> responseList) visitReportUpdated,
-    required TResult Function(KtList<Response> responseList)
-        tabRespondentsUpdated,
-    required TResult Function() loggedOut,
-  }) {
-    return tabSelected();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchRespondentListListStarted,
-    TResult Function(
-            Either<RespondentFailure, KtList<RespondentList>>
-                failureOrRespondentListList)?
-        respondentListListReceived,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
-    TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
-    TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
-    TResult Function(KtList<Response> responseList)? visitReportUpdated,
-    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (tabSelected != null) {
-      return tabSelected();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchRespondentListListStarted value)
-        watchRespondentListListStarted,
-    required TResult Function(_RespondentListListReceived value)
-        respondentListListReceived,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
-    required TResult Function(_TextSearched value) textSearched,
-    required TResult Function(_RespondentSelected value) respondentSelected,
-    required TResult Function(_TabSwitched value) tabSwitched,
-    required TResult Function(_PageScrolled value) pageScrolled,
-    required TResult Function(_JumpedToTown value) jumpedToTown,
-    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
-    required TResult Function(_TabRespondentsUpdated value)
-        tabRespondentsUpdated,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return tabSelected(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchRespondentListListStarted value)?
-        watchRespondentListListStarted,
-    TResult Function(_RespondentListListReceived value)?
-        respondentListListReceived,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
-    TResult Function(_TextSearched value)? textSearched,
-    TResult Function(_RespondentSelected value)? respondentSelected,
-    TResult Function(_TabSwitched value)? tabSwitched,
-    TResult Function(_PageScrolled value)? pageScrolled,
-    TResult Function(_JumpedToTown value)? jumpedToTown,
-    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
-    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (tabSelected != null) {
-      return tabSelected(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TabSelected implements RespondentEvent {
-  const factory _TabSelected() = _$_TabSelected;
 }
 
 /// @nodoc
@@ -1115,8 +825,6 @@ class _$_TextSearched implements _TextSearched {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -1127,6 +835,8 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return textSearched();
   }
@@ -1141,8 +851,6 @@ class _$_TextSearched implements _TextSearched {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -1152,6 +860,8 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (textSearched != null) {
@@ -1168,8 +878,6 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -1179,6 +887,8 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return textSearched(this);
   }
@@ -1191,8 +901,6 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -1201,6 +909,8 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (textSearched != null) {
@@ -1287,8 +997,6 @@ class _$_RespondentSelected implements _RespondentSelected {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -1299,6 +1007,8 @@ class _$_RespondentSelected implements _RespondentSelected {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return respondentSelected(respondentId);
   }
@@ -1313,8 +1023,6 @@ class _$_RespondentSelected implements _RespondentSelected {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -1324,6 +1032,8 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (respondentSelected != null) {
@@ -1340,8 +1050,6 @@ class _$_RespondentSelected implements _RespondentSelected {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -1351,6 +1059,8 @@ class _$_RespondentSelected implements _RespondentSelected {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return respondentSelected(this);
   }
@@ -1363,8 +1073,6 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -1373,6 +1081,8 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (respondentSelected != null) {
@@ -1464,8 +1174,6 @@ class _$_TabSwitched implements _TabSwitched {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -1476,6 +1184,8 @@ class _$_TabSwitched implements _TabSwitched {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return tabSwitched(index);
   }
@@ -1490,8 +1200,6 @@ class _$_TabSwitched implements _TabSwitched {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -1501,6 +1209,8 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (tabSwitched != null) {
@@ -1517,8 +1227,6 @@ class _$_TabSwitched implements _TabSwitched {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -1528,6 +1236,8 @@ class _$_TabSwitched implements _TabSwitched {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return tabSwitched(this);
   }
@@ -1540,8 +1250,6 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -1550,6 +1258,8 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (tabSwitched != null) {
@@ -1653,8 +1363,6 @@ class _$_PageScrolled implements _PageScrolled {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -1665,6 +1373,8 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return pageScrolled(tabType, positions);
   }
@@ -1679,8 +1389,6 @@ class _$_PageScrolled implements _PageScrolled {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -1690,6 +1398,8 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (pageScrolled != null) {
@@ -1706,8 +1416,6 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -1717,6 +1425,8 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return pageScrolled(this);
   }
@@ -1729,8 +1439,6 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -1739,6 +1447,8 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (pageScrolled != null) {
@@ -1833,8 +1543,6 @@ class _$_JumpedToTown implements _JumpedToTown {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -1845,6 +1553,8 @@ class _$_JumpedToTown implements _JumpedToTown {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return jumpedToTown(countyTown);
   }
@@ -1859,8 +1569,6 @@ class _$_JumpedToTown implements _JumpedToTown {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -1870,6 +1578,8 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (jumpedToTown != null) {
@@ -1886,8 +1596,6 @@ class _$_JumpedToTown implements _JumpedToTown {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -1897,6 +1605,8 @@ class _$_JumpedToTown implements _JumpedToTown {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return jumpedToTown(this);
   }
@@ -1909,8 +1619,6 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -1919,6 +1627,8 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (jumpedToTown != null) {
@@ -2011,8 +1721,6 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -2023,6 +1731,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return visitReportUpdated(responseList);
   }
@@ -2037,8 +1747,6 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -2048,6 +1756,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (visitReportUpdated != null) {
@@ -2064,8 +1774,6 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -2075,6 +1783,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return visitReportUpdated(this);
   }
@@ -2087,8 +1797,6 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -2097,6 +1805,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (visitReportUpdated != null) {
@@ -2190,8 +1900,6 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -2202,6 +1910,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return tabRespondentsUpdated(responseList);
   }
@@ -2216,8 +1926,6 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -2227,6 +1935,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (tabRespondentsUpdated != null) {
@@ -2243,8 +1953,6 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -2254,6 +1962,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return tabRespondentsUpdated(this);
   }
@@ -2266,8 +1976,6 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -2276,6 +1984,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (tabRespondentsUpdated != null) {
@@ -2340,8 +2050,6 @@ class _$_LoggedOut implements _LoggedOut {
                 failureOrRespondentListList)
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() respondentListLoaded,
-    required TResult Function() tabSelected,
     required TResult Function() textSearched,
     required TResult Function(RespondentId respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
@@ -2352,6 +2060,8 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
   }) {
     return loggedOut();
   }
@@ -2366,8 +2076,6 @@ class _$_LoggedOut implements _LoggedOut {
                 failureOrRespondentListList)?
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? respondentListLoaded,
-    TResult Function()? tabSelected,
     TResult Function()? textSearched,
     TResult Function(RespondentId respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
@@ -2377,6 +2085,8 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -2393,8 +2103,6 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_RespondentListListReceived value)
         respondentListListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_RespondentListLoaded value) respondentListLoaded,
-    required TResult Function(_TabSelected value) tabSelected,
     required TResult Function(_TextSearched value) textSearched,
     required TResult Function(_RespondentSelected value) respondentSelected,
     required TResult Function(_TabSwitched value) tabSwitched,
@@ -2404,6 +2112,8 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return loggedOut(this);
   }
@@ -2416,8 +2126,6 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_RespondentListListReceived value)?
         respondentListListReceived,
     TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_RespondentListLoaded value)? respondentListLoaded,
-    TResult Function(_TabSelected value)? tabSelected,
     TResult Function(_TextSearched value)? textSearched,
     TResult Function(_RespondentSelected value)? respondentSelected,
     TResult Function(_TabSwitched value)? tabSwitched,
@@ -2426,6 +2134,8 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -2437,6 +2147,337 @@ class _$_LoggedOut implements _LoggedOut {
 
 abstract class _LoggedOut implements RespondentEvent {
   const factory _LoggedOut() = _$_LoggedOut;
+}
+
+/// @nodoc
+abstract class _$IsolateSpawnedCopyWith<$Res> {
+  factory _$IsolateSpawnedCopyWith(
+          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
+      __$IsolateSpawnedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IsolateSpawnedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$IsolateSpawnedCopyWith<$Res> {
+  __$IsolateSpawnedCopyWithImpl(
+      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
+      : super(_value, (v) => _then(v as _IsolateSpawned));
+
+  @override
+  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+}
+
+/// @nodoc
+
+class _$_IsolateSpawned implements _IsolateSpawned {
+  const _$_IsolateSpawned();
+
+  @override
+  String toString() {
+    return 'RespondentEvent.isolateSpawned()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IsolateSpawned);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() textSearched,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
+        pageScrolled,
+    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
+  }) {
+    return isolateSpawned();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return isolateSpawned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsolateSpawned implements RespondentEvent {
+  const factory _IsolateSpawned() = _$_IsolateSpawned;
+}
+
+/// @nodoc
+abstract class _$WorkerJobDoneCopyWith<$Res> {
+  factory _$WorkerJobDoneCopyWith(
+          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
+      __$WorkerJobDoneCopyWithImpl<$Res>;
+  $Res call({RespondentState state});
+
+  $RespondentStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$WorkerJobDoneCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$WorkerJobDoneCopyWith<$Res> {
+  __$WorkerJobDoneCopyWithImpl(
+      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
+      : super(_value, (v) => _then(v as _WorkerJobDone));
+
+  @override
+  _WorkerJobDone get _value => super._value as _WorkerJobDone;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_WorkerJobDone(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as RespondentState,
+    ));
+  }
+
+  @override
+  $RespondentStateCopyWith<$Res> get state {
+    return $RespondentStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_WorkerJobDone implements _WorkerJobDone {
+  const _$_WorkerJobDone(this.state);
+
+  @override
+  final RespondentState state;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.workerJobDone(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WorkerJobDone &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
+
+  @JsonKey(ignore: true)
+  @override
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+        watchRespondentListListStarted,
+    required TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)
+        respondentListListReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() textSearched,
+    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType, List<ItemPosition> positions)
+        pageScrolled,
+    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(KtList<Response> responseList) visitReportUpdated,
+    required TResult Function(KtList<Response> responseList)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(RespondentState state) workerJobDone,
+  }) {
+    return workerJobDone(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+        watchRespondentListListStarted,
+    TResult Function(
+            Either<RespondentFailure, KtList<RespondentList>>
+                failureOrRespondentListList)?
+        respondentListListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(KtList<Response> responseList)? visitReportUpdated,
+    TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(RespondentState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchRespondentListListStarted value)
+        watchRespondentListListStarted,
+    required TResult Function(_RespondentListListReceived value)
+        respondentListListReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return workerJobDone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchRespondentListListStarted value)?
+        watchRespondentListListStarted,
+    TResult Function(_RespondentListListReceived value)?
+        respondentListListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WorkerJobDone implements RespondentEvent {
+  const factory _WorkerJobDone(RespondentState state) = _$_WorkerJobDone;
+
+  RespondentState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2738,7 +2779,7 @@ class __$RespondentStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RespondentState implements _RespondentState {
+class _$_RespondentState extends _RespondentState {
   const _$_RespondentState(
       {required this.respondentListListState,
       required this.respondentListList,
@@ -2752,7 +2793,8 @@ class _$_RespondentState implements _RespondentState {
       required this.selectedRespondentId,
       required this.visitRecordsMap,
       required this.tabRespondentsMap,
-      required this.responseInfoList});
+      required this.responseInfoList})
+      : super._();
 
   @override
   final LoadState respondentListListState;
@@ -2854,7 +2896,7 @@ class _$_RespondentState implements _RespondentState {
       __$RespondentStateCopyWithImpl<_RespondentState>(this, _$identity);
 }
 
-abstract class _RespondentState implements RespondentState {
+abstract class _RespondentState extends RespondentState {
   const factory _RespondentState(
       {required LoadState respondentListListState,
       required KtList<RespondentList> respondentListList,
@@ -2869,6 +2911,7 @@ abstract class _RespondentState implements RespondentState {
       required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
       required KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
       required KtList<Response> responseInfoList}) = _$_RespondentState;
+  const _RespondentState._() : super._();
 
   @override
   LoadState get respondentListListState => throw _privateConstructorUsedError;

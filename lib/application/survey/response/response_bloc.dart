@@ -1,11 +1,11 @@
 import 'dart:async';
+import 'dart:isolate';
 
-import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:tuple/tuple.dart';
 
 import '../../../domain/auth/interviewer.dart';
 import '../../../domain/auth/value_objects.dart';
@@ -23,42 +23,78 @@ import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../../infrastructure/core/load_balancer.dart';
+import '../../../infrastructure/core/isolate.dart';
 import '../../../infrastructure/survey/response_state_dtos.dart';
 
 part 'response_bloc.freezed.dart';
 part 'response_compute.dart';
 part 'response_event.dart';
+part 'response_event_worker.dart';
 part 'response_state.dart';
 
 @injectable
-class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
-  final MyLoadBalancer _loadBalancer;
+class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
+  final JsonIsolate _jsonIsolate;
   final ISurveyRepository _surveyRepository;
+  EventIsolate? _eventIsolate;
   StreamSubscription<Either<SurveyFailure, KtList<Response>>>?
       _responseListSubscription;
   Timer? _activeTimer;
   Timer? _inactiveTimer;
+  StreamSubscription<dynamic>? _stateSubscription;
+  StreamSubscription<dynamic>? _jsonSubscription;
 
   ResponseBloc(
-    this._loadBalancer,
+    this._jsonIsolate,
     this._surveyRepository,
-  ) : super(ResponseState.initial());
+  ) : super(ResponseState.initial()) {
+    add(const ResponseEvent.isolateSpawned());
+  }
 
   @override
   Stream<ResponseState> mapEventToState(
     ResponseEvent event,
   ) async* {
-    yield* event.map(
+    yield* event.maybeMap(
+      isolateSpawned: (e) async* {
+        if (_eventIsolate == null) {
+          logger('Isolate').e('ResponseEvent: isolateSpawned');
+
+          // S_ event worker
+          _eventIsolate = EventIsolate();
+          await _eventIsolate!.spawn(responseEventWorker);
+
+          // S_ json worker
+          final initState = await _jsonIsolate.spawn(
+            boxName: 'ResponseState',
+            stateFromJson: stateFromJson,
+          );
+          if (initState is ResponseState) {
+            logger('Event').i('ResponseEvent: initState');
+
+            _eventIsolate!.todo.send(initState);
+            add(ResponseEvent.workerJobDone(initState));
+          }
+
+          // S_ listen to state
+          _stateSubscription =
+              _eventIsolate!.stream.listen((dynamic stateOrElse) {
+            if (stateOrElse is ResponseState) {
+              add(ResponseEvent.workerJobDone(stateOrElse));
+              _jsonIsolate.todo.send(stateOrElse);
+            }
+          });
+        }
+      },
+      workerJobDone: (e) async* {
+        yield e.state;
+      },
       // H_ 監聽 responseList
       watchResponseListStarted: (e) async* {
         logger('Watch').i('ResponseBloc: watchResponseListStarted');
 
-        yield state.copyWith(
-          interviewer: e.interviewer,
-          responseListState: const LoadState.inProgress(),
-          responseFailure: none(),
-        );
+        _eventIsolate!.todo.send(e);
+
         await _responseListSubscription?.cancel();
         _responseListSubscription = _surveyRepository
             .watchResponseList(
@@ -69,36 +105,6 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
               (failureOrResponseList) => add(
                   ResponseEvent.responseListReceived(failureOrResponseList)),
             );
-      },
-      // H_2 接收到 responseList
-      responseListReceived: (e) async* {
-        logger('Receive').i('ResponseBloc: responseListReceived');
-
-        yield e.failureOrResponseList.fold(
-          (f) => state.copyWith(
-            responseListState: const LoadState.failure(),
-            responseFailure: some(f),
-          ),
-          (responseList) => state.copyWith(
-            responseListState: const LoadState.success(),
-            updateState: const LoadState.inProgress(),
-            downloadedResponseList: responseList,
-            responseFailure: none(),
-          ),
-        );
-
-        add(const ResponseEvent.responseListMerged());
-      },
-      // H_ 合併下載的與本地的 responseList
-      // TODO updateState
-      responseListMerged: (e) async* {
-        yield state.copyWith(
-          updateVisitReportsMap: false,
-          updateTabRespondentsMap: false,
-        );
-
-        final lb = await _loadBalancer.loadBalancer;
-        yield await lb.run(responseListMerged, state);
       },
       // H_ 上傳倒數計時
       uploadTimerUpdated: (e) async* {
@@ -140,82 +146,26 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
 
         // TODO
       },
-      // H_ 使用者選擇問卷
-      surveySelected: (e) async* {
-        yield state.copyWith(
-          updateState: const LoadState.inProgress(),
-        );
-        yield state.copyWith(
-          updateState: const LoadState.success(),
-          survey: e.survey,
-        );
-      },
-      // H_ 使用者選擇要開始進行的問卷模組
-      responseStarted: (e) async* {
-        logger('Event').i('ResponseEvent: responseStarted');
-
-        yield state.copyWith(
-          respondent: e.respondent,
-          moduleType: e.moduleType,
-          responseId: e.responseId,
-          withResponseId: e.withResponseId,
-          breakInterview: e.breakInterview,
-        );
-
-        add(const ResponseEvent.responseRestored());
-        add(const ResponseEvent.respondentResponseListUpdated());
-      },
-      // H_ 從 responseList 回復要進行的 response
-      responseRestored: (e) async* {
-        logger('Event').i('ResponseEvent: responseRestored');
-
-        yield state.copyWith(
-          responseRestoreState: const LoadState.inProgress(),
-        );
-
-        final lb = await _loadBalancer.loadBalancer;
-        yield await lb.run(responseRestored, state);
-      },
       // H_ 作答或切換頁數時更新 response
       responseUpdated: (e) async* {
-        final lb = await _loadBalancer.loadBalancer;
-        yield await lb.run(responseUpdated, Tuple2(e, state));
+        logger('Event').i('ResponseEvent: responseUpdated');
 
+        _eventIsolate!.todo.send(e);
         add(const ResponseEvent.uploadTimerUpdated());
       },
       // H_ 使用者結束編輯這次問卷模組的回覆
       editFinished: (e) async* {
         logger('Event').i('ResponseEvent: editFinished');
 
-        yield state.copyWith(
-          updateVisitReportsMap: false,
-          updateTabRespondentsMap: false,
-        );
-
-        final lb = await _loadBalancer.loadBalancer;
-        yield await lb.run(editFinished, Tuple2(e, state));
-
+        _eventIsolate!.todo.send(e);
         add(const ResponseEvent.uploadTimerUpdated());
       },
       // H_ 使用者在閒置後，選擇繼續訪問
       responseResumed: (e) async* {
         logger('Event').i('ResponseEvent: responseResumed');
 
-        final lb = await _loadBalancer.loadBalancer;
-        yield await lb.run(responseResumed, Tuple2(e, state));
-
+        _eventIsolate!.todo.send(e);
         add(const ResponseEvent.uploadTimerUpdated());
-      },
-      // H_ 更新當前受訪者在其他模組的 responses
-      respondentResponseListUpdated: (e) async* {
-        final lb = await _loadBalancer.loadBalancer;
-        yield await lb.run(respondentResponseListUpdated, state);
-      },
-      // H_ referenceList 更新時
-      referenceListUpdated: (e) async* {
-        yield state.copyWith(
-          referenceList: e.referenceList,
-        );
       },
       loggedOut: (e) async* {
         _responseListSubscription?.cancel();
@@ -225,34 +175,24 @@ class ResponseBloc extends HydratedBloc<ResponseEvent, ResponseState> {
         );
         _inactiveTimer?.cancel();
         _activeTimer?.cancel();
-        yield ResponseState.initial();
+        _eventIsolate!.todo.send(e);
+      },
+      orElse: () async* {
+        _eventIsolate!.todo.send(event);
       },
     );
   }
 
   @override
   Future<void> close() {
+    _eventIsolate?.kill();
+    _jsonIsolate.kill();
     _responseListSubscription?.cancel();
     _inactiveTimer?.cancel();
     _activeTimer?.cancel();
+    _stateSubscription?.cancel();
+    _jsonSubscription?.cancel();
+
     return super.close();
-  }
-
-  @override
-  ResponseState? fromJson(Map<String, dynamic> json) {
-    try {
-      return ResponseStateDto.fromJson(json).toDomain();
-    } catch (_) {
-      return null;
-    }
-  }
-
-  @override
-  Map<String, dynamic>? toJson(ResponseState state) {
-    // try {
-    return ResponseStateDto.fromDomain(state).toJson();
-    // } catch (_) {
-    //   return null;
-    // }
   }
 }

@@ -53,11 +53,14 @@ class ChoicesBox extends HookWidget {
       },
     ).state;
 
-    final choiceList =
-        state.pageQuestionList.first((q) => q.id == questionId).choiceList;
+    final choiceList = state.pageQuestionList
+            .firstOrNull((q) => q.id == questionId)
+            ?.choiceList ??
+        const KtList.empty();
     final size = choiceList.size;
     answer.value = state.answerMap[questionId] ?? Answer.empty();
-    final isSpecialAnswer = state.answerStatusMap[questionId]!.isSpecialAnswer;
+    final isSpecialAnswer =
+        state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
     final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
     // S_ 大於等於 4 個選項就要用 2 個 ListView

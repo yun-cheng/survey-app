@@ -45,6 +45,7 @@ class PageControlBar extends HookWidget {
       },
     ).state;
 
+    final loadSuccess = state.loadState is LoadSuccess;
     final currentPage = state.page;
     final isLastPage = state.isLastPage;
     final isReadOnly = state.isReadOnly;
@@ -113,7 +114,7 @@ class PageControlBar extends HookWidget {
 
     // H_ 完成按鈕
     final finishButton = Visibility(
-      visible: canFinish,
+      visible: canFinish && loadSuccess,
       maintainAnimation: true,
       maintainState: true,
       child: SizedBox(
@@ -137,7 +138,7 @@ class PageControlBar extends HookWidget {
     );
 
     return Visibility(
-      visible: !isKeyboardVisible.value,
+      visible: !isKeyboardVisible.value && loadSuccess,
       maintainState: true,
       child: Container(
         color: kDarkestColor,

@@ -87,23 +87,12 @@ class AnswerStatus with _$AnswerStatus {
   AnswerStatus updateNoteMap(Answer answer) {
     final newNoteMap = KtMutableMap<ChoiceId, AnswerStatusType>.empty();
     if (answer.withNote) {
-      if (answer.type == AnswerType.choice()) {
+      answer.noteMap!.forEach((choiceId, note) {
         newNoteMap.put(
-          answer.choiceValue!.id,
-          AnswerStatusType.fromString(
-            answer.noteMap!.getOrDefault(answer.choiceValue!.id, ''),
-          ),
+          choiceId,
+          AnswerStatusType.fromString(note),
         );
-      } else if (answer.type == AnswerType.choiceList()) {
-        answer.choiceListValue!.forEach((choice) {
-          newNoteMap.put(
-            choice.id,
-            AnswerStatusType.fromString(
-              answer.noteMap!.getOrDefault(choice.id, ''),
-            ),
-          );
-        });
-      }
+      });
     }
     return copyWith(
       noteMap: newNoteMap.toMap(),

@@ -2,6 +2,8 @@ part of 'update_answer_bloc.dart';
 
 @freezed
 class UpdateAnswerState with _$UpdateAnswerState {
+  const UpdateAnswerState._();
+
   const factory UpdateAnswerState({
     required KtMap<QuestionId, Answer> answerMap,
     required KtList<QuestionId> questionIdList,
@@ -17,4 +19,15 @@ class UpdateAnswerState with _$UpdateAnswerState {
         updateAnswerStatus: false,
         restoreState: LoadState.initial(),
       );
+
+  Map<String, dynamic> toJson() =>
+      UpdateAnswerStateDto.fromDomain(this).toJson();
+
+  UpdateAnswerState send(SendPort stateReceiver) {
+    stateReceiver.send(this);
+    return this;
+  }
 }
+
+UpdateAnswerState stateFromJson(Map<String, dynamic> json) =>
+    UpdateAnswerStateDto.fromJson(json).toDomain();

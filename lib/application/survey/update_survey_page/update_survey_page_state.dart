@@ -2,6 +2,8 @@ part of 'update_survey_page_bloc.dart';
 
 @freezed
 class UpdateSurveyPageState with _$UpdateSurveyPageState {
+  const UpdateSurveyPageState._();
+
   const factory UpdateSurveyPageState({
     // H_ restore
     required PageNumber page,
@@ -74,7 +76,18 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         mainAnswerMap: const KtMap<QuestionId, Answer>.empty(),
         mainAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
       );
+
+  Map<String, dynamic> toJson() =>
+      UpdateSurveyPageStateDto.fromDomain(this).toJson();
+
+  UpdateSurveyPageState send(SendPort stateReceiver) {
+    stateReceiver.send(this);
+    return this;
+  }
 }
+
+UpdateSurveyPageState stateFromJson(Map<String, dynamic> json) =>
+    UpdateSurveyPageStateDto.fromJson(json).toDomain();
 
 enum Direction {
   @JsonValue('current')

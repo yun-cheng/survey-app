@@ -23,7 +23,9 @@ RespondentState respondentListLoaded(RespondentState state) {
 
 // H_
 RespondentState responseInfoListUpdated(
-    KtList<Response> responseList, RespondentState state) {
+  KtList<Response> responseList,
+  RespondentState state,
+) {
   return state.copyWith(
     responseInfoList: responseList.map((r) => r.onlyInfo()),
   );
@@ -31,11 +33,10 @@ RespondentState responseInfoListUpdated(
 
 // H_ 查址紀錄更新時
 RespondentState visitReportUpdated(
-    Tuple2<_VisitReportUpdated, RespondentState> tuple) {
+  _VisitReportUpdated e,
+  RespondentState state,
+) {
   logger('Compute').i('visitReportUpdated');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   final state1 = responseInfoListUpdated(e.responseList, state);
 
@@ -131,11 +132,10 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
 
 // H_ 分頁受訪者名單更新時
 RespondentState tabRespondentsUpdated(
-    Tuple2<_TabRespondentsUpdated, RespondentState> tuple) {
+  _TabRespondentsUpdated e,
+  RespondentState state,
+) {
   logger('Compute').i('tabRespondentsUpdated');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   final state1 = responseInfoListUpdated(e.responseList, state);
 
@@ -236,11 +236,11 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
   );
 }
 
-RespondentState pageScrolled(Tuple2<_PageScrolled, RespondentState> tuple) {
+RespondentState pageScrolled(
+  _PageScrolled e,
+  RespondentState state,
+) {
   // logger('Compute').i('pageScrolled');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   final firstCardIndex =
       e.positions.isEmpty ? 0 : e.positions.map((p) => p.index).reduce(min);

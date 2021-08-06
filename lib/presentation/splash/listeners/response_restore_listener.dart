@@ -15,6 +15,7 @@ import '../../../domain/survey/value_objects.dart';
 final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
   listenWhen: (p, c) =>
       p.responseRestoreState != c.responseRestoreState &&
+      // p.responseRestoreState is! LoadInitial &&
       c.responseRestoreState is LoadSuccess,
   listener: (context, state) {
     logger('Listen').i('ResponseBloc');

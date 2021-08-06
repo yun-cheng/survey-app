@@ -141,11 +141,11 @@ ResponseState responseRestored(ResponseState state) {
 }
 
 // H_ 作答或切換頁數時更新 response
-ResponseState responseUpdated(Tuple2<_ResponseUpdated, ResponseState> tuple) {
+ResponseState responseUpdated(
+  _ResponseUpdated e,
+  ResponseState state,
+) {
   logger('Compute').i('ResponseUpdated');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   // S_1 newResponse
   final newResponse = state.response.copyWith(
@@ -168,11 +168,11 @@ ResponseState responseUpdated(Tuple2<_ResponseUpdated, ResponseState> tuple) {
 }
 
 // H_ 使用者結束編輯這次問卷模組的回覆
-ResponseState editFinished(Tuple2<_EditFinished, ResponseState> tuple) {
+ResponseState editFinished(
+  _EditFinished e,
+  ResponseState state,
+) {
   logger('Compute').i('EditFinished');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   if (!state.response.editFinished) {
     // S_1 newResponse
@@ -213,11 +213,11 @@ ResponseState editFinished(Tuple2<_EditFinished, ResponseState> tuple) {
 }
 
 // H_ 使用者在閒置後，選擇繼續訪問
-ResponseState responseResumed(Tuple2<_ResponseResumed, ResponseState> tuple) {
+ResponseState responseResumed(
+  _ResponseResumed e,
+  ResponseState state,
+) {
   logger('Compute').i('ResponseResumed');
-
-  final e = tuple.item1;
-  final state = tuple.item2;
 
   if (state.response.editFinished) {
     final now = DeviceTimeStamp.now();

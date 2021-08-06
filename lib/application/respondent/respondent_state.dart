@@ -2,6 +2,8 @@ part of 'respondent_bloc.dart';
 
 @freezed
 class RespondentState with _$RespondentState {
+  const RespondentState._();
+
   const factory RespondentState({
     required LoadState respondentListListState,
     required KtList<RespondentList> respondentListList,
@@ -34,4 +36,14 @@ class RespondentState with _$RespondentState {
         tabRespondentsMap: const TabRespondentsMap.empty(),
         responseInfoList: const KtList<Response>.empty(),
       );
+
+  Map<String, dynamic> toJson() => RespondentStateDto.fromDomain(this).toJson();
+
+  RespondentState send(SendPort stateReceiver) {
+    stateReceiver.send(this);
+    return this;
+  }
 }
+
+RespondentState stateFromJson(Map<String, dynamic> json) =>
+    RespondentStateDto.fromJson(json).toDomain();

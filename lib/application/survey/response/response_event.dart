@@ -12,9 +12,6 @@ class ResponseEvent with _$ResponseEvent {
     Either<SurveyFailure, KtList<Response>> failureOrResponseList,
   ) = _ResponseListReceived;
 
-  // H_ 合併下載的與本地的 responseList
-  const factory ResponseEvent.responseListMerged() = _ResponseListMerged;
-
   // H_ 上傳倒數計時
   const factory ResponseEvent.uploadTimerUpdated() = _UploadTimerUpdated;
 
@@ -54,9 +51,6 @@ class ResponseEvent with _$ResponseEvent {
         responseId: responseId ?? UniqueId.v1(),
       );
 
-  // H_ 從 responseList 回復要進行的 response
-  const factory ResponseEvent.responseRestored() = _ResponseRestored;
-
   // H_ 作答或切換頁數時更新 response
   const factory ResponseEvent.responseUpdated({
     required KtMap<QuestionId, Answer> answerMap,
@@ -74,14 +68,14 @@ class ResponseEvent with _$ResponseEvent {
   const factory ResponseEvent.responseResumed(UniqueId responseId) =
       _ResponseResumed;
 
-  // H_ 更新當前受訪者在其他模組的 responses
-  const factory ResponseEvent.respondentResponseListUpdated() =
-      _RespondentResponseListUpdated;
-
   // H_ referenceList 更新時
   const factory ResponseEvent.referenceListUpdated({
     required KtList<Reference> referenceList,
   }) = _ReferenceListUpdated;
 
   const factory ResponseEvent.loggedOut() = _LoggedOut;
+
+  const factory ResponseEvent.isolateSpawned() = _IsolateSpawned;
+  const factory ResponseEvent.workerJobDone(ResponseState state) =
+      _WorkerJobDone;
 }

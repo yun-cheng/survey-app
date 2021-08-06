@@ -22,22 +22,18 @@ class _$UpdateAnswerEventTearOff {
     );
   }
 
-  _StateRestoreSuccess stateRestoreSuccess() {
-    return const _StateRestoreSuccess();
-  }
-
   _StateCleared stateCleared() {
     return const _StateCleared();
   }
 
-  AnswerUpdated answerUpdated(
+  _AnswerUpdated answerUpdated(
       {required Question question,
       required dynamic answerValue,
       required bool toggle,
       required bool isSpecialAnswer,
       required bool isNote,
       ChoiceId? noteOf}) {
-    return AnswerUpdated(
+    return _AnswerUpdated(
       question: question,
       answerValue: answerValue,
       toggle: toggle,
@@ -53,6 +49,16 @@ class _$UpdateAnswerEventTearOff {
       questionIdList: questionIdList,
     );
   }
+
+  _IsolateSpawned isolateSpawned() {
+    return const _IsolateSpawned();
+  }
+
+  _WorkerJobDone workerJobDone(UpdateAnswerState state) {
+    return _WorkerJobDone(
+      state,
+    );
+  }
 }
 
 /// @nodoc
@@ -63,43 +69,47 @@ mixin _$UpdateAnswerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateAnswerState state) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
-    TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateAnswerState state)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(AnswerUpdated value) answerUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(AnswerUpdated value)? answerUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -189,13 +199,14 @@ class _$_ModuleLoaded implements _ModuleLoaded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateAnswerState state) workerJobDone,
   }) {
     return moduleLoaded(answerMap);
   }
@@ -204,12 +215,13 @@ class _$_ModuleLoaded implements _ModuleLoaded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
-    TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateAnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -222,10 +234,11 @@ class _$_ModuleLoaded implements _ModuleLoaded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(AnswerUpdated value) answerUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return moduleLoaded(this);
   }
@@ -234,10 +247,11 @@ class _$_ModuleLoaded implements _ModuleLoaded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(AnswerUpdated value)? answerUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -255,109 +269,6 @@ abstract class _ModuleLoaded implements UpdateAnswerEvent {
   @JsonKey(ignore: true)
   _$ModuleLoadedCopyWith<_ModuleLoaded> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$StateRestoreSuccessCopyWith<$Res> {
-  factory _$StateRestoreSuccessCopyWith(_StateRestoreSuccess value,
-          $Res Function(_StateRestoreSuccess) then) =
-      __$StateRestoreSuccessCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$StateRestoreSuccessCopyWithImpl<$Res>
-    extends _$UpdateAnswerEventCopyWithImpl<$Res>
-    implements _$StateRestoreSuccessCopyWith<$Res> {
-  __$StateRestoreSuccessCopyWithImpl(
-      _StateRestoreSuccess _value, $Res Function(_StateRestoreSuccess) _then)
-      : super(_value, (v) => _then(v as _StateRestoreSuccess));
-
-  @override
-  _StateRestoreSuccess get _value => super._value as _StateRestoreSuccess;
-}
-
-/// @nodoc
-
-class _$_StateRestoreSuccess implements _StateRestoreSuccess {
-  const _$_StateRestoreSuccess();
-
-  @override
-  String toString() {
-    return 'UpdateAnswerEvent.stateRestoreSuccess()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _StateRestoreSuccess);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
-    required TResult Function() stateRestoreSuccess,
-    required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
-        answerUpdated,
-    required TResult Function(KtList<QuestionId> questionIdList)
-        answerQIdListCleared,
-  }) {
-    return stateRestoreSuccess();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
-    TResult Function()? stateRestoreSuccess,
-    TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
-        answerUpdated,
-    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    required TResult orElse(),
-  }) {
-    if (stateRestoreSuccess != null) {
-      return stateRestoreSuccess();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-  }) {
-    return stateRestoreSuccess(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    required TResult orElse(),
-  }) {
-    if (stateRestoreSuccess != null) {
-      return stateRestoreSuccess(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _StateRestoreSuccess implements UpdateAnswerEvent {
-  const factory _StateRestoreSuccess() = _$_StateRestoreSuccess;
 }
 
 /// @nodoc
@@ -401,13 +312,14 @@ class _$_StateCleared implements _StateCleared {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateAnswerState state) workerJobDone,
   }) {
     return stateCleared();
   }
@@ -416,12 +328,13 @@ class _$_StateCleared implements _StateCleared {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
-    TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateAnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -434,10 +347,11 @@ class _$_StateCleared implements _StateCleared {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(AnswerUpdated value) answerUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return stateCleared(this);
   }
@@ -446,10 +360,11 @@ class _$_StateCleared implements _StateCleared {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(AnswerUpdated value)? answerUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -464,10 +379,10 @@ abstract class _StateCleared implements UpdateAnswerEvent {
 }
 
 /// @nodoc
-abstract class $AnswerUpdatedCopyWith<$Res> {
-  factory $AnswerUpdatedCopyWith(
-          AnswerUpdated value, $Res Function(AnswerUpdated) then) =
-      _$AnswerUpdatedCopyWithImpl<$Res>;
+abstract class _$AnswerUpdatedCopyWith<$Res> {
+  factory _$AnswerUpdatedCopyWith(
+          _AnswerUpdated value, $Res Function(_AnswerUpdated) then) =
+      __$AnswerUpdatedCopyWithImpl<$Res>;
   $Res call(
       {Question question,
       dynamic answerValue,
@@ -480,15 +395,15 @@ abstract class $AnswerUpdatedCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AnswerUpdatedCopyWithImpl<$Res>
+class __$AnswerUpdatedCopyWithImpl<$Res>
     extends _$UpdateAnswerEventCopyWithImpl<$Res>
-    implements $AnswerUpdatedCopyWith<$Res> {
-  _$AnswerUpdatedCopyWithImpl(
-      AnswerUpdated _value, $Res Function(AnswerUpdated) _then)
-      : super(_value, (v) => _then(v as AnswerUpdated));
+    implements _$AnswerUpdatedCopyWith<$Res> {
+  __$AnswerUpdatedCopyWithImpl(
+      _AnswerUpdated _value, $Res Function(_AnswerUpdated) _then)
+      : super(_value, (v) => _then(v as _AnswerUpdated));
 
   @override
-  AnswerUpdated get _value => super._value as AnswerUpdated;
+  _AnswerUpdated get _value => super._value as _AnswerUpdated;
 
   @override
   $Res call({
@@ -499,7 +414,7 @@ class _$AnswerUpdatedCopyWithImpl<$Res>
     Object? isNote = freezed,
     Object? noteOf = freezed,
   }) {
-    return _then(AnswerUpdated(
+    return _then(_AnswerUpdated(
       question: question == freezed
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -537,8 +452,8 @@ class _$AnswerUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AnswerUpdated implements AnswerUpdated {
-  const _$AnswerUpdated(
+class _$_AnswerUpdated implements _AnswerUpdated {
+  const _$_AnswerUpdated(
       {required this.question,
       required this.answerValue,
       required this.toggle,
@@ -567,7 +482,7 @@ class _$AnswerUpdated implements AnswerUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is AnswerUpdated &&
+        (other is _AnswerUpdated &&
             (identical(other.question, question) ||
                 const DeepCollectionEquality()
                     .equals(other.question, question)) &&
@@ -597,20 +512,21 @@ class _$AnswerUpdated implements AnswerUpdated {
 
   @JsonKey(ignore: true)
   @override
-  $AnswerUpdatedCopyWith<AnswerUpdated> get copyWith =>
-      _$AnswerUpdatedCopyWithImpl<AnswerUpdated>(this, _$identity);
+  _$AnswerUpdatedCopyWith<_AnswerUpdated> get copyWith =>
+      __$AnswerUpdatedCopyWithImpl<_AnswerUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateAnswerState state) workerJobDone,
   }) {
     return answerUpdated(
         question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
@@ -620,12 +536,13 @@ class _$AnswerUpdated implements AnswerUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
-    TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateAnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -639,10 +556,11 @@ class _$AnswerUpdated implements AnswerUpdated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(AnswerUpdated value) answerUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return answerUpdated(this);
   }
@@ -651,10 +569,11 @@ class _$AnswerUpdated implements AnswerUpdated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(AnswerUpdated value)? answerUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -664,14 +583,14 @@ class _$AnswerUpdated implements AnswerUpdated {
   }
 }
 
-abstract class AnswerUpdated implements UpdateAnswerEvent {
-  const factory AnswerUpdated(
+abstract class _AnswerUpdated implements UpdateAnswerEvent {
+  const factory _AnswerUpdated(
       {required Question question,
       required dynamic answerValue,
       required bool toggle,
       required bool isSpecialAnswer,
       required bool isNote,
-      ChoiceId? noteOf}) = _$AnswerUpdated;
+      ChoiceId? noteOf}) = _$_AnswerUpdated;
 
   Question get question => throw _privateConstructorUsedError;
   dynamic get answerValue => throw _privateConstructorUsedError;
@@ -680,7 +599,7 @@ abstract class AnswerUpdated implements UpdateAnswerEvent {
   bool get isNote => throw _privateConstructorUsedError;
   ChoiceId? get noteOf => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AnswerUpdatedCopyWith<AnswerUpdated> get copyWith =>
+  _$AnswerUpdatedCopyWith<_AnswerUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -753,13 +672,14 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
-    required TResult Function() stateRestoreSuccess,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateAnswerState state) workerJobDone,
   }) {
     return answerQIdListCleared(questionIdList);
   }
@@ -768,12 +688,13 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
-    TResult Function()? stateRestoreSuccess,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateAnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerQIdListCleared != null) {
@@ -786,10 +707,11 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateRestoreSuccess value) stateRestoreSuccess,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(AnswerUpdated value) answerUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return answerQIdListCleared(this);
   }
@@ -798,10 +720,11 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateRestoreSuccess value)? stateRestoreSuccess,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(AnswerUpdated value)? answerUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerQIdListCleared != null) {
@@ -818,6 +741,259 @@ abstract class _AnswerQIdListCleared implements UpdateAnswerEvent {
   KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$IsolateSpawnedCopyWith<$Res> {
+  factory _$IsolateSpawnedCopyWith(
+          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
+      __$IsolateSpawnedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IsolateSpawnedCopyWithImpl<$Res>
+    extends _$UpdateAnswerEventCopyWithImpl<$Res>
+    implements _$IsolateSpawnedCopyWith<$Res> {
+  __$IsolateSpawnedCopyWithImpl(
+      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
+      : super(_value, (v) => _then(v as _IsolateSpawned));
+
+  @override
+  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+}
+
+/// @nodoc
+
+class _$_IsolateSpawned implements _IsolateSpawned {
+  const _$_IsolateSpawned();
+
+  @override
+  String toString() {
+    return 'UpdateAnswerEvent.isolateSpawned()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IsolateSpawned);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
+        answerUpdated,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateAnswerState state) workerJobDone,
+  }) {
+    return isolateSpawned();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
+        answerUpdated,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateAnswerState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return isolateSpawned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsolateSpawned implements UpdateAnswerEvent {
+  const factory _IsolateSpawned() = _$_IsolateSpawned;
+}
+
+/// @nodoc
+abstract class _$WorkerJobDoneCopyWith<$Res> {
+  factory _$WorkerJobDoneCopyWith(
+          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
+      __$WorkerJobDoneCopyWithImpl<$Res>;
+  $Res call({UpdateAnswerState state});
+
+  $UpdateAnswerStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$WorkerJobDoneCopyWithImpl<$Res>
+    extends _$UpdateAnswerEventCopyWithImpl<$Res>
+    implements _$WorkerJobDoneCopyWith<$Res> {
+  __$WorkerJobDoneCopyWithImpl(
+      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
+      : super(_value, (v) => _then(v as _WorkerJobDone));
+
+  @override
+  _WorkerJobDone get _value => super._value as _WorkerJobDone;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_WorkerJobDone(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as UpdateAnswerState,
+    ));
+  }
+
+  @override
+  $UpdateAnswerStateCopyWith<$Res> get state {
+    return $UpdateAnswerStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_WorkerJobDone implements _WorkerJobDone {
+  const _$_WorkerJobDone(this.state);
+
+  @override
+  final UpdateAnswerState state;
+
+  @override
+  String toString() {
+    return 'UpdateAnswerEvent.workerJobDone(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WorkerJobDone &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
+
+  @JsonKey(ignore: true)
+  @override
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
+        answerUpdated,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(UpdateAnswerState state) workerJobDone,
+  }) {
+    return workerJobDone(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
+        answerUpdated,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(UpdateAnswerState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return workerJobDone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WorkerJobDone implements UpdateAnswerEvent {
+  const factory _WorkerJobDone(UpdateAnswerState state) = _$_WorkerJobDone;
+
+  UpdateAnswerState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -995,13 +1171,14 @@ class __$UpdateAnswerStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateAnswerState implements _UpdateAnswerState {
+class _$_UpdateAnswerState extends _UpdateAnswerState {
   const _$_UpdateAnswerState(
       {required this.answerMap,
       required this.questionIdList,
       required this.updateState,
       required this.updateAnswerStatus,
-      required this.restoreState});
+      required this.restoreState})
+      : super._();
 
   @override
   final KtMap<QuestionId, Answer> answerMap;
@@ -1055,13 +1232,14 @@ class _$_UpdateAnswerState implements _UpdateAnswerState {
       __$UpdateAnswerStateCopyWithImpl<_UpdateAnswerState>(this, _$identity);
 }
 
-abstract class _UpdateAnswerState implements UpdateAnswerState {
+abstract class _UpdateAnswerState extends UpdateAnswerState {
   const factory _UpdateAnswerState(
       {required KtMap<QuestionId, Answer> answerMap,
       required KtList<QuestionId> questionIdList,
       required LoadState updateState,
       required bool updateAnswerStatus,
       required LoadState restoreState}) = _$_UpdateAnswerState;
+  const _UpdateAnswerState._() : super._();
 
   @override
   KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;

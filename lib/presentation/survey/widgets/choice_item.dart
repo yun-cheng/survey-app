@@ -45,7 +45,7 @@ class ChoiceItem extends HookWidget {
           wait.value = false;
 
           // S_ 讓點擊動畫跑完
-          await Future.delayed(const Duration(milliseconds: 200));
+          // await Future.delayed(const Duration(milliseconds: 200));
 
           context.read<AnswerBloc>().add(
                 AnswerEvent.answerChangedWith(

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/presentation/core/constants.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/survey/answer_status.dart';
+import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../core/constants.dart';
 import 'choices_box.dart';
 import 'date_time_box.dart';
 import 'dropdown_box.dart';
@@ -55,12 +57,14 @@ class QaCard extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('QaCard');
 
-        final answerStatus = state.answerStatusMap[questionId]!;
+        final answerStatus =
+            state.answerStatusMap[questionId] ?? AnswerStatus.empty();
 
         final isSpecialAnswer = answerStatus.isSpecialAnswer;
 
         final thisQuestion =
-            state.pageQuestionList.first((q) => q.id == questionId);
+            state.pageQuestionList.firstOrNull((q) => q.id == questionId) ??
+                Question.empty();
 
         final visible = !answerStatus.isHidden;
 

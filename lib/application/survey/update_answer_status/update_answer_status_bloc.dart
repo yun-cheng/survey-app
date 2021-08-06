@@ -1,6 +1,6 @@
 import 'dart:async';
+import 'dart:isolate';
 
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:injectable/injectable.dart';
@@ -12,117 +12,71 @@ import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../../infrastructure/core/load_balancer.dart';
+import '../../../infrastructure/core/isolate.dart';
 import '../../../infrastructure/survey/update_answer_status_state_dtos.dart';
 import '../update_answer/update_answer_bloc.dart';
 
 part 'update_answer_status_bloc.freezed.dart';
 part 'update_answer_status_compute.dart';
 part 'update_answer_status_event.dart';
+part 'update_answer_status_event_worker.dart';
 part 'update_answer_status_state.dart';
 
 @injectable
 class UpdateAnswerStatusBloc
-    extends HydratedBloc<UpdateAnswerStatusEvent, UpdateAnswerStatusState> {
+    extends Bloc<UpdateAnswerStatusEvent, UpdateAnswerStatusState> {
+  final JsonIsolate _jsonIsolate;
   final UpdateAnswerBloc _updateAnswerBloc;
-  final MyLoadBalancer _loadBalancer;
+  EventIsolate? _eventIsolate;
+  StreamSubscription<dynamic>? _stateSubscription;
+  StreamSubscription<dynamic>? _jsonSubscription;
 
   UpdateAnswerStatusBloc(
+    this._jsonIsolate,
     this._updateAnswerBloc,
-    this._loadBalancer,
-  ) : super(UpdateAnswerStatusState.initial());
+  ) : super(UpdateAnswerStatusState.initial()) {
+    add(const UpdateAnswerStatusEvent.isolateSpawned());
+  }
 
   @override
   Stream<UpdateAnswerStatusState> mapEventToState(
     UpdateAnswerStatusEvent event,
   ) async* {
-    yield* event.map(
-      // H_ 進入問卷時載入必要 state
-      moduleLoaded: (e) async* {
-        logger('Event').i('UpdateAnswerStatusEvent: moduleLoaded');
+    yield* event.maybeMap(
+      isolateSpawned: (e) async* {
+        if (_eventIsolate == null) {
+          logger('Isolate').e('UpdateAnswerStatusEvent: isolateSpawned');
 
-        yield state.copyWith(
-          restoreState: const LoadState.inProgress(),
-          questionList: e.questionList,
-          isRecodeModule: e.isRecodeModule,
-          answerMap: e.answerMap,
-          answerStatusMap: e.answerStatusMap,
-          mainAnswerStatusMap: e.mainAnswerStatusMap,
-        );
-        add(const UpdateAnswerStatusEvent.showQuestionChecked());
-        add(const UpdateAnswerStatusEvent.stateRestoreSuccess());
-      },
-      stateRestoreSuccess: (e) async* {
-        logger('Success').i('UpdateAnswerStatusEvent: stateRestoreSuccess');
+          // S_ event worker
+          _eventIsolate = EventIsolate();
+          await _eventIsolate!.spawn(updateAnswerStatusEventWorker);
 
-        yield state.copyWith(
-          updateState: const LoadState.success(),
-          restoreState: const LoadState.success(),
-        );
-      },
-      // H_ 離開問卷時清空 state
-      stateCleared: (e) async* {
-        logger('Event').i('UpdateAnswerStatusEvent: stateCleared');
-
-        yield UpdateAnswerStatusState.initial();
-      },
-      // H_ answerMap 有變更時
-      answerMapUpdated: (e) async* {
-        logger('Event').i('UpdateAnswerStatusEvent: answerMapUpdated');
-
-        // S_ 有沒有需要更新 answerStatus，
-        //  第一次傳進來會是 true，第二次在清空完部分作答後會是 false，
-        //  此時才算 LoadSuccess
-        if (e.updateAnswerStatus) {
-          yield state.copyWith(
-            updateState: const LoadState.inProgress(),
-            answerMap: e.answerMap,
-            questionId: e.questionIdList.first(),
+          // S_ json worker
+          final initState = await _jsonIsolate.spawn(
+            boxName: 'UpdateAnswerStatusState',
+            stateFromJson: stateFromJson,
           );
+          if (initState is UpdateAnswerStatusState) {
+            logger('Event').i('UpdateAnswerStatusState: initState');
 
-          final lb = await _loadBalancer.loadBalancer;
-          yield await lb.run(
-            answerMapUpdated,
-            state.copyWith(
-              updateState: const LoadState.inProgress(),
-              answerMap: e.answerMap,
-              questionId: e.questionIdList.first(),
-            ),
-          );
+            _eventIsolate!.todo.send(initState);
+            add(UpdateAnswerStatusEvent.workerJobDone(initState));
+          }
 
-          add(const UpdateAnswerStatusEvent.qIdListAnswerCleared());
-        } else {
-          // NOTE 答案清空完才能接 UpdateSurveyPageEvent.answerChanged()
-          yield state.copyWith(
-            updateState: const LoadState.success(),
-            answerMap: e.answerMap,
-          );
+          // S_ listen to state
+          _stateSubscription =
+              _eventIsolate!.stream.listen((dynamic stateOrElse) {
+            if (stateOrElse is UpdateAnswerStatusState) {
+              add(UpdateAnswerStatusEvent.workerJobDone(stateOrElse));
+              _jsonIsolate.todo.send(stateOrElse);
+            } else if (stateOrElse is UpdateAnswerStatusEvent) {
+              add(stateOrElse);
+            }
+          });
         }
       },
-      // H_ 判斷有設定題目出現條件的題目是否顯示
-      showQuestionChecked: (e) async* {
-        logger('Event').i('UpdateAnswerStatusEvent: showQuestionChecked');
-
-        final lb = await _loadBalancer.loadBalancer;
-        yield await lb.run(showQuestionChecked, state);
-
-        add(const UpdateAnswerStatusEvent.qIdListAnswerCleared());
-      },
-      // H_ 切換該題特殊作答時
-      specialAnswerSwitched: (e) async* {
-        logger('Event').i('UpdateAnswerStatusEvent: specialAnswerSwitched');
-
-        final newAnswerStatusMap =
-            KtMutableMap.from(state.answerStatusMap.asMap());
-
-        newAnswerStatusMap[e.questionId] =
-            newAnswerStatusMap[e.questionId]!.switchSpecialAnswer();
-
-        yield state.copyWith(
-          updateState: const LoadState.inProgress(),
-          answerStatusMap: newAnswerStatusMap.toMap(),
-        );
-        add(const UpdateAnswerStatusEvent.showQuestionChecked());
+      workerJobDone: (e) async* {
+        yield e.state;
       },
       // H_ 清空部分題目作答
       qIdListAnswerCleared: (e) async* {
@@ -133,30 +87,20 @@ class UpdateAnswerStatusBloc
             questionIdList: state.clearAnswerQIdList,
           ),
         );
-
-        // NOTE 答案清空完才能接 UpdateSurveyPageEvent.answerChanged()
-        yield state.copyWith(
-          clearAnswerQIdList: const KtList<QuestionId>.empty(),
-        );
+      },
+      orElse: () async* {
+        _eventIsolate!.todo.send(event);
       },
     );
   }
 
   @override
-  UpdateAnswerStatusState? fromJson(Map<String, dynamic> json) {
-    try {
-      return UpdateAnswerStatusStateDto.fromJson(json).toDomain();
-    } catch (_) {
-      return null;
-    }
-  }
+  Future<void> close() {
+    _eventIsolate?.kill();
+    _jsonIsolate.kill();
+    _stateSubscription?.cancel();
+    _jsonSubscription?.cancel();
 
-  @override
-  Map<String, dynamic>? toJson(UpdateAnswerStatusState state) {
-    // try {
-    return UpdateAnswerStatusStateDto.fromDomain(state).toJson();
-    // } catch (_) {
-    //   return null;
-    // }
+    return super.close();
   }
 }

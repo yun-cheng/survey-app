@@ -12,9 +12,6 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
     Either<SurveyFailure, KtList<Reference>> failureOrReferenceList,
   ) = _ReferenceListReceived;
 
-  const factory UpdateSurveyPageEvent.stateRestoreSuccess() =
-      _StateRestoreSuccess;
-
   // H_ 進入問卷時載入必要 state
   const factory UpdateSurveyPageEvent.stateRestored({
     required SurveyId surveyId,
@@ -42,37 +39,19 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
     required KtMap<QuestionId, AnswerStatus> answerStatusMap,
   }) = _AnswerChanged;
 
-  // H_ 更新當前頁面題目內容
-  const factory UpdateSurveyPageEvent.pageQuestionListUpdated() =
-      _PageQuestionListUpdated;
-
   // H_ 更新目錄題目
   const factory UpdateSurveyPageEvent.contentQuestionListUpdated() =
       _ContentQuestionListUpdated;
 
   // H_ 切換頁面相關 events
-  const factory UpdateSurveyPageEvent.pageUpdated() = _PageUpdated;
   const factory UpdateSurveyPageEvent.nextPagePressed() = _NextPagePressed;
   const factory UpdateSurveyPageEvent.previousPagePressed() =
       _PreviousPagePressed;
-  const factory UpdateSurveyPageEvent.wentToNewestPage() = _WentToNewestPage;
   const factory UpdateSurveyPageEvent.wentToPage(PageNumber page) = _WentToPage;
-
-  // H_ 更新 warning
-  const factory UpdateSurveyPageEvent.warningUpdated() = _WarningUpdated;
-
-  // H_ 顯示 warning
-  const factory UpdateSurveyPageEvent.warningShowed() = _WarningShowed;
 
   // H_ 使用者點擊完成問卷
   const factory UpdateSurveyPageEvent.finishedButtonPressed() =
       _FinishedButtonPressed;
-
-  // H_
-  const factory UpdateSurveyPageEvent.stateUpdateInProgress() =
-      _StateUpdateInprogress;
-  const factory UpdateSurveyPageEvent.stateUpdateSuccess() =
-      _StateUpdateSuccess;
 
   // H_ 離開問卷時清空 referenceList 以外的 state
   const factory UpdateSurveyPageEvent.stateCleared() = _StateCleared;
@@ -97,4 +76,9 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
 
   // H_ 登出
   const factory UpdateSurveyPageEvent.loggedOut() = _LoggedOut;
+
+  const factory UpdateSurveyPageEvent.isolateSpawned() = _IsolateSpawned;
+  const factory UpdateSurveyPageEvent.workerJobDone(
+    UpdateSurveyPageState state,
+  ) = _WorkerJobDone;
 }

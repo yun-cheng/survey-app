@@ -2,6 +2,8 @@ part of 'response_bloc.dart';
 
 @freezed
 class ResponseState with _$ResponseState {
+  const ResponseState._();
+
   const factory ResponseState({
     required Survey survey,
     required Respondent respondent,
@@ -47,4 +49,14 @@ class ResponseState with _$ResponseState {
         updateTabRespondentsMap: false,
         referenceList: const KtList<Reference>.empty(),
       );
+
+  Map<String, dynamic> toJson() => ResponseStateDto.fromDomain(this).toJson();
+
+  ResponseState send(SendPort stateReceiver) {
+    stateReceiver.send(this);
+    return this;
+  }
 }
+
+ResponseState stateFromJson(Map<String, dynamic> json) =>
+    ResponseStateDto.fromJson(json).toDomain();

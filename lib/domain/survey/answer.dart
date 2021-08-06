@@ -181,38 +181,57 @@ class Answer with _$Answer {
     );
   }
 
-  // H_ 初始化 note
-  Answer initNote({
+  // H_ 新增 choiceNote
+  Answer addChoiceNote({
     required ChoiceId choiceId,
     required bool asNote,
   }) {
-    KtMutableMap<ChoiceId, String>? newNoteMap;
-
-    if (asNote) {
-      newNoteMap = KtMutableMap<ChoiceId, String>.from(noteMap?.asMap() ?? {});
-      if (noteMap == null || !noteMap!.containsKey(choiceId)) {
-        newNoteMap.put(choiceId, '');
-      }
+    if (!asNote) {
+      return this;
     }
 
+    final newNoteMap =
+        KtMutableMap<ChoiceId, String>.from(noteMap?.asMap() ?? {});
+
+    newNoteMap.put(choiceId, '');
+
     return copyWith(
-      withNote: newNoteMap != null,
-      noteMap: newNoteMap?.toMap(),
+      withNote: true,
+      noteMap: newNoteMap.toMap(),
+    );
+  }
+
+  // H_ 移除 choiceNote
+  Answer removeChoiceNote({
+    required ChoiceId choiceId,
+    required bool asNote,
+  }) {
+    if (!asNote) {
+      return this;
+    }
+
+    final newNoteMap =
+        KtMutableMap<ChoiceId, String>.from(noteMap?.asMap() ?? {});
+
+    newNoteMap.remove(choiceId);
+
+    return copyWith(
+      withNote: newNoteMap.isNotEmpty(),
+      noteMap: newNoteMap.isNotEmpty() ? newNoteMap.toMap() : null,
     );
   }
 
   // H_ 單選操作
-  // TODO 是否要清除其他選項 note 的資料?
   Answer setChoice({
     required SimpleChoice choice,
     required bool asNote,
   }) {
-    return clearValue()
+    return clear()
         .copyWith(
           type: AnswerType.choice(),
           choiceValue: choice,
         )
-        .initNote(
+        .addChoiceNote(
           choiceId: choice.id,
           asNote: asNote,
         );
@@ -227,22 +246,25 @@ class Answer with _$Answer {
       if (choiceListValue!.contains(choice)) {
         return copyWith(
           choiceListValue: choiceListValue!.minusElement(choice),
+        ).removeChoiceNote(
+          choiceId: choice.id,
+          asNote: asNote,
         );
       } else {
         return copyWith(
           choiceListValue: choiceListValue!.plusElement(choice),
-        ).initNote(
+        ).addChoiceNote(
           choiceId: choice.id,
           asNote: asNote,
         );
       }
     } else {
-      return clearValue()
+      return clear()
           .copyWith(
             type: AnswerType.choiceList(),
             choiceListValue: KtList<SimpleChoice>.from([choice]),
           )
-          .initNote(
+          .addChoiceNote(
             choiceId: choice.id,
             asNote: asNote,
           );

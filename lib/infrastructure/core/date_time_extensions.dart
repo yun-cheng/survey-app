@@ -60,7 +60,7 @@ class TimeOfDayX {
     final minute = int.tryParse(timeString.split(':')[1]);
     try {
       return TimeOfDay(hour: hour!, minute: minute!);
-    } on Exception {
+    } catch (e) {
       return null;
     }
   }

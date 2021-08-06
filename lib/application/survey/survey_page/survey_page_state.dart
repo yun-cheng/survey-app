@@ -2,6 +2,8 @@ part of 'survey_page_bloc.dart';
 
 @freezed
 class SurveyPageState with _$SurveyPageState {
+  const SurveyPageState._();
+
   const factory SurveyPageState({
     // H_ page
     required PageNumber page,
@@ -48,4 +50,14 @@ class SurveyPageState with _$SurveyPageState {
         recodeAnswerMap: const KtMap<QuestionId, Answer>.empty(),
         recodeAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
       );
+
+  Map<String, dynamic> toJson() => SurveyPageStateDto.fromDomain(this).toJson();
+
+  SurveyPageState send(SendPort stateReceiver) {
+    stateReceiver.send(this);
+    return this;
+  }
 }
+
+SurveyPageState stateFromJson(Map<String, dynamic> json) =>
+    SurveyPageStateDto.fromJson(json).toDomain();

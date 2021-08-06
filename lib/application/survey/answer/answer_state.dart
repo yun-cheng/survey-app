@@ -2,6 +2,8 @@ part of 'answer_bloc.dart';
 
 @freezed
 class AnswerState with _$AnswerState {
+  const AnswerState._();
+
   const factory AnswerState({
     required KtList<Question> questionList,
     required Question question,
@@ -19,4 +21,14 @@ class AnswerState with _$AnswerState {
         loadState: const LoadState.initial(),
         rebuildState: const LoadState.initial(),
       );
+
+  Map<String, dynamic> toJson() => AnswerStateDto.fromDomain(this).toJson();
+
+  AnswerState send(SendPort stateReceiver) {
+    stateReceiver.send(this);
+    return this;
+  }
 }
+
+AnswerState stateFromJson(Map<String, dynamic> json) =>
+    AnswerStateDto.fromJson(json).toDomain();

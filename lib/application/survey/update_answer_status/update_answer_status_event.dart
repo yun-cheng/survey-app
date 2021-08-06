@@ -11,9 +11,6 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
   }) = _ModuleLoaded;
 
-  const factory UpdateAnswerStatusEvent.stateRestoreSuccess() =
-      _StateRestoreSuccess;
-
   // H_ 離開問卷時清空 state
   const factory UpdateAnswerStatusEvent.stateCleared() = _StateCleared;
 
@@ -30,10 +27,14 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   }) = _SpecialAnswerSwitched;
 
   // H_ 判斷有設定題目出現條件的題目是否顯示
-  const factory UpdateAnswerStatusEvent.showQuestionChecked() =
-      _ShowQuestionChecked;
+  // const factory UpdateAnswerStatusEvent.showQuestionChecked() =
+  //     _ShowQuestionChecked;
 
   // H_ 清空部分題目作答
   const factory UpdateAnswerStatusEvent.qIdListAnswerCleared() =
       _QIdListAnswerCleared;
+
+  const factory UpdateAnswerStatusEvent.isolateSpawned() = _IsolateSpawned;
+  const factory UpdateAnswerStatusEvent.workerJobDone(
+      UpdateAnswerStatusState state) = _WorkerJobDone;
 }

@@ -31,10 +31,6 @@ class _$ResponseEventTearOff {
     );
   }
 
-  _ResponseListMerged responseListMerged() {
-    return const _ResponseListMerged();
-  }
-
   _UploadTimerUpdated uploadTimerUpdated() {
     return const _UploadTimerUpdated();
   }
@@ -71,10 +67,6 @@ class _$ResponseEventTearOff {
     );
   }
 
-  _ResponseRestored responseRestored() {
-    return const _ResponseRestored();
-  }
-
   _ResponseUpdated responseUpdated(
       {required KtMap<QuestionId, Answer> answerMap,
       required KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -98,10 +90,6 @@ class _$ResponseEventTearOff {
     );
   }
 
-  _RespondentResponseListUpdated respondentResponseListUpdated() {
-    return const _RespondentResponseListUpdated();
-  }
-
   _ReferenceListUpdated referenceListUpdated(
       {required KtList<Reference> referenceList}) {
     return _ReferenceListUpdated(
@@ -111,6 +99,16 @@ class _$ResponseEventTearOff {
 
   _LoggedOut loggedOut() {
     return const _LoggedOut();
+  }
+
+  _IsolateSpawned isolateSpawned() {
+    return const _IsolateSpawned();
+  }
+
+  _WorkerJobDone workerJobDone(ResponseState state) {
+    return _WorkerJobDone(
+      state,
+    );
   }
 }
 
@@ -126,7 +124,6 @@ mixin _$ResponseEvent {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -135,7 +132,6 @@ mixin _$ResponseEvent {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -143,10 +139,11 @@ mixin _$ResponseEvent {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -156,7 +153,6 @@ mixin _$ResponseEvent {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -165,7 +161,6 @@ mixin _$ResponseEvent {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -173,9 +168,10 @@ mixin _$ResponseEvent {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -184,41 +180,37 @@ mixin _$ResponseEvent {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -335,7 +327,6 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -344,7 +335,6 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -352,10 +342,11 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return watchResponseListStarted(teamId, interviewer);
   }
@@ -368,7 +359,6 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -377,7 +367,6 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -385,9 +374,10 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (watchResponseListStarted != null) {
@@ -402,21 +392,19 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return watchResponseListStarted(this);
   }
@@ -426,20 +414,18 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (watchResponseListStarted != null) {
@@ -534,7 +520,6 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -543,7 +528,6 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -551,10 +535,11 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return responseListReceived(failureOrResponseList);
   }
@@ -567,7 +552,6 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -576,7 +560,6 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -584,9 +567,10 @@ class _$_ResponseListReceived implements _ResponseListReceived {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseListReceived != null) {
@@ -601,21 +585,19 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return responseListReceived(this);
   }
@@ -625,20 +607,18 @@ class _$_ResponseListReceived implements _ResponseListReceived {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseListReceived != null) {
@@ -658,169 +638,6 @@ abstract class _ResponseListReceived implements ResponseEvent {
   @JsonKey(ignore: true)
   _$ResponseListReceivedCopyWith<_ResponseListReceived> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ResponseListMergedCopyWith<$Res> {
-  factory _$ResponseListMergedCopyWith(
-          _ResponseListMerged value, $Res Function(_ResponseListMerged) then) =
-      __$ResponseListMergedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ResponseListMergedCopyWithImpl<$Res>
-    extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseListMergedCopyWith<$Res> {
-  __$ResponseListMergedCopyWithImpl(
-      _ResponseListMerged _value, $Res Function(_ResponseListMerged) _then)
-      : super(_value, (v) => _then(v as _ResponseListMerged));
-
-  @override
-  _ResponseListMerged get _value => super._value as _ResponseListMerged;
-}
-
-/// @nodoc
-
-class _$_ResponseListMerged implements _ResponseListMerged {
-  const _$_ResponseListMerged();
-
-  @override
-  String toString() {
-    return 'ResponseEvent.responseListMerged()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ResponseListMerged);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
-        watchResponseListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
-        responseListReceived,
-    required TResult Function() responseListMerged,
-    required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
-        responseListUploaded,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
-        responseStarted,
-    required TResult Function() responseRestored,
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)
-        responseUpdated,
-    required TResult Function(bool responseFinished) editFinished,
-    required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
-    required TResult Function(KtList<Reference> referenceList)
-        referenceListUpdated,
-    required TResult Function() loggedOut,
-  }) {
-    return responseListMerged();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
-        watchResponseListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
-        responseListReceived,
-    TResult Function()? responseListMerged,
-    TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
-        responseListUploaded,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
-        responseStarted,
-    TResult Function()? responseRestored,
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)?
-        responseUpdated,
-    TResult Function(bool responseFinished)? editFinished,
-    TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
-    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (responseListMerged != null) {
-      return responseListMerged();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchResponseListStarted value)
-        watchResponseListStarted,
-    required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
-    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListUploading value)
-        responseListUploading,
-    required TResult Function(_ResponseListUploaded value) responseListUploaded,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
-    required TResult Function(_ResponseUpdated value) responseUpdated,
-    required TResult Function(_EditFinished value) editFinished,
-    required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return responseListMerged(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
-    TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
-    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListUploading value)? responseListUploading,
-    TResult Function(_ResponseListUploaded value)? responseListUploaded,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
-    TResult Function(_ResponseUpdated value)? responseUpdated,
-    TResult Function(_EditFinished value)? editFinished,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (responseListMerged != null) {
-      return responseListMerged(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ResponseListMerged implements ResponseEvent {
-  const factory _ResponseListMerged() = _$_ResponseListMerged;
 }
 
 /// @nodoc
@@ -868,7 +685,6 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -877,7 +693,6 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -885,10 +700,11 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return uploadTimerUpdated();
   }
@@ -901,7 +717,6 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -910,7 +725,6 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -918,9 +732,10 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -935,21 +750,19 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return uploadTimerUpdated(this);
   }
@@ -959,20 +772,18 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -1031,7 +842,6 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1040,7 +850,6 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1048,10 +857,11 @@ class _$_ResponseListUploading implements _ResponseListUploading {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return responseListUploading();
   }
@@ -1064,7 +874,6 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1073,7 +882,6 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1081,9 +889,10 @@ class _$_ResponseListUploading implements _ResponseListUploading {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseListUploading != null) {
@@ -1098,21 +907,19 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return responseListUploading(this);
   }
@@ -1122,20 +929,18 @@ class _$_ResponseListUploading implements _ResponseListUploading {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseListUploading != null) {
@@ -1222,7 +1027,6 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1231,7 +1035,6 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1239,10 +1042,11 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return responseListUploaded(failureOrSuccess);
   }
@@ -1255,7 +1059,6 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1264,7 +1067,6 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1272,9 +1074,10 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseListUploaded != null) {
@@ -1289,21 +1092,19 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return responseListUploaded(this);
   }
@@ -1313,20 +1114,18 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseListUploaded != null) {
@@ -1426,7 +1225,6 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1435,7 +1233,6 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1443,10 +1240,11 @@ class _$_SurveySelected implements _SurveySelected {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return surveySelected(survey);
   }
@@ -1459,7 +1257,6 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1468,7 +1265,6 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1476,9 +1272,10 @@ class _$_SurveySelected implements _SurveySelected {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -1493,21 +1290,19 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return surveySelected(this);
   }
@@ -1517,20 +1312,18 @@ class _$_SurveySelected implements _SurveySelected {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -1692,7 +1485,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1701,7 +1493,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1709,10 +1500,11 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return responseStarted(
         respondent, moduleType, withResponseId, breakInterview, responseId);
@@ -1726,7 +1518,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1735,7 +1526,6 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -1743,9 +1533,10 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -1761,21 +1552,19 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return responseStarted(this);
   }
@@ -1785,20 +1574,18 @@ class _$_ResponseStarted implements _ResponseStarted {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -1824,169 +1611,6 @@ abstract class _ResponseStarted implements ResponseEvent {
   @JsonKey(ignore: true)
   _$ResponseStartedCopyWith<_ResponseStarted> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ResponseRestoredCopyWith<$Res> {
-  factory _$ResponseRestoredCopyWith(
-          _ResponseRestored value, $Res Function(_ResponseRestored) then) =
-      __$ResponseRestoredCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$ResponseRestoredCopyWithImpl<$Res>
-    extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ResponseRestoredCopyWith<$Res> {
-  __$ResponseRestoredCopyWithImpl(
-      _ResponseRestored _value, $Res Function(_ResponseRestored) _then)
-      : super(_value, (v) => _then(v as _ResponseRestored));
-
-  @override
-  _ResponseRestored get _value => super._value as _ResponseRestored;
-}
-
-/// @nodoc
-
-class _$_ResponseRestored implements _ResponseRestored {
-  const _$_ResponseRestored();
-
-  @override
-  String toString() {
-    return 'ResponseEvent.responseRestored()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ResponseRestored);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
-        watchResponseListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
-        responseListReceived,
-    required TResult Function() responseListMerged,
-    required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
-        responseListUploaded,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
-        responseStarted,
-    required TResult Function() responseRestored,
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)
-        responseUpdated,
-    required TResult Function(bool responseFinished) editFinished,
-    required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
-    required TResult Function(KtList<Reference> referenceList)
-        referenceListUpdated,
-    required TResult Function() loggedOut,
-  }) {
-    return responseRestored();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
-        watchResponseListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
-        responseListReceived,
-    TResult Function()? responseListMerged,
-    TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
-        responseListUploaded,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
-        responseStarted,
-    TResult Function()? responseRestored,
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)?
-        responseUpdated,
-    TResult Function(bool responseFinished)? editFinished,
-    TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
-    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (responseRestored != null) {
-      return responseRestored();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchResponseListStarted value)
-        watchResponseListStarted,
-    required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
-    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListUploading value)
-        responseListUploading,
-    required TResult Function(_ResponseListUploaded value) responseListUploaded,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
-    required TResult Function(_ResponseUpdated value) responseUpdated,
-    required TResult Function(_EditFinished value) editFinished,
-    required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return responseRestored(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
-    TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
-    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListUploading value)? responseListUploading,
-    TResult Function(_ResponseListUploaded value)? responseListUploaded,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
-    TResult Function(_ResponseUpdated value)? responseUpdated,
-    TResult Function(_EditFinished value)? editFinished,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (responseRestored != null) {
-      return responseRestored(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ResponseRestored implements ResponseEvent {
-  const factory _ResponseRestored() = _$_ResponseRestored;
 }
 
 /// @nodoc
@@ -2099,7 +1723,6 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -2108,7 +1731,6 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2116,10 +1738,11 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return responseUpdated(answerMap, answerStatusMap, surveyPageState);
   }
@@ -2132,7 +1755,6 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2141,7 +1763,6 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2149,9 +1770,10 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -2166,21 +1788,19 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return responseUpdated(this);
   }
@@ -2190,20 +1810,18 @@ class _$_ResponseUpdated implements _ResponseUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -2301,7 +1919,6 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -2310,7 +1927,6 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2318,10 +1934,11 @@ class _$_EditFinished implements _EditFinished {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return editFinished(responseFinished);
   }
@@ -2334,7 +1951,6 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2343,7 +1959,6 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2351,9 +1966,10 @@ class _$_EditFinished implements _EditFinished {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -2368,21 +1984,19 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return editFinished(this);
   }
@@ -2392,20 +2006,18 @@ class _$_EditFinished implements _EditFinished {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -2506,7 +2118,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -2515,7 +2126,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2523,10 +2133,11 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return responseResumed(responseId);
   }
@@ -2539,7 +2150,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2548,7 +2158,6 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2556,9 +2165,10 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -2573,21 +2183,19 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return responseResumed(this);
   }
@@ -2597,20 +2205,18 @@ class _$_ResponseResumed implements _ResponseResumed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -2627,174 +2233,6 @@ abstract class _ResponseResumed implements ResponseEvent {
   @JsonKey(ignore: true)
   _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$RespondentResponseListUpdatedCopyWith<$Res> {
-  factory _$RespondentResponseListUpdatedCopyWith(
-          _RespondentResponseListUpdated value,
-          $Res Function(_RespondentResponseListUpdated) then) =
-      __$RespondentResponseListUpdatedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$RespondentResponseListUpdatedCopyWithImpl<$Res>
-    extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$RespondentResponseListUpdatedCopyWith<$Res> {
-  __$RespondentResponseListUpdatedCopyWithImpl(
-      _RespondentResponseListUpdated _value,
-      $Res Function(_RespondentResponseListUpdated) _then)
-      : super(_value, (v) => _then(v as _RespondentResponseListUpdated));
-
-  @override
-  _RespondentResponseListUpdated get _value =>
-      super._value as _RespondentResponseListUpdated;
-}
-
-/// @nodoc
-
-class _$_RespondentResponseListUpdated
-    implements _RespondentResponseListUpdated {
-  const _$_RespondentResponseListUpdated();
-
-  @override
-  String toString() {
-    return 'ResponseEvent.respondentResponseListUpdated()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RespondentResponseListUpdated);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
-        watchResponseListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
-        responseListReceived,
-    required TResult Function() responseListMerged,
-    required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
-        responseListUploaded,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
-        responseStarted,
-    required TResult Function() responseRestored,
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)
-        responseUpdated,
-    required TResult Function(bool responseFinished) editFinished,
-    required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
-    required TResult Function(KtList<Reference> referenceList)
-        referenceListUpdated,
-    required TResult Function() loggedOut,
-  }) {
-    return respondentResponseListUpdated();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
-        watchResponseListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
-        responseListReceived,
-    TResult Function()? responseListMerged,
-    TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
-        responseListUploaded,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
-        responseStarted,
-    TResult Function()? responseRestored,
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)?
-        responseUpdated,
-    TResult Function(bool responseFinished)? editFinished,
-    TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
-    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
-    TResult Function()? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (respondentResponseListUpdated != null) {
-      return respondentResponseListUpdated();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchResponseListStarted value)
-        watchResponseListStarted,
-    required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
-    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListUploading value)
-        responseListUploading,
-    required TResult Function(_ResponseListUploaded value) responseListUploaded,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
-    required TResult Function(_ResponseUpdated value) responseUpdated,
-    required TResult Function(_EditFinished value) editFinished,
-    required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
-    required TResult Function(_LoggedOut value) loggedOut,
-  }) {
-    return respondentResponseListUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
-    TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
-    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListUploading value)? responseListUploading,
-    TResult Function(_ResponseListUploaded value)? responseListUploaded,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
-    TResult Function(_ResponseUpdated value)? responseUpdated,
-    TResult Function(_EditFinished value)? editFinished,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    TResult Function(_LoggedOut value)? loggedOut,
-    required TResult orElse(),
-  }) {
-    if (respondentResponseListUpdated != null) {
-      return respondentResponseListUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _RespondentResponseListUpdated implements ResponseEvent {
-  const factory _RespondentResponseListUpdated() =
-      _$_RespondentResponseListUpdated;
 }
 
 /// @nodoc
@@ -2869,7 +2307,6 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -2878,7 +2315,6 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2886,10 +2322,11 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return referenceListUpdated(referenceList);
   }
@@ -2902,7 +2339,6 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2911,7 +2347,6 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -2919,9 +2354,10 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (referenceListUpdated != null) {
@@ -2936,21 +2372,19 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return referenceListUpdated(this);
   }
@@ -2960,20 +2394,18 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (referenceListUpdated != null) {
@@ -3036,7 +2468,6 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
         responseListReceived,
-    required TResult Function() responseListMerged,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseListUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -3045,7 +2476,6 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
-    required TResult Function() responseRestored,
     required TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -3053,10 +2483,11 @@ class _$_LoggedOut implements _LoggedOut {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function() respondentResponseListUpdated,
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
   }) {
     return loggedOut();
   }
@@ -3069,7 +2500,6 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
         responseListReceived,
-    TResult Function()? responseListMerged,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseListUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -3078,7 +2508,6 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(Respondent respondent, ModuleType moduleType,
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
-    TResult Function()? responseRestored,
     TResult Function(
             KtMap<QuestionId, Answer> answerMap,
             KtMap<QuestionId, AnswerStatus> answerStatusMap,
@@ -3086,9 +2515,10 @@ class _$_LoggedOut implements _LoggedOut {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function()? respondentResponseListUpdated,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -3103,21 +2533,19 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_WatchResponseListStarted value)
         watchResponseListStarted,
     required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_ResponseListMerged value) responseListMerged,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseListUploading value)
         responseListUploading,
     required TResult Function(_ResponseListUploaded value) responseListUploaded,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseRestored value) responseRestored,
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return loggedOut(this);
   }
@@ -3127,20 +2555,18 @@ class _$_LoggedOut implements _LoggedOut {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
     TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_ResponseListMerged value)? responseListMerged,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseListUploading value)? responseListUploading,
     TResult Function(_ResponseListUploaded value)? responseListUploaded,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseRestored value)? responseRestored,
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -3152,6 +2578,359 @@ class _$_LoggedOut implements _LoggedOut {
 
 abstract class _LoggedOut implements ResponseEvent {
   const factory _LoggedOut() = _$_LoggedOut;
+}
+
+/// @nodoc
+abstract class _$IsolateSpawnedCopyWith<$Res> {
+  factory _$IsolateSpawnedCopyWith(
+          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
+      __$IsolateSpawnedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IsolateSpawnedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$IsolateSpawnedCopyWith<$Res> {
+  __$IsolateSpawnedCopyWithImpl(
+      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
+      : super(_value, (v) => _then(v as _IsolateSpawned));
+
+  @override
+  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+}
+
+/// @nodoc
+
+class _$_IsolateSpawned implements _IsolateSpawned {
+  const _$_IsolateSpawned();
+
+  @override
+  String toString() {
+    return 'ResponseEvent.isolateSpawned()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IsolateSpawned);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, Interviewer interviewer)
+        watchResponseListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
+        responseListReceived,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)
+        responseStarted,
+    required TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
+  }) {
+    return isolateSpawned();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, Interviewer interviewer)?
+        watchResponseListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
+        responseListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseListStarted value)
+        watchResponseListStarted,
+    required TResult Function(_ResponseListReceived value) responseListReceived,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return isolateSpawned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
+    TResult Function(_ResponseListReceived value)? responseListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsolateSpawned implements ResponseEvent {
+  const factory _IsolateSpawned() = _$_IsolateSpawned;
+}
+
+/// @nodoc
+abstract class _$WorkerJobDoneCopyWith<$Res> {
+  factory _$WorkerJobDoneCopyWith(
+          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
+      __$WorkerJobDoneCopyWithImpl<$Res>;
+  $Res call({ResponseState state});
+
+  $ResponseStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$WorkerJobDoneCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$WorkerJobDoneCopyWith<$Res> {
+  __$WorkerJobDoneCopyWithImpl(
+      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
+      : super(_value, (v) => _then(v as _WorkerJobDone));
+
+  @override
+  _WorkerJobDone get _value => super._value as _WorkerJobDone;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_WorkerJobDone(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as ResponseState,
+    ));
+  }
+
+  @override
+  $ResponseStateCopyWith<$Res> get state {
+    return $ResponseStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_WorkerJobDone implements _WorkerJobDone {
+  const _$_WorkerJobDone(this.state);
+
+  @override
+  final ResponseState state;
+
+  @override
+  String toString() {
+    return 'ResponseEvent.workerJobDone(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WorkerJobDone &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
+
+  @JsonKey(ignore: true)
+  @override
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(TeamId teamId, Interviewer interviewer)
+        watchResponseListStarted,
+    required TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
+        responseListReceived,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseListUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseListUploaded,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)
+        responseStarted,
+    required TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(KtList<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() loggedOut,
+    required TResult Function() isolateSpawned,
+    required TResult Function(ResponseState state) workerJobDone,
+  }) {
+    return workerJobDone(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(TeamId teamId, Interviewer interviewer)?
+        watchResponseListStarted,
+    TResult Function(
+            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
+        responseListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseListUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseListUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? isolateSpawned,
+    TResult Function(ResponseState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseListStarted value)
+        watchResponseListStarted,
+    required TResult Function(_ResponseListReceived value) responseListReceived,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseListUploading value)
+        responseListUploading,
+    required TResult Function(_ResponseListUploaded value) responseListUploaded,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return workerJobDone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
+    TResult Function(_ResponseListReceived value)? responseListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseListUploading value)? responseListUploading,
+    TResult Function(_ResponseListUploaded value)? responseListUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WorkerJobDone implements ResponseEvent {
+  const factory _WorkerJobDone(ResponseState state) = _$_WorkerJobDone;
+
+  ResponseState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3626,7 +3405,7 @@ class __$ResponseStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseState implements _ResponseState {
+class _$_ResponseState extends _ResponseState {
   const _$_ResponseState(
       {required this.survey,
       required this.respondent,
@@ -3647,7 +3426,8 @@ class _$_ResponseState implements _ResponseState {
       required this.updateState,
       required this.updateVisitReportsMap,
       required this.updateTabRespondentsMap,
-      required this.referenceList});
+      required this.referenceList})
+      : super._();
 
   @override
   final Survey survey;
@@ -3791,7 +3571,7 @@ class _$_ResponseState implements _ResponseState {
       __$ResponseStateCopyWithImpl<_ResponseState>(this, _$identity);
 }
 
-abstract class _ResponseState implements ResponseState {
+abstract class _ResponseState extends ResponseState {
   const factory _ResponseState(
       {required Survey survey,
       required Respondent respondent,
@@ -3813,6 +3593,7 @@ abstract class _ResponseState implements ResponseState {
       required bool updateVisitReportsMap,
       required bool updateTabRespondentsMap,
       required KtList<Reference> referenceList}) = _$_ResponseState;
+  const _ResponseState._() : super._();
 
   @override
   Survey get survey => throw _privateConstructorUsedError;

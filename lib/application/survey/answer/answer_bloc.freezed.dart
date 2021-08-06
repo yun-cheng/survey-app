@@ -60,6 +60,16 @@ class _$AnswerEventTearOff {
   _StateCleared stateCleared() {
     return const _StateCleared();
   }
+
+  _IsolateSpawned isolateSpawned() {
+    return const _IsolateSpawned();
+  }
+
+  _WorkerJobDone workerJobDone(AnswerState state) {
+    return _WorkerJobDone(
+      state,
+    );
+  }
 }
 
 /// @nodoc
@@ -78,6 +88,8 @@ mixin _$AnswerEvent {
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,6 +103,8 @@ mixin _$AnswerEvent {
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -102,6 +116,8 @@ mixin _$AnswerEvent {
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -111,6 +127,8 @@ mixin _$AnswerEvent {
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -233,6 +251,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
   }) {
     return moduleLoaded(questionList, isReadOnly, isRecodeModule);
   }
@@ -249,6 +269,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -266,6 +288,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return moduleLoaded(this);
   }
@@ -278,6 +302,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -452,6 +478,8 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
   }) {
     return answerChanged(
         questionId, body, isNote, isSpecialAnswer, toggle, isRecode, noteOf);
@@ -469,6 +497,8 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -487,6 +517,8 @@ class _$_AnswerChanged implements _AnswerChanged {
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return answerChanged(this);
   }
@@ -499,6 +531,8 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -606,6 +640,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
   }) {
     return specialAnswerSwitched(questionId);
   }
@@ -622,6 +658,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -639,6 +677,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return specialAnswerSwitched(this);
   }
@@ -651,6 +691,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -719,6 +761,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
   }) {
     return readOnlyToggled();
   }
@@ -735,6 +779,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -752,6 +798,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return readOnlyToggled(this);
   }
@@ -764,6 +812,8 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -825,6 +875,8 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
   }) {
     return stateCleared();
   }
@@ -841,6 +893,8 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -858,6 +912,8 @@ class _$_StateCleared implements _StateCleared {
         specialAnswerSwitched,
     required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
     required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
   }) {
     return stateCleared(this);
   }
@@ -870,6 +926,8 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
     TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -881,6 +939,274 @@ class _$_StateCleared implements _StateCleared {
 
 abstract class _StateCleared implements AnswerEvent {
   const factory _StateCleared() = _$_StateCleared;
+}
+
+/// @nodoc
+abstract class _$IsolateSpawnedCopyWith<$Res> {
+  factory _$IsolateSpawnedCopyWith(
+          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
+      __$IsolateSpawnedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$IsolateSpawnedCopyWithImpl<$Res>
+    extends _$AnswerEventCopyWithImpl<$Res>
+    implements _$IsolateSpawnedCopyWith<$Res> {
+  __$IsolateSpawnedCopyWithImpl(
+      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
+      : super(_value, (v) => _then(v as _IsolateSpawned));
+
+  @override
+  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+}
+
+/// @nodoc
+
+class _$_IsolateSpawned implements _IsolateSpawned {
+  const _$_IsolateSpawned();
+
+  @override
+  String toString() {
+    return 'AnswerEvent.isolateSpawned()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _IsolateSpawned);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+        moduleLoaded,
+    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+        answerChanged,
+    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
+  }) {
+    return isolateSpawned();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
+        moduleLoaded,
+    TResult Function(QuestionId questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+        answerChanged,
+    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_SpecialAnswerSwitched value)
+        specialAnswerSwitched,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return isolateSpawned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (isolateSpawned != null) {
+      return isolateSpawned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IsolateSpawned implements AnswerEvent {
+  const factory _IsolateSpawned() = _$_IsolateSpawned;
+}
+
+/// @nodoc
+abstract class _$WorkerJobDoneCopyWith<$Res> {
+  factory _$WorkerJobDoneCopyWith(
+          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
+      __$WorkerJobDoneCopyWithImpl<$Res>;
+  $Res call({AnswerState state});
+
+  $AnswerStateCopyWith<$Res> get state;
+}
+
+/// @nodoc
+class __$WorkerJobDoneCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
+    implements _$WorkerJobDoneCopyWith<$Res> {
+  __$WorkerJobDoneCopyWithImpl(
+      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
+      : super(_value, (v) => _then(v as _WorkerJobDone));
+
+  @override
+  _WorkerJobDone get _value => super._value as _WorkerJobDone;
+
+  @override
+  $Res call({
+    Object? state = freezed,
+  }) {
+    return _then(_WorkerJobDone(
+      state == freezed
+          ? _value.state
+          : state // ignore: cast_nullable_to_non_nullable
+              as AnswerState,
+    ));
+  }
+
+  @override
+  $AnswerStateCopyWith<$Res> get state {
+    return $AnswerStateCopyWith<$Res>(_value.state, (value) {
+      return _then(_value.copyWith(state: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_WorkerJobDone implements _WorkerJobDone {
+  const _$_WorkerJobDone(this.state);
+
+  @override
+  final AnswerState state;
+
+  @override
+  String toString() {
+    return 'AnswerEvent.workerJobDone(state: $state)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _WorkerJobDone &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
+
+  @JsonKey(ignore: true)
+  @override
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+        moduleLoaded,
+    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+        answerChanged,
+    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function() readOnlyToggled,
+    required TResult Function() stateCleared,
+    required TResult Function() isolateSpawned,
+    required TResult Function(AnswerState state) workerJobDone,
+  }) {
+    return workerJobDone(state);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtList<Question> questionList, bool isReadOnly,
+            bool isRecodeModule)?
+        moduleLoaded,
+    TResult Function(QuestionId questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+        answerChanged,
+    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function()? readOnlyToggled,
+    TResult Function()? stateCleared,
+    TResult Function()? isolateSpawned,
+    TResult Function(AnswerState state)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(state);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_AnswerChanged value) answerChanged,
+    required TResult Function(_SpecialAnswerSwitched value)
+        specialAnswerSwitched,
+    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_IsolateSpawned value) isolateSpawned,
+    required TResult Function(_WorkerJobDone value) workerJobDone,
+  }) {
+    return workerJobDone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_AnswerChanged value)? answerChanged,
+    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
+    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_IsolateSpawned value)? isolateSpawned,
+    TResult Function(_WorkerJobDone value)? workerJobDone,
+    required TResult orElse(),
+  }) {
+    if (workerJobDone != null) {
+      return workerJobDone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _WorkerJobDone implements AnswerEvent {
+  const factory _WorkerJobDone(AnswerState state) = _$_WorkerJobDone;
+
+  AnswerState get state => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1080,14 +1406,15 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerState implements _AnswerState {
+class _$_AnswerState extends _AnswerState {
   const _$_AnswerState(
       {required this.questionList,
       required this.question,
       required this.isReadOnly,
       required this.isRecodeModule,
       required this.loadState,
-      required this.rebuildState});
+      required this.rebuildState})
+      : super._();
 
   @override
   final KtList<Question> questionList;
@@ -1147,7 +1474,7 @@ class _$_AnswerState implements _AnswerState {
       __$AnswerStateCopyWithImpl<_AnswerState>(this, _$identity);
 }
 
-abstract class _AnswerState implements AnswerState {
+abstract class _AnswerState extends AnswerState {
   const factory _AnswerState(
       {required KtList<Question> questionList,
       required Question question,
@@ -1155,6 +1482,7 @@ abstract class _AnswerState implements AnswerState {
       required bool isRecodeModule,
       required LoadState loadState,
       required LoadState rebuildState}) = _$_AnswerState;
+  const _AnswerState._() : super._();
 
   @override
   KtList<Question> get questionList => throw _privateConstructorUsedError;

@@ -86,8 +86,9 @@ class FullExpression with _$FullExpression {
       final evaluateResult = expression.evaluate() as bool;
 
       return evaluateResult;
-    } on Exception {
+    } catch (e) {
       logger('').e('Parsing expression failed!!');
+      logger('Error').e(e);
       return false;
     }
   }

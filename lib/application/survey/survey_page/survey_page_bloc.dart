@@ -1,7 +1,8 @@
 import 'dart:async';
+import 'dart:isolate';
 
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../domain/core/load_state.dart';
@@ -11,15 +12,19 @@ import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
+import '../../../infrastructure/core/isolate.dart';
 import '../../../infrastructure/survey/survey_page_state_dtos.dart';
 
 part 'survey_page_bloc.freezed.dart';
 part 'survey_page_event.dart';
 part 'survey_page_state.dart';
 
-class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
-  SurveyPageBloc() : super(SurveyPageState.initial()) {
-    add(const SurveyPageEvent.stateLoadInProgress());
+class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
+  final JsonIsolate _jsonIsolate;
+  SurveyPageBloc(
+    this._jsonIsolate,
+  ) : super(SurveyPageState.initial()) {
+    add(const SurveyPageEvent.isolateSpawned());
   }
 
   @override
@@ -27,11 +32,30 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
     SurveyPageEvent event,
   ) async* {
     yield* event.map(
+      isolateSpawned: (e) async* {
+        logger('Isolate').e('SurveyPageEvent: isolateSpawned');
+
+        // S_ json worker
+        final initState = await _jsonIsolate.spawn(
+          boxName: 'SurveyPageState',
+          stateFromJson: stateFromJson,
+        );
+        if (initState is SurveyPageState) {
+          logger('Event').i('SurveyPageEvent: initState');
+
+          yield initState;
+        }
+      },
+      stateToJson: (e) async* {
+        _jsonIsolate.todo.send(state);
+      },
       // H_ answerMap
       answerMapUpdated: (e) async* {
         logger('Event').i('SurveyPageEvent: answerMapUpdated');
 
-        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
         yield state.copyWith(
           loadState: const LoadState.success(),
           rebuildState: const LoadState.inProgress(),
@@ -46,7 +70,9 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
       answerStatusMapUpdated: (e) async* {
         logger('Event').i('SurveyPageEvent: answerStatusMapUpdated');
 
-        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
         yield state.copyWith(
           loadState: const LoadState.success(),
           answerStatusMap:
@@ -55,45 +81,57 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
               ? e.answerStatusMap
               : state.recodeAnswerStatusMap,
         );
+        add(const SurveyPageEvent.stateToJson());
       },
       // H_ page
       pageUpdated: (e) async* {
         logger('Event').i('SurveyPageEvent: pageUpdated');
 
-        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
         yield state.copyWith(
           loadState: const LoadState.success(),
           page: e.page,
           pageQuestionList: e.pageQuestionList,
           isLastPage: e.isLastPage,
         );
+        add(const SurveyPageEvent.stateToJson());
       },
       // H_ contentQuestionList
       contentQuestionListUpdated: (e) async* {
         logger('Event').i('SurveyPageEvent: contentQuestionListUpdated');
 
-        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
         yield state.copyWith(
           loadState: const LoadState.success(),
           contentQuestionList: e.contentQuestionList,
         );
+        add(const SurveyPageEvent.stateToJson());
       },
       // H_ warning
       warningUpdated: (e) async* {
         logger('Event').i('SurveyPageEvent: warningUpdated');
 
-        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
         yield state.copyWith(
           loadState: const LoadState.success(),
           warning: e.warning,
           showWarning: e.showWarning,
         );
+        add(const SurveyPageEvent.stateToJson());
       },
       // H_ info
       infoUpdated: (e) async* {
         logger('Event').i('SurveyPageEvent: infoUpdated');
 
-        add(const SurveyPageEvent.stateLoadInProgress());
+        yield state.copyWith(
+          loadState: const LoadState.inProgress(),
+        );
         yield state.copyWith(
           loadState: const LoadState.success(),
           restoreState: const LoadState.success(),
@@ -103,18 +141,13 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
           answerStatusMap:
               e.isRecodeModule ? e.mainAnswerStatusMap : state.answerStatusMap,
         );
-      },
-      stateLoadInProgress: (e) async* {
-        logger('InProgress').i('SurveyPageEvent: stateLoadInProgress');
-
-        yield state.copyWith(
-          loadState: const LoadState.inProgress(),
-        );
+        add(const SurveyPageEvent.stateToJson());
       },
       stateCleared: (e) async* {
         logger('Event').i('SurveyPageEvent: stateCleared');
 
         yield SurveyPageState.initial();
+        add(const SurveyPageEvent.stateToJson());
       },
       questionIdListCleared: (e) async* {
         logger('Event').i('SurveyPageEvent: questionIdListCleared');
@@ -122,30 +155,15 @@ class SurveyPageBloc extends HydratedBloc<SurveyPageEvent, SurveyPageState> {
         yield state.copyWith(
           questionIdList: const KtList<QuestionId>.empty(),
         );
+        add(const SurveyPageEvent.stateToJson());
       },
     );
   }
 
   @override
-  SurveyPageState? fromJson(Map<String, dynamic> json) {
-    try {
-      return SurveyPageStateDto.fromJson(json).toDomain();
-    } catch (_) {
-      logger('Error', 3).e('SurveyPageBloc: fromJson');
-      return null;
-    }
-  }
+  Future<void> close() {
+    _jsonIsolate.kill();
 
-  @override
-  Map<String, dynamic>? toJson(SurveyPageState state) {
-    // try {
-    if (state.loadState is LoadSuccess) {
-      return SurveyPageStateDto.fromDomain(state).toJson();
-    } else {
-      return null;
-    }
-    // } catch (_) {
-    //   return null;
-    // }
+    return super.close();
   }
 }
