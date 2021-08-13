@@ -9,14 +9,10 @@ import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
-import 'choices_box.dart';
-import 'date_time_box.dart';
-import 'dropdown_box.dart';
-import 'phone_box.dart';
+import 'get_answer_box.dart';
 import 'question_box.dart';
 import 'recode_box.dart';
 import 'special_answer_switch.dart';
-import 'text_box.dart';
 import 'warning_box.dart';
 
 class QaCard extends StatelessWidget {
@@ -66,7 +62,9 @@ class QaCard extends StatelessWidget {
             state.pageQuestionList.firstOrNull((q) => q.id == questionId) ??
                 Question.empty();
 
-        final visible = !answerStatus.isHidden;
+        final visible = !answerStatus.isHidden &&
+            (thisQuestion.tableId == '' ||
+                (thisQuestion.tableId != '' && thisQuestion.type.isTable));
 
         return Column(
           // key: Key(questionId.getOrCrash()),
@@ -104,36 +102,12 @@ class QaCard extends StatelessWidget {
                               isSpecialAnswer: isSpecialAnswer,
                             ),
                           ],
-                          if (thisQuestion.type.isValid()) ...[
-                            if (thisQuestion.type.isNormalChoice ||
-                                isSpecialAnswer) ...[
-                              ChoicesBox(
-                                questionId: thisQuestion.id,
-                                questionType: thisQuestion.type,
-                              ),
-                            ] else if (thisQuestion.type ==
-                                QuestionType.popupSingle()) ...[
-                              DropdownBox(questionId: thisQuestion.id),
-                            ] else if ([
-                              QuestionType.number(),
-                              QuestionType.text()
-                            ].contains(thisQuestion.type)) ...[
-                              TextBox(
-                                questionId: thisQuestion.id,
-                                questionType: thisQuestion.type,
-                              ),
-                            ] else if (thisQuestion.type.isDateTime) ...[
-                              DateTimeBox(
-                                questionId: thisQuestion.id,
-                                questionType: thisQuestion.type,
-                              ),
-                            ] else if (thisQuestion.type.isPhone) ...[
-                              PhoneBox(
-                                questionId: thisQuestion.id,
-                                questionType: thisQuestion.type,
-                              ),
-                            ]
-                          ],
+                          getAnswerBox(
+                            questionId: thisQuestion.id,
+                            questionType: thisQuestion.type,
+                            isSpecialAnswer: isSpecialAnswer,
+                            tableId: thisQuestion.tableId,
+                          ),
                           // H_ 只在 recode module 呈現
                           if (state.isRecodeModule &&
                               thisQuestion.recodeNeeded) ...[

@@ -424,13 +424,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
-  flutter_staggered_grid_view:
-    dependency: "direct main"
-    description:
-      name: flutter_staggered_grid_view
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.4.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -616,13 +609,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.10"
-  material_floating_search_bar:
-    dependency: "direct main"
-    description:
-      name: material_floating_search_bar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.4"
   meta:
     dependency: transitive
     description:

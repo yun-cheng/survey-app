@@ -63,6 +63,9 @@ class DropdownBox extends StatelessWidget {
 
         final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
+        final isSpecialAnswer =
+            state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
+
         final choiceList = state.pageQuestionList
                 .firstOrNull((q) => q.id == questionId)
                 ?.choiceList ??
@@ -139,6 +142,7 @@ class DropdownBox extends StatelessWidget {
                           questionId: questionId,
                           body:
                               choiceList.first((choice) => choice.id == value),
+                          isSpecialAnswer: isSpecialAnswer,
                           // asSingle: choice.asSingle,
                         ),
                       );

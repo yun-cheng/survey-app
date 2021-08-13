@@ -13,6 +13,8 @@ final networkListener = BlocListener<DeviceBloc, DeviceState>(
       context
           .read<UploadAudioBloc>()
           .add(const UploadAudioEvent.audioUploading());
+
+      // TODO 問卷也要重試
     }
   },
 );

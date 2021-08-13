@@ -22,12 +22,17 @@ _$_QuestionDto _$_$_QuestionDtoFromJson(Map<String, dynamic> json) {
     choiceList: (json['choiceList'] as List<dynamic>)
         .map((e) => ChoiceDto.fromJson(e as Map<String, dynamic>))
         .toList(),
+    initChoiceList: (json['initChoiceList'] as List<dynamic>?)
+        ?.map((e) => ChoiceDto.fromJson(e as Map<String, dynamic>))
+        .toList(),
     hasSpecialAnswer: json['hasSpecialAnswer'] as bool,
     validateAnswer: FullExpressionDto.fromJson(
         json['validateAnswer'] as Map<String, dynamic>),
     upperQuestionId: json['upperQuestionId'] as String,
     pageNumber: json['pageNumber'] as int,
     recodeNeeded: json['recodeNeeded'] as bool,
+    tableId: json['tableId'] as String,
+    rowId: json['rowId'] as int,
   );
 }
 
@@ -42,9 +47,13 @@ Map<String, dynamic> _$_$_QuestionDtoToJson(_$_QuestionDto instance) =>
       'questionType': instance.questionType,
       'showQuestion': instance.showQuestion.toJson(),
       'choiceList': instance.choiceList.map((e) => e.toJson()).toList(),
+      'initChoiceList':
+          instance.initChoiceList?.map((e) => e.toJson()).toList(),
       'hasSpecialAnswer': instance.hasSpecialAnswer,
       'validateAnswer': instance.validateAnswer.toJson(),
       'upperQuestionId': instance.upperQuestionId,
       'pageNumber': instance.pageNumber,
       'recodeNeeded': instance.recodeNeeded,
+      'tableId': instance.tableId,
+      'rowId': instance.rowId,
     };

@@ -7,7 +7,7 @@ import '../../application/respondent/respondent_bloc.dart';
 import '../../domain/core/load_state.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/value_objects.dart';
-import '../survey/survey_list_dtos.dart';
+import '../survey/survey_dtos.dart';
 import 'card_scroll_position_dtos.dart';
 import 'respondent_dtos.dart';
 import 'respondent_list_dtos.dart';

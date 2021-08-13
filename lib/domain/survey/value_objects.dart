@@ -97,6 +97,8 @@ class QuestionType extends ValueObject<String> {
   factory QuestionType.time() => QuestionType('time');
   factory QuestionType.dateTime() => QuestionType('dateTime');
   factory QuestionType.phone() => QuestionType('phone');
+  factory QuestionType.simpleTable() => QuestionType('simpleTable');
+  factory QuestionType.complexTable() => QuestionType('complexTable');
   factory QuestionType.description() => QuestionType('description');
   factory QuestionType.empty() => QuestionType('');
 
@@ -133,6 +135,16 @@ class QuestionType extends ValueObject<String> {
 
   bool get isPhone {
     return value.fold((l) => false, (r) => r == 'phone');
+  }
+
+  bool get isTable {
+    return value.fold(
+        (l) => false, (r) => ['simpleTable', 'complexTable'].contains(r));
+  }
+
+  bool get needAnswer {
+    return value.fold((l) => false,
+        (r) => !['description', 'simpleTable', 'complexTable'].contains(r));
   }
 
   const QuestionType._(this.value);

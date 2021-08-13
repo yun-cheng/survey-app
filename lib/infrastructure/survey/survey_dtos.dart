@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
@@ -8,35 +7,8 @@ import '../../domain/overview/value_objects.dart';
 import '../../domain/survey/value_objects.dart';
 import 'survey_module_dtos.dart';
 
-part 'survey_list_dtos.freezed.dart';
-part 'survey_list_dtos.g.dart';
-
-@freezed
-class SurveyListDto with _$SurveyListDto {
-  const SurveyListDto._();
-
-  const factory SurveyListDto({
-    required List<SurveyDto> list,
-  }) = _SurveyListDto;
-
-  factory SurveyListDto.fromDomain(KtList<Survey> surveyList) {
-    return SurveyListDto(
-      list: surveyList.map((survey) => SurveyDto.fromDomain(survey)).asList(),
-    );
-  }
-
-  KtList<Survey> toDomain() {
-    return list.map((dto) => dto.toDomain()).toImmutableList();
-  }
-
-  factory SurveyListDto.fromJson(Map<String, dynamic> json) =>
-      _$SurveyListDtoFromJson(json);
-
-  factory SurveyListDto.fromFirestore(QuerySnapshot snapshot) {
-    final list = snapshot.docs.map((doc) => doc.data()).toList();
-    return SurveyListDto.fromJson({'list': list});
-  }
-}
+part 'survey_dtos.freezed.dart';
+part 'survey_dtos.g.dart';
 
 @freezed
 class SurveyDto with _$SurveyDto {

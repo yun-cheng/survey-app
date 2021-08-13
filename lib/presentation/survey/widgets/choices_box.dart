@@ -14,11 +14,13 @@ import 'choice_item.dart';
 class ChoicesBox extends HookWidget {
   final QuestionId questionId;
   final QuestionType questionType;
+  final bool isinCell;
 
   const ChoicesBox({
     Key? key,
     required this.questionId,
     required this.questionType,
+    this.isinCell = false,
   }) : super(key: key);
 
   @override
@@ -66,8 +68,9 @@ class ChoicesBox extends HookWidget {
     // S_ 大於等於 4 個選項就要用 2 個 ListView
     int firstCount = size;
     int secondCount = 0;
+    final twoCols = size >= 4 && !isinCell;
 
-    if (size >= 4) {
+    if (twoCols) {
       firstCount = (size / 2).ceil();
       secondCount = size - firstCount;
     }
@@ -98,12 +101,13 @@ class ChoicesBox extends HookWidget {
     }
 
     return Row(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
           child: choiceItemListView(),
         ),
-        if (size >= 4) ...[
+        if (twoCols) ...[
           Expanded(
             child: choiceItemListView(isFirst: false),
           ),

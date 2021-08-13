@@ -90,7 +90,7 @@ class DateTimeBox extends HookWidget {
           }
         }
 
-        return Row(
+        return Wrap(
           children: [
             if ([QuestionType.date(), QuestionType.dateTime()]
                 .contains(questionType)) ...[

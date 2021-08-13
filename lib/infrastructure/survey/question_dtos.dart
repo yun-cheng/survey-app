@@ -24,11 +24,14 @@ class QuestionDto with _$QuestionDto {
     required String questionType,
     required FullExpressionDto showQuestion,
     required List<ChoiceDto> choiceList,
+    List<ChoiceDto>? initChoiceList,
     required bool hasSpecialAnswer,
     required FullExpressionDto validateAnswer,
     required String upperQuestionId,
     required int pageNumber,
     required bool recodeNeeded,
+    required String tableId,
+    required int rowId,
   }) = _QuestionDto;
 
   factory QuestionDto.fromDomain(Question domain) {
@@ -45,11 +48,16 @@ class QuestionDto with _$QuestionDto {
       choiceList: domain.choiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .asList(),
+      initChoiceList: domain.initChoiceList
+          .map((choice) => ChoiceDto.fromDomain(choice))
+          .asList(),
       hasSpecialAnswer: domain.hasSpecialAnswer,
       validateAnswer: FullExpressionDto.fromDomain(domain.validateAnswer),
       upperQuestionId: domain.upperQuestionId.getValueAnyway(),
       pageNumber: domain.pageNumber.getValueAnyway(),
       recodeNeeded: domain.recodeNeeded,
+      tableId: domain.tableId,
+      rowId: domain.rowId,
     );
   }
 
@@ -64,11 +72,16 @@ class QuestionDto with _$QuestionDto {
       type: QuestionType(questionType),
       show: showQuestion.toDomain(),
       choiceList: choiceList.map((dto) => dto.toDomain()).toImmutableList(),
+      initChoiceList: (initChoiceList ?? choiceList)
+          .map((dto) => dto.toDomain())
+          .toImmutableList(),
       hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer.toDomain(),
       upperQuestionId: QuestionId(upperQuestionId),
       pageNumber: PageNumber(pageNumber),
       recodeNeeded: recodeNeeded,
+      tableId: tableId,
+      rowId: rowId,
     );
   }
 

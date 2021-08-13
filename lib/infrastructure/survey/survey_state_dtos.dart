@@ -5,7 +5,7 @@ import 'package:kt_dart/collection.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/core/load_state.dart';
 import '../../domain/survey/survey_failure.dart';
-import 'survey_list_dtos.dart';
+import 'survey_dtos.dart';
 
 part 'survey_state_dtos.freezed.dart';
 part 'survey_state_dtos.g.dart';

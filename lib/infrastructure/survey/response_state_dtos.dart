@@ -12,7 +12,7 @@ import '../respondent/respondent_dtos.dart';
 import 'question_dtos.dart';
 import 'reference_dtos.dart';
 import 'response_list_dtos.dart';
-import 'survey_list_dtos.dart';
+import 'survey_dtos.dart';
 
 part 'response_state_dtos.freezed.dart';
 part 'response_state_dtos.g.dart';

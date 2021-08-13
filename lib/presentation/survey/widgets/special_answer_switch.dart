@@ -8,11 +8,13 @@ import '../../core/constants.dart';
 class SpecialAnswerSwitch extends StatelessWidget {
   final QuestionId questionId;
   final bool isSpecialAnswer;
+  final bool showText;
 
   const SpecialAnswerSwitch({
     Key? key,
     required this.questionId,
     required this.isSpecialAnswer,
+    this.showText = true,
   }) : super(key: key);
 
   @override
@@ -25,10 +27,17 @@ class SpecialAnswerSwitch extends StatelessWidget {
                 AnswerEvent.specialAnswerSwitched(questionId: questionId),
               ),
         ),
-        const Text(
-          '切換特殊作答',
-          style: kPTextStyle,
-        ),
+        if (showText)
+          Flexible(
+            child: Column(
+              children: const [
+                Text(
+                  '切換特殊作答',
+                  style: kPTextStyle,
+                ),
+              ],
+            ),
+          ),
       ],
     );
   }

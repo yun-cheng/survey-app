@@ -78,9 +78,11 @@ class AudioRepository implements IAudioRepository {
           );
 
       if (result.items.isEmpty) {
-        // TODO 處理 timeout
-        final task =
-            audioRef.child(audio.toStoragePath()).putFile(File(filePath));
+        // TODO 調整 timeout
+        final task = audioRef
+            .child(audio.toStoragePath())
+            .putFile(File(filePath))
+            .timeout(const Duration(minutes: 5));
 
         await task;
       }

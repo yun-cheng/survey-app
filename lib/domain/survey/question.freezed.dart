@@ -26,11 +26,14 @@ class _$QuestionTearOff {
       required QuestionType type,
       required FullExpression show,
       required KtList<Choice> choiceList,
+      required KtList<Choice> initChoiceList,
       required bool hasSpecialAnswer,
       required FullExpression validateAnswer,
       required QuestionId upperQuestionId,
       required PageNumber pageNumber,
-      required bool recodeNeeded}) {
+      required bool recodeNeeded,
+      required String tableId,
+      required int rowId}) {
     return _Question(
       id: id,
       hideId: hideId,
@@ -41,11 +44,14 @@ class _$QuestionTearOff {
       type: type,
       show: show,
       choiceList: choiceList,
+      initChoiceList: initChoiceList,
       hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer,
       upperQuestionId: upperQuestionId,
       pageNumber: pageNumber,
       recodeNeeded: recodeNeeded,
+      tableId: tableId,
+      rowId: rowId,
     );
   }
 }
@@ -64,11 +70,14 @@ mixin _$Question {
   QuestionType get type => throw _privateConstructorUsedError;
   FullExpression get show => throw _privateConstructorUsedError;
   KtList<Choice> get choiceList => throw _privateConstructorUsedError;
+  KtList<Choice> get initChoiceList => throw _privateConstructorUsedError;
   bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   FullExpression get validateAnswer => throw _privateConstructorUsedError;
   QuestionId get upperQuestionId => throw _privateConstructorUsedError;
   PageNumber get pageNumber => throw _privateConstructorUsedError;
-  bool get recodeNeeded => throw _privateConstructorUsedError;
+  bool get recodeNeeded => throw _privateConstructorUsedError; // H_ table
+  String get tableId => throw _privateConstructorUsedError;
+  int get rowId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionCopyWith<Question> get copyWith =>
@@ -89,11 +98,14 @@ abstract class $QuestionCopyWith<$Res> {
       QuestionType type,
       FullExpression show,
       KtList<Choice> choiceList,
+      KtList<Choice> initChoiceList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       QuestionId upperQuestionId,
       PageNumber pageNumber,
-      bool recodeNeeded});
+      bool recodeNeeded,
+      String tableId,
+      int rowId});
 
   $FullExpressionCopyWith<$Res> get show;
   $FullExpressionCopyWith<$Res> get validateAnswer;
@@ -118,11 +130,14 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
     Object? type = freezed,
     Object? show = freezed,
     Object? choiceList = freezed,
+    Object? initChoiceList = freezed,
     Object? hasSpecialAnswer = freezed,
     Object? validateAnswer = freezed,
     Object? upperQuestionId = freezed,
     Object? pageNumber = freezed,
     Object? recodeNeeded = freezed,
+    Object? tableId = freezed,
+    Object? rowId = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -161,6 +176,10 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           ? _value.choiceList
           : choiceList // ignore: cast_nullable_to_non_nullable
               as KtList<Choice>,
+      initChoiceList: initChoiceList == freezed
+          ? _value.initChoiceList
+          : initChoiceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
           : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
@@ -181,6 +200,14 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           ? _value.recodeNeeded
           : recodeNeeded // ignore: cast_nullable_to_non_nullable
               as bool,
+      tableId: tableId == freezed
+          ? _value.tableId
+          : tableId // ignore: cast_nullable_to_non_nullable
+              as String,
+      rowId: rowId == freezed
+          ? _value.rowId
+          : rowId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 
@@ -214,11 +241,14 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       QuestionType type,
       FullExpression show,
       KtList<Choice> choiceList,
+      KtList<Choice> initChoiceList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       QuestionId upperQuestionId,
       PageNumber pageNumber,
-      bool recodeNeeded});
+      bool recodeNeeded,
+      String tableId,
+      int rowId});
 
   @override
   $FullExpressionCopyWith<$Res> get show;
@@ -246,11 +276,14 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
     Object? type = freezed,
     Object? show = freezed,
     Object? choiceList = freezed,
+    Object? initChoiceList = freezed,
     Object? hasSpecialAnswer = freezed,
     Object? validateAnswer = freezed,
     Object? upperQuestionId = freezed,
     Object? pageNumber = freezed,
     Object? recodeNeeded = freezed,
+    Object? tableId = freezed,
+    Object? rowId = freezed,
   }) {
     return _then(_Question(
       id: id == freezed
@@ -289,6 +322,10 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           ? _value.choiceList
           : choiceList // ignore: cast_nullable_to_non_nullable
               as KtList<Choice>,
+      initChoiceList: initChoiceList == freezed
+          ? _value.initChoiceList
+          : initChoiceList // ignore: cast_nullable_to_non_nullable
+              as KtList<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
           : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
@@ -309,6 +346,14 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
           ? _value.recodeNeeded
           : recodeNeeded // ignore: cast_nullable_to_non_nullable
               as bool,
+      tableId: tableId == freezed
+          ? _value.tableId
+          : tableId // ignore: cast_nullable_to_non_nullable
+              as String,
+      rowId: rowId == freezed
+          ? _value.rowId
+          : rowId // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -326,11 +371,14 @@ class _$_Question extends _Question {
       required this.type,
       required this.show,
       required this.choiceList,
+      required this.initChoiceList,
       required this.hasSpecialAnswer,
       required this.validateAnswer,
       required this.upperQuestionId,
       required this.pageNumber,
-      required this.recodeNeeded})
+      required this.recodeNeeded,
+      required this.tableId,
+      required this.rowId})
       : super._();
 
   @override
@@ -352,6 +400,8 @@ class _$_Question extends _Question {
   @override
   final KtList<Choice> choiceList;
   @override
+  final KtList<Choice> initChoiceList;
+  @override
   final bool hasSpecialAnswer;
   @override
   final FullExpression validateAnswer;
@@ -361,10 +411,14 @@ class _$_Question extends _Question {
   final PageNumber pageNumber;
   @override
   final bool recodeNeeded;
+  @override // H_ table
+  final String tableId;
+  @override
+  final int rowId;
 
   @override
   String toString() {
-    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, stringBody: $stringBody, note: $note, type: $type, show: $show, choiceList: $choiceList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded)';
+    return 'Question(id: $id, hideId: $hideId, serialNumber: $serialNumber, body: $body, stringBody: $stringBody, note: $note, type: $type, show: $show, choiceList: $choiceList, initChoiceList: $initChoiceList, hasSpecialAnswer: $hasSpecialAnswer, validateAnswer: $validateAnswer, upperQuestionId: $upperQuestionId, pageNumber: $pageNumber, recodeNeeded: $recodeNeeded, tableId: $tableId, rowId: $rowId)';
   }
 
   @override
@@ -392,6 +446,9 @@ class _$_Question extends _Question {
             (identical(other.choiceList, choiceList) ||
                 const DeepCollectionEquality()
                     .equals(other.choiceList, choiceList)) &&
+            (identical(other.initChoiceList, initChoiceList) ||
+                const DeepCollectionEquality()
+                    .equals(other.initChoiceList, initChoiceList)) &&
             (identical(other.hasSpecialAnswer, hasSpecialAnswer) ||
                 const DeepCollectionEquality()
                     .equals(other.hasSpecialAnswer, hasSpecialAnswer)) &&
@@ -406,7 +463,12 @@ class _$_Question extends _Question {
                     .equals(other.pageNumber, pageNumber)) &&
             (identical(other.recodeNeeded, recodeNeeded) ||
                 const DeepCollectionEquality()
-                    .equals(other.recodeNeeded, recodeNeeded)));
+                    .equals(other.recodeNeeded, recodeNeeded)) &&
+            (identical(other.tableId, tableId) ||
+                const DeepCollectionEquality()
+                    .equals(other.tableId, tableId)) &&
+            (identical(other.rowId, rowId) ||
+                const DeepCollectionEquality().equals(other.rowId, rowId)));
   }
 
   @override
@@ -421,11 +483,14 @@ class _$_Question extends _Question {
       const DeepCollectionEquality().hash(type) ^
       const DeepCollectionEquality().hash(show) ^
       const DeepCollectionEquality().hash(choiceList) ^
+      const DeepCollectionEquality().hash(initChoiceList) ^
       const DeepCollectionEquality().hash(hasSpecialAnswer) ^
       const DeepCollectionEquality().hash(validateAnswer) ^
       const DeepCollectionEquality().hash(upperQuestionId) ^
       const DeepCollectionEquality().hash(pageNumber) ^
-      const DeepCollectionEquality().hash(recodeNeeded);
+      const DeepCollectionEquality().hash(recodeNeeded) ^
+      const DeepCollectionEquality().hash(tableId) ^
+      const DeepCollectionEquality().hash(rowId);
 
   @JsonKey(ignore: true)
   @override
@@ -444,11 +509,14 @@ abstract class _Question extends Question {
       required QuestionType type,
       required FullExpression show,
       required KtList<Choice> choiceList,
+      required KtList<Choice> initChoiceList,
       required bool hasSpecialAnswer,
       required FullExpression validateAnswer,
       required QuestionId upperQuestionId,
       required PageNumber pageNumber,
-      required bool recodeNeeded}) = _$_Question;
+      required bool recodeNeeded,
+      required String tableId,
+      required int rowId}) = _$_Question;
   const _Question._() : super._();
 
   @override
@@ -470,6 +538,8 @@ abstract class _Question extends Question {
   @override
   KtList<Choice> get choiceList => throw _privateConstructorUsedError;
   @override
+  KtList<Choice> get initChoiceList => throw _privateConstructorUsedError;
+  @override
   bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   @override
   FullExpression get validateAnswer => throw _privateConstructorUsedError;
@@ -479,6 +549,10 @@ abstract class _Question extends Question {
   PageNumber get pageNumber => throw _privateConstructorUsedError;
   @override
   bool get recodeNeeded => throw _privateConstructorUsedError;
+  @override // H_ table
+  String get tableId => throw _privateConstructorUsedError;
+  @override
+  int get rowId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$QuestionCopyWith<_Question> get copyWith =>

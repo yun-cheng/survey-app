@@ -51,8 +51,8 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i10.ManualAuthFacade(get<_i3.FirebaseFirestore>()));
   gh.lazySingleton<_i11.IRespondentRepository>(
       () => _i12.RespondentRepository(get<_i3.FirebaseFirestore>()));
-  gh.lazySingleton<_i13.ISurveyRepository>(
-      () => _i14.SurveyRepository(get<_i3.FirebaseFirestore>()));
+  gh.lazySingleton<_i13.ISurveyRepository>(() => _i14.SurveyRepository(
+      get<_i3.FirebaseFirestore>(), get<_i4.FirebaseStorage>()));
   gh.factory<_i15.JsonIsolate>(() => _i15.JsonIsolate());
   gh.factory<_i16.RespondentBloc>(() => _i16.RespondentBloc(
       get<_i15.JsonIsolate>(), get<_i11.IRespondentRepository>()));

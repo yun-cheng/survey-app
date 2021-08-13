@@ -17,6 +17,7 @@ class ChoiceItem extends HookWidget {
   final Choice choice;
   final bool isSpecialAnswer;
   final ValueNotifier<Answer> answer;
+  final bool isinCell;
 
   const ChoiceItem({
     Key? key,
@@ -25,6 +26,7 @@ class ChoiceItem extends HookWidget {
     required this.choice,
     required this.isSpecialAnswer,
     required this.answer,
+    this.isinCell = false,
   }) : super(key: key);
 
   @override
@@ -65,58 +67,82 @@ class ChoiceItem extends HookWidget {
     final state = context.read<SurveyPageBloc>().state;
     final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-    final itemTitle = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          '(${choice.id.getValueAnyway()}) ${choice.body.getValueAnyway()}',
-          style: kPTextStyle,
-        ),
-        if (choice.asNote && isSelected.value) ...[
-          NoteBox(
-            questionId: questionId,
-            choice: choice,
-            note: answer.value.noteMap?.getOrDefault(choice.id, '') ?? '',
-            canEdit: canEdit,
-          ),
-        ]
-      ],
-    );
+    final itemTitle = isinCell
+        ? Container()
+        : Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                '(${choice.id.getValueAnyway()}) ${choice.body.getValueAnyway()}',
+                style: kPTextStyle,
+              ),
+              if (choice.asNote && isSelected.value) ...[
+                NoteBox(
+                  questionId: questionId,
+                  choice: choice,
+                  note: answer.value.noteMap?.getOrDefault(choice.id, '') ?? '',
+                  canEdit: canEdit,
+                ),
+              ]
+            ],
+          );
 
-    if (questionType.isSingle || choice.asSingle || isSpecialAnswer) {
-      return RadioListTile(
-        title: itemTitle,
-        value: choice.id,
-        groupValue: answer.value.groupValue,
-        onChanged: (_) {
-          if (canEdit) {
-            wait.value = true;
+    void clickAction({
+      bool toggle = false,
+    }) {
+      if (canEdit) {
+        wait.value = true;
 
-            // S_ 改 local answer
-            answer.value = answer.value.setChoice(
-              choice: choice.simple(),
-              asNote: choice.asNote,
-            );
-          }
-        },
-      );
-    } else if (questionType.isMultiple) {
-      return CheckboxListTile(
-        controlAffinity: ListTileControlAffinity.leading,
-        title: itemTitle,
-        value: isSelected.value,
-        onChanged: (_) {
-          if (canEdit) {
-            wait.value = true;
-
-            answer.value = answer.value.toggleChoice(
-              choice: choice.simple(),
-              asNote: choice.asNote,
-            );
-          }
-        },
-      );
+        // S_ 改 local answer
+        if (!toggle) {
+          answer.value = answer.value.setChoice(
+            choice: choice.simple(),
+            asNote: choice.asNote,
+          );
+        } else {
+          answer.value = answer.value.toggleChoice(
+            choice: choice.simple(),
+            asNote: choice.asNote,
+          );
+        }
+      }
     }
-    return Container();
+
+    final isSingleAnswer =
+        questionType.isSingle || choice.asSingle || isSpecialAnswer;
+
+    if (isinCell) {
+      return Ink(
+        width: 100,
+        height: 100,
+        child: InkWell(
+          onTap: () => clickAction(toggle: !isSingleAnswer),
+          child: isSingleAnswer
+              ? Radio(
+                  value: choice.id,
+                  groupValue: answer.value.groupValue,
+                  onChanged: (_) => clickAction(),
+                )
+              : Checkbox(
+                  value: isSelected.value,
+                  onChanged: (_) => clickAction(toggle: true),
+                ),
+        ),
+      );
+    } else {
+      return isSingleAnswer
+          ? RadioListTile(
+              title: itemTitle,
+              value: choice.id,
+              groupValue: answer.value.groupValue,
+              onChanged: (_) => clickAction(),
+            )
+          : CheckboxListTile(
+              controlAffinity: ListTileControlAffinity.leading,
+              title: itemTitle,
+              value: isSelected.value,
+              onChanged: (_) => clickAction(toggle: true),
+            );
+    }
   }
 }

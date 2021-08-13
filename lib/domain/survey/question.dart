@@ -27,11 +27,15 @@ class Question with _$Question {
     required QuestionType type,
     required FullExpression show,
     required KtList<Choice> choiceList,
+    required KtList<Choice> initChoiceList,
     required bool hasSpecialAnswer,
     required FullExpression validateAnswer,
     required QuestionId upperQuestionId,
     required PageNumber pageNumber,
     required bool recodeNeeded,
+    // H_ table
+    required String tableId,
+    required int rowId,
   }) = _Question;
 
   factory Question.empty() => Question(
@@ -43,12 +47,15 @@ class Question with _$Question {
         note: QuestionNote.empty(),
         type: QuestionType.description(),
         choiceList: emptyList<Choice>(),
+        initChoiceList: emptyList<Choice>(),
         hasSpecialAnswer: false,
         show: FullExpression.empty(),
         validateAnswer: FullExpression.empty(),
         upperQuestionId: QuestionId.empty(),
         pageNumber: PageNumber(0),
         recodeNeeded: false,
+        tableId: '',
+        rowId: -1,
       );
 
   bool get isEmpty => id.isEmpty;

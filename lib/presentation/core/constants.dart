@@ -102,3 +102,7 @@ const kChoiceGroupTextStyle = TextStyle(
   // color: Colors.blue,
   fontWeight: FontWeight.bold,
 );
+
+const kSimpleTableCellWidth = 110.0;
+const kFirstColumnWidth = 150.0;
+const kComplexTableCellWidth = 300.0;

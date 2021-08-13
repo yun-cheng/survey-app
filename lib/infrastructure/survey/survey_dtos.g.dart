@@ -1,23 +1,10 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'survey_list_dtos.dart';
+part of 'survey_dtos.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
-
-_$_SurveyListDto _$_$_SurveyListDtoFromJson(Map<String, dynamic> json) {
-  return _$_SurveyListDto(
-    list: (json['list'] as List<dynamic>)
-        .map((e) => SurveyDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
-  );
-}
-
-Map<String, dynamic> _$_$_SurveyListDtoToJson(_$_SurveyListDto instance) =>
-    <String, dynamic>{
-      'list': instance.list.map((e) => e.toJson()).toList(),
-    };
 
 _$_SurveyDto _$_$_SurveyDtoFromJson(Map<String, dynamic> json) {
   return _$_SurveyDto(

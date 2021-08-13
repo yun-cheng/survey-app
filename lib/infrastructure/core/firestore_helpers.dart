@@ -22,4 +22,5 @@ extension FirestoreX on FirebaseFirestore {
 
 extension FirebaseStorageX on FirebaseStorage {
   Reference get audioRef => ref('audio');
+  Reference get surveyRef => ref('survey');
 }

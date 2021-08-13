@@ -11,10 +11,12 @@ import '../../core/constants.dart';
 
 class QuestionBox extends StatelessWidget {
   final QuestionId questionId;
+  final bool isinCell;
 
   const QuestionBox({
     Key? key,
     required this.questionId,
+    this.isinCell = false,
   }) : super(key: key);
 
   @override
@@ -49,13 +51,14 @@ class QuestionBox extends StatelessWidget {
         );
 
         return Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text(
               questionText,
-              style: kH3TextStyle,
+              style: isinCell ? kH4TextStyle : kH3TextStyle,
             ),
-            if (question.note.isValid()) ...[
+            if (question.note.getValueAnyway() != '') ...[
               Text(
                 question.note.getValueAnyway(),
                 style: kH4TextStyle.copyWith(

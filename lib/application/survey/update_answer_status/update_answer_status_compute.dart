@@ -135,7 +135,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
     // S_2 改變該題的 answerStatus
     // S_2-c1 過去隱藏，現在要顯示時
     if (showQuestion && newAnswerStatus.isHidden) {
-      if (question.type == QuestionType.description()) {
+      if (!question.type.needAnswer) {
         newAnswerStatus = newAnswerStatus.setAnswered();
       } else {
         newAnswerStatus = newAnswerStatus.setUnanswered();
