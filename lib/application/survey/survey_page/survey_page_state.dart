@@ -53,11 +53,11 @@ class SurveyPageState with _$SurveyPageState {
 
   Map<String, dynamic> toJson() => SurveyPageStateDto.fromDomain(this).toJson();
 
-  SurveyPageState send(SendPort stateReceiver) {
-    stateReceiver.send(this);
+  SurveyPageState send(AsyncTaskChannel channel) {
+    channel.send(this);
     return this;
   }
 }
 
-SurveyPageState stateFromJson(Map<String, dynamic> json) =>
+SurveyPageState _stateFromJson(Map<String, dynamic> json) =>
     SurveyPageStateDto.fromJson(json).toDomain();

@@ -52,11 +52,11 @@ class ResponseState with _$ResponseState {
 
   Map<String, dynamic> toJson() => ResponseStateDto.fromDomain(this).toJson();
 
-  ResponseState send(SendPort stateReceiver) {
-    stateReceiver.send(this);
+  ResponseState send(AsyncTaskChannel channel) {
+    channel.send(this);
     return this;
   }
 }
 
-ResponseState stateFromJson(Map<String, dynamic> json) =>
+ResponseState _stateFromJson(Map<String, dynamic> json) =>
     ResponseStateDto.fromJson(json).toDomain();

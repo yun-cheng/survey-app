@@ -53,8 +53,5 @@ class RespondentEvent with _$RespondentEvent {
 
   const factory RespondentEvent.loggedOut() = _LoggedOut;
 
-  const factory RespondentEvent.isolateSpawned() = _IsolateSpawned;
-  const factory RespondentEvent.workerJobDone(
-    RespondentState state,
-  ) = _WorkerJobDone;
+  const factory RespondentEvent.taskInitialized() = _TaskInitialized;
 }

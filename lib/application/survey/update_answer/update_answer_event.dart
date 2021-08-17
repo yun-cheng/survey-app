@@ -25,7 +25,5 @@ class UpdateAnswerEvent with _$UpdateAnswerEvent {
     required KtList<QuestionId> questionIdList,
   }) = _AnswerQIdListCleared;
 
-  const factory UpdateAnswerEvent.isolateSpawned() = _IsolateSpawned;
-  const factory UpdateAnswerEvent.workerJobDone(UpdateAnswerState state) =
-      _WorkerJobDone;
+  const factory UpdateAnswerEvent.taskInitialized() = _TaskInitialized;
 }

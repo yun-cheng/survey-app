@@ -50,6 +50,5 @@ class AnswerEvent with _$AnswerEvent {
   // H_ 離開問卷時清空 state
   const factory AnswerEvent.stateCleared() = _StateCleared;
 
-  const factory AnswerEvent.isolateSpawned() = _IsolateSpawned;
-  const factory AnswerEvent.workerJobDone(AnswerState state) = _WorkerJobDone;
+  const factory AnswerEvent.taskInitialized() = _TaskInitialized;
 }

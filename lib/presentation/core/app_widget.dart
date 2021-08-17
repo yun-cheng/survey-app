@@ -21,7 +21,6 @@ import '../../domain/audio/i_audio_repository.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/survey/i_survey_repository.dart';
-import '../../infrastructure/core/isolate.dart';
 import '../../injection.dart';
 import '../routes/router.gr.dart';
 import 'themes.dart';
@@ -53,32 +52,26 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => RespondentBloc(
-            getIt<JsonIsolate>(),
             getIt<IRespondentRepository>(),
           ),
         ),
         BlocProvider(
           create: (_) => ResponseBloc(
-            getIt<JsonIsolate>(),
             getIt<ISurveyRepository>(),
           ),
         ),
         BlocProvider(
-          create: (_) => UpdateAnswerBloc(
-            getIt<JsonIsolate>(),
-          ),
+          create: (_) => UpdateAnswerBloc(),
           lazy: false,
         ),
         BlocProvider(
           create: (_) => UpdateSurveyPageBloc(
-            getIt<JsonIsolate>(),
             getIt<ISurveyRepository>(),
           ),
           lazy: false,
         ),
         BlocProvider(
           create: (context) => UpdateAnswerStatusBloc(
-            getIt<JsonIsolate>(),
             context.read<UpdateAnswerBloc>(),
           ),
           lazy: false,
@@ -87,16 +80,13 @@ class AppWidget extends StatelessWidget {
         //  其他 bloc 不需要是因為都在 SplashPage 啟動了
         BlocProvider(
           create: (context) => AnswerBloc(
-            getIt<JsonIsolate>(),
             context.read<UpdateAnswerBloc>(),
             context.read<UpdateAnswerStatusBloc>(),
           ),
           lazy: false,
         ),
         BlocProvider(
-          create: (_) => SurveyPageBloc(
-            getIt<JsonIsolate>(),
-          ),
+          create: (_) => SurveyPageBloc(),
           lazy: false,
         ),
         BlocProvider(

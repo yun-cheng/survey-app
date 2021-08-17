@@ -38,6 +38,6 @@ class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.questionIdListCleared() =
       _QuestionIdListCleared;
 
-  const factory SurveyPageEvent.isolateSpawned() = _IsolateSpawned;
   const factory SurveyPageEvent.stateToJson() = _StateToJson;
+  const factory SurveyPageEvent.taskInitialized() = _TaskInitialized;
 }

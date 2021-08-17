@@ -80,13 +80,13 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
   Map<String, dynamic> toJson() =>
       UpdateSurveyPageStateDto.fromDomain(this).toJson();
 
-  UpdateSurveyPageState send(SendPort stateReceiver) {
-    stateReceiver.send(this);
+  UpdateSurveyPageState send(AsyncTaskChannel channel) {
+    channel.send(this);
     return this;
   }
 }
 
-UpdateSurveyPageState stateFromJson(Map<String, dynamic> json) =>
+UpdateSurveyPageState _stateFromJson(Map<String, dynamic> json) =>
     UpdateSurveyPageStateDto.fromJson(json).toDomain();
 
 enum Direction {

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../domain/auth/value_objects.dart';
@@ -18,7 +17,6 @@ part 'watch_survey_bloc.freezed.dart';
 part 'watch_survey_event.dart';
 part 'watch_survey_state.dart';
 
-@injectable
 class WatchSurveyBloc extends HydratedBloc<WatchSurveyEvent, WatchSurveyState> {
   final ISurveyRepository _surveyRepository;
   StreamSubscription<Either<SurveyFailure, KtList<Survey>>>?

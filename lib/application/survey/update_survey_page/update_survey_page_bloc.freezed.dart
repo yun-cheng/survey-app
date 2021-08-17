@@ -128,14 +128,8 @@ class _$UpdateSurveyPageEventTearOff {
     return const _LoggedOut();
   }
 
-  _IsolateSpawned isolateSpawned() {
-    return const _IsolateSpawned();
-  }
-
-  _WorkerJobDone workerJobDone(UpdateSurveyPageState state) {
-    return _WorkerJobDone(
-      state,
-    );
+  _TaskInitialized taskInitialized() {
+    return const _TaskInitialized();
   }
 }
 
@@ -182,8 +176,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -224,8 +217,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -253,8 +245,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -279,8 +270,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -343,7 +333,9 @@ class __$WatchReferenceListStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
+class _$_WatchReferenceListStarted
+    with DiagnosticableTreeMixin
+    implements _WatchReferenceListStarted {
   const _$_WatchReferenceListStarted(
       {required this.teamId, required this.interviewerId});
 
@@ -353,8 +345,18 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
   final InterviewerId interviewerId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.watchReferenceListStarted(teamId: $teamId, interviewerId: $interviewerId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.watchReferenceListStarted'))
+      ..add(DiagnosticsProperty('teamId', teamId))
+      ..add(DiagnosticsProperty('interviewerId', interviewerId));
   }
 
   @override
@@ -420,8 +422,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return watchReferenceListStarted(teamId, interviewerId);
   }
@@ -465,8 +466,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (watchReferenceListStarted != null) {
@@ -500,8 +500,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return watchReferenceListStarted(this);
   }
@@ -529,8 +528,7 @@ class _$_WatchReferenceListStarted implements _WatchReferenceListStarted {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (watchReferenceListStarted != null) {
@@ -586,15 +584,27 @@ class __$ReferenceListReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReferenceListReceived implements _ReferenceListReceived {
+class _$_ReferenceListReceived
+    with DiagnosticableTreeMixin
+    implements _ReferenceListReceived {
   const _$_ReferenceListReceived(this.failureOrReferenceList);
 
   @override
   final Either<SurveyFailure, KtList<Reference>> failureOrReferenceList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.referenceListReceived(failureOrReferenceList: $failureOrReferenceList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.referenceListReceived'))
+      ..add(DiagnosticsProperty(
+          'failureOrReferenceList', failureOrReferenceList));
   }
 
   @override
@@ -656,8 +666,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return referenceListReceived(failureOrReferenceList);
   }
@@ -701,8 +710,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -736,8 +744,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return referenceListReceived(this);
   }
@@ -765,8 +772,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -907,7 +913,7 @@ class __$StateRestoredCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateRestored implements _StateRestored {
+class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   const _$_StateRestored(
       {required this.surveyId,
       required this.moduleType,
@@ -948,8 +954,27 @@ class _$_StateRestored implements _StateRestored {
   final Respondent respondent;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.stateRestored(surveyId: $surveyId, moduleType: $moduleType, surveyPageState: $surveyPageState, questionList: $questionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, respondent: $respondent)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.stateRestored'))
+      ..add(DiagnosticsProperty('surveyId', surveyId))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('surveyPageState', surveyPageState))
+      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
+      ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap))
+      ..add(DiagnosticsProperty('respondent', respondent));
   }
 
   @override
@@ -1054,8 +1079,7 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return stateRestored(
         surveyId,
@@ -1111,8 +1135,7 @@ class _$_StateRestored implements _StateRestored {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1158,8 +1181,7 @@ class _$_StateRestored implements _StateRestored {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return stateRestored(this);
   }
@@ -1187,8 +1209,7 @@ class _$_StateRestored implements _StateRestored {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateRestored != null) {
@@ -1272,6 +1293,7 @@ class __$RespondentResponseListUpdatedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_RespondentResponseListUpdated
+    with DiagnosticableTreeMixin
     implements _RespondentResponseListUpdated {
   const _$_RespondentResponseListUpdated(
       {required this.respondentResponseList});
@@ -1280,8 +1302,18 @@ class _$_RespondentResponseListUpdated
   final KtList<Response> respondentResponseList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.respondentResponseListUpdated(respondentResponseList: $respondentResponseList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.respondentResponseListUpdated'))
+      ..add(DiagnosticsProperty(
+          'respondentResponseList', respondentResponseList));
   }
 
   @override
@@ -1343,8 +1375,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return respondentResponseListUpdated(respondentResponseList);
   }
@@ -1388,8 +1419,7 @@ class _$_RespondentResponseListUpdated
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -1423,8 +1453,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return respondentResponseListUpdated(this);
   }
@@ -1452,8 +1481,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (respondentResponseListUpdated != null) {
@@ -1516,7 +1544,7 @@ class __$AnswerChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerChanged implements _AnswerChanged {
+class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
   const _$_AnswerChanged(
       {required this.answerMap, required this.answerStatusMap});
 
@@ -1526,8 +1554,17 @@ class _$_AnswerChanged implements _AnswerChanged {
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.answerChanged(answerMap: $answerMap, answerStatusMap: $answerStatusMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.answerChanged'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap));
   }
 
   @override
@@ -1592,8 +1629,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return answerChanged(answerMap, answerStatusMap);
   }
@@ -1637,8 +1673,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -1672,8 +1707,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return answerChanged(this);
   }
@@ -1701,8 +1735,7 @@ class _$_AnswerChanged implements _AnswerChanged {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerChanged != null) {
@@ -1749,12 +1782,22 @@ class __$ContentQuestionListUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
+class _$_ContentQuestionListUpdated
+    with DiagnosticableTreeMixin
+    implements _ContentQuestionListUpdated {
   const _$_ContentQuestionListUpdated();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.contentQuestionListUpdated()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.contentQuestionListUpdated'));
   }
 
   @override
@@ -1804,8 +1847,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return contentQuestionListUpdated();
   }
@@ -1849,8 +1891,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -1884,8 +1925,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return contentQuestionListUpdated(this);
   }
@@ -1913,8 +1953,7 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -1949,12 +1988,22 @@ class __$NextPagePressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NextPagePressed implements _NextPagePressed {
+class _$_NextPagePressed
+    with DiagnosticableTreeMixin
+    implements _NextPagePressed {
   const _$_NextPagePressed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.nextPagePressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.nextPagePressed'));
   }
 
   @override
@@ -2004,8 +2053,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return nextPagePressed();
   }
@@ -2049,8 +2097,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (nextPagePressed != null) {
@@ -2084,8 +2131,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return nextPagePressed(this);
   }
@@ -2113,8 +2159,7 @@ class _$_NextPagePressed implements _NextPagePressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (nextPagePressed != null) {
@@ -2149,12 +2194,22 @@ class __$PreviousPagePressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PreviousPagePressed implements _PreviousPagePressed {
+class _$_PreviousPagePressed
+    with DiagnosticableTreeMixin
+    implements _PreviousPagePressed {
   const _$_PreviousPagePressed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.previousPagePressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.previousPagePressed'));
   }
 
   @override
@@ -2204,8 +2259,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return previousPagePressed();
   }
@@ -2249,8 +2303,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (previousPagePressed != null) {
@@ -2284,8 +2337,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return previousPagePressed(this);
   }
@@ -2313,8 +2365,7 @@ class _$_PreviousPagePressed implements _PreviousPagePressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (previousPagePressed != null) {
@@ -2362,15 +2413,23 @@ class __$WentToPageCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WentToPage implements _WentToPage {
+class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
   const _$_WentToPage(this.page);
 
   @override
   final PageNumber page;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.wentToPage(page: $page)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.wentToPage'))
+      ..add(DiagnosticsProperty('page', page));
   }
 
   @override
@@ -2429,8 +2488,7 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return wentToPage(page);
   }
@@ -2474,8 +2532,7 @@ class _$_WentToPage implements _WentToPage {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (wentToPage != null) {
@@ -2509,8 +2566,7 @@ class _$_WentToPage implements _WentToPage {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return wentToPage(this);
   }
@@ -2538,8 +2594,7 @@ class _$_WentToPage implements _WentToPage {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (wentToPage != null) {
@@ -2579,12 +2634,22 @@ class __$FinishedButtonPressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_FinishedButtonPressed implements _FinishedButtonPressed {
+class _$_FinishedButtonPressed
+    with DiagnosticableTreeMixin
+    implements _FinishedButtonPressed {
   const _$_FinishedButtonPressed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.finishedButtonPressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.finishedButtonPressed'));
   }
 
   @override
@@ -2634,8 +2699,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return finishedButtonPressed();
   }
@@ -2679,8 +2743,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2714,8 +2777,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return finishedButtonPressed(this);
   }
@@ -2743,8 +2805,7 @@ class _$_FinishedButtonPressed implements _FinishedButtonPressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2779,12 +2840,19 @@ class __$StateClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateCleared implements _StateCleared {
+class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   const _$_StateCleared();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.stateCleared()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.stateCleared'));
   }
 
   @override
@@ -2834,8 +2902,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return stateCleared();
   }
@@ -2879,8 +2946,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -2914,8 +2980,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return stateCleared(this);
   }
@@ -2943,8 +3008,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -2979,12 +3043,22 @@ class __$ReadOnlyToggledCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReadOnlyToggled implements _ReadOnlyToggled {
+class _$_ReadOnlyToggled
+    with DiagnosticableTreeMixin
+    implements _ReadOnlyToggled {
   const _$_ReadOnlyToggled();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.readOnlyToggled()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.readOnlyToggled'));
   }
 
   @override
@@ -3034,8 +3108,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return readOnlyToggled();
   }
@@ -3079,8 +3152,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -3114,8 +3186,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return readOnlyToggled(this);
   }
@@ -3143,8 +3214,7 @@ class _$_ReadOnlyToggled implements _ReadOnlyToggled {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (readOnlyToggled != null) {
@@ -3192,15 +3262,26 @@ class __$AppLifeCycleChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
+class _$_AppLifeCycleChanged
+    with DiagnosticableTreeMixin
+    implements _AppLifeCycleChanged {
   const _$_AppLifeCycleChanged({required this.isPaused});
 
   @override
   final bool isPaused;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.appLifeCycleChanged(isPaused: $isPaused)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.appLifeCycleChanged'))
+      ..add(DiagnosticsProperty('isPaused', isPaused));
   }
 
   @override
@@ -3261,8 +3342,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return appLifeCycleChanged(isPaused);
   }
@@ -3306,8 +3386,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -3341,8 +3420,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return appLifeCycleChanged(this);
   }
@@ -3370,8 +3448,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -3412,12 +3489,19 @@ class __$DialogClosedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_DialogClosed implements _DialogClosed {
+class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   const _$_DialogClosed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.dialogClosed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.dialogClosed'));
   }
 
   @override
@@ -3467,8 +3551,7 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return dialogClosed();
   }
@@ -3512,8 +3595,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -3547,8 +3629,7 @@ class _$_DialogClosed implements _DialogClosed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return dialogClosed(this);
   }
@@ -3576,8 +3657,7 @@ class _$_DialogClosed implements _DialogClosed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -3612,12 +3692,22 @@ class __$LeaveButtonPressedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LeaveButtonPressed implements _LeaveButtonPressed {
+class _$_LeaveButtonPressed
+    with DiagnosticableTreeMixin
+    implements _LeaveButtonPressed {
   const _$_LeaveButtonPressed();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.leaveButtonPressed()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.leaveButtonPressed'));
   }
 
   @override
@@ -3667,8 +3757,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return leaveButtonPressed();
   }
@@ -3712,8 +3801,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (leaveButtonPressed != null) {
@@ -3747,8 +3835,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return leaveButtonPressed(this);
   }
@@ -3776,8 +3863,7 @@ class _$_LeaveButtonPressed implements _LeaveButtonPressed {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (leaveButtonPressed != null) {
@@ -3812,12 +3898,22 @@ class __$LeaveButtonHiddenCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LeaveButtonHidden implements _LeaveButtonHidden {
+class _$_LeaveButtonHidden
+    with DiagnosticableTreeMixin
+    implements _LeaveButtonHidden {
   const _$_LeaveButtonHidden();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.leaveButtonHidden()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateSurveyPageEvent.leaveButtonHidden'));
   }
 
   @override
@@ -3867,8 +3963,7 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return leaveButtonHidden();
   }
@@ -3912,8 +4007,7 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (leaveButtonHidden != null) {
@@ -3947,8 +4041,7 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return leaveButtonHidden(this);
   }
@@ -3976,8 +4069,7 @@ class _$_LeaveButtonHidden implements _LeaveButtonHidden {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (leaveButtonHidden != null) {
@@ -4011,12 +4103,19 @@ class __$LoggedOutCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoggedOut implements _LoggedOut {
+class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   const _$_LoggedOut();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageEvent.loggedOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.loggedOut'));
   }
 
   @override
@@ -4066,8 +4165,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return loggedOut();
   }
@@ -4111,8 +4209,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -4146,8 +4243,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return loggedOut(this);
   }
@@ -4175,8 +4271,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -4191,37 +4286,47 @@ abstract class _LoggedOut implements UpdateSurveyPageEvent {
 }
 
 /// @nodoc
-abstract class _$IsolateSpawnedCopyWith<$Res> {
-  factory _$IsolateSpawnedCopyWith(
-          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
-      __$IsolateSpawnedCopyWithImpl<$Res>;
+abstract class _$TaskInitializedCopyWith<$Res> {
+  factory _$TaskInitializedCopyWith(
+          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
+      __$TaskInitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$IsolateSpawnedCopyWithImpl<$Res>
+class __$TaskInitializedCopyWithImpl<$Res>
     extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$IsolateSpawnedCopyWith<$Res> {
-  __$IsolateSpawnedCopyWithImpl(
-      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
-      : super(_value, (v) => _then(v as _IsolateSpawned));
+    implements _$TaskInitializedCopyWith<$Res> {
+  __$TaskInitializedCopyWithImpl(
+      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
+      : super(_value, (v) => _then(v as _TaskInitialized));
 
   @override
-  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+  _TaskInitialized get _value => super._value as _TaskInitialized;
 }
 
 /// @nodoc
 
-class _$_IsolateSpawned implements _IsolateSpawned {
-  const _$_IsolateSpawned();
+class _$_TaskInitialized
+    with DiagnosticableTreeMixin
+    implements _TaskInitialized {
+  const _$_TaskInitialized();
 
   @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.isolateSpawned()';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateSurveyPageEvent.taskInitialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.taskInitialized'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _IsolateSpawned);
+    return identical(this, other) || (other is _TaskInitialized);
   }
 
   @override
@@ -4266,10 +4371,9 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
-    return isolateSpawned();
+    return taskInitialized();
   }
 
   @override
@@ -4311,12 +4415,11 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned();
+    if (taskInitialized != null) {
+      return taskInitialized();
     }
     return orElse();
   }
@@ -4346,10 +4449,9 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return isolateSpawned(this);
+    return taskInitialized(this);
   }
 
   @override
@@ -4375,258 +4477,18 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned(this);
+    if (taskInitialized != null) {
+      return taskInitialized(this);
     }
     return orElse();
   }
 }
 
-abstract class _IsolateSpawned implements UpdateSurveyPageEvent {
-  const factory _IsolateSpawned() = _$_IsolateSpawned;
-}
-
-/// @nodoc
-abstract class _$WorkerJobDoneCopyWith<$Res> {
-  factory _$WorkerJobDoneCopyWith(
-          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
-      __$WorkerJobDoneCopyWithImpl<$Res>;
-  $Res call({UpdateSurveyPageState state});
-
-  $UpdateSurveyPageStateCopyWith<$Res> get state;
-}
-
-/// @nodoc
-class __$WorkerJobDoneCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$WorkerJobDoneCopyWith<$Res> {
-  __$WorkerJobDoneCopyWithImpl(
-      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
-      : super(_value, (v) => _then(v as _WorkerJobDone));
-
-  @override
-  _WorkerJobDone get _value => super._value as _WorkerJobDone;
-
-  @override
-  $Res call({
-    Object? state = freezed,
-  }) {
-    return _then(_WorkerJobDone(
-      state == freezed
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as UpdateSurveyPageState,
-    ));
-  }
-
-  @override
-  $UpdateSurveyPageStateCopyWith<$Res> get state {
-    return $UpdateSurveyPageStateCopyWith<$Res>(_value.state, (value) {
-      return _then(_value.copyWith(state: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_WorkerJobDone implements _WorkerJobDone {
-  const _$_WorkerJobDone(this.state);
-
-  @override
-  final UpdateSurveyPageState state;
-
-  @override
-  String toString() {
-    return 'UpdateSurveyPageEvent.workerJobDone(state: $state)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _WorkerJobDone &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
-
-  @JsonKey(ignore: true)
-  @override
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
-      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() contentQuestionListUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateSurveyPageState state) workerJobDone,
-  }) {
-    return workerJobDone(state);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function(
-            SurveyId surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? contentQuestionListUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateSurveyPageState state)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (workerJobDone != null) {
-      return workerJobDone(state);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
-  }) {
-    return workerJobDone(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (workerJobDone != null) {
-      return workerJobDone(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WorkerJobDone implements UpdateSurveyPageEvent {
-  const factory _WorkerJobDone(UpdateSurveyPageState state) = _$_WorkerJobDone;
-
-  UpdateSurveyPageState get state => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _TaskInitialized implements UpdateSurveyPageEvent {
+  const factory _TaskInitialized() = _$_TaskInitialized;
 }
 
 /// @nodoc
@@ -5231,7 +5093,8 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateSurveyPageState extends _UpdateSurveyPageState {
+class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
+    with DiagnosticableTreeMixin {
   const _$_UpdateSurveyPageState(
       {required this.page,
       required this.newestPage,
@@ -5330,8 +5193,47 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState {
   final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageState'))
+      ..add(DiagnosticsProperty('page', page))
+      ..add(DiagnosticsProperty('newestPage', newestPage))
+      ..add(DiagnosticsProperty('direction', direction))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('isLastPage', isLastPage))
+      ..add(DiagnosticsProperty('warning', warning))
+      ..add(DiagnosticsProperty('showWarning', showWarning))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('updateState', updateState))
+      ..add(DiagnosticsProperty('updateType', updateType))
+      ..add(DiagnosticsProperty('restoreState', restoreState))
+      ..add(DiagnosticsProperty('referenceListState', referenceListState))
+      ..add(DiagnosticsProperty('referenceList', referenceList))
+      ..add(DiagnosticsProperty('surveyFailure', surveyFailure))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(
+          DiagnosticsProperty('respondentResponseList', respondentResponseList))
+      ..add(DiagnosticsProperty('surveyId', surveyId))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('pageQuestionList', pageQuestionList))
+      ..add(DiagnosticsProperty('contentQuestionList', contentQuestionList))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('appIsPaused', appIsPaused))
+      ..add(DiagnosticsProperty('showDialog', showDialog))
+      ..add(DiagnosticsProperty('leavePage', leavePage))
+      ..add(DiagnosticsProperty('finishResponse', finishResponse))
+      ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
+      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
+      ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
   }
 
   @override

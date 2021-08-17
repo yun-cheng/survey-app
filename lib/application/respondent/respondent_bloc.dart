@@ -1,13 +1,15 @@
 import 'dart:async';
-import 'dart:isolate';
 import 'dart:math';
 
-import 'package:dartz/dartz.dart';
+import 'package:async_task/async_task.dart';
+import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../domain/auth/value_objects.dart';
 import '../../domain/core/load_state.dart';
@@ -27,7 +29,8 @@ import '../../domain/survey/choice.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/value_objects.dart';
 import '../../infrastructure/core/date_time_extensions.dart';
-import '../../infrastructure/core/isolate.dart';
+import '../../infrastructure/core/event_task.dart';
+import '../../infrastructure/core/json_task.dart';
 import '../../infrastructure/respondent/respondent_state_dtos.dart';
 
 part 'respondent_bloc.freezed.dart';
@@ -36,21 +39,19 @@ part 'respondent_event.dart';
 part 'respondent_event_worker.dart';
 part 'respondent_state.dart';
 
-@injectable
 class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
-  final JsonIsolate _jsonIsolate;
   final IRespondentRepository _respondentRepository;
-  EventIsolate? _eventIsolate;
   StreamSubscription<Either<RespondentFailure, KtList<RespondentList>>>?
       _respondentListListSubscription;
-  StreamSubscription<dynamic>? _stateSubscription;
-  StreamSubscription<dynamic>? _jsonSubscription;
+  AsyncExecutor? _eventExecutor;
+  AsyncTaskChannel? _eventChannel;
+  AsyncExecutor? _jsonExecutor;
+  AsyncTaskChannel? _jsonChannel;
 
   RespondentBloc(
-    this._jsonIsolate,
     this._respondentRepository,
   ) : super(RespondentState.initial()) {
-    add(const RespondentEvent.isolateSpawned());
+    add(const RespondentEvent.taskInitialized());
   }
 
   @override
@@ -58,44 +59,12 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
     RespondentEvent event,
   ) async* {
     yield* event.maybeMap(
-      isolateSpawned: (e) async* {
-        if (_eventIsolate == null) {
-          logger('Isolate').e('RespondentEvent: isolateSpawned');
-
-          // S_ event worker
-          _eventIsolate = EventIsolate();
-          await _eventIsolate!.spawn(respondentEventWorker);
-
-          // S_ json worker
-          final initState = await _jsonIsolate.spawn(
-            boxName: 'RespondentState',
-            stateFromJson: stateFromJson,
-          );
-          if (initState is RespondentState) {
-            logger('Event').i('RespondentEvent: initState');
-
-            _eventIsolate!.todo.send(initState);
-            add(RespondentEvent.workerJobDone(initState));
-          }
-
-          // S_ listen to state
-          _stateSubscription =
-              _eventIsolate!.stream.listen((dynamic stateOrElse) {
-            if (stateOrElse is RespondentState) {
-              add(RespondentEvent.workerJobDone(stateOrElse));
-              _jsonIsolate.todo.send(stateOrElse);
-            } else if (stateOrElse is RespondentEvent) {
-              add(stateOrElse);
-            }
-          });
-        }
-      },
-      workerJobDone: (e) async* {
-        yield e.state;
+      taskInitialized: (e) async* {
+        yield await taskInitialized();
       },
       watchRespondentListListStarted: (e) async* {
         logger('Watch').i('RespondentEvent: watchRespondentListListStarted');
-        _eventIsolate!.todo.send(e);
+        yield* eventTaskSent(event);
 
         await _respondentListListSubscription?.cancel();
         _respondentListListSubscription = _respondentRepository
@@ -111,21 +80,82 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
       },
       loggedOut: (e) async* {
         _respondentListListSubscription?.cancel();
-        _eventIsolate!.todo.send(e);
+        yield* eventTaskSent(event);
       },
       orElse: () async* {
-        _eventIsolate!.todo.send(event);
+        yield* eventTaskSent(event);
       },
     );
   }
 
+  Future<RespondentState> taskInitialized() async {
+    logger('Task').e('RespondentBloc: taskInitialized');
+
+    // S_ event task
+    final eventTask = EventTask(_respondentEventWorker);
+
+    _eventExecutor = AsyncExecutor(
+      parallelism: 1,
+      taskTypeRegister: _eventTaskTypeRegister,
+    );
+
+    _eventExecutor!.execute(eventTask);
+    _eventChannel = await eventTask.channel();
+
+    // S_ json task
+    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
+    final path = dir?.path ?? '';
+
+    final jsonTask = JsonTask(
+      path: path,
+      boxName: 'RespondentState',
+      stateFromJson: _stateFromJson,
+    );
+
+    _jsonExecutor = AsyncExecutor(
+      parallelism: 1,
+      taskTypeRegister: _jsonTaskTypeRegister,
+    );
+
+    _jsonExecutor!.execute(jsonTask);
+    _jsonChannel = await jsonTask.channel();
+
+    // S_ initState
+    final initState = await _jsonChannel!.sendAndWaitResponse('initState');
+    if (initState is RespondentState) {
+      logger('State').i('RespondentState: initState');
+
+      return initState;
+    }
+    return RespondentState.initial();
+  }
+
+  Stream<RespondentState> eventTaskSent(
+    RespondentEvent event,
+  ) async* {
+    final tuple = Tuple2(event, state);
+    _eventChannel!.send(tuple);
+
+    dynamic msg;
+    while (true) {
+      msg = await _eventChannel!.waitMessage();
+
+      if (msg is RespondentState) {
+        yield msg;
+        _jsonChannel!.send(msg);
+      } else if (msg is RespondentEvent) {
+        add(msg);
+      } else if (msg is bool) {
+        break;
+      }
+    }
+  }
+
   @override
   Future<void> close() {
-    _eventIsolate?.kill();
-    _jsonIsolate.kill();
     _respondentListListSubscription?.cancel();
-    _stateSubscription?.cancel();
-    _jsonSubscription?.cancel();
+    _eventExecutor?.close();
+    _jsonExecutor?.close();
 
     return super.close();
   }

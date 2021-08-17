@@ -18,7 +18,6 @@ part 'upload_audio_bloc.freezed.dart';
 part 'upload_audio_event.dart';
 part 'upload_audio_state.dart';
 
-@injectable
 class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
   final IAudioRepository _iAudioRepository;
   StreamSubscription<Either<AudioFailure, Audio>>? _uploadProgressWatcher;

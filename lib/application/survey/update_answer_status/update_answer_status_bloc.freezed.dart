@@ -53,18 +53,15 @@ class _$UpdateAnswerStatusEventTearOff {
     );
   }
 
-  _QIdListAnswerCleared qIdListAnswerCleared() {
-    return const _QIdListAnswerCleared();
-  }
-
-  _IsolateSpawned isolateSpawned() {
-    return const _IsolateSpawned();
-  }
-
-  _WorkerJobDone workerJobDone(UpdateAnswerStatusState state) {
-    return _WorkerJobDone(
-      state,
+  _AnswerQIdListCleared answerQIdListCleared(
+      {required KtList<QuestionId> questionIdList}) {
+    return _AnswerQIdListCleared(
+      questionIdList: questionIdList,
     );
+  }
+
+  _TaskInitialized taskInitialized() {
+    return const _TaskInitialized();
   }
 }
 
@@ -87,9 +84,9 @@ mixin _$UpdateAnswerStatusEvent {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,9 +103,8 @@ mixin _$UpdateAnswerStatusEvent {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -119,9 +115,8 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -130,9 +125,8 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -214,7 +208,7 @@ class __$ModuleLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModuleLoaded implements _ModuleLoaded {
+class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   const _$_ModuleLoaded(
       {required this.questionList,
       required this.isRecodeModule,
@@ -234,8 +228,20 @@ class _$_ModuleLoaded implements _ModuleLoaded {
   final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerStatusEvent.moduleLoaded(questionList: $questionList, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.moduleLoaded'))
+      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
   }
 
   @override
@@ -288,9 +294,9 @@ class _$_ModuleLoaded implements _ModuleLoaded {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() taskInitialized,
   }) {
     return moduleLoaded(questionList, isRecodeModule, answerMap,
         answerStatusMap, mainAnswerStatusMap);
@@ -311,9 +317,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -331,9 +336,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return moduleLoaded(this);
   }
@@ -345,9 +349,8 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -399,12 +402,20 @@ class __$StateClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateCleared implements _StateCleared {
+class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   const _$_StateCleared();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerStatusEvent.stateCleared()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.stateCleared'));
   }
 
   @override
@@ -430,9 +441,9 @@ class _$_StateCleared implements _StateCleared {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() taskInitialized,
   }) {
     return stateCleared();
   }
@@ -452,9 +463,8 @@ class _$_StateCleared implements _StateCleared {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -471,9 +481,8 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return stateCleared(this);
   }
@@ -485,9 +494,8 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -548,7 +556,9 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerMapUpdated implements _AnswerMapUpdated {
+class _$_AnswerMapUpdated
+    with DiagnosticableTreeMixin
+    implements _AnswerMapUpdated {
   const _$_AnswerMapUpdated(
       {required this.answerMap,
       required this.questionIdList,
@@ -562,8 +572,19 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
   final bool updateAnswerStatus;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerStatusEvent.answerMapUpdated(answerMap: $answerMap, questionIdList: $questionIdList, updateAnswerStatus: $updateAnswerStatus)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateAnswerStatusEvent.answerMapUpdated'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList))
+      ..add(DiagnosticsProperty('updateAnswerStatus', updateAnswerStatus));
   }
 
   @override
@@ -608,9 +629,9 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() taskInitialized,
   }) {
     return answerMapUpdated(answerMap, questionIdList, updateAnswerStatus);
   }
@@ -630,9 +651,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -649,9 +669,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return answerMapUpdated(this);
   }
@@ -663,9 +682,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -723,15 +741,26 @@ class __$SpecialAnswerSwitchedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
+class _$_SpecialAnswerSwitched
+    with DiagnosticableTreeMixin
+    implements _SpecialAnswerSwitched {
   const _$_SpecialAnswerSwitched({required this.questionId});
 
   @override
   final QuestionId questionId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerStatusEvent.specialAnswerSwitched(questionId: $questionId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateAnswerStatusEvent.specialAnswerSwitched'))
+      ..add(DiagnosticsProperty('questionId', questionId));
   }
 
   @override
@@ -768,9 +797,9 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() taskInitialized,
   }) {
     return specialAnswerSwitched(questionId);
   }
@@ -790,9 +819,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -809,9 +837,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return specialAnswerSwitched(this);
   }
@@ -823,9 +850,8 @@ class _$_SpecialAnswerSwitched implements _SpecialAnswerSwitched {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -846,321 +872,80 @@ abstract class _SpecialAnswerSwitched implements UpdateAnswerStatusEvent {
 }
 
 /// @nodoc
-abstract class _$QIdListAnswerClearedCopyWith<$Res> {
-  factory _$QIdListAnswerClearedCopyWith(_QIdListAnswerCleared value,
-          $Res Function(_QIdListAnswerCleared) then) =
-      __$QIdListAnswerClearedCopyWithImpl<$Res>;
+abstract class _$AnswerQIdListClearedCopyWith<$Res> {
+  factory _$AnswerQIdListClearedCopyWith(_AnswerQIdListCleared value,
+          $Res Function(_AnswerQIdListCleared) then) =
+      __$AnswerQIdListClearedCopyWithImpl<$Res>;
+  $Res call({KtList<QuestionId> questionIdList});
 }
 
 /// @nodoc
-class __$QIdListAnswerClearedCopyWithImpl<$Res>
+class __$AnswerQIdListClearedCopyWithImpl<$Res>
     extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$QIdListAnswerClearedCopyWith<$Res> {
-  __$QIdListAnswerClearedCopyWithImpl(
-      _QIdListAnswerCleared _value, $Res Function(_QIdListAnswerCleared) _then)
-      : super(_value, (v) => _then(v as _QIdListAnswerCleared));
+    implements _$AnswerQIdListClearedCopyWith<$Res> {
+  __$AnswerQIdListClearedCopyWithImpl(
+      _AnswerQIdListCleared _value, $Res Function(_AnswerQIdListCleared) _then)
+      : super(_value, (v) => _then(v as _AnswerQIdListCleared));
 
   @override
-  _QIdListAnswerCleared get _value => super._value as _QIdListAnswerCleared;
-}
-
-/// @nodoc
-
-class _$_QIdListAnswerCleared implements _QIdListAnswerCleared {
-  const _$_QIdListAnswerCleared();
-
-  @override
-  String toString() {
-    return 'UpdateAnswerStatusEvent.qIdListAnswerCleared()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _QIdListAnswerCleared);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
-        moduleLoaded,
-    required TResult Function() stateCleared,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
-  }) {
-    return qIdListAnswerCleared();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtList<Question> questionList,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
-        answerMapUpdated,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (qIdListAnswerCleared != null) {
-      return qIdListAnswerCleared();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
-  }) {
-    return qIdListAnswerCleared(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (qIdListAnswerCleared != null) {
-      return qIdListAnswerCleared(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _QIdListAnswerCleared implements UpdateAnswerStatusEvent {
-  const factory _QIdListAnswerCleared() = _$_QIdListAnswerCleared;
-}
-
-/// @nodoc
-abstract class _$IsolateSpawnedCopyWith<$Res> {
-  factory _$IsolateSpawnedCopyWith(
-          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
-      __$IsolateSpawnedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$IsolateSpawnedCopyWithImpl<$Res>
-    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$IsolateSpawnedCopyWith<$Res> {
-  __$IsolateSpawnedCopyWithImpl(
-      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
-      : super(_value, (v) => _then(v as _IsolateSpawned));
-
-  @override
-  _IsolateSpawned get _value => super._value as _IsolateSpawned;
-}
-
-/// @nodoc
-
-class _$_IsolateSpawned implements _IsolateSpawned {
-  const _$_IsolateSpawned();
-
-  @override
-  String toString() {
-    return 'UpdateAnswerStatusEvent.isolateSpawned()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _IsolateSpawned);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
-        moduleLoaded,
-    required TResult Function() stateCleared,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
-  }) {
-    return isolateSpawned();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            KtList<Question> questionList,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
-        answerMapUpdated,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
-  }) {
-    return isolateSpawned(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _IsolateSpawned implements UpdateAnswerStatusEvent {
-  const factory _IsolateSpawned() = _$_IsolateSpawned;
-}
-
-/// @nodoc
-abstract class _$WorkerJobDoneCopyWith<$Res> {
-  factory _$WorkerJobDoneCopyWith(
-          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
-      __$WorkerJobDoneCopyWithImpl<$Res>;
-  $Res call({UpdateAnswerStatusState state});
-
-  $UpdateAnswerStatusStateCopyWith<$Res> get state;
-}
-
-/// @nodoc
-class __$WorkerJobDoneCopyWithImpl<$Res>
-    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$WorkerJobDoneCopyWith<$Res> {
-  __$WorkerJobDoneCopyWithImpl(
-      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
-      : super(_value, (v) => _then(v as _WorkerJobDone));
-
-  @override
-  _WorkerJobDone get _value => super._value as _WorkerJobDone;
+  _AnswerQIdListCleared get _value => super._value as _AnswerQIdListCleared;
 
   @override
   $Res call({
-    Object? state = freezed,
+    Object? questionIdList = freezed,
   }) {
-    return _then(_WorkerJobDone(
-      state == freezed
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as UpdateAnswerStatusState,
+    return _then(_AnswerQIdListCleared(
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as KtList<QuestionId>,
     ));
-  }
-
-  @override
-  $UpdateAnswerStatusStateCopyWith<$Res> get state {
-    return $UpdateAnswerStatusStateCopyWith<$Res>(_value.state, (value) {
-      return _then(_value.copyWith(state: value));
-    });
   }
 }
 
 /// @nodoc
 
-class _$_WorkerJobDone implements _WorkerJobDone {
-  const _$_WorkerJobDone(this.state);
+class _$_AnswerQIdListCleared
+    with DiagnosticableTreeMixin
+    implements _AnswerQIdListCleared {
+  const _$_AnswerQIdListCleared({required this.questionIdList});
 
   @override
-  final UpdateAnswerStatusState state;
+  final KtList<QuestionId> questionIdList;
 
   @override
-  String toString() {
-    return 'UpdateAnswerStatusEvent.workerJobDone(state: $state)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerStatusEvent.answerQIdListCleared(questionIdList: $questionIdList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateAnswerStatusEvent.answerQIdListCleared'))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WorkerJobDone &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)));
+        (other is _AnswerQIdListCleared &&
+            (identical(other.questionIdList, questionIdList) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionIdList, questionIdList)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(questionIdList);
 
   @JsonKey(ignore: true)
   @override
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
-      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
+  _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
+      __$AnswerQIdListClearedCopyWithImpl<_AnswerQIdListCleared>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1177,11 +962,11 @@ class _$_WorkerJobDone implements _WorkerJobDone {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(QuestionId questionId) specialAnswerSwitched,
-    required TResult Function() qIdListAnswerCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerStatusState state) workerJobDone,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() taskInitialized,
   }) {
-    return workerJobDone(state);
+    return answerQIdListCleared(questionIdList);
   }
 
   @override
@@ -1199,13 +984,12 @@ class _$_WorkerJobDone implements _WorkerJobDone {
             KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(QuestionId questionId)? specialAnswerSwitched,
-    TResult Function()? qIdListAnswerCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerStatusState state)? workerJobDone,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (workerJobDone != null) {
-      return workerJobDone(state);
+    if (answerQIdListCleared != null) {
+      return answerQIdListCleared(questionIdList);
     }
     return orElse();
   }
@@ -1218,11 +1002,10 @@ class _$_WorkerJobDone implements _WorkerJobDone {
     required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_QIdListAnswerCleared value) qIdListAnswerCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return workerJobDone(this);
+    return answerQIdListCleared(this);
   }
 
   @override
@@ -1232,26 +1015,155 @@ class _$_WorkerJobDone implements _WorkerJobDone {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_QIdListAnswerCleared value)? qIdListAnswerCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (workerJobDone != null) {
-      return workerJobDone(this);
+    if (answerQIdListCleared != null) {
+      return answerQIdListCleared(this);
     }
     return orElse();
   }
 }
 
-abstract class _WorkerJobDone implements UpdateAnswerStatusEvent {
-  const factory _WorkerJobDone(UpdateAnswerStatusState state) =
-      _$_WorkerJobDone;
+abstract class _AnswerQIdListCleared implements UpdateAnswerStatusEvent {
+  const factory _AnswerQIdListCleared(
+      {required KtList<QuestionId> questionIdList}) = _$_AnswerQIdListCleared;
 
-  UpdateAnswerStatusState get state => throw _privateConstructorUsedError;
+  KtList<QuestionId> get questionIdList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
+  _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$TaskInitializedCopyWith<$Res> {
+  factory _$TaskInitializedCopyWith(
+          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
+      __$TaskInitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$TaskInitializedCopyWithImpl<$Res>
+    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
+    implements _$TaskInitializedCopyWith<$Res> {
+  __$TaskInitializedCopyWithImpl(
+      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
+      : super(_value, (v) => _then(v as _TaskInitialized));
+
+  @override
+  _TaskInitialized get _value => super._value as _TaskInitialized;
+}
+
+/// @nodoc
+
+class _$_TaskInitialized
+    with DiagnosticableTreeMixin
+    implements _TaskInitialized {
+  const _$_TaskInitialized();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerStatusEvent.taskInitialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateAnswerStatusEvent.taskInitialized'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _TaskInitialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            KtList<Question> questionList,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)
+        answerMapUpdated,
+    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(KtList<QuestionId> questionIdList)
+        answerQIdListCleared,
+    required TResult Function() taskInitialized,
+  }) {
+    return taskInitialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            KtList<Question> questionList,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> answerMap,
+            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList, bool updateAnswerStatus)?
+        answerMapUpdated,
+    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
+    TResult Function()? taskInitialized,
+    required TResult orElse(),
+  }) {
+    if (taskInitialized != null) {
+      return taskInitialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_SpecialAnswerSwitched value)
+        specialAnswerSwitched,
+    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
+    required TResult Function(_TaskInitialized value) taskInitialized,
+  }) {
+    return taskInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
+    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+    required TResult orElse(),
+  }) {
+    if (taskInitialized != null) {
+      return taskInitialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskInitialized implements UpdateAnswerStatusEvent {
+  const factory _TaskInitialized() = _$_TaskInitialized;
 }
 
 /// @nodoc
@@ -1492,7 +1404,8 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
+class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
+    with DiagnosticableTreeMixin {
   const _$_UpdateAnswerStatusState(
       {required this.restoreState,
       required this.updateState,
@@ -1525,8 +1438,24 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState {
   final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerStatusState(restoreState: $restoreState, updateState: $updateState, questionList: $questionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, clearAnswerQIdList: $clearAnswerQIdList, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusState'))
+      ..add(DiagnosticsProperty('restoreState', restoreState))
+      ..add(DiagnosticsProperty('updateState', updateState))
+      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('questionId', questionId))
+      ..add(DiagnosticsProperty('clearAnswerQIdList', clearAnswerQIdList))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
   }
 
   @override

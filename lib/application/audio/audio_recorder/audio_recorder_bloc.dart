@@ -4,7 +4,6 @@ import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:injectable/injectable.dart';
 
 import '../../../domain/audio/audio.dart';
 import '../../../domain/audio/audio_failure.dart';
@@ -17,7 +16,6 @@ part 'audio_recorder_bloc.freezed.dart';
 part 'audio_recorder_event.dart';
 part 'audio_recorder_state.dart';
 
-@injectable
 class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
   final IAudioRecorder _iAudioRecorder;
   StreamSubscription<double>? _dbSubscription;

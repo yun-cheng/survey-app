@@ -79,12 +79,12 @@ class _$SurveyPageEventTearOff {
     return const _QuestionIdListCleared();
   }
 
-  _IsolateSpawned isolateSpawned() {
-    return const _IsolateSpawned();
-  }
-
   _StateToJson stateToJson() {
     return const _StateToJson();
+  }
+
+  _TaskInitialized taskInitialized() {
+    return const _TaskInitialized();
   }
 }
 
@@ -114,8 +114,8 @@ mixin _$SurveyPageEvent {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -139,8 +139,8 @@ mixin _$SurveyPageEvent {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -157,8 +157,8 @@ mixin _$SurveyPageEvent {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -172,8 +172,8 @@ mixin _$SurveyPageEvent {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -236,7 +236,9 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerMapUpdated implements _AnswerMapUpdated {
+class _$_AnswerMapUpdated
+    with DiagnosticableTreeMixin
+    implements _AnswerMapUpdated {
   const _$_AnswerMapUpdated(
       {required this.answerMap, required this.questionIdList});
 
@@ -246,8 +248,17 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
   final KtList<QuestionId> questionIdList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.answerMapUpdated(answerMap: $answerMap, questionIdList: $questionIdList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyPageEvent.answerMapUpdated'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList));
   }
 
   @override
@@ -295,8 +306,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return answerMapUpdated(answerMap, questionIdList);
   }
@@ -323,8 +334,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -347,8 +358,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return answerMapUpdated(this);
   }
@@ -365,8 +376,8 @@ class _$_AnswerMapUpdated implements _AnswerMapUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
@@ -422,15 +433,26 @@ class __$AnswerStatusMapUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
+class _$_AnswerStatusMapUpdated
+    with DiagnosticableTreeMixin
+    implements _AnswerStatusMapUpdated {
   const _$_AnswerStatusMapUpdated({required this.answerStatusMap});
 
   @override
   final KtMap<QuestionId, AnswerStatus> answerStatusMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.answerStatusMapUpdated(answerStatusMap: $answerStatusMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'SurveyPageEvent.answerStatusMapUpdated'))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap));
   }
 
   @override
@@ -475,8 +497,8 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return answerStatusMapUpdated(answerStatusMap);
   }
@@ -503,8 +525,8 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerStatusMapUpdated != null) {
@@ -527,8 +549,8 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return answerStatusMapUpdated(this);
   }
@@ -545,8 +567,8 @@ class _$_AnswerStatusMapUpdated implements _AnswerStatusMapUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerStatusMapUpdated != null) {
@@ -613,7 +635,7 @@ class __$PageUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PageUpdated implements _PageUpdated {
+class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
   const _$_PageUpdated(
       {required this.page,
       required this.pageQuestionList,
@@ -627,8 +649,18 @@ class _$_PageUpdated implements _PageUpdated {
   final bool isLastPage;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.pageUpdated(page: $page, pageQuestionList: $pageQuestionList, isLastPage: $isLastPage)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyPageEvent.pageUpdated'))
+      ..add(DiagnosticsProperty('page', page))
+      ..add(DiagnosticsProperty('pageQuestionList', pageQuestionList))
+      ..add(DiagnosticsProperty('isLastPage', isLastPage));
   }
 
   @override
@@ -679,8 +711,8 @@ class _$_PageUpdated implements _PageUpdated {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return pageUpdated(page, pageQuestionList, isLastPage);
   }
@@ -707,8 +739,8 @@ class _$_PageUpdated implements _PageUpdated {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -731,8 +763,8 @@ class _$_PageUpdated implements _PageUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return pageUpdated(this);
   }
@@ -749,8 +781,8 @@ class _$_PageUpdated implements _PageUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
@@ -810,15 +842,26 @@ class __$ContentQuestionListUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
+class _$_ContentQuestionListUpdated
+    with DiagnosticableTreeMixin
+    implements _ContentQuestionListUpdated {
   const _$_ContentQuestionListUpdated({required this.contentQuestionList});
 
   @override
   final KtList<Question> contentQuestionList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.contentQuestionListUpdated(contentQuestionList: $contentQuestionList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'SurveyPageEvent.contentQuestionListUpdated'))
+      ..add(DiagnosticsProperty('contentQuestionList', contentQuestionList));
   }
 
   @override
@@ -863,8 +906,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return contentQuestionListUpdated(contentQuestionList);
   }
@@ -891,8 +934,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -915,8 +958,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return contentQuestionListUpdated(this);
   }
@@ -933,8 +976,8 @@ class _$_ContentQuestionListUpdated implements _ContentQuestionListUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (contentQuestionListUpdated != null) {
@@ -1004,7 +1047,9 @@ class __$WarningUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WarningUpdated implements _WarningUpdated {
+class _$_WarningUpdated
+    with DiagnosticableTreeMixin
+    implements _WarningUpdated {
   const _$_WarningUpdated({required this.warning, required this.showWarning});
 
   @override
@@ -1013,8 +1058,17 @@ class _$_WarningUpdated implements _WarningUpdated {
   final bool showWarning;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.warningUpdated(warning: $warning, showWarning: $showWarning)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyPageEvent.warningUpdated'))
+      ..add(DiagnosticsProperty('warning', warning))
+      ..add(DiagnosticsProperty('showWarning', showWarning));
   }
 
   @override
@@ -1062,8 +1116,8 @@ class _$_WarningUpdated implements _WarningUpdated {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return warningUpdated(warning, showWarning);
   }
@@ -1090,8 +1144,8 @@ class _$_WarningUpdated implements _WarningUpdated {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -1114,8 +1168,8 @@ class _$_WarningUpdated implements _WarningUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return warningUpdated(this);
   }
@@ -1132,8 +1186,8 @@ class _$_WarningUpdated implements _WarningUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (warningUpdated != null) {
@@ -1208,7 +1262,7 @@ class __$InfoUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_InfoUpdated implements _InfoUpdated {
+class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
   const _$_InfoUpdated(
       {required this.isReadOnly,
       required this.isRecodeModule,
@@ -1225,8 +1279,19 @@ class _$_InfoUpdated implements _InfoUpdated {
   final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.infoUpdated(isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyPageEvent.infoUpdated'))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
   }
 
   @override
@@ -1282,8 +1347,8 @@ class _$_InfoUpdated implements _InfoUpdated {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return infoUpdated(
         isReadOnly, isRecodeModule, mainAnswerMap, mainAnswerStatusMap);
@@ -1311,8 +1376,8 @@ class _$_InfoUpdated implements _InfoUpdated {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (infoUpdated != null) {
@@ -1336,8 +1401,8 @@ class _$_InfoUpdated implements _InfoUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return infoUpdated(this);
   }
@@ -1354,8 +1419,8 @@ class _$_InfoUpdated implements _InfoUpdated {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (infoUpdated != null) {
@@ -1405,12 +1470,19 @@ class __$StateClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateCleared implements _StateCleared {
+class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   const _$_StateCleared();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.stateCleared()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyPageEvent.stateCleared'));
   }
 
   @override
@@ -1443,8 +1515,8 @@ class _$_StateCleared implements _StateCleared {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return stateCleared();
   }
@@ -1471,8 +1543,8 @@ class _$_StateCleared implements _StateCleared {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1495,8 +1567,8 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return stateCleared(this);
   }
@@ -1513,8 +1585,8 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1549,12 +1621,22 @@ class __$QuestionIdListClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_QuestionIdListCleared implements _QuestionIdListCleared {
+class _$_QuestionIdListCleared
+    with DiagnosticableTreeMixin
+    implements _QuestionIdListCleared {
   const _$_QuestionIdListCleared();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.questionIdListCleared()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'SurveyPageEvent.questionIdListCleared'));
   }
 
   @override
@@ -1587,8 +1669,8 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return questionIdListCleared();
   }
@@ -1615,8 +1697,8 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (questionIdListCleared != null) {
@@ -1639,8 +1721,8 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return questionIdListCleared(this);
   }
@@ -1657,8 +1739,8 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (questionIdListCleared != null) {
@@ -1670,150 +1752,6 @@ class _$_QuestionIdListCleared implements _QuestionIdListCleared {
 
 abstract class _QuestionIdListCleared implements SurveyPageEvent {
   const factory _QuestionIdListCleared() = _$_QuestionIdListCleared;
-}
-
-/// @nodoc
-abstract class _$IsolateSpawnedCopyWith<$Res> {
-  factory _$IsolateSpawnedCopyWith(
-          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
-      __$IsolateSpawnedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$IsolateSpawnedCopyWithImpl<$Res>
-    extends _$SurveyPageEventCopyWithImpl<$Res>
-    implements _$IsolateSpawnedCopyWith<$Res> {
-  __$IsolateSpawnedCopyWithImpl(
-      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
-      : super(_value, (v) => _then(v as _IsolateSpawned));
-
-  @override
-  _IsolateSpawned get _value => super._value as _IsolateSpawned;
-}
-
-/// @nodoc
-
-class _$_IsolateSpawned implements _IsolateSpawned {
-  const _$_IsolateSpawned();
-
-  @override
-  String toString() {
-    return 'SurveyPageEvent.isolateSpawned()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _IsolateSpawned);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList)
-        answerMapUpdated,
-    required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
-        answerStatusMapUpdated,
-    required TResult Function(
-            PageNumber page, KtList<Question> pageQuestionList, bool isLastPage)
-        pageUpdated,
-    required TResult Function(KtList<Question> contentQuestionList)
-        contentQuestionListUpdated,
-    required TResult Function(Warning warning, bool showWarning) warningUpdated,
-    required TResult Function(
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
-        infoUpdated,
-    required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function() stateToJson,
-  }) {
-    return isolateSpawned();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtList<QuestionId> questionIdList)?
-        answerMapUpdated,
-    TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
-        answerStatusMapUpdated,
-    TResult Function(PageNumber page, KtList<Question> pageQuestionList,
-            bool isLastPage)?
-        pageUpdated,
-    TResult Function(KtList<Question> contentQuestionList)?
-        contentQuestionListUpdated,
-    TResult Function(Warning warning, bool showWarning)? warningUpdated,
-    TResult Function(
-            bool isReadOnly,
-            bool isRecodeModule,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
-        infoUpdated,
-    TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function()? stateToJson,
-    required TResult orElse(),
-  }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
-    required TResult Function(_AnswerStatusMapUpdated value)
-        answerStatusMapUpdated,
-    required TResult Function(_PageUpdated value) pageUpdated,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
-    required TResult Function(_WarningUpdated value) warningUpdated,
-    required TResult Function(_InfoUpdated value) infoUpdated,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_StateToJson value) stateToJson,
-  }) {
-    return isolateSpawned(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
-    TResult Function(_AnswerStatusMapUpdated value)? answerStatusMapUpdated,
-    TResult Function(_PageUpdated value)? pageUpdated,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
-    TResult Function(_WarningUpdated value)? warningUpdated,
-    TResult Function(_InfoUpdated value)? infoUpdated,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_StateToJson value)? stateToJson,
-    required TResult orElse(),
-  }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _IsolateSpawned implements SurveyPageEvent {
-  const factory _IsolateSpawned() = _$_IsolateSpawned;
 }
 
 /// @nodoc
@@ -1837,12 +1775,18 @@ class __$StateToJsonCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateToJson implements _StateToJson {
+class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
   const _$_StateToJson();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageEvent.stateToJson()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'SurveyPageEvent.stateToJson'));
   }
 
   @override
@@ -1875,8 +1819,8 @@ class _$_StateToJson implements _StateToJson {
         infoUpdated,
     required TResult Function() stateCleared,
     required TResult Function() questionIdListCleared,
-    required TResult Function() isolateSpawned,
     required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
   }) {
     return stateToJson();
   }
@@ -1903,8 +1847,8 @@ class _$_StateToJson implements _StateToJson {
         infoUpdated,
     TResult Function()? stateCleared,
     TResult Function()? questionIdListCleared,
-    TResult Function()? isolateSpawned,
     TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateToJson != null) {
@@ -1927,8 +1871,8 @@ class _$_StateToJson implements _StateToJson {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_QuestionIdListCleared value)
         questionIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
     required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return stateToJson(this);
   }
@@ -1945,8 +1889,8 @@ class _$_StateToJson implements _StateToJson {
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
     TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateToJson != null) {
@@ -1958,6 +1902,159 @@ class _$_StateToJson implements _StateToJson {
 
 abstract class _StateToJson implements SurveyPageEvent {
   const factory _StateToJson() = _$_StateToJson;
+}
+
+/// @nodoc
+abstract class _$TaskInitializedCopyWith<$Res> {
+  factory _$TaskInitializedCopyWith(
+          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
+      __$TaskInitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$TaskInitializedCopyWithImpl<$Res>
+    extends _$SurveyPageEventCopyWithImpl<$Res>
+    implements _$TaskInitializedCopyWith<$Res> {
+  __$TaskInitializedCopyWithImpl(
+      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
+      : super(_value, (v) => _then(v as _TaskInitialized));
+
+  @override
+  _TaskInitialized get _value => super._value as _TaskInitialized;
+}
+
+/// @nodoc
+
+class _$_TaskInitialized
+    with DiagnosticableTreeMixin
+    implements _TaskInitialized {
+  const _$_TaskInitialized();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SurveyPageEvent.taskInitialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyPageEvent.taskInitialized'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _TaskInitialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)
+        answerMapUpdated,
+    required TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)
+        answerStatusMapUpdated,
+    required TResult Function(
+            PageNumber page, KtList<Question> pageQuestionList, bool isLastPage)
+        pageUpdated,
+    required TResult Function(KtList<Question> contentQuestionList)
+        contentQuestionListUpdated,
+    required TResult Function(Warning warning, bool showWarning) warningUpdated,
+    required TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)
+        infoUpdated,
+    required TResult Function() stateCleared,
+    required TResult Function() questionIdListCleared,
+    required TResult Function() stateToJson,
+    required TResult Function() taskInitialized,
+  }) {
+    return taskInitialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(KtMap<QuestionId, Answer> answerMap,
+            KtList<QuestionId> questionIdList)?
+        answerMapUpdated,
+    TResult Function(KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+        answerStatusMapUpdated,
+    TResult Function(PageNumber page, KtList<Question> pageQuestionList,
+            bool isLastPage)?
+        pageUpdated,
+    TResult Function(KtList<Question> contentQuestionList)?
+        contentQuestionListUpdated,
+    TResult Function(Warning warning, bool showWarning)? warningUpdated,
+    TResult Function(
+            bool isReadOnly,
+            bool isRecodeModule,
+            KtMap<QuestionId, Answer> mainAnswerMap,
+            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap)?
+        infoUpdated,
+    TResult Function()? stateCleared,
+    TResult Function()? questionIdListCleared,
+    TResult Function()? stateToJson,
+    TResult Function()? taskInitialized,
+    required TResult orElse(),
+  }) {
+    if (taskInitialized != null) {
+      return taskInitialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerStatusMapUpdated value)
+        answerStatusMapUpdated,
+    required TResult Function(_PageUpdated value) pageUpdated,
+    required TResult Function(_ContentQuestionListUpdated value)
+        contentQuestionListUpdated,
+    required TResult Function(_WarningUpdated value) warningUpdated,
+    required TResult Function(_InfoUpdated value) infoUpdated,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_QuestionIdListCleared value)
+        questionIdListCleared,
+    required TResult Function(_StateToJson value) stateToJson,
+    required TResult Function(_TaskInitialized value) taskInitialized,
+  }) {
+    return taskInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerStatusMapUpdated value)? answerStatusMapUpdated,
+    TResult Function(_PageUpdated value)? pageUpdated,
+    TResult Function(_ContentQuestionListUpdated value)?
+        contentQuestionListUpdated,
+    TResult Function(_WarningUpdated value)? warningUpdated,
+    TResult Function(_InfoUpdated value)? infoUpdated,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_StateToJson value)? stateToJson,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+    required TResult orElse(),
+  }) {
+    if (taskInitialized != null) {
+      return taskInitialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskInitialized implements SurveyPageEvent {
+  const factory _TaskInitialized() = _$_TaskInitialized;
 }
 
 /// @nodoc
@@ -2340,7 +2437,7 @@ class __$SurveyPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SurveyPageState extends _SurveyPageState {
+class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
   const _$_SurveyPageState(
       {required this.page,
       required this.newestPage,
@@ -2397,8 +2494,33 @@ class _$_SurveyPageState extends _SurveyPageState {
   final KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'SurveyPageState(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SurveyPageState'))
+      ..add(DiagnosticsProperty('page', page))
+      ..add(DiagnosticsProperty('newestPage', newestPage))
+      ..add(DiagnosticsProperty('isLastPage', isLastPage))
+      ..add(DiagnosticsProperty('warning', warning))
+      ..add(DiagnosticsProperty('showWarning', showWarning))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList))
+      ..add(DiagnosticsProperty('pageQuestionList', pageQuestionList))
+      ..add(DiagnosticsProperty('contentQuestionList', contentQuestionList))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('loadState', loadState))
+      ..add(DiagnosticsProperty('rebuildState', rebuildState))
+      ..add(DiagnosticsProperty('restoreState', restoreState))
+      ..add(DiagnosticsProperty('recodeAnswerMap', recodeAnswerMap))
+      ..add(
+          DiagnosticsProperty('recodeAnswerStatusMap', recodeAnswerStatusMap));
   }
 
   @override

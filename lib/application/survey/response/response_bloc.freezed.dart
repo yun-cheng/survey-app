@@ -101,14 +101,8 @@ class _$ResponseEventTearOff {
     return const _LoggedOut();
   }
 
-  _IsolateSpawned isolateSpawned() {
-    return const _IsolateSpawned();
-  }
-
-  _WorkerJobDone workerJobDone(ResponseState state) {
-    return _WorkerJobDone(
-      state,
-    );
+  _TaskInitialized taskInitialized() {
+    return const _TaskInitialized();
   }
 }
 
@@ -142,8 +136,7 @@ mixin _$ResponseEvent {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -170,8 +163,7 @@ mixin _$ResponseEvent {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -191,8 +183,7 @@ mixin _$ResponseEvent {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -209,8 +200,7 @@ mixin _$ResponseEvent {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -282,7 +272,9 @@ class __$WatchResponseListStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchResponseListStarted implements _WatchResponseListStarted {
+class _$_WatchResponseListStarted
+    with DiagnosticableTreeMixin
+    implements _WatchResponseListStarted {
   const _$_WatchResponseListStarted(
       {required this.teamId, required this.interviewer});
 
@@ -292,8 +284,18 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
   final Interviewer interviewer;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.watchResponseListStarted(teamId: $teamId, interviewer: $interviewer)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'ResponseEvent.watchResponseListStarted'))
+      ..add(DiagnosticsProperty('teamId', teamId))
+      ..add(DiagnosticsProperty('interviewer', interviewer));
   }
 
   @override
@@ -345,8 +347,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return watchResponseListStarted(teamId, interviewer);
   }
@@ -376,8 +377,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (watchResponseListStarted != null) {
@@ -403,8 +403,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return watchResponseListStarted(this);
   }
@@ -424,8 +423,7 @@ class _$_WatchResponseListStarted implements _WatchResponseListStarted {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (watchResponseListStarted != null) {
@@ -481,15 +479,26 @@ class __$ResponseListReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseListReceived implements _ResponseListReceived {
+class _$_ResponseListReceived
+    with DiagnosticableTreeMixin
+    implements _ResponseListReceived {
   const _$_ResponseListReceived(this.failureOrResponseList);
 
   @override
   final Either<SurveyFailure, KtList<Response>> failureOrResponseList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseListReceived(failureOrResponseList: $failureOrResponseList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseListReceived'))
+      ..add(
+          DiagnosticsProperty('failureOrResponseList', failureOrResponseList));
   }
 
   @override
@@ -538,8 +547,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return responseListReceived(failureOrResponseList);
   }
@@ -569,8 +577,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseListReceived != null) {
@@ -596,8 +603,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return responseListReceived(this);
   }
@@ -617,8 +623,7 @@ class _$_ResponseListReceived implements _ResponseListReceived {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseListReceived != null) {
@@ -661,12 +666,21 @@ class __$UploadTimerUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UploadTimerUpdated implements _UploadTimerUpdated {
+class _$_UploadTimerUpdated
+    with DiagnosticableTreeMixin
+    implements _UploadTimerUpdated {
   const _$_UploadTimerUpdated();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.uploadTimerUpdated()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.uploadTimerUpdated'));
   }
 
   @override
@@ -703,8 +717,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return uploadTimerUpdated();
   }
@@ -734,8 +747,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -761,8 +773,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return uploadTimerUpdated(this);
   }
@@ -782,8 +793,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -818,12 +828,21 @@ class __$ResponseListUploadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseListUploading implements _ResponseListUploading {
+class _$_ResponseListUploading
+    with DiagnosticableTreeMixin
+    implements _ResponseListUploading {
   const _$_ResponseListUploading();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseListUploading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseListUploading'));
   }
 
   @override
@@ -860,8 +879,7 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return responseListUploading();
   }
@@ -891,8 +909,7 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseListUploading != null) {
@@ -918,8 +935,7 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return responseListUploading(this);
   }
@@ -939,8 +955,7 @@ class _$_ResponseListUploading implements _ResponseListUploading {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseListUploading != null) {
@@ -988,15 +1003,25 @@ class __$ResponseListUploadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseListUploaded implements _ResponseListUploaded {
+class _$_ResponseListUploaded
+    with DiagnosticableTreeMixin
+    implements _ResponseListUploaded {
   const _$_ResponseListUploaded(this.failureOrSuccess);
 
   @override
   final Either<SurveyFailure, Unit> failureOrSuccess;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseListUploaded(failureOrSuccess: $failureOrSuccess)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseListUploaded'))
+      ..add(DiagnosticsProperty('failureOrSuccess', failureOrSuccess));
   }
 
   @override
@@ -1045,8 +1070,7 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return responseListUploaded(failureOrSuccess);
   }
@@ -1076,8 +1100,7 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseListUploaded != null) {
@@ -1103,8 +1126,7 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return responseListUploaded(this);
   }
@@ -1124,8 +1146,7 @@ class _$_ResponseListUploaded implements _ResponseListUploaded {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseListUploaded != null) {
@@ -1189,15 +1210,25 @@ class __$SurveySelectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SurveySelected implements _SurveySelected {
+class _$_SurveySelected
+    with DiagnosticableTreeMixin
+    implements _SurveySelected {
   const _$_SurveySelected({required this.survey});
 
   @override
   final Survey survey;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.surveySelected(survey: $survey)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.surveySelected'))
+      ..add(DiagnosticsProperty('survey', survey));
   }
 
   @override
@@ -1243,8 +1274,7 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return surveySelected(survey);
   }
@@ -1274,8 +1304,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -1301,8 +1330,7 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return surveySelected(this);
   }
@@ -1322,8 +1350,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -1418,7 +1445,9 @@ class __$ResponseStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseStarted implements _ResponseStarted {
+class _$_ResponseStarted
+    with DiagnosticableTreeMixin
+    implements _ResponseStarted {
   const _$_ResponseStarted(
       {required this.respondent,
       required this.moduleType,
@@ -1438,8 +1467,20 @@ class _$_ResponseStarted implements _ResponseStarted {
   final UniqueId responseId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseStarted(respondent: $respondent, moduleType: $moduleType, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseStarted'))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('withResponseId', withResponseId))
+      ..add(DiagnosticsProperty('breakInterview', breakInterview))
+      ..add(DiagnosticsProperty('responseId', responseId));
   }
 
   @override
@@ -1503,8 +1544,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return responseStarted(
         respondent, moduleType, withResponseId, breakInterview, responseId);
@@ -1535,8 +1575,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -1563,8 +1602,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return responseStarted(this);
   }
@@ -1584,8 +1622,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -1670,7 +1707,9 @@ class __$ResponseUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseUpdated implements _ResponseUpdated {
+class _$_ResponseUpdated
+    with DiagnosticableTreeMixin
+    implements _ResponseUpdated {
   const _$_ResponseUpdated(
       {required this.answerMap,
       required this.answerStatusMap,
@@ -1684,8 +1723,18 @@ class _$_ResponseUpdated implements _ResponseUpdated {
   final SimpleSurveyPageState surveyPageState;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseUpdated(answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseUpdated'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('surveyPageState', surveyPageState));
   }
 
   @override
@@ -1741,8 +1790,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return responseUpdated(answerMap, answerStatusMap, surveyPageState);
   }
@@ -1772,8 +1820,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -1799,8 +1846,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return responseUpdated(this);
   }
@@ -1820,8 +1866,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -1881,15 +1926,23 @@ class __$EditFinishedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditFinished implements _EditFinished {
+class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   const _$_EditFinished({required this.responseFinished});
 
   @override // NOTE 是否完成這份問卷
   final bool responseFinished;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.editFinished(responseFinished: $responseFinished)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.editFinished'))
+      ..add(DiagnosticsProperty('responseFinished', responseFinished));
   }
 
   @override
@@ -1937,8 +1990,7 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return editFinished(responseFinished);
   }
@@ -1968,8 +2020,7 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -1995,8 +2046,7 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return editFinished(this);
   }
@@ -2016,8 +2066,7 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -2081,15 +2130,25 @@ class __$ResponseResumedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseResumed implements _ResponseResumed {
+class _$_ResponseResumed
+    with DiagnosticableTreeMixin
+    implements _ResponseResumed {
   const _$_ResponseResumed(this.responseId);
 
   @override
   final UniqueId responseId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseResumed(responseId: $responseId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseResumed'))
+      ..add(DiagnosticsProperty('responseId', responseId));
   }
 
   @override
@@ -2136,8 +2195,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return responseResumed(responseId);
   }
@@ -2167,8 +2225,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -2194,8 +2251,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return responseResumed(this);
   }
@@ -2215,8 +2271,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -2269,15 +2324,25 @@ class __$ReferenceListUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReferenceListUpdated implements _ReferenceListUpdated {
+class _$_ReferenceListUpdated
+    with DiagnosticableTreeMixin
+    implements _ReferenceListUpdated {
   const _$_ReferenceListUpdated({required this.referenceList});
 
   @override
   final KtList<Reference> referenceList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.referenceListUpdated(referenceList: $referenceList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.referenceListUpdated'))
+      ..add(DiagnosticsProperty('referenceList', referenceList));
   }
 
   @override
@@ -2325,8 +2390,7 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return referenceListUpdated(referenceList);
   }
@@ -2356,8 +2420,7 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (referenceListUpdated != null) {
@@ -2383,8 +2446,7 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return referenceListUpdated(this);
   }
@@ -2404,8 +2466,7 @@ class _$_ReferenceListUpdated implements _ReferenceListUpdated {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (referenceListUpdated != null) {
@@ -2444,12 +2505,18 @@ class __$LoggedOutCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoggedOut implements _LoggedOut {
+class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   const _$_LoggedOut();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.loggedOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ResponseEvent.loggedOut'));
   }
 
   @override
@@ -2486,8 +2553,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return loggedOut();
   }
@@ -2517,8 +2583,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -2544,8 +2609,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return loggedOut(this);
   }
@@ -2565,8 +2629,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -2581,37 +2644,46 @@ abstract class _LoggedOut implements ResponseEvent {
 }
 
 /// @nodoc
-abstract class _$IsolateSpawnedCopyWith<$Res> {
-  factory _$IsolateSpawnedCopyWith(
-          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
-      __$IsolateSpawnedCopyWithImpl<$Res>;
+abstract class _$TaskInitializedCopyWith<$Res> {
+  factory _$TaskInitializedCopyWith(
+          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
+      __$TaskInitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$IsolateSpawnedCopyWithImpl<$Res>
+class __$TaskInitializedCopyWithImpl<$Res>
     extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$IsolateSpawnedCopyWith<$Res> {
-  __$IsolateSpawnedCopyWithImpl(
-      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
-      : super(_value, (v) => _then(v as _IsolateSpawned));
+    implements _$TaskInitializedCopyWith<$Res> {
+  __$TaskInitializedCopyWithImpl(
+      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
+      : super(_value, (v) => _then(v as _TaskInitialized));
 
   @override
-  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+  _TaskInitialized get _value => super._value as _TaskInitialized;
 }
 
 /// @nodoc
 
-class _$_IsolateSpawned implements _IsolateSpawned {
-  const _$_IsolateSpawned();
+class _$_TaskInitialized
+    with DiagnosticableTreeMixin
+    implements _TaskInitialized {
+  const _$_TaskInitialized();
 
   @override
-  String toString() {
-    return 'ResponseEvent.isolateSpawned()';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ResponseEvent.taskInitialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.taskInitialized'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _IsolateSpawned);
+    return identical(this, other) || (other is _TaskInitialized);
   }
 
   @override
@@ -2643,10 +2715,9 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     required TResult Function(KtList<Reference> referenceList)
         referenceListUpdated,
     required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
-    return isolateSpawned();
+    return taskInitialized();
   }
 
   @override
@@ -2674,12 +2745,11 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
     TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned();
+    if (taskInitialized != null) {
+      return taskInitialized();
     }
     return orElse();
   }
@@ -2701,10 +2771,9 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return isolateSpawned(this);
+    return taskInitialized(this);
   }
 
   @override
@@ -2722,215 +2791,18 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned(this);
+    if (taskInitialized != null) {
+      return taskInitialized(this);
     }
     return orElse();
   }
 }
 
-abstract class _IsolateSpawned implements ResponseEvent {
-  const factory _IsolateSpawned() = _$_IsolateSpawned;
-}
-
-/// @nodoc
-abstract class _$WorkerJobDoneCopyWith<$Res> {
-  factory _$WorkerJobDoneCopyWith(
-          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
-      __$WorkerJobDoneCopyWithImpl<$Res>;
-  $Res call({ResponseState state});
-
-  $ResponseStateCopyWith<$Res> get state;
-}
-
-/// @nodoc
-class __$WorkerJobDoneCopyWithImpl<$Res>
-    extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$WorkerJobDoneCopyWith<$Res> {
-  __$WorkerJobDoneCopyWithImpl(
-      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
-      : super(_value, (v) => _then(v as _WorkerJobDone));
-
-  @override
-  _WorkerJobDone get _value => super._value as _WorkerJobDone;
-
-  @override
-  $Res call({
-    Object? state = freezed,
-  }) {
-    return _then(_WorkerJobDone(
-      state == freezed
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as ResponseState,
-    ));
-  }
-
-  @override
-  $ResponseStateCopyWith<$Res> get state {
-    return $ResponseStateCopyWith<$Res>(_value.state, (value) {
-      return _then(_value.copyWith(state: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_WorkerJobDone implements _WorkerJobDone {
-  const _$_WorkerJobDone(this.state);
-
-  @override
-  final ResponseState state;
-
-  @override
-  String toString() {
-    return 'ResponseEvent.workerJobDone(state: $state)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _WorkerJobDone &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
-
-  @JsonKey(ignore: true)
-  @override
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
-      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
-        watchResponseListStarted,
-    required TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)
-        responseListReceived,
-    required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseListUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
-        responseListUploaded,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
-        responseStarted,
-    required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)
-        responseUpdated,
-    required TResult Function(bool responseFinished) editFinished,
-    required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(KtList<Reference> referenceList)
-        referenceListUpdated,
-    required TResult Function() loggedOut,
-    required TResult Function() isolateSpawned,
-    required TResult Function(ResponseState state) workerJobDone,
-  }) {
-    return workerJobDone(state);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
-        watchResponseListStarted,
-    TResult Function(
-            Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
-        responseListReceived,
-    TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseListUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
-        responseListUploaded,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
-        responseStarted,
-    TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)?
-        responseUpdated,
-    TResult Function(bool responseFinished)? editFinished,
-    TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(KtList<Reference> referenceList)? referenceListUpdated,
-    TResult Function()? loggedOut,
-    TResult Function()? isolateSpawned,
-    TResult Function(ResponseState state)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (workerJobDone != null) {
-      return workerJobDone(state);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchResponseListStarted value)
-        watchResponseListStarted,
-    required TResult Function(_ResponseListReceived value) responseListReceived,
-    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseListUploading value)
-        responseListUploading,
-    required TResult Function(_ResponseListUploaded value) responseListUploaded,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseUpdated value) responseUpdated,
-    required TResult Function(_EditFinished value) editFinished,
-    required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
-  }) {
-    return workerJobDone(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseListStarted value)? watchResponseListStarted,
-    TResult Function(_ResponseListReceived value)? responseListReceived,
-    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseListUploading value)? responseListUploading,
-    TResult Function(_ResponseListUploaded value)? responseListUploaded,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseUpdated value)? responseUpdated,
-    TResult Function(_EditFinished value)? editFinished,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (workerJobDone != null) {
-      return workerJobDone(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WorkerJobDone implements ResponseEvent {
-  const factory _WorkerJobDone(ResponseState state) = _$_WorkerJobDone;
-
-  ResponseState get state => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _TaskInitialized implements ResponseEvent {
+  const factory _TaskInitialized() = _$_TaskInitialized;
 }
 
 /// @nodoc
@@ -3405,7 +3277,7 @@ class __$ResponseStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseState extends _ResponseState {
+class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   const _$_ResponseState(
       {required this.survey,
       required this.respondent,
@@ -3471,8 +3343,38 @@ class _$_ResponseState extends _ResponseState {
   final KtList<Reference> referenceList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseState'))
+      ..add(DiagnosticsProperty('survey', survey))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('interviewer', interviewer))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('responseListState', responseListState))
+      ..add(DiagnosticsProperty('responseList', responseList))
+      ..add(
+          DiagnosticsProperty('downloadedResponseList', downloadedResponseList))
+      ..add(DiagnosticsProperty('responseFailure', responseFailure))
+      ..add(DiagnosticsProperty('response', response))
+      ..add(DiagnosticsProperty('responseRestoreState', responseRestoreState))
+      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('withResponseId', withResponseId))
+      ..add(DiagnosticsProperty('breakInterview', breakInterview))
+      ..add(DiagnosticsProperty('responseId', responseId))
+      ..add(DiagnosticsProperty('mainResponse', mainResponse))
+      ..add(
+          DiagnosticsProperty('respondentResponseList', respondentResponseList))
+      ..add(DiagnosticsProperty('updateState', updateState))
+      ..add(DiagnosticsProperty('updateVisitReportsMap', updateVisitReportsMap))
+      ..add(DiagnosticsProperty(
+          'updateTabRespondentsMap', updateTabRespondentsMap))
+      ..add(DiagnosticsProperty('referenceList', referenceList));
   }
 
   @override

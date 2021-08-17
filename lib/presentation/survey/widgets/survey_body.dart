@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer/update_answer_bloc.dart';
@@ -8,6 +7,7 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/survey/value_objects.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
@@ -34,9 +34,11 @@ class SurveyBody extends StatelessWidget {
         // HIGHLIGHT 除了這兩種情境會 build，剛進入 SurveyPage 也會 build，
         //  因此在回復 response 之前就會先 build 了，
         //  所以為避免呈現出上一個 response 的內容，每次離開要清空資料
+        // HIGHLIGHT 初次進頁面可能這些條件都不變（如第一題是說明題），
+        //  會導致沒有 rebuild，故加上最後一個判斷條件
         buildWhen: (p, c) =>
             (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
-            p.page != c.page,
+            (p.page != c.page || c.page == PageNumber(0)),
         builder: (context, state) {
           logger('Build').i('SurveyBody: List of QaCard');
 

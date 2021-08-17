@@ -50,14 +50,8 @@ class _$UpdateAnswerEventTearOff {
     );
   }
 
-  _IsolateSpawned isolateSpawned() {
-    return const _IsolateSpawned();
-  }
-
-  _WorkerJobDone workerJobDone(UpdateAnswerState state) {
-    return _WorkerJobDone(
-      state,
-    );
+  _TaskInitialized taskInitialized() {
+    return const _TaskInitialized();
   }
 }
 
@@ -75,8 +69,7 @@ mixin _$UpdateAnswerEvent {
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -87,8 +80,7 @@ mixin _$UpdateAnswerEvent {
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -98,8 +90,7 @@ mixin _$UpdateAnswerEvent {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -108,8 +99,7 @@ mixin _$UpdateAnswerEvent {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -166,15 +156,23 @@ class __$ModuleLoadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ModuleLoaded implements _ModuleLoaded {
+class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   const _$_ModuleLoaded({required this.answerMap});
 
   @override
   final KtMap<QuestionId, Answer> answerMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerEvent.moduleLoaded(answerMap: $answerMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerEvent.moduleLoaded'))
+      ..add(DiagnosticsProperty('answerMap', answerMap));
   }
 
   @override
@@ -205,8 +203,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return moduleLoaded(answerMap);
   }
@@ -220,8 +217,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -237,8 +233,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return moduleLoaded(this);
   }
@@ -250,8 +245,7 @@ class _$_ModuleLoaded implements _ModuleLoaded {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -292,12 +286,19 @@ class __$StateClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateCleared implements _StateCleared {
+class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   const _$_StateCleared();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerEvent.stateCleared()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerEvent.stateCleared'));
   }
 
   @override
@@ -318,8 +319,7 @@ class _$_StateCleared implements _StateCleared {
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return stateCleared();
   }
@@ -333,8 +333,7 @@ class _$_StateCleared implements _StateCleared {
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -350,8 +349,7 @@ class _$_StateCleared implements _StateCleared {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return stateCleared(this);
   }
@@ -363,8 +361,7 @@ class _$_StateCleared implements _StateCleared {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -452,7 +449,7 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerUpdated implements _AnswerUpdated {
+class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   const _$_AnswerUpdated(
       {required this.question,
       required this.answerValue,
@@ -475,8 +472,21 @@ class _$_AnswerUpdated implements _AnswerUpdated {
   final ChoiceId? noteOf;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerEvent.answerUpdated(question: $question, answerValue: $answerValue, toggle: $toggle, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, noteOf: $noteOf)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerEvent.answerUpdated'))
+      ..add(DiagnosticsProperty('question', question))
+      ..add(DiagnosticsProperty('answerValue', answerValue))
+      ..add(DiagnosticsProperty('toggle', toggle))
+      ..add(DiagnosticsProperty('isSpecialAnswer', isSpecialAnswer))
+      ..add(DiagnosticsProperty('isNote', isNote))
+      ..add(DiagnosticsProperty('noteOf', noteOf));
   }
 
   @override
@@ -525,8 +535,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return answerUpdated(
         question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
@@ -541,8 +550,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -559,8 +567,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return answerUpdated(this);
   }
@@ -572,8 +579,7 @@ class _$_AnswerUpdated implements _AnswerUpdated {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -637,15 +643,26 @@ class __$AnswerQIdListClearedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
+class _$_AnswerQIdListCleared
+    with DiagnosticableTreeMixin
+    implements _AnswerQIdListCleared {
   const _$_AnswerQIdListCleared({required this.questionIdList});
 
   @override
   final KtList<QuestionId> questionIdList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerEvent.answerQIdListCleared(questionIdList: $questionIdList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(
+          DiagnosticsProperty('type', 'UpdateAnswerEvent.answerQIdListCleared'))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList));
   }
 
   @override
@@ -678,8 +695,7 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
     return answerQIdListCleared(questionIdList);
   }
@@ -693,8 +709,7 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerQIdListCleared != null) {
@@ -710,8 +725,7 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return answerQIdListCleared(this);
   }
@@ -723,8 +737,7 @@ class _$_AnswerQIdListCleared implements _AnswerQIdListCleared {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerQIdListCleared != null) {
@@ -745,37 +758,46 @@ abstract class _AnswerQIdListCleared implements UpdateAnswerEvent {
 }
 
 /// @nodoc
-abstract class _$IsolateSpawnedCopyWith<$Res> {
-  factory _$IsolateSpawnedCopyWith(
-          _IsolateSpawned value, $Res Function(_IsolateSpawned) then) =
-      __$IsolateSpawnedCopyWithImpl<$Res>;
+abstract class _$TaskInitializedCopyWith<$Res> {
+  factory _$TaskInitializedCopyWith(
+          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
+      __$TaskInitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$IsolateSpawnedCopyWithImpl<$Res>
+class __$TaskInitializedCopyWithImpl<$Res>
     extends _$UpdateAnswerEventCopyWithImpl<$Res>
-    implements _$IsolateSpawnedCopyWith<$Res> {
-  __$IsolateSpawnedCopyWithImpl(
-      _IsolateSpawned _value, $Res Function(_IsolateSpawned) _then)
-      : super(_value, (v) => _then(v as _IsolateSpawned));
+    implements _$TaskInitializedCopyWith<$Res> {
+  __$TaskInitializedCopyWithImpl(
+      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
+      : super(_value, (v) => _then(v as _TaskInitialized));
 
   @override
-  _IsolateSpawned get _value => super._value as _IsolateSpawned;
+  _TaskInitialized get _value => super._value as _TaskInitialized;
 }
 
 /// @nodoc
 
-class _$_IsolateSpawned implements _IsolateSpawned {
-  const _$_IsolateSpawned();
+class _$_TaskInitialized
+    with DiagnosticableTreeMixin
+    implements _TaskInitialized {
+  const _$_TaskInitialized();
 
   @override
-  String toString() {
-    return 'UpdateAnswerEvent.isolateSpawned()';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerEvent.taskInitialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerEvent.taskInitialized'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _IsolateSpawned);
+    return identical(this, other) || (other is _TaskInitialized);
   }
 
   @override
@@ -791,10 +813,9 @@ class _$_IsolateSpawned implements _IsolateSpawned {
         answerUpdated,
     required TResult Function(KtList<QuestionId> questionIdList)
         answerQIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerState state) workerJobDone,
+    required TResult Function() taskInitialized,
   }) {
-    return isolateSpawned();
+    return taskInitialized();
   }
 
   @override
@@ -806,12 +827,11 @@ class _$_IsolateSpawned implements _IsolateSpawned {
             bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
         answerUpdated,
     TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerState state)? workerJobDone,
+    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned();
+    if (taskInitialized != null) {
+      return taskInitialized();
     }
     return orElse();
   }
@@ -823,10 +843,9 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
+    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return isolateSpawned(this);
+    return taskInitialized(this);
   }
 
   @override
@@ -836,165 +855,18 @@ class _$_IsolateSpawned implements _IsolateSpawned {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
+    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (isolateSpawned != null) {
-      return isolateSpawned(this);
+    if (taskInitialized != null) {
+      return taskInitialized(this);
     }
     return orElse();
   }
 }
 
-abstract class _IsolateSpawned implements UpdateAnswerEvent {
-  const factory _IsolateSpawned() = _$_IsolateSpawned;
-}
-
-/// @nodoc
-abstract class _$WorkerJobDoneCopyWith<$Res> {
-  factory _$WorkerJobDoneCopyWith(
-          _WorkerJobDone value, $Res Function(_WorkerJobDone) then) =
-      __$WorkerJobDoneCopyWithImpl<$Res>;
-  $Res call({UpdateAnswerState state});
-
-  $UpdateAnswerStateCopyWith<$Res> get state;
-}
-
-/// @nodoc
-class __$WorkerJobDoneCopyWithImpl<$Res>
-    extends _$UpdateAnswerEventCopyWithImpl<$Res>
-    implements _$WorkerJobDoneCopyWith<$Res> {
-  __$WorkerJobDoneCopyWithImpl(
-      _WorkerJobDone _value, $Res Function(_WorkerJobDone) _then)
-      : super(_value, (v) => _then(v as _WorkerJobDone));
-
-  @override
-  _WorkerJobDone get _value => super._value as _WorkerJobDone;
-
-  @override
-  $Res call({
-    Object? state = freezed,
-  }) {
-    return _then(_WorkerJobDone(
-      state == freezed
-          ? _value.state
-          : state // ignore: cast_nullable_to_non_nullable
-              as UpdateAnswerState,
-    ));
-  }
-
-  @override
-  $UpdateAnswerStateCopyWith<$Res> get state {
-    return $UpdateAnswerStateCopyWith<$Res>(_value.state, (value) {
-      return _then(_value.copyWith(state: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$_WorkerJobDone implements _WorkerJobDone {
-  const _$_WorkerJobDone(this.state);
-
-  @override
-  final UpdateAnswerState state;
-
-  @override
-  String toString() {
-    return 'UpdateAnswerEvent.workerJobDone(state: $state)';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _WorkerJobDone &&
-            (identical(other.state, state) ||
-                const DeepCollectionEquality().equals(other.state, state)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(state);
-
-  @JsonKey(ignore: true)
-  @override
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
-      __$WorkerJobDoneCopyWithImpl<_WorkerJobDone>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<QuestionId, Answer> answerMap) moduleLoaded,
-    required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)
-        answerUpdated,
-    required TResult Function(KtList<QuestionId> questionIdList)
-        answerQIdListCleared,
-    required TResult Function() isolateSpawned,
-    required TResult Function(UpdateAnswerState state) workerJobDone,
-  }) {
-    return workerJobDone(state);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<QuestionId, Answer> answerMap)? moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, ChoiceId? noteOf)?
-        answerUpdated,
-    TResult Function(KtList<QuestionId> questionIdList)? answerQIdListCleared,
-    TResult Function()? isolateSpawned,
-    TResult Function(UpdateAnswerState state)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (workerJobDone != null) {
-      return workerJobDone(state);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_IsolateSpawned value) isolateSpawned,
-    required TResult Function(_WorkerJobDone value) workerJobDone,
-  }) {
-    return workerJobDone(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_IsolateSpawned value)? isolateSpawned,
-    TResult Function(_WorkerJobDone value)? workerJobDone,
-    required TResult orElse(),
-  }) {
-    if (workerJobDone != null) {
-      return workerJobDone(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _WorkerJobDone implements UpdateAnswerEvent {
-  const factory _WorkerJobDone(UpdateAnswerState state) = _$_WorkerJobDone;
-
-  UpdateAnswerState get state => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$WorkerJobDoneCopyWith<_WorkerJobDone> get copyWith =>
-      throw _privateConstructorUsedError;
+abstract class _TaskInitialized implements UpdateAnswerEvent {
+  const factory _TaskInitialized() = _$_TaskInitialized;
 }
 
 /// @nodoc
@@ -1171,7 +1043,8 @@ class __$UpdateAnswerStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UpdateAnswerState extends _UpdateAnswerState {
+class _$_UpdateAnswerState extends _UpdateAnswerState
+    with DiagnosticableTreeMixin {
   const _$_UpdateAnswerState(
       {required this.answerMap,
       required this.questionIdList,
@@ -1192,8 +1065,20 @@ class _$_UpdateAnswerState extends _UpdateAnswerState {
   final LoadState restoreState;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UpdateAnswerState(answerMap: $answerMap, questionIdList: $questionIdList, updateState: $updateState, updateAnswerStatus: $updateAnswerStatus, restoreState: $restoreState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerState'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList))
+      ..add(DiagnosticsProperty('updateState', updateState))
+      ..add(DiagnosticsProperty('updateAnswerStatus', updateAnswerStatus))
+      ..add(DiagnosticsProperty('restoreState', restoreState));
   }
 
   @override

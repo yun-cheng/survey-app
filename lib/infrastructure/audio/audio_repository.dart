@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
@@ -65,10 +66,11 @@ class AudioRepository implements IAudioRepository {
     try {
       final audioRef = _storage.audioRef;
 
-      final appDir = await getApplicationDocumentsDirectory();
-      final filePath = '${appDir.path}/audio/${audio.toFileNameString()}';
+      final appDir = kIsWeb ? null : await getApplicationDocumentsDirectory();
+      final filePath =
+          '${appDir?.path ?? ''}/audio/${audio.toFileNameString()}';
 
-      if (!await File(filePath).exists()) {
+      if (!await File(filePath).exists() && !kIsWeb) {
         await moveAudio(audio: audio);
       }
 

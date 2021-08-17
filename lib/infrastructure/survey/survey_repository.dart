@@ -1,12 +1,11 @@
 import 'dart:convert';
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart' hide Reference;
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../domain/auth/value_objects.dart';
@@ -34,22 +33,12 @@ class SurveyRepository implements ISurveyRepository {
   Future<Survey> downloadSurvey({
     required String surveyId,
   }) async {
-    final appDir = await getApplicationDocumentsDirectory();
-    final toDirPath = '${appDir.path}/survey/';
-
-    if (!await Directory(toDirPath).exists()) {
-      await Directory(toDirPath).create();
-    }
-
-    final file = File('$toDirPath$surveyId.json');
     final surveyRef = _storage.surveyRef.child('$surveyId/$surveyId.json');
-    final task =
-        surveyRef.writeToFile(file).timeout(const Duration(seconds: 30));
 
-    await task;
-
-    final data = await file.readAsString();
-    final result = await json.decode(data);
+    final Uint8List? data =
+        await surveyRef.getData().timeout(const Duration(seconds: 30));
+    final jsonStr = data != null ? String.fromCharCodes(data) : '';
+    final result = await json.decode(jsonStr);
 
     return SurveyDto.fromJson(result).toDomain();
   }

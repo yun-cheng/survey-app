@@ -77,8 +77,5 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   // H_ 登出
   const factory UpdateSurveyPageEvent.loggedOut() = _LoggedOut;
 
-  const factory UpdateSurveyPageEvent.isolateSpawned() = _IsolateSpawned;
-  const factory UpdateSurveyPageEvent.workerJobDone(
-    UpdateSurveyPageState state,
-  ) = _WorkerJobDone;
+  const factory UpdateSurveyPageEvent.taskInitialized() = _TaskInitialized;
 }

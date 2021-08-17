@@ -1,9 +1,11 @@
 import 'dart:async';
-import 'dart:isolate';
 
+import 'package:async_task/async_task.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
@@ -12,19 +14,22 @@ import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
-import '../../../infrastructure/core/isolate.dart';
+import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/survey_page_state_dtos.dart';
 
 part 'survey_page_bloc.freezed.dart';
 part 'survey_page_event.dart';
 part 'survey_page_state.dart';
 
+List<AsyncTask> _jsonTaskTypeRegister() =>
+    [JsonTask(path: '', boxName: '', stateFromJson: _stateFromJson)];
+
 class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
-  final JsonIsolate _jsonIsolate;
-  SurveyPageBloc(
-    this._jsonIsolate,
-  ) : super(SurveyPageState.initial()) {
-    add(const SurveyPageEvent.isolateSpawned());
+  AsyncExecutor? _jsonExecutor;
+  AsyncTaskChannel? _jsonChannel;
+
+  SurveyPageBloc() : super(SurveyPageState.initial()) {
+    add(const SurveyPageEvent.taskInitialized());
   }
 
   @override
@@ -32,22 +37,11 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
     SurveyPageEvent event,
   ) async* {
     yield* event.map(
-      isolateSpawned: (e) async* {
-        logger('Isolate').e('SurveyPageEvent: isolateSpawned');
-
-        // S_ json worker
-        final initState = await _jsonIsolate.spawn(
-          boxName: 'SurveyPageState',
-          stateFromJson: stateFromJson,
-        );
-        if (initState is SurveyPageState) {
-          logger('Event').i('SurveyPageEvent: initState');
-
-          yield initState;
-        }
+      taskInitialized: (e) async* {
+        yield await taskInitialized();
       },
       stateToJson: (e) async* {
-        _jsonIsolate.todo.send(state);
+        _jsonChannel!.send(state);
       },
       // H_ answerMap
       answerMapUpdated: (e) async* {
@@ -160,9 +154,40 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
     );
   }
 
+  Future<SurveyPageState> taskInitialized() async {
+    logger('Task').e('SurveyPageBloc: taskInitialized');
+
+    // S_ json task
+    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
+    final path = dir?.path ?? '';
+
+    final jsonTask = JsonTask(
+      path: path,
+      boxName: 'SurveyPageState',
+      stateFromJson: _stateFromJson,
+    );
+
+    _jsonExecutor = AsyncExecutor(
+      parallelism: 1,
+      taskTypeRegister: _jsonTaskTypeRegister,
+    );
+
+    _jsonExecutor!.execute(jsonTask);
+    _jsonChannel = await jsonTask.channel();
+
+    // S_ initState
+    final initState = await _jsonChannel!.sendAndWaitResponse('initState');
+    if (initState is SurveyPageState) {
+      logger('State').i('SurveyPageState: initState');
+
+      return initState;
+    }
+    return SurveyPageState.initial();
+  }
+
   @override
   Future<void> close() {
-    _jsonIsolate.kill();
+    _jsonExecutor?.close();
 
     return super.close();
   }

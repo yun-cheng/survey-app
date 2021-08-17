@@ -1,68 +1,70 @@
 part of 'update_answer_bloc.dart';
 
-void updateAnswerEventWorker(SendPort stateReceiver) {
-  final streamOfJob = ReceivePort();
-  stateReceiver.send(streamOfJob.sendPort);
+List<AsyncTask> _eventTaskTypeRegister() =>
+    [EventTask(_updateAnswerEventWorker)];
 
-  UpdateAnswerState state = UpdateAnswerState.initial();
+List<AsyncTask> _jsonTaskTypeRegister() =>
+    [JsonTask(path: '', boxName: '', stateFromJson: _stateFromJson)];
 
-  streamOfJob.listen((dynamic e) {
-    if (e is UpdateAnswerState) {
-      state = e;
-    } else if (e is UpdateAnswerEvent) {
-      e.maybeMap(
-        // H_ 進入問卷時載入必要 state
-        moduleLoaded: (e) {
-          logger('Event').i('UpdateAnswerEvent: moduleLoaded');
+void _updateAnswerEventWorker(
+  Tuple2 tuple,
+  AsyncTaskChannel channel,
+) {
+  final e = tuple.item1 as UpdateAnswerEvent;
+  var state = tuple.item2 as UpdateAnswerState;
 
-          state = state
-              .copyWith(
-                restoreState: const LoadState.inProgress(),
-                updateState: const LoadState.success(),
-                answerMap: e.answerMap,
-                questionIdList: const KtList<QuestionId>.empty(),
-                updateAnswerStatus: false,
-              )
-              .send(stateReceiver);
-          state = state
-              .copyWith(
-                restoreState: const LoadState.success(),
-              )
-              .send(stateReceiver);
-        },
+  e.maybeMap(
+    // H_ 進入問卷時載入必要 state
+    moduleLoaded: (e) {
+      logger('Event').i('UpdateAnswerEvent: moduleLoaded');
 
-        // H_ 該題作答更新
-        answerUpdated: (e) {
-          logger('Event').i('UpdateAnswerEvent: answerUpdated');
+      state = state
+          .copyWith(
+            restoreState: const LoadState.inProgress(),
+            updateState: const LoadState.success(),
+            answerMap: e.answerMap,
+            questionIdList: const KtList<QuestionId>.empty(),
+            updateAnswerStatus: false,
+          )
+          .send(channel);
+      state = state
+          .copyWith(
+            restoreState: const LoadState.success(),
+          )
+          .send(channel);
+    },
+    // H_ 該題作答更新
+    answerUpdated: (e) {
+      logger('Event').i('UpdateAnswerEvent: answerUpdated');
 
-          state = state
-              .copyWith(
-                updateState: const LoadState.inProgress(),
-                questionIdList: KtList.of(e.question.id),
-              )
-              .send(stateReceiver);
-          state = answerUpdated(e, state).send(stateReceiver);
-        },
-        // H_ 清空部分題目作答
-        answerQIdListCleared: (e) {
-          logger('Event').i('UpdateAnswerEvent: answerQIdListCleared');
+      state = state
+          .copyWith(
+            updateState: const LoadState.inProgress(),
+            questionIdList: KtList.of(e.question.id),
+          )
+          .send(channel);
+      state = answerUpdated(e, state).send(channel);
+    },
+    // H_ 清空部分題目作答
+    answerQIdListCleared: (e) {
+      logger('Event').i('UpdateAnswerEvent: answerQIdListCleared');
 
-          state = state
-              .copyWith(
-                updateState: const LoadState.inProgress(),
-                questionIdList: e.questionIdList,
-              )
-              .send(stateReceiver);
-          state = answerQIdListCleared(e, state).send(stateReceiver);
-        },
-        // H_ 離開問卷時清空 state
-        stateCleared: (e) {
-          logger('Event').i('UpdateAnswerEvent: stateCleared');
+      state = state
+          .copyWith(
+            updateState: const LoadState.inProgress(),
+            questionIdList: e.questionIdList,
+          )
+          .send(channel);
+      state = answerQIdListCleared(e, state).send(channel);
+    },
+    // H_ 離開問卷時清空 state
+    stateCleared: (e) {
+      logger('Event').i('UpdateAnswerEvent: stateCleared');
 
-          state = UpdateAnswerState.initial().send(stateReceiver);
-        },
-        orElse: () {},
-      );
-    }
-  });
+      UpdateAnswerState.initial().send(channel);
+    },
+    orElse: () {},
+  );
+
+  channel.send(false);
 }

@@ -1,11 +1,13 @@
 import 'dart:async';
-import 'dart:isolate';
 
-import 'package:dartz/dartz.dart';
+import 'package:async_task/async_task.dart';
+import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../../domain/auth/value_objects.dart';
 import '../../../domain/core/load_state.dart';
@@ -23,7 +25,8 @@ import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
-import '../../../infrastructure/core/isolate.dart';
+import '../../../infrastructure/core/event_task.dart';
+import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/update_survey_page_state_dtos.dart';
 
 part 'update_survey_page_bloc.freezed.dart';
@@ -32,22 +35,20 @@ part 'update_survey_page_event.dart';
 part 'update_survey_page_event_worker.dart';
 part 'update_survey_page_state.dart';
 
-@injectable
 class UpdateSurveyPageBloc
     extends Bloc<UpdateSurveyPageEvent, UpdateSurveyPageState> {
-  final JsonIsolate _jsonIsolate;
   final ISurveyRepository _surveyRepository;
-  EventIsolate? _eventIsolate;
   StreamSubscription<Either<SurveyFailure, KtList<Reference>>>?
       _referenceListSubscription;
-  StreamSubscription<dynamic>? _stateSubscription;
-  StreamSubscription<dynamic>? _jsonSubscription;
+  AsyncExecutor? _eventExecutor;
+  AsyncTaskChannel? _eventChannel;
+  AsyncExecutor? _jsonExecutor;
+  AsyncTaskChannel? _jsonChannel;
 
   UpdateSurveyPageBloc(
-    this._jsonIsolate,
     this._surveyRepository,
   ) : super(UpdateSurveyPageState.initial()) {
-    add(const UpdateSurveyPageEvent.isolateSpawned());
+    add(const UpdateSurveyPageEvent.taskInitialized());
   }
 
   @override
@@ -55,45 +56,13 @@ class UpdateSurveyPageBloc
     UpdateSurveyPageEvent event,
   ) async* {
     yield* event.maybeMap(
-      isolateSpawned: (e) async* {
-        if (_eventIsolate == null) {
-          logger('Isolate').e('UpdateSurveyPageEvent: isolateSpawned');
-
-          // S_ event worker
-          _eventIsolate = EventIsolate();
-          await _eventIsolate!.spawn(updateSurveyPageEventWorker);
-
-          // S_ json worker
-          final initState = await _jsonIsolate.spawn(
-            boxName: 'UpdateSurveyPageState',
-            stateFromJson: stateFromJson,
-          );
-          if (initState is UpdateSurveyPageState) {
-            logger('Event').i('UpdateSurveyPageEvent: initState');
-
-            _eventIsolate!.todo.send(initState);
-            add(UpdateSurveyPageEvent.workerJobDone(initState));
-          }
-
-          // S_ listen to state
-          _stateSubscription =
-              _eventIsolate!.stream.listen((dynamic stateOrElse) {
-            if (stateOrElse is UpdateSurveyPageState) {
-              add(UpdateSurveyPageEvent.workerJobDone(stateOrElse));
-              _jsonIsolate.todo.send(stateOrElse);
-            } else if (stateOrElse is UpdateSurveyPageEvent) {
-              add(stateOrElse);
-            }
-          });
-        }
-      },
-      workerJobDone: (e) async* {
-        yield e.state;
+      taskInitialized: (e) async* {
+        yield await taskInitialized();
       },
       // H_ 監聽 ReferenceList
       watchReferenceListStarted: (e) async* {
         logger('Watch').i('UpdateSurveyPageEvent: watchReferenceListStarted');
-        _eventIsolate!.todo.send(e);
+        yield* eventTaskSent(event);
 
         await _referenceListSubscription?.cancel();
         _referenceListSubscription = _surveyRepository
@@ -109,22 +78,83 @@ class UpdateSurveyPageBloc
       },
       // H_ 登出
       loggedOut: (e) async* {
-        _eventIsolate!.todo.send(e);
         _referenceListSubscription?.cancel();
+        yield* eventTaskSent(e);
       },
       orElse: () async* {
-        _eventIsolate!.todo.send(event);
+        yield* eventTaskSent(event);
       },
     );
   }
 
+  Future<UpdateSurveyPageState> taskInitialized() async {
+    logger('Task').e('UpdateSurveyPageBloc: taskInitialized');
+
+    // S_ event task
+    final eventTask = EventTask(_updateSurveyPageEventWorker);
+
+    _eventExecutor = AsyncExecutor(
+      parallelism: 1,
+      taskTypeRegister: _eventTaskTypeRegister,
+    );
+
+    _eventExecutor!.execute(eventTask);
+    _eventChannel = await eventTask.channel();
+
+    // S_ json task
+    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
+    final path = dir?.path ?? '';
+
+    final jsonTask = JsonTask(
+      path: path,
+      boxName: 'UpdateSurveyPageState',
+      stateFromJson: _stateFromJson,
+    );
+
+    _jsonExecutor = AsyncExecutor(
+      parallelism: 1,
+      taskTypeRegister: _jsonTaskTypeRegister,
+    );
+
+    _jsonExecutor!.execute(jsonTask);
+    _jsonChannel = await jsonTask.channel();
+
+    // S_ initState
+    final initState = await _jsonChannel!.sendAndWaitResponse('initState');
+    if (initState is UpdateSurveyPageState) {
+      logger('State').i('UpdateSurveyPageState: initState');
+
+      return initState;
+    }
+    return UpdateSurveyPageState.initial();
+  }
+
+  Stream<UpdateSurveyPageState> eventTaskSent(
+    UpdateSurveyPageEvent event,
+  ) async* {
+    final tuple = Tuple2(event, state);
+    _eventChannel!.send(tuple);
+
+    dynamic msg;
+    while (true) {
+      msg = await _eventChannel!.waitMessage();
+
+      if (msg is UpdateSurveyPageState) {
+        yield msg;
+        _jsonChannel!.send(msg);
+      } else if (msg is UpdateSurveyPageEvent) {
+        add(msg);
+      } else if (msg is bool) {
+        break;
+      }
+    }
+  }
+
   @override
   Future<void> close() {
-    _eventIsolate?.kill();
-    _jsonIsolate.kill();
     _referenceListSubscription?.cancel();
-    _stateSubscription?.cancel();
-    _jsonSubscription?.cancel();
+    _eventExecutor?.close();
+    _jsonExecutor?.close();
 
     return super.close();
   }

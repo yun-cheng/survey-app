@@ -19,7 +19,6 @@ part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 
-@injectable
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
   StreamSubscription<Either<AuthFailure, KtList<Team>>>? _teamListSubscription;

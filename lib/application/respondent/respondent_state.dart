@@ -39,11 +39,11 @@ class RespondentState with _$RespondentState {
 
   Map<String, dynamic> toJson() => RespondentStateDto.fromDomain(this).toJson();
 
-  RespondentState send(SendPort stateReceiver) {
-    stateReceiver.send(this);
+  RespondentState send(AsyncTaskChannel channel) {
+    channel.send(this);
     return this;
   }
 }
 
-RespondentState stateFromJson(Map<String, dynamic> json) =>
+RespondentState _stateFromJson(Map<String, dynamic> json) =>
     RespondentStateDto.fromJson(json).toDomain();

@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import 'page_control_button.dart';
 
@@ -37,7 +37,7 @@ class PageControlBar extends HookWidget {
     final state = useBloc<SurveyPageBloc, SurveyPageState>(
       onEmitted: (_, p, c) {
         if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
-          // NOTE 初次進頁面可能這些條件都不變（如第一題是說明題），
+          // HIGHLIGHT 初次進頁面可能這些條件都不變（如第一題是說明題），
           //  會導致沒出現 PageControlBar，故加上最後一個判斷條件
           return p.page != c.page ||
               p.isLastPage != c.isLastPage ||

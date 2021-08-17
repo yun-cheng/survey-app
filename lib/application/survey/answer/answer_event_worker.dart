@@ -1,48 +1,49 @@
 part of 'answer_bloc.dart';
 
-void answerEventWorker(SendPort stateReceiver) {
-  final streamOfJob = ReceivePort();
-  stateReceiver.send(streamOfJob.sendPort);
+List<AsyncTask> _eventTaskTypeRegister() => [EventTask(_answerEventWorker)];
 
-  AnswerState state = AnswerState.initial();
+List<AsyncTask> _jsonTaskTypeRegister() =>
+    [JsonTask(path: '', boxName: '', stateFromJson: _stateFromJson)];
 
-  streamOfJob.listen((dynamic e) {
-    if (e is AnswerState) {
-      state = e;
-    } else if (e is AnswerEvent) {
-      e.maybeMap(
-        // H_ 要開始問卷時載入模組
-        moduleLoaded: (e) {
-          logger('Event').i('AnswerEvent: moduleLoaded');
+void _answerEventWorker(
+  Tuple2 tuple,
+  AsyncTaskChannel channel,
+) {
+  final e = tuple.item1 as AnswerEvent;
+  var state = tuple.item2 as AnswerState;
 
-          state = state
-              .copyWith(
-                questionList: e.questionList,
-                question: Question.empty(),
-                isReadOnly: e.isReadOnly,
-                isRecodeModule: e.isRecodeModule,
-              )
-              .send(stateReceiver);
-        },
-        // H_ 切換唯讀模式
-        readOnlyToggled: (e) {
-          logger('Event').i('AnswerEvent: readOnlyToggled');
+  e.maybeMap(
+    // H_ 要開始問卷時載入模組
+    moduleLoaded: (e) {
+      logger('Event').i('AnswerEvent: moduleLoaded');
 
-          state = state
-              .copyWith(
-                isReadOnly: !state.isReadOnly,
-              )
-              .send(stateReceiver);
-        },
-        // H_ 離開問卷時清空 state
-        stateCleared: (e) {
-          logger('Event').i('AnswerEvent: stateCleared');
+      state = state
+          .copyWith(
+            questionList: e.questionList,
+            question: Question.empty(),
+            isReadOnly: e.isReadOnly,
+            isRecodeModule: e.isRecodeModule,
+          )
+          .send(channel);
+    },
+    // H_ 切換唯讀模式
+    readOnlyToggled: (e) {
+      logger('Event').i('AnswerEvent: readOnlyToggled');
 
-          state = AnswerState.initial().send(stateReceiver);
-        },
-        answerChanged: (e) {},
-        orElse: () {},
-      );
-    }
-  });
+      state = state
+          .copyWith(
+            isReadOnly: !state.isReadOnly,
+          )
+          .send(channel);
+    },
+    // H_ 離開問卷時清空 state
+    stateCleared: (e) {
+      logger('Event').i('AnswerEvent: stateCleared');
+
+      state = AnswerState.initial().send(channel);
+    },
+    orElse: () {},
+  );
+
+  channel.send(false);
 }

@@ -26,15 +26,10 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     required QuestionId questionId,
   }) = _SpecialAnswerSwitched;
 
-  // H_ 判斷有設定題目出現條件的題目是否顯示
-  // const factory UpdateAnswerStatusEvent.showQuestionChecked() =
-  //     _ShowQuestionChecked;
-
   // H_ 清空部分題目作答
-  const factory UpdateAnswerStatusEvent.qIdListAnswerCleared() =
-      _QIdListAnswerCleared;
+  const factory UpdateAnswerStatusEvent.answerQIdListCleared({
+    required KtList<QuestionId> questionIdList,
+  }) = _AnswerQIdListCleared;
 
-  const factory UpdateAnswerStatusEvent.isolateSpawned() = _IsolateSpawned;
-  const factory UpdateAnswerStatusEvent.workerJobDone(
-      UpdateAnswerStatusState state) = _WorkerJobDone;
+  const factory UpdateAnswerStatusEvent.taskInitialized() = _TaskInitialized;
 }
