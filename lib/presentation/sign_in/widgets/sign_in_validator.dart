@@ -1,22 +1,12 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../domain/core/failures.dart';
 import '../../../domain/core/load_state.dart';
 
 String? signInValidator({
   required LoadState signInState,
   required String field,
-  required Either<ValueFailure<String>, String> value,
-}) {
-  if (signInState is LoadFailure) {
-    return '帳號或密碼錯誤';
-  } else {
-    return value.fold(
-      (f) => f.maybeMap(
-        empty: (_) => '$field不能為空',
-        orElse: () => null,
-      ),
-      (_) => null,
-    );
-  }
-}
+  required String value,
+}) =>
+    signInState is LoadFailure
+        ? '帳號或密碼錯誤'
+        : value == ''
+            ? '$field不能為空'
+            : null;

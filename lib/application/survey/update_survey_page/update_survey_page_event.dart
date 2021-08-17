@@ -4,8 +4,8 @@ part of 'update_survey_page_bloc.dart';
 class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   // H_ 監聽 ReferenceList
   const factory UpdateSurveyPageEvent.watchReferenceListStarted({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   }) = _WatchReferenceListStarted;
 
   const factory UpdateSurveyPageEvent.referenceListReceived(
@@ -14,17 +14,17 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
 
   // H_ 進入問卷時載入必要 state
   const factory UpdateSurveyPageEvent.stateRestored({
-    required SurveyId surveyId,
+    required String surveyId,
     required ModuleType moduleType,
     required SimpleSurveyPageState surveyPageState,
     required KtList<Question> questionList,
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
     required bool isReadOnly,
     required bool isRecodeModule,
     required KtList<Question> mainQuestionList,
-    required KtMap<QuestionId, Answer> mainAnswerMap,
-    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required KtMap<String, Answer> mainAnswerMap,
+    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
     required Respondent respondent,
   }) = _StateRestored;
 
@@ -35,8 +35,8 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
 
   // H_ 作答有變更時，更新頁面，並檢查 warning
   const factory UpdateSurveyPageEvent.answerChanged({
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
   }) = _AnswerChanged;
 
   // H_ 更新目錄題目
@@ -47,7 +47,7 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   const factory UpdateSurveyPageEvent.nextPagePressed() = _NextPagePressed;
   const factory UpdateSurveyPageEvent.previousPagePressed() =
       _PreviousPagePressed;
-  const factory UpdateSurveyPageEvent.wentToPage(PageNumber page) = _WentToPage;
+  const factory UpdateSurveyPageEvent.wentToPage(int page) = _WentToPage;
 
   // H_ 使用者點擊完成問卷
   const factory UpdateSurveyPageEvent.finishedButtonPressed() =

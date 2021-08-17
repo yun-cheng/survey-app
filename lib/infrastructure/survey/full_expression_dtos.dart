@@ -20,9 +20,8 @@ class FullExpressionDto with _$FullExpressionDto {
 
   factory FullExpressionDto.fromDomain(FullExpression fullExpression) {
     return FullExpressionDto(
-      fullExpressionBody: fullExpression.body.getValueAnyway(),
+      fullExpressionBody: fullExpression.body,
       expressionMap: fullExpression.expressionMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => ExpressionDto.fromDomain(entry.value))
           .asMap(),
     );
@@ -30,9 +29,8 @@ class FullExpressionDto with _$FullExpressionDto {
 
   FullExpression toDomain() {
     return FullExpression(
-      body: FullExpressionBody(fullExpressionBody),
+      body: fullExpressionBody,
       expressionMap: KtMap.from(expressionMap)
-          .mapKeys((entry) => ExpressionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
     );
   }
@@ -53,15 +51,15 @@ class ExpressionDto with _$ExpressionDto {
 
   factory ExpressionDto.fromDomain(Expression domain) {
     return ExpressionDto(
-      field: domain.field.getValueAnyway(),
-      operator: domain.operator.getValueAnyway(),
+      field: domain.field,
+      operator: domain.operator.value,
       comparisonValue: AnswerDto.fromDomain(domain.comparisonValue),
     );
   }
 
   Expression toDomain() {
     return Expression(
-      field: QuestionId(field),
+      field: field,
       operator: Operator(operator),
       comparisonValue: comparisonValue.toDomain(),
     );

@@ -19,7 +19,7 @@ class _$AnswerStatusTearOff {
   _AnswerStatus call(
       {required AnswerStatusType type,
       required bool isSpecialAnswer,
-      required KtMap<ChoiceId, AnswerStatusType> noteMap}) {
+      required KtMap<String, AnswerStatusType> noteMap}) {
     return _AnswerStatus(
       type: type,
       isSpecialAnswer: isSpecialAnswer,
@@ -35,7 +35,7 @@ const $AnswerStatus = _$AnswerStatusTearOff();
 mixin _$AnswerStatus {
   AnswerStatusType get type => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
-  KtMap<ChoiceId, AnswerStatusType> get noteMap =>
+  KtMap<String, AnswerStatusType> get noteMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -51,7 +51,9 @@ abstract class $AnswerStatusCopyWith<$Res> {
   $Res call(
       {AnswerStatusType type,
       bool isSpecialAnswer,
-      KtMap<ChoiceId, AnswerStatusType> noteMap});
+      KtMap<String, AnswerStatusType> noteMap});
+
+  $AnswerStatusTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -80,8 +82,15 @@ class _$AnswerStatusCopyWithImpl<$Res> implements $AnswerStatusCopyWith<$Res> {
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<ChoiceId, AnswerStatusType>,
+              as KtMap<String, AnswerStatusType>,
     ));
+  }
+
+  @override
+  $AnswerStatusTypeCopyWith<$Res> get type {
+    return $AnswerStatusTypeCopyWith<$Res>(_value.type, (value) {
+      return _then(_value.copyWith(type: value));
+    });
   }
 }
 
@@ -95,7 +104,10 @@ abstract class _$AnswerStatusCopyWith<$Res>
   $Res call(
       {AnswerStatusType type,
       bool isSpecialAnswer,
-      KtMap<ChoiceId, AnswerStatusType> noteMap});
+      KtMap<String, AnswerStatusType> noteMap});
+
+  @override
+  $AnswerStatusTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -126,7 +138,7 @@ class __$AnswerStatusCopyWithImpl<$Res> extends _$AnswerStatusCopyWithImpl<$Res>
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<ChoiceId, AnswerStatusType>,
+              as KtMap<String, AnswerStatusType>,
     ));
   }
 }
@@ -145,7 +157,7 @@ class _$_AnswerStatus extends _AnswerStatus {
   @override
   final bool isSpecialAnswer;
   @override
-  final KtMap<ChoiceId, AnswerStatusType> noteMap;
+  final KtMap<String, AnswerStatusType> noteMap;
 
   @override
   String toString() {
@@ -182,7 +194,7 @@ abstract class _AnswerStatus extends AnswerStatus {
   const factory _AnswerStatus(
       {required AnswerStatusType type,
       required bool isSpecialAnswer,
-      required KtMap<ChoiceId, AnswerStatusType> noteMap}) = _$_AnswerStatus;
+      required KtMap<String, AnswerStatusType> noteMap}) = _$_AnswerStatus;
   const _AnswerStatus._() : super._();
 
   @override
@@ -190,7 +202,7 @@ abstract class _AnswerStatus extends AnswerStatus {
   @override
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  KtMap<ChoiceId, AnswerStatusType> get noteMap =>
+  KtMap<String, AnswerStatusType> get noteMap =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

@@ -17,8 +17,8 @@ class _$SimpleSurveyPageStateTearOff {
   const _$SimpleSurveyPageStateTearOff();
 
   _SimpleSurveyPageState call(
-      {required PageNumber page,
-      required PageNumber newestPage,
+      {required int page,
+      required int newestPage,
       required bool isLastPage,
       required Warning warning,
       required bool showWarning}) {
@@ -37,8 +37,8 @@ const $SimpleSurveyPageState = _$SimpleSurveyPageStateTearOff();
 
 /// @nodoc
 mixin _$SimpleSurveyPageState {
-  PageNumber get page => throw _privateConstructorUsedError;
-  PageNumber get newestPage => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  int get newestPage => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
   Warning get warning => throw _privateConstructorUsedError;
   bool get showWarning => throw _privateConstructorUsedError;
@@ -54,8 +54,8 @@ abstract class $SimpleSurveyPageStateCopyWith<$Res> {
           $Res Function(SimpleSurveyPageState) then) =
       _$SimpleSurveyPageStateCopyWithImpl<$Res>;
   $Res call(
-      {PageNumber page,
-      PageNumber newestPage,
+      {int page,
+      int newestPage,
       bool isLastPage,
       Warning warning,
       bool showWarning});
@@ -84,11 +84,11 @@ class _$SimpleSurveyPageStateCopyWithImpl<$Res>
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       newestPage: newestPage == freezed
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -120,8 +120,8 @@ abstract class _$SimpleSurveyPageStateCopyWith<$Res>
       __$SimpleSurveyPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {PageNumber page,
-      PageNumber newestPage,
+      {int page,
+      int newestPage,
       bool isLastPage,
       Warning warning,
       bool showWarning});
@@ -153,11 +153,11 @@ class __$SimpleSurveyPageStateCopyWithImpl<$Res>
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       newestPage: newestPage == freezed
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -186,9 +186,9 @@ class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
       : super._();
 
   @override
-  final PageNumber page;
+  final int page;
   @override
-  final PageNumber newestPage;
+  final int newestPage;
   @override
   final bool isLastPage;
   @override
@@ -239,17 +239,17 @@ class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
 
 abstract class _SimpleSurveyPageState extends SimpleSurveyPageState {
   const factory _SimpleSurveyPageState(
-      {required PageNumber page,
-      required PageNumber newestPage,
+      {required int page,
+      required int newestPage,
       required bool isLastPage,
       required Warning warning,
       required bool showWarning}) = _$_SimpleSurveyPageState;
   const _SimpleSurveyPageState._() : super._();
 
   @override
-  PageNumber get page => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
   @override
-  PageNumber get newestPage => throw _privateConstructorUsedError;
+  int get newestPage => throw _privateConstructorUsedError;
   @override
   bool get isLastPage => throw _privateConstructorUsedError;
   @override

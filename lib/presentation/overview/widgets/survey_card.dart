@@ -50,11 +50,11 @@ class SurveyCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                survey.projectId.getOrCrash(),
+                survey.projectId,
                 style: kCardH4TextStyle,
               ),
               Text(
-                survey.name.getOrCrash(),
+                survey.name,
                 style: kCardH2TextStyle,
               ),
               // AudioRecorderIndicator(),

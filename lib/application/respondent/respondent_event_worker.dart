@@ -54,7 +54,7 @@ void _respondentEventWorker(
       state = state
           .copyWith(
             selectedRespondentId: state.selectedRespondentId == e.respondentId
-                ? RespondentId.empty()
+                ? ''
                 : e.respondentId,
             respondentFailure: none(),
           )

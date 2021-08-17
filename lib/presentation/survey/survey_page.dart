@@ -45,7 +45,7 @@ class SurveyPage extends HookWidget {
       child: TapOutDismissKeyboard(
         child: Scaffold(
           appBar: AppBar(
-            title: Text(respondent.remainAddress.getValueAnyway()),
+            title: Text(respondent.remainAddress),
             leading: const SurveyLeadingButton(),
             actions: [
               IconButton(

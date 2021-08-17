@@ -16,14 +16,13 @@ class PasswordBox extends StatelessWidget {
       buildWhen: (p, c) => p.signInState != c.signInState,
       builder: (context, state) {
         return TextFormField(
-          initialValue:
-              state.password.value.fold((l) => l.failedValue, (r) => r),
+          initialValue: state.password,
           onChanged: (value) =>
               context.read<AuthBloc>().add(AuthEvent.passwordChanged(value)),
           validator: (_) => signInValidator(
             signInState: context.watch<AuthBloc>().state.signInState,
             field: '密碼',
-            value: context.watch<AuthBloc>().state.password.value,
+            value: context.watch<AuthBloc>().state.password,
           ),
           obscureText: true,
           autocorrect: false,

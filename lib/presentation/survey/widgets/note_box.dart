@@ -5,11 +5,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/choice.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 
 class NoteBox extends HookWidget {
-  final QuestionId questionId;
+  final String questionId;
   final Choice choice;
   final String note;
   final bool canEdit;

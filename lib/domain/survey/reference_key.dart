@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../overview/value_objects.dart';
 
 import 'value_objects.dart';
 
@@ -10,14 +9,14 @@ class ReferenceKey with _$ReferenceKey {
   const ReferenceKey._();
 
   const factory ReferenceKey({
-    required SurveyId surveyId,
+    required String surveyId,
     required ModuleType moduleType,
-    required QuestionId questionId,
+    required String questionId,
   }) = _ReferenceKey;
 
   factory ReferenceKey.empty() => ReferenceKey(
-        surveyId: SurveyId.empty(),
+        surveyId:'',
         moduleType: ModuleType.empty(),
-        questionId: QuestionId.empty(),
+        questionId: '',
       );
 }

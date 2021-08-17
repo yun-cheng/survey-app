@@ -5,16 +5,16 @@ class UpdateAnswerState with _$UpdateAnswerState {
   const UpdateAnswerState._();
 
   const factory UpdateAnswerState({
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtList<QuestionId> questionIdList,
+    required KtMap<String, Answer> answerMap,
+    required KtList<String> questionIdList,
     required LoadState updateState,
     required bool updateAnswerStatus,
     required LoadState restoreState,
   }) = _UpdateAnswerState;
 
   factory UpdateAnswerState.initial() => const UpdateAnswerState(
-        answerMap: KtMap<QuestionId, Answer>.empty(),
-        questionIdList: KtList<QuestionId>.empty(),
+        answerMap: KtMap<String, Answer>.empty(),
+        questionIdList: KtList<String>.empty(),
         updateState: LoadState.initial(),
         updateAnswerStatus: false,
         restoreState: LoadState.initial(),

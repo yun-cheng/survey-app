@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
@@ -11,7 +10,6 @@ import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
-import '../../domain/auth/value_objects.dart';
 import '../../domain/core/load_state.dart';
 import '../../infrastructure/auth/auth_state_dtos.dart';
 
@@ -67,7 +65,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
         add(const AuthEvent.watchInterviewerListStarted());
       },
       watchInterviewerListStarted: (e) async* {
-        if (state.team.id.isValid()) {
+        if (state.team.id != '') {
           yield state.copyWith(
             interviewerListState: const LoadState.inProgress(),
             authFailure: none(),
@@ -96,14 +94,14 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       },
       idChanged: (e) async* {
         yield state.copyWith(
-          id: InterviewerId(e.idStr),
+          id: e.id,
           signInState: const LoadState.initial(),
           authFailure: none(),
         );
       },
       passwordChanged: (e) async* {
         yield state.copyWith(
-          password: Password(e.passwordStr),
+          password: e.password,
           signInState: const LoadState.initial(),
           authFailure: none(),
         );
@@ -114,10 +112,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
           authFailure: none(),
         );
 
-        final isValidId = state.id.isValid();
-        final isValidPassword = state.password.isValid();
-
-        if (isValidId && isValidPassword) {
+        if (state.id != '' && state.password != '') {
           final failureOrInterviewer = _authFacade.signIn(
             interviewerId: state.id,
             password: state.password,

@@ -17,10 +17,10 @@ class _$RespondentTearOff {
   const _$RespondentTearOff();
 
   _Respondent call(
-      {required RespondentId id,
-      required CountyTown countyTown,
-      required Village village,
-      required RemainAddress remainAddress,
+      {required String id,
+      required String countyTown,
+      required String village,
+      required String remainAddress,
       required bool isCountyTownFirst,
       required bool isVillageFirst}) {
     return _Respondent(
@@ -39,10 +39,10 @@ const $Respondent = _$RespondentTearOff();
 
 /// @nodoc
 mixin _$Respondent {
-  RespondentId get id => throw _privateConstructorUsedError;
-  CountyTown get countyTown => throw _privateConstructorUsedError;
-  Village get village => throw _privateConstructorUsedError;
-  RemainAddress get remainAddress => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get countyTown => throw _privateConstructorUsedError;
+  String get village => throw _privateConstructorUsedError;
+  String get remainAddress => throw _privateConstructorUsedError;
   bool get isCountyTownFirst => throw _privateConstructorUsedError;
   bool get isVillageFirst => throw _privateConstructorUsedError;
 
@@ -57,10 +57,10 @@ abstract class $RespondentCopyWith<$Res> {
           Respondent value, $Res Function(Respondent) then) =
       _$RespondentCopyWithImpl<$Res>;
   $Res call(
-      {RespondentId id,
-      CountyTown countyTown,
-      Village village,
-      RemainAddress remainAddress,
+      {String id,
+      String countyTown,
+      String village,
+      String remainAddress,
       bool isCountyTownFirst,
       bool isVillageFirst});
 }
@@ -86,19 +86,19 @@ class _$RespondentCopyWithImpl<$Res> implements $RespondentCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       countyTown: countyTown == freezed
           ? _value.countyTown
           : countyTown // ignore: cast_nullable_to_non_nullable
-              as CountyTown,
+              as String,
       village: village == freezed
           ? _value.village
           : village // ignore: cast_nullable_to_non_nullable
-              as Village,
+              as String,
       remainAddress: remainAddress == freezed
           ? _value.remainAddress
           : remainAddress // ignore: cast_nullable_to_non_nullable
-              as RemainAddress,
+              as String,
       isCountyTownFirst: isCountyTownFirst == freezed
           ? _value.isCountyTownFirst
           : isCountyTownFirst // ignore: cast_nullable_to_non_nullable
@@ -118,10 +118,10 @@ abstract class _$RespondentCopyWith<$Res> implements $RespondentCopyWith<$Res> {
       __$RespondentCopyWithImpl<$Res>;
   @override
   $Res call(
-      {RespondentId id,
-      CountyTown countyTown,
-      Village village,
-      RemainAddress remainAddress,
+      {String id,
+      String countyTown,
+      String village,
+      String remainAddress,
       bool isCountyTownFirst,
       bool isVillageFirst});
 }
@@ -149,19 +149,19 @@ class __$RespondentCopyWithImpl<$Res> extends _$RespondentCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       countyTown: countyTown == freezed
           ? _value.countyTown
           : countyTown // ignore: cast_nullable_to_non_nullable
-              as CountyTown,
+              as String,
       village: village == freezed
           ? _value.village
           : village // ignore: cast_nullable_to_non_nullable
-              as Village,
+              as String,
       remainAddress: remainAddress == freezed
           ? _value.remainAddress
           : remainAddress // ignore: cast_nullable_to_non_nullable
-              as RemainAddress,
+              as String,
       isCountyTownFirst: isCountyTownFirst == freezed
           ? _value.isCountyTownFirst
           : isCountyTownFirst // ignore: cast_nullable_to_non_nullable
@@ -187,13 +187,13 @@ class _$_Respondent extends _Respondent {
       : super._();
 
   @override
-  final RespondentId id;
+  final String id;
   @override
-  final CountyTown countyTown;
+  final String countyTown;
   @override
-  final Village village;
+  final String village;
   @override
-  final RemainAddress remainAddress;
+  final String remainAddress;
   @override
   final bool isCountyTownFirst;
   @override
@@ -245,22 +245,22 @@ class _$_Respondent extends _Respondent {
 
 abstract class _Respondent extends Respondent {
   const factory _Respondent(
-      {required RespondentId id,
-      required CountyTown countyTown,
-      required Village village,
-      required RemainAddress remainAddress,
+      {required String id,
+      required String countyTown,
+      required String village,
+      required String remainAddress,
       required bool isCountyTownFirst,
       required bool isVillageFirst}) = _$_Respondent;
   const _Respondent._() : super._();
 
   @override
-  RespondentId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  CountyTown get countyTown => throw _privateConstructorUsedError;
+  String get countyTown => throw _privateConstructorUsedError;
   @override
-  Village get village => throw _privateConstructorUsedError;
+  String get village => throw _privateConstructorUsedError;
   @override
-  RemainAddress get remainAddress => throw _privateConstructorUsedError;
+  String get remainAddress => throw _privateConstructorUsedError;
   @override
   bool get isCountyTownFirst => throw _privateConstructorUsedError;
   @override

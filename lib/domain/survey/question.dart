@@ -1,8 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../overview/value_objects.dart';
-import '../respondent/value_objects.dart';
 import 'answer.dart';
 import 'choice.dart';
 import 'formatted_text.dart';
@@ -18,20 +16,20 @@ class Question with _$Question {
   const Question._();
 
   const factory Question({
-    required QuestionId id,
+    required String id,
     required bool hideId,
     required int serialNumber,
     required KtList<FormattedText> body,
     required String stringBody,
-    required QuestionNote note,
+    required String note,
     required QuestionType type,
     required FullExpression show,
     required KtList<Choice> choiceList,
     required KtList<Choice> initChoiceList,
     required bool hasSpecialAnswer,
     required FullExpression validateAnswer,
-    required QuestionId upperQuestionId,
-    required PageNumber pageNumber,
+    required String upperQuestionId,
+    required int pageNumber,
     required bool recodeNeeded,
     // H_ table
     required String tableId,
@@ -39,34 +37,34 @@ class Question with _$Question {
   }) = _Question;
 
   factory Question.empty() => Question(
-        id: QuestionId.empty(),
+        id: '',
         hideId: false,
         serialNumber: 0,
         body: emptyList<FormattedText>(),
         stringBody: '',
-        note: QuestionNote.empty(),
+        note: '',
         type: QuestionType.description(),
         choiceList: emptyList<Choice>(),
         initChoiceList: emptyList<Choice>(),
         hasSpecialAnswer: false,
         show: FullExpression.empty(),
         validateAnswer: FullExpression.empty(),
-        upperQuestionId: QuestionId.empty(),
-        pageNumber: PageNumber(0),
+        upperQuestionId: '',
+        pageNumber: 0,
         recodeNeeded: false,
         tableId: '',
         rowId: -1,
       );
 
-  bool get isEmpty => id.isEmpty;
+  bool get isEmpty => id == '';
 
   Question updateBody({
     required KtList<Reference> referenceList,
     required KtList<Response> responseList,
-    required SurveyId surveyId,
+    required String surveyId,
     required ModuleType moduleType,
-    required KtMap<QuestionId, Answer> answerMap,
-    required RespondentId respondentId,
+    required KtMap<String, Answer> answerMap,
+    required String respondentId,
   }) {
     final newBody = body.map(
       (item) => item.getAnswer(
@@ -91,7 +89,7 @@ class Question with _$Question {
   String toPlainTextBody({
     required bool withId,
   }) {
-    final idText = withId ? '${id.getValueAnyway()}. ' : '';
+    final idText = withId ? '$id. ' : '';
     return idText + stringBody;
   }
 }

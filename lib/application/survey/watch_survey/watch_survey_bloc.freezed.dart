@@ -17,7 +17,7 @@ class _$WatchSurveyEventTearOff {
   const _$WatchSurveyEventTearOff();
 
   _WatchSurveyListStarted watchSurveyListStarted(
-      {required TeamId teamId, required InterviewerId interviewerId}) {
+      {required String teamId, required String interviewerId}) {
     return _WatchSurveyListStarted(
       teamId: teamId,
       interviewerId: interviewerId,
@@ -49,7 +49,7 @@ const $WatchSurveyEvent = _$WatchSurveyEventTearOff();
 mixin _$WatchSurveyEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
@@ -60,7 +60,7 @@ mixin _$WatchSurveyEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
@@ -111,7 +111,7 @@ abstract class _$WatchSurveyListStartedCopyWith<$Res> {
   factory _$WatchSurveyListStartedCopyWith(_WatchSurveyListStarted value,
           $Res Function(_WatchSurveyListStarted) then) =
       __$WatchSurveyListStartedCopyWithImpl<$Res>;
-  $Res call({TeamId teamId, InterviewerId interviewerId});
+  $Res call({String teamId, String interviewerId});
 }
 
 /// @nodoc
@@ -134,11 +134,11 @@ class __$WatchSurveyListStartedCopyWithImpl<$Res>
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
     ));
   }
 }
@@ -150,9 +150,9 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
       {required this.teamId, required this.interviewerId});
 
   @override
-  final TeamId teamId;
+  final String teamId;
   @override
-  final InterviewerId interviewerId;
+  final String interviewerId;
 
   @override
   String toString() {
@@ -185,7 +185,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
@@ -199,7 +199,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
@@ -243,11 +243,11 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
 
 abstract class _WatchSurveyListStarted implements WatchSurveyEvent {
   const factory _WatchSurveyListStarted(
-      {required TeamId teamId,
-      required InterviewerId interviewerId}) = _$_WatchSurveyListStarted;
+      {required String teamId,
+      required String interviewerId}) = _$_WatchSurveyListStarted;
 
-  TeamId get teamId => throw _privateConstructorUsedError;
-  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$WatchSurveyListStartedCopyWith<_WatchSurveyListStarted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -320,7 +320,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
@@ -334,7 +334,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
@@ -462,7 +462,7 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
@@ -476,7 +476,7 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,
@@ -566,7 +566,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
@@ -580,7 +580,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
     TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
         surveyListReceived,

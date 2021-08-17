@@ -44,7 +44,7 @@ class TableBox extends StatelessWidget {
               alignment: Alignment.topCenter,
               width: kSimpleTableCellWidth,
               child: Text(
-                '(${choice.id.getValueAnyway()}) ${choice.body.getValueAnyway()}',
+                '(${choice.id}) ${choice.body}',
                 style: kPTextStyle,
               ),
             ),

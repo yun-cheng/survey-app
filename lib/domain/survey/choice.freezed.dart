@@ -18,14 +18,14 @@ class _$ChoiceTearOff {
 
   _Choice call(
       {required int serialNumber,
-      required ChoiceId id,
-      required ChoiceBody body,
+      required String id,
+      required String body,
       required bool asNote,
       required bool asSingle,
       required bool isSpecialAnswer,
-      required ChoiceGroup group,
+      required String group,
       required bool isGroupFirst,
-      required ChoiceId upperChoiceId}) {
+      required String upperChoiceId}) {
     return _Choice(
       serialNumber: serialNumber,
       id: id,
@@ -46,14 +46,14 @@ const $Choice = _$ChoiceTearOff();
 /// @nodoc
 mixin _$Choice {
   int get serialNumber => throw _privateConstructorUsedError;
-  ChoiceId get id => throw _privateConstructorUsedError;
-  ChoiceBody get body => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
   bool get asNote => throw _privateConstructorUsedError;
   bool get asSingle => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
-  ChoiceGroup get group => throw _privateConstructorUsedError;
+  String get group => throw _privateConstructorUsedError;
   bool get isGroupFirst => throw _privateConstructorUsedError;
-  ChoiceId get upperChoiceId => throw _privateConstructorUsedError;
+  String get upperChoiceId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ChoiceCopyWith<Choice> get copyWith => throw _privateConstructorUsedError;
@@ -65,14 +65,14 @@ abstract class $ChoiceCopyWith<$Res> {
       _$ChoiceCopyWithImpl<$Res>;
   $Res call(
       {int serialNumber,
-      ChoiceId id,
-      ChoiceBody body,
+      String id,
+      String body,
       bool asNote,
       bool asSingle,
       bool isSpecialAnswer,
-      ChoiceGroup group,
+      String group,
       bool isGroupFirst,
-      ChoiceId upperChoiceId});
+      String upperChoiceId});
 }
 
 /// @nodoc
@@ -103,11 +103,11 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as ChoiceId,
+              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as ChoiceBody,
+              as String,
       asNote: asNote == freezed
           ? _value.asNote
           : asNote // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
       group: group == freezed
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
-              as ChoiceGroup,
+              as String,
       isGroupFirst: isGroupFirst == freezed
           ? _value.isGroupFirst
           : isGroupFirst // ignore: cast_nullable_to_non_nullable
@@ -131,7 +131,7 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId // ignore: cast_nullable_to_non_nullable
-              as ChoiceId,
+              as String,
     ));
   }
 }
@@ -143,14 +143,14 @@ abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
   @override
   $Res call(
       {int serialNumber,
-      ChoiceId id,
-      ChoiceBody body,
+      String id,
+      String body,
       bool asNote,
       bool asSingle,
       bool isSpecialAnswer,
-      ChoiceGroup group,
+      String group,
       bool isGroupFirst,
-      ChoiceId upperChoiceId});
+      String upperChoiceId});
 }
 
 /// @nodoc
@@ -182,11 +182,11 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as ChoiceId,
+              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as ChoiceBody,
+              as String,
       asNote: asNote == freezed
           ? _value.asNote
           : asNote // ignore: cast_nullable_to_non_nullable
@@ -202,7 +202,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
       group: group == freezed
           ? _value.group
           : group // ignore: cast_nullable_to_non_nullable
-              as ChoiceGroup,
+              as String,
       isGroupFirst: isGroupFirst == freezed
           ? _value.isGroupFirst
           : isGroupFirst // ignore: cast_nullable_to_non_nullable
@@ -210,7 +210,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
       upperChoiceId: upperChoiceId == freezed
           ? _value.upperChoiceId
           : upperChoiceId // ignore: cast_nullable_to_non_nullable
-              as ChoiceId,
+              as String,
     ));
   }
 }
@@ -233,9 +233,9 @@ class _$_Choice extends _Choice {
   @override
   final int serialNumber;
   @override
-  final ChoiceId id;
+  final String id;
   @override
-  final ChoiceBody body;
+  final String body;
   @override
   final bool asNote;
   @override
@@ -243,11 +243,11 @@ class _$_Choice extends _Choice {
   @override
   final bool isSpecialAnswer;
   @override
-  final ChoiceGroup group;
+  final String group;
   @override
   final bool isGroupFirst;
   @override
-  final ChoiceId upperChoiceId;
+  final String upperChoiceId;
 
   @override
   String toString() {
@@ -305,22 +305,22 @@ class _$_Choice extends _Choice {
 abstract class _Choice extends Choice {
   const factory _Choice(
       {required int serialNumber,
-      required ChoiceId id,
-      required ChoiceBody body,
+      required String id,
+      required String body,
       required bool asNote,
       required bool asSingle,
       required bool isSpecialAnswer,
-      required ChoiceGroup group,
+      required String group,
       required bool isGroupFirst,
-      required ChoiceId upperChoiceId}) = _$_Choice;
+      required String upperChoiceId}) = _$_Choice;
   const _Choice._() : super._();
 
   @override
   int get serialNumber => throw _privateConstructorUsedError;
   @override
-  ChoiceId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  ChoiceBody get body => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
   @override
   bool get asNote => throw _privateConstructorUsedError;
   @override
@@ -328,11 +328,11 @@ abstract class _Choice extends Choice {
   @override
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   @override
-  ChoiceGroup get group => throw _privateConstructorUsedError;
+  String get group => throw _privateConstructorUsedError;
   @override
   bool get isGroupFirst => throw _privateConstructorUsedError;
   @override
-  ChoiceId get upperChoiceId => throw _privateConstructorUsedError;
+  String get upperChoiceId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ChoiceCopyWith<_Choice> get copyWith => throw _privateConstructorUsedError;

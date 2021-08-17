@@ -7,7 +7,6 @@ import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import 'get_answer_box.dart';
 import 'question_box.dart';
@@ -17,7 +16,7 @@ import 'warning_box.dart';
 
 class QaCard extends StatelessWidget {
   final int index;
-  final QuestionId questionId;
+  final String questionId;
 
   // HIGHLIGHT 即便沒有 field 需要 input 也該使用 key
   const QaCard({
@@ -67,7 +66,6 @@ class QaCard extends StatelessWidget {
                 (thisQuestion.tableId != '' && thisQuestion.type.isTable));
 
         return Column(
-          // key: Key(questionId.getOrCrash()),
           children: [
             if (index == 0) const SizedBox(height: 10.0),
             Visibility(
@@ -78,7 +76,7 @@ class QaCard extends StatelessWidget {
                   constraints: kCardMaxWith,
                   child: Card(
                     // NOTE 避免 widget 沒有刷新的問題
-                    key: Key(questionId.getOrCrash()),
+                    key: Key(questionId),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15.0),
                     ),

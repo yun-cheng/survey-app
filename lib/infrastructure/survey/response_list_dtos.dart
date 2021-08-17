@@ -2,10 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../domain/auth/value_objects.dart';
 import '../../domain/core/value_objects.dart';
-import '../../domain/overview/value_objects.dart';
-import '../../domain/respondent/value_objects.dart';
 import '../../domain/survey/response.dart';
 import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
@@ -78,36 +75,33 @@ class ResponseDto with _$ResponseDto {
   factory ResponseDto.fromDomain(Response domain) {
     return ResponseDto(
       // H_ 區分不同 response
-      teamId: domain.teamId.getValueAnyway(),
-      projectId: domain.projectId.getValueAnyway(),
-      surveyId: domain.surveyId.getValueAnyway(),
-      moduleType: domain.moduleType.getValueAnyway(),
-      respondentId: domain.respondentId.getValueAnyway(),
+      teamId: domain.teamId,
+      projectId: domain.projectId,
+      surveyId: domain.surveyId,
+      moduleType: domain.moduleType.value,
+      respondentId: domain.respondentId,
       // H_ 區分 response 版本
       responseId: domain.responseId.value,
       tempResponseId: domain.tempResponseId.value,
       ticketId: domain.ticketId.value,
       editFinished: domain.editFinished,
-      interviewerId: domain.interviewerId.getValueAnyway(),
+      interviewerId: domain.interviewerId,
       deviceId: domain.deviceId.value,
       // H_ 狀態
-      createdTimeStamp:
-          domain.createdTimeStamp.getValueAnyway().microsecondsSinceEpoch,
+      createdTimeStamp: domain.createdTimeStamp.value.microsecondsSinceEpoch,
       sessionStartTimeStamp:
-          domain.sessionStartTimeStamp.getValueAnyway().microsecondsSinceEpoch,
+          domain.sessionStartTimeStamp.value.microsecondsSinceEpoch,
       sessionEndTimeStamp:
-          domain.sessionEndTimeStamp.getValueAnyway().microsecondsSinceEpoch,
+          domain.sessionEndTimeStamp.value.microsecondsSinceEpoch,
       lastChangedTimeStamp:
-          domain.lastChangedTimeStamp.getValueAnyway().microsecondsSinceEpoch,
-      responseStatus: domain.responseStatus.getValueAnyway(),
+          domain.lastChangedTimeStamp.value.microsecondsSinceEpoch,
+      responseStatus: domain.responseStatus.value,
       isDeleted: domain.isDeleted,
       // H_ 內容
       answerMap: domain.answerMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       answerStatusMap: domain.answerStatusMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
       surveyPageState:
@@ -118,17 +112,17 @@ class ResponseDto with _$ResponseDto {
   Response toDomain() {
     return Response(
       // H_ 區分不同 response
-      teamId: TeamId(teamId),
-      projectId: ProjectId(projectId),
-      surveyId: SurveyId(surveyId),
+      teamId: teamId,
+      projectId: projectId,
+      surveyId: surveyId,
       moduleType: ModuleType(moduleType),
-      respondentId: RespondentId(respondentId),
+      respondentId: respondentId,
       // H_ 區分 response 版本
       responseId: UniqueId(responseId),
       tempResponseId: UniqueId(tempResponseId),
       ticketId: UniqueId(ticketId),
       editFinished: editFinished,
-      interviewerId: InterviewerId(interviewerId),
+      interviewerId: interviewerId,
       deviceId: UniqueId(deviceId),
       // H_ 狀態
       createdTimeStamp: DeviceTimeStamp.fromInt(createdTimeStamp),
@@ -138,11 +132,9 @@ class ResponseDto with _$ResponseDto {
       responseStatus: ResponseStatus(responseStatus),
       isDeleted: isDeleted,
       // H_ 內容
-      answerMap: KtMap.from(answerMap)
-          .mapKeys((entry) => QuestionId(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap:
+          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
       answerStatusMap: KtMap.from(answerStatusMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       surveyPageState: surveyPageState.toDomain(),
     );

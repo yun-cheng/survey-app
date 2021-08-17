@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 
 class SpecialAnswerSwitch extends StatelessWidget {
-  final QuestionId questionId;
+  final String questionId;
   final bool isSpecialAnswer;
   final bool showText;
 

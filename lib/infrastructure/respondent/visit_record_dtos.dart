@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/core/value_objects.dart';
-import '../../domain/respondent/value_objects.dart';
 import '../../domain/respondent/visit_record.dart';
 import 'visit_time_dtos.dart';
 
@@ -22,7 +21,7 @@ class VisitRecordDto with _$VisitRecordDto {
 
   factory VisitRecordDto.fromDomain(VisitRecord domain) {
     return VisitRecordDto(
-      respondentId: domain.respondentId.getValueAnyway(),
+      respondentId: domain.respondentId,
       responseId: domain.responseId.value,
       visitTime: VisitTimeDto.fromDomain(domain.visitTime),
       status: domain.status,
@@ -32,7 +31,7 @@ class VisitRecordDto with _$VisitRecordDto {
 
   VisitRecord toDomain() {
     return VisitRecord(
-      respondentId: RespondentId(respondentId),
+      respondentId: respondentId,
       responseId: UniqueId(responseId),
       visitTime: visitTime.toDomain(),
       status: status,

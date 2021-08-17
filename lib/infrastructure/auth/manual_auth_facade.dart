@@ -8,7 +8,6 @@ import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
-import '../../domain/auth/value_objects.dart';
 import '../core/firestore_helpers.dart';
 import 'interviewer_dtos.dart';
 import 'team_list_dtos.dart';
@@ -38,12 +37,12 @@ class ManualAuthFacade implements IAuthFacade {
 
   @override
   Stream<Either<AuthFailure, KtList<Interviewer>>> watchInterviewerList({
-    required TeamId teamId,
+    required String teamId,
   }) async* {
     final interviewerListCollection = _firestore.interviewerListCollection;
 
     yield* interviewerListCollection
-        .doc(teamId.getOrCrash())
+        .doc(teamId)
         .snapshots()
         .map((snapshot) => right<AuthFailure, KtList<Interviewer>>(
             InterviewerListDto.fromFirestore(snapshot).toDomain()))
@@ -58,17 +57,13 @@ class ManualAuthFacade implements IAuthFacade {
 
   @override
   Either<AuthFailure, Interviewer> signIn({
-    required InterviewerId interviewerId,
-    required Password password,
+    required String interviewerId,
+    required String password,
     required KtList<Interviewer> interviewerList,
   }) {
-    final interviewerIdStr = interviewerId.value.fold((l) => '', id);
-    final passwordStr = password.value.fold((l) => '', id);
-
     final Interviewer? matchInterviewer = interviewerList
         .filter((interviewer) =>
-            interviewer.id.getOrCrash() == interviewerIdStr &&
-            interviewer.password.getOrCrash() == passwordStr)
+            interviewer.id == interviewerId && interviewer.password == password)
         .firstOrNull();
 
     return optionOf(matchInterviewer).fold(

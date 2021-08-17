@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../domain/auth/interviewer.dart';
-import '../../domain/auth/value_objects.dart';
 
 part 'interviewer_dtos.freezed.dart';
 part 'interviewer_dtos.g.dart';
@@ -49,17 +48,17 @@ class InterviewerDto with _$InterviewerDto {
 
   factory InterviewerDto.fromDomain(Interviewer interviewer) {
     return InterviewerDto(
-      interviewerId: interviewer.id.getValueAnyway(),
-      interviewerName: interviewer.name.getValueAnyway(),
-      interviewerPassword: interviewer.password.getValueAnyway(),
+      interviewerId: interviewer.id,
+      interviewerName: interviewer.name,
+      interviewerPassword: interviewer.password,
     );
   }
 
   Interviewer toDomain() {
     return Interviewer(
-      id: InterviewerId(interviewerId),
-      name: InterviewerName(interviewerName),
-      password: Password(interviewerPassword),
+      id: interviewerId,
+      name: interviewerName,
+      password: interviewerPassword,
     );
   }
 

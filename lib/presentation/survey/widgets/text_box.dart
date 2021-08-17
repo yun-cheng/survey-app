@@ -12,7 +12,7 @@ import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 
 class TextBox extends HookWidget {
-  final QuestionId questionId;
+  final String questionId;
   final QuestionType questionType;
 
   const TextBox({

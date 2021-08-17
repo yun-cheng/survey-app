@@ -6,7 +6,6 @@ import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import 'get_answer_box.dart';
 import 'question_box.dart';
@@ -14,7 +13,7 @@ import 'special_answer_switch.dart';
 import 'warning_box.dart';
 
 class ComplexCellBox extends StatelessWidget {
-  final QuestionId questionId;
+  final String questionId;
   final Question question;
   final bool isTitle;
   final bool isFirstColumn;

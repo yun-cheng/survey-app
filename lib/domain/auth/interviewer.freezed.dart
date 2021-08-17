@@ -17,9 +17,7 @@ class _$InterviewerTearOff {
   const _$InterviewerTearOff();
 
   _Interviewer call(
-      {required InterviewerId id,
-      required InterviewerName name,
-      required Password password}) {
+      {required String id, required String name, required String password}) {
     return _Interviewer(
       id: id,
       name: name,
@@ -33,9 +31,9 @@ const $Interviewer = _$InterviewerTearOff();
 
 /// @nodoc
 mixin _$Interviewer {
-  InterviewerId get id => throw _privateConstructorUsedError;
-  InterviewerName get name => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $InterviewerCopyWith<Interviewer> get copyWith =>
@@ -47,7 +45,7 @@ abstract class $InterviewerCopyWith<$Res> {
   factory $InterviewerCopyWith(
           Interviewer value, $Res Function(Interviewer) then) =
       _$InterviewerCopyWithImpl<$Res>;
-  $Res call({InterviewerId id, InterviewerName name, Password password});
+  $Res call({String id, String name, String password});
 }
 
 /// @nodoc
@@ -68,15 +66,15 @@ class _$InterviewerCopyWithImpl<$Res> implements $InterviewerCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as InterviewerName,
+              as String,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as String,
     ));
   }
 }
@@ -88,7 +86,7 @@ abstract class _$InterviewerCopyWith<$Res>
           _Interviewer value, $Res Function(_Interviewer) then) =
       __$InterviewerCopyWithImpl<$Res>;
   @override
-  $Res call({InterviewerId id, InterviewerName name, Password password});
+  $Res call({String id, String name, String password});
 }
 
 /// @nodoc
@@ -111,15 +109,15 @@ class __$InterviewerCopyWithImpl<$Res> extends _$InterviewerCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as InterviewerName,
+              as String,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as String,
     ));
   }
 }
@@ -132,11 +130,11 @@ class _$_Interviewer extends _Interviewer {
       : super._();
 
   @override
-  final InterviewerId id;
+  final String id;
   @override
-  final InterviewerName name;
+  final String name;
   @override
-  final Password password;
+  final String password;
 
   @override
   String toString() {
@@ -171,17 +169,17 @@ class _$_Interviewer extends _Interviewer {
 
 abstract class _Interviewer extends Interviewer {
   const factory _Interviewer(
-      {required InterviewerId id,
-      required InterviewerName name,
-      required Password password}) = _$_Interviewer;
+      {required String id,
+      required String name,
+      required String password}) = _$_Interviewer;
   const _Interviewer._() : super._();
 
   @override
-  InterviewerId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  InterviewerName get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @override
-  Password get password => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$InterviewerCopyWith<_Interviewer> get copyWith =>

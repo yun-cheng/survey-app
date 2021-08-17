@@ -56,7 +56,7 @@ class VisitHistory extends StatelessWidget {
                     );
                 context.router.push(
                   SurveyRoute(
-                    respondentId: respondent.id.getValueAnyway(),
+                    respondentId: respondent.id,
                     showDialogOnRestart: false,
                   ),
                 );

@@ -8,7 +8,6 @@ import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import 'page_control_button.dart';
 
@@ -43,7 +42,7 @@ class PageControlBar extends HookWidget {
               p.isLastPage != c.isLastPage ||
               p.warning != c.warning ||
               p.showWarning != c.showWarning ||
-              c.page == PageNumber(0);
+              c.page == 0;
         }
         return false;
       },
@@ -61,7 +60,7 @@ class PageControlBar extends HookWidget {
 
     // H_ 往前按鈕
     final previousButton = Visibility(
-      visible: currentPage.getOrCrash() != 0,
+      visible: currentPage != 0,
       maintainSize: true,
       maintainAnimation: true,
       maintainState: true,

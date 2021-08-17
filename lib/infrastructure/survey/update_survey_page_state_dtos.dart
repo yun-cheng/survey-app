@@ -4,7 +4,6 @@ import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../domain/core/load_state.dart';
-import '../../domain/overview/value_objects.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/value_objects.dart';
 import '../respondent/respondent_dtos.dart';
@@ -64,8 +63,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       surveyFailure:
           domain.surveyFailure.fold(() => null, (some) => some.toJson()),
       respondent: RespondentDto.fromDomain(domain.respondent),
-      page: domain.page.getValueAnyway(),
-      newestPage: domain.newestPage.getValueAnyway(),
+      page: domain.page,
+      newestPage: domain.newestPage,
       direction: domain.direction,
       updateType: domain.updateType,
       questionList:
@@ -77,11 +76,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
       answerMap: domain.answerMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       answerStatusMap: domain.answerStatusMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
       isLastPage: domain.isLastPage,
@@ -96,8 +93,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       respondentResponseList: domain.respondentResponseList
           .map((e) => ResponseDto.fromDomain(e))
           .asList(),
-      surveyId: domain.surveyId.getValueAnyway(),
-      moduleType: domain.moduleType.getValueAnyway(),
+      surveyId: domain.surveyId,
+      moduleType: domain.moduleType.value,
       isReadOnly: domain.isReadOnly,
       appIsPaused: domain.appIsPaused,
       showDialog: domain.showDialog,
@@ -105,11 +102,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       finishResponse: domain.finishResponse,
       showLeaveButton: domain.showLeaveButton,
       mainAnswerMap: domain.mainAnswerMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       mainAnswerStatusMap: domain.mainAnswerStatusMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
     );
@@ -123,8 +118,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       surveyFailure:
           optionOf(surveyFailure).map((some) => SurveyFailure.fromJson(some)),
       respondent: respondent.toDomain(),
-      page: PageNumber(page),
-      newestPage: PageNumber(newestPage),
+      page: page,
+      newestPage: newestPage,
       direction: direction,
       updateType: updateType,
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
@@ -132,11 +127,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
           pageQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
       contentQuestionList:
           contentQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
-      answerMap: KtMap.from(answerMap)
-          .mapKeys((entry) => QuestionId(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap:
+          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
       answerStatusMap: KtMap.from(answerStatusMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       isLastPage: isLastPage,
       warning: warning.toDomain(),
@@ -148,7 +141,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
           mainQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
       respondentResponseList:
           respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
-      surveyId: SurveyId(surveyId),
+      surveyId: surveyId,
       moduleType: ModuleType(moduleType),
       isReadOnly: isReadOnly,
       appIsPaused: appIsPaused,
@@ -157,10 +150,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       finishResponse: finishResponse,
       showLeaveButton: showLeaveButton,
       mainAnswerMap: KtMap.from(mainAnswerMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       mainAnswerStatusMap: KtMap.from(mainAnswerStatusMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
     );
   }

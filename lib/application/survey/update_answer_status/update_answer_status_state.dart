@@ -8,25 +8,25 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required LoadState restoreState,
     required LoadState updateState,
     required KtList<Question> questionList,
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    required QuestionId questionId,
-    required KtList<QuestionId> clearAnswerQIdList,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
+    required String questionId,
+    required KtList<String> clearAnswerQIdList,
     // H_ recode
     required bool isRecodeModule,
-    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateAnswerStatusState;
 
-  factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(
-        questionList: const KtList<Question>.empty(),
+  factory UpdateAnswerStatusState.initial() => const UpdateAnswerStatusState(
+        questionList: KtList<Question>.empty(),
         isRecodeModule: false,
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
-        questionId: QuestionId.empty(),
-        updateState: const LoadState.initial(),
-        restoreState: const LoadState.initial(),
-        clearAnswerQIdList: const KtList<QuestionId>.empty(),
-        mainAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+        answerMap: KtMap<String, Answer>.empty(),
+        answerStatusMap: KtMap<String, AnswerStatus>.empty(),
+        questionId: '',
+        updateState: LoadState.initial(),
+        restoreState: LoadState.initial(),
+        clearAnswerQIdList: KtList<String>.empty(),
+        mainAnswerStatusMap: KtMap<String, AnswerStatus>.empty(),
       );
 
   Map<String, dynamic> toJson() =>

@@ -8,12 +8,11 @@ import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import 'note_box.dart';
 
 class DropdownBox extends StatelessWidget {
-  final QuestionId questionId;
+  final String questionId;
 
   const DropdownBox({
     Key? key,
@@ -77,20 +76,20 @@ class DropdownBox extends StatelessWidget {
 
         final choiceItemList = choiceList
             .map((choice) {
-              KtList<DropdownMenuItem<ChoiceId>> itemList =
-                  const KtList<DropdownMenuItem<ChoiceId>>.empty();
+              KtList<DropdownMenuItem<String>> itemList =
+                  const KtList<DropdownMenuItem<String>>.empty();
               if (choice.isGroupFirst) {
                 itemList = itemList.plusElement(
                   DropdownMenuItem(
                     enabled: false,
-                    value: ChoiceId('G_${choice.id.getValueAnyway()}'),
+                    value: 'G_${choice.id}',
                     child: Container(
                       color: Colors.lightBlue[400],
                       width: double.infinity,
                       alignment: Alignment.centerLeft,
                       height: 32.0,
                       child: Text(
-                        choice.group.getValueAnyway(),
+                        choice.group,
                         style: kChoiceGroupTextStyle,
                       ),
                     ),
@@ -101,7 +100,7 @@ class DropdownBox extends StatelessWidget {
                 DropdownMenuItem(
                   value: choice.id,
                   child: Text(
-                    '(${choice.id.getValueAnyway()}) ${choice.body.getValueAnyway()}',
+                    '(${choice.id}) ${choice.body}',
                   ),
                 ),
               );
@@ -116,7 +115,7 @@ class DropdownBox extends StatelessWidget {
               decoration: BoxDecoration(
                 color: canEdit ? null : kCannotEditColor,
               ),
-              child: DropdownButton<ChoiceId>(
+              child: DropdownButton<String>(
                 value: thisAnswer.value?.id,
                 style: kPTextStyle.copyWith(
                   color: Colors.black,
@@ -130,13 +129,13 @@ class DropdownBox extends StatelessWidget {
                 //   return question.choiceList
                 //       .map(
                 //         (choice) => Text(
-                //           choice.body.getOrCrash(),
+                //           choice.body,
                 //         ),
                 //       )
                 //       .asList();
                 // },
                 items: choiceItemList,
-                onChanged: (ChoiceId? value) {
+                onChanged: (String? value) {
                   context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           questionId: questionId,

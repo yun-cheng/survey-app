@@ -3,16 +3,16 @@ part of 'survey_page_bloc.dart';
 @freezed
 class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.answerMapUpdated({
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtList<QuestionId> questionIdList,
+    required KtMap<String, Answer> answerMap,
+    required KtList<String> questionIdList,
   }) = _AnswerMapUpdated;
 
   const factory SurveyPageEvent.answerStatusMapUpdated({
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
   }) = _AnswerStatusMapUpdated;
 
   const factory SurveyPageEvent.pageUpdated({
-    required PageNumber page,
+    required int page,
     required KtList<Question> pageQuestionList,
     required bool isLastPage,
   }) = _PageUpdated;
@@ -29,8 +29,8 @@ class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.infoUpdated({
     required bool isReadOnly,
     required bool isRecodeModule,
-    required KtMap<QuestionId, Answer> mainAnswerMap,
-    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required KtMap<String, Answer> mainAnswerMap,
+    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
   }) = _InfoUpdated;
 
   const factory SurveyPageEvent.stateCleared() = _StateCleared;

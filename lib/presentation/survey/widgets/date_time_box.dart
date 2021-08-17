@@ -11,7 +11,7 @@ import '../../../infrastructure/core/date_time_extensions.dart';
 import '../../core/constants.dart';
 
 class DateTimeBox extends HookWidget {
-  final QuestionId questionId;
+  final String questionId;
   final QuestionType questionType;
 
   const DateTimeBox({

@@ -19,7 +19,7 @@ import 'special_answer_switch.dart';
 import 'warning_box.dart';
 
 class ChoicesRow extends HookWidget {
-  final QuestionId questionId;
+  final String questionId;
   final QuestionType questionType;
   final KtList<Choice> choiceList;
   final bool hasSpecialAnswer;

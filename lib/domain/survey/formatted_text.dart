@@ -1,8 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../overview/value_objects.dart';
-import '../respondent/value_objects.dart';
 import 'answer.dart';
 import 'reference.dart';
 import 'reference_key.dart';
@@ -32,10 +30,10 @@ class FormattedText with _$FormattedText {
   FormattedText getAnswer({
     required KtList<Reference> referenceList,
     required KtList<Response> responseList,
-    required SurveyId surveyId,
+    required String surveyId,
     required ModuleType moduleType,
-    required KtMap<QuestionId, Answer> answerMap,
-    required RespondentId respondentId,
+    required KtMap<String, Answer> answerMap,
+    required String respondentId,
   }) {
     Answer? newAnswer;
     if (type == FormatType.referenceKey()) {

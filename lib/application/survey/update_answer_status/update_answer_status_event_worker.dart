@@ -114,7 +114,7 @@ UpdateAnswerStatusState qIdListAnswerClearedFlow(
 
   return state
       .copyWith(
-        clearAnswerQIdList: const KtList<QuestionId>.empty(),
+        clearAnswerQIdList: const KtList<String>.empty(),
       )
       .send(channel);
 }

@@ -1,13 +1,10 @@
-import 'package:dartz/dartz.dart';
 import 'package:expression_language/expression_language.dart'
     as expression_parser;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/failures.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/expression.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
 part 'full_expression.freezed.dart';
@@ -17,27 +14,21 @@ class FullExpression with _$FullExpression {
   const FullExpression._();
 
   const factory FullExpression({
-    required FullExpressionBody body,
-    required KtMap<ExpressionId, Expression> expressionMap,
+    required String body,
+    required KtMap<String, Expression> expressionMap,
   }) = _FullExpression;
 
-  factory FullExpression.empty() => FullExpression(
-        body: FullExpressionBody.empty(),
-        expressionMap: const KtMap<ExpressionId, Expression>.empty(),
+  factory FullExpression.empty() => const FullExpression(
+        body: '',
+        expressionMap: KtMap<String, Expression>.empty(),
       );
 
-  bool get isEmpty {
-    return body == FullExpressionBody.empty();
-  }
-
-  Option<ValueFailure<dynamic>> get failureOption {
-    return (body.failureOrUnit).fold((f) => some(f), (_) => none());
-  }
+  bool get isEmpty => body == '';
 
   bool evaluate({
     Answer? answer,
-    KtMap<QuestionId, Answer>? answerMap,
-    KtMap<QuestionId, AnswerStatus>? answerStatusMap,
+    KtMap<String, Answer>? answerMap,
+    KtMap<String, AnswerStatus>? answerStatusMap,
   }) {
     if (isEmpty) {
       return true;
@@ -45,7 +36,7 @@ class FullExpression with _$FullExpression {
     // NOTE 目標是將 (((A || B) && C) || D) 轉換成 true/false，
     //  其中 A、B、C、D 都代表著類似 (Q1 != 3) 的 expression
 
-    final newExpressionMap = KtMutableMap<ExpressionId, bool>.empty();
+    final newExpressionMap = KtMutableMap<String, bool>.empty();
 
     // H_1 各個 expression 轉成 bool
     // S_c1 validateAnswer 使用
@@ -68,11 +59,10 @@ class FullExpression with _$FullExpression {
     // print(newExpressionMap);
 
     // H_ 上面結果合併進 body
-    String fullExpressionBody = body.getOrCrash();
+    String fullExpressionBody = body;
 
     newExpressionMap.forEach((key, value) {
-      fullExpressionBody =
-          fullExpressionBody.replaceAll(key.getOrCrash(), value.toString());
+      fullExpressionBody = fullExpressionBody.replaceAll(key, value.toString());
     });
     // print(fullExpressionBody);
 

@@ -6,16 +6,16 @@ class SurveyPageState with _$SurveyPageState {
 
   const factory SurveyPageState({
     // H_ page
-    required PageNumber page,
-    required PageNumber newestPage,
+    required int page,
+    required int newestPage,
     required bool isLastPage,
     // H_ warning
     required Warning warning,
     required bool showWarning,
     // H_ answer
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    required KtList<QuestionId> questionIdList,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
+    required KtList<String> questionIdList,
     // H_ questionList
     required KtList<Question> pageQuestionList,
     required KtList<Question> contentQuestionList,
@@ -27,19 +27,19 @@ class SurveyPageState with _$SurveyPageState {
     required LoadState rebuildState,
     required LoadState restoreState,
     // H_ recode
-    required KtMap<QuestionId, Answer> recodeAnswerMap,
-    required KtMap<QuestionId, AnswerStatus> recodeAnswerStatusMap,
+    required KtMap<String, Answer> recodeAnswerMap,
+    required KtMap<String, AnswerStatus> recodeAnswerStatusMap,
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
-        page: PageNumber(0),
-        newestPage: PageNumber(0),
+        page:0,
+        newestPage: 0,
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
-        questionIdList: const KtList<QuestionId>.empty(),
+        answerMap: const KtMap<String, Answer>.empty(),
+        answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
+        questionIdList: const KtList<String>.empty(),
         pageQuestionList: const KtList<Question>.empty(),
         contentQuestionList: const KtList<Question>.empty(),
         isReadOnly: false,
@@ -47,8 +47,8 @@ class SurveyPageState with _$SurveyPageState {
         loadState: const LoadState.initial(),
         rebuildState: const LoadState.initial(),
         restoreState: const LoadState.initial(),
-        recodeAnswerMap: const KtMap<QuestionId, Answer>.empty(),
-        recodeAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+        recodeAnswerMap: const KtMap<String, Answer>.empty(),
+        recodeAnswerStatusMap: const KtMap<String, AnswerStatus>.empty(),
       );
 
   Map<String, dynamic> toJson() => SurveyPageStateDto.fromDomain(this).toJson();

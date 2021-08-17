@@ -4,7 +4,7 @@ part of 'response_bloc.dart';
 class ResponseEvent with _$ResponseEvent {
   // H_ 監聽 responseList
   const factory ResponseEvent.watchResponseListStarted({
-    required TeamId teamId,
+    required String teamId,
     required Interviewer interviewer,
   }) = _WatchResponseListStarted;
 
@@ -53,8 +53,8 @@ class ResponseEvent with _$ResponseEvent {
 
   // H_ 作答或切換頁數時更新 response
   const factory ResponseEvent.responseUpdated({
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
     required SimpleSurveyPageState surveyPageState,
   }) = _ResponseUpdated;
 

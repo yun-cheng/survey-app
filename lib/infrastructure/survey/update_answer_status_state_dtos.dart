@@ -3,7 +3,6 @@ import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/load_state.dart';
-import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
 import 'question_dtos.dart';
@@ -34,20 +33,16 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
       isRecodeModule: domain.isRecodeModule,
       answerMap: domain.answerMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       answerStatusMap: domain.answerStatusMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
-      clearAnswerQIdList:
-          domain.clearAnswerQIdList.map((e) => e.getValueAnyway()).asList(),
+      clearAnswerQIdList: domain.clearAnswerQIdList.asList(),
       mainAnswerStatusMap: domain.mainAnswerStatusMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
-      questionId: domain.questionId.getValueAnyway(),
+      questionId: domain.questionId,
       restoreState: domain.restoreState.toJson(),
       updateState: domain.updateState.toJson(),
     );
@@ -57,19 +52,14 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     return UpdateAnswerStatusState.initial().copyWith(
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
       isRecodeModule: isRecodeModule,
-      answerMap: KtMap.from(answerMap)
-          .mapKeys((entry) => QuestionId(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap:
+          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
       answerStatusMap: KtMap.from(answerStatusMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
-      clearAnswerQIdList: clearAnswerQIdList
-          .map((questionId) => QuestionId(questionId))
-          .toImmutableList(),
+      clearAnswerQIdList: clearAnswerQIdList.toImmutableList(),
       mainAnswerStatusMap: KtMap.from(mainAnswerStatusMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
-      questionId: QuestionId(questionId),
+      questionId: questionId,
       updateState: LoadState.fromJson(updateState),
       restoreState: LoadState.fromJson(restoreState),
     );

@@ -1,10 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../auth/value_objects.dart';
 import '../core/value_objects.dart';
-import '../overview/value_objects.dart';
-import '../respondent/value_objects.dart';
 import 'answer.dart';
 import 'answer_status.dart';
 import 'simple_survey_page_state.dart';
@@ -18,17 +15,17 @@ class Response with _$Response {
 
   const factory Response({
     // H_ 區分不同 response
-    required TeamId teamId,
-    required ProjectId projectId,
-    required SurveyId surveyId,
+    required String teamId,
+    required String projectId,
+    required String surveyId,
     required ModuleType moduleType,
-    required RespondentId respondentId,
+    required String respondentId,
     // H_ 區分 response 版本
     required UniqueId responseId,
     required UniqueId tempResponseId,
     required UniqueId ticketId,
     required bool editFinished,
-    required InterviewerId interviewerId,
+    required String interviewerId,
     required UniqueId deviceId,
     // H_ 狀態
     required DeviceTimeStamp createdTimeStamp,
@@ -38,24 +35,24 @@ class Response with _$Response {
     required ResponseStatus responseStatus,
     required bool isDeleted,
     // H_ 內容
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
     required SimpleSurveyPageState surveyPageState,
   }) = _Response;
 
   factory Response.empty() {
     final now = DeviceTimeStamp.now();
     return Response(
-      teamId: TeamId.empty(),
-      projectId: ProjectId.empty(),
-      surveyId: SurveyId.empty(),
+      teamId: '',
+      projectId: '',
+      surveyId: '',
       moduleType: ModuleType.empty(),
-      respondentId: RespondentId.empty(),
+      respondentId: '',
       responseId: UniqueId.v1(),
       tempResponseId: UniqueId.v1(),
       ticketId: UniqueId.v1(),
       editFinished: false,
-      interviewerId: InterviewerId.empty(),
+      interviewerId: '',
       deviceId: UniqueId.v1(),
       createdTimeStamp: now,
       sessionStartTimeStamp: now,
@@ -63,8 +60,8 @@ class Response with _$Response {
       lastChangedTimeStamp: now,
       responseStatus: ResponseStatus.answering(),
       isDeleted: false,
-      answerMap: const KtMap<QuestionId, Answer>.empty(),
-      answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+      answerMap: const KtMap<String, Answer>.empty(),
+      answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
       surveyPageState: SimpleSurveyPageState.empty(),
     );
   }
@@ -84,8 +81,8 @@ class Response with _$Response {
     return copyWith(
       answerMap: moduleType == ModuleType.visitReport()
           ? answerMap
-          : const KtMap<QuestionId, Answer>.empty(),
-      answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+          : const KtMap<String, Answer>.empty(),
+      answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
       surveyPageState: SimpleSurveyPageState.empty(),
     );
   }

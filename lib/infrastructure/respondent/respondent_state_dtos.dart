@@ -52,11 +52,10 @@ class RespondentStateDto with _$RespondentStateDto {
           .asMap(),
       needToJump: domain.needToJump,
       jumpToIndex: domain.jumpToIndex,
-      selectedRespondentId: domain.selectedRespondentId.getValueAnyway(),
+      selectedRespondentId: domain.selectedRespondentId,
       respondentFailure:
           domain.respondentFailure.fold(() => null, (some) => some.toJson()),
       visitRecordsMap: domain.visitRecordsMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) =>
               entry.value.map((e) => VisitRecordDto.fromDomain(e)).asList())
           .asMap(),
@@ -83,13 +82,11 @@ class RespondentStateDto with _$RespondentStateDto {
           KtMap.from(tabScrollPosition).mapValues((e) => e.value.toDomain()),
       needToJump: needToJump,
       jumpToIndex: jumpToIndex,
-      selectedRespondentId: RespondentId(selectedRespondentId),
+      selectedRespondentId: selectedRespondentId,
       respondentFailure: optionOf(respondentFailure)
           .map((some) => RespondentFailure.fromJson(some)),
-      visitRecordsMap: KtMap.from(visitRecordsMap)
-          .mapKeys((entry) => RespondentId(entry.key))
-          .mapValues((entry) =>
-              entry.value.map((dto) => dto.toDomain()).toImmutableList()),
+      visitRecordsMap: KtMap.from(visitRecordsMap).mapValues((entry) =>
+          entry.value.map((dto) => dto.toDomain()).toImmutableList()),
       tabRespondentsMap: KtMap.from(tabRespondentsMap).mapValues((entry) =>
           entry.value.map((dto) => dto.toDomain()).toImmutableList()),
       responseInfoList:

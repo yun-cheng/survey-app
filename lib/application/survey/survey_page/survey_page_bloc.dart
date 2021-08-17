@@ -12,7 +12,6 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../../domain/survey/warning.dart';
 import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/survey_page_state_dtos.dart';
@@ -147,7 +146,7 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: questionIdListCleared');
 
         yield state.copyWith(
-          questionIdList: const KtList<QuestionId>.empty(),
+          questionIdList: const KtList<String>.empty(),
         );
         add(const SurveyPageEvent.stateToJson());
       },

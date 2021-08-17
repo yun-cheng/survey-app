@@ -12,7 +12,6 @@ import 'package:tuple/tuple.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/answer_state_dtos.dart';

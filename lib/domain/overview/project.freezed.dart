@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ProjectTearOff {
   const _$ProjectTearOff();
 
-  _Project call({required ProjectId id, required ProjectName name}) {
+  _Project call({required String id, required String name}) {
     return _Project(
       id: id,
       name: name,
@@ -29,8 +29,8 @@ const $Project = _$ProjectTearOff();
 
 /// @nodoc
 mixin _$Project {
-  ProjectId get id => throw _privateConstructorUsedError;
-  ProjectName get name => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProjectCopyWith<Project> get copyWith => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ mixin _$Project {
 abstract class $ProjectCopyWith<$Res> {
   factory $ProjectCopyWith(Project value, $Res Function(Project) then) =
       _$ProjectCopyWithImpl<$Res>;
-  $Res call({ProjectId id, ProjectName name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -60,11 +60,11 @@ class _$ProjectCopyWithImpl<$Res> implements $ProjectCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as ProjectName,
+              as String,
     ));
   }
 }
@@ -74,7 +74,7 @@ abstract class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) then) =
       __$ProjectCopyWithImpl<$Res>;
   @override
-  $Res call({ProjectId id, ProjectName name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -95,11 +95,11 @@ class __$ProjectCopyWithImpl<$Res> extends _$ProjectCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as ProjectName,
+              as String,
     ));
   }
 }
@@ -110,9 +110,9 @@ class _$_Project extends _Project {
   const _$_Project({required this.id, required this.name}) : super._();
 
   @override
-  final ProjectId id;
+  final String id;
   @override
-  final ProjectName name;
+  final String name;
 
   @override
   String toString() {
@@ -142,14 +142,14 @@ class _$_Project extends _Project {
 }
 
 abstract class _Project extends Project {
-  const factory _Project({required ProjectId id, required ProjectName name}) =
+  const factory _Project({required String id, required String name}) =
       _$_Project;
   const _Project._() : super._();
 
   @override
-  ProjectId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  ProjectName get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ProjectCopyWith<_Project> get copyWith =>

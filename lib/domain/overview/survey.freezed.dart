@@ -17,10 +17,10 @@ class _$SurveyTearOff {
   const _$SurveyTearOff();
 
   _Survey call(
-      {required SurveyId id,
-      required SurveyName name,
-      required TeamId teamId,
-      required ProjectId projectId,
+      {required String id,
+      required String name,
+      required String teamId,
+      required String projectId,
       required KtMap<ModuleType, SurveyModule> module}) {
     return _Survey(
       id: id,
@@ -37,10 +37,10 @@ const $Survey = _$SurveyTearOff();
 
 /// @nodoc
 mixin _$Survey {
-  SurveyId get id => throw _privateConstructorUsedError;
-  SurveyName get name => throw _privateConstructorUsedError;
-  TeamId get teamId => throw _privateConstructorUsedError;
-  ProjectId get projectId => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
   KtMap<ModuleType, SurveyModule> get module =>
       throw _privateConstructorUsedError;
 
@@ -53,10 +53,10 @@ abstract class $SurveyCopyWith<$Res> {
   factory $SurveyCopyWith(Survey value, $Res Function(Survey) then) =
       _$SurveyCopyWithImpl<$Res>;
   $Res call(
-      {SurveyId id,
-      SurveyName name,
-      TeamId teamId,
-      ProjectId projectId,
+      {String id,
+      String name,
+      String teamId,
+      String projectId,
       KtMap<ModuleType, SurveyModule> module});
 }
 
@@ -80,19 +80,19 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as SurveyName,
+              as String,
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       projectId: projectId == freezed
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
@@ -107,10 +107,10 @@ abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
       __$SurveyCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SurveyId id,
-      SurveyName name,
-      TeamId teamId,
-      ProjectId projectId,
+      {String id,
+      String name,
+      String teamId,
+      String projectId,
       KtMap<ModuleType, SurveyModule> module});
 }
 
@@ -135,19 +135,19 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as SurveyName,
+              as String,
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       projectId: projectId == freezed
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
@@ -168,13 +168,13 @@ class _$_Survey extends _Survey {
       : super._();
 
   @override
-  final SurveyId id;
+  final String id;
   @override
-  final SurveyName name;
+  final String name;
   @override
-  final TeamId teamId;
+  final String teamId;
   @override
-  final ProjectId projectId;
+  final String projectId;
   @override
   final KtMap<ModuleType, SurveyModule> module;
 
@@ -212,21 +212,21 @@ class _$_Survey extends _Survey {
 
 abstract class _Survey extends Survey {
   const factory _Survey(
-      {required SurveyId id,
-      required SurveyName name,
-      required TeamId teamId,
-      required ProjectId projectId,
+      {required String id,
+      required String name,
+      required String teamId,
+      required String projectId,
       required KtMap<ModuleType, SurveyModule> module}) = _$_Survey;
   const _Survey._() : super._();
 
   @override
-  SurveyId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  SurveyName get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @override
-  TeamId get teamId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  ProjectId get projectId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
   @override
   KtMap<ModuleType, SurveyModule> get module =>
       throw _privateConstructorUsedError;

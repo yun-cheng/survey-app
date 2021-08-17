@@ -9,28 +9,22 @@ class Warning with _$Warning {
   const Warning._();
 
   const factory Warning({
-    required QuestionId id,
+    required String id,
     required int serialNumber,
-    required PageNumber pageNumber,
+    required int pageNumber,
     required WarningType type,
   }) = _Warning;
 
   factory Warning.empty() => Warning(
-        id: QuestionId.empty(),
+        id: '',
         serialNumber: 0,
-        pageNumber: PageNumber(0),
+        pageNumber: 0,
         type: WarningType.empty(),
       );
 
-  String toText() {
-    return type.getOrCrash();
-  }
-
   String toFullText() {
-    return '${id.getOrCrash()} 須修正';
+    return '$id 須修正';
   }
 
-  bool get isEmpty {
-    return type.isEmpty;
-  }
+  bool get isEmpty => type.isEmpty;
 }

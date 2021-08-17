@@ -3,8 +3,8 @@ part of 'respondent_bloc.dart';
 @freezed
 class RespondentEvent with _$RespondentEvent {
   const factory RespondentEvent.watchRespondentListListStarted({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   }) = _WatchRespondentListListStarted;
 
   const factory RespondentEvent.respondentListListReceived(
@@ -22,7 +22,7 @@ class RespondentEvent with _$RespondentEvent {
 
   // H_ 使用者選擇受訪者
   const factory RespondentEvent.respondentSelected({
-    required RespondentId respondentId,
+    required String respondentId,
   }) = _RespondentSelected;
 
   // H_ 切換分頁時
@@ -38,7 +38,7 @@ class RespondentEvent with _$RespondentEvent {
 
   // H_ 切換鄉鎮市區
   const factory RespondentEvent.jumpedToTown({
-    required CountyTown countyTown,
+    required String countyTown,
   }) = _JumpedToTown;
 
   // H_ 查址紀錄更新時

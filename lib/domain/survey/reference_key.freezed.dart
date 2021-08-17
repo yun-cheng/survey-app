@@ -17,9 +17,9 @@ class _$ReferenceKeyTearOff {
   const _$ReferenceKeyTearOff();
 
   _ReferenceKey call(
-      {required SurveyId surveyId,
+      {required String surveyId,
       required ModuleType moduleType,
-      required QuestionId questionId}) {
+      required String questionId}) {
     return _ReferenceKey(
       surveyId: surveyId,
       moduleType: moduleType,
@@ -33,9 +33,9 @@ const $ReferenceKey = _$ReferenceKeyTearOff();
 
 /// @nodoc
 mixin _$ReferenceKey {
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ReferenceKeyCopyWith<ReferenceKey> get copyWith =>
@@ -47,7 +47,9 @@ abstract class $ReferenceKeyCopyWith<$Res> {
   factory $ReferenceKeyCopyWith(
           ReferenceKey value, $Res Function(ReferenceKey) then) =
       _$ReferenceKeyCopyWithImpl<$Res>;
-  $Res call({SurveyId surveyId, ModuleType moduleType, QuestionId questionId});
+  $Res call({String surveyId, ModuleType moduleType, String questionId});
+
+  $ModuleTypeCopyWith<$Res> get moduleType;
 }
 
 /// @nodoc
@@ -68,7 +70,7 @@ class _$ReferenceKeyCopyWithImpl<$Res> implements $ReferenceKeyCopyWith<$Res> {
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -76,8 +78,15 @@ class _$ReferenceKeyCopyWithImpl<$Res> implements $ReferenceKeyCopyWith<$Res> {
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
     ));
+  }
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
+    });
   }
 }
 
@@ -88,7 +97,10 @@ abstract class _$ReferenceKeyCopyWith<$Res>
           _ReferenceKey value, $Res Function(_ReferenceKey) then) =
       __$ReferenceKeyCopyWithImpl<$Res>;
   @override
-  $Res call({SurveyId surveyId, ModuleType moduleType, QuestionId questionId});
+  $Res call({String surveyId, ModuleType moduleType, String questionId});
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType;
 }
 
 /// @nodoc
@@ -111,7 +123,7 @@ class __$ReferenceKeyCopyWithImpl<$Res> extends _$ReferenceKeyCopyWithImpl<$Res>
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -119,7 +131,7 @@ class __$ReferenceKeyCopyWithImpl<$Res> extends _$ReferenceKeyCopyWithImpl<$Res>
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
     ));
   }
 }
@@ -134,11 +146,11 @@ class _$_ReferenceKey extends _ReferenceKey {
       : super._();
 
   @override
-  final SurveyId surveyId;
+  final String surveyId;
   @override
   final ModuleType moduleType;
   @override
-  final QuestionId questionId;
+  final String questionId;
 
   @override
   String toString() {
@@ -175,17 +187,17 @@ class _$_ReferenceKey extends _ReferenceKey {
 
 abstract class _ReferenceKey extends ReferenceKey {
   const factory _ReferenceKey(
-      {required SurveyId surveyId,
+      {required String surveyId,
       required ModuleType moduleType,
-      required QuestionId questionId}) = _$_ReferenceKey;
+      required String questionId}) = _$_ReferenceKey;
   const _ReferenceKey._() : super._();
 
   @override
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
   ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ReferenceKeyCopyWith<_ReferenceKey> get copyWith =>

@@ -9,10 +9,8 @@ import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tuple/tuple.dart';
 
-import '../../../domain/auth/value_objects.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/overview/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';

@@ -11,22 +11,22 @@ class AnswerEvent with _$AnswerEvent {
 
   // H_ 變更某題作答
   const factory AnswerEvent.answerChanged({
-    required QuestionId questionId,
+    required String questionId,
     required dynamic body,
     required bool isNote,
     required bool isSpecialAnswer,
     required bool toggle,
     required bool isRecode,
-    ChoiceId? noteOf,
+    String? noteOf,
   }) = _AnswerChanged;
 
   factory AnswerEvent.answerChangedWith({
-    required QuestionId questionId,
+    required String questionId,
     required dynamic body,
     bool isSpecialAnswer = false,
     bool isNote = false,
     bool toggle = false,
-    ChoiceId? noteOf,
+    String? noteOf,
     bool isRecode = false,
   }) =>
       _AnswerChanged(
@@ -41,7 +41,7 @@ class AnswerEvent with _$AnswerEvent {
 
   // H_ 切換特殊作答
   const factory AnswerEvent.specialAnswerSwitched({
-    required QuestionId questionId,
+    required String questionId,
   }) = _SpecialAnswerSwitched;
 
   // H_ 切換唯讀模式

@@ -11,9 +11,8 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.interviewerListReceived(
           Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList) =
       _InterviewerListReceived;
-  const factory AuthEvent.idChanged(String idStr) = _IdChanged;
-  const factory AuthEvent.passwordChanged(String passwordStr) =
-      _PasswordChanged;
+  const factory AuthEvent.idChanged(String id) = _IdChanged;
+  const factory AuthEvent.passwordChanged(String password) = _PasswordChanged;
   const factory AuthEvent.signInPressed() = _SignInPressed;
   const factory AuthEvent.loggedOut() = _LoggedOut;
 }

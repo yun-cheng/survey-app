@@ -10,7 +10,7 @@ import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
 
 class PhoneBox extends StatelessWidget {
-  final QuestionId questionId;
+  final String questionId;
   final QuestionType questionType;
 
   const PhoneBox({

@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../domain/overview/value_objects.dart';
 import '../../domain/survey/reference_key.dart';
 import '../../domain/survey/value_objects.dart';
 
@@ -19,17 +18,17 @@ class ReferenceKeyDto with _$ReferenceKeyDto {
 
   factory ReferenceKeyDto.fromDomain(ReferenceKey domain) {
     return ReferenceKeyDto(
-      surveyId: domain.surveyId.getValueAnyway(),
-      moduleType: domain.moduleType.getValueAnyway(),
-      questionId: domain.questionId.getValueAnyway(),
+      surveyId: domain.surveyId,
+      moduleType: domain.moduleType.value,
+      questionId: domain.questionId,
     );
   }
 
   ReferenceKey toDomain() {
     return ReferenceKey(
-      surveyId: SurveyId(surveyId),
+      surveyId: surveyId,
       moduleType: ModuleType(moduleType),
-      questionId: QuestionId(questionId),
+      questionId: questionId,
     );
   }
 

@@ -4,7 +4,7 @@ part of 'update_answer_bloc.dart';
 class UpdateAnswerEvent with _$UpdateAnswerEvent {
   // H_ 進入問卷時載入必要 state
   const factory UpdateAnswerEvent.moduleLoaded({
-    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<String, Answer> answerMap,
   }) = _ModuleLoaded;
 
   // H_ 離開問卷時清空 state
@@ -17,12 +17,12 @@ class UpdateAnswerEvent with _$UpdateAnswerEvent {
     required bool toggle,
     required bool isSpecialAnswer,
     required bool isNote,
-    ChoiceId? noteOf,
+    String? noteOf,
   }) = _AnswerUpdated;
 
   // H_ 清空部分題目作答
   const factory UpdateAnswerEvent.answerQIdListCleared({
-    required KtList<QuestionId> questionIdList,
+    required KtList<String> questionIdList,
   }) = _AnswerQIdListCleared;
 
   const factory UpdateAnswerEvent.taskInitialized() = _TaskInitialized;

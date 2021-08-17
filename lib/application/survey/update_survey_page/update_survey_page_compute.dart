@@ -44,8 +44,8 @@ UpdateSurveyPageState pageQuestionListUpdated(UpdateSurveyPageState state) {
       if (question.upperQuestionId.isNotEmpty && !isSpecialAnswer) {
         final upperAnswer = answerMap[question.upperQuestionId];
         // NOTE 用 id 文字比對
-        choiceList = question.choiceList.filter((choice) =>
-            choice.upperChoiceId.getValueAnyway() == upperAnswer!.valueString);
+        choiceList = question.choiceList.filter(
+            (choice) => choice.upperChoiceId == upperAnswer!.valueString);
       }
 
       // H_ 篩選是否為特殊作答的選項
@@ -89,19 +89,17 @@ UpdateSurveyPageState pageUpdated(UpdateSurveyPageState state) {
         !state.answerStatusMap[question.id]!.isHidden);
   } else if (state.direction == Direction.next) {
     firstQuestion = state.questionList.first((question) =>
-        question.pageNumber.getOrCrash() > state.page.getOrCrash() &&
+        question.pageNumber > state.page &&
         !state.answerStatusMap[question.id]!.isHidden);
   } else if (state.direction == Direction.previous) {
     firstQuestion = state.questionList.last((question) =>
-        question.pageNumber.getOrCrash() < state.page.getOrCrash() &&
+        question.pageNumber < state.page &&
         !state.answerStatusMap[question.id]!.isHidden);
   }
 
   final newPage = firstQuestion.pageNumber;
   // FIXME newestPage 有可能變小，而影響判斷?
-  final newestPage = newPage.getOrCrash() > state.newestPage.getOrCrash()
-      ? newPage
-      : state.newestPage;
+  final newestPage = newPage > state.newestPage ? newPage : state.newestPage;
 
   final state1 = state.copyWith(
     updateType: SurveyPageUpdateType.page,
@@ -118,7 +116,7 @@ UpdateSurveyPageState checkIsLastPage(UpdateSurveyPageState state) {
   // NOTE 篩出後面頁數第一筆不是隱藏的題目
   final Question? firstQuestion = state.questionList.firstOrNull(
     (question) =>
-        question.pageNumber.getOrCrash() > state.page.getOrCrash() &&
+        question.pageNumber > state.page &&
         !state.answerStatusMap[question.id]!.isHidden,
   );
 
@@ -143,8 +141,7 @@ UpdateSurveyPageState warningUpdated(UpdateSurveyPageState state) {
   );
 
   // S_2-c1 如果有篩出，且該題頁數在已顯示的頁面中，則表示有 warning
-  if (firstQuestion != null &&
-      firstQuestion.pageNumber.getOrCrash() <= state.newestPage.getOrCrash()) {
+  if (firstQuestion != null && firstQuestion.pageNumber <= state.newestPage) {
     warning = state.answerStatusMap[firstQuestion.id]!.toWarning(firstQuestion);
     // S_2-c2 否則不須顯示 warning
   } else {
@@ -177,7 +174,7 @@ UpdateSurveyPageState contentQuestionListUpdated(UpdateSurveyPageState state) {
   final contentQuestionList = state.questionList
       .filter((question) =>
           !state.answerStatusMap[question.id]!.isHidden &&
-          question.pageNumber.getOrCrash() <= state.newestPage.getOrCrash())
+          question.pageNumber <= state.newestPage)
       // S_ 將題目敘述中有連結其他作答的地方更新
       .map((_question) {
     Question question = _question;

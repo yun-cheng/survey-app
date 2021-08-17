@@ -1,474 +1,199 @@
-import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../core/failures.dart';
-import '../core/value_objects.dart';
-import '../core/value_validators.dart';
 import 'simple_choice.dart';
 
-// TODO 可移除
-class QuestionBody extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+part 'value_objects.freezed.dart';
 
-  factory QuestionBody(String input) {
-    return QuestionBody._(
-      right(input),
-    );
-  }
+@freezed
+class FormatType with _$FormatType {
+  const FormatType._();
 
-  factory QuestionBody.empty() => QuestionBody('');
+  const factory FormatType(String value) = _FormatType;
 
-  const QuestionBody._(this.value);
+  factory FormatType.empty() => const FormatType('');
+  factory FormatType.string() => const FormatType('string');
+  factory FormatType.referenceKey() => const FormatType('referenceKey');
 }
 
-class FormatType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class QuestionType with _$QuestionType {
+  const QuestionType._();
 
-  factory FormatType(String input) {
-    return FormatType._(
-      validateStringNotEmpty(input),
-    );
-  }
+  const factory QuestionType(String value) = _QuestionType;
 
-  factory FormatType.empty() => FormatType('');
-  factory FormatType.string() => FormatType('string');
-  factory FormatType.referenceKey() => FormatType('referenceKey');
+  factory QuestionType.empty() => const QuestionType('');
+  factory QuestionType.single() => const QuestionType('single');
+  factory QuestionType.multiple() => const QuestionType('multiple');
+  factory QuestionType.popupSingle() => const QuestionType('popupSingle');
+  factory QuestionType.popupMultiple() => const QuestionType('popupMultiple');
+  factory QuestionType.number() => const QuestionType('number');
+  factory QuestionType.text() => const QuestionType('text');
+  factory QuestionType.date() => const QuestionType('date');
+  factory QuestionType.time() => const QuestionType('time');
+  factory QuestionType.dateTime() => const QuestionType('dateTime');
+  factory QuestionType.phone() => const QuestionType('phone');
+  factory QuestionType.simpleTable() => const QuestionType('simpleTable');
+  factory QuestionType.complexTable() => const QuestionType('complexTable');
+  factory QuestionType.description() => const QuestionType('description');
 
-  const FormatType._(this.value);
+  bool get isSingle => ['single', 'popupSingle'].contains(value);
+  bool get isMultiple => ['multiple', 'popupMultiple'].contains(value);
+  bool get isChoice => isSingle || isMultiple;
+  bool get isNormalChoice => ['single', 'multiple'].contains(value);
+  bool get isInput => ['number', 'text'].contains(value);
+  bool get isNumber => value == 'number';
+  bool get isDateTime => ['date', 'time', 'dateTime'].contains(value);
+  bool get isPhone => value == 'phone';
+  bool get isTable => ['simpleTable', 'complexTable'].contains(value);
+  bool get needAnswer =>
+      !['description', 'simpleTable', 'complexTable'].contains(value);
+  bool get isValid =>
+      isChoice || isInput || isDateTime || isPhone || !needAnswer;
 }
 
-class QuestionNote extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class AnswerType with _$AnswerType {
+  const AnswerType._();
 
-  factory QuestionNote(String input) {
-    return QuestionNote._(
-      right(input),
-    );
-  }
+  const factory AnswerType(String value) = _AnswerType;
 
-  factory QuestionNote.empty() => QuestionNote('');
-
-  const QuestionNote._(this.value);
+  factory AnswerType.empty() => const AnswerType('');
+  factory AnswerType.string() => const AnswerType('string');
+  factory AnswerType.int() => const AnswerType('int');
+  factory AnswerType.num() => const AnswerType('num');
+  factory AnswerType.choice() => const AnswerType('choice');
+  factory AnswerType.choiceList() => const AnswerType('choiceList');
 }
 
-class QuestionId extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class AnswerStatusType with _$AnswerStatusType {
+  const AnswerStatusType._();
 
-  factory QuestionId(String input) {
-    return QuestionId._(
-      right(input),
-    );
-  }
+  const factory AnswerStatusType(String value) = _AnswerStatusType;
 
-  factory QuestionId.empty() => QuestionId('');
+  factory AnswerStatusType.empty() => const AnswerStatusType('');
+  factory AnswerStatusType.answered() => const AnswerStatusType('answered');
+  factory AnswerStatusType.unanswered() => const AnswerStatusType('unanswered');
+  factory AnswerStatusType.invalid() => const AnswerStatusType('invalid');
+  factory AnswerStatusType.hidden() => const AnswerStatusType('hidden');
 
-  bool get isNotEmpty {
-    return value.fold((l) => false, (r) => r != '');
-  }
+  factory AnswerStatusType.fromString(String string) => string == ''
+      ? AnswerStatusType.unanswered()
+      : AnswerStatusType.answered();
+  factory AnswerStatusType.fromChoice(SimpleChoice choice) =>
+      choice == SimpleChoice.empty()
+          ? AnswerStatusType.unanswered()
+          : AnswerStatusType.answered();
+  factory AnswerStatusType.fromChoiceList(KtList<SimpleChoice> choiceList) =>
+      choiceList.isEmpty()
+          ? AnswerStatusType.unanswered()
+          : AnswerStatusType.answered();
 
-  bool get isEmpty => !isNotEmpty;
-
-  const QuestionId._(this.value);
+  bool get isAnswered => value == 'answered';
+  bool get isUnanswered => value == 'unanswered';
+  bool get isInvalid => value == 'invalid';
+  bool get isHidden => value == 'hidden';
+  bool get isCompleted => isAnswered || isHidden;
 }
 
-class QuestionType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class WarningType with _$WarningType {
+  const WarningType._();
 
-  factory QuestionType(String input) {
-    return QuestionType._(
-      validateStringNotEmpty(input),
-    );
-  }
+  const factory WarningType(String value) = _WarningType;
 
-  // NOTE 這樣就不用輸入文字
-  factory QuestionType.single() => QuestionType('single');
-  factory QuestionType.multiple() => QuestionType('multiple');
-  factory QuestionType.popupSingle() => QuestionType('popupSingle');
-  factory QuestionType.popupMultiple() => QuestionType('popupMultiple');
-  factory QuestionType.number() => QuestionType('number');
-  factory QuestionType.text() => QuestionType('text');
-  factory QuestionType.date() => QuestionType('date');
-  factory QuestionType.time() => QuestionType('time');
-  factory QuestionType.dateTime() => QuestionType('dateTime');
-  factory QuestionType.phone() => QuestionType('phone');
-  factory QuestionType.simpleTable() => QuestionType('simpleTable');
-  factory QuestionType.complexTable() => QuestionType('complexTable');
-  factory QuestionType.description() => QuestionType('description');
-  factory QuestionType.empty() => QuestionType('');
+  factory WarningType.empty() => const WarningType('');
+  factory WarningType.unanswered() => const WarningType('尚未作答！');
+  factory WarningType.noteUnanswered() => const WarningType('選項說明尚未填寫！');
+  factory WarningType.invalid() => const WarningType('作答不符合格式！');
 
-  bool get isSingle {
-    return value.fold(
-        (l) => false, (r) => ['single', 'popupSingle'].contains(r));
-  }
-
-  bool get isMultiple {
-    return value.fold(
-        (l) => false, (r) => ['multiple', 'popupMultiple'].contains(r));
-  }
-
-  bool get isChoice {
-    return value.fold((l) => false, (r) => isSingle || isMultiple);
-  }
-
-  bool get isNormalChoice {
-    return value.fold((l) => false, (r) => ['single', 'multiple'].contains(r));
-  }
-
-  bool get isInput {
-    return value.fold((l) => false, (r) => ['number', 'text'].contains(r));
-  }
-
-  bool get isNumber {
-    return value.fold((l) => false, (r) => r == 'number');
-  }
-
-  bool get isDateTime {
-    return value.fold(
-        (l) => false, (r) => ['date', 'time', 'dateTime'].contains(r));
-  }
-
-  bool get isPhone {
-    return value.fold((l) => false, (r) => r == 'phone');
-  }
-
-  bool get isTable {
-    return value.fold(
-        (l) => false, (r) => ['simpleTable', 'complexTable'].contains(r));
-  }
-
-  bool get needAnswer {
-    return value.fold((l) => false,
-        (r) => !['description', 'simpleTable', 'complexTable'].contains(r));
-  }
-
-  const QuestionType._(this.value);
+  bool get isEmpty => value == '';
 }
 
-class AnswerType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class Operator with _$Operator {
+  const Operator._();
 
-  factory AnswerType(String? input) {
-    input ??= '';
-    return AnswerType._(
-      validateStringNotEmpty(input),
-    );
-  }
+  const factory Operator(String value) = _Operator;
 
-  factory AnswerType.string() => AnswerType('string');
-  factory AnswerType.int() => AnswerType('int');
-  factory AnswerType.num() => AnswerType('num');
-  factory AnswerType.choice() => AnswerType('choice');
-  factory AnswerType.choiceList() => AnswerType('choiceList');
-  factory AnswerType.empty() => AnswerType('');
-
-  const AnswerType._(this.value);
-}
-
-class PageNumber extends ValueObject<int> {
-  @override
-  final Either<ValueFailure<int>, int> value;
-
-  factory PageNumber(int input) {
-    return PageNumber._(
-      right(input),
-    );
-  }
-
-  const PageNumber._(this.value);
-}
-
-class ChoiceId extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ChoiceId(String input) {
-    return ChoiceId._(
-      right(input),
-    );
-  }
-
-  factory ChoiceId.empty() => ChoiceId('');
-
-  const ChoiceId._(this.value);
-}
-
-class ChoiceBody extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ChoiceBody(String input) {
-    return ChoiceBody._(
-      right(input),
-    );
-  }
-
-  factory ChoiceBody.empty() => ChoiceBody('');
-
-  const ChoiceBody._(this.value);
-}
-
-class ChoiceGroup extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ChoiceGroup(String input) {
-    return ChoiceGroup._(
-      right(input),
-    );
-  }
-
-  factory ChoiceGroup.empty() => ChoiceGroup('');
-
-  const ChoiceGroup._(this.value);
-}
-
-class AnswerStatusType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory AnswerStatusType(String input) {
-    return AnswerStatusType._(
-      right(input),
-    );
-  }
-
-  factory AnswerStatusType.answered() => AnswerStatusType('answered');
-  factory AnswerStatusType.unanswered() => AnswerStatusType('unanswered');
-  factory AnswerStatusType.invalid() => AnswerStatusType('invalid');
-  factory AnswerStatusType.hidden() => AnswerStatusType('hidden');
-  factory AnswerStatusType.empty() => AnswerStatusType('');
-
-  // H_ 判斷
-  factory AnswerStatusType.fromString(String string) {
-    if (string != '') {
-      return AnswerStatusType.answered();
-    }
-    return AnswerStatusType.unanswered();
-  }
-
-  factory AnswerStatusType.fromChoice(SimpleChoice choice) {
-    if (choice != SimpleChoice.empty()) {
-      return AnswerStatusType.answered();
-    }
-    return AnswerStatusType.unanswered();
-  }
-
-  factory AnswerStatusType.fromChoiceList(KtList<SimpleChoice> choiceList) {
-    if (choiceList.isNotEmpty()) {
-      return AnswerStatusType.answered();
-    }
-    return AnswerStatusType.unanswered();
-  }
-
-  // H_
-  bool get isAnswered {
-    return value.fold((l) => false, (r) => r == 'answered');
-  }
-
-  bool get isUnanswered {
-    return value.fold((l) => false, (r) => r == 'unanswered');
-  }
-
-  bool get isInvalid {
-    return value.fold((l) => false, (r) => r == 'invalid');
-  }
-
-  bool get isHidden {
-    return value.fold((l) => false, (r) => r == 'hidden');
-  }
-
-  bool get isCompleted {
-    return isAnswered || isHidden;
-  }
-
-  const AnswerStatusType._(this.value);
-}
-
-class WarningType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory WarningType(String input) {
-    return WarningType._(
-      right(input),
-    );
-  }
-
-  factory WarningType.unanswered() => WarningType('尚未作答！');
-  factory WarningType.noteUnanswered() => WarningType('選項說明尚未填寫！');
-  factory WarningType.invalid() => WarningType('作答不符合格式！');
-  factory WarningType.empty() => WarningType('');
-
-  bool get isEmpty {
-    return value.fold((l) => false, (r) => r == '');
-  }
-
-  const WarningType._(this.value);
-}
-
-class Operator extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory Operator(String input) {
-    return Operator._(
-      right(input),
-    );
-  }
-
-  factory Operator.isEqualTo() => Operator('isEqualTo');
-  factory Operator.notEqualTo() => Operator('notEqualTo');
-  factory Operator.isLessThan() => Operator('isLessThan');
-  factory Operator.isLessThanOrEqualTo() => Operator('isLessThanOrEqualTo');
-  factory Operator.isGreaterThan() => Operator('isGreaterThan');
+  factory Operator.empty() => const Operator('');
+  factory Operator.isEqualTo() => const Operator('isEqualTo');
+  factory Operator.notEqualTo() => const Operator('notEqualTo');
+  factory Operator.isLessThan() => const Operator('isLessThan');
+  factory Operator.isLessThanOrEqualTo() =>
+      const Operator('isLessThanOrEqualTo');
+  factory Operator.isGreaterThan() => const Operator('isGreaterThan');
   factory Operator.isGreaterThanOrEqualTo() =>
-      Operator('isGreaterThanOrEqualTo');
-  factory Operator.isSameList() => Operator('isSameList');
-  factory Operator.notSameList() => Operator('notSameList');
-  factory Operator.isIn() => Operator('isIn');
-  factory Operator.notIn() => Operator('notIn');
-  factory Operator.contains() => Operator('contains');
-  factory Operator.notContains() => Operator('notContains');
-  factory Operator.containsAny() => Operator('containsAny');
-  factory Operator.notContainsAny() => Operator('notContainsAny');
-  factory Operator.containsAll() => Operator('containsAll');
-  factory Operator.notContainsAll() => Operator('notContainsAll');
-  factory Operator.isType() => Operator('isType');
-  factory Operator.empty() => Operator('');
-
-  const Operator._(this.value);
+      const Operator('isGreaterThanOrEqualTo');
+  factory Operator.isSameList() => const Operator('isSameList');
+  factory Operator.notSameList() => const Operator('notSameList');
+  factory Operator.isIn() => const Operator('isIn');
+  factory Operator.notIn() => const Operator('notIn');
+  factory Operator.contains() => const Operator('contains');
+  factory Operator.notContains() => const Operator('notContains');
+  factory Operator.containsAny() => const Operator('containsAny');
+  factory Operator.notContainsAny() => const Operator('notContainsAny');
+  factory Operator.containsAll() => const Operator('containsAll');
+  factory Operator.notContainsAll() => const Operator('notContainsAll');
+  factory Operator.isType() => const Operator('isType');
 }
 
-class FullExpressionBody extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class ModuleType with _$ModuleType {
+  const ModuleType._();
 
-  factory FullExpressionBody(String input) {
-    return FullExpressionBody._(
-      right(input),
-    );
-  }
+  const factory ModuleType(String value) = _ModuleType;
 
-  factory FullExpressionBody.empty() => FullExpressionBody('');
-
-  const FullExpressionBody._(this.value);
-}
-
-class ExpressionId extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ExpressionId(String input) {
-    return ExpressionId._(
-      right(input),
-    );
-  }
-
-  factory ExpressionId.empty() => ExpressionId('');
-
-  const ExpressionId._(this.value);
-}
-
-class ModuleType extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
-
-  factory ModuleType(String input) {
-    return ModuleType._(
-      right(input),
-    );
-  }
-
-  factory ModuleType.main() => ModuleType('main');
-  factory ModuleType.visitReport() => ModuleType('visitReport');
-  factory ModuleType.housingType() => ModuleType('housingType');
+  factory ModuleType.empty() => const ModuleType('');
+  factory ModuleType.main() => const ModuleType('main');
+  factory ModuleType.visitReport() => const ModuleType('visitReport');
+  factory ModuleType.housingType() => const ModuleType('housingType');
   factory ModuleType.samplingWithinHousehold() =>
-      ModuleType('samplingWithinHousehold');
-  factory ModuleType.interviewReport() => ModuleType('interviewReport');
-  factory ModuleType.recode() => ModuleType('recode');
-  factory ModuleType.empty() => ModuleType('');
+      const ModuleType('samplingWithinHousehold');
+  factory ModuleType.interviewReport() => const ModuleType('interviewReport');
+  factory ModuleType.recode() => const ModuleType('recode');
 
-  bool get isMainTab {
-    return value.fold(
-        (l) => false, (r) => ['samplingWithinHousehold', 'main'].contains(r));
-  }
-
-  bool get isInterviewReportTab {
-    return value.fold(
-        (l) => false, (r) => ['housingType', 'interviewReport'].contains(r));
-  }
-
-  bool get needUpdateTab {
-    return value.fold((l) => false, (r) => r != 'visitReport');
-  }
-
-  const ModuleType._(this.value);
+  bool get isMainTab => ['samplingWithinHousehold', 'main'].contains(value);
+  bool get isInterviewReportTab =>
+      ['housingType', 'interviewReport'].contains(value);
+  bool get needUpdateTab => value != 'visitReport';
 }
 
-class ResponseStatus extends ValueObject<String> {
-  @override
-  final Either<ValueFailure<String>, String> value;
+@freezed
+class ResponseStatus with _$ResponseStatus {
+  const ResponseStatus._();
 
-  factory ResponseStatus(String input) {
-    return ResponseStatus._(
-      right(input),
-    );
-  }
+  const factory ResponseStatus(String value) = _ResponseStatus;
 
-  factory ResponseStatus.answering() => ResponseStatus('answering');
-  factory ResponseStatus.finished() => ResponseStatus('finished');
-  factory ResponseStatus.empty() => ResponseStatus('');
+  factory ResponseStatus.empty() => const ResponseStatus('');
+  factory ResponseStatus.answering() => const ResponseStatus('answering');
+  factory ResponseStatus.finished() => const ResponseStatus('finished');
 
-  bool get isFinished {
-    return value.fold((l) => false, (r) => r == 'finished');
-  }
-
-  const ResponseStatus._(this.value);
+  bool get isFinished => value == 'finished';
 }
 
-class DeviceTimeStamp extends ValueObject<DateTime> {
-  @override
-  final Either<ValueFailure<DateTime>, DateTime> value;
+@freezed
+class DeviceTimeStamp with _$DeviceTimeStamp {
+  const DeviceTimeStamp._();
 
-  factory DeviceTimeStamp(DateTime input) {
-    return DeviceTimeStamp._(
-      right(input),
-    );
-  }
+  const factory DeviceTimeStamp(DateTime value) = _DeviceTimeStamp;
 
-  factory DeviceTimeStamp.initial() =>
-      DeviceTimeStamp(DateTime.parse('1900-01-01'));
+  factory DeviceTimeStamp.initial() => DeviceTimeStamp(
+        DateTime.parse('1900-01-01'),
+      );
+  factory DeviceTimeStamp.now() => DeviceTimeStamp(
+        DateTime.now(),
+      );
 
-  factory DeviceTimeStamp.now() => DeviceTimeStamp(DateTime.now());
-
-  factory DeviceTimeStamp.fromString(String time) {
-    return DeviceTimeStamp._(
-      right(DateTime.parse(time)),
-    );
-  }
-
-  factory DeviceTimeStamp.fromInt(int time) {
-    return DeviceTimeStamp._(
-      right(DateTime.fromMicrosecondsSinceEpoch(time)),
-    );
-  }
-
-  int toInt() {
-    return value.fold((l) => 0, (r) => r.microsecondsSinceEpoch);
-  }
-
-  String toReadableString() {
-    return value.fold((l) => '', (r) => '${r.month}月${r.day}日${r.hour}時');
-  }
-
-  const DeviceTimeStamp._(this.value);
+  factory DeviceTimeStamp.fromString(String time) => DeviceTimeStamp(
+        DateTime.parse(time),
+      );
+  factory DeviceTimeStamp.fromInt(int time) => DeviceTimeStamp(
+        DateTime.fromMicrosecondsSinceEpoch(time),
+      );
+  int toInt() => value.microsecondsSinceEpoch;
+  String toReadableString() => '${value.month}月${value.day}日${value.hour}時';
 }
 
 enum SurveyPageUpdateType {

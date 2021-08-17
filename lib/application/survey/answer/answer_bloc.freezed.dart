@@ -28,13 +28,13 @@ class _$AnswerEventTearOff {
   }
 
   _AnswerChanged answerChanged(
-      {required QuestionId questionId,
+      {required String questionId,
       required dynamic body,
       required bool isNote,
       required bool isSpecialAnswer,
       required bool toggle,
       required bool isRecode,
-      ChoiceId? noteOf}) {
+      String? noteOf}) {
     return _AnswerChanged(
       questionId: questionId,
       body: body,
@@ -46,8 +46,7 @@ class _$AnswerEventTearOff {
     );
   }
 
-  _SpecialAnswerSwitched specialAnswerSwitched(
-      {required QuestionId questionId}) {
+  _SpecialAnswerSwitched specialAnswerSwitched({required String questionId}) {
     return _SpecialAnswerSwitched(
       questionId: questionId,
     );
@@ -76,10 +75,10 @@ mixin _$AnswerEvent {
     required TResult Function(
             KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
-    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+    required TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
         answerChanged,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
@@ -90,10 +89,10 @@ mixin _$AnswerEvent {
     TResult Function(KtList<Question> questionList, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
-    TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+    TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)?
         answerChanged,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
     TResult Function()? taskInitialized,
@@ -245,10 +244,10 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(
             KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
-    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+    required TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
         answerChanged,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
@@ -262,10 +261,10 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(KtList<Question> questionList, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
-    TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+    TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)?
         answerChanged,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
     TResult Function()? taskInitialized,
@@ -329,13 +328,13 @@ abstract class _$AnswerChangedCopyWith<$Res> {
           _AnswerChanged value, $Res Function(_AnswerChanged) then) =
       __$AnswerChangedCopyWithImpl<$Res>;
   $Res call(
-      {QuestionId questionId,
+      {String questionId,
       dynamic body,
       bool isNote,
       bool isSpecialAnswer,
       bool toggle,
       bool isRecode,
-      ChoiceId? noteOf});
+      String? noteOf});
 }
 
 /// @nodoc
@@ -362,7 +361,7 @@ class __$AnswerChangedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
@@ -386,7 +385,7 @@ class __$AnswerChangedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
       noteOf: noteOf == freezed
           ? _value.noteOf
           : noteOf // ignore: cast_nullable_to_non_nullable
-              as ChoiceId?,
+              as String?,
     ));
   }
 }
@@ -404,7 +403,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
       this.noteOf});
 
   @override
-  final QuestionId questionId;
+  final String questionId;
   @override
   final dynamic body;
   @override
@@ -416,7 +415,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
   @override
   final bool isRecode;
   @override
-  final ChoiceId? noteOf;
+  final String? noteOf;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -482,10 +481,10 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function(
             KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
-    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+    required TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
         answerChanged,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
@@ -500,10 +499,10 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(KtList<Question> questionList, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
-    TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+    TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)?
         answerChanged,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
     TResult Function()? taskInitialized,
@@ -550,21 +549,21 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
 
 abstract class _AnswerChanged implements AnswerEvent {
   const factory _AnswerChanged(
-      {required QuestionId questionId,
+      {required String questionId,
       required dynamic body,
       required bool isNote,
       required bool isSpecialAnswer,
       required bool toggle,
       required bool isRecode,
-      ChoiceId? noteOf}) = _$_AnswerChanged;
+      String? noteOf}) = _$_AnswerChanged;
 
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
   dynamic get body => throw _privateConstructorUsedError;
   bool get isNote => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   bool get toggle => throw _privateConstructorUsedError;
   bool get isRecode => throw _privateConstructorUsedError;
-  ChoiceId? get noteOf => throw _privateConstructorUsedError;
+  String? get noteOf => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerChangedCopyWith<_AnswerChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -575,7 +574,7 @@ abstract class _$SpecialAnswerSwitchedCopyWith<$Res> {
   factory _$SpecialAnswerSwitchedCopyWith(_SpecialAnswerSwitched value,
           $Res Function(_SpecialAnswerSwitched) then) =
       __$SpecialAnswerSwitchedCopyWithImpl<$Res>;
-  $Res call({QuestionId questionId});
+  $Res call({String questionId});
 }
 
 /// @nodoc
@@ -597,7 +596,7 @@ class __$SpecialAnswerSwitchedCopyWithImpl<$Res>
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
     ));
   }
 }
@@ -610,7 +609,7 @@ class _$_SpecialAnswerSwitched
   const _$_SpecialAnswerSwitched({required this.questionId});
 
   @override
-  final QuestionId questionId;
+  final String questionId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -650,10 +649,10 @@ class _$_SpecialAnswerSwitched
     required TResult Function(
             KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
-    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+    required TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
         answerChanged,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
@@ -667,10 +666,10 @@ class _$_SpecialAnswerSwitched
     TResult Function(KtList<Question> questionList, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
-    TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+    TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)?
         answerChanged,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
     TResult Function()? taskInitialized,
@@ -715,10 +714,10 @@ class _$_SpecialAnswerSwitched
 }
 
 abstract class _SpecialAnswerSwitched implements AnswerEvent {
-  const factory _SpecialAnswerSwitched({required QuestionId questionId}) =
+  const factory _SpecialAnswerSwitched({required String questionId}) =
       _$_SpecialAnswerSwitched;
 
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SpecialAnswerSwitchedCopyWith<_SpecialAnswerSwitched> get copyWith =>
       throw _privateConstructorUsedError;
@@ -775,10 +774,10 @@ class _$_ReadOnlyToggled
     required TResult Function(
             KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
-    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+    required TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
         answerChanged,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
@@ -792,10 +791,10 @@ class _$_ReadOnlyToggled
     TResult Function(KtList<Question> questionList, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
-    TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+    TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)?
         answerChanged,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
     TResult Function()? taskInitialized,
@@ -891,10 +890,10 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(
             KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
-    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+    required TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
         answerChanged,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
@@ -908,10 +907,10 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(KtList<Question> questionList, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
-    TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+    TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)?
         answerChanged,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
     TResult Function()? taskInitialized,
@@ -1010,10 +1009,10 @@ class _$_TaskInitialized
     required TResult Function(
             KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
-    required TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)
+    required TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
         answerChanged,
-    required TResult Function(QuestionId questionId) specialAnswerSwitched,
+    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function() readOnlyToggled,
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
@@ -1027,10 +1026,10 @@ class _$_TaskInitialized
     TResult Function(KtList<Question> questionList, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
-    TResult Function(QuestionId questionId, dynamic body, bool isNote,
-            bool isSpecialAnswer, bool toggle, bool isRecode, ChoiceId? noteOf)?
+    TResult Function(String questionId, dynamic body, bool isNote,
+            bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)?
         answerChanged,
-    TResult Function(QuestionId questionId)? specialAnswerSwitched,
+    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function()? readOnlyToggled,
     TResult Function()? stateCleared,
     TResult Function()? taskInitialized,

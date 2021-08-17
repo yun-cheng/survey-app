@@ -1,9 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../domain/auth/value_objects.dart';
 import '../../domain/overview/survey.dart';
-import '../../domain/overview/value_objects.dart';
 import '../../domain/survey/value_objects.dart';
 import 'survey_module_dtos.dart';
 
@@ -24,12 +22,12 @@ class SurveyDto with _$SurveyDto {
 
   factory SurveyDto.fromDomain(Survey survey) {
     return SurveyDto(
-      surveyId: survey.id.getValueAnyway(),
-      surveyName: survey.name.getValueAnyway(),
-      teamId: survey.teamId.getValueAnyway(),
-      projectId: survey.projectId.getValueAnyway(),
+      surveyId: survey.id,
+      surveyName: survey.name,
+      teamId: survey.teamId,
+      projectId: survey.projectId,
       module: survey.module
-          .mapKeys((entry) => entry.key.getValueAnyway())
+          .mapKeys((entry) => entry.key.value)
           .mapValues((entry) => SurveyModuleDto.fromDomain(entry.value))
           .asMap(),
     );
@@ -37,10 +35,10 @@ class SurveyDto with _$SurveyDto {
 
   Survey toDomain() {
     return Survey(
-      id: SurveyId(surveyId),
-      name: SurveyName(surveyName),
-      teamId: TeamId(teamId),
-      projectId: ProjectId(projectId),
+      id: surveyId,
+      name: surveyName,
+      teamId: teamId,
+      projectId: projectId,
       module: KtMap.from(module)
           .mapKeys((entry) => ModuleType(entry.key))
           .mapValues((entry) => entry.value.toDomain()),

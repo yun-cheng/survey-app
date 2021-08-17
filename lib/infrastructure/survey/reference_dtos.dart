@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../domain/overview/value_objects.dart';
-import '../../domain/respondent/value_objects.dart';
 import '../../domain/survey/reference.dart';
 import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
@@ -25,20 +23,20 @@ class ReferenceDto with _$ReferenceDto {
 
   factory ReferenceDto.fromDomain(Reference domain) {
     return ReferenceDto(
-      respondentId: domain.respondentId.getValueAnyway(),
-      surveyId: domain.surveyId.getValueAnyway(),
-      moduleType: domain.moduleType.getValueAnyway(),
-      questionId: domain.questionId.getValueAnyway(),
+      respondentId: domain.respondentId,
+      surveyId: domain.surveyId,
+      moduleType: domain.moduleType.value,
+      questionId: domain.questionId,
       answer: AnswerDto.fromDomain(domain.answer),
     );
   }
 
   Reference toDomain() {
     return Reference(
-      respondentId: RespondentId(respondentId),
-      surveyId: SurveyId(surveyId),
+      respondentId: respondentId,
+      surveyId: surveyId,
       moduleType: ModuleType(moduleType),
-      questionId: QuestionId(questionId),
+      questionId: questionId,
       answer: answer.toDomain(),
     );
   }

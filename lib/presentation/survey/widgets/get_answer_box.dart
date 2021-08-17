@@ -9,14 +9,14 @@ import 'table_box.dart';
 import 'text_box.dart';
 
 Widget getAnswerBox({
-  required QuestionId questionId,
+  required String questionId,
   required QuestionType questionType,
   required bool isSpecialAnswer,
   bool isinCell = false,
   String tableId = '',
   bool forceDropdown = false,
 }) {
-  if (questionType.isValid()) {
+  if (questionType.isValid) {
     if ((questionType.isNormalChoice || isSpecialAnswer) && !forceDropdown) {
       return ChoicesBox(
         questionId: questionId,

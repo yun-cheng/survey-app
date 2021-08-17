@@ -12,7 +12,7 @@ class Expression with _$Expression {
   const Expression._();
 
   const factory Expression({
-    required QuestionId field,
+    required String field,
     required Operator operator,
     required Answer comparisonValue,
   }) = _Expression;

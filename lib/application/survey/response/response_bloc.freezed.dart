@@ -17,7 +17,7 @@ class _$ResponseEventTearOff {
   const _$ResponseEventTearOff();
 
   _WatchResponseListStarted watchResponseListStarted(
-      {required TeamId teamId, required Interviewer interviewer}) {
+      {required String teamId, required Interviewer interviewer}) {
     return _WatchResponseListStarted(
       teamId: teamId,
       interviewer: interviewer,
@@ -68,8 +68,8 @@ class _$ResponseEventTearOff {
   }
 
   _ResponseUpdated responseUpdated(
-      {required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      {required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) {
     return _ResponseUpdated(
       answerMap: answerMap,
@@ -113,7 +113,7 @@ const $ResponseEvent = _$ResponseEventTearOff();
 mixin _$ResponseEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -127,8 +127,8 @@ mixin _$ResponseEvent {
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -141,7 +141,7 @@ mixin _$ResponseEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -155,8 +155,8 @@ mixin _$ResponseEvent {
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -228,7 +228,7 @@ abstract class _$WatchResponseListStartedCopyWith<$Res> {
   factory _$WatchResponseListStartedCopyWith(_WatchResponseListStarted value,
           $Res Function(_WatchResponseListStarted) then) =
       __$WatchResponseListStartedCopyWithImpl<$Res>;
-  $Res call({TeamId teamId, Interviewer interviewer});
+  $Res call({String teamId, Interviewer interviewer});
 
   $InterviewerCopyWith<$Res> get interviewer;
 }
@@ -254,7 +254,7 @@ class __$WatchResponseListStartedCopyWithImpl<$Res>
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer // ignore: cast_nullable_to_non_nullable
@@ -279,7 +279,7 @@ class _$_WatchResponseListStarted
       {required this.teamId, required this.interviewer});
 
   @override
-  final TeamId teamId;
+  final String teamId;
   @override
   final Interviewer interviewer;
 
@@ -324,7 +324,7 @@ class _$_WatchResponseListStarted
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -338,8 +338,8 @@ class _$_WatchResponseListStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -355,7 +355,7 @@ class _$_WatchResponseListStarted
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -369,8 +369,8 @@ class _$_WatchResponseListStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -435,10 +435,10 @@ class _$_WatchResponseListStarted
 
 abstract class _WatchResponseListStarted implements ResponseEvent {
   const factory _WatchResponseListStarted(
-      {required TeamId teamId,
+      {required String teamId,
       required Interviewer interviewer}) = _$_WatchResponseListStarted;
 
-  TeamId get teamId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
   Interviewer get interviewer => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$WatchResponseListStartedCopyWith<_WatchResponseListStarted> get copyWith =>
@@ -524,7 +524,7 @@ class _$_ResponseListReceived
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -538,8 +538,8 @@ class _$_ResponseListReceived
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -555,7 +555,7 @@ class _$_ResponseListReceived
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -569,8 +569,8 @@ class _$_ResponseListReceived
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -694,7 +694,7 @@ class _$_UploadTimerUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -708,8 +708,8 @@ class _$_UploadTimerUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -725,7 +725,7 @@ class _$_UploadTimerUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -739,8 +739,8 @@ class _$_UploadTimerUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -856,7 +856,7 @@ class _$_ResponseListUploading
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -870,8 +870,8 @@ class _$_ResponseListUploading
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -887,7 +887,7 @@ class _$_ResponseListUploading
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -901,8 +901,8 @@ class _$_ResponseListUploading
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1047,7 +1047,7 @@ class _$_ResponseListUploaded
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -1061,8 +1061,8 @@ class _$_ResponseListUploaded
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1078,7 +1078,7 @@ class _$_ResponseListUploaded
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -1092,8 +1092,8 @@ class _$_ResponseListUploaded
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1251,7 +1251,7 @@ class _$_SurveySelected
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -1265,8 +1265,8 @@ class _$_SurveySelected
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1282,7 +1282,7 @@ class _$_SurveySelected
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -1296,8 +1296,8 @@ class _$_SurveySelected
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1382,6 +1382,7 @@ abstract class _$ResponseStartedCopyWith<$Res> {
       UniqueId responseId});
 
   $RespondentCopyWith<$Res> get respondent;
+  $ModuleTypeCopyWith<$Res> get moduleType;
   $UniqueIdCopyWith<$Res> get responseId;
 }
 
@@ -1432,6 +1433,13 @@ class __$ResponseStartedCopyWithImpl<$Res>
   $RespondentCopyWith<$Res> get respondent {
     return $RespondentCopyWith<$Res>(_value.respondent, (value) {
       return _then(_value.copyWith(respondent: value));
+    });
+  }
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
     });
   }
 
@@ -1521,7 +1529,7 @@ class _$_ResponseStarted
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -1535,8 +1543,8 @@ class _$_ResponseStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1553,7 +1561,7 @@ class _$_ResponseStarted
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -1567,8 +1575,8 @@ class _$_ResponseStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1656,8 +1664,8 @@ abstract class _$ResponseUpdatedCopyWith<$Res> {
           _ResponseUpdated value, $Res Function(_ResponseUpdated) then) =
       __$ResponseUpdatedCopyWithImpl<$Res>;
   $Res call(
-      {KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      {KtMap<String, Answer> answerMap,
+      KtMap<String, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
@@ -1684,11 +1692,11 @@ class __$ResponseUpdatedCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState // ignore: cast_nullable_to_non_nullable
@@ -1716,9 +1724,9 @@ class _$_ResponseUpdated
       required this.surveyPageState});
 
   @override
-  final KtMap<QuestionId, Answer> answerMap;
+  final KtMap<String, Answer> answerMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<String, AnswerStatus> answerStatusMap;
   @override
   final SimpleSurveyPageState surveyPageState;
 
@@ -1767,7 +1775,7 @@ class _$_ResponseUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -1781,8 +1789,8 @@ class _$_ResponseUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1798,7 +1806,7 @@ class _$_ResponseUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -1812,8 +1820,8 @@ class _$_ResponseUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1878,12 +1886,12 @@ class _$_ResponseUpdated
 
 abstract class _ResponseUpdated implements ResponseEvent {
   const factory _ResponseUpdated(
-      {required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      {required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) = _$_ResponseUpdated;
 
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   SimpleSurveyPageState get surveyPageState =>
       throw _privateConstructorUsedError;
@@ -1967,7 +1975,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -1981,8 +1989,8 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1998,7 +2006,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -2012,8 +2020,8 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2172,7 +2180,7 @@ class _$_ResponseResumed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -2186,8 +2194,8 @@ class _$_ResponseResumed
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2203,7 +2211,7 @@ class _$_ResponseResumed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -2217,8 +2225,8 @@ class _$_ResponseResumed
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2367,7 +2375,7 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -2381,8 +2389,8 @@ class _$_ReferenceListUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2398,7 +2406,7 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -2412,8 +2420,8 @@ class _$_ReferenceListUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2530,7 +2538,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -2544,8 +2552,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2561,7 +2569,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -2575,8 +2583,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2692,7 +2700,7 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, Interviewer interviewer)
+    required TResult Function(String teamId, Interviewer interviewer)
         watchResponseListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)
@@ -2706,8 +2714,8 @@ class _$_TaskInitialized
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2723,7 +2731,7 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, Interviewer interviewer)?
+    TResult Function(String teamId, Interviewer interviewer)?
         watchResponseListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Response>> failureOrResponseList)?
@@ -2737,8 +2745,8 @@ class _$_TaskInitialized
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2919,6 +2927,7 @@ abstract class $ResponseStateCopyWith<$Res> {
   $SurveyCopyWith<$Res> get survey;
   $RespondentCopyWith<$Res> get respondent;
   $InterviewerCopyWith<$Res> get interviewer;
+  $ModuleTypeCopyWith<$Res> get moduleType;
   $LoadStateCopyWith<$Res> get responseListState;
   $ResponseCopyWith<$Res> get response;
   $LoadStateCopyWith<$Res> get responseRestoreState;
@@ -3065,6 +3074,13 @@ class _$ResponseStateCopyWithImpl<$Res>
   }
 
   @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
+    });
+  }
+
+  @override
   $LoadStateCopyWith<$Res> get responseListState {
     return $LoadStateCopyWith<$Res>(_value.responseListState, (value) {
       return _then(_value.copyWith(responseListState: value));
@@ -3142,6 +3158,8 @@ abstract class _$ResponseStateCopyWith<$Res>
   $RespondentCopyWith<$Res> get respondent;
   @override
   $InterviewerCopyWith<$Res> get interviewer;
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType;
   @override
   $LoadStateCopyWith<$Res> get responseListState;
   @override

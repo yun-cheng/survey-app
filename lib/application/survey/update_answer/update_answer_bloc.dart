@@ -13,7 +13,6 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/update_answer_state_dtos.dart';

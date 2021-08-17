@@ -6,11 +6,10 @@ import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 
 class QuestionBox extends StatelessWidget {
-  final QuestionId questionId;
+  final String questionId;
   final bool isinCell;
 
   const QuestionBox({
@@ -58,9 +57,9 @@ class QuestionBox extends StatelessWidget {
               questionText,
               style: isinCell ? kH4TextStyle : kH3TextStyle,
             ),
-            if (question.note.getValueAnyway() != '') ...[
+            if (question.note != '') ...[
               Text(
-                question.note.getValueAnyway(),
+                question.note,
                 style: kH4TextStyle.copyWith(
                   fontStyle: FontStyle.italic,
                   color: Colors.grey[700],

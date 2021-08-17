@@ -17,20 +17,20 @@ class _$QuestionTearOff {
   const _$QuestionTearOff();
 
   _Question call(
-      {required QuestionId id,
+      {required String id,
       required bool hideId,
       required int serialNumber,
       required KtList<FormattedText> body,
       required String stringBody,
-      required QuestionNote note,
+      required String note,
       required QuestionType type,
       required FullExpression show,
       required KtList<Choice> choiceList,
       required KtList<Choice> initChoiceList,
       required bool hasSpecialAnswer,
       required FullExpression validateAnswer,
-      required QuestionId upperQuestionId,
-      required PageNumber pageNumber,
+      required String upperQuestionId,
+      required int pageNumber,
       required bool recodeNeeded,
       required String tableId,
       required int rowId}) {
@@ -61,20 +61,20 @@ const $Question = _$QuestionTearOff();
 
 /// @nodoc
 mixin _$Question {
-  QuestionId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   bool get hideId => throw _privateConstructorUsedError;
   int get serialNumber => throw _privateConstructorUsedError;
   KtList<FormattedText> get body => throw _privateConstructorUsedError;
   String get stringBody => throw _privateConstructorUsedError;
-  QuestionNote get note => throw _privateConstructorUsedError;
+  String get note => throw _privateConstructorUsedError;
   QuestionType get type => throw _privateConstructorUsedError;
   FullExpression get show => throw _privateConstructorUsedError;
   KtList<Choice> get choiceList => throw _privateConstructorUsedError;
   KtList<Choice> get initChoiceList => throw _privateConstructorUsedError;
   bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   FullExpression get validateAnswer => throw _privateConstructorUsedError;
-  QuestionId get upperQuestionId => throw _privateConstructorUsedError;
-  PageNumber get pageNumber => throw _privateConstructorUsedError;
+  String get upperQuestionId => throw _privateConstructorUsedError;
+  int get pageNumber => throw _privateConstructorUsedError;
   bool get recodeNeeded => throw _privateConstructorUsedError; // H_ table
   String get tableId => throw _privateConstructorUsedError;
   int get rowId => throw _privateConstructorUsedError;
@@ -89,24 +89,25 @@ abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res>;
   $Res call(
-      {QuestionId id,
+      {String id,
       bool hideId,
       int serialNumber,
       KtList<FormattedText> body,
       String stringBody,
-      QuestionNote note,
+      String note,
       QuestionType type,
       FullExpression show,
       KtList<Choice> choiceList,
       KtList<Choice> initChoiceList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
-      QuestionId upperQuestionId,
-      PageNumber pageNumber,
+      String upperQuestionId,
+      int pageNumber,
       bool recodeNeeded,
       String tableId,
       int rowId});
 
+  $QuestionTypeCopyWith<$Res> get type;
   $FullExpressionCopyWith<$Res> get show;
   $FullExpressionCopyWith<$Res> get validateAnswer;
 }
@@ -143,7 +144,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       hideId: hideId == freezed
           ? _value.hideId
           : hideId // ignore: cast_nullable_to_non_nullable
@@ -163,7 +164,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
-              as QuestionNote,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -191,11 +192,11 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
           : upperQuestionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       pageNumber: pageNumber == freezed
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       recodeNeeded: recodeNeeded == freezed
           ? _value.recodeNeeded
           : recodeNeeded // ignore: cast_nullable_to_non_nullable
@@ -209,6 +210,13 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
           : rowId // ignore: cast_nullable_to_non_nullable
               as int,
     ));
+  }
+
+  @override
+  $QuestionTypeCopyWith<$Res> get type {
+    return $QuestionTypeCopyWith<$Res>(_value.type, (value) {
+      return _then(_value.copyWith(type: value));
+    });
   }
 
   @override
@@ -232,24 +240,26 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       __$QuestionCopyWithImpl<$Res>;
   @override
   $Res call(
-      {QuestionId id,
+      {String id,
       bool hideId,
       int serialNumber,
       KtList<FormattedText> body,
       String stringBody,
-      QuestionNote note,
+      String note,
       QuestionType type,
       FullExpression show,
       KtList<Choice> choiceList,
       KtList<Choice> initChoiceList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
-      QuestionId upperQuestionId,
-      PageNumber pageNumber,
+      String upperQuestionId,
+      int pageNumber,
       bool recodeNeeded,
       String tableId,
       int rowId});
 
+  @override
+  $QuestionTypeCopyWith<$Res> get type;
   @override
   $FullExpressionCopyWith<$Res> get show;
   @override
@@ -289,7 +299,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       hideId: hideId == freezed
           ? _value.hideId
           : hideId // ignore: cast_nullable_to_non_nullable
@@ -309,7 +319,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       note: note == freezed
           ? _value.note
           : note // ignore: cast_nullable_to_non_nullable
-              as QuestionNote,
+              as String,
       type: type == freezed
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -337,11 +347,11 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       upperQuestionId: upperQuestionId == freezed
           ? _value.upperQuestionId
           : upperQuestionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       pageNumber: pageNumber == freezed
           ? _value.pageNumber
           : pageNumber // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       recodeNeeded: recodeNeeded == freezed
           ? _value.recodeNeeded
           : recodeNeeded // ignore: cast_nullable_to_non_nullable
@@ -382,7 +392,7 @@ class _$_Question extends _Question {
       : super._();
 
   @override
-  final QuestionId id;
+  final String id;
   @override
   final bool hideId;
   @override
@@ -392,7 +402,7 @@ class _$_Question extends _Question {
   @override
   final String stringBody;
   @override
-  final QuestionNote note;
+  final String note;
   @override
   final QuestionType type;
   @override
@@ -406,9 +416,9 @@ class _$_Question extends _Question {
   @override
   final FullExpression validateAnswer;
   @override
-  final QuestionId upperQuestionId;
+  final String upperQuestionId;
   @override
-  final PageNumber pageNumber;
+  final int pageNumber;
   @override
   final bool recodeNeeded;
   @override // H_ table
@@ -500,27 +510,27 @@ class _$_Question extends _Question {
 
 abstract class _Question extends Question {
   const factory _Question(
-      {required QuestionId id,
+      {required String id,
       required bool hideId,
       required int serialNumber,
       required KtList<FormattedText> body,
       required String stringBody,
-      required QuestionNote note,
+      required String note,
       required QuestionType type,
       required FullExpression show,
       required KtList<Choice> choiceList,
       required KtList<Choice> initChoiceList,
       required bool hasSpecialAnswer,
       required FullExpression validateAnswer,
-      required QuestionId upperQuestionId,
-      required PageNumber pageNumber,
+      required String upperQuestionId,
+      required int pageNumber,
       required bool recodeNeeded,
       required String tableId,
       required int rowId}) = _$_Question;
   const _Question._() : super._();
 
   @override
-  QuestionId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
   bool get hideId => throw _privateConstructorUsedError;
   @override
@@ -530,7 +540,7 @@ abstract class _Question extends Question {
   @override
   String get stringBody => throw _privateConstructorUsedError;
   @override
-  QuestionNote get note => throw _privateConstructorUsedError;
+  String get note => throw _privateConstructorUsedError;
   @override
   QuestionType get type => throw _privateConstructorUsedError;
   @override
@@ -544,9 +554,9 @@ abstract class _Question extends Question {
   @override
   FullExpression get validateAnswer => throw _privateConstructorUsedError;
   @override
-  QuestionId get upperQuestionId => throw _privateConstructorUsedError;
+  String get upperQuestionId => throw _privateConstructorUsedError;
   @override
-  PageNumber get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber => throw _privateConstructorUsedError;
   @override
   bool get recodeNeeded => throw _privateConstructorUsedError;
   @override // H_ table

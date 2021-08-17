@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../domain/auth/value_objects.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/respondent_list.dart';
@@ -20,14 +19,14 @@ class RespondentRepository implements IRespondentRepository {
   @override
   Stream<Either<RespondentFailure, KtList<RespondentList>>>
       watchRespondentListList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   }) async* {
     final respondentCollection = _firestore.respondentCollection;
 
     yield* respondentCollection
-        .where('teamId', isEqualTo: teamId.getOrCrash())
-        .where('interviewerId', isEqualTo: interviewerId.getOrCrash())
+        .where('teamId', isEqualTo: teamId)
+        .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
         .map((snapshot) => right<RespondentFailure, KtList<RespondentList>>(
             RespondentListListDto.fromFirestore(snapshot).toDomain()))

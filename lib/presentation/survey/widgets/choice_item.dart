@@ -12,7 +12,7 @@ import '../../core/constants.dart';
 import 'note_box.dart';
 
 class ChoiceItem extends HookWidget {
-  final QuestionId questionId;
+  final String questionId;
   final QuestionType questionType;
   final Choice choice;
   final bool isSpecialAnswer;
@@ -73,7 +73,7 @@ class ChoiceItem extends HookWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '(${choice.id.getValueAnyway()}) ${choice.body.getValueAnyway()}',
+                '(${choice.id}) ${choice.body}',
                 style: kPTextStyle,
               ),
               if (choice.asNote && isSelected.value) ...[

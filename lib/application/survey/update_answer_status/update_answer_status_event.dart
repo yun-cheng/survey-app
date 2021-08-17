@@ -6,9 +6,9 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   const factory UpdateAnswerStatusEvent.moduleLoaded({
     required KtList<Question> questionList,
     required bool isRecodeModule,
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
-    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
+    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
   }) = _ModuleLoaded;
 
   // H_ 離開問卷時清空 state
@@ -16,19 +16,19 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
 
   // H_ answerMap 有變更時
   const factory UpdateAnswerStatusEvent.answerMapUpdated({
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtList<QuestionId> questionIdList,
+    required KtMap<String, Answer> answerMap,
+    required KtList<String> questionIdList,
     required bool updateAnswerStatus,
   }) = _AnswerMapUpdated;
 
   // H_ 切換該題特殊作答時
   const factory UpdateAnswerStatusEvent.specialAnswerSwitched({
-    required QuestionId questionId,
+    required String questionId,
   }) = _SpecialAnswerSwitched;
 
   // H_ 清空部分題目作答
   const factory UpdateAnswerStatusEvent.answerQIdListCleared({
-    required KtList<QuestionId> questionIdList,
+    required KtList<String> questionIdList,
   }) = _AnswerQIdListCleared;
 
   const factory UpdateAnswerStatusEvent.taskInitialized() = _TaskInitialized;

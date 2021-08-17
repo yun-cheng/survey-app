@@ -24,7 +24,7 @@ class AnswerDto with _$AnswerDto {
 
   factory AnswerDto.fromDomain(Answer domain) {
     return AnswerDto(
-      type: domain.type.getValueAnyway(),
+      type: domain.type.value,
       withNote: domain.withNote,
       stringValue: domain.stringValue,
       intValue: domain.intValue,
@@ -34,24 +34,20 @@ class AnswerDto with _$AnswerDto {
       choiceListValue: domain.choiceListValue
           ?.map((choice) => SimpleChoiceDto.fromDomain(choice))
           .asList(),
-      noteMap: domain.noteMap
-          ?.mapKeys((entry) => entry.key.getValueAnyway())
-          .asMap(),
+      noteMap: domain.noteMap?.asMap(),
     );
   }
 
   Answer toDomain() {
     return Answer(
-      type: AnswerType(type),
+      type: AnswerType(type ?? ''),
       withNote: withNote ?? false,
       stringValue: stringValue,
       intValue: intValue,
       choiceValue: choiceValue?.toDomain(),
       choiceListValue:
           choiceListValue?.map((choice) => choice.toDomain()).toImmutableList(),
-      noteMap: noteMap != null
-          ? KtMap.from(noteMap!).mapKeys((entry) => ChoiceId(entry.key))
-          : null,
+      noteMap: noteMap != null ? KtMap.from(noteMap!) : null,
     );
   }
 

@@ -7,7 +7,6 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/survey/value_objects.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
@@ -38,7 +37,7 @@ class SurveyBody extends StatelessWidget {
         //  會導致沒有 rebuild，故加上最後一個判斷條件
         buildWhen: (p, c) =>
             (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
-            (p.page != c.page || c.page == PageNumber(0)),
+            (p.page != c.page || c.page == 0),
         builder: (context, state) {
           logger('Build').i('SurveyBody: List of QaCard');
 
@@ -58,7 +57,7 @@ class SurveyBody extends StatelessWidget {
                 final question = state.pageQuestionList[index];
 
                 return QaCard(
-                  key: Key(question.id.getValueAnyway()),
+                  key: Key(question.id),
                   index: index,
                   questionId: question.id,
                 );

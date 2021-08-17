@@ -41,14 +41,14 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
 
   final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
 
-  KtList<QuestionId> changedUpperQIdList = const KtList<QuestionId>.empty();
+  KtList<String> changedUpperQIdList = const KtList<String>.empty();
   changedUpperQIdList = changedUpperQIdList.plusElement(state.questionId);
   // NOTE 因為無法直接更新 answerMap，因此將要清除的加進 clearAnswerQIdList，後面一次清除
-  KtList<QuestionId> clearAnswerQIdList = state.clearAnswerQIdList;
+  KtList<String> clearAnswerQIdList = state.clearAnswerQIdList;
 
   // S_ 篩出所有是連鎖題下層的題目
-  final lowerQuestionList = state.questionList
-      .filter((_question) => _question.upperQuestionId.isNotEmpty);
+  final lowerQuestionList =
+      state.questionList.filter((_question) => _question.upperQuestionId != '');
 
   lowerQuestionList.forEach((question) {
     // S_0 如果該題的 upperQuestionId 在 changedUpperQIdList 中
@@ -115,7 +115,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
 
   final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
 
-  KtList<QuestionId> clearAnswerQIdList = state.clearAnswerQIdList;
+  KtList<String> clearAnswerQIdList = state.clearAnswerQIdList;
 
   // S_ 篩出有設定題目出現條件的題目
   final showQuestionList =

@@ -8,11 +8,10 @@ import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 
 class RecodeBox extends HookWidget {
-  final QuestionId questionId;
+  final String questionId;
 
   const RecodeBox({
     Key? key,

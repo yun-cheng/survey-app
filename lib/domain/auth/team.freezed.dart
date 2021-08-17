@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$TeamTearOff {
   const _$TeamTearOff();
 
-  _Team call({required TeamId id, required TeamName name}) {
+  _Team call({required String id, required String name}) {
     return _Team(
       id: id,
       name: name,
@@ -29,8 +29,8 @@ const $Team = _$TeamTearOff();
 
 /// @nodoc
 mixin _$Team {
-  TeamId get id => throw _privateConstructorUsedError;
-  TeamName get name => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TeamCopyWith<Team> get copyWith => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ mixin _$Team {
 abstract class $TeamCopyWith<$Res> {
   factory $TeamCopyWith(Team value, $Res Function(Team) then) =
       _$TeamCopyWithImpl<$Res>;
-  $Res call({TeamId id, TeamName name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -60,11 +60,11 @@ class _$TeamCopyWithImpl<$Res> implements $TeamCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as TeamName,
+              as String,
     ));
   }
 }
@@ -74,7 +74,7 @@ abstract class _$TeamCopyWith<$Res> implements $TeamCopyWith<$Res> {
   factory _$TeamCopyWith(_Team value, $Res Function(_Team) then) =
       __$TeamCopyWithImpl<$Res>;
   @override
-  $Res call({TeamId id, TeamName name});
+  $Res call({String id, String name});
 }
 
 /// @nodoc
@@ -95,11 +95,11 @@ class __$TeamCopyWithImpl<$Res> extends _$TeamCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as TeamName,
+              as String,
     ));
   }
 }
@@ -110,9 +110,9 @@ class _$_Team extends _Team {
   const _$_Team({required this.id, required this.name}) : super._();
 
   @override
-  final TeamId id;
+  final String id;
   @override
-  final TeamName name;
+  final String name;
 
   @override
   String toString() {
@@ -142,13 +142,13 @@ class _$_Team extends _Team {
 }
 
 abstract class _Team extends Team {
-  const factory _Team({required TeamId id, required TeamName name}) = _$_Team;
+  const factory _Team({required String id, required String name}) = _$_Team;
   const _Team._() : super._();
 
   @override
-  TeamId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  TeamName get name => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TeamCopyWith<_Team> get copyWith => throw _privateConstructorUsedError;

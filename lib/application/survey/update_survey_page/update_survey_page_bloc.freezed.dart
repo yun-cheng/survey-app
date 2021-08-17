@@ -17,7 +17,7 @@ class _$UpdateSurveyPageEventTearOff {
   const _$UpdateSurveyPageEventTearOff();
 
   _WatchReferenceListStarted watchReferenceListStarted(
-      {required TeamId teamId, required InterviewerId interviewerId}) {
+      {required String teamId, required String interviewerId}) {
     return _WatchReferenceListStarted(
       teamId: teamId,
       interviewerId: interviewerId,
@@ -32,17 +32,17 @@ class _$UpdateSurveyPageEventTearOff {
   }
 
   _StateRestored stateRestored(
-      {required SurveyId surveyId,
+      {required String surveyId,
       required ModuleType moduleType,
       required SimpleSurveyPageState surveyPageState,
       required KtList<Question> questionList,
-      required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap,
       required bool isReadOnly,
       required bool isRecodeModule,
       required KtList<Question> mainQuestionList,
-      required KtMap<QuestionId, Answer> mainAnswerMap,
-      required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+      required KtMap<String, Answer> mainAnswerMap,
+      required KtMap<String, AnswerStatus> mainAnswerStatusMap,
       required Respondent respondent}) {
     return _StateRestored(
       surveyId: surveyId,
@@ -68,8 +68,8 @@ class _$UpdateSurveyPageEventTearOff {
   }
 
   _AnswerChanged answerChanged(
-      {required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
+      {required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap}) {
     return _AnswerChanged(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -88,7 +88,7 @@ class _$UpdateSurveyPageEventTearOff {
     return const _PreviousPagePressed();
   }
 
-  _WentToPage wentToPage(PageNumber page) {
+  _WentToPage wentToPage(int page) {
     return _WentToPage(
       page,
     );
@@ -140,34 +140,34 @@ const $UpdateSurveyPageEvent = _$UpdateSurveyPageEventTearOff();
 mixin _$UpdateSurveyPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -181,34 +181,34 @@ mixin _$UpdateSurveyPageEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -298,7 +298,7 @@ abstract class _$WatchReferenceListStartedCopyWith<$Res> {
   factory _$WatchReferenceListStartedCopyWith(_WatchReferenceListStarted value,
           $Res Function(_WatchReferenceListStarted) then) =
       __$WatchReferenceListStartedCopyWithImpl<$Res>;
-  $Res call({TeamId teamId, InterviewerId interviewerId});
+  $Res call({String teamId, String interviewerId});
 }
 
 /// @nodoc
@@ -322,11 +322,11 @@ class __$WatchReferenceListStartedCopyWithImpl<$Res>
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
     ));
   }
 }
@@ -340,9 +340,9 @@ class _$_WatchReferenceListStarted
       {required this.teamId, required this.interviewerId});
 
   @override
-  final TeamId teamId;
+  final String teamId;
   @override
-  final InterviewerId interviewerId;
+  final String interviewerId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -386,34 +386,34 @@ class _$_WatchReferenceListStarted
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -430,34 +430,34 @@ class _$_WatchReferenceListStarted
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -540,11 +540,11 @@ class _$_WatchReferenceListStarted
 
 abstract class _WatchReferenceListStarted implements UpdateSurveyPageEvent {
   const factory _WatchReferenceListStarted(
-      {required TeamId teamId,
-      required InterviewerId interviewerId}) = _$_WatchReferenceListStarted;
+      {required String teamId,
+      required String interviewerId}) = _$_WatchReferenceListStarted;
 
-  TeamId get teamId => throw _privateConstructorUsedError;
-  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$WatchReferenceListStartedCopyWith<_WatchReferenceListStarted>
       get copyWith => throw _privateConstructorUsedError;
@@ -630,34 +630,34 @@ class _$_ReferenceListReceived
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -674,34 +674,34 @@ class _$_ReferenceListReceived
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -800,19 +800,20 @@ abstract class _$StateRestoredCopyWith<$Res> {
           _StateRestored value, $Res Function(_StateRestored) then) =
       __$StateRestoredCopyWithImpl<$Res>;
   $Res call(
-      {SurveyId surveyId,
+      {String surveyId,
       ModuleType moduleType,
       SimpleSurveyPageState surveyPageState,
       KtList<Question> questionList,
-      KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<String, Answer> answerMap,
+      KtMap<String, AnswerStatus> answerStatusMap,
       bool isReadOnly,
       bool isRecodeModule,
       KtList<Question> mainQuestionList,
-      KtMap<QuestionId, Answer> mainAnswerMap,
-      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+      KtMap<String, Answer> mainAnswerMap,
+      KtMap<String, AnswerStatus> mainAnswerStatusMap,
       Respondent respondent});
 
+  $ModuleTypeCopyWith<$Res> get moduleType;
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
   $RespondentCopyWith<$Res> get respondent;
 }
@@ -847,7 +848,7 @@ class __$StateRestoredCopyWithImpl<$Res>
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -863,11 +864,11 @@ class __$StateRestoredCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
@@ -883,16 +884,23 @@ class __$StateRestoredCopyWithImpl<$Res>
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
               as Respondent,
     ));
+  }
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
+    });
   }
 
   @override
@@ -929,7 +937,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
       required this.respondent});
 
   @override
-  final SurveyId surveyId;
+  final String surveyId;
   @override
   final ModuleType moduleType;
   @override
@@ -937,9 +945,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   @override
   final KtList<Question> questionList;
   @override
-  final KtMap<QuestionId, Answer> answerMap;
+  final KtMap<String, Answer> answerMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<String, AnswerStatus> answerStatusMap;
   @override
   final bool isReadOnly;
   @override
@@ -947,9 +955,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   @override
   final KtList<Question> mainQuestionList;
   @override
-  final KtMap<QuestionId, Answer> mainAnswerMap;
+  final KtMap<String, Answer> mainAnswerMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
+  final KtMap<String, AnswerStatus> mainAnswerStatusMap;
   @override
   final Respondent respondent;
 
@@ -1043,34 +1051,34 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1099,34 +1107,34 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -1221,33 +1229,32 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
 
 abstract class _StateRestored implements UpdateSurveyPageEvent {
   const factory _StateRestored(
-      {required SurveyId surveyId,
+      {required String surveyId,
       required ModuleType moduleType,
       required SimpleSurveyPageState surveyPageState,
       required KtList<Question> questionList,
-      required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap,
       required bool isReadOnly,
       required bool isRecodeModule,
       required KtList<Question> mainQuestionList,
-      required KtMap<QuestionId, Answer> mainAnswerMap,
-      required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+      required KtMap<String, Answer> mainAnswerMap,
+      required KtMap<String, AnswerStatus> mainAnswerStatusMap,
       required Respondent respondent}) = _$_StateRestored;
 
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
   SimpleSurveyPageState get surveyPageState =>
       throw _privateConstructorUsedError;
   KtList<Question> get questionList => throw _privateConstructorUsedError;
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
-  KtMap<QuestionId, Answer> get mainAnswerMap =>
-      throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
+  KtMap<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
+  KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
   Respondent get respondent => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1339,34 +1346,34 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1383,34 +1390,34 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -1509,8 +1516,8 @@ abstract class _$AnswerChangedCopyWith<$Res> {
           _AnswerChanged value, $Res Function(_AnswerChanged) then) =
       __$AnswerChangedCopyWithImpl<$Res>;
   $Res call(
-      {KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap});
+      {KtMap<String, Answer> answerMap,
+      KtMap<String, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -1533,11 +1540,11 @@ class __$AnswerChangedCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
     ));
   }
 }
@@ -1549,9 +1556,9 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
       {required this.answerMap, required this.answerStatusMap});
 
   @override
-  final KtMap<QuestionId, Answer> answerMap;
+  final KtMap<String, Answer> answerMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<String, AnswerStatus> answerStatusMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1593,34 +1600,34 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1637,34 +1644,34 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -1747,12 +1754,11 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
 
 abstract class _AnswerChanged implements UpdateSurveyPageEvent {
   const factory _AnswerChanged(
-          {required KtMap<QuestionId, Answer> answerMap,
-          required KtMap<QuestionId, AnswerStatus> answerStatusMap}) =
-      _$_AnswerChanged;
+      {required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap}) = _$_AnswerChanged;
 
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerChangedCopyWith<_AnswerChanged> get copyWith =>
@@ -1811,34 +1817,34 @@ class _$_ContentQuestionListUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1855,34 +1861,34 @@ class _$_ContentQuestionListUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2017,34 +2023,34 @@ class _$_NextPagePressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2061,34 +2067,34 @@ class _$_NextPagePressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2223,34 +2229,34 @@ class _$_PreviousPagePressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2267,34 +2273,34 @@ class _$_PreviousPagePressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2384,7 +2390,7 @@ abstract class _$WentToPageCopyWith<$Res> {
   factory _$WentToPageCopyWith(
           _WentToPage value, $Res Function(_WentToPage) then) =
       __$WentToPageCopyWithImpl<$Res>;
-  $Res call({PageNumber page});
+  $Res call({int page});
 }
 
 /// @nodoc
@@ -2406,7 +2412,7 @@ class __$WentToPageCopyWithImpl<$Res>
       page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
     ));
   }
 }
@@ -2417,7 +2423,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
   const _$_WentToPage(this.page);
 
   @override
-  final PageNumber page;
+  final int page;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -2452,34 +2458,34 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2496,34 +2502,34 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2605,9 +2611,9 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
 }
 
 abstract class _WentToPage implements UpdateSurveyPageEvent {
-  const factory _WentToPage(PageNumber page) = _$_WentToPage;
+  const factory _WentToPage(int page) = _$_WentToPage;
 
-  PageNumber get page => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$WentToPageCopyWith<_WentToPage> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2663,34 +2669,34 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2707,34 +2713,34 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2866,34 +2872,34 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2910,34 +2916,34 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3072,34 +3078,34 @@ class _$_ReadOnlyToggled
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3116,34 +3122,34 @@ class _$_ReadOnlyToggled
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3306,34 +3312,34 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3350,34 +3356,34 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3515,34 +3521,34 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3559,34 +3565,34 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3721,34 +3727,34 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3765,34 +3771,34 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3927,34 +3933,34 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3971,34 +3977,34 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -4129,34 +4135,34 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -4173,34 +4179,34 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -4335,34 +4341,34 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
     required TResult Function(KtList<Response> respondentResponseList)
         respondentResponseListUpdated,
-    required TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)
+    required TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionListUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
-    required TResult Function(PageNumber page) wentToPage,
+    required TResult Function(int page) wentToPage,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -4379,34 +4385,34 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
-            SurveyId surveyId,
+            String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
             KtList<Question> questionList,
-            KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap,
+            KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
             KtList<Question> mainQuestionList,
-            KtMap<QuestionId, Answer> mainAnswerMap,
-            KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+            KtMap<String, Answer> mainAnswerMap,
+            KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
     TResult Function(KtList<Response> respondentResponseList)?
         respondentResponseListUpdated,
-    TResult Function(KtMap<QuestionId, Answer> answerMap,
-            KtMap<QuestionId, AnswerStatus> answerStatusMap)?
+    TResult Function(KtMap<String, Answer> answerMap,
+            KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionListUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
-    TResult Function(PageNumber page)? wentToPage,
+    TResult Function(int page)? wentToPage,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -4496,10 +4502,10 @@ class _$UpdateSurveyPageStateTearOff {
   const _$UpdateSurveyPageStateTearOff();
 
   _UpdateSurveyPageState call(
-      {required PageNumber page,
-      required PageNumber newestPage,
+      {required int page,
+      required int newestPage,
       required Direction direction,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required KtMap<String, AnswerStatus> answerStatusMap,
       required bool isLastPage,
       required Warning warning,
       required bool showWarning,
@@ -4511,9 +4517,9 @@ class _$UpdateSurveyPageStateTearOff {
       required KtList<Reference> referenceList,
       required Option<SurveyFailure> surveyFailure,
       required Respondent respondent,
-      required KtMap<QuestionId, Answer> answerMap,
+      required KtMap<String, Answer> answerMap,
       required KtList<Response> respondentResponseList,
-      required SurveyId surveyId,
+      required String surveyId,
       required ModuleType moduleType,
       required KtList<Question> questionList,
       required KtList<Question> pageQuestionList,
@@ -4525,8 +4531,8 @@ class _$UpdateSurveyPageStateTearOff {
       required bool finishResponse,
       required bool showLeaveButton,
       required KtList<Question> mainQuestionList,
-      required KtMap<QuestionId, Answer> mainAnswerMap,
-      required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) {
+      required KtMap<String, Answer> mainAnswerMap,
+      required KtMap<String, AnswerStatus> mainAnswerStatusMap}) {
     return _UpdateSurveyPageState(
       page: page,
       newestPage: newestPage,
@@ -4569,10 +4575,10 @@ const $UpdateSurveyPageState = _$UpdateSurveyPageStateTearOff();
 /// @nodoc
 mixin _$UpdateSurveyPageState {
 // H_ restore
-  PageNumber get page => throw _privateConstructorUsedError;
-  PageNumber get newestPage => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  int get newestPage => throw _privateConstructorUsedError;
   Direction get direction => throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
   Warning get warning => throw _privateConstructorUsedError;
@@ -4586,10 +4592,10 @@ mixin _$UpdateSurveyPageState {
   KtList<Reference> get referenceList => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
   Respondent get respondent => throw _privateConstructorUsedError;
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
   KtList<Response> get respondentResponseList =>
       throw _privateConstructorUsedError;
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType =>
       throw _privateConstructorUsedError; // H_ questionList
   KtList<Question> get questionList => throw _privateConstructorUsedError;
@@ -4603,9 +4609,8 @@ mixin _$UpdateSurveyPageState {
   bool get finishResponse => throw _privateConstructorUsedError;
   bool get showLeaveButton => throw _privateConstructorUsedError; // H_ recode
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
-  KtMap<QuestionId, Answer> get mainAnswerMap =>
-      throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
+  KtMap<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
+  KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -4619,10 +4624,10 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
           $Res Function(UpdateSurveyPageState) then) =
       _$UpdateSurveyPageStateCopyWithImpl<$Res>;
   $Res call(
-      {PageNumber page,
-      PageNumber newestPage,
+      {int page,
+      int newestPage,
       Direction direction,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<String, AnswerStatus> answerStatusMap,
       bool isLastPage,
       Warning warning,
       bool showWarning,
@@ -4634,9 +4639,9 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
       KtList<Reference> referenceList,
       Option<SurveyFailure> surveyFailure,
       Respondent respondent,
-      KtMap<QuestionId, Answer> answerMap,
+      KtMap<String, Answer> answerMap,
       KtList<Response> respondentResponseList,
-      SurveyId surveyId,
+      String surveyId,
       ModuleType moduleType,
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
@@ -4648,14 +4653,15 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
       bool finishResponse,
       bool showLeaveButton,
       KtList<Question> mainQuestionList,
-      KtMap<QuestionId, Answer> mainAnswerMap,
-      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
+      KtMap<String, Answer> mainAnswerMap,
+      KtMap<String, AnswerStatus> mainAnswerStatusMap});
 
   $WarningCopyWith<$Res> get warning;
   $LoadStateCopyWith<$Res> get updateState;
   $LoadStateCopyWith<$Res> get restoreState;
   $LoadStateCopyWith<$Res> get referenceListState;
   $RespondentCopyWith<$Res> get respondent;
+  $ModuleTypeCopyWith<$Res> get moduleType;
 }
 
 /// @nodoc
@@ -4705,11 +4711,11 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       newestPage: newestPage == freezed
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       direction: direction == freezed
           ? _value.direction
           : direction // ignore: cast_nullable_to_non_nullable
@@ -4717,7 +4723,7 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -4765,7 +4771,7 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
           : respondentResponseList // ignore: cast_nullable_to_non_nullable
@@ -4773,7 +4779,7 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -4821,11 +4827,11 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
     ));
   }
 
@@ -4863,6 +4869,13 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       return _then(_value.copyWith(respondent: value));
     });
   }
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -4873,10 +4886,10 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       __$UpdateSurveyPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {PageNumber page,
-      PageNumber newestPage,
+      {int page,
+      int newestPage,
       Direction direction,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<String, AnswerStatus> answerStatusMap,
       bool isLastPage,
       Warning warning,
       bool showWarning,
@@ -4888,9 +4901,9 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       KtList<Reference> referenceList,
       Option<SurveyFailure> surveyFailure,
       Respondent respondent,
-      KtMap<QuestionId, Answer> answerMap,
+      KtMap<String, Answer> answerMap,
       KtList<Response> respondentResponseList,
-      SurveyId surveyId,
+      String surveyId,
       ModuleType moduleType,
       KtList<Question> questionList,
       KtList<Question> pageQuestionList,
@@ -4902,8 +4915,8 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       bool finishResponse,
       bool showLeaveButton,
       KtList<Question> mainQuestionList,
-      KtMap<QuestionId, Answer> mainAnswerMap,
-      KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap});
+      KtMap<String, Answer> mainAnswerMap,
+      KtMap<String, AnswerStatus> mainAnswerStatusMap});
 
   @override
   $WarningCopyWith<$Res> get warning;
@@ -4915,6 +4928,8 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
   $LoadStateCopyWith<$Res> get referenceListState;
   @override
   $RespondentCopyWith<$Res> get respondent;
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType;
 }
 
 /// @nodoc
@@ -4966,11 +4981,11 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       newestPage: newestPage == freezed
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
-              as PageNumber,
+              as int,
       direction: direction == freezed
           ? _value.direction
           : direction // ignore: cast_nullable_to_non_nullable
@@ -4978,7 +4993,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -5026,7 +5041,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
           : respondentResponseList // ignore: cast_nullable_to_non_nullable
@@ -5034,7 +5049,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -5082,11 +5097,11 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
     ));
   }
 }
@@ -5130,13 +5145,13 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
       : super._();
 
   @override // H_ restore
-  final PageNumber page;
+  final int page;
   @override
-  final PageNumber newestPage;
+  final int newestPage;
   @override
   final Direction direction;
   @override
-  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<String, AnswerStatus> answerStatusMap;
   @override
   final bool isLastPage;
   @override
@@ -5160,11 +5175,11 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
   @override
   final Respondent respondent;
   @override
-  final KtMap<QuestionId, Answer> answerMap;
+  final KtMap<String, Answer> answerMap;
   @override
   final KtList<Response> respondentResponseList;
   @override
-  final SurveyId surveyId;
+  final String surveyId;
   @override
   final ModuleType moduleType;
   @override // H_ questionList
@@ -5188,9 +5203,9 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
   @override // H_ recode
   final KtList<Question> mainQuestionList;
   @override
-  final KtMap<QuestionId, Answer> mainAnswerMap;
+  final KtMap<String, Answer> mainAnswerMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap;
+  final KtMap<String, AnswerStatus> mainAnswerStatusMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -5360,10 +5375,10 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
 
 abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   const factory _UpdateSurveyPageState(
-          {required PageNumber page,
-          required PageNumber newestPage,
+          {required int page,
+          required int newestPage,
           required Direction direction,
-          required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+          required KtMap<String, AnswerStatus> answerStatusMap,
           required bool isLastPage,
           required Warning warning,
           required bool showWarning,
@@ -5375,9 +5390,9 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
           required KtList<Reference> referenceList,
           required Option<SurveyFailure> surveyFailure,
           required Respondent respondent,
-          required KtMap<QuestionId, Answer> answerMap,
+          required KtMap<String, Answer> answerMap,
           required KtList<Response> respondentResponseList,
-          required SurveyId surveyId,
+          required String surveyId,
           required ModuleType moduleType,
           required KtList<Question> questionList,
           required KtList<Question> pageQuestionList,
@@ -5389,19 +5404,19 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
           required bool finishResponse,
           required bool showLeaveButton,
           required KtList<Question> mainQuestionList,
-          required KtMap<QuestionId, Answer> mainAnswerMap,
-          required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap}) =
+          required KtMap<String, Answer> mainAnswerMap,
+          required KtMap<String, AnswerStatus> mainAnswerStatusMap}) =
       _$_UpdateSurveyPageState;
   const _UpdateSurveyPageState._() : super._();
 
   @override // H_ restore
-  PageNumber get page => throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
   @override
-  PageNumber get newestPage => throw _privateConstructorUsedError;
+  int get newestPage => throw _privateConstructorUsedError;
   @override
   Direction get direction => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   bool get isLastPage => throw _privateConstructorUsedError;
@@ -5426,12 +5441,12 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   @override
   Respondent get respondent => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
   KtList<Response> get respondentResponseList =>
       throw _privateConstructorUsedError;
   @override
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
   ModuleType get moduleType => throw _privateConstructorUsedError;
   @override // H_ questionList
@@ -5456,10 +5471,9 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   @override // H_ recode
   KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, Answer> get mainAnswerMap =>
-      throw _privateConstructorUsedError;
+  KtMap<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, AnswerStatus> get mainAnswerStatusMap =>
+  KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

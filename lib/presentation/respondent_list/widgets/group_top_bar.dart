@@ -6,7 +6,6 @@ import 'package:kt_dart/collection.dart';
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/respondent/respondent.dart';
-import '../../../domain/respondent/value_objects.dart';
 import '../../core/constants.dart';
 import 'scroll_position_bundle.dart';
 
@@ -76,7 +75,7 @@ class TownDropDown extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('TownDropDown');
 
-    final selectedCountyTown = useState<CountyTown?>(null);
+    final selectedCountyTown = useState<String?>(null);
 
     if (townFirstRespondentList.isNotEmpty() &&
         selectedCountyTown.value == null) {
@@ -86,7 +85,7 @@ class TownDropDown extends HookWidget {
     final selectedItemList = townFirstRespondentList
         .map(
           (_) => Text(
-            selectedCountyTown.value?.getValueAnyway() ?? '',
+            selectedCountyTown.value ?? '',
             style: kCardH2TextStyle,
           ),
         )
@@ -97,7 +96,7 @@ class TownDropDown extends HookWidget {
           (respondent) => DropdownMenuItem(
             value: respondent.countyTown,
             child: Text(
-              respondent.countyTown.getValueAnyway(),
+              respondent.countyTown,
             ),
           ),
         )
@@ -106,12 +105,12 @@ class TownDropDown extends HookWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        DropdownButton<CountyTown?>(
+        DropdownButton<String?>(
           value: selectedCountyTown.value,
           selectedItemBuilder: (_) => selectedItemList,
           iconSize: 40.0,
           items: choiceItemList,
-          onChanged: (CountyTown? countyTown) {
+          onChanged: (String? countyTown) {
             selectedCountyTown.value = countyTown;
             context.read<RespondentBloc>().add(
                   RespondentEvent.jumpedToTown(countyTown: countyTown!),
@@ -119,7 +118,7 @@ class TownDropDown extends HookWidget {
           },
         ),
         // Text(
-        //   firstRespondent.village.getValueAnyway(),
+        //   firstRespondent.village,
         //   style: kCardH2TextStyle,
         // ),
       ],

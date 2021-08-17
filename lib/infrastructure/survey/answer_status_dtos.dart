@@ -19,12 +19,10 @@ class AnswerStatusDto with _$AnswerStatusDto {
 
   factory AnswerStatusDto.fromDomain(AnswerStatus answerStatus) {
     return AnswerStatusDto(
-      answerStatusType: answerStatus.type.getValueAnyway(),
+      answerStatusType: answerStatus.type.value,
       isSpecialAnswer: answerStatus.isSpecialAnswer,
-      noteMap: answerStatus.noteMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
-          .mapValues((entry) => entry.value.getValueAnyway())
-          .asMap(),
+      noteMap:
+          answerStatus.noteMap.mapValues((entry) => entry.value.value).asMap(),
     );
   }
 
@@ -33,7 +31,6 @@ class AnswerStatusDto with _$AnswerStatusDto {
       type: AnswerStatusType(answerStatusType),
       isSpecialAnswer: isSpecialAnswer,
       noteMap: KtMutableMap.from(noteMap)
-          .mapKeys((entry) => ChoiceId(entry.key))
           .mapValues((entry) => AnswerStatusType(entry.value)),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/respondent/respondent.dart';
-import '../../domain/respondent/value_objects.dart';
 
 part 'respondent_dtos.freezed.dart';
 part 'respondent_dtos.g.dart';
@@ -21,10 +20,10 @@ class RespondentDto with _$RespondentDto {
 
   factory RespondentDto.fromDomain(Respondent domain) {
     return RespondentDto(
-      respondentId: domain.id.getValueAnyway(),
-      countyTown: domain.countyTown.getValueAnyway(),
-      village: domain.village.getValueAnyway(),
-      remainAddress: domain.remainAddress.getValueAnyway(),
+      respondentId: domain.id,
+      countyTown: domain.countyTown,
+      village: domain.village,
+      remainAddress: domain.remainAddress,
       isCountyTownFirst: domain.isCountyTownFirst,
       isVillageFirst: domain.isVillageFirst,
     );
@@ -32,10 +31,10 @@ class RespondentDto with _$RespondentDto {
 
   Respondent toDomain() {
     return Respondent(
-      id: RespondentId(respondentId),
-      countyTown: CountyTown(countyTown),
-      village: Village(village),
-      remainAddress: RemainAddress(remainAddress),
+      id: respondentId,
+      countyTown: countyTown,
+      village: village,
+      remainAddress: remainAddress,
       isCountyTownFirst: isCountyTownFirst ?? false,
       isVillageFirst: isVillageFirst ?? false,
     );

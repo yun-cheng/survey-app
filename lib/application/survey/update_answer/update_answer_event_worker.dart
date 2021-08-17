@@ -23,7 +23,7 @@ void _updateAnswerEventWorker(
             restoreState: const LoadState.inProgress(),
             updateState: const LoadState.success(),
             answerMap: e.answerMap,
-            questionIdList: const KtList<QuestionId>.empty(),
+            questionIdList: const KtList<String>.empty(),
             updateAnswerStatus: false,
           )
           .send(channel);

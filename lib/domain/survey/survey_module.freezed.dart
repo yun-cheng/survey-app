@@ -18,8 +18,8 @@ class _$SurveyModuleTearOff {
 
   _SurveyModule call(
       {required KtList<Question> questionList,
-      required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap}) {
+      required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap}) {
     return _SurveyModule(
       questionList: questionList,
       answerMap: answerMap,
@@ -34,8 +34,8 @@ const $SurveyModule = _$SurveyModuleTearOff();
 /// @nodoc
 mixin _$SurveyModule {
   KtList<Question> get questionList => throw _privateConstructorUsedError;
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,8 +50,8 @@ abstract class $SurveyModuleCopyWith<$Res> {
       _$SurveyModuleCopyWithImpl<$Res>;
   $Res call(
       {KtList<Question> questionList,
-      KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap});
+      KtMap<String, Answer> answerMap,
+      KtMap<String, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -76,11 +76,11 @@ class _$SurveyModuleCopyWithImpl<$Res> implements $SurveyModuleCopyWith<$Res> {
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
     ));
   }
 }
@@ -94,8 +94,8 @@ abstract class _$SurveyModuleCopyWith<$Res>
   @override
   $Res call(
       {KtList<Question> questionList,
-      KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap});
+      KtMap<String, Answer> answerMap,
+      KtMap<String, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -122,11 +122,11 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
     ));
   }
 }
@@ -143,9 +143,9 @@ class _$_SurveyModule extends _SurveyModule {
   @override
   final KtList<Question> questionList;
   @override
-  final KtMap<QuestionId, Answer> answerMap;
+  final KtMap<String, Answer> answerMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<String, AnswerStatus> answerStatusMap;
 
   @override
   String toString() {
@@ -182,18 +182,17 @@ class _$_SurveyModule extends _SurveyModule {
 
 abstract class _SurveyModule extends SurveyModule {
   const factory _SurveyModule(
-          {required KtList<Question> questionList,
-          required KtMap<QuestionId, Answer> answerMap,
-          required KtMap<QuestionId, AnswerStatus> answerStatusMap}) =
-      _$_SurveyModule;
+      {required KtList<Question> questionList,
+      required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap}) = _$_SurveyModule;
   const _SurveyModule._() : super._();
 
   @override
   KtList<Question> get questionList => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

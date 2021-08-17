@@ -34,7 +34,7 @@ final navigationListener = BlocListener<NavigationBloc, NavigationState>(
 
     context.router.push(
       SurveyRoute(
-        respondentId: state.respondentId.getValueAnyway(),
+        respondentId: state.respondentId,
         showDialogOnRestart: true,
       ),
     );

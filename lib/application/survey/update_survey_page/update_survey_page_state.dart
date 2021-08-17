@@ -6,10 +6,10 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
 
   const factory UpdateSurveyPageState({
     // H_ restore
-    required PageNumber page,
-    required PageNumber newestPage,
+    required int page,
+    required int newestPage,
     required Direction direction,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
     required bool isLastPage,
     required Warning warning,
     required bool showWarning,
@@ -22,9 +22,9 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required KtList<Reference> referenceList,
     required Option<SurveyFailure> surveyFailure,
     required Respondent respondent,
-    required KtMap<QuestionId, Answer> answerMap,
+    required KtMap<String, Answer> answerMap,
     required KtList<Response> respondentResponseList,
-    required SurveyId surveyId,
+    required String surveyId,
     required ModuleType moduleType,
     // H_ questionList
     required KtList<Question> questionList,
@@ -39,8 +39,8 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required bool showLeaveButton,
     // H_ recode
     required KtList<Question> mainQuestionList,
-    required KtMap<QuestionId, Answer> mainAnswerMap,
-    required KtMap<QuestionId, AnswerStatus> mainAnswerStatusMap,
+    required KtMap<String, Answer> mainAnswerMap,
+    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateSurveyPageState;
 
   factory UpdateSurveyPageState.initial() => UpdateSurveyPageState(
@@ -48,14 +48,14 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         referenceList: const KtList<Reference>.empty(),
         surveyFailure: none(),
         respondent: Respondent.empty(),
-        page: PageNumber(0),
-        newestPage: PageNumber(0),
+        page: 0,
+        newestPage: 0,
         direction: Direction.current,
         questionList: const KtList<Question>.empty(),
         pageQuestionList: const KtList<Question>.empty(),
         contentQuestionList: const KtList<Question>.empty(),
-        answerMap: const KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+        answerMap: const KtMap<String, Answer>.empty(),
+        answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
@@ -65,7 +65,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         isRecodeModule: false,
         mainQuestionList: const KtList<Question>.empty(),
         respondentResponseList: const KtList<Response>.empty(),
-        surveyId: SurveyId.empty(),
+        surveyId: '',
         moduleType: ModuleType.empty(),
         isReadOnly: false,
         appIsPaused: false,
@@ -73,8 +73,8 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         leavePage: false,
         finishResponse: false,
         showLeaveButton: true,
-        mainAnswerMap: const KtMap<QuestionId, Answer>.empty(),
-        mainAnswerStatusMap: const KtMap<QuestionId, AnswerStatus>.empty(),
+        mainAnswerMap: const KtMap<String, Answer>.empty(),
+        mainAnswerStatusMap: const KtMap<String, AnswerStatus>.empty(),
       );
 
   Map<String, dynamic> toJson() =>

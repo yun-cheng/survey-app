@@ -19,18 +19,18 @@ class WarningDto with _$WarningDto {
 
   factory WarningDto.fromDomain(Warning warning) {
     return WarningDto(
-      questionId: warning.id.getValueAnyway(),
+      questionId: warning.id,
       serialNumber: warning.serialNumber,
-      pageNumber: warning.pageNumber.getValueAnyway(),
-      warningType: warning.type.getValueAnyway(),
+      pageNumber: warning.pageNumber,
+      warningType: warning.type.value,
     );
   }
 
   Warning toDomain() {
     return Warning(
-      id: QuestionId(questionId),
+      id: questionId,
       serialNumber: serialNumber,
-      pageNumber: PageNumber(pageNumber),
+      pageNumber: pageNumber,
       type: WarningType(warningType),
     );
   }

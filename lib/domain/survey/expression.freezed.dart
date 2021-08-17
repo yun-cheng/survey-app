@@ -17,7 +17,7 @@ class _$ExpressionTearOff {
   const _$ExpressionTearOff();
 
   _Expression call(
-      {required QuestionId field,
+      {required String field,
       required Operator operator,
       required Answer comparisonValue}) {
     return _Expression(
@@ -33,7 +33,7 @@ const $Expression = _$ExpressionTearOff();
 
 /// @nodoc
 mixin _$Expression {
-  QuestionId get field => throw _privateConstructorUsedError;
+  String get field => throw _privateConstructorUsedError;
   Operator get operator => throw _privateConstructorUsedError;
   Answer get comparisonValue => throw _privateConstructorUsedError;
 
@@ -47,8 +47,9 @@ abstract class $ExpressionCopyWith<$Res> {
   factory $ExpressionCopyWith(
           Expression value, $Res Function(Expression) then) =
       _$ExpressionCopyWithImpl<$Res>;
-  $Res call({QuestionId field, Operator operator, Answer comparisonValue});
+  $Res call({String field, Operator operator, Answer comparisonValue});
 
+  $OperatorCopyWith<$Res> get operator;
   $AnswerCopyWith<$Res> get comparisonValue;
 }
 
@@ -70,7 +71,7 @@ class _$ExpressionCopyWithImpl<$Res> implements $ExpressionCopyWith<$Res> {
       field: field == freezed
           ? _value.field
           : field // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       operator: operator == freezed
           ? _value.operator
           : operator // ignore: cast_nullable_to_non_nullable
@@ -80,6 +81,13 @@ class _$ExpressionCopyWithImpl<$Res> implements $ExpressionCopyWith<$Res> {
           : comparisonValue // ignore: cast_nullable_to_non_nullable
               as Answer,
     ));
+  }
+
+  @override
+  $OperatorCopyWith<$Res> get operator {
+    return $OperatorCopyWith<$Res>(_value.operator, (value) {
+      return _then(_value.copyWith(operator: value));
+    });
   }
 
   @override
@@ -96,8 +104,10 @@ abstract class _$ExpressionCopyWith<$Res> implements $ExpressionCopyWith<$Res> {
           _Expression value, $Res Function(_Expression) then) =
       __$ExpressionCopyWithImpl<$Res>;
   @override
-  $Res call({QuestionId field, Operator operator, Answer comparisonValue});
+  $Res call({String field, Operator operator, Answer comparisonValue});
 
+  @override
+  $OperatorCopyWith<$Res> get operator;
   @override
   $AnswerCopyWith<$Res> get comparisonValue;
 }
@@ -122,7 +132,7 @@ class __$ExpressionCopyWithImpl<$Res> extends _$ExpressionCopyWithImpl<$Res>
       field: field == freezed
           ? _value.field
           : field // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       operator: operator == freezed
           ? _value.operator
           : operator // ignore: cast_nullable_to_non_nullable
@@ -145,7 +155,7 @@ class _$_Expression extends _Expression {
       : super._();
 
   @override
-  final QuestionId field;
+  final String field;
   @override
   final Operator operator;
   @override
@@ -185,13 +195,13 @@ class _$_Expression extends _Expression {
 
 abstract class _Expression extends Expression {
   const factory _Expression(
-      {required QuestionId field,
+      {required String field,
       required Operator operator,
       required Answer comparisonValue}) = _$_Expression;
   const _Expression._() : super._();
 
   @override
-  QuestionId get field => throw _privateConstructorUsedError;
+  String get field => throw _privateConstructorUsedError;
   @override
   Operator get operator => throw _privateConstructorUsedError;
   @override

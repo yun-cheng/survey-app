@@ -5,7 +5,7 @@ RespondentState respondentListLoaded(RespondentState state) {
   logger('Compute').i('respondentListLoaded');
 
   // S_ 必須要已選擇問卷
-  if (state.survey.id.isValid() && state.respondentListList.isNotEmpty()) {
+  if (state.survey.id != '' && state.respondentListList.isNotEmpty()) {
     final respondentList = state.respondentListList
         .first((respondentList) => respondentList.surveyId == state.survey.id)
         .respondentList;
@@ -64,21 +64,19 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
           late final DateTime date;
           late final String timeSession;
 
-          final dateStr = r.answerMap
-              .getOrDefault(QuestionId('date'), Answer.empty())
-              .value;
+          final dateStr =
+              r.answerMap.getOrDefault('date', Answer.empty()).value;
 
           // S_ 紙本
           if (dateStr != null) {
             date = DateTimeX.fromDateTimeString(dateStr)!;
             timeSession = r.answerMap
-                    .getOrDefault(QuestionId('time'), Answer.empty())
+                    .getOrDefault('time', Answer.empty())
                     .choiceValue
-                    ?.id
-                    .getValueAnyway() ??
+                    ?.id ??
                 '';
           } else {
-            date = r.createdTimeStamp.getValueAnyway();
+            date = r.createdTimeStamp.value;
             if (date.hour < 12) {
               timeSession = '1';
             } else if (date.hour < 18) {
@@ -91,11 +89,11 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
           // S_ 要取得所選選項之分組
           final statusChoiceList = state
               .survey.module[ModuleType.visitReport()]!.questionList
-              .firstOrNull((q) => q.id == QuestionId('status'))
+              .firstOrNull((q) => q.id == 'status')
               ?.choiceList;
 
           final statusChoiceId = r.answerMap
-              .getOrDefault(QuestionId('status'), Answer.empty())
+              .getOrDefault('status', Answer.empty())
               .choiceValue
               ?.id;
 
@@ -103,12 +101,10 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
               statusChoiceList?.firstOrNull((c) => c.id == statusChoiceId) ??
                   Choice.empty();
 
-          final status =
-              '${statusChoice.group.getValueAnyway()} ${statusChoice.id.getValueAnyway()}';
+          final status = '${statusChoice.group} ${statusChoice.id}';
 
-          final note = r.answerMap
-              .getOrDefault(QuestionId('note'), Answer.empty())
-              .stringBody;
+          final note =
+              r.answerMap.getOrDefault('note', Answer.empty()).stringBody;
 
           return VisitRecord(
             respondentId: r.respondentId,

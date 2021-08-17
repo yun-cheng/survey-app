@@ -17,7 +17,7 @@ class _$VisitRecordTearOff {
   const _$VisitRecordTearOff();
 
   _VisitRecord call(
-      {required RespondentId respondentId,
+      {required String respondentId,
       required UniqueId responseId,
       required VisitTime visitTime,
       required String status,
@@ -37,7 +37,7 @@ const $VisitRecord = _$VisitRecordTearOff();
 
 /// @nodoc
 mixin _$VisitRecord {
-  RespondentId get respondentId => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
   UniqueId get responseId => throw _privateConstructorUsedError;
   VisitTime get visitTime => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
@@ -54,7 +54,7 @@ abstract class $VisitRecordCopyWith<$Res> {
           VisitRecord value, $Res Function(VisitRecord) then) =
       _$VisitRecordCopyWithImpl<$Res>;
   $Res call(
-      {RespondentId respondentId,
+      {String respondentId,
       UniqueId responseId,
       VisitTime visitTime,
       String status,
@@ -84,7 +84,7 @@ class _$VisitRecordCopyWithImpl<$Res> implements $VisitRecordCopyWith<$Res> {
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
@@ -127,7 +127,7 @@ abstract class _$VisitRecordCopyWith<$Res>
       __$VisitRecordCopyWithImpl<$Res>;
   @override
   $Res call(
-      {RespondentId respondentId,
+      {String respondentId,
       UniqueId responseId,
       VisitTime visitTime,
       String status,
@@ -161,7 +161,7 @@ class __$VisitRecordCopyWithImpl<$Res> extends _$VisitRecordCopyWithImpl<$Res>
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class _$_VisitRecord extends _VisitRecord {
       : super._();
 
   @override
-  final RespondentId respondentId;
+  final String respondentId;
   @override
   final UniqueId responseId;
   @override
@@ -246,7 +246,7 @@ class _$_VisitRecord extends _VisitRecord {
 
 abstract class _VisitRecord extends VisitRecord {
   const factory _VisitRecord(
-      {required RespondentId respondentId,
+      {required String respondentId,
       required UniqueId responseId,
       required VisitTime visitTime,
       required String status,
@@ -254,7 +254,7 @@ abstract class _VisitRecord extends VisitRecord {
   const _VisitRecord._() : super._();
 
   @override
-  RespondentId get respondentId => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
   UniqueId get responseId => throw _privateConstructorUsedError;
   @override

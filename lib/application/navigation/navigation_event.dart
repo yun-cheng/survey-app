@@ -4,7 +4,7 @@ part of 'navigation_bloc.dart';
 class NavigationEvent with _$NavigationEvent {
   const factory NavigationEvent.pageChanged({
     required NavigationPage page,
-    RespondentId? respondentId,
+    String? respondentId,
   }) = _PageChanged;
   const factory NavigationEvent.pagePushed() = _PagePushed;
   const factory NavigationEvent.pageInitialized() = _PageInitialized;

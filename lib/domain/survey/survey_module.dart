@@ -4,7 +4,6 @@ import 'package:kt_dart/collection.dart';
 import 'answer.dart';
 import 'answer_status.dart';
 import 'question.dart';
-import 'value_objects.dart';
 
 part 'survey_module.freezed.dart';
 
@@ -14,13 +13,13 @@ class SurveyModule with _$SurveyModule {
 
   const factory SurveyModule({
     required KtList<Question> questionList,
-    required KtMap<QuestionId, Answer> answerMap,
-    required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+    required KtMap<String, Answer> answerMap,
+    required KtMap<String, AnswerStatus> answerStatusMap,
   }) = _SurveyModule;
 
   factory SurveyModule.empty() => const SurveyModule(
         questionList: KtList<Question>.empty(),
-        answerMap: KtMap<QuestionId, Answer>.empty(),
-        answerStatusMap: KtMap<QuestionId, AnswerStatus>.empty(),
+        answerMap: KtMap<String, Answer>.empty(),
+        answerStatusMap: KtMap<String, AnswerStatus>.empty(),
       );
 }

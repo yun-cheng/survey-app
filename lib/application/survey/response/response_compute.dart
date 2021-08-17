@@ -69,8 +69,7 @@ ResponseState responseRestored(ResponseState state) {
 
     // S_ 如果是查址模組且 breakInterview
     if (state.moduleType == ModuleType.visitReport() && state.breakInterview) {
-      initAnswerMap[QuestionId('break_interview')] =
-          Answer.empty().setString('1');
+      initAnswerMap['break_interview'] = Answer.empty().setString('1');
     }
 
     // S_ 如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
@@ -189,7 +188,7 @@ ResponseState editFinished(
       newResponse = newResponse.copyWith(
         responseStatus: ResponseStatus.finished(),
         surveyPageState: newResponse.surveyPageState.copyWith(
-          page: PageNumber(0),
+          page: 0,
           isLastPage: false,
         ),
       );

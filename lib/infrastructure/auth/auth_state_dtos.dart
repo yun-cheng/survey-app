@@ -4,7 +4,6 @@ import 'package:kt_dart/collection.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/auth_failure.dart';
-import '../../domain/auth/value_objects.dart';
 import '../../domain/core/load_state.dart';
 import 'interviewer_dtos.dart';
 import 'team_list_dtos.dart';
@@ -39,8 +38,8 @@ class AuthStateDto with _$AuthStateDto {
       interviewerList: authState.interviewerList
           .map((e) => InterviewerDto.fromDomain(e))
           .asList(),
-      id: authState.id.getValueAnyway(),
-      password: authState.password.getValueAnyway(),
+      id: authState.id,
+      password: authState.password,
       signInState: authState.signInState.toJson(),
       interviewer: InterviewerDto.fromDomain(authState.interviewer),
       authFailure:
@@ -57,8 +56,8 @@ class AuthStateDto with _$AuthStateDto {
       interviewerListState: LoadState.fromJson(interviewerListState),
       interviewerList:
           interviewerList.map((dto) => dto.toDomain()).toImmutableList(),
-      id: InterviewerId(this.id),
-      password: Password(password),
+      id: this.id,
+      password: password,
       signInState: LoadState.fromJson(signInState),
       interviewer: interviewer.toDomain(),
       authFailure:

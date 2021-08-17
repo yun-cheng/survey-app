@@ -17,10 +17,10 @@ class _$RespondentListTearOff {
   const _$RespondentListTearOff();
 
   _RespondentList call(
-      {required SurveyId surveyId,
-      required InterviewerId interviewerId,
-      required TeamId teamId,
-      required ProjectId projectId,
+      {required String surveyId,
+      required String interviewerId,
+      required String teamId,
+      required String projectId,
       required KtList<Respondent> respondentList}) {
     return _RespondentList(
       surveyId: surveyId,
@@ -37,10 +37,10 @@ const $RespondentList = _$RespondentListTearOff();
 
 /// @nodoc
 mixin _$RespondentList {
-  SurveyId get surveyId => throw _privateConstructorUsedError;
-  InterviewerId get interviewerId => throw _privateConstructorUsedError;
-  TeamId get teamId => throw _privateConstructorUsedError;
-  ProjectId get projectId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
   KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -54,10 +54,10 @@ abstract class $RespondentListCopyWith<$Res> {
           RespondentList value, $Res Function(RespondentList) then) =
       _$RespondentListCopyWithImpl<$Res>;
   $Res call(
-      {SurveyId surveyId,
-      InterviewerId interviewerId,
-      TeamId teamId,
-      ProjectId projectId,
+      {String surveyId,
+      String interviewerId,
+      String teamId,
+      String projectId,
       KtList<Respondent> respondentList});
 }
 
@@ -82,19 +82,19 @@ class _$RespondentListCopyWithImpl<$Res>
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       projectId: projectId == freezed
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       respondentList: respondentList == freezed
           ? _value.respondentList
           : respondentList // ignore: cast_nullable_to_non_nullable
@@ -111,10 +111,10 @@ abstract class _$RespondentListCopyWith<$Res>
       __$RespondentListCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SurveyId surveyId,
-      InterviewerId interviewerId,
-      TeamId teamId,
-      ProjectId projectId,
+      {String surveyId,
+      String interviewerId,
+      String teamId,
+      String projectId,
       KtList<Respondent> respondentList});
 }
 
@@ -141,19 +141,19 @@ class __$RespondentListCopyWithImpl<$Res>
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       projectId: projectId == freezed
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       respondentList: respondentList == freezed
           ? _value.respondentList
           : respondentList // ignore: cast_nullable_to_non_nullable
@@ -174,15 +174,20 @@ class _$_RespondentList extends _RespondentList {
       : super._();
 
   @override
-  final SurveyId surveyId;
+  final String surveyId;
   @override
-  final InterviewerId interviewerId;
+  final String interviewerId;
   @override
-  final TeamId teamId;
+  final String teamId;
   @override
-  final ProjectId projectId;
+  final String projectId;
   @override
   final KtList<Respondent> respondentList;
+
+  @override
+  String toString() {
+    return 'RespondentList(surveyId: $surveyId, interviewerId: $interviewerId, teamId: $teamId, projectId: $projectId, respondentList: $respondentList)';
+  }
 
   @override
   bool operator ==(dynamic other) {
@@ -221,21 +226,21 @@ class _$_RespondentList extends _RespondentList {
 
 abstract class _RespondentList extends RespondentList {
   const factory _RespondentList(
-      {required SurveyId surveyId,
-      required InterviewerId interviewerId,
-      required TeamId teamId,
-      required ProjectId projectId,
+      {required String surveyId,
+      required String interviewerId,
+      required String teamId,
+      required String projectId,
       required KtList<Respondent> respondentList}) = _$_RespondentList;
   const _RespondentList._() : super._();
 
   @override
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
-  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   @override
-  TeamId get teamId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  ProjectId get projectId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
   @override
   KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
   @override

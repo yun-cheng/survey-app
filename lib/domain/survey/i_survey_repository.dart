@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../auth/value_objects.dart';
 import '../overview/survey.dart';
 import 'reference.dart';
 import 'response.dart';
@@ -9,18 +8,18 @@ import 'survey_failure.dart';
 
 abstract class ISurveyRepository {
   Stream<Either<SurveyFailure, KtList<Survey>>> watchSurveyList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   });
 
   Stream<Either<SurveyFailure, KtList<Reference>>> watchReferenceList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   });
 
   Stream<Either<SurveyFailure, KtList<Response>>> watchResponseList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   });
 
   Future<Either<SurveyFailure, Unit>> uploadResponseList({
@@ -28,7 +27,7 @@ abstract class ISurveyRepository {
   });
 
   Future<Either<SurveyFailure, Unit>> cleanResponseList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   });
 }

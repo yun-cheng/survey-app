@@ -8,7 +8,6 @@ import 'package:injectable/injectable.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../domain/auth/value_objects.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/survey/i_survey_repository.dart';
@@ -45,14 +44,14 @@ class SurveyRepository implements ISurveyRepository {
 
   @override
   Stream<Either<SurveyFailure, KtList<Survey>>> watchSurveyList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   }) async* {
     final surveyCollection = _firestore.surveyCollection;
 
     yield* surveyCollection
-        .where('teamId', isEqualTo: teamId.getOrCrash())
-        .where('interviewerList', arrayContains: interviewerId.getOrCrash())
+        .where('teamId', isEqualTo: teamId)
+        .where('interviewerList', arrayContains: interviewerId)
         .snapshots()
         .asyncMap((snapshot) async {
       // NOTE Future.wait 會等裡面的東西都齊全
@@ -75,14 +74,14 @@ class SurveyRepository implements ISurveyRepository {
 
   @override
   Stream<Either<SurveyFailure, KtList<Reference>>> watchReferenceList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   }) async* {
     final referenceCollection = _firestore.referenceCollection;
 
     yield* referenceCollection
-        .where('teamId', isEqualTo: teamId.getOrCrash())
-        .where('interviewerId', isEqualTo: interviewerId.getOrCrash())
+        .where('teamId', isEqualTo: teamId)
+        .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
         .map((snapshot) => right<SurveyFailure, KtList<Reference>>(
             ReferenceListDto.fromFirestore(snapshot).toDomain()))
@@ -97,15 +96,15 @@ class SurveyRepository implements ISurveyRepository {
 
   @override
   Stream<Either<SurveyFailure, KtList<Response>>> watchResponseList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   }) async* {
     final responseCollection = _firestore.responseCollection;
 
     yield* responseCollection
-        .where('teamId', isEqualTo: teamId.getOrCrash())
+        .where('teamId', isEqualTo: teamId)
         // TODO 應不限於這個訪員?
-        .where('interviewerId', isEqualTo: interviewerId.getOrCrash())
+        .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
         .map((snapshot) => right<SurveyFailure, KtList<Response>>(
             ResponseListDto.fromFirestore(snapshot).toDomain()))
@@ -146,8 +145,8 @@ class SurveyRepository implements ISurveyRepository {
 
   @override
   Future<Either<SurveyFailure, Unit>> cleanResponseList({
-    required TeamId teamId,
-    required InterviewerId interviewerId,
+    required String teamId,
+    required String interviewerId,
   }) async {
     try {
       final responseCollection = _firestore.responseCollection;
@@ -155,8 +154,8 @@ class SurveyRepository implements ISurveyRepository {
       final batch = _firestore.batch();
 
       responseCollection
-          .where('teamId', isEqualTo: teamId.getOrCrash())
-          .where('interviewerId', isEqualTo: interviewerId.getOrCrash())
+          .where('teamId', isEqualTo: teamId)
+          .where('interviewerId', isEqualTo: interviewerId)
           .where('isDeleted', isEqualTo: false)
           .get()
           // NOTE 因為沒有要 return 東西，所以不能用 => 寫

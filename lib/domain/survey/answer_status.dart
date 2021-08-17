@@ -16,13 +16,13 @@ class AnswerStatus with _$AnswerStatus {
   const factory AnswerStatus({
     required AnswerStatusType type,
     required bool isSpecialAnswer,
-    required KtMap<ChoiceId, AnswerStatusType> noteMap,
+    required KtMap<String, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
   factory AnswerStatus.empty() => AnswerStatus(
         type: AnswerStatusType.empty(),
         isSpecialAnswer: false,
-        noteMap: const KtMap<ChoiceId, AnswerStatusType>.empty(),
+        noteMap: const KtMap<String, AnswerStatusType>.empty(),
       );
 
   // H_ 直接改變狀態
@@ -41,7 +41,7 @@ class AnswerStatus with _$AnswerStatus {
   AnswerStatus reset() => AnswerStatus(
         type: AnswerStatusType.unanswered(),
         isSpecialAnswer: false,
-        noteMap: const KtMap<ChoiceId, AnswerStatusType>.empty(),
+        noteMap: const KtMap<String, AnswerStatusType>.empty(),
       );
 
   // H_ 更新狀態
@@ -85,7 +85,7 @@ class AnswerStatus with _$AnswerStatus {
   }
 
   AnswerStatus updateNoteMap(Answer answer) {
-    final newNoteMap = KtMutableMap<ChoiceId, AnswerStatusType>.empty();
+    final newNoteMap = KtMutableMap<String, AnswerStatusType>.empty();
     if (answer.withNote) {
       answer.noteMap!.forEach((choiceId, note) {
         newNoteMap.put(
@@ -122,7 +122,7 @@ class AnswerStatus with _$AnswerStatus {
   AnswerStatus switchSpecialAnswer() => AnswerStatus(
         type: AnswerStatusType.unanswered(),
         isSpecialAnswer: !isSpecialAnswer,
-        noteMap: const KtMap<ChoiceId, AnswerStatusType>.empty(),
+        noteMap: const KtMap<String, AnswerStatusType>.empty(),
       );
 
   // H_ 取得狀態

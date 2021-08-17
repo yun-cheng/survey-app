@@ -17,7 +17,7 @@ class Answer with _$Answer {
     int? intValue,
     SimpleChoice? choiceValue,
     KtList<SimpleChoice>? choiceListValue,
-    KtMap<ChoiceId, String>? noteMap,
+    KtMap<String, String>? noteMap,
   }) = _Answer;
 
   // H_ 產生
@@ -105,18 +105,18 @@ class Answer with _$Answer {
     } else if (type == AnswerType.string()) {
       result = stringValue;
     } else if (type == AnswerType.choice()) {
-      result = choiceValue?.id.getValueAnyway();
+      result = choiceValue?.id;
     } else if (type == AnswerType.choiceList()) {
       // TODO 如要使用，可能須排序
       result = choiceListValue
-          ?.map((choice) => choice.id.getValueAnyway())
+          ?.map((choice) => choice.id)
           .joinToString(separator: ',');
     }
     return result ?? '';
   }
 
   // H_ 單選題使用
-  ChoiceId? get groupValue {
+  String? get groupValue {
     if (type == AnswerType.choice()) {
       return choiceValue?.id;
     } else {
@@ -127,7 +127,7 @@ class Answer with _$Answer {
   String choiceToString(SimpleChoice choice) {
     String? noteString = noteMap?.get(choice.id);
     noteString = noteString != null ? '：$noteString' : '';
-    return '${choice.body.getValueAnyway()}$noteString';
+    return '${choice.body}$noteString';
   }
 
   String get stringBody {
@@ -139,7 +139,7 @@ class Answer with _$Answer {
     } else if (type == AnswerType.choice()) {
       // String noteString = noteMap?.get(choiceValue.id);
       // noteString = noteString != null ? '：$noteString' : '';
-      // result = '${choiceValue.body.getValueAnyway()}$noteString';
+      // result = '${choiceValue.body}$noteString';
       result = choiceToString(choiceValue!);
     } else if (type == AnswerType.choiceList()) {
       result = choiceListValue!
@@ -156,10 +156,9 @@ class Answer with _$Answer {
     } else if (type == AnswerType.string()) {
       comparableValue = stringValue;
     } else if (type == AnswerType.choice()) {
-      comparableValue = choiceValue?.id.getValueAnyway();
+      comparableValue = choiceValue?.id;
     } else if (type == AnswerType.choiceList()) {
-      comparableValue =
-          choiceListValue?.map((choice) => choice.id.getValueAnyway());
+      comparableValue = choiceListValue?.map((choice) => choice.id);
     }
 
     return comparableValue ?? '';
@@ -183,7 +182,7 @@ class Answer with _$Answer {
 
   // H_ 新增 choiceNote
   Answer addChoiceNote({
-    required ChoiceId choiceId,
+    required String choiceId,
     required bool asNote,
   }) {
     if (!asNote) {
@@ -191,7 +190,7 @@ class Answer with _$Answer {
     }
 
     final newNoteMap =
-        KtMutableMap<ChoiceId, String>.from(noteMap?.asMap() ?? {});
+        KtMutableMap<String, String>.from(noteMap?.asMap() ?? {});
 
     newNoteMap.put(choiceId, '');
 
@@ -203,7 +202,7 @@ class Answer with _$Answer {
 
   // H_ 移除 choiceNote
   Answer removeChoiceNote({
-    required ChoiceId choiceId,
+    required String choiceId,
     required bool asNote,
   }) {
     if (!asNote) {
@@ -211,7 +210,7 @@ class Answer with _$Answer {
     }
 
     final newNoteMap =
-        KtMutableMap<ChoiceId, String>.from(noteMap?.asMap() ?? {});
+        KtMutableMap<String, String>.from(noteMap?.asMap() ?? {});
 
     newNoteMap.remove(choiceId);
 
@@ -272,7 +271,7 @@ class Answer with _$Answer {
   }
 
   // H_ note 操作
-  Answer setNote(String noteValue, ChoiceId noteOf) {
+  Answer setNote(String noteValue, String noteOf) {
     final newNoteMap = KtMutableMap.from(noteMap!.asMap());
     newNoteMap.put(noteOf, noteValue);
 

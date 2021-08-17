@@ -17,8 +17,8 @@ class _$FullExpressionTearOff {
   const _$FullExpressionTearOff();
 
   _FullExpression call(
-      {required FullExpressionBody body,
-      required KtMap<ExpressionId, Expression> expressionMap}) {
+      {required String body,
+      required KtMap<String, Expression> expressionMap}) {
     return _FullExpression(
       body: body,
       expressionMap: expressionMap,
@@ -31,8 +31,8 @@ const $FullExpression = _$FullExpressionTearOff();
 
 /// @nodoc
 mixin _$FullExpression {
-  FullExpressionBody get body => throw _privateConstructorUsedError;
-  KtMap<ExpressionId, Expression> get expressionMap =>
+  String get body => throw _privateConstructorUsedError;
+  KtMap<String, Expression> get expressionMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -45,8 +45,7 @@ abstract class $FullExpressionCopyWith<$Res> {
   factory $FullExpressionCopyWith(
           FullExpression value, $Res Function(FullExpression) then) =
       _$FullExpressionCopyWithImpl<$Res>;
-  $Res call(
-      {FullExpressionBody body, KtMap<ExpressionId, Expression> expressionMap});
+  $Res call({String body, KtMap<String, Expression> expressionMap});
 }
 
 /// @nodoc
@@ -67,11 +66,11 @@ class _$FullExpressionCopyWithImpl<$Res>
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as FullExpressionBody,
+              as String,
       expressionMap: expressionMap == freezed
           ? _value.expressionMap
           : expressionMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<ExpressionId, Expression>,
+              as KtMap<String, Expression>,
     ));
   }
 }
@@ -83,8 +82,7 @@ abstract class _$FullExpressionCopyWith<$Res>
           _FullExpression value, $Res Function(_FullExpression) then) =
       __$FullExpressionCopyWithImpl<$Res>;
   @override
-  $Res call(
-      {FullExpressionBody body, KtMap<ExpressionId, Expression> expressionMap});
+  $Res call({String body, KtMap<String, Expression> expressionMap});
 }
 
 /// @nodoc
@@ -107,11 +105,11 @@ class __$FullExpressionCopyWithImpl<$Res>
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as FullExpressionBody,
+              as String,
       expressionMap: expressionMap == freezed
           ? _value.expressionMap
           : expressionMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<ExpressionId, Expression>,
+              as KtMap<String, Expression>,
     ));
   }
 }
@@ -123,9 +121,9 @@ class _$_FullExpression extends _FullExpression {
       : super._();
 
   @override
-  final FullExpressionBody body;
+  final String body;
   @override
-  final KtMap<ExpressionId, Expression> expressionMap;
+  final KtMap<String, Expression> expressionMap;
 
   @override
   String toString() {
@@ -157,15 +155,14 @@ class _$_FullExpression extends _FullExpression {
 
 abstract class _FullExpression extends FullExpression {
   const factory _FullExpression(
-          {required FullExpressionBody body,
-          required KtMap<ExpressionId, Expression> expressionMap}) =
-      _$_FullExpression;
+      {required String body,
+      required KtMap<String, Expression> expressionMap}) = _$_FullExpression;
   const _FullExpression._() : super._();
 
   @override
-  FullExpressionBody get body => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
   @override
-  KtMap<ExpressionId, Expression> get expressionMap =>
+  KtMap<String, Expression> get expressionMap =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

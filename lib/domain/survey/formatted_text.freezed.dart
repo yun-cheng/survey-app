@@ -56,6 +56,7 @@ abstract class $FormattedTextCopyWith<$Res> {
       ReferenceKey referenceKey,
       Answer answer});
 
+  $FormatTypeCopyWith<$Res> get type;
   $ReferenceKeyCopyWith<$Res> get referenceKey;
   $AnswerCopyWith<$Res> get answer;
 }
@@ -97,6 +98,13 @@ class _$FormattedTextCopyWithImpl<$Res>
   }
 
   @override
+  $FormatTypeCopyWith<$Res> get type {
+    return $FormatTypeCopyWith<$Res>(_value.type, (value) {
+      return _then(_value.copyWith(type: value));
+    });
+  }
+
+  @override
   $ReferenceKeyCopyWith<$Res> get referenceKey {
     return $ReferenceKeyCopyWith<$Res>(_value.referenceKey, (value) {
       return _then(_value.copyWith(referenceKey: value));
@@ -124,6 +132,8 @@ abstract class _$FormattedTextCopyWith<$Res>
       ReferenceKey referenceKey,
       Answer answer});
 
+  @override
+  $FormatTypeCopyWith<$Res> get type;
   @override
   $ReferenceKeyCopyWith<$Res> get referenceKey;
   @override

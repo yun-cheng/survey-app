@@ -3,7 +3,6 @@ import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../domain/core/load_state.dart';
-import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
 import 'question_dtos.dart';
@@ -38,21 +37,18 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
 
   factory SurveyPageStateDto.fromDomain(SurveyPageState domain) {
     return SurveyPageStateDto(
-      page: domain.page.getValueAnyway(),
-      newestPage: domain.newestPage.getValueAnyway(),
+      page: domain.page,
+      newestPage: domain.newestPage,
       isLastPage: domain.isLastPage,
       warning: WarningDto.fromDomain(domain.warning),
       showWarning: domain.showWarning,
       answerMap: domain.answerMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       answerStatusMap: domain.answerStatusMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
-      questionIdList:
-          domain.questionIdList.map((e) => e.getValueAnyway()).asList(),
+      questionIdList: domain.questionIdList.asList(),
       pageQuestionList: domain.pageQuestionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
@@ -65,11 +61,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       isRecodeModule: domain.isRecodeModule,
       isReadOnly: domain.isReadOnly,
       recodeAnswerMap: domain.recodeAnswerMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       recodeAnswerStatusMap: domain.recodeAnswerStatusMap
-          .mapKeys((entry) => entry.key.getValueAnyway())
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
     );
@@ -77,20 +71,16 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
 
   SurveyPageState toDomain() {
     return SurveyPageState.initial().copyWith(
-      page: PageNumber(page),
-      newestPage: PageNumber(newestPage),
+      page: page,
+      newestPage: newestPage,
       isLastPage: isLastPage,
       warning: warning.toDomain(),
       showWarning: showWarning,
-      answerMap: KtMap.from(answerMap)
-          .mapKeys((entry) => QuestionId(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap:
+          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
       answerStatusMap: KtMap.from(answerStatusMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
-      questionIdList: questionIdList
-          .map((questionId) => QuestionId(questionId))
-          .toImmutableList(),
+      questionIdList: questionIdList.toImmutableList(),
       pageQuestionList:
           pageQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
       contentQuestionList:
@@ -101,10 +91,8 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       isRecodeModule: isRecodeModule,
       isReadOnly: isReadOnly,
       recodeAnswerMap: KtMap.from(recodeAnswerMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
       recodeAnswerStatusMap: KtMap.from(recodeAnswerStatusMap)
-          .mapKeys((entry) => QuestionId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
     );
   }

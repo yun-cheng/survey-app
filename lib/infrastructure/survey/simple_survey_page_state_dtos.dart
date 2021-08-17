@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/survey/simple_survey_page_state.dart';
-import '../../domain/survey/value_objects.dart';
 import 'warning_dtos.dart';
 
 part 'simple_survey_page_state_dtos.freezed.dart';
@@ -22,8 +21,8 @@ class SimpleSurveyPageStateDto with _$SimpleSurveyPageStateDto {
   factory SimpleSurveyPageStateDto.fromDomain(
       SimpleSurveyPageState surveyPageState) {
     return SimpleSurveyPageStateDto(
-      page: surveyPageState.page.getValueAnyway(),
-      newestPage: surveyPageState.newestPage.getValueAnyway(),
+      page: surveyPageState.page,
+      newestPage: surveyPageState.newestPage,
       isLastPage: surveyPageState.isLastPage,
       warning: WarningDto.fromDomain(surveyPageState.warning),
       showWarning: surveyPageState.showWarning,
@@ -32,8 +31,8 @@ class SimpleSurveyPageStateDto with _$SimpleSurveyPageStateDto {
 
   SimpleSurveyPageState toDomain() {
     return SimpleSurveyPageState(
-      page: PageNumber(page),
-      newestPage: PageNumber(newestPage),
+      page: page,
+      newestPage: newestPage,
       isLastPage: isLastPage,
       warning: warning.toDomain(),
       showWarning: showWarning,

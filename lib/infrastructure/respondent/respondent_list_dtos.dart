@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../domain/auth/value_objects.dart';
-import '../../domain/overview/value_objects.dart';
 import '../../domain/respondent/respondent_list.dart';
 import 'respondent_dtos.dart';
 
@@ -54,10 +52,10 @@ class RespondentListDto with _$RespondentListDto {
 
   factory RespondentListDto.fromDomain(RespondentList domain) {
     return RespondentListDto(
-      surveyId: domain.surveyId.getValueAnyway(),
-      interviewerId: domain.interviewerId.getValueAnyway(),
-      teamId: domain.teamId.getValueAnyway(),
-      projectId: domain.projectId.getValueAnyway(),
+      surveyId: domain.surveyId,
+      interviewerId: domain.interviewerId,
+      teamId: domain.teamId,
+      projectId: domain.projectId,
       list: domain.respondentList
           .map((respondent) => RespondentDto.fromDomain(respondent))
           .asList(),
@@ -66,10 +64,10 @@ class RespondentListDto with _$RespondentListDto {
 
   RespondentList toDomain() {
     return RespondentList(
-      surveyId: SurveyId(surveyId),
-      interviewerId: InterviewerId(interviewerId),
-      teamId: TeamId(teamId),
-      projectId: ProjectId(projectId),
+      surveyId: surveyId,
+      interviewerId: interviewerId,
+      teamId: teamId,
+      projectId: projectId,
       respondentList: list.map((dto) => dto.toDomain()).toImmutableList(),
     );
   }

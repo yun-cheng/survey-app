@@ -12,7 +12,7 @@ import '../../core/constants.dart';
 import 'choice_item.dart';
 
 class ChoicesBox extends HookWidget {
-  final QuestionId questionId;
+  final String questionId;
   final QuestionType questionType;
   final bool isinCell;
 

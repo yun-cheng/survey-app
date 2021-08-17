@@ -36,14 +36,14 @@ class QuestionDto with _$QuestionDto {
 
   factory QuestionDto.fromDomain(Question domain) {
     return QuestionDto(
-      questionId: domain.id.getValueAnyway(),
+      questionId: domain.id,
       hideQuestionId: domain.hideId,
       serialNumber: domain.serialNumber,
       questionBody:
           domain.body.map((item) => FormattedTextDto.fromDomain(item)).asList(),
       stringBody: domain.stringBody,
-      questionNote: domain.note.getValueAnyway(),
-      questionType: domain.type.getValueAnyway(),
+      questionNote: domain.note,
+      questionType: domain.type.value,
       showQuestion: FullExpressionDto.fromDomain(domain.show),
       choiceList: domain.choiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
@@ -53,8 +53,8 @@ class QuestionDto with _$QuestionDto {
           .asList(),
       hasSpecialAnswer: domain.hasSpecialAnswer,
       validateAnswer: FullExpressionDto.fromDomain(domain.validateAnswer),
-      upperQuestionId: domain.upperQuestionId.getValueAnyway(),
-      pageNumber: domain.pageNumber.getValueAnyway(),
+      upperQuestionId: domain.upperQuestionId,
+      pageNumber: domain.pageNumber,
       recodeNeeded: domain.recodeNeeded,
       tableId: domain.tableId,
       rowId: domain.rowId,
@@ -63,12 +63,12 @@ class QuestionDto with _$QuestionDto {
 
   Question toDomain() {
     return Question(
-      id: QuestionId(questionId),
+      id: questionId,
       hideId: hideQuestionId,
       serialNumber: serialNumber,
       body: questionBody.map((dto) => dto.toDomain()).toImmutableList(),
       stringBody: stringBody,
-      note: QuestionNote(questionNote),
+      note: questionNote,
       type: QuestionType(questionType),
       show: showQuestion.toDomain(),
       choiceList: choiceList.map((dto) => dto.toDomain()).toImmutableList(),
@@ -77,8 +77,8 @@ class QuestionDto with _$QuestionDto {
           .toImmutableList(),
       hasSpecialAnswer: hasSpecialAnswer,
       validateAnswer: validateAnswer.toDomain(),
-      upperQuestionId: QuestionId(upperQuestionId),
-      pageNumber: PageNumber(pageNumber),
+      upperQuestionId: upperQuestionId,
+      pageNumber: pageNumber,
       recodeNeeded: recodeNeeded,
       tableId: tableId,
       rowId: rowId,

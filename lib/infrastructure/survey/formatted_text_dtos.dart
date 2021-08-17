@@ -23,7 +23,7 @@ class FormattedTextDto with _$FormattedTextDto {
 
   factory FormattedTextDto.fromDomain(FormattedText domain) {
     return FormattedTextDto(
-      type: domain.type.getValueAnyway(),
+      type: domain.type.value,
       stringBody: domain.stringBody,
       referenceKey: ReferenceKeyDto.fromDomain(domain.referenceKey),
       answer: AnswerDto.fromDomain(domain.answer),

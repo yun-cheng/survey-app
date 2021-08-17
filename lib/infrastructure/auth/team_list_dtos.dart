@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../domain/auth/team.dart';
-import '../../domain/auth/value_objects.dart';
 
 part 'team_list_dtos.freezed.dart';
 part 'team_list_dtos.g.dart';
@@ -47,15 +46,15 @@ class TeamDto with _$TeamDto {
 
   factory TeamDto.fromDomain(Team team) {
     return TeamDto(
-      teamId: team.id.getValueAnyway(),
-      teamName: team.name.getValueAnyway(),
+      teamId: team.id,
+      teamName: team.name,
     );
   }
 
   Team toDomain() {
     return Team(
-      id: TeamId(teamId),
-      name: TeamName(teamName),
+      id: teamId,
+      name: teamName,
     );
   }
 

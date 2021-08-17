@@ -42,7 +42,7 @@ class RespondentCard extends StatelessWidget {
           );
       context.router.push(
         SurveyRoute(
-          respondentId: respondent.id.getValueAnyway(),
+          respondentId: respondent.id,
           showDialogOnRestart: false,
         ),
       );
@@ -150,11 +150,11 @@ class RespondentCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        respondent.countyTown.getOrCrash(),
+                        respondent.countyTown,
                         style: kCardH2TextStyle,
                       ),
                       Text(
-                        respondent.village.getOrCrash(),
+                        respondent.village,
                         style: kCardH2TextStyle,
                       ),
                     ],
@@ -185,7 +185,7 @@ class RespondentCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                respondent.id.getOrCrash(),
+                                respondent.id,
                                 style: kCardH4TextStyle,
                               ),
                               Text(
@@ -198,7 +198,7 @@ class RespondentCard extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                respondent.remainAddress.getOrCrash(),
+                                respondent.remainAddress,
                                 style: kCardH2TextStyle,
                               ),
                               Icon(

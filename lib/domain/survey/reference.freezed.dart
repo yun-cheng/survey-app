@@ -17,10 +17,10 @@ class _$ReferenceTearOff {
   const _$ReferenceTearOff();
 
   _Reference call(
-      {required RespondentId respondentId,
-      required SurveyId surveyId,
+      {required String respondentId,
+      required String surveyId,
       required ModuleType moduleType,
-      required QuestionId questionId,
+      required String questionId,
       required Answer answer}) {
     return _Reference(
       respondentId: respondentId,
@@ -37,10 +37,10 @@ const $Reference = _$ReferenceTearOff();
 
 /// @nodoc
 mixin _$Reference {
-  RespondentId get respondentId => throw _privateConstructorUsedError;
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
   Answer get answer => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -53,12 +53,13 @@ abstract class $ReferenceCopyWith<$Res> {
   factory $ReferenceCopyWith(Reference value, $Res Function(Reference) then) =
       _$ReferenceCopyWithImpl<$Res>;
   $Res call(
-      {RespondentId respondentId,
-      SurveyId surveyId,
+      {String respondentId,
+      String surveyId,
       ModuleType moduleType,
-      QuestionId questionId,
+      String questionId,
       Answer answer});
 
+  $ModuleTypeCopyWith<$Res> get moduleType;
   $AnswerCopyWith<$Res> get answer;
 }
 
@@ -82,11 +83,11 @@ class _$ReferenceCopyWithImpl<$Res> implements $ReferenceCopyWith<$Res> {
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -94,12 +95,19 @@ class _$ReferenceCopyWithImpl<$Res> implements $ReferenceCopyWith<$Res> {
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       answer: answer == freezed
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
               as Answer,
     ));
+  }
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
+    });
   }
 
   @override
@@ -117,12 +125,14 @@ abstract class _$ReferenceCopyWith<$Res> implements $ReferenceCopyWith<$Res> {
       __$ReferenceCopyWithImpl<$Res>;
   @override
   $Res call(
-      {RespondentId respondentId,
-      SurveyId surveyId,
+      {String respondentId,
+      String surveyId,
       ModuleType moduleType,
-      QuestionId questionId,
+      String questionId,
       Answer answer});
 
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType;
   @override
   $AnswerCopyWith<$Res> get answer;
 }
@@ -148,11 +158,11 @@ class __$ReferenceCopyWithImpl<$Res> extends _$ReferenceCopyWithImpl<$Res>
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -160,7 +170,7 @@ class __$ReferenceCopyWithImpl<$Res> extends _$ReferenceCopyWithImpl<$Res>
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
-              as QuestionId,
+              as String,
       answer: answer == freezed
           ? _value.answer
           : answer // ignore: cast_nullable_to_non_nullable
@@ -181,13 +191,13 @@ class _$_Reference extends _Reference {
       : super._();
 
   @override
-  final RespondentId respondentId;
+  final String respondentId;
   @override
-  final SurveyId surveyId;
+  final String surveyId;
   @override
   final ModuleType moduleType;
   @override
-  final QuestionId questionId;
+  final String questionId;
   @override
   final Answer answer;
 
@@ -233,21 +243,21 @@ class _$_Reference extends _Reference {
 
 abstract class _Reference extends Reference {
   const factory _Reference(
-      {required RespondentId respondentId,
-      required SurveyId surveyId,
+      {required String respondentId,
+      required String surveyId,
       required ModuleType moduleType,
-      required QuestionId questionId,
+      required String questionId,
       required Answer answer}) = _$_Reference;
   const _Reference._() : super._();
 
   @override
-  RespondentId get respondentId => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
   @override
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
   ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  QuestionId get questionId => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
   @override
   Answer get answer => throw _privateConstructorUsedError;
   @override

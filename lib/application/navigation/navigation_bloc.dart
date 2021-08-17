@@ -5,7 +5,6 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import '../../domain/core/navigation_page.dart';
 import '../../domain/core/page_state.dart';
-import '../../domain/respondent/value_objects.dart';
 
 part 'navigation_bloc.freezed.dart';
 part 'navigation_event.dart';
@@ -25,7 +24,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
       pageChanged: (e) async* {
         yield state.copyWith(
           page: e.page,
-          respondentId: e.respondentId ?? RespondentId.empty(),
+          respondentId: e.respondentId ?? '',
         );
       },
       pagePushed: (e) async* {
@@ -46,7 +45,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
     try {
       return NavigationState(
         page: NavigationPage.fromJson(json['page']),
-        respondentId: RespondentId(json['respondentId']),
+        respondentId: json['respondentId'],
         pageState: const PageState.initial(),
       );
     } catch (_) {
@@ -58,7 +57,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   Map<String, dynamic>? toJson(NavigationState state) {
     return {
       'page': state.page.toJson(),
-      'respondentId': state.respondentId.getOrCrash(),
+      'respondentId': state.respondentId,
     };
   }
 }

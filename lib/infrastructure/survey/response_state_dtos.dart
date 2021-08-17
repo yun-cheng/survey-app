@@ -49,7 +49,7 @@ class ResponseStateDto with _$ResponseStateDto {
       survey: SurveyDto.fromDomain(domain.survey),
       respondent: RespondentDto.fromDomain(domain.respondent),
       interviewer: InterviewerDto.fromDomain(domain.interviewer),
-      moduleType: domain.moduleType.getValueAnyway(),
+      moduleType: domain.moduleType.value,
       responseListState: domain.responseListState.toJson(),
       responseList:
           domain.responseList.map((e) => ResponseDto.fromDomain(e)).asList(),

@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'simple_choice.dart';
-import 'value_objects.dart';
 
 part 'choice.freezed.dart';
 
@@ -11,26 +10,26 @@ class Choice with _$Choice {
 
   const factory Choice({
     required int serialNumber,
-    required ChoiceId id,
-    required ChoiceBody body,
+    required String id,
+    required String body,
     required bool asNote,
     required bool asSingle,
     required bool isSpecialAnswer,
-    required ChoiceGroup group,
+    required String group,
     required bool isGroupFirst,
-    required ChoiceId upperChoiceId,
+    required String upperChoiceId,
   }) = _Choice;
 
-  factory Choice.empty() => Choice(
+  factory Choice.empty() => const Choice(
         serialNumber: 0,
-        id: ChoiceId.empty(),
-        body: ChoiceBody.empty(),
+        id: '',
+        body: '',
         asNote: false,
         asSingle: false,
         isSpecialAnswer: false,
-        group: ChoiceGroup.empty(),
+        group: '',
         isGroupFirst: false,
-        upperChoiceId: ChoiceId.empty(),
+        upperChoiceId: '',
       );
 
   SimpleChoice simple() {

@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/survey/simple_choice.dart';
-import '../../domain/survey/value_objects.dart';
 
 part 'simple_choice_dtos.freezed.dart';
 part 'simple_choice_dtos.g.dart';
@@ -17,15 +16,15 @@ class SimpleChoiceDto with _$SimpleChoiceDto {
 
   factory SimpleChoiceDto.fromDomain(SimpleChoice domain) {
     return SimpleChoiceDto(
-      id: domain.id.getValueAnyway(),
-      body: domain.body.getValueAnyway(),
+      id: domain.id,
+      body: domain.body,
     );
   }
 
   SimpleChoice toDomain() {
     return SimpleChoice(
-      id: ChoiceId(id),
-      body: ChoiceBody(body),
+      id: id,
+      body: body,
     );
   }
 

@@ -17,17 +17,12 @@ class Teambox extends StatelessWidget {
       buildWhen: (p, c) => p.teamList != c.teamList,
       builder: (context, state) {
         return DropdownButtonFormField<Team>(
-          value: state.team.failureOption.isNone() &&
-                  state.teamList.contains(state.team)
-              ? state.team
-              : null,
+          value: state.teamList.contains(state.team) ? state.team : null,
           items: state.teamList
               .map(
                 (team) => DropdownMenuItem(
                   value: team,
-                  child: Text(
-                    team.name.getOrCrash(),
-                  ),
+                  child: Text(team.name),
                 ),
               )
               .asList(),

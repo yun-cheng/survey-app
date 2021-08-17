@@ -17,7 +17,7 @@ class _$RespondentEventTearOff {
   const _$RespondentEventTearOff();
 
   _WatchRespondentListListStarted watchRespondentListListStarted(
-      {required TeamId teamId, required InterviewerId interviewerId}) {
+      {required String teamId, required String interviewerId}) {
     return _WatchRespondentListListStarted(
       teamId: teamId,
       interviewerId: interviewerId,
@@ -42,7 +42,7 @@ class _$RespondentEventTearOff {
     return const _TextSearched();
   }
 
-  _RespondentSelected respondentSelected({required RespondentId respondentId}) {
+  _RespondentSelected respondentSelected({required String respondentId}) {
     return _RespondentSelected(
       respondentId: respondentId,
     );
@@ -62,7 +62,7 @@ class _$RespondentEventTearOff {
     );
   }
 
-  _JumpedToTown jumpedToTown({required CountyTown countyTown}) {
+  _JumpedToTown jumpedToTown({required String countyTown}) {
     return _JumpedToTown(
       countyTown: countyTown,
     );
@@ -98,7 +98,7 @@ const $RespondentEvent = _$RespondentEventTearOff();
 mixin _$RespondentEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -106,11 +106,11 @@ mixin _$RespondentEvent {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -120,7 +120,7 @@ mixin _$RespondentEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -128,11 +128,11 @@ mixin _$RespondentEvent {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -203,7 +203,7 @@ abstract class _$WatchRespondentListListStartedCopyWith<$Res> {
           _WatchRespondentListListStarted value,
           $Res Function(_WatchRespondentListListStarted) then) =
       __$WatchRespondentListListStartedCopyWithImpl<$Res>;
-  $Res call({TeamId teamId, InterviewerId interviewerId});
+  $Res call({String teamId, String interviewerId});
 }
 
 /// @nodoc
@@ -228,11 +228,11 @@ class __$WatchRespondentListListStartedCopyWithImpl<$Res>
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
     ));
   }
 }
@@ -246,9 +246,9 @@ class _$_WatchRespondentListListStarted
       {required this.teamId, required this.interviewerId});
 
   @override
-  final TeamId teamId;
+  final String teamId;
   @override
-  final InterviewerId interviewerId;
+  final String interviewerId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -291,7 +291,7 @@ class _$_WatchRespondentListListStarted
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -299,11 +299,11 @@ class _$_WatchRespondentListListStarted
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -316,7 +316,7 @@ class _$_WatchRespondentListListStarted
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -324,11 +324,11 @@ class _$_WatchRespondentListListStarted
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -391,11 +391,11 @@ class _$_WatchRespondentListListStarted
 
 abstract class _WatchRespondentListListStarted implements RespondentEvent {
   const factory _WatchRespondentListListStarted(
-          {required TeamId teamId, required InterviewerId interviewerId}) =
-      _$_WatchRespondentListListStarted;
+      {required String teamId,
+      required String interviewerId}) = _$_WatchRespondentListListStarted;
 
-  TeamId get teamId => throw _privateConstructorUsedError;
-  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$WatchRespondentListListStartedCopyWith<_WatchRespondentListListStarted>
       get copyWith => throw _privateConstructorUsedError;
@@ -488,7 +488,7 @@ class _$_RespondentListListReceived
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -496,11 +496,11 @@ class _$_RespondentListListReceived
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -513,7 +513,7 @@ class _$_RespondentListListReceived
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -521,11 +521,11 @@ class _$_RespondentListListReceived
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -682,7 +682,7 @@ class _$_SurveySelected
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -690,11 +690,11 @@ class _$_SurveySelected
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -707,7 +707,7 @@ class _$_SurveySelected
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -715,11 +715,11 @@ class _$_SurveySelected
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -836,7 +836,7 @@ class _$_TextSearched with DiagnosticableTreeMixin implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -844,11 +844,11 @@ class _$_TextSearched with DiagnosticableTreeMixin implements _TextSearched {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -861,7 +861,7 @@ class _$_TextSearched with DiagnosticableTreeMixin implements _TextSearched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -869,11 +869,11 @@ class _$_TextSearched with DiagnosticableTreeMixin implements _TextSearched {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -943,7 +943,7 @@ abstract class _$RespondentSelectedCopyWith<$Res> {
   factory _$RespondentSelectedCopyWith(
           _RespondentSelected value, $Res Function(_RespondentSelected) then) =
       __$RespondentSelectedCopyWithImpl<$Res>;
-  $Res call({RespondentId respondentId});
+  $Res call({String respondentId});
 }
 
 /// @nodoc
@@ -965,7 +965,7 @@ class __$RespondentSelectedCopyWithImpl<$Res>
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
     ));
   }
 }
@@ -978,7 +978,7 @@ class _$_RespondentSelected
   const _$_RespondentSelected({required this.respondentId});
 
   @override
-  final RespondentId respondentId;
+  final String respondentId;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1014,7 +1014,7 @@ class _$_RespondentSelected
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1022,11 +1022,11 @@ class _$_RespondentSelected
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -1039,7 +1039,7 @@ class _$_RespondentSelected
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1047,11 +1047,11 @@ class _$_RespondentSelected
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1113,10 +1113,10 @@ class _$_RespondentSelected
 }
 
 abstract class _RespondentSelected implements RespondentEvent {
-  const factory _RespondentSelected({required RespondentId respondentId}) =
+  const factory _RespondentSelected({required String respondentId}) =
       _$_RespondentSelected;
 
-  RespondentId get respondentId => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1195,7 +1195,7 @@ class _$_TabSwitched with DiagnosticableTreeMixin implements _TabSwitched {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1203,11 +1203,11 @@ class _$_TabSwitched with DiagnosticableTreeMixin implements _TabSwitched {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -1220,7 +1220,7 @@ class _$_TabSwitched with DiagnosticableTreeMixin implements _TabSwitched {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1228,11 +1228,11 @@ class _$_TabSwitched with DiagnosticableTreeMixin implements _TabSwitched {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1389,7 +1389,7 @@ class _$_PageScrolled with DiagnosticableTreeMixin implements _PageScrolled {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1397,11 +1397,11 @@ class _$_PageScrolled with DiagnosticableTreeMixin implements _PageScrolled {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -1414,7 +1414,7 @@ class _$_PageScrolled with DiagnosticableTreeMixin implements _PageScrolled {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1422,11 +1422,11 @@ class _$_PageScrolled with DiagnosticableTreeMixin implements _PageScrolled {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1504,7 +1504,7 @@ abstract class _$JumpedToTownCopyWith<$Res> {
   factory _$JumpedToTownCopyWith(
           _JumpedToTown value, $Res Function(_JumpedToTown) then) =
       __$JumpedToTownCopyWithImpl<$Res>;
-  $Res call({CountyTown countyTown});
+  $Res call({String countyTown});
 }
 
 /// @nodoc
@@ -1526,7 +1526,7 @@ class __$JumpedToTownCopyWithImpl<$Res>
       countyTown: countyTown == freezed
           ? _value.countyTown
           : countyTown // ignore: cast_nullable_to_non_nullable
-              as CountyTown,
+              as String,
     ));
   }
 }
@@ -1537,7 +1537,7 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
   const _$_JumpedToTown({required this.countyTown});
 
   @override
-  final CountyTown countyTown;
+  final String countyTown;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1573,7 +1573,7 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1581,11 +1581,11 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -1598,7 +1598,7 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1606,11 +1606,11 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1672,10 +1672,9 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
 }
 
 abstract class _JumpedToTown implements RespondentEvent {
-  const factory _JumpedToTown({required CountyTown countyTown}) =
-      _$_JumpedToTown;
+  const factory _JumpedToTown({required String countyTown}) = _$_JumpedToTown;
 
-  CountyTown get countyTown => throw _privateConstructorUsedError;
+  String get countyTown => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$JumpedToTownCopyWith<_JumpedToTown> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1757,7 +1756,7 @@ class _$_VisitReportUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1765,11 +1764,11 @@ class _$_VisitReportUpdated
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -1782,7 +1781,7 @@ class _$_VisitReportUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1790,11 +1789,11 @@ class _$_VisitReportUpdated
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1943,7 +1942,7 @@ class _$_TabRespondentsUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1951,11 +1950,11 @@ class _$_TabRespondentsUpdated
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -1968,7 +1967,7 @@ class _$_TabRespondentsUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -1976,11 +1975,11 @@ class _$_TabRespondentsUpdated
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2095,7 +2094,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -2103,11 +2102,11 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -2120,7 +2119,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -2128,11 +2127,11 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2246,7 +2245,7 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(TeamId teamId, InterviewerId interviewerId)
+    required TResult Function(String teamId, String interviewerId)
         watchRespondentListListStarted,
     required TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -2254,11 +2253,11 @@ class _$_TaskInitialized
         respondentListListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() textSearched,
-    required TResult Function(RespondentId respondentId) respondentSelected,
+    required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType, List<ItemPosition> positions)
         pageScrolled,
-    required TResult Function(CountyTown countyTown) jumpedToTown,
+    required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(KtList<Response> responseList) visitReportUpdated,
     required TResult Function(KtList<Response> responseList)
         tabRespondentsUpdated,
@@ -2271,7 +2270,7 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TeamId teamId, InterviewerId interviewerId)?
+    TResult Function(String teamId, String interviewerId)?
         watchRespondentListListStarted,
     TResult Function(
             Either<RespondentFailure, KtList<RespondentList>>
@@ -2279,11 +2278,11 @@ class _$_TaskInitialized
         respondentListListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? textSearched,
-    TResult Function(RespondentId respondentId)? respondentSelected,
+    TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType, List<ItemPosition> positions)?
         pageScrolled,
-    TResult Function(CountyTown countyTown)? jumpedToTown,
+    TResult Function(String countyTown)? jumpedToTown,
     TResult Function(KtList<Response> responseList)? visitReportUpdated,
     TResult Function(KtList<Response> responseList)? tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2362,8 +2361,8 @@ class _$RespondentStateTearOff {
       required bool needToJump,
       required int jumpToIndex,
       required Option<RespondentFailure> respondentFailure,
-      required RespondentId selectedRespondentId,
-      required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      required String selectedRespondentId,
+      required KtMap<String, KtList<VisitRecord>> visitRecordsMap,
       required KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
       required KtList<Response> responseInfoList}) {
     return _RespondentState(
@@ -2401,8 +2400,8 @@ mixin _$RespondentState {
   int get jumpToIndex => throw _privateConstructorUsedError;
   Option<RespondentFailure> get respondentFailure =>
       throw _privateConstructorUsedError;
-  RespondentId get selectedRespondentId => throw _privateConstructorUsedError;
-  KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap =>
+  String get selectedRespondentId => throw _privateConstructorUsedError;
+  KtMap<String, KtList<VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
   KtMap<TabType, KtList<Respondent>> get tabRespondentsMap =>
       throw _privateConstructorUsedError;
@@ -2428,8 +2427,8 @@ abstract class $RespondentStateCopyWith<$Res> {
       bool needToJump,
       int jumpToIndex,
       Option<RespondentFailure> respondentFailure,
-      RespondentId selectedRespondentId,
-      KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      String selectedRespondentId,
+      KtMap<String, KtList<VisitRecord>> visitRecordsMap,
       KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
       KtList<Response> responseInfoList});
 
@@ -2502,11 +2501,11 @@ class _$RespondentStateCopyWithImpl<$Res>
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
           : selectedRespondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<RespondentId, KtList<VisitRecord>>,
+              as KtMap<String, KtList<VisitRecord>>,
       tabRespondentsMap: tabRespondentsMap == freezed
           ? _value.tabRespondentsMap
           : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
@@ -2550,8 +2549,8 @@ abstract class _$RespondentStateCopyWith<$Res>
       bool needToJump,
       int jumpToIndex,
       Option<RespondentFailure> respondentFailure,
-      RespondentId selectedRespondentId,
-      KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      String selectedRespondentId,
+      KtMap<String, KtList<VisitRecord>> visitRecordsMap,
       KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
       KtList<Response> responseInfoList});
 
@@ -2628,11 +2627,11 @@ class __$RespondentStateCopyWithImpl<$Res>
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
           : selectedRespondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<RespondentId, KtList<VisitRecord>>,
+              as KtMap<String, KtList<VisitRecord>>,
       tabRespondentsMap: tabRespondentsMap == freezed
           ? _value.tabRespondentsMap
           : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
@@ -2683,9 +2682,9 @@ class _$_RespondentState extends _RespondentState with DiagnosticableTreeMixin {
   @override
   final Option<RespondentFailure> respondentFailure;
   @override
-  final RespondentId selectedRespondentId;
+  final String selectedRespondentId;
   @override
-  final KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap;
+  final KtMap<String, KtList<VisitRecord>> visitRecordsMap;
   @override
   final KtMap<TabType, KtList<Respondent>> tabRespondentsMap;
   @override
@@ -2796,8 +2795,8 @@ abstract class _RespondentState extends RespondentState {
       required bool needToJump,
       required int jumpToIndex,
       required Option<RespondentFailure> respondentFailure,
-      required RespondentId selectedRespondentId,
-      required KtMap<RespondentId, KtList<VisitRecord>> visitRecordsMap,
+      required String selectedRespondentId,
+      required KtMap<String, KtList<VisitRecord>> visitRecordsMap,
       required KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
       required KtList<Response> responseInfoList}) = _$_RespondentState;
   const _RespondentState._() : super._();
@@ -2824,9 +2823,9 @@ abstract class _RespondentState extends RespondentState {
   Option<RespondentFailure> get respondentFailure =>
       throw _privateConstructorUsedError;
   @override
-  RespondentId get selectedRespondentId => throw _privateConstructorUsedError;
+  String get selectedRespondentId => throw _privateConstructorUsedError;
   @override
-  KtMap<RespondentId, KtList<VisitRecord>> get visitRecordsMap =>
+  KtMap<String, KtList<VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
   @override
   KtMap<TabType, KtList<Respondent>> get tabRespondentsMap =>

@@ -44,15 +44,15 @@ class _$AuthEventTearOff {
     );
   }
 
-  _IdChanged idChanged(String idStr) {
+  _IdChanged idChanged(String id) {
     return _IdChanged(
-      idStr,
+      id,
     );
   }
 
-  _PasswordChanged passwordChanged(String passwordStr) {
+  _PasswordChanged passwordChanged(String password) {
     return _PasswordChanged(
-      passwordStr,
+      password,
     );
   }
 
@@ -81,8 +81,8 @@ mixin _$AuthEvent {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) =>
@@ -97,8 +97,8 @@ mixin _$AuthEvent {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -200,8 +200,8 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
@@ -219,8 +219,8 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -351,8 +351,8 @@ class _$_TeamListReceived implements _TeamListReceived {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
@@ -370,8 +370,8 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -516,8 +516,8 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
@@ -535,8 +535,8 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -648,8 +648,8 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
@@ -667,8 +667,8 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -803,8 +803,8 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
@@ -822,8 +822,8 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -891,7 +891,7 @@ abstract class _$IdChangedCopyWith<$Res> {
   factory _$IdChangedCopyWith(
           _IdChanged value, $Res Function(_IdChanged) then) =
       __$IdChangedCopyWithImpl<$Res>;
-  $Res call({String idStr});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -905,12 +905,12 @@ class __$IdChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? idStr = freezed,
+    Object? id = freezed,
   }) {
     return _then(_IdChanged(
-      idStr == freezed
-          ? _value.idStr
-          : idStr // ignore: cast_nullable_to_non_nullable
+      id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -919,27 +919,27 @@ class __$IdChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_IdChanged implements _IdChanged {
-  const _$_IdChanged(this.idStr);
+  const _$_IdChanged(this.id);
 
   @override
-  final String idStr;
+  final String id;
 
   @override
   String toString() {
-    return 'AuthEvent.idChanged(idStr: $idStr)';
+    return 'AuthEvent.idChanged(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _IdChanged &&
-            (identical(other.idStr, idStr) ||
-                const DeepCollectionEquality().equals(other.idStr, idStr)));
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(idStr);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
 
   @JsonKey(ignore: true)
   @override
@@ -958,12 +958,12 @@ class _$_IdChanged implements _IdChanged {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
-    return idChanged(idStr);
+    return idChanged(id);
   }
 
   @override
@@ -977,14 +977,14 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (idChanged != null) {
-      return idChanged(idStr);
+      return idChanged(id);
     }
     return orElse();
   }
@@ -1030,9 +1030,9 @@ class _$_IdChanged implements _IdChanged {
 }
 
 abstract class _IdChanged implements AuthEvent {
-  const factory _IdChanged(String idStr) = _$_IdChanged;
+  const factory _IdChanged(String id) = _$_IdChanged;
 
-  String get idStr => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$IdChangedCopyWith<_IdChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1043,7 +1043,7 @@ abstract class _$PasswordChangedCopyWith<$Res> {
   factory _$PasswordChangedCopyWith(
           _PasswordChanged value, $Res Function(_PasswordChanged) then) =
       __$PasswordChangedCopyWithImpl<$Res>;
-  $Res call({String passwordStr});
+  $Res call({String password});
 }
 
 /// @nodoc
@@ -1058,12 +1058,12 @@ class __$PasswordChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? passwordStr = freezed,
+    Object? password = freezed,
   }) {
     return _then(_PasswordChanged(
-      passwordStr == freezed
-          ? _value.passwordStr
-          : passwordStr // ignore: cast_nullable_to_non_nullable
+      password == freezed
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -1072,28 +1072,28 @@ class __$PasswordChangedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PasswordChanged implements _PasswordChanged {
-  const _$_PasswordChanged(this.passwordStr);
+  const _$_PasswordChanged(this.password);
 
   @override
-  final String passwordStr;
+  final String password;
 
   @override
   String toString() {
-    return 'AuthEvent.passwordChanged(passwordStr: $passwordStr)';
+    return 'AuthEvent.passwordChanged(password: $password)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _PasswordChanged &&
-            (identical(other.passwordStr, passwordStr) ||
+            (identical(other.password, password) ||
                 const DeepCollectionEquality()
-                    .equals(other.passwordStr, passwordStr)));
+                    .equals(other.password, password)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(passwordStr);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(password);
 
   @JsonKey(ignore: true)
   @override
@@ -1112,12 +1112,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
-    return passwordChanged(passwordStr);
+    return passwordChanged(password);
   }
 
   @override
@@ -1131,14 +1131,14 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
-      return passwordChanged(passwordStr);
+      return passwordChanged(password);
     }
     return orElse();
   }
@@ -1184,9 +1184,9 @@ class _$_PasswordChanged implements _PasswordChanged {
 }
 
 abstract class _PasswordChanged implements AuthEvent {
-  const factory _PasswordChanged(String passwordStr) = _$_PasswordChanged;
+  const factory _PasswordChanged(String password) = _$_PasswordChanged;
 
-  String get passwordStr => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1240,8 +1240,8 @@ class _$_SignInPressed implements _SignInPressed {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
@@ -1259,8 +1259,8 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -1362,8 +1362,8 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
-    required TResult Function(String idStr) idChanged,
-    required TResult Function(String passwordStr) passwordChanged,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
   }) {
@@ -1381,8 +1381,8 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(
             Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
-    TResult Function(String idStr)? idChanged,
-    TResult Function(String passwordStr)? passwordChanged,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
     required TResult orElse(),
@@ -1447,8 +1447,8 @@ class _$AuthStateTearOff {
       required Team team,
       required LoadState interviewerListState,
       required KtList<Interviewer> interviewerList,
-      required InterviewerId id,
-      required Password password,
+      required String id,
+      required String password,
       required LoadState signInState,
       required Interviewer interviewer,
       required Option<AuthFailure> authFailure,
@@ -1479,8 +1479,8 @@ mixin _$AuthState {
   Team get team => throw _privateConstructorUsedError;
   LoadState get interviewerListState => throw _privateConstructorUsedError;
   KtList<Interviewer> get interviewerList => throw _privateConstructorUsedError;
-  InterviewerId get id => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
   LoadState get signInState => throw _privateConstructorUsedError;
   Interviewer get interviewer => throw _privateConstructorUsedError;
   Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
@@ -1501,8 +1501,8 @@ abstract class $AuthStateCopyWith<$Res> {
       Team team,
       LoadState interviewerListState,
       KtList<Interviewer> interviewerList,
-      InterviewerId id,
-      Password password,
+      String id,
+      String password,
       LoadState signInState,
       Interviewer interviewer,
       Option<AuthFailure> authFailure,
@@ -1561,11 +1561,11 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as String,
       signInState: signInState == freezed
           ? _value.signInState
           : signInState // ignore: cast_nullable_to_non_nullable
@@ -1633,8 +1633,8 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       Team team,
       LoadState interviewerListState,
       KtList<Interviewer> interviewerList,
-      InterviewerId id,
-      Password password,
+      String id,
+      String password,
       LoadState signInState,
       Interviewer interviewer,
       Option<AuthFailure> authFailure,
@@ -1699,11 +1699,11 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       password: password == freezed
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as String,
       signInState: signInState == freezed
           ? _value.signInState
           : signInState // ignore: cast_nullable_to_non_nullable
@@ -1751,9 +1751,9 @@ class _$_AuthState implements _AuthState {
   @override
   final KtList<Interviewer> interviewerList;
   @override
-  final InterviewerId id;
+  final String id;
   @override
-  final Password password;
+  final String password;
   @override
   final LoadState signInState;
   @override
@@ -1833,8 +1833,8 @@ abstract class _AuthState implements AuthState {
       required Team team,
       required LoadState interviewerListState,
       required KtList<Interviewer> interviewerList,
-      required InterviewerId id,
-      required Password password,
+      required String id,
+      required String password,
       required LoadState signInState,
       required Interviewer interviewer,
       required Option<AuthFailure> authFailure,
@@ -1851,9 +1851,9 @@ abstract class _AuthState implements AuthState {
   @override
   KtList<Interviewer> get interviewerList => throw _privateConstructorUsedError;
   @override
-  InterviewerId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  Password get password => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
   @override
   LoadState get signInState => throw _privateConstructorUsedError;
   @override

@@ -17,16 +17,16 @@ class _$ResponseTearOff {
   const _$ResponseTearOff();
 
   _Response call(
-      {required TeamId teamId,
-      required ProjectId projectId,
-      required SurveyId surveyId,
+      {required String teamId,
+      required String projectId,
+      required String surveyId,
       required ModuleType moduleType,
-      required RespondentId respondentId,
+      required String respondentId,
       required UniqueId responseId,
       required UniqueId tempResponseId,
       required UniqueId ticketId,
       required bool editFinished,
-      required InterviewerId interviewerId,
+      required String interviewerId,
       required UniqueId deviceId,
       required DeviceTimeStamp createdTimeStamp,
       required DeviceTimeStamp sessionStartTimeStamp,
@@ -34,8 +34,8 @@ class _$ResponseTearOff {
       required DeviceTimeStamp lastChangedTimeStamp,
       required ResponseStatus responseStatus,
       required bool isDeleted,
-      required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) {
     return _Response(
       teamId: teamId,
@@ -68,17 +68,17 @@ const $Response = _$ResponseTearOff();
 /// @nodoc
 mixin _$Response {
 // H_ 區分不同 response
-  TeamId get teamId => throw _privateConstructorUsedError;
-  ProjectId get projectId => throw _privateConstructorUsedError;
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
-  RespondentId get respondentId =>
+  String get respondentId =>
       throw _privateConstructorUsedError; // H_ 區分 response 版本
   UniqueId get responseId => throw _privateConstructorUsedError;
   UniqueId get tempResponseId => throw _privateConstructorUsedError;
   UniqueId get ticketId => throw _privateConstructorUsedError;
   bool get editFinished => throw _privateConstructorUsedError;
-  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   UniqueId get deviceId => throw _privateConstructorUsedError; // H_ 狀態
   DeviceTimeStamp get createdTimeStamp => throw _privateConstructorUsedError;
   DeviceTimeStamp get sessionStartTimeStamp =>
@@ -88,8 +88,8 @@ mixin _$Response {
       throw _privateConstructorUsedError;
   ResponseStatus get responseStatus => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError; // H_ 內容
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   SimpleSurveyPageState get surveyPageState =>
       throw _privateConstructorUsedError;
@@ -104,16 +104,16 @@ abstract class $ResponseCopyWith<$Res> {
   factory $ResponseCopyWith(Response value, $Res Function(Response) then) =
       _$ResponseCopyWithImpl<$Res>;
   $Res call(
-      {TeamId teamId,
-      ProjectId projectId,
-      SurveyId surveyId,
+      {String teamId,
+      String projectId,
+      String surveyId,
       ModuleType moduleType,
-      RespondentId respondentId,
+      String respondentId,
       UniqueId responseId,
       UniqueId tempResponseId,
       UniqueId ticketId,
       bool editFinished,
-      InterviewerId interviewerId,
+      String interviewerId,
       UniqueId deviceId,
       DeviceTimeStamp createdTimeStamp,
       DeviceTimeStamp sessionStartTimeStamp,
@@ -121,14 +121,20 @@ abstract class $ResponseCopyWith<$Res> {
       DeviceTimeStamp lastChangedTimeStamp,
       ResponseStatus responseStatus,
       bool isDeleted,
-      KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<String, Answer> answerMap,
+      KtMap<String, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
+  $ModuleTypeCopyWith<$Res> get moduleType;
   $UniqueIdCopyWith<$Res> get responseId;
   $UniqueIdCopyWith<$Res> get tempResponseId;
   $UniqueIdCopyWith<$Res> get ticketId;
   $UniqueIdCopyWith<$Res> get deviceId;
+  $DeviceTimeStampCopyWith<$Res> get createdTimeStamp;
+  $DeviceTimeStampCopyWith<$Res> get sessionStartTimeStamp;
+  $DeviceTimeStampCopyWith<$Res> get sessionEndTimeStamp;
+  $DeviceTimeStampCopyWith<$Res> get lastChangedTimeStamp;
+  $ResponseStatusCopyWith<$Res> get responseStatus;
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
 }
 
@@ -167,15 +173,15 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       projectId: projectId == freezed
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -183,7 +189,7 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
@@ -203,7 +209,7 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       deviceId: deviceId == freezed
           ? _value.deviceId
           : deviceId // ignore: cast_nullable_to_non_nullable
@@ -235,16 +241,23 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState // ignore: cast_nullable_to_non_nullable
               as SimpleSurveyPageState,
     ));
+  }
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
+    });
   }
 
   @override
@@ -276,6 +289,42 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
   }
 
   @override
+  $DeviceTimeStampCopyWith<$Res> get createdTimeStamp {
+    return $DeviceTimeStampCopyWith<$Res>(_value.createdTimeStamp, (value) {
+      return _then(_value.copyWith(createdTimeStamp: value));
+    });
+  }
+
+  @override
+  $DeviceTimeStampCopyWith<$Res> get sessionStartTimeStamp {
+    return $DeviceTimeStampCopyWith<$Res>(_value.sessionStartTimeStamp,
+        (value) {
+      return _then(_value.copyWith(sessionStartTimeStamp: value));
+    });
+  }
+
+  @override
+  $DeviceTimeStampCopyWith<$Res> get sessionEndTimeStamp {
+    return $DeviceTimeStampCopyWith<$Res>(_value.sessionEndTimeStamp, (value) {
+      return _then(_value.copyWith(sessionEndTimeStamp: value));
+    });
+  }
+
+  @override
+  $DeviceTimeStampCopyWith<$Res> get lastChangedTimeStamp {
+    return $DeviceTimeStampCopyWith<$Res>(_value.lastChangedTimeStamp, (value) {
+      return _then(_value.copyWith(lastChangedTimeStamp: value));
+    });
+  }
+
+  @override
+  $ResponseStatusCopyWith<$Res> get responseStatus {
+    return $ResponseStatusCopyWith<$Res>(_value.responseStatus, (value) {
+      return _then(_value.copyWith(responseStatus: value));
+    });
+  }
+
+  @override
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState {
     return $SimpleSurveyPageStateCopyWith<$Res>(_value.surveyPageState,
         (value) {
@@ -290,16 +339,16 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
       __$ResponseCopyWithImpl<$Res>;
   @override
   $Res call(
-      {TeamId teamId,
-      ProjectId projectId,
-      SurveyId surveyId,
+      {String teamId,
+      String projectId,
+      String surveyId,
       ModuleType moduleType,
-      RespondentId respondentId,
+      String respondentId,
       UniqueId responseId,
       UniqueId tempResponseId,
       UniqueId ticketId,
       bool editFinished,
-      InterviewerId interviewerId,
+      String interviewerId,
       UniqueId deviceId,
       DeviceTimeStamp createdTimeStamp,
       DeviceTimeStamp sessionStartTimeStamp,
@@ -307,10 +356,12 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
       DeviceTimeStamp lastChangedTimeStamp,
       ResponseStatus responseStatus,
       bool isDeleted,
-      KtMap<QuestionId, Answer> answerMap,
-      KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      KtMap<String, Answer> answerMap,
+      KtMap<String, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType;
   @override
   $UniqueIdCopyWith<$Res> get responseId;
   @override
@@ -319,6 +370,16 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
   $UniqueIdCopyWith<$Res> get ticketId;
   @override
   $UniqueIdCopyWith<$Res> get deviceId;
+  @override
+  $DeviceTimeStampCopyWith<$Res> get createdTimeStamp;
+  @override
+  $DeviceTimeStampCopyWith<$Res> get sessionStartTimeStamp;
+  @override
+  $DeviceTimeStampCopyWith<$Res> get sessionEndTimeStamp;
+  @override
+  $DeviceTimeStampCopyWith<$Res> get lastChangedTimeStamp;
+  @override
+  $ResponseStatusCopyWith<$Res> get responseStatus;
   @override
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
 }
@@ -359,15 +420,15 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
       teamId: teamId == freezed
           ? _value.teamId
           : teamId // ignore: cast_nullable_to_non_nullable
-              as TeamId,
+              as String,
       projectId: projectId == freezed
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
-              as ProjectId,
+              as String,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as SurveyId,
+              as String,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
@@ -375,7 +436,7 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
       respondentId: respondentId == freezed
           ? _value.respondentId
           : respondentId // ignore: cast_nullable_to_non_nullable
-              as RespondentId,
+              as String,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
@@ -395,7 +456,7 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
       interviewerId: interviewerId == freezed
           ? _value.interviewerId
           : interviewerId // ignore: cast_nullable_to_non_nullable
-              as InterviewerId,
+              as String,
       deviceId: deviceId == freezed
           ? _value.deviceId
           : deviceId // ignore: cast_nullable_to_non_nullable
@@ -427,11 +488,11 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, Answer>,
+              as KtMap<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<QuestionId, AnswerStatus>,
+              as KtMap<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState // ignore: cast_nullable_to_non_nullable
@@ -467,15 +528,15 @@ class _$_Response extends _Response {
       : super._();
 
   @override // H_ 區分不同 response
-  final TeamId teamId;
+  final String teamId;
   @override
-  final ProjectId projectId;
+  final String projectId;
   @override
-  final SurveyId surveyId;
+  final String surveyId;
   @override
   final ModuleType moduleType;
   @override
-  final RespondentId respondentId;
+  final String respondentId;
   @override // H_ 區分 response 版本
   final UniqueId responseId;
   @override
@@ -485,7 +546,7 @@ class _$_Response extends _Response {
   @override
   final bool editFinished;
   @override
-  final InterviewerId interviewerId;
+  final String interviewerId;
   @override
   final UniqueId deviceId;
   @override // H_ 狀態
@@ -501,9 +562,9 @@ class _$_Response extends _Response {
   @override
   final bool isDeleted;
   @override // H_ 內容
-  final KtMap<QuestionId, Answer> answerMap;
+  final KtMap<String, Answer> answerMap;
   @override
-  final KtMap<QuestionId, AnswerStatus> answerStatusMap;
+  final KtMap<String, AnswerStatus> answerStatusMap;
   @override
   final SimpleSurveyPageState surveyPageState;
 
@@ -604,16 +665,16 @@ class _$_Response extends _Response {
 
 abstract class _Response extends Response {
   const factory _Response(
-      {required TeamId teamId,
-      required ProjectId projectId,
-      required SurveyId surveyId,
+      {required String teamId,
+      required String projectId,
+      required String surveyId,
       required ModuleType moduleType,
-      required RespondentId respondentId,
+      required String respondentId,
       required UniqueId responseId,
       required UniqueId tempResponseId,
       required UniqueId ticketId,
       required bool editFinished,
-      required InterviewerId interviewerId,
+      required String interviewerId,
       required UniqueId deviceId,
       required DeviceTimeStamp createdTimeStamp,
       required DeviceTimeStamp sessionStartTimeStamp,
@@ -621,21 +682,21 @@ abstract class _Response extends Response {
       required DeviceTimeStamp lastChangedTimeStamp,
       required ResponseStatus responseStatus,
       required bool isDeleted,
-      required KtMap<QuestionId, Answer> answerMap,
-      required KtMap<QuestionId, AnswerStatus> answerStatusMap,
+      required KtMap<String, Answer> answerMap,
+      required KtMap<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) = _$_Response;
   const _Response._() : super._();
 
   @override // H_ 區分不同 response
-  TeamId get teamId => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
   @override
-  ProjectId get projectId => throw _privateConstructorUsedError;
+  String get projectId => throw _privateConstructorUsedError;
   @override
-  SurveyId get surveyId => throw _privateConstructorUsedError;
+  String get surveyId => throw _privateConstructorUsedError;
   @override
   ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  RespondentId get respondentId => throw _privateConstructorUsedError;
+  String get respondentId => throw _privateConstructorUsedError;
   @override // H_ 區分 response 版本
   UniqueId get responseId => throw _privateConstructorUsedError;
   @override
@@ -645,7 +706,7 @@ abstract class _Response extends Response {
   @override
   bool get editFinished => throw _privateConstructorUsedError;
   @override
-  InterviewerId get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError;
   @override
   UniqueId get deviceId => throw _privateConstructorUsedError;
   @override // H_ 狀態
@@ -663,9 +724,9 @@ abstract class _Response extends Response {
   @override
   bool get isDeleted => throw _privateConstructorUsedError;
   @override // H_ 內容
-  KtMap<QuestionId, Answer> get answerMap => throw _privateConstructorUsedError;
+  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtMap<QuestionId, AnswerStatus> get answerStatusMap =>
+  KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   SimpleSurveyPageState get surveyPageState =>

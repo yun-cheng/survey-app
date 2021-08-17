@@ -3,7 +3,6 @@ import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../domain/core/load_state.dart';
-import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
 
 part 'update_answer_state_dtos.freezed.dart';
@@ -24,12 +23,10 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
   factory UpdateAnswerStateDto.fromDomain(UpdateAnswerState domain) {
     return UpdateAnswerStateDto(
       answerMap: domain.answerMap
-          .mapKeys((entry) => entry.key.getOrCrash())
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
       updateState: domain.updateState.toJson(),
-      questionIdList:
-          domain.questionIdList.map((e) => e.getValueAnyway()).asList(),
+      questionIdList: domain.questionIdList.asList(),
       updateAnswerStatus: domain.updateAnswerStatus,
       restoreState: domain.restoreState.toJson(),
     );
@@ -37,13 +34,10 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
 
   UpdateAnswerState toDomain() {
     return UpdateAnswerState.initial().copyWith(
-      answerMap: KtMap.from(answerMap)
-          .mapKeys((entry) => QuestionId(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap:
+          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
       updateState: LoadState.fromJson(updateState),
-      questionIdList: questionIdList
-          .map((questionId) => QuestionId(questionId))
-          .toImmutableList(),
+      questionIdList: questionIdList.toImmutableList(),
       updateAnswerStatus: updateAnswerStatus,
       restoreState: LoadState.fromJson(restoreState),
     );

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SimpleChoiceTearOff {
   const _$SimpleChoiceTearOff();
 
-  _Choice call({required ChoiceId id, required ChoiceBody body}) {
+  _Choice call({required String id, required String body}) {
     return _Choice(
       id: id,
       body: body,
@@ -29,8 +29,8 @@ const $SimpleChoice = _$SimpleChoiceTearOff();
 
 /// @nodoc
 mixin _$SimpleChoice {
-  ChoiceId get id => throw _privateConstructorUsedError;
-  ChoiceBody get body => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SimpleChoiceCopyWith<SimpleChoice> get copyWith =>
@@ -42,7 +42,7 @@ abstract class $SimpleChoiceCopyWith<$Res> {
   factory $SimpleChoiceCopyWith(
           SimpleChoice value, $Res Function(SimpleChoice) then) =
       _$SimpleChoiceCopyWithImpl<$Res>;
-  $Res call({ChoiceId id, ChoiceBody body});
+  $Res call({String id, String body});
 }
 
 /// @nodoc
@@ -62,11 +62,11 @@ class _$SimpleChoiceCopyWithImpl<$Res> implements $SimpleChoiceCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as ChoiceId,
+              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as ChoiceBody,
+              as String,
     ));
   }
 }
@@ -76,7 +76,7 @@ abstract class _$ChoiceCopyWith<$Res> implements $SimpleChoiceCopyWith<$Res> {
   factory _$ChoiceCopyWith(_Choice value, $Res Function(_Choice) then) =
       __$ChoiceCopyWithImpl<$Res>;
   @override
-  $Res call({ChoiceId id, ChoiceBody body});
+  $Res call({String id, String body});
 }
 
 /// @nodoc
@@ -97,11 +97,11 @@ class __$ChoiceCopyWithImpl<$Res> extends _$SimpleChoiceCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as ChoiceId,
+              as String,
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as ChoiceBody,
+              as String,
     ));
   }
 }
@@ -112,9 +112,9 @@ class _$_Choice extends _Choice {
   const _$_Choice({required this.id, required this.body}) : super._();
 
   @override
-  final ChoiceId id;
+  final String id;
   @override
-  final ChoiceBody body;
+  final String body;
 
   @override
   String toString() {
@@ -144,14 +144,13 @@ class _$_Choice extends _Choice {
 }
 
 abstract class _Choice extends SimpleChoice {
-  const factory _Choice({required ChoiceId id, required ChoiceBody body}) =
-      _$_Choice;
+  const factory _Choice({required String id, required String body}) = _$_Choice;
   const _Choice._() : super._();
 
   @override
-  ChoiceId get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   @override
-  ChoiceBody get body => throw _privateConstructorUsedError;
+  String get body => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ChoiceCopyWith<_Choice> get copyWith => throw _privateConstructorUsedError;

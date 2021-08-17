@@ -5,12 +5,11 @@ import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 
 class WarningBox extends StatelessWidget {
   final Question question;
-  final QuestionId questionId;
+  final String questionId;
 
   const WarningBox({
     Key? key,
@@ -41,7 +40,7 @@ class WarningBox extends StatelessWidget {
           return Visibility(
             visible: state.showWarning && !warning.isEmpty,
             child: Text(
-              warning.toText(),
+              warning.type.value,
               style: kH4TextStyle.copyWith(
                 color: kCardRedTextColor,
                 fontWeight: FontWeight.bold,

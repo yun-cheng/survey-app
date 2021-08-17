@@ -4,13 +4,13 @@ part of 'navigation_bloc.dart';
 class NavigationState with _$NavigationState {
   const factory NavigationState({
     required NavigationPage page,
-    required RespondentId respondentId,
+    required String respondentId,
     required PageState pageState,
   }) = _NavigationState;
 
-  factory NavigationState.initial() => NavigationState(
-        page: const NavigationPage.signIn(),
-        respondentId: RespondentId.empty(),
-        pageState: const PageState.initial(),
+  factory NavigationState.initial() => const NavigationState(
+        page: NavigationPage.signIn(),
+        respondentId: '',
+        pageState: PageState.initial(),
       );
 }
