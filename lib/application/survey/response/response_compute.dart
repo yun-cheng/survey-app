@@ -130,7 +130,7 @@ ResponseState responseRestored(ResponseState state) {
   mainResponse ??= Response.empty();
 
   return state.copyWith(
-    responseRestoreState: const LoadState.success(),
+    responseRestoreState: LoadState.success(),
     response: response,
     responseList: state.responseList.plusElement(response),
     questionList: module.questionList,

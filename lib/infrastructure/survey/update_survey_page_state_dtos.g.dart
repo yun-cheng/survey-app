@@ -9,11 +9,11 @@ part of 'update_survey_page_state_dtos.dart';
 _$_UpdateSurveyPageStateDto _$_$_UpdateSurveyPageStateDtoFromJson(
     Map<String, dynamic> json) {
   return _$_UpdateSurveyPageStateDto(
-    referenceListState: json['referenceListState'] as Map<String, dynamic>,
+    referenceListState: json['referenceListState'] as String,
     referenceList: (json['referenceList'] as List<dynamic>)
         .map((e) => ReferenceDto.fromJson(e as Map<String, dynamic>))
         .toList(),
-    surveyFailure: json['surveyFailure'] as Map<String, dynamic>?,
+    surveyFailure: json['surveyFailure'] as String?,
     respondent:
         RespondentDto.fromJson(json['respondent'] as Map<String, dynamic>),
     page: json['page'] as int,
@@ -39,8 +39,8 @@ _$_UpdateSurveyPageStateDto _$_$_UpdateSurveyPageStateDtoFromJson(
     isLastPage: json['isLastPage'] as bool,
     warning: WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
     showWarning: json['showWarning'] as bool,
-    updateState: json['updateState'] as Map<String, dynamic>,
-    restoreState: json['restoreState'] as Map<String, dynamic>,
+    updateState: json['updateState'] as String,
+    restoreState: json['restoreState'] as String,
     isRecodeModule: json['isRecodeModule'] as bool,
     mainQuestionList: (json['mainQuestionList'] as List<dynamic>)
         .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))

@@ -6,8 +6,8 @@ import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../core/constants.dart';
 import 'page_control_button.dart';
 
@@ -35,7 +35,7 @@ class PageControlBar extends HookWidget {
 
     final state = useBloc<SurveyPageBloc, SurveyPageState>(
       onEmitted: (_, p, c) {
-        if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
+        if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           // HIGHLIGHT 初次進頁面可能這些條件都不變（如第一題是說明題），
           //  會導致沒出現 PageControlBar，故加上最後一個判斷條件
           return p.page != c.page ||
@@ -48,7 +48,7 @@ class PageControlBar extends HookWidget {
       },
     ).state;
 
-    final loadSuccess = state.loadState is LoadSuccess;
+    final loadSuccess = state.loadState == LoadState.success();
     final currentPage = state.page;
     final isLastPage = state.isLastPage;
     final isReadOnly = state.isReadOnly;

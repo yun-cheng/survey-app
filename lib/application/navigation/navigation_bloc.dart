@@ -2,9 +2,7 @@ import 'dart:async';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-
-import '../../domain/core/navigation_page.dart';
-import '../../domain/core/page_state.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 
 part 'navigation_bloc.freezed.dart';
 part 'navigation_event.dart';
@@ -29,12 +27,12 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
       },
       pagePushed: (e) async* {
         yield state.copyWith(
-          pageState: const PageState.push(),
+          pageState:  PageState.push(),
         );
       },
       pageInitialized: (e) async* {
         yield state.copyWith(
-          pageState: const PageState.initial(),
+          pageState:  PageState.initial(),
         );
       },
     );
@@ -44,9 +42,9 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   NavigationState? fromJson(Map<String, dynamic> json) {
     try {
       return NavigationState(
-        page: NavigationPage.fromJson(json['page']),
+        page: NavigationPage(json['page']),
         respondentId: json['respondentId'],
-        pageState: const PageState.initial(),
+        pageState:  PageState.initial(),
       );
     } catch (_) {
       return null;
@@ -56,7 +54,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   @override
   Map<String, dynamic>? toJson(NavigationState state) {
     return {
-      'page': state.page.toJson(),
+      'page': state.page.value,
       'respondentId': state.respondentId,
     };
   }

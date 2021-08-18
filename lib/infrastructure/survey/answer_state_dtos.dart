@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/answer/answer_bloc.dart';
-import '../../domain/core/load_state.dart';
+import '../../domain/core/value_objects.dart';
 import 'question_dtos.dart';
 
 part 'answer_state_dtos.freezed.dart';
@@ -17,8 +17,8 @@ class AnswerStateDto with _$AnswerStateDto {
     required QuestionDto question,
     required bool isReadOnly,
     required bool isRecodeModule,
-    required Map<String, dynamic> loadState,
-    required Map<String, dynamic> rebuildState,
+    required String loadState,
+    required String rebuildState,
   }) = _AnswerStateDto;
 
   factory AnswerStateDto.fromDomain(AnswerState domain) {
@@ -28,8 +28,8 @@ class AnswerStateDto with _$AnswerStateDto {
       question: QuestionDto.fromDomain(domain.question),
       isReadOnly: domain.isReadOnly,
       isRecodeModule: domain.isRecodeModule,
-      loadState: domain.loadState.toJson(),
-      rebuildState: domain.rebuildState.toJson(),
+      loadState: domain.loadState.value,
+      rebuildState: domain.rebuildState.value,
     );
   }
 
@@ -39,8 +39,8 @@ class AnswerStateDto with _$AnswerStateDto {
       question: question.toDomain(),
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
-      loadState: LoadState.fromJson(loadState),
-      rebuildState: LoadState.fromJson(rebuildState),
+      loadState: LoadState(loadState),
+      rebuildState: LoadState(rebuildState),
     );
   }
 

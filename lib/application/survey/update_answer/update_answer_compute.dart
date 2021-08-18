@@ -31,7 +31,7 @@ UpdateAnswerState answerUpdated(
   newAnswerMap[e.question.id] = newAnswer;
 
   return state.copyWith(
-    updateState: const LoadState.success(),
+    updateState: LoadState.success(),
     updateAnswerStatus: true,
     answerMap: newAnswerMap.toMap(),
     questionIdList: KtList.of(e.question.id),
@@ -52,7 +52,7 @@ UpdateAnswerState answerQIdListCleared(
   });
 
   return state.copyWith(
-    updateState: const LoadState.success(),
+    updateState: LoadState.success(),
     updateAnswerStatus: false,
     answerMap: newAnswerMap.toMap(),
     questionIdList: e.questionIdList,

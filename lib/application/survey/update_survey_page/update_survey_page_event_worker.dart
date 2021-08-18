@@ -18,7 +18,7 @@ void _updateSurveyPageEventWorker(
     watchReferenceListStarted: (e) {
       state = state
           .copyWith(
-            referenceListState: const LoadState.inProgress(),
+            referenceListState: LoadState.inProgress(),
             surveyFailure: none(),
           )
           .send(channel);
@@ -29,11 +29,11 @@ void _updateSurveyPageEventWorker(
       state = e.failureOrReferenceList
           .fold(
             (f) => state.copyWith(
-              referenceListState: const LoadState.failure(),
+              referenceListState: LoadState.failure(),
               surveyFailure: some(f),
             ),
             (referenceList) => state.copyWith(
-              referenceListState: const LoadState.success(),
+              referenceListState: LoadState.success(),
               referenceList: referenceList,
               surveyFailure: none(),
             ),
@@ -46,8 +46,8 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            restoreState: const LoadState.inProgress(),
-            updateState: const LoadState.inProgress(),
+            restoreState: LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             page: e.surveyPageState.page,
             newestPage: e.surveyPageState.newestPage,
             isLastPage: e.surveyPageState.isLastPage,
@@ -68,7 +68,7 @@ void _updateSurveyPageEventWorker(
           .send(channel);
       state = pageQuestionListUpdated(state)
           .copyWith(
-            restoreState: const LoadState.success(),
+            restoreState: LoadState.success(),
           )
           .send(channel);
     },
@@ -78,7 +78,7 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             respondentResponseList: e.respondentResponseList,
           )
           .send(channel);
@@ -90,7 +90,7 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             answerMap: e.answerMap,
             answerStatusMap: e.answerStatusMap,
           )
@@ -116,7 +116,7 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             direction: Direction.next,
           )
           .send(channel);
@@ -139,7 +139,7 @@ void _updateSurveyPageEventWorker(
       } else {
         state = state
             .copyWith(
-              updateState: const LoadState.success(),
+              updateState: LoadState.success(),
               updateType: SurveyPageUpdateType.warning,
               showWarning: true,
             )
@@ -151,7 +151,7 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             direction: Direction.previous,
           )
           .send(channel);
@@ -162,7 +162,7 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             page: e.page,
             direction: Direction.current,
           )
@@ -175,7 +175,7 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
           )
           .send(channel);
 
@@ -183,7 +183,7 @@ void _updateSurveyPageEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.success(),
+            updateState: LoadState.success(),
             updateType: SurveyPageUpdateType.warning,
             showWarning: !warningIsEmpty,
             leavePage: warningIsEmpty,
@@ -276,7 +276,7 @@ UpdateSurveyPageState warningUpdatedFlow(
 ) {
   final state1 = state
       .copyWith(
-        updateState: const LoadState.inProgress(),
+        updateState: LoadState.inProgress(),
         updateType: SurveyPageUpdateType.warning,
       )
       .send(channel);

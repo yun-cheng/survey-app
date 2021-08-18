@@ -19,7 +19,7 @@ class AudioRecorder implements IAudioRecorder {
     if (!kIsWeb && !previousStatus) {
       final status = await Permission.microphone.request();
       if (status != PermissionStatus.granted) {
-        return left(const AudioFailure.noMicrophonePermission());
+        return left(AudioFailure.noMicrophonePermission());
       }
     }
     return right(unit);
@@ -56,7 +56,7 @@ class AudioRecorder implements IAudioRecorder {
       );
       return right(unit);
     } catch (e) {
-      return left(const AudioFailure.unexpected());
+      return left(AudioFailure.unexpected());
     }
   }
 
@@ -68,7 +68,7 @@ class AudioRecorder implements IAudioRecorder {
 
       return right(unit);
     } catch (e) {
-      return left(const AudioFailure.unexpected());
+      return left(AudioFailure.unexpected());
     }
   }
 
@@ -77,7 +77,7 @@ class AudioRecorder implements IAudioRecorder {
     try {
       return right(_recorder.onProgress!.map((e) => e.decibels!));
     } catch (e) {
-      return left(const AudioFailure.unexpected());
+      return left(AudioFailure.unexpected());
     }
   }
 }

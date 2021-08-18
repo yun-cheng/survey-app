@@ -32,7 +32,7 @@ class SurveyPageState with _$SurveyPageState {
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
-        page:0,
+        page: 0,
         newestPage: 0,
         isLastPage: false,
         warning: Warning.empty(),
@@ -44,9 +44,9 @@ class SurveyPageState with _$SurveyPageState {
         contentQuestionList: const KtList<Question>.empty(),
         isReadOnly: false,
         isRecodeModule: false,
-        loadState: const LoadState.initial(),
-        rebuildState: const LoadState.initial(),
-        restoreState: const LoadState.initial(),
+        loadState: LoadState.initial(),
+        rebuildState: LoadState.initial(),
+        restoreState: LoadState.initial(),
         recodeAnswerMap: const KtMap<String, Answer>.empty(),
         recodeAnswerStatusMap: const KtMap<String, AnswerStatus>.empty(),
       );

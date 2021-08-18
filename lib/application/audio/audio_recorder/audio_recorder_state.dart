@@ -14,7 +14,7 @@ class AudioRecorderState with _$AudioRecorderState {
         db: 0.0,
         isRecording: false,
         audio: Audio.empty(),
-        recorderState: const LoadState.initial(),
+        recorderState: LoadState.initial(),
         audioFailure: none(),
       );
 }

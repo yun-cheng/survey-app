@@ -4,10 +4,10 @@ import 'package:async_task/async_task.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
@@ -47,11 +47,11 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: answerMapUpdated');
 
         yield state.copyWith(
-          loadState: const LoadState.inProgress(),
+          loadState: LoadState.inProgress(),
         );
         yield state.copyWith(
-          loadState: const LoadState.success(),
-          rebuildState: const LoadState.inProgress(),
+          loadState: LoadState.success(),
+          rebuildState: LoadState.inProgress(),
           answerMap: state.isRecodeModule ? state.answerMap : e.answerMap,
           recodeAnswerMap:
               state.isRecodeModule ? e.answerMap : state.recodeAnswerMap,
@@ -64,10 +64,10 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: answerStatusMapUpdated');
 
         yield state.copyWith(
-          loadState: const LoadState.inProgress(),
+          loadState: LoadState.inProgress(),
         );
         yield state.copyWith(
-          loadState: const LoadState.success(),
+          loadState: LoadState.success(),
           answerStatusMap:
               state.isRecodeModule ? state.answerStatusMap : e.answerStatusMap,
           recodeAnswerStatusMap: state.isRecodeModule
@@ -81,10 +81,10 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: pageUpdated');
 
         yield state.copyWith(
-          loadState: const LoadState.inProgress(),
+          loadState: LoadState.inProgress(),
         );
         yield state.copyWith(
-          loadState: const LoadState.success(),
+          loadState: LoadState.success(),
           page: e.page,
           pageQuestionList: e.pageQuestionList,
           isLastPage: e.isLastPage,
@@ -96,10 +96,10 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: contentQuestionListUpdated');
 
         yield state.copyWith(
-          loadState: const LoadState.inProgress(),
+          loadState: LoadState.inProgress(),
         );
         yield state.copyWith(
-          loadState: const LoadState.success(),
+          loadState: LoadState.success(),
           contentQuestionList: e.contentQuestionList,
         );
         add(const SurveyPageEvent.stateToJson());
@@ -109,10 +109,10 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: warningUpdated');
 
         yield state.copyWith(
-          loadState: const LoadState.inProgress(),
+          loadState: LoadState.inProgress(),
         );
         yield state.copyWith(
-          loadState: const LoadState.success(),
+          loadState: LoadState.success(),
           warning: e.warning,
           showWarning: e.showWarning,
         );
@@ -123,11 +123,11 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: infoUpdated');
 
         yield state.copyWith(
-          loadState: const LoadState.inProgress(),
+          loadState: LoadState.inProgress(),
         );
         yield state.copyWith(
-          loadState: const LoadState.success(),
-          restoreState: const LoadState.success(),
+          loadState: LoadState.success(),
+          restoreState: LoadState.success(),
           isReadOnly: e.isReadOnly,
           isRecodeModule: e.isRecodeModule,
           answerMap: e.isRecodeModule ? e.mainAnswerMap : state.answerMap,

@@ -22,9 +22,9 @@ class _$UpdateSurveyPageStateDtoTearOff {
   const _$UpdateSurveyPageStateDtoTearOff();
 
   _UpdateSurveyPageStateDto call(
-      {required Map<String, dynamic> referenceListState,
+      {required String referenceListState,
       required List<ReferenceDto> referenceList,
-      Map<String, dynamic>? surveyFailure,
+      String? surveyFailure,
       required RespondentDto respondent,
       required int page,
       required int newestPage,
@@ -38,8 +38,8 @@ class _$UpdateSurveyPageStateDtoTearOff {
       required bool isLastPage,
       required WarningDto warning,
       required bool showWarning,
-      required Map<String, dynamic> updateState,
-      required Map<String, dynamic> restoreState,
+      required String updateState,
+      required String restoreState,
       required bool isRecodeModule,
       required List<QuestionDto> mainQuestionList,
       required List<ResponseDto> respondentResponseList,
@@ -98,10 +98,9 @@ const $UpdateSurveyPageStateDto = _$UpdateSurveyPageStateDtoTearOff();
 
 /// @nodoc
 mixin _$UpdateSurveyPageStateDto {
-  Map<String, dynamic> get referenceListState =>
-      throw _privateConstructorUsedError;
+  String get referenceListState => throw _privateConstructorUsedError;
   List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get surveyFailure => throw _privateConstructorUsedError;
+  String? get surveyFailure => throw _privateConstructorUsedError;
   RespondentDto get respondent => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
   int get newestPage => throw _privateConstructorUsedError;
@@ -117,8 +116,8 @@ mixin _$UpdateSurveyPageStateDto {
   bool get isLastPage => throw _privateConstructorUsedError;
   WarningDto get warning => throw _privateConstructorUsedError;
   bool get showWarning => throw _privateConstructorUsedError;
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   List<QuestionDto> get mainQuestionList => throw _privateConstructorUsedError;
   List<ResponseDto> get respondentResponseList =>
@@ -148,9 +147,9 @@ abstract class $UpdateSurveyPageStateDtoCopyWith<$Res> {
           $Res Function(UpdateSurveyPageStateDto) then) =
       _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, dynamic> referenceListState,
+      {String referenceListState,
       List<ReferenceDto> referenceList,
-      Map<String, dynamic>? surveyFailure,
+      String? surveyFailure,
       RespondentDto respondent,
       int page,
       int newestPage,
@@ -164,8 +163,8 @@ abstract class $UpdateSurveyPageStateDtoCopyWith<$Res> {
       bool isLastPage,
       WarningDto warning,
       bool showWarning,
-      Map<String, dynamic> updateState,
-      Map<String, dynamic> restoreState,
+      String updateState,
+      String restoreState,
       bool isRecodeModule,
       List<QuestionDto> mainQuestionList,
       List<ResponseDto> respondentResponseList,
@@ -231,7 +230,7 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
       referenceListState: referenceListState == freezed
           ? _value.referenceListState
           : referenceListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
@@ -239,7 +238,7 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
@@ -295,11 +294,11 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -378,9 +377,9 @@ abstract class _$UpdateSurveyPageStateDtoCopyWith<$Res>
       __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, dynamic> referenceListState,
+      {String referenceListState,
       List<ReferenceDto> referenceList,
-      Map<String, dynamic>? surveyFailure,
+      String? surveyFailure,
       RespondentDto respondent,
       int page,
       int newestPage,
@@ -394,8 +393,8 @@ abstract class _$UpdateSurveyPageStateDtoCopyWith<$Res>
       bool isLastPage,
       WarningDto warning,
       bool showWarning,
-      Map<String, dynamic> updateState,
-      Map<String, dynamic> restoreState,
+      String updateState,
+      String restoreState,
       bool isRecodeModule,
       List<QuestionDto> mainQuestionList,
       List<ResponseDto> respondentResponseList,
@@ -466,7 +465,7 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
       referenceListState: referenceListState == freezed
           ? _value.referenceListState
           : referenceListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
@@ -474,7 +473,7 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
@@ -530,11 +529,11 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -632,11 +631,11 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       _$_$_UpdateSurveyPageStateDtoFromJson(json);
 
   @override
-  final Map<String, dynamic> referenceListState;
+  final String referenceListState;
   @override
   final List<ReferenceDto> referenceList;
   @override
-  final Map<String, dynamic>? surveyFailure;
+  final String? surveyFailure;
   @override
   final RespondentDto respondent;
   @override
@@ -664,9 +663,9 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
   @override
   final bool showWarning;
   @override
-  final Map<String, dynamic> updateState;
+  final String updateState;
   @override
-  final Map<String, dynamic> restoreState;
+  final String restoreState;
   @override
   final bool isRecodeModule;
   @override
@@ -828,9 +827,9 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
 
 abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
   const factory _UpdateSurveyPageStateDto(
-          {required Map<String, dynamic> referenceListState,
+          {required String referenceListState,
           required List<ReferenceDto> referenceList,
-          Map<String, dynamic>? surveyFailure,
+          String? surveyFailure,
           required RespondentDto respondent,
           required int page,
           required int newestPage,
@@ -844,8 +843,8 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
           required bool isLastPage,
           required WarningDto warning,
           required bool showWarning,
-          required Map<String, dynamic> updateState,
-          required Map<String, dynamic> restoreState,
+          required String updateState,
+          required String restoreState,
           required bool isRecodeModule,
           required List<QuestionDto> mainQuestionList,
           required List<ResponseDto> respondentResponseList,
@@ -866,12 +865,11 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
       _$_UpdateSurveyPageStateDto.fromJson;
 
   @override
-  Map<String, dynamic> get referenceListState =>
-      throw _privateConstructorUsedError;
+  String get referenceListState => throw _privateConstructorUsedError;
   @override
   List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get surveyFailure => throw _privateConstructorUsedError;
+  String? get surveyFailure => throw _privateConstructorUsedError;
   @override
   RespondentDto get respondent => throw _privateConstructorUsedError;
   @override
@@ -901,9 +899,9 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
   @override
   bool get showWarning => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
   @override
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override

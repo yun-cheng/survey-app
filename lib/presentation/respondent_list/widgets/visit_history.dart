@@ -6,7 +6,7 @@ import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/navigation_page.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
@@ -50,7 +50,7 @@ class VisitHistory extends StatelessWidget {
                 // TODO 是否要改？？
                 context.read<NavigationBloc>().add(
                       NavigationEvent.pageChanged(
-                        page: const NavigationPage.survey(),
+                        page: NavigationPage.survey(),
                         respondentId: respondent.id,
                       ),
                     );

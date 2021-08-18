@@ -22,10 +22,10 @@ class _$UpdateAnswerStateDtoTearOff {
 
   _UpdateAnswerStateDto call(
       {required Map<String, AnswerDto> answerMap,
-      required Map<String, dynamic> updateState,
+      required String updateState,
       required List<String> questionIdList,
       required bool updateAnswerStatus,
-      required Map<String, dynamic> restoreState}) {
+      required String restoreState}) {
     return _UpdateAnswerStateDto(
       answerMap: answerMap,
       updateState: updateState,
@@ -46,10 +46,10 @@ const $UpdateAnswerStateDto = _$UpdateAnswerStateDtoTearOff();
 /// @nodoc
 mixin _$UpdateAnswerStateDto {
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
   List<String> get questionIdList => throw _privateConstructorUsedError;
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,10 +64,10 @@ abstract class $UpdateAnswerStateDtoCopyWith<$Res> {
       _$UpdateAnswerStateDtoCopyWithImpl<$Res>;
   $Res call(
       {Map<String, AnswerDto> answerMap,
-      Map<String, dynamic> updateState,
+      String updateState,
       List<String> questionIdList,
       bool updateAnswerStatus,
-      Map<String, dynamic> restoreState});
+      String restoreState});
 }
 
 /// @nodoc
@@ -95,7 +95,7 @@ class _$UpdateAnswerStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ class _$UpdateAnswerStateDtoCopyWithImpl<$Res>
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
     ));
   }
 }
@@ -121,10 +121,10 @@ abstract class _$UpdateAnswerStateDtoCopyWith<$Res>
   @override
   $Res call(
       {Map<String, AnswerDto> answerMap,
-      Map<String, dynamic> updateState,
+      String updateState,
       List<String> questionIdList,
       bool updateAnswerStatus,
-      Map<String, dynamic> restoreState});
+      String restoreState});
 }
 
 /// @nodoc
@@ -154,7 +154,7 @@ class __$UpdateAnswerStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class __$UpdateAnswerStateDtoCopyWithImpl<$Res>
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
     ));
   }
 }
@@ -188,13 +188,13 @@ class _$_UpdateAnswerStateDto extends _UpdateAnswerStateDto {
   @override
   final Map<String, AnswerDto> answerMap;
   @override
-  final Map<String, dynamic> updateState;
+  final String updateState;
   @override
   final List<String> questionIdList;
   @override
   final bool updateAnswerStatus;
   @override
-  final Map<String, dynamic> restoreState;
+  final String restoreState;
 
   @override
   String toString() {
@@ -246,10 +246,10 @@ class _$_UpdateAnswerStateDto extends _UpdateAnswerStateDto {
 abstract class _UpdateAnswerStateDto extends UpdateAnswerStateDto {
   const factory _UpdateAnswerStateDto(
       {required Map<String, AnswerDto> answerMap,
-      required Map<String, dynamic> updateState,
+      required String updateState,
       required List<String> questionIdList,
       required bool updateAnswerStatus,
-      required Map<String, dynamic> restoreState}) = _$_UpdateAnswerStateDto;
+      required String restoreState}) = _$_UpdateAnswerStateDto;
   const _UpdateAnswerStateDto._() : super._();
 
   factory _UpdateAnswerStateDto.fromJson(Map<String, dynamic> json) =
@@ -258,13 +258,13 @@ abstract class _UpdateAnswerStateDto extends UpdateAnswerStateDto {
   @override
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
   @override
   List<String> get questionIdList => throw _privateConstructorUsedError;
   @override
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpdateAnswerStateDtoCopyWith<_UpdateAnswerStateDto> get copyWith =>

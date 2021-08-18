@@ -31,9 +31,9 @@ class _$SurveyPageStateDtoTearOff {
       required List<String> questionIdList,
       required List<QuestionDto> pageQuestionList,
       required List<QuestionDto> contentQuestionList,
-      required Map<String, dynamic> loadState,
-      required Map<String, dynamic> rebuildState,
-      required Map<String, dynamic> restoreState,
+      required String loadState,
+      required String rebuildState,
+      required String restoreState,
       required bool isRecodeModule,
       required bool isReadOnly,
       required Map<String, AnswerDto> recodeAnswerMap,
@@ -81,9 +81,9 @@ mixin _$SurveyPageStateDto {
   List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
   List<QuestionDto> get contentQuestionList =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
-  Map<String, dynamic> get rebuildState => throw _privateConstructorUsedError;
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get loadState => throw _privateConstructorUsedError;
+  String get rebuildState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   Map<String, AnswerDto> get recodeAnswerMap =>
@@ -113,9 +113,9 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
       List<String> questionIdList,
       List<QuestionDto> pageQuestionList,
       List<QuestionDto> contentQuestionList,
-      Map<String, dynamic> loadState,
-      Map<String, dynamic> rebuildState,
-      Map<String, dynamic> restoreState,
+      String loadState,
+      String rebuildState,
+      String restoreState,
       bool isRecodeModule,
       bool isReadOnly,
       Map<String, AnswerDto> recodeAnswerMap,
@@ -197,15 +197,15 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       rebuildState: rebuildState == freezed
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -251,9 +251,9 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       List<String> questionIdList,
       List<QuestionDto> pageQuestionList,
       List<QuestionDto> contentQuestionList,
-      Map<String, dynamic> loadState,
-      Map<String, dynamic> rebuildState,
-      Map<String, dynamic> restoreState,
+      String loadState,
+      String rebuildState,
+      String restoreState,
       bool isRecodeModule,
       bool isReadOnly,
       Map<String, AnswerDto> recodeAnswerMap,
@@ -338,15 +338,15 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       rebuildState: rebuildState == freezed
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -414,11 +414,11 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   @override
   final List<QuestionDto> contentQuestionList;
   @override
-  final Map<String, dynamic> loadState;
+  final String loadState;
   @override
-  final Map<String, dynamic> rebuildState;
+  final String rebuildState;
   @override
-  final Map<String, dynamic> restoreState;
+  final String restoreState;
   @override
   final bool isRecodeModule;
   @override
@@ -533,9 +533,9 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
           required List<String> questionIdList,
           required List<QuestionDto> pageQuestionList,
           required List<QuestionDto> contentQuestionList,
-          required Map<String, dynamic> loadState,
-          required Map<String, dynamic> rebuildState,
-          required Map<String, dynamic> restoreState,
+          required String loadState,
+          required String rebuildState,
+          required String restoreState,
           required bool isRecodeModule,
           required bool isReadOnly,
           required Map<String, AnswerDto> recodeAnswerMap,
@@ -569,11 +569,11 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   List<QuestionDto> get contentQuestionList =>
       throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
+  String get loadState => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get rebuildState => throw _privateConstructorUsedError;
+  String get rebuildState => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
   @override
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override

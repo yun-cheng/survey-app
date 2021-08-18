@@ -22,7 +22,7 @@ class RespondentState with _$RespondentState {
 
   factory RespondentState.initial() => RespondentState(
         survey: Survey.empty(),
-        respondentListListState: const LoadState.initial(),
+        respondentListListState: LoadState.initial(),
         respondentListList: const KtList<RespondentList>.empty(),
         respondentList: const KtList<Respondent>.empty(),
         currentTab: TabType.start,

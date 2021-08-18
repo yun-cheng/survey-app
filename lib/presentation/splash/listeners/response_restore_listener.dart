@@ -7,8 +7,8 @@ import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 
 // H_ 從 response 回復 answer/survey page state
@@ -16,7 +16,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
   listenWhen: (p, c) =>
       p.responseRestoreState != c.responseRestoreState &&
       // p.responseRestoreState is! LoadInitial &&
-      c.responseRestoreState is LoadSuccess,
+      c.responseRestoreState == LoadState.success(),
   listener: (context, state) {
     logger('Listen').i('ResponseBloc');
 

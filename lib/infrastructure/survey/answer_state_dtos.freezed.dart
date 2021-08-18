@@ -25,8 +25,8 @@ class _$AnswerStateDtoTearOff {
       required QuestionDto question,
       required bool isReadOnly,
       required bool isRecodeModule,
-      required Map<String, dynamic> loadState,
-      required Map<String, dynamic> rebuildState}) {
+      required String loadState,
+      required String rebuildState}) {
     return _AnswerStateDto(
       questionList: questionList,
       question: question,
@@ -51,8 +51,8 @@ mixin _$AnswerStateDto {
   QuestionDto get question => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
-  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
-  Map<String, dynamic> get rebuildState => throw _privateConstructorUsedError;
+  String get loadState => throw _privateConstructorUsedError;
+  String get rebuildState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -70,8 +70,8 @@ abstract class $AnswerStateDtoCopyWith<$Res> {
       QuestionDto question,
       bool isReadOnly,
       bool isRecodeModule,
-      Map<String, dynamic> loadState,
-      Map<String, dynamic> rebuildState});
+      String loadState,
+      String rebuildState});
 
   $QuestionDtoCopyWith<$Res> get question;
 }
@@ -114,11 +114,11 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       rebuildState: rebuildState == freezed
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
     ));
   }
 
@@ -142,8 +142,8 @@ abstract class _$AnswerStateDtoCopyWith<$Res>
       QuestionDto question,
       bool isReadOnly,
       bool isRecodeModule,
-      Map<String, dynamic> loadState,
-      Map<String, dynamic> rebuildState});
+      String loadState,
+      String rebuildState});
 
   @override
   $QuestionDtoCopyWith<$Res> get question;
@@ -189,11 +189,11 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       rebuildState: rebuildState == freezed
           ? _value.rebuildState
           : rebuildState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
     ));
   }
 }
@@ -222,9 +222,9 @@ class _$_AnswerStateDto extends _AnswerStateDto {
   @override
   final bool isRecodeModule;
   @override
-  final Map<String, dynamic> loadState;
+  final String loadState;
   @override
-  final Map<String, dynamic> rebuildState;
+  final String rebuildState;
 
   @override
   String toString() {
@@ -282,8 +282,8 @@ abstract class _AnswerStateDto extends AnswerStateDto {
       required QuestionDto question,
       required bool isReadOnly,
       required bool isRecodeModule,
-      required Map<String, dynamic> loadState,
-      required Map<String, dynamic> rebuildState}) = _$_AnswerStateDto;
+      required String loadState,
+      required String rebuildState}) = _$_AnswerStateDto;
   const _AnswerStateDto._() : super._();
 
   factory _AnswerStateDto.fromJson(Map<String, dynamic> json) =
@@ -298,9 +298,9 @@ abstract class _AnswerStateDto extends AnswerStateDto {
   @override
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get loadState => throw _privateConstructorUsedError;
+  String get loadState => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get rebuildState => throw _privateConstructorUsedError;
+  String get rebuildState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnswerStateDtoCopyWith<_AnswerStateDto> get copyWith =>

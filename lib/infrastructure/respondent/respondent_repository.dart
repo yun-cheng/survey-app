@@ -32,9 +32,9 @@ class RespondentRepository implements IRespondentRepository {
             RespondentListListDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const RespondentFailure.insufficientPermission());
+        return left(RespondentFailure.insufficientPermission());
       } else {
-        return left(const RespondentFailure.unexpected());
+        return left(RespondentFailure.unexpected());
       }
     });
   }

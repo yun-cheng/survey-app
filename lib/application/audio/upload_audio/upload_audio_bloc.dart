@@ -8,7 +8,6 @@ import 'package:kt_dart/collection.dart';
 import '../../../domain/audio/audio.dart';
 import '../../../domain/audio/audio_failure.dart';
 import '../../../domain/audio/i_audio_repository.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../infrastructure/audio/upload_audio_state_dtos.dart';
@@ -58,11 +57,11 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
 
         yield e.failureOrAudio.fold(
           (f) => state.copyWith(
-            uploadState: const LoadState.failure(),
+            uploadState: LoadState.failure(),
             audioFailure: some(f),
           ),
           (audio) => state.copyWith(
-            uploadState: const LoadState.success(),
+            uploadState: LoadState.success(),
             audioFailure: none(),
             audioMap: audioMap.minus(audio.fileName).toMap(),
           ),

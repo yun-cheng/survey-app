@@ -9,8 +9,7 @@ part of 'respondent_state_dtos.dart';
 _$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
     Map<String, dynamic> json) {
   return _$_RespondentStateDto(
-    respondentListListState:
-        json['respondentListListState'] as Map<String, dynamic>,
+    respondentListListState: json['respondentListListState'] as String,
     respondentListList: (json['respondentListList'] as List<dynamic>)
         .map((e) => RespondentListDto.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -26,7 +25,7 @@ _$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
     needToJump: json['needToJump'] as bool,
     jumpToIndex: json['jumpToIndex'] as int,
     selectedRespondentId: json['selectedRespondentId'] as String,
-    respondentFailure: json['respondentFailure'] as Map<String, dynamic>?,
+    respondentFailure: json['respondentFailure'] as String?,
     visitRecordsMap: (json['visitRecordsMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(
           k,

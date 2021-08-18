@@ -28,9 +28,9 @@ class ManualAuthFacade implements IAuthFacade {
             TeamListDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const AuthFailure.insufficientPermission());
+        return left(AuthFailure.insufficientPermission());
       } else {
-        return left(const AuthFailure.unexpected());
+        return left(AuthFailure.unexpected());
       }
     });
   }
@@ -48,9 +48,9 @@ class ManualAuthFacade implements IAuthFacade {
             InterviewerListDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const AuthFailure.insufficientPermission());
+        return left(AuthFailure.insufficientPermission());
       } else {
-        return left(const AuthFailure.unexpected());
+        return left(AuthFailure.unexpected());
       }
     });
   }
@@ -67,7 +67,7 @@ class ManualAuthFacade implements IAuthFacade {
         .firstOrNull();
 
     return optionOf(matchInterviewer).fold(
-      () => left(const AuthFailure.invalidIdAndPasswordCombination()),
+      () => left(AuthFailure.invalidIdAndPasswordCombination()),
       (interviewer) => right(interviewer),
     );
   }

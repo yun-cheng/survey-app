@@ -5,12 +5,12 @@ import '../../../application/respondent/respondent_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 
 // H_ 監聽 Firestore
 final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
-  listenWhen: (p, c) => c.signInState is LoadSuccess,
+  listenWhen: (p, c) => c.signInState == LoadState.success(),
   listener: (context, state) {
     logger('Listen').i('AuthBloc');
 

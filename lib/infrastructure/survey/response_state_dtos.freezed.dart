@@ -25,18 +25,18 @@ class _$ResponseStateDtoTearOff {
       required RespondentDto respondent,
       required InterviewerDto interviewer,
       required String moduleType,
-      required Map<String, dynamic> responseListState,
+      required String responseListState,
       required List<ResponseDto> responseList,
-      Map<String, dynamic>? responseFailure,
+      String? responseFailure,
       required ResponseDto response,
-      required Map<String, dynamic> responseRestoreState,
+      required String responseRestoreState,
       required List<QuestionDto> questionList,
       required bool withResponseId,
       required bool breakInterview,
       required String responseId,
       required ResponseDto mainResponse,
       required List<ResponseDto> respondentResponseList,
-      required Map<String, dynamic> updateState,
+      required String updateState,
       required bool updateVisitReportsMap,
       required bool updateTabRespondentsMap,
       required List<ReferenceDto> referenceList}) {
@@ -78,14 +78,11 @@ mixin _$ResponseStateDto {
   RespondentDto get respondent => throw _privateConstructorUsedError;
   InterviewerDto get interviewer => throw _privateConstructorUsedError;
   String get moduleType => throw _privateConstructorUsedError;
-  Map<String, dynamic> get responseListState =>
-      throw _privateConstructorUsedError;
+  String get responseListState => throw _privateConstructorUsedError;
   List<ResponseDto> get responseList => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get responseFailure =>
-      throw _privateConstructorUsedError;
+  String? get responseFailure => throw _privateConstructorUsedError;
   ResponseDto get response => throw _privateConstructorUsedError;
-  Map<String, dynamic> get responseRestoreState =>
-      throw _privateConstructorUsedError;
+  String get responseRestoreState => throw _privateConstructorUsedError;
   List<QuestionDto> get questionList => throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
   bool get breakInterview => throw _privateConstructorUsedError;
@@ -93,7 +90,7 @@ mixin _$ResponseStateDto {
   ResponseDto get mainResponse => throw _privateConstructorUsedError;
   List<ResponseDto> get respondentResponseList =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
   bool get updateVisitReportsMap => throw _privateConstructorUsedError;
   bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
   List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
@@ -114,18 +111,18 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       RespondentDto respondent,
       InterviewerDto interviewer,
       String moduleType,
-      Map<String, dynamic> responseListState,
+      String responseListState,
       List<ResponseDto> responseList,
-      Map<String, dynamic>? responseFailure,
+      String? responseFailure,
       ResponseDto response,
-      Map<String, dynamic> responseRestoreState,
+      String responseRestoreState,
       List<QuestionDto> questionList,
       bool withResponseId,
       bool breakInterview,
       String responseId,
       ResponseDto mainResponse,
       List<ResponseDto> respondentResponseList,
-      Map<String, dynamic> updateState,
+      String updateState,
       bool updateVisitReportsMap,
       bool updateTabRespondentsMap,
       List<ReferenceDto> referenceList});
@@ -188,7 +185,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       responseListState: responseListState == freezed
           ? _value.responseListState
           : responseListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       responseList: responseList == freezed
           ? _value.responseList
           : responseList // ignore: cast_nullable_to_non_nullable
@@ -196,7 +193,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       responseFailure: responseFailure == freezed
           ? _value.responseFailure
           : responseFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       response: response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
@@ -204,7 +201,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       responseRestoreState: responseRestoreState == freezed
           ? _value.responseRestoreState
           : responseRestoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
@@ -232,7 +229,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       updateVisitReportsMap: updateVisitReportsMap == freezed
           ? _value.updateVisitReportsMap
           : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
@@ -296,18 +293,18 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       RespondentDto respondent,
       InterviewerDto interviewer,
       String moduleType,
-      Map<String, dynamic> responseListState,
+      String responseListState,
       List<ResponseDto> responseList,
-      Map<String, dynamic>? responseFailure,
+      String? responseFailure,
       ResponseDto response,
-      Map<String, dynamic> responseRestoreState,
+      String responseRestoreState,
       List<QuestionDto> questionList,
       bool withResponseId,
       bool breakInterview,
       String responseId,
       ResponseDto mainResponse,
       List<ResponseDto> respondentResponseList,
-      Map<String, dynamic> updateState,
+      String updateState,
       bool updateVisitReportsMap,
       bool updateTabRespondentsMap,
       List<ReferenceDto> referenceList});
@@ -377,7 +374,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
       responseListState: responseListState == freezed
           ? _value.responseListState
           : responseListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       responseList: responseList == freezed
           ? _value.responseList
           : responseList // ignore: cast_nullable_to_non_nullable
@@ -385,7 +382,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
       responseFailure: responseFailure == freezed
           ? _value.responseFailure
           : responseFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       response: response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
@@ -393,7 +390,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
       responseRestoreState: responseRestoreState == freezed
           ? _value.responseRestoreState
           : responseRestoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       questionList: questionList == freezed
           ? _value.questionList
           : questionList // ignore: cast_nullable_to_non_nullable
@@ -421,7 +418,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       updateVisitReportsMap: updateVisitReportsMap == freezed
           ? _value.updateVisitReportsMap
           : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
@@ -475,15 +472,15 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   final String moduleType;
   @override
-  final Map<String, dynamic> responseListState;
+  final String responseListState;
   @override
   final List<ResponseDto> responseList;
   @override
-  final Map<String, dynamic>? responseFailure;
+  final String? responseFailure;
   @override
   final ResponseDto response;
   @override
-  final Map<String, dynamic> responseRestoreState;
+  final String responseRestoreState;
   @override
   final List<QuestionDto> questionList;
   @override
@@ -497,7 +494,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   final List<ResponseDto> respondentResponseList;
   @override
-  final Map<String, dynamic> updateState;
+  final String updateState;
   @override
   final bool updateVisitReportsMap;
   @override
@@ -613,18 +610,18 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       required RespondentDto respondent,
       required InterviewerDto interviewer,
       required String moduleType,
-      required Map<String, dynamic> responseListState,
+      required String responseListState,
       required List<ResponseDto> responseList,
-      Map<String, dynamic>? responseFailure,
+      String? responseFailure,
       required ResponseDto response,
-      required Map<String, dynamic> responseRestoreState,
+      required String responseRestoreState,
       required List<QuestionDto> questionList,
       required bool withResponseId,
       required bool breakInterview,
       required String responseId,
       required ResponseDto mainResponse,
       required List<ResponseDto> respondentResponseList,
-      required Map<String, dynamic> updateState,
+      required String updateState,
       required bool updateVisitReportsMap,
       required bool updateTabRespondentsMap,
       required List<ReferenceDto> referenceList}) = _$_ResponseStateDto;
@@ -642,18 +639,15 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   @override
   String get moduleType => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get responseListState =>
-      throw _privateConstructorUsedError;
+  String get responseListState => throw _privateConstructorUsedError;
   @override
   List<ResponseDto> get responseList => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get responseFailure =>
-      throw _privateConstructorUsedError;
+  String? get responseFailure => throw _privateConstructorUsedError;
   @override
   ResponseDto get response => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get responseRestoreState =>
-      throw _privateConstructorUsedError;
+  String get responseRestoreState => throw _privateConstructorUsedError;
   @override
   List<QuestionDto> get questionList => throw _privateConstructorUsedError;
   @override
@@ -668,7 +662,7 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   List<ResponseDto> get respondentResponseList =>
       throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
   @override
   bool get updateVisitReportsMap => throw _privateConstructorUsedError;
   @override

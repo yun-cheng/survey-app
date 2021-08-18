@@ -6,10 +6,10 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../core/widgets/automatic_keep_alive_hook.dart';
-import '../../core/widgets/center_progress_indicator.dart';
 import 'respondent_card.dart';
 import 'scroll_position_bundle.dart';
 
@@ -47,33 +47,33 @@ class RespondentsBody extends HookWidget {
 
     return BlocBuilder<RespondentBloc, RespondentState>(
       buildWhen: (p, c) =>
-          p.respondentListListState != c.respondentListListState ||
+          (p.respondentListListState != c.respondentListListState &&
+              c.respondentListListState == LoadState.success()) ||
           p.tabRespondentsMap[tabType] != c.tabRespondentsMap[tabType],
       builder: (context, state) {
         logger('Build').i('RespondentsBody: list');
 
-        return state.respondentListListState.map(
-          initial: (_) => Container(),
-          inProgress: (_) => CenterProgressIndicator(),
-          failure: (_) => Container(),
-          success: (_) {
-            final respondentList = state.tabRespondentsMap[tabType] ??
-                const KtList<Respondent>.empty();
+        if (state.respondentListListState == LoadState.success()) {
+          final respondentList = state.tabRespondentsMap[tabType] ??
+              const KtList<Respondent>.empty();
 
-            return ScrollablePositionedList.builder(
-              // shrinkWrap: true,
-              itemCount: respondentList.size,
-              itemScrollController: controller,
-              itemPositionsListener: listener,
-              itemBuilder: (context, index) {
-                final respondent = respondentList[index];
-                return RespondentCard(
-                  tabType: tabType,
-                  respondent: respondent,
-                );
-              },
-            );
-          },
+          return ScrollablePositionedList.builder(
+            // shrinkWrap: true,
+            itemCount: respondentList.size,
+            itemScrollController: controller,
+            itemPositionsListener: listener,
+            itemBuilder: (context, index) {
+              final respondent = respondentList[index];
+              return RespondentCard(
+                tabType: tabType,
+                respondent: respondent,
+              );
+            },
+          );
+        }
+
+        return const Center(
+          child: CircularProgressIndicator(),
         );
       },
     );

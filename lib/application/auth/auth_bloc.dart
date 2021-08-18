@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
@@ -10,7 +11,6 @@ import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
-import '../../domain/core/load_state.dart';
 import '../../infrastructure/auth/auth_state_dtos.dart';
 
 part 'auth_bloc.freezed.dart';
@@ -35,7 +35,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
     yield* event.map(
       watchTeamListStarted: (e) async* {
         yield state.copyWith(
-          teamListState: const LoadState.inProgress(),
+          teamListState: LoadState.inProgress(),
           authFailure: none(),
         );
         await _teamListSubscription?.cancel();
@@ -47,11 +47,11 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       teamListReceived: (e) async* {
         yield e.failureOrTeamList.fold(
           (f) => state.copyWith(
-            teamListState: const LoadState.failure(),
+            teamListState: LoadState.failure(),
             authFailure: some(f),
           ),
           (teamList) => state.copyWith(
-            teamListState: const LoadState.success(),
+            teamListState: LoadState.success(),
             teamList: teamList,
             authFailure: none(),
           ),
@@ -67,7 +67,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       watchInterviewerListStarted: (e) async* {
         if (state.team.id != '') {
           yield state.copyWith(
-            interviewerListState: const LoadState.inProgress(),
+            interviewerListState: LoadState.inProgress(),
             authFailure: none(),
           );
           await _interviewerListSubscription?.cancel();
@@ -82,11 +82,11 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       interviewerListReceived: (e) async* {
         yield e.failureOrInterviewerList.fold(
           (f) => state.copyWith(
-            interviewerListState: const LoadState.failure(),
+            interviewerListState: LoadState.failure(),
             authFailure: some(f),
           ),
           (interviewerList) => state.copyWith(
-            interviewerListState: const LoadState.success(),
+            interviewerListState: LoadState.success(),
             interviewerList: interviewerList,
             authFailure: none(),
           ),
@@ -95,20 +95,20 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       idChanged: (e) async* {
         yield state.copyWith(
           id: e.id,
-          signInState: const LoadState.initial(),
+          signInState: LoadState.initial(),
           authFailure: none(),
         );
       },
       passwordChanged: (e) async* {
         yield state.copyWith(
           password: e.password,
-          signInState: const LoadState.initial(),
+          signInState: LoadState.initial(),
           authFailure: none(),
         );
       },
       signInPressed: (e) async* {
         yield state.copyWith(
-          signInState: const LoadState.inProgress(),
+          signInState: LoadState.inProgress(),
           authFailure: none(),
         );
 
@@ -121,12 +121,12 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
 
           yield failureOrInterviewer.fold(
             (f) => state.copyWith(
-              signInState: const LoadState.failure(),
+              signInState: LoadState.failure(),
               authFailure: some(f),
               showErrorMessages: true,
             ),
             (interviewer) => state.copyWith(
-              signInState: const LoadState.success(),
+              signInState: LoadState.success(),
               authFailure: none(),
               interviewer: interviewer,
             ),
@@ -159,7 +159,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
 
   @override
   Map<String, dynamic>? toJson(AuthState state) {
-    if (state.signInState is LoadSuccess) {
+    if (state.signInState == LoadState.success()) {
       return AuthStateDto.fromDomain(state).toJson();
     } else {
       return null;

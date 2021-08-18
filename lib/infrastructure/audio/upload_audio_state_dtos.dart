@@ -4,7 +4,6 @@ import 'package:kt_dart/collection.dart';
 
 import '../../application/audio/upload_audio/upload_audio_bloc.dart';
 import '../../domain/audio/audio_failure.dart';
-import '../../domain/core/load_state.dart';
 import '../../domain/core/value_objects.dart';
 import 'audio_dtos.dart';
 
@@ -17,8 +16,8 @@ class UploadAudioStateDto with _$UploadAudioStateDto {
 
   const factory UploadAudioStateDto({
     required Map<String, AudioDto> audioMap,
-    required Map<String, dynamic> uploadState,
-    Map<String, dynamic>? audioFailure,
+    required String uploadState,
+    String? audioFailure,
   }) = _UploadAudioStateDto;
 
   factory UploadAudioStateDto.fromDomain(UploadAudioState domain) {
@@ -27,9 +26,8 @@ class UploadAudioStateDto with _$UploadAudioStateDto {
           .mapKeys((entry) => entry.key.value)
           .mapValues((entry) => AudioDto.fromDomain(entry.value))
           .asMap(),
-      uploadState: domain.uploadState.toJson(),
-      audioFailure:
-          domain.audioFailure.fold(() => null, (some) => some.toJson()),
+      uploadState: domain.uploadState.value,
+      audioFailure: domain.audioFailure.fold(() => null, (some) => some.value),
     );
   }
 
@@ -38,9 +36,8 @@ class UploadAudioStateDto with _$UploadAudioStateDto {
       audioMap: KtMap.from(audioMap)
           .mapKeys((entry) => UniqueId(entry.key))
           .mapValues((entry) => entry.value.toDomain()),
-      uploadState: LoadState.fromJson(uploadState),
-      audioFailure:
-          optionOf(audioFailure).map((some) => AudioFailure.fromJson(some)),
+      uploadState: LoadState(uploadState),
+      audioFailure: optionOf(audioFailure).map((some) => AudioFailure(some)),
     );
   }
 

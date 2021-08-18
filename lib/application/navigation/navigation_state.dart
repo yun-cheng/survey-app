@@ -8,7 +8,7 @@ class NavigationState with _$NavigationState {
     required PageState pageState,
   }) = _NavigationState;
 
-  factory NavigationState.initial() => const NavigationState(
+  factory NavigationState.initial() => NavigationState(
         page: NavigationPage.signIn(),
         respondentId: '',
         pageState: PageState.initial(),

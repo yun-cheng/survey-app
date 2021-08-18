@@ -4,7 +4,7 @@ import 'package:kt_dart/collection.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/auth_failure.dart';
-import '../../domain/core/load_state.dart';
+import '../../domain/core/value_objects.dart';
 import 'interviewer_dtos.dart';
 import 'team_list_dtos.dart';
 
@@ -16,52 +16,50 @@ class AuthStateDto with _$AuthStateDto {
   const AuthStateDto._();
 
   const factory AuthStateDto({
-    required Map<String, dynamic> teamListState,
+    required String teamListState,
     required List<TeamDto> teamList,
     required TeamDto team,
-    required Map<String, dynamic> interviewerListState,
+    required String interviewerListState,
     required List<InterviewerDto> interviewerList,
     required String id,
     required String password,
-    required Map<String, dynamic> signInState,
+    required String signInState,
     required InterviewerDto interviewer,
-    Map<String, dynamic>? authFailure,
+    String? authFailure,
     required bool showErrorMessages,
   }) = _AuthStateDto;
 
   factory AuthStateDto.fromDomain(AuthState authState) {
     return AuthStateDto(
-      teamListState: authState.teamListState.toJson(),
+      teamListState: authState.teamListState.value,
       teamList: authState.teamList.map((e) => TeamDto.fromDomain(e)).asList(),
       team: TeamDto.fromDomain(authState.team),
-      interviewerListState: authState.interviewerListState.toJson(),
+      interviewerListState: authState.interviewerListState.value,
       interviewerList: authState.interviewerList
           .map((e) => InterviewerDto.fromDomain(e))
           .asList(),
       id: authState.id,
       password: authState.password,
-      signInState: authState.signInState.toJson(),
+      signInState: authState.signInState.value,
       interviewer: InterviewerDto.fromDomain(authState.interviewer),
-      authFailure:
-          authState.authFailure.fold(() => null, (some) => some.toJson()),
+      authFailure: authState.authFailure.fold(() => null, (some) => some.value),
       showErrorMessages: authState.showErrorMessages,
     );
   }
 
   AuthState toDomain() {
     return AuthState.initial().copyWith(
-      teamListState: LoadState.fromJson(teamListState),
+      teamListState: LoadState(teamListState),
       teamList: teamList.map((dto) => dto.toDomain()).toImmutableList(),
       team: team.toDomain(),
-      interviewerListState: LoadState.fromJson(interviewerListState),
+      interviewerListState: LoadState(interviewerListState),
       interviewerList:
           interviewerList.map((dto) => dto.toDomain()).toImmutableList(),
       id: this.id,
       password: password,
-      signInState: LoadState.fromJson(signInState),
+      signInState: LoadState(signInState),
       interviewer: interviewer.toDomain(),
-      authFailure:
-          optionOf(authFailure).map((some) => AuthFailure.fromJson(some)),
+      authFailure: optionOf(authFailure).map((some) => AuthFailure(some)),
       showErrorMessages: showErrorMessages,
     );
   }

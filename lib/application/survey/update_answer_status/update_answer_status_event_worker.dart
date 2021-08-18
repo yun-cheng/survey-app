@@ -20,7 +20,7 @@ void _updateAnswerStatusEventWorker(
 
       state = state
           .copyWith(
-            restoreState: const LoadState.inProgress(),
+            restoreState: LoadState.inProgress(),
             questionList: e.questionList,
             isRecodeModule: e.isRecodeModule,
             answerMap: e.answerMap,
@@ -31,8 +31,8 @@ void _updateAnswerStatusEventWorker(
       state = showQuestionCheckedFlow(channel, state);
       state = state
           .copyWith(
-            updateState: const LoadState.success(),
-            restoreState: const LoadState.success(),
+            updateState: LoadState.success(),
+            restoreState: LoadState.success(),
           )
           .send(channel);
     },
@@ -46,7 +46,7 @@ void _updateAnswerStatusEventWorker(
       if (e.updateAnswerStatus) {
         state = state
             .copyWith(
-              updateState: const LoadState.inProgress(),
+              updateState: LoadState.inProgress(),
               answerMap: e.answerMap,
               questionId: e.questionIdList.first(),
             )
@@ -57,7 +57,7 @@ void _updateAnswerStatusEventWorker(
         // NOTE 答案清空完才能接 UpdateSurveyPageEvent.answerChanged()
         state = state
             .copyWith(
-              updateState: const LoadState.success(),
+              updateState: LoadState.success(),
               answerMap: e.answerMap,
             )
             .send(channel);
@@ -75,7 +75,7 @@ void _updateAnswerStatusEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             answerStatusMap: newAnswerStatusMap.toMap(),
           )
           .send(channel);

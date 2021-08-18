@@ -1,16 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'audio_failure.freezed.dart';
-part 'audio_failure.g.dart';
 
 @freezed
 class AudioFailure with _$AudioFailure {
-  const factory AudioFailure.serverError() = _ServerError;
-  const factory AudioFailure.unexpected() = _Unexpected;
-  const factory AudioFailure.insufficientPermission() = _InsufficientPermission;
-  const factory AudioFailure.unableToGet() = _UnableToGet;
-  const factory AudioFailure.noMicrophonePermission() = _NoMicrophonePermission;
+  const AudioFailure._();
 
-   factory AudioFailure.fromJson(Map<String, dynamic> json) =>
-      _$AudioFailureFromJson(json);
+  const factory AudioFailure(String value) = _AudioFailure;
+
+  factory AudioFailure.empty() => const AudioFailure('');
+  factory AudioFailure.unexpected() => const AudioFailure('unexpected');
+  factory AudioFailure.insufficientPermission() =>
+      const AudioFailure('insufficientPermission');
+  factory AudioFailure.unableToGet() => const AudioFailure('unableToGet');
+  factory AudioFailure.noMicrophonePermission() =>
+      const AudioFailure('noMicrophonePermission');
 }

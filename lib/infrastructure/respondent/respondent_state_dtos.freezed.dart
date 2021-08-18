@@ -21,7 +21,7 @@ class _$RespondentStateDtoTearOff {
   const _$RespondentStateDtoTearOff();
 
   _RespondentStateDto call(
-      {required Map<String, dynamic> respondentListListState,
+      {required String respondentListListState,
       required List<RespondentListDto> respondentListList,
       required SurveyDto survey,
       required List<RespondentDto> respondentList,
@@ -30,7 +30,7 @@ class _$RespondentStateDtoTearOff {
       required bool needToJump,
       required int jumpToIndex,
       required String selectedRespondentId,
-      Map<String, dynamic>? respondentFailure,
+      String? respondentFailure,
       required Map<String, List<VisitRecordDto>> visitRecordsMap,
       required Map<TabType, List<RespondentDto>> tabRespondentsMap,
       required List<ResponseDto> responseInfoList}) {
@@ -61,8 +61,7 @@ const $RespondentStateDto = _$RespondentStateDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentStateDto {
-  Map<String, dynamic> get respondentListListState =>
-      throw _privateConstructorUsedError;
+  String get respondentListListState => throw _privateConstructorUsedError;
   List<RespondentListDto> get respondentListList =>
       throw _privateConstructorUsedError;
   SurveyDto get survey => throw _privateConstructorUsedError;
@@ -73,8 +72,7 @@ mixin _$RespondentStateDto {
   bool get needToJump => throw _privateConstructorUsedError;
   int get jumpToIndex => throw _privateConstructorUsedError;
   String get selectedRespondentId => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get respondentFailure =>
-      throw _privateConstructorUsedError;
+  String? get respondentFailure => throw _privateConstructorUsedError;
   Map<String, List<VisitRecordDto>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
   Map<TabType, List<RespondentDto>> get tabRespondentsMap =>
@@ -93,7 +91,7 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
           RespondentStateDto value, $Res Function(RespondentStateDto) then) =
       _$RespondentStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, dynamic> respondentListListState,
+      {String respondentListListState,
       List<RespondentListDto> respondentListList,
       SurveyDto survey,
       List<RespondentDto> respondentList,
@@ -102,7 +100,7 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
       bool needToJump,
       int jumpToIndex,
       String selectedRespondentId,
-      Map<String, dynamic>? respondentFailure,
+      String? respondentFailure,
       Map<String, List<VisitRecordDto>> visitRecordsMap,
       Map<TabType, List<RespondentDto>> tabRespondentsMap,
       List<ResponseDto> responseInfoList});
@@ -139,7 +137,7 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
       respondentListListState: respondentListListState == freezed
           ? _value.respondentListListState
           : respondentListListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       respondentListList: respondentListList == freezed
           ? _value.respondentListList
           : respondentListList // ignore: cast_nullable_to_non_nullable
@@ -175,7 +173,7 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
@@ -207,7 +205,7 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       __$RespondentStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, dynamic> respondentListListState,
+      {String respondentListListState,
       List<RespondentListDto> respondentListList,
       SurveyDto survey,
       List<RespondentDto> respondentList,
@@ -216,7 +214,7 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       bool needToJump,
       int jumpToIndex,
       String selectedRespondentId,
-      Map<String, dynamic>? respondentFailure,
+      String? respondentFailure,
       Map<String, List<VisitRecordDto>> visitRecordsMap,
       Map<TabType, List<RespondentDto>> tabRespondentsMap,
       List<ResponseDto> responseInfoList});
@@ -256,7 +254,7 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
       respondentListListState: respondentListListState == freezed
           ? _value.respondentListListState
           : respondentListListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       respondentListList: respondentListList == freezed
           ? _value.respondentListList
           : respondentListList // ignore: cast_nullable_to_non_nullable
@@ -292,7 +290,7 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
       respondentFailure: respondentFailure == freezed
           ? _value.respondentFailure
           : respondentFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
@@ -332,7 +330,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       _$_$_RespondentStateDtoFromJson(json);
 
   @override
-  final Map<String, dynamic> respondentListListState;
+  final String respondentListListState;
   @override
   final List<RespondentListDto> respondentListList;
   @override
@@ -350,7 +348,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   @override
   final String selectedRespondentId;
   @override
-  final Map<String, dynamic>? respondentFailure;
+  final String? respondentFailure;
   @override
   final Map<String, List<VisitRecordDto>> visitRecordsMap;
   @override
@@ -438,7 +436,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 
 abstract class _RespondentStateDto extends RespondentStateDto {
   const factory _RespondentStateDto(
-      {required Map<String, dynamic> respondentListListState,
+      {required String respondentListListState,
       required List<RespondentListDto> respondentListList,
       required SurveyDto survey,
       required List<RespondentDto> respondentList,
@@ -447,7 +445,7 @@ abstract class _RespondentStateDto extends RespondentStateDto {
       required bool needToJump,
       required int jumpToIndex,
       required String selectedRespondentId,
-      Map<String, dynamic>? respondentFailure,
+      String? respondentFailure,
       required Map<String, List<VisitRecordDto>> visitRecordsMap,
       required Map<TabType, List<RespondentDto>> tabRespondentsMap,
       required List<ResponseDto> responseInfoList}) = _$_RespondentStateDto;
@@ -457,8 +455,7 @@ abstract class _RespondentStateDto extends RespondentStateDto {
       _$_RespondentStateDto.fromJson;
 
   @override
-  Map<String, dynamic> get respondentListListState =>
-      throw _privateConstructorUsedError;
+  String get respondentListListState => throw _privateConstructorUsedError;
   @override
   List<RespondentListDto> get respondentListList =>
       throw _privateConstructorUsedError;
@@ -478,8 +475,7 @@ abstract class _RespondentStateDto extends RespondentStateDto {
   @override
   String get selectedRespondentId => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get respondentFailure =>
-      throw _privateConstructorUsedError;
+  String? get respondentFailure => throw _privateConstructorUsedError;
   @override
   Map<String, List<VisitRecordDto>> get visitRecordsMap =>
       throw _privateConstructorUsedError;

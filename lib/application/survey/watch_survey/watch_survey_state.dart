@@ -10,7 +10,7 @@ class WatchSurveyState with _$WatchSurveyState {
   }) = _SurveyState;
 
   factory WatchSurveyState.initial() => WatchSurveyState(
-        surveyListState: const LoadState.initial(),
+        surveyListState: LoadState.initial(),
         surveyList: const KtList<Survey>.empty(),
         survey: Survey.empty(),
         surveyFailure: none(),

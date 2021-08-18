@@ -44,7 +44,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
   }) = _UpdateSurveyPageState;
 
   factory UpdateSurveyPageState.initial() => UpdateSurveyPageState(
-        referenceListState: const LoadState.initial(),
+        referenceListState: LoadState.initial(),
         referenceList: const KtList<Reference>.empty(),
         surveyFailure: none(),
         respondent: Respondent.empty(),
@@ -59,9 +59,9 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
-        updateState: const LoadState.initial(),
+        updateState: LoadState.initial(),
         updateType: SurveyPageUpdateType.empty,
-        restoreState: const LoadState.initial(),
+        restoreState: LoadState.initial(),
         isRecodeModule: false,
         mainQuestionList: const KtList<Question>.empty(),
         respondentResponseList: const KtList<Response>.empty(),

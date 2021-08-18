@@ -2,12 +2,11 @@ import 'package:auto_route/auto_route.dart';
 // import 'package:flushbar/flushbar_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/navigation_page.dart';
 import '../../core/constants.dart';
 import '../../core/widgets/rounded_button.dart';
 import '../../routes/router.gr.dart';
@@ -43,14 +42,15 @@ class SignInForm extends StatelessWidget {
         ),
         BlocListener<AuthBloc, AuthState>(
           listenWhen: (p, c) =>
-              c.signInState is LoadSuccess && p.signInState != c.signInState,
+              c.signInState == LoadState.success() &&
+              p.signInState != c.signInState,
           listener: (context, state) {
             logger('Listen').i('Push to OverviewPage');
 
             context.pushRoute(const OverviewRoute());
 
             context.read<NavigationBloc>().add(
-                  const NavigationEvent.pageChanged(
+                  NavigationEvent.pageChanged(
                     page: NavigationPage.overview(),
                   ),
                 );

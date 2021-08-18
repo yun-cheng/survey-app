@@ -29,8 +29,8 @@ _$_UpdateAnswerStatusStateDto _$_$_UpdateAnswerStatusStateDtoFromJson(
           MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
     questionId: json['questionId'] as String,
-    updateState: json['updateState'] as Map<String, dynamic>,
-    restoreState: json['restoreState'] as Map<String, dynamic>,
+    updateState: json['updateState'] as String,
+    restoreState: json['restoreState'] as String,
   );
 }
 

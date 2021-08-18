@@ -30,9 +30,9 @@ _$_SurveyPageStateDto _$_$_SurveyPageStateDtoFromJson(
     contentQuestionList: (json['contentQuestionList'] as List<dynamic>)
         .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
         .toList(),
-    loadState: json['loadState'] as Map<String, dynamic>,
-    rebuildState: json['rebuildState'] as Map<String, dynamic>,
-    restoreState: json['restoreState'] as Map<String, dynamic>,
+    loadState: json['loadState'] as String,
+    rebuildState: json['rebuildState'] as String,
+    restoreState: json['restoreState'] as String,
     isRecodeModule: json['isRecodeModule'] as bool,
     isReadOnly: json['isReadOnly'] as bool,
     recodeAnswerMap: (json['recodeAnswerMap'] as Map<String, dynamic>).map(

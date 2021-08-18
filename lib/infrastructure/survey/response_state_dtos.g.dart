@@ -14,13 +14,13 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
     interviewer:
         InterviewerDto.fromJson(json['interviewer'] as Map<String, dynamic>),
     moduleType: json['moduleType'] as String,
-    responseListState: json['responseListState'] as Map<String, dynamic>,
+    responseListState: json['responseListState'] as String,
     responseList: (json['responseList'] as List<dynamic>)
         .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
         .toList(),
-    responseFailure: json['responseFailure'] as Map<String, dynamic>?,
+    responseFailure: json['responseFailure'] as String?,
     response: ResponseDto.fromJson(json['response'] as Map<String, dynamic>),
-    responseRestoreState: json['responseRestoreState'] as Map<String, dynamic>,
+    responseRestoreState: json['responseRestoreState'] as String,
     questionList: (json['questionList'] as List<dynamic>)
         .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -32,7 +32,7 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
     respondentResponseList: (json['respondentResponseList'] as List<dynamic>)
         .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
         .toList(),
-    updateState: json['updateState'] as Map<String, dynamic>,
+    updateState: json['updateState'] as String,
     updateVisitReportsMap: json['updateVisitReportsMap'] as bool,
     updateTabRespondentsMap: json['updateTabRespondentsMap'] as bool,
     referenceList: (json['referenceList'] as List<dynamic>)

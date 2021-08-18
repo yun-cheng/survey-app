@@ -1,12 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/survey/response_list_dtos.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/respondent/respondent_bloc.dart';
-import '../../domain/core/load_state.dart';
+import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/respondent_failure.dart';
 import '../../domain/respondent/value_objects.dart';
+import '../survey/response_list_dtos.dart';
 import '../survey/survey_dtos.dart';
 import 'card_scroll_position_dtos.dart';
 import 'respondent_dtos.dart';
@@ -21,7 +21,7 @@ class RespondentStateDto with _$RespondentStateDto {
   const RespondentStateDto._();
 
   const factory RespondentStateDto({
-    required Map<String, dynamic> respondentListListState,
+    required String respondentListListState,
     required List<RespondentListDto> respondentListList,
     required SurveyDto survey,
     required List<RespondentDto> respondentList,
@@ -30,7 +30,7 @@ class RespondentStateDto with _$RespondentStateDto {
     required bool needToJump,
     required int jumpToIndex,
     required String selectedRespondentId,
-    Map<String, dynamic>? respondentFailure,
+    String? respondentFailure,
     required Map<String, List<VisitRecordDto>> visitRecordsMap,
     required Map<TabType, List<RespondentDto>> tabRespondentsMap,
     required List<ResponseDto> responseInfoList,
@@ -38,7 +38,7 @@ class RespondentStateDto with _$RespondentStateDto {
 
   factory RespondentStateDto.fromDomain(RespondentState domain) {
     return RespondentStateDto(
-      respondentListListState: domain.respondentListListState.toJson(),
+      respondentListListState: domain.respondentListListState.value,
       respondentListList: domain.respondentListList
           .map((e) => RespondentListDto.fromDomain(e))
           .asList(),
@@ -54,7 +54,7 @@ class RespondentStateDto with _$RespondentStateDto {
       jumpToIndex: domain.jumpToIndex,
       selectedRespondentId: domain.selectedRespondentId,
       respondentFailure:
-          domain.respondentFailure.fold(() => null, (some) => some.toJson()),
+          domain.respondentFailure.fold(() => null, (some) => some.value),
       visitRecordsMap: domain.visitRecordsMap
           .mapValues((entry) =>
               entry.value.map((e) => VisitRecordDto.fromDomain(e)).asList())
@@ -71,7 +71,7 @@ class RespondentStateDto with _$RespondentStateDto {
 
   RespondentState toDomain() {
     return RespondentState.initial().copyWith(
-      respondentListListState: LoadState.fromJson(respondentListListState),
+      respondentListListState: LoadState(respondentListListState),
       respondentListList:
           respondentListList.map((dto) => dto.toDomain()).toImmutableList(),
       survey: survey.toDomain(),
@@ -83,8 +83,8 @@ class RespondentStateDto with _$RespondentStateDto {
       needToJump: needToJump,
       jumpToIndex: jumpToIndex,
       selectedRespondentId: selectedRespondentId,
-      respondentFailure: optionOf(respondentFailure)
-          .map((some) => RespondentFailure.fromJson(some)),
+      respondentFailure:
+          optionOf(respondentFailure).map((some) => RespondentFailure(some)),
       visitRecordsMap: KtMap.from(visitRecordsMap).mapValues((entry) =>
           entry.value.map((dto) => dto.toDomain()).toImmutableList()),
       tabRespondentsMap: KtMap.from(tabRespondentsMap).mapValues((entry) =>

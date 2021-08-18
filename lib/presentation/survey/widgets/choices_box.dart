@@ -4,8 +4,8 @@ import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
@@ -31,7 +31,7 @@ class ChoicesBox extends HookWidget {
 
     final state = useBloc<SurveyPageBloc, SurveyPageState>(
       onEmitted: (_, p, c) {
-        if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
+        if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           // S_ 該題作答清空時，更新 answer
           if (c.questionIdList.contains(questionId) &&
               c.answerMap[questionId]! == Answer.empty()) {

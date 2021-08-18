@@ -4,8 +4,8 @@ import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
 import '../../core/constants.dart';
@@ -23,7 +23,7 @@ class DropdownBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
       buildWhen: (p, c) {
-        if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
+        if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           // S_ 該題作答有變更時
           if (c.questionIdList.contains(questionId) &&
               p.answerMap[questionId] != c.answerMap[questionId]) {

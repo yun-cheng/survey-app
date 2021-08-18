@@ -16,7 +16,7 @@ void _respondentEventWorker(
     watchRespondentListListStarted: (e) {
       state = state
           .copyWith(
-            respondentListListState: const LoadState.inProgress(),
+            respondentListListState: LoadState.inProgress(),
             respondentFailure: none(),
           )
           .send(channel);
@@ -26,11 +26,11 @@ void _respondentEventWorker(
 
       state = e.failureOrRespondentListList.fold(
         (f) => state.copyWith(
-          respondentListListState: const LoadState.failure(),
+          respondentListListState: LoadState.failure(),
           respondentFailure: some(f),
         ),
         (respondentListList) => state.copyWith(
-          respondentListListState: const LoadState.success(),
+          respondentListListState: LoadState.success(),
           respondentListList: respondentListList,
           respondentFailure: none(),
         ),

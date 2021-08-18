@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
-import '../../domain/core/load_state.dart';
+import '../../domain/core/value_objects.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
 import 'question_dtos.dart';
@@ -22,8 +22,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     required List<String> clearAnswerQIdList,
     required Map<String, AnswerStatusDto> mainAnswerStatusMap,
     required String questionId,
-    required Map<String, dynamic> updateState,
-    required Map<String, dynamic> restoreState,
+    required String updateState,
+    required String restoreState,
   }) = _UpdateAnswerStatusStateDto;
 
   factory UpdateAnswerStatusStateDto.fromDomain(
@@ -43,8 +43,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
       questionId: domain.questionId,
-      restoreState: domain.restoreState.toJson(),
-      updateState: domain.updateState.toJson(),
+      restoreState: domain.restoreState.value,
+      updateState: domain.updateState.value,
     );
   }
 
@@ -60,8 +60,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       mainAnswerStatusMap: KtMap.from(mainAnswerStatusMap)
           .mapValues((entry) => entry.value.toDomain()),
       questionId: questionId,
-      updateState: LoadState.fromJson(updateState),
-      restoreState: LoadState.fromJson(restoreState),
+      updateState: LoadState(updateState),
+      restoreState: LoadState(restoreState),
     );
   }
 

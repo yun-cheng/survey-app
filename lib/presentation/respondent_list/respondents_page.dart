@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
 import '../../domain/core/logger.dart';
-import '../../domain/core/navigation_page.dart';
+import '../../domain/core/value_objects.dart';
 import '../../domain/respondent/value_objects.dart';
 import 'widgets/badged_tab_bar.dart';
 import 'widgets/group_top_bar.dart';
@@ -66,7 +66,7 @@ class RespondentsPage extends HookWidget {
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
             context.read<NavigationBloc>().add(
-                  const NavigationEvent.pageChanged(
+                  NavigationEvent.pageChanged(
                     page: NavigationPage.overview(),
                   ),
                 );

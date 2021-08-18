@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/question.dart';
 import '../../core/constants.dart';
 
@@ -21,7 +21,7 @@ class WarningBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
       buildWhen: (p, c) =>
-          (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
+          (p.loadState != c.loadState && c.loadState == LoadState.success()) &&
           (p.answerStatusMap[questionId] != c.answerStatusMap[questionId] ||
               p.recodeAnswerStatusMap[questionId] !=
                   c.recodeAnswerStatusMap[questionId] ||

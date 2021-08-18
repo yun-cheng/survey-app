@@ -3,9 +3,9 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/overview/survey.dart';
 import '../../../domain/survey/i_survey_repository.dart';
@@ -32,7 +32,7 @@ class WatchSurveyBloc extends HydratedBloc<WatchSurveyEvent, WatchSurveyState> {
         logger('Watch').i('WatchSurveyBloc: watchSurveyListStarted');
 
         yield state.copyWith(
-          surveyListState: const LoadState.inProgress(),
+          surveyListState: LoadState.inProgress(),
           surveyFailure: none(),
         );
         await _surveyListSubscription?.cancel();
@@ -51,11 +51,11 @@ class WatchSurveyBloc extends HydratedBloc<WatchSurveyEvent, WatchSurveyState> {
 
         yield e.failureOrSurveyList.fold(
           (f) => state.copyWith(
-            surveyListState: const LoadState.failure(),
+            surveyListState: LoadState.failure(),
             surveyFailure: some(f),
           ),
           (surveyList) => state.copyWith(
-            surveyListState: const LoadState.success(),
+            surveyListState: LoadState.success(),
             surveyList: surveyList,
             surveyFailure: none(),
           ),
@@ -92,7 +92,7 @@ class WatchSurveyBloc extends HydratedBloc<WatchSurveyEvent, WatchSurveyState> {
   @override
   Map<String, dynamic>? toJson(WatchSurveyState state) {
     // try {
-    if (state.surveyListState is LoadSuccess) {
+    if (state.surveyListState == LoadState.success()) {
       return WatchSurveyStateDto.fromDomain(state).toJson();
     } else {
       return null;

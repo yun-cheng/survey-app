@@ -1,16 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'auth_failure.freezed.dart';
-part 'auth_failure.g.dart';
 
 @freezed
 class AuthFailure with _$AuthFailure {
-  const factory AuthFailure.serverError() = ServerError;
-  const factory AuthFailure.insufficientPermission() = _InsufficientPermission;
-  const factory AuthFailure.unexpected() = _Unexpected;
-  const factory AuthFailure.invalidIdAndPasswordCombination() =
-      InvalidIdAndPasswordCombination;
+  const AuthFailure._();
 
-  factory AuthFailure.fromJson(Map<String, dynamic> json) =>
-      _$AuthFailureFromJson(json);
+  const factory AuthFailure(String value) = _AuthFailure;
+
+  factory AuthFailure.empty() => const AuthFailure('');
+  factory AuthFailure.serverError() => const AuthFailure('serverError');
+  factory AuthFailure.insufficientPermission() =>
+      const AuthFailure('insufficientPermission');
+  factory AuthFailure.unexpected() => const AuthFailure('unexpected');
+  factory AuthFailure.invalidIdAndPasswordCombination() =>
+      const AuthFailure('invalidIdAndPasswordCombination');
 }

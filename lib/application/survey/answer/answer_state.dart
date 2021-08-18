@@ -18,8 +18,8 @@ class AnswerState with _$AnswerState {
         question: Question.empty(),
         isReadOnly: false,
         isRecodeModule: false,
-        loadState: const LoadState.initial(),
-        rebuildState: const LoadState.initial(),
+        loadState: LoadState.initial(),
+        rebuildState: LoadState.initial(),
       );
 
   Map<String, dynamic> toJson() => AnswerStateDto.fromDomain(this).toJson();

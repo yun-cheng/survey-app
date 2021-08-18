@@ -17,14 +17,14 @@ class AuthState with _$AuthState {
   }) = _AuthState;
 
   factory AuthState.initial() => AuthState(
-        teamListState: const LoadState.initial(),
+        teamListState: LoadState.initial(),
         teamList: const KtList<Team>.empty(),
         team: Team.empty(),
-        interviewerListState: const LoadState.initial(),
+        interviewerListState: LoadState.initial(),
         interviewerList: const KtList<Interviewer>.empty(),
         id: '',
         password: '',
-        signInState: const LoadState.initial(),
+        signInState: LoadState.initial(),
         interviewer: Interviewer.empty(),
         authFailure: none(),
         showErrorMessages: false,

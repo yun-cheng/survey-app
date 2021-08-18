@@ -63,11 +63,11 @@ class SurveyRepository implements ISurveyRepository {
       return right<SurveyFailure, KtList<Survey>>(list.toImmutableList());
     }).onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const SurveyFailure.insufficientPermission());
+        return left(SurveyFailure.insufficientPermission());
       } else {
         logger('Test').e(e);
         logger('Test').e(stackTrace);
-        return left(const SurveyFailure.unexpected());
+        return left(SurveyFailure.unexpected());
       }
     });
   }
@@ -87,9 +87,9 @@ class SurveyRepository implements ISurveyRepository {
             ReferenceListDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const SurveyFailure.insufficientPermission());
+        return left(SurveyFailure.insufficientPermission());
       } else {
-        return left(const SurveyFailure.unexpected());
+        return left(SurveyFailure.unexpected());
       }
     });
   }
@@ -110,9 +110,9 @@ class SurveyRepository implements ISurveyRepository {
             ResponseListDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const SurveyFailure.insufficientPermission());
+        return left(SurveyFailure.insufficientPermission());
       } else {
-        return left(const SurveyFailure.unexpected());
+        return left(SurveyFailure.unexpected());
       }
     });
   }
@@ -136,9 +136,9 @@ class SurveyRepository implements ISurveyRepository {
       return right(unit);
     } catch (e) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const SurveyFailure.insufficientPermission());
+        return left(SurveyFailure.insufficientPermission());
       } else {
-        return left(const SurveyFailure.unexpected());
+        return left(SurveyFailure.unexpected());
       }
     }
   }
@@ -169,9 +169,9 @@ class SurveyRepository implements ISurveyRepository {
       return right(unit);
     } catch (e) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const SurveyFailure.insufficientPermission());
+        return left(SurveyFailure.insufficientPermission());
       } else {
-        return left(const SurveyFailure.unexpected());
+        return left(SurveyFailure.unexpected());
       }
     }
   }

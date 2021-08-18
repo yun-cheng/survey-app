@@ -12,12 +12,12 @@ _$_UpdateAnswerStateDto _$_$_UpdateAnswerStateDtoFromJson(
     answerMap: (json['answerMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
-    updateState: json['updateState'] as Map<String, dynamic>,
+    updateState: json['updateState'] as String,
     questionIdList: (json['questionIdList'] as List<dynamic>)
         .map((e) => e as String)
         .toList(),
     updateAnswerStatus: json['updateAnswerStatus'] as bool,
-    restoreState: json['restoreState'] as Map<String, dynamic>,
+    restoreState: json['restoreState'] as String,
   );
 }
 

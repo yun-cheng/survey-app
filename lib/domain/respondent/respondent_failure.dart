@@ -1,15 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'respondent_failure.freezed.dart';
-part 'respondent_failure.g.dart';
 
 @freezed
 class RespondentFailure with _$RespondentFailure {
-  const factory RespondentFailure.serverError() = ServerError;
-  const factory RespondentFailure.insufficientPermission() =
-      _InsufficientPermission;
-  const factory RespondentFailure.unexpected() = _Unexpected;
+  const RespondentFailure._();
 
-  factory RespondentFailure.fromJson(Map<String, dynamic> json) =>
-      _$RespondentFailureFromJson(json);
+  const factory RespondentFailure(String value) = _RespondentFailure;
+
+  factory RespondentFailure.empty() => const RespondentFailure('');
+  factory RespondentFailure.serverError() =>
+      const RespondentFailure('serverError');
+  factory RespondentFailure.insufficientPermission() =>
+      const RespondentFailure('insufficientPermission');
+  factory RespondentFailure.unexpected() =>
+      const RespondentFailure('unexpected');
 }

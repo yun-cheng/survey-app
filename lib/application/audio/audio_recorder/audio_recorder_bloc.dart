@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../domain/audio/audio.dart';
 import '../../../domain/audio/audio_failure.dart';
 import '../../../domain/audio/audio_recorder/i_audio_recorder.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 
@@ -34,7 +33,7 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
         // S_ 沒有在錄音
         if (!state.isRecording) {
           yield state.copyWith(
-            recorderState: const LoadState.inProgress(),
+            recorderState: LoadState.inProgress(),
             audioFailure: none(),
             isRecording: false,
           );
@@ -55,13 +54,13 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
 
           yield eitherResult.fold(
             (f) => state.copyWith(
-              recorderState: const LoadState.failure(),
+              recorderState: LoadState.failure(),
               audio: Audio.empty(),
               audioFailure: some(f),
               isRecording: false,
             ),
             (_) => state.copyWith(
-              recorderState: const LoadState.success(),
+              recorderState: LoadState.success(),
               audio: newAudio,
               isRecording: true,
               audioFailure: none(),
@@ -80,7 +79,7 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
 
         if (eitherResult.isLeft()) {
           yield state.copyWith(
-            recorderState: const LoadState.failure(),
+            recorderState: LoadState.failure(),
             audioFailure: eitherResult.swap().toOption(),
           );
         } else {
@@ -100,7 +99,7 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
         logger('Event').i('AudioRecorderBloc: recordStopped');
 
         yield state.copyWith(
-          recorderState: const LoadState.inProgress(),
+          recorderState: LoadState.inProgress(),
           audioFailure: none(),
         );
 
@@ -108,12 +107,12 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
 
         yield eitherResult.fold(
           (f) => state.copyWith(
-            recorderState: const LoadState.failure(),
+            recorderState: LoadState.failure(),
             isRecording: false,
             audioFailure: some(f),
           ),
           (_) => state.copyWith(
-            recorderState: const LoadState.success(),
+            recorderState: LoadState.success(),
             isRecording: false,
             audioFailure: none(),
           ),

@@ -10,7 +10,7 @@ class UploadAudioState with _$UploadAudioState {
 
   factory UploadAudioState.initial() => UploadAudioState(
         audioMap: const KtMap<UniqueId, Audio>.empty(),
-        uploadState: const LoadState.initial(),
+        uploadState: LoadState.initial(),
         audioFailure: none(),
       );
 }

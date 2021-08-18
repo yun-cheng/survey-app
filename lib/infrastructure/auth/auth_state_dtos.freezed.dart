@@ -21,16 +21,16 @@ class _$AuthStateDtoTearOff {
   const _$AuthStateDtoTearOff();
 
   _AuthStateDto call(
-      {required Map<String, dynamic> teamListState,
+      {required String teamListState,
       required List<TeamDto> teamList,
       required TeamDto team,
-      required Map<String, dynamic> interviewerListState,
+      required String interviewerListState,
       required List<InterviewerDto> interviewerList,
       required String id,
       required String password,
-      required Map<String, dynamic> signInState,
+      required String signInState,
       required InterviewerDto interviewer,
-      Map<String, dynamic>? authFailure,
+      String? authFailure,
       required bool showErrorMessages}) {
     return _AuthStateDto(
       teamListState: teamListState,
@@ -57,18 +57,17 @@ const $AuthStateDto = _$AuthStateDtoTearOff();
 
 /// @nodoc
 mixin _$AuthStateDto {
-  Map<String, dynamic> get teamListState => throw _privateConstructorUsedError;
+  String get teamListState => throw _privateConstructorUsedError;
   List<TeamDto> get teamList => throw _privateConstructorUsedError;
   TeamDto get team => throw _privateConstructorUsedError;
-  Map<String, dynamic> get interviewerListState =>
-      throw _privateConstructorUsedError;
+  String get interviewerListState => throw _privateConstructorUsedError;
   List<InterviewerDto> get interviewerList =>
       throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
-  Map<String, dynamic> get signInState => throw _privateConstructorUsedError;
+  String get signInState => throw _privateConstructorUsedError;
   InterviewerDto get interviewer => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get authFailure => throw _privateConstructorUsedError;
+  String? get authFailure => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -83,16 +82,16 @@ abstract class $AuthStateDtoCopyWith<$Res> {
           AuthStateDto value, $Res Function(AuthStateDto) then) =
       _$AuthStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, dynamic> teamListState,
+      {String teamListState,
       List<TeamDto> teamList,
       TeamDto team,
-      Map<String, dynamic> interviewerListState,
+      String interviewerListState,
       List<InterviewerDto> interviewerList,
       String id,
       String password,
-      Map<String, dynamic> signInState,
+      String signInState,
       InterviewerDto interviewer,
-      Map<String, dynamic>? authFailure,
+      String? authFailure,
       bool showErrorMessages});
 
   $TeamDtoCopyWith<$Res> get team;
@@ -125,7 +124,7 @@ class _$AuthStateDtoCopyWithImpl<$Res> implements $AuthStateDtoCopyWith<$Res> {
       teamListState: teamListState == freezed
           ? _value.teamListState
           : teamListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       teamList: teamList == freezed
           ? _value.teamList
           : teamList // ignore: cast_nullable_to_non_nullable
@@ -137,7 +136,7 @@ class _$AuthStateDtoCopyWithImpl<$Res> implements $AuthStateDtoCopyWith<$Res> {
       interviewerListState: interviewerListState == freezed
           ? _value.interviewerListState
           : interviewerListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
@@ -153,7 +152,7 @@ class _$AuthStateDtoCopyWithImpl<$Res> implements $AuthStateDtoCopyWith<$Res> {
       signInState: signInState == freezed
           ? _value.signInState
           : signInState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer // ignore: cast_nullable_to_non_nullable
@@ -161,7 +160,7 @@ class _$AuthStateDtoCopyWithImpl<$Res> implements $AuthStateDtoCopyWith<$Res> {
       authFailure: authFailure == freezed
           ? _value.authFailure
           : authFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -192,16 +191,16 @@ abstract class _$AuthStateDtoCopyWith<$Res>
       __$AuthStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, dynamic> teamListState,
+      {String teamListState,
       List<TeamDto> teamList,
       TeamDto team,
-      Map<String, dynamic> interviewerListState,
+      String interviewerListState,
       List<InterviewerDto> interviewerList,
       String id,
       String password,
-      Map<String, dynamic> signInState,
+      String signInState,
       InterviewerDto interviewer,
-      Map<String, dynamic>? authFailure,
+      String? authFailure,
       bool showErrorMessages});
 
   @override
@@ -238,7 +237,7 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
       teamListState: teamListState == freezed
           ? _value.teamListState
           : teamListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       teamList: teamList == freezed
           ? _value.teamList
           : teamList // ignore: cast_nullable_to_non_nullable
@@ -250,7 +249,7 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
       interviewerListState: interviewerListState == freezed
           ? _value.interviewerListState
           : interviewerListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
@@ -266,7 +265,7 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
       signInState: signInState == freezed
           ? _value.signInState
           : signInState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer // ignore: cast_nullable_to_non_nullable
@@ -274,7 +273,7 @@ class __$AuthStateDtoCopyWithImpl<$Res> extends _$AuthStateDtoCopyWithImpl<$Res>
       authFailure: authFailure == freezed
           ? _value.authFailure
           : authFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -304,13 +303,13 @@ class _$_AuthStateDto extends _AuthStateDto {
       _$_$_AuthStateDtoFromJson(json);
 
   @override
-  final Map<String, dynamic> teamListState;
+  final String teamListState;
   @override
   final List<TeamDto> teamList;
   @override
   final TeamDto team;
   @override
-  final Map<String, dynamic> interviewerListState;
+  final String interviewerListState;
   @override
   final List<InterviewerDto> interviewerList;
   @override
@@ -318,11 +317,11 @@ class _$_AuthStateDto extends _AuthStateDto {
   @override
   final String password;
   @override
-  final Map<String, dynamic> signInState;
+  final String signInState;
   @override
   final InterviewerDto interviewer;
   @override
-  final Map<String, dynamic>? authFailure;
+  final String? authFailure;
   @override
   final bool showErrorMessages;
 
@@ -396,16 +395,16 @@ class _$_AuthStateDto extends _AuthStateDto {
 
 abstract class _AuthStateDto extends AuthStateDto {
   const factory _AuthStateDto(
-      {required Map<String, dynamic> teamListState,
+      {required String teamListState,
       required List<TeamDto> teamList,
       required TeamDto team,
-      required Map<String, dynamic> interviewerListState,
+      required String interviewerListState,
       required List<InterviewerDto> interviewerList,
       required String id,
       required String password,
-      required Map<String, dynamic> signInState,
+      required String signInState,
       required InterviewerDto interviewer,
-      Map<String, dynamic>? authFailure,
+      String? authFailure,
       required bool showErrorMessages}) = _$_AuthStateDto;
   const _AuthStateDto._() : super._();
 
@@ -413,14 +412,13 @@ abstract class _AuthStateDto extends AuthStateDto {
       _$_AuthStateDto.fromJson;
 
   @override
-  Map<String, dynamic> get teamListState => throw _privateConstructorUsedError;
+  String get teamListState => throw _privateConstructorUsedError;
   @override
   List<TeamDto> get teamList => throw _privateConstructorUsedError;
   @override
   TeamDto get team => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get interviewerListState =>
-      throw _privateConstructorUsedError;
+  String get interviewerListState => throw _privateConstructorUsedError;
   @override
   List<InterviewerDto> get interviewerList =>
       throw _privateConstructorUsedError;
@@ -429,11 +427,11 @@ abstract class _AuthStateDto extends AuthStateDto {
   @override
   String get password => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get signInState => throw _privateConstructorUsedError;
+  String get signInState => throw _privateConstructorUsedError;
   @override
   InterviewerDto get interviewer => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get authFailure => throw _privateConstructorUsedError;
+  String? get authFailure => throw _privateConstructorUsedError;
   @override
   bool get showErrorMessages => throw _privateConstructorUsedError;
   @override

@@ -14,6 +14,44 @@ class UniqueId with _$UniqueId {
 }
 
 @freezed
+class LoadState with _$LoadState {
+  const LoadState._();
+
+  const factory LoadState(String value) = _LoadState;
+
+  factory LoadState.empty() => const LoadState('');
+  factory LoadState.initial() => const LoadState('initial');
+  factory LoadState.inProgress() => const LoadState('inProgress');
+  factory LoadState.failure() => const LoadState('failure');
+  factory LoadState.success() => const LoadState('success');
+}
+
+@freezed
+class PageState with _$PageState {
+  const PageState._();
+
+  const factory PageState(String value) = _PageState;
+
+  factory PageState.empty() => const PageState('');
+  factory PageState.initial() => const PageState('initial');
+  factory PageState.push() => const PageState('push');
+  factory PageState.pop() => const PageState('pop');
+}
+
+@freezed
+class NavigationPage with _$NavigationPage {
+  const NavigationPage._();
+
+  const factory NavigationPage(String value) = _NavigationPage;
+
+  factory NavigationPage.empty() => const NavigationPage('');
+  factory NavigationPage.signIn() => const NavigationPage('signIn');
+  factory NavigationPage.overview() => const NavigationPage('overview');
+  factory NavigationPage.respondent() => const NavigationPage('respondent');
+  factory NavigationPage.survey() => const NavigationPage('survey');
+}
+
+@freezed
 class NetworkType with _$NetworkType {
   const NetworkType._();
 

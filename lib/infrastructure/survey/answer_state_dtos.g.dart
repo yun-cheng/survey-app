@@ -14,8 +14,8 @@ _$_AnswerStateDto _$_$_AnswerStateDtoFromJson(Map<String, dynamic> json) {
     question: QuestionDto.fromJson(json['question'] as Map<String, dynamic>),
     isReadOnly: json['isReadOnly'] as bool,
     isRecodeModule: json['isRecodeModule'] as bool,
-    loadState: json['loadState'] as Map<String, dynamic>,
-    rebuildState: json['rebuildState'] as Map<String, dynamic>,
+    loadState: json['loadState'] as String,
+    rebuildState: json['rebuildState'] as String,
   );
 }
 

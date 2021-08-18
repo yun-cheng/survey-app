@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
-import '../../domain/core/load_state.dart';
+import '../../domain/core/value_objects.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/value_objects.dart';
 import '../respondent/respondent_dtos.dart';
@@ -22,9 +22,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
   const UpdateSurveyPageStateDto._();
 
   const factory UpdateSurveyPageStateDto({
-    required Map<String, dynamic> referenceListState,
+    required String referenceListState,
     required List<ReferenceDto> referenceList,
-    Map<String, dynamic>? surveyFailure,
+    String? surveyFailure,
     required RespondentDto respondent,
     required int page,
     required int newestPage,
@@ -38,8 +38,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     required bool isLastPage,
     required WarningDto warning,
     required bool showWarning,
-    required Map<String, dynamic> updateState,
-    required Map<String, dynamic> restoreState,
+    required String updateState,
+    required String restoreState,
     required bool isRecodeModule,
     required List<QuestionDto> mainQuestionList,
     required List<ResponseDto> respondentResponseList,
@@ -57,11 +57,11 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
 
   factory UpdateSurveyPageStateDto.fromDomain(UpdateSurveyPageState domain) {
     return UpdateSurveyPageStateDto(
-      referenceListState: domain.referenceListState.toJson(),
+      referenceListState: domain.referenceListState.value,
       referenceList:
           domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).asList(),
       surveyFailure:
-          domain.surveyFailure.fold(() => null, (some) => some.toJson()),
+          domain.surveyFailure.fold(() => null, (some) => some.value),
       respondent: RespondentDto.fromDomain(domain.respondent),
       page: domain.page,
       newestPage: domain.newestPage,
@@ -84,8 +84,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       isLastPage: domain.isLastPage,
       warning: WarningDto.fromDomain(domain.warning),
       showWarning: domain.showWarning,
-      updateState: domain.updateState.toJson(),
-      restoreState: domain.restoreState.toJson(),
+      updateState: domain.updateState.value,
+      restoreState: domain.restoreState.value,
       isRecodeModule: domain.isRecodeModule,
       mainQuestionList: domain.mainQuestionList
           .map((e) => QuestionDto.fromDomain(e))
@@ -112,11 +112,10 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
 
   UpdateSurveyPageState toDomain() {
     return UpdateSurveyPageState.initial().copyWith(
-      referenceListState: LoadState.fromJson(referenceListState),
+      referenceListState: LoadState(referenceListState),
       referenceList:
           referenceList.map((dto) => dto.toDomain()).toImmutableList(),
-      surveyFailure:
-          optionOf(surveyFailure).map((some) => SurveyFailure.fromJson(some)),
+      surveyFailure: optionOf(surveyFailure).map((some) => SurveyFailure(some)),
       respondent: respondent.toDomain(),
       page: page,
       newestPage: newestPage,
@@ -134,8 +133,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       isLastPage: isLastPage,
       warning: warning.toDomain(),
       showWarning: showWarning,
-      updateState: LoadState.fromJson(updateState),
-      restoreState: LoadState.fromJson(restoreState),
+      updateState: LoadState(updateState),
+      restoreState: LoadState(restoreState),
       isRecodeModule: isRecodeModule,
       mainQuestionList:
           mainQuestionList.map((dto) => dto.toDomain()).toImmutableList(),

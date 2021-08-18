@@ -18,7 +18,7 @@ void _responseEventWorker(
       state = state
           .copyWith(
             interviewer: e.interviewer,
-            responseListState: const LoadState.inProgress(),
+            responseListState: LoadState.inProgress(),
             responseFailure: none(),
           )
           .send(channel);
@@ -30,12 +30,12 @@ void _responseEventWorker(
       state = e.failureOrResponseList
           .fold(
             (f) => state.copyWith(
-              responseListState: const LoadState.failure(),
+              responseListState: LoadState.failure(),
               responseFailure: some(f),
             ),
             (responseList) => state.copyWith(
-              responseListState: const LoadState.success(),
-              updateState: const LoadState.inProgress(),
+              responseListState: LoadState.success(),
+              updateState: LoadState.inProgress(),
               downloadedResponseList: responseList,
               responseFailure: none(),
             ),
@@ -65,12 +65,12 @@ void _responseEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
           )
           .send(channel);
       state = state
           .copyWith(
-            updateState: const LoadState.success(),
+            updateState: LoadState.success(),
             survey: e.survey,
           )
           .send(channel);
@@ -92,7 +92,7 @@ void _responseEventWorker(
       // S_ restore response
       state = state
           .copyWith(
-            responseRestoreState: const LoadState.inProgress(),
+            responseRestoreState: LoadState.inProgress(),
           )
           .send(channel);
       state = responseRestored(state).send(channel);

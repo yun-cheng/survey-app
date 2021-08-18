@@ -12,8 +12,8 @@ _$_UploadAudioStateDto _$_$_UploadAudioStateDtoFromJson(
     audioMap: (json['audioMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AudioDto.fromJson(e as Map<String, dynamic>)),
     ),
-    uploadState: json['uploadState'] as Map<String, dynamic>,
-    audioFailure: json['audioFailure'] as Map<String, dynamic>?,
+    uploadState: json['uploadState'] as String,
+    audioFailure: json['audioFailure'] as String?,
   );
 }
 

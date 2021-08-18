@@ -2,7 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../domain/core/load_state.dart';
+import '../../domain/core/value_objects.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
 import 'question_dtos.dart';
@@ -26,9 +26,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
     required List<String> questionIdList,
     required List<QuestionDto> pageQuestionList,
     required List<QuestionDto> contentQuestionList,
-    required Map<String, dynamic> loadState,
-    required Map<String, dynamic> rebuildState,
-    required Map<String, dynamic> restoreState,
+    required String loadState,
+    required String rebuildState,
+    required String restoreState,
     required bool isRecodeModule,
     required bool isReadOnly,
     required Map<String, AnswerDto> recodeAnswerMap,
@@ -55,9 +55,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       contentQuestionList: domain.contentQuestionList
           .map((e) => QuestionDto.fromDomain(e))
           .asList(),
-      loadState: domain.loadState.toJson(),
-      rebuildState: domain.rebuildState.toJson(),
-      restoreState: domain.restoreState.toJson(),
+      loadState: domain.loadState.value,
+      rebuildState: domain.rebuildState.value,
+      restoreState: domain.restoreState.value,
       isRecodeModule: domain.isRecodeModule,
       isReadOnly: domain.isReadOnly,
       recodeAnswerMap: domain.recodeAnswerMap
@@ -85,9 +85,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
           pageQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
       contentQuestionList:
           contentQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
-      loadState: LoadState.fromJson(loadState),
-      rebuildState: LoadState.fromJson(rebuildState),
-      restoreState: LoadState.fromJson(restoreState),
+      loadState: LoadState(loadState),
+      rebuildState: LoadState(rebuildState),
+      restoreState: LoadState(restoreState),
       isRecodeModule: isRecodeModule,
       isReadOnly: isReadOnly,
       recodeAnswerMap: KtMap.from(recodeAnswerMap)

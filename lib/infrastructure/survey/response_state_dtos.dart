@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/response/response_bloc.dart';
-import '../../domain/core/load_state.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/value_objects.dart';
@@ -27,18 +26,18 @@ class ResponseStateDto with _$ResponseStateDto {
     required RespondentDto respondent,
     required InterviewerDto interviewer,
     required String moduleType,
-    required Map<String, dynamic> responseListState,
+    required String responseListState,
     required List<ResponseDto> responseList,
-    Map<String, dynamic>? responseFailure,
+    String? responseFailure,
     required ResponseDto response,
-    required Map<String, dynamic> responseRestoreState,
+    required String responseRestoreState,
     required List<QuestionDto> questionList,
     required bool withResponseId,
     required bool breakInterview,
     required String responseId,
     required ResponseDto mainResponse,
     required List<ResponseDto> respondentResponseList,
-    required Map<String, dynamic> updateState,
+    required String updateState,
     required bool updateVisitReportsMap,
     required bool updateTabRespondentsMap,
     required List<ReferenceDto> referenceList,
@@ -50,13 +49,13 @@ class ResponseStateDto with _$ResponseStateDto {
       respondent: RespondentDto.fromDomain(domain.respondent),
       interviewer: InterviewerDto.fromDomain(domain.interviewer),
       moduleType: domain.moduleType.value,
-      responseListState: domain.responseListState.toJson(),
+      responseListState: domain.responseListState.value,
       responseList:
           domain.responseList.map((e) => ResponseDto.fromDomain(e)).asList(),
       responseFailure:
-          domain.responseFailure.fold(() => null, (some) => some.toJson()),
+          domain.responseFailure.fold(() => null, (some) => some.value),
       response: ResponseDto.fromDomain(domain.response),
-      responseRestoreState: domain.responseRestoreState.toJson(),
+      responseRestoreState: domain.responseRestoreState.value,
       questionList: domain.questionList
           .map((question) => QuestionDto.fromDomain(question))
           .asList(),
@@ -67,7 +66,7 @@ class ResponseStateDto with _$ResponseStateDto {
       respondentResponseList: domain.respondentResponseList
           .map((e) => ResponseDto.fromDomain(e))
           .asList(),
-      updateState: domain.updateState.toJson(),
+      updateState: domain.updateState.value,
       updateVisitReportsMap: domain.updateVisitReportsMap,
       updateTabRespondentsMap: domain.updateTabRespondentsMap,
       referenceList:
@@ -81,12 +80,12 @@ class ResponseStateDto with _$ResponseStateDto {
       respondent: respondent.toDomain(),
       interviewer: interviewer.toDomain(),
       moduleType: ModuleType(moduleType),
-      responseListState: LoadState.fromJson(responseListState),
+      responseListState: LoadState(responseListState),
       responseList: responseList.map((dto) => dto.toDomain()).toImmutableList(),
       responseFailure:
-          optionOf(responseFailure).map((some) => SurveyFailure.fromJson(some)),
+          optionOf(responseFailure).map((some) => SurveyFailure(some)),
       response: response.toDomain(),
-      responseRestoreState: LoadState.fromJson(responseRestoreState),
+      responseRestoreState: LoadState(responseRestoreState),
       questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
       withResponseId: withResponseId,
       breakInterview: breakInterview,
@@ -94,7 +93,7 @@ class ResponseStateDto with _$ResponseStateDto {
       mainResponse: mainResponse.toDomain(),
       respondentResponseList:
           respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
-      updateState: LoadState.fromJson(updateState),
+      updateState: LoadState(updateState),
       updateVisitReportsMap: updateVisitReportsMap,
       updateTabRespondentsMap: updateTabRespondentsMap,
       referenceList:

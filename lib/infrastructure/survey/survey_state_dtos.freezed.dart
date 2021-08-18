@@ -21,10 +21,10 @@ class _$WatchSurveyStateDtoTearOff {
   const _$WatchSurveyStateDtoTearOff();
 
   _WatchSurveyStateDto call(
-      {required Map<String, dynamic> surveyListState,
+      {required String surveyListState,
       required List<SurveyDto> surveyList,
       required SurveyDto survey,
-      Map<String, dynamic>? surveyFailure}) {
+      String? surveyFailure}) {
     return _WatchSurveyStateDto(
       surveyListState: surveyListState,
       surveyList: surveyList,
@@ -43,11 +43,10 @@ const $WatchSurveyStateDto = _$WatchSurveyStateDtoTearOff();
 
 /// @nodoc
 mixin _$WatchSurveyStateDto {
-  Map<String, dynamic> get surveyListState =>
-      throw _privateConstructorUsedError;
+  String get surveyListState => throw _privateConstructorUsedError;
   List<SurveyDto> get surveyList => throw _privateConstructorUsedError;
   SurveyDto get survey => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get surveyFailure => throw _privateConstructorUsedError;
+  String? get surveyFailure => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,10 +60,10 @@ abstract class $WatchSurveyStateDtoCopyWith<$Res> {
           WatchSurveyStateDto value, $Res Function(WatchSurveyStateDto) then) =
       _$WatchSurveyStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, dynamic> surveyListState,
+      {String surveyListState,
       List<SurveyDto> surveyList,
       SurveyDto survey,
-      Map<String, dynamic>? surveyFailure});
+      String? surveyFailure});
 
   $SurveyDtoCopyWith<$Res> get survey;
 }
@@ -89,7 +88,7 @@ class _$WatchSurveyStateDtoCopyWithImpl<$Res>
       surveyListState: surveyListState == freezed
           ? _value.surveyListState
           : surveyListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       surveyList: surveyList == freezed
           ? _value.surveyList
           : surveyList // ignore: cast_nullable_to_non_nullable
@@ -101,7 +100,7 @@ class _$WatchSurveyStateDtoCopyWithImpl<$Res>
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
     ));
   }
 
@@ -121,10 +120,10 @@ abstract class _$WatchSurveyStateDtoCopyWith<$Res>
       __$WatchSurveyStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, dynamic> surveyListState,
+      {String surveyListState,
       List<SurveyDto> surveyList,
       SurveyDto survey,
-      Map<String, dynamic>? surveyFailure});
+      String? surveyFailure});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
@@ -152,7 +151,7 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
       surveyListState: surveyListState == freezed
           ? _value.surveyListState
           : surveyListState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       surveyList: surveyList == freezed
           ? _value.surveyList
           : surveyList // ignore: cast_nullable_to_non_nullable
@@ -164,7 +163,7 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
     ));
   }
 }
@@ -183,13 +182,13 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
       _$_$_WatchSurveyStateDtoFromJson(json);
 
   @override
-  final Map<String, dynamic> surveyListState;
+  final String surveyListState;
   @override
   final List<SurveyDto> surveyList;
   @override
   final SurveyDto survey;
   @override
-  final Map<String, dynamic>? surveyFailure;
+  final String? surveyFailure;
 
   @override
   String toString() {
@@ -235,24 +234,23 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
 
 abstract class _WatchSurveyStateDto extends WatchSurveyStateDto {
   const factory _WatchSurveyStateDto(
-      {required Map<String, dynamic> surveyListState,
+      {required String surveyListState,
       required List<SurveyDto> surveyList,
       required SurveyDto survey,
-      Map<String, dynamic>? surveyFailure}) = _$_WatchSurveyStateDto;
+      String? surveyFailure}) = _$_WatchSurveyStateDto;
   const _WatchSurveyStateDto._() : super._();
 
   factory _WatchSurveyStateDto.fromJson(Map<String, dynamic> json) =
       _$_WatchSurveyStateDto.fromJson;
 
   @override
-  Map<String, dynamic> get surveyListState =>
-      throw _privateConstructorUsedError;
+  String get surveyListState => throw _privateConstructorUsedError;
   @override
   List<SurveyDto> get surveyList => throw _privateConstructorUsedError;
   @override
   SurveyDto get survey => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get surveyFailure => throw _privateConstructorUsedError;
+  String? get surveyFailure => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$WatchSurveyStateDtoCopyWith<_WatchSurveyStateDto> get copyWith =>

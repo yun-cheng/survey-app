@@ -5,11 +5,11 @@ import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tuple/tuple.dart';
 
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/answer.dart';

@@ -5,6 +5,7 @@ import 'package:kt_dart/collection.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../core/constants.dart';
 import 'scroll_position_bundle.dart';
@@ -43,21 +44,18 @@ class GroupTopBar extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('GroupTopBar');
 
-        return state.respondentListListState.map(
-          initial: (_) => Container(),
-          inProgress: (_) => Container(),
-          failure: (_) => Container(),
-          success: (_) {
-            final townFirstRespondentList = state
-                    .tabRespondentsMap[state.currentTab]
-                    ?.filter((r) => r.isCountyTownFirst) ??
-                const KtList<Respondent>.empty();
+        if (state.respondentListListState == LoadState.success()) {
+          final townFirstRespondentList = state
+                  .tabRespondentsMap[state.currentTab]
+                  ?.filter((r) => r.isCountyTownFirst) ??
+              const KtList<Respondent>.empty();
 
-            return TownDropDown(
-              townFirstRespondentList: townFirstRespondentList,
-            );
-          },
-        );
+          return TownDropDown(
+            townFirstRespondentList: townFirstRespondentList,
+          );
+        }
+
+        return Container();
       },
     );
   }

@@ -17,16 +17,16 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required KtMap<String, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateAnswerStatusState;
 
-  factory UpdateAnswerStatusState.initial() => const UpdateAnswerStatusState(
-        questionList: KtList<Question>.empty(),
+  factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(
+        questionList: const KtList<Question>.empty(),
         isRecodeModule: false,
-        answerMap: KtMap<String, Answer>.empty(),
-        answerStatusMap: KtMap<String, AnswerStatus>.empty(),
+        answerMap: const KtMap<String, Answer>.empty(),
+        answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
         questionId: '',
         updateState: LoadState.initial(),
         restoreState: LoadState.initial(),
-        clearAnswerQIdList: KtList<String>.empty(),
-        mainAnswerStatusMap: KtMap<String, AnswerStatus>.empty(),
+        clearAnswerQIdList: const KtList<String>.empty(),
+        mainAnswerStatusMap: const KtMap<String, AnswerStatus>.empty(),
       );
 
   Map<String, dynamic> toJson() =>

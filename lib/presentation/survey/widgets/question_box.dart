@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/question.dart';
 import '../../core/constants.dart';
 
@@ -23,7 +23,7 @@ class QuestionBox extends StatelessWidget {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
       // NOTE 只在該題前後 body 都存在，且 body 有變更時，才 rebuild
       buildWhen: (p, c) {
-        if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
+        if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           final pQuestion =
               p.pageQuestionList.firstOrNull((q) => q.id == questionId);
           final cQuestion =

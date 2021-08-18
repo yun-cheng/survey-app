@@ -74,7 +74,7 @@ UpdateSurveyPageState pageQuestionListUpdated(UpdateSurveyPageState state) {
   // NOTE 因為每次作答變化都要重新檢查，只有在 stateRestored、respondentResponseListUpdated
   //  不需要檢查，為了方便還是就直接放進來這邊一起跑，或許反而比較節省效能
   return checkIsLastPage(state1).copyWith(
-    updateState: const LoadState.success(),
+    updateState: LoadState.success(),
   );
 }
 
@@ -157,7 +157,7 @@ UpdateSurveyPageState warningUpdated(UpdateSurveyPageState state) {
   }
 
   return state.copyWith(
-    updateState: const LoadState.success(),
+    updateState: LoadState.success(),
     updateType: SurveyPageUpdateType.warning,
     warning: warning,
     showWarning: showWarning,

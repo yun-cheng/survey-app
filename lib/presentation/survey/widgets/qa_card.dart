@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
 import '../../core/constants.dart';
@@ -33,7 +33,7 @@ class QaCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<SurveyPageBloc, SurveyPageState>(
       buildWhen: (p, c) {
-        if (p.loadState != c.loadState && c.loadState is LoadSuccess) {
+        if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           final pAnswerStatus = p.answerStatusMap[questionId];
           final cAnswerStatus = c.answerStatusMap[questionId];
 
@@ -82,10 +82,7 @@ class QaCard extends StatelessWidget {
                     ),
                     margin: const EdgeInsets.only(bottom: 10.0),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 18.0,
-                        horizontal: 18.0,
-                      ),
+                      padding: const EdgeInsets.all(18.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [

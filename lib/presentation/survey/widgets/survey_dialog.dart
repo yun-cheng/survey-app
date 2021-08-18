@@ -12,7 +12,6 @@ import '../../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/navigation_page.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
@@ -172,7 +171,7 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
   clearSurveyPageState(context);
 
   context.read<NavigationBloc>().add(
-        const NavigationEvent.pageChanged(
+        NavigationEvent.pageChanged(
           page: NavigationPage.respondent(),
         ),
       );

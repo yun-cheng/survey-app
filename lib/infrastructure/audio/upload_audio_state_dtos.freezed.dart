@@ -22,8 +22,8 @@ class _$UploadAudioStateDtoTearOff {
 
   _UploadAudioStateDto call(
       {required Map<String, AudioDto> audioMap,
-      required Map<String, dynamic> uploadState,
-      Map<String, dynamic>? audioFailure}) {
+      required String uploadState,
+      String? audioFailure}) {
     return _UploadAudioStateDto(
       audioMap: audioMap,
       uploadState: uploadState,
@@ -42,8 +42,8 @@ const $UploadAudioStateDto = _$UploadAudioStateDtoTearOff();
 /// @nodoc
 mixin _$UploadAudioStateDto {
   Map<String, AudioDto> get audioMap => throw _privateConstructorUsedError;
-  Map<String, dynamic> get uploadState => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get audioFailure => throw _privateConstructorUsedError;
+  String get uploadState => throw _privateConstructorUsedError;
+  String? get audioFailure => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -58,8 +58,8 @@ abstract class $UploadAudioStateDtoCopyWith<$Res> {
       _$UploadAudioStateDtoCopyWithImpl<$Res>;
   $Res call(
       {Map<String, AudioDto> audioMap,
-      Map<String, dynamic> uploadState,
-      Map<String, dynamic>? audioFailure});
+      String uploadState,
+      String? audioFailure});
 }
 
 /// @nodoc
@@ -85,11 +85,11 @@ class _$UploadAudioStateDtoCopyWithImpl<$Res>
       uploadState: uploadState == freezed
           ? _value.uploadState
           : uploadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       audioFailure: audioFailure == freezed
           ? _value.audioFailure
           : audioFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
     ));
   }
 }
@@ -103,8 +103,8 @@ abstract class _$UploadAudioStateDtoCopyWith<$Res>
   @override
   $Res call(
       {Map<String, AudioDto> audioMap,
-      Map<String, dynamic> uploadState,
-      Map<String, dynamic>? audioFailure});
+      String uploadState,
+      String? audioFailure});
 }
 
 /// @nodoc
@@ -132,11 +132,11 @@ class __$UploadAudioStateDtoCopyWithImpl<$Res>
       uploadState: uploadState == freezed
           ? _value.uploadState
           : uploadState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       audioFailure: audioFailure == freezed
           ? _value.audioFailure
           : audioFailure // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as String?,
     ));
   }
 }
@@ -154,9 +154,9 @@ class _$_UploadAudioStateDto extends _UploadAudioStateDto {
   @override
   final Map<String, AudioDto> audioMap;
   @override
-  final Map<String, dynamic> uploadState;
+  final String uploadState;
   @override
-  final Map<String, dynamic>? audioFailure;
+  final String? audioFailure;
 
   @override
   String toString() {
@@ -200,8 +200,8 @@ class _$_UploadAudioStateDto extends _UploadAudioStateDto {
 abstract class _UploadAudioStateDto extends UploadAudioStateDto {
   const factory _UploadAudioStateDto(
       {required Map<String, AudioDto> audioMap,
-      required Map<String, dynamic> uploadState,
-      Map<String, dynamic>? audioFailure}) = _$_UploadAudioStateDto;
+      required String uploadState,
+      String? audioFailure}) = _$_UploadAudioStateDto;
   const _UploadAudioStateDto._() : super._();
 
   factory _UploadAudioStateDto.fromJson(Map<String, dynamic> json) =
@@ -210,9 +210,9 @@ abstract class _UploadAudioStateDto extends UploadAudioStateDto {
   @override
   Map<String, AudioDto> get audioMap => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get uploadState => throw _privateConstructorUsedError;
+  String get uploadState => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic>? get audioFailure => throw _privateConstructorUsedError;
+  String? get audioFailure => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UploadAudioStateDtoCopyWith<_UploadAudioStateDto> get copyWith =>

@@ -12,9 +12,9 @@ class UpdateAnswerState with _$UpdateAnswerState {
     required LoadState restoreState,
   }) = _UpdateAnswerState;
 
-  factory UpdateAnswerState.initial() => const UpdateAnswerState(
-        answerMap: KtMap<String, Answer>.empty(),
-        questionIdList: KtList<String>.empty(),
+  factory UpdateAnswerState.initial() => UpdateAnswerState(
+        answerMap: const KtMap<String, Answer>.empty(),
+        questionIdList: const KtList<String>.empty(),
         updateState: LoadState.initial(),
         updateAnswerStatus: false,
         restoreState: LoadState.initial(),

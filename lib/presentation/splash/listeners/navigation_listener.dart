@@ -3,13 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../domain/core/navigation_page.dart';
-import '../../../domain/core/page_state.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../routes/router.gr.dart';
 
 // H_ 在 app 重啟時回復上次所在的頁面
 final navigationListener = BlocListener<NavigationBloc, NavigationState>(
-  listenWhen: (p, c) => c.pageState is InitialPage,
+  listenWhen: (p, c) => c.pageState == PageState.initial(),
   listener: (context, state) {
     logger('Listen').i('NavigationBloc');
 
@@ -18,17 +17,17 @@ final navigationListener = BlocListener<NavigationBloc, NavigationState>(
         );
 
     context.pushRoute(const SignInRoute());
-    if (state.page is NavSignInPage) {
+    if (state.page == NavigationPage.signIn()) {
       return;
     }
 
     context.pushRoute(const OverviewRoute());
-    if (state.page is NavOverviewPage) {
+    if (state.page == NavigationPage.overview()) {
       return;
     }
 
     context.pushRoute(const RespondentsRoute());
-    if (state.page is NavRespondentsPage) {
+    if (state.page == NavigationPage.respondent()) {
       return;
     }
 

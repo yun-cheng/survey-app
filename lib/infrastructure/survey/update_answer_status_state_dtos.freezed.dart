@@ -29,8 +29,8 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       required List<String> clearAnswerQIdList,
       required Map<String, AnswerStatusDto> mainAnswerStatusMap,
       required String questionId,
-      required Map<String, dynamic> updateState,
-      required Map<String, dynamic> restoreState}) {
+      required String updateState,
+      required String restoreState}) {
     return _UpdateAnswerStatusStateDto(
       questionList: questionList,
       isRecodeModule: isRecodeModule,
@@ -63,8 +63,8 @@ mixin _$UpdateAnswerStatusStateDto {
   Map<String, AnswerStatusDto> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
   String get questionId => throw _privateConstructorUsedError;
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -85,8 +85,8 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
       List<String> clearAnswerQIdList,
       Map<String, AnswerStatusDto> mainAnswerStatusMap,
       String questionId,
-      Map<String, dynamic> updateState,
-      Map<String, dynamic> restoreState});
+      String updateState,
+      String restoreState});
 }
 
 /// @nodoc
@@ -142,11 +142,11 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
     ));
   }
 }
@@ -167,8 +167,8 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       List<String> clearAnswerQIdList,
       Map<String, AnswerStatusDto> mainAnswerStatusMap,
       String questionId,
-      Map<String, dynamic> updateState,
-      Map<String, dynamic> restoreState});
+      String updateState,
+      String restoreState});
 }
 
 /// @nodoc
@@ -227,11 +227,11 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as String,
     ));
   }
 }
@@ -269,9 +269,9 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   @override
   final String questionId;
   @override
-  final Map<String, dynamic> updateState;
+  final String updateState;
   @override
-  final Map<String, dynamic> restoreState;
+  final String restoreState;
 
   @override
   String toString() {
@@ -338,16 +338,15 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
 abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   const factory _UpdateAnswerStatusStateDto(
-          {required List<QuestionDto> questionList,
-          required bool isRecodeModule,
-          required Map<String, AnswerDto> answerMap,
-          required Map<String, AnswerStatusDto> answerStatusMap,
-          required List<String> clearAnswerQIdList,
-          required Map<String, AnswerStatusDto> mainAnswerStatusMap,
-          required String questionId,
-          required Map<String, dynamic> updateState,
-          required Map<String, dynamic> restoreState}) =
-      _$_UpdateAnswerStatusStateDto;
+      {required List<QuestionDto> questionList,
+      required bool isRecodeModule,
+      required Map<String, AnswerDto> answerMap,
+      required Map<String, AnswerStatusDto> answerStatusMap,
+      required List<String> clearAnswerQIdList,
+      required Map<String, AnswerStatusDto> mainAnswerStatusMap,
+      required String questionId,
+      required String updateState,
+      required String restoreState}) = _$_UpdateAnswerStatusStateDto;
   const _UpdateAnswerStatusStateDto._() : super._();
 
   factory _UpdateAnswerStatusStateDto.fromJson(Map<String, dynamic> json) =
@@ -370,9 +369,9 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   @override
   String get questionId => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get updateState => throw _privateConstructorUsedError;
+  String get updateState => throw _privateConstructorUsedError;
   @override
-  Map<String, dynamic> get restoreState => throw _privateConstructorUsedError;
+  String get restoreState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpdateAnswerStatusStateDtoCopyWith<_UpdateAnswerStatusStateDto>

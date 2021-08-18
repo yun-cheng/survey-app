@@ -20,8 +20,8 @@ void _updateAnswerEventWorker(
 
       state = state
           .copyWith(
-            restoreState: const LoadState.inProgress(),
-            updateState: const LoadState.success(),
+            restoreState: LoadState.inProgress(),
+            updateState: LoadState.success(),
             answerMap: e.answerMap,
             questionIdList: const KtList<String>.empty(),
             updateAnswerStatus: false,
@@ -29,7 +29,7 @@ void _updateAnswerEventWorker(
           .send(channel);
       state = state
           .copyWith(
-            restoreState: const LoadState.success(),
+            restoreState: LoadState.success(),
           )
           .send(channel);
     },
@@ -39,7 +39,7 @@ void _updateAnswerEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             questionIdList: KtList.of(e.question.id),
           )
           .send(channel);
@@ -51,7 +51,7 @@ void _updateAnswerEventWorker(
 
       state = state
           .copyWith(
-            updateState: const LoadState.inProgress(),
+            updateState: LoadState.inProgress(),
             questionIdList: e.questionIdList,
           )
           .send(channel);

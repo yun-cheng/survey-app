@@ -5,22 +5,22 @@ import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
-import '../../../domain/core/load_state.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final updateAnswerStateIsRestored =
-        context.select((UpdateAnswerBloc bloc) => bloc.state.restoreState)
-            is LoadSuccess;
-    final updateAnswerStatusStateIsRestored =
-        context.select((UpdateAnswerStatusBloc bloc) => bloc.state.restoreState)
-            is LoadSuccess;
-    final updateSurveyPageStateIsRestored =
-        context.select((UpdateSurveyPageBloc bloc) => bloc.state.restoreState)
-            is LoadSuccess;
+        context.select((UpdateAnswerBloc bloc) => bloc.state.restoreState) ==
+            LoadState.success();
+    final updateAnswerStatusStateIsRestored = context
+            .select((UpdateAnswerStatusBloc bloc) => bloc.state.restoreState) ==
+        LoadState.success();
+    final updateSurveyPageStateIsRestored = context
+            .select((UpdateSurveyPageBloc bloc) => bloc.state.restoreState) ==
+        LoadState.success();
 
     logger('Build').i(
         'SurveyBody: $updateAnswerStateIsRestored $updateAnswerStatusStateIsRestored $updateSurveyPageStateIsRestored');
@@ -36,12 +36,13 @@ class SurveyBody extends StatelessWidget {
         // HIGHLIGHT 初次進頁面可能這些條件都不變（如第一題是說明題），
         //  會導致沒有 rebuild，故加上最後一個判斷條件
         buildWhen: (p, c) =>
-            (p.loadState != c.loadState && c.loadState is LoadSuccess) &&
+            (p.loadState != c.loadState &&
+                c.loadState == LoadState.success()) &&
             (p.page != c.page || c.page == 0),
         builder: (context, state) {
           logger('Build').i('SurveyBody: List of QaCard');
 
-          if (state.restoreState is LoadSuccess) {
+          if (state.restoreState == LoadState.success()) {
             // TODO 用 ScrollablePositionedList 在 keyboard 出現/隱藏時會導致
             //  rebuild，因此先使用 ListView
             // return ScrollablePositionedList.builder(

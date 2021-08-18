@@ -55,7 +55,7 @@ class AudioRepository implements IAudioRepository {
 
       return right(unit);
     } catch (e) {
-      return left(const AudioFailure.unexpected());
+      return left(AudioFailure.unexpected());
     }
   }
 
@@ -92,9 +92,9 @@ class AudioRepository implements IAudioRepository {
       return right(audio);
     } catch (e) {
       if (e is FirebaseException && e.code == 'permission-denied') {
-        return left(const AudioFailure.insufficientPermission());
+        return left(AudioFailure.insufficientPermission());
       } else {
-        return left(const AudioFailure.unexpected());
+        return left(AudioFailure.unexpected());
       }
     }
   }

@@ -11,8 +11,7 @@ import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/core/logger.dart';
-import '../../domain/core/navigation_page.dart';
-import '../core/widgets/responsive_layout.dart';
+import '../../domain/core/value_objects.dart';
 import '../routes/router.gr.dart';
 import 'widgets/overview_body.dart';
 
@@ -53,7 +52,7 @@ class OverviewPage extends StatelessWidget {
                     .read<UploadAudioBloc>()
                     .add(const UploadAudioEvent.loggedOut());
                 context.read<NavigationBloc>().add(
-                      const NavigationEvent.pageChanged(
+                      NavigationEvent.pageChanged(
                         page: NavigationPage.signIn(),
                       ),
                     );
@@ -61,8 +60,14 @@ class OverviewPage extends StatelessWidget {
             ),
           ],
         ),
-        body: ResponsiveLayout(
-          child: OverviewBody(),
+        body: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: OverviewBody(),
+              ),
+            ],
+          ),
         ),
       ),
     );
