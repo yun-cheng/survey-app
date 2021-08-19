@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../core/value_objects.dart';
 import 'answer.dart';
@@ -35,8 +34,8 @@ class Response with _$Response {
     required ResponseStatus responseStatus,
     required bool isDeleted,
     // H_ 內容
-    required KtMap<String, Answer> answerMap,
-    required KtMap<String, AnswerStatus> answerStatusMap,
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
     required SimpleSurveyPageState surveyPageState,
   }) = _Response;
 
@@ -60,8 +59,8 @@ class Response with _$Response {
       lastChangedTimeStamp: now,
       responseStatus: ResponseStatus.answering(),
       isDeleted: false,
-      answerMap: const KtMap<String, Answer>.empty(),
-      answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
+      answerMap: const <String, Answer>{},
+      answerStatusMap: const <String, AnswerStatus>{},
       surveyPageState: SimpleSurveyPageState.empty(),
     );
   }
@@ -81,8 +80,8 @@ class Response with _$Response {
     return copyWith(
       answerMap: moduleType == ModuleType.visitReport()
           ? answerMap
-          : const KtMap<String, Answer>.empty(),
-      answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
+          : const <String, Answer>{},
+      answerStatusMap: const <String, AnswerStatus>{},
       surveyPageState: SimpleSurveyPageState.empty(),
     );
   }

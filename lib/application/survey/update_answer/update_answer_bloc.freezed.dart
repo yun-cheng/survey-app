@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UpdateAnswerEventTearOff {
   const _$UpdateAnswerEventTearOff();
 
-  _ModuleLoaded moduleLoaded({required KtMap<String, Answer> answerMap}) {
+  _ModuleLoaded moduleLoaded({required Map<String, Answer> answerMap}) {
     return _ModuleLoaded(
       answerMap: answerMap,
     );
@@ -62,7 +62,7 @@ const $UpdateAnswerEvent = _$UpdateAnswerEventTearOff();
 mixin _$UpdateAnswerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<String, Answer> answerMap) moduleLoaded,
+    required TResult Function(Map<String, Answer> answerMap) moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
@@ -74,7 +74,7 @@ mixin _$UpdateAnswerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<String, Answer> answerMap)? moduleLoaded,
+    TResult Function(Map<String, Answer> answerMap)? moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
@@ -127,7 +127,7 @@ abstract class _$ModuleLoadedCopyWith<$Res> {
   factory _$ModuleLoadedCopyWith(
           _ModuleLoaded value, $Res Function(_ModuleLoaded) then) =
       __$ModuleLoadedCopyWithImpl<$Res>;
-  $Res call({KtMap<String, Answer> answerMap});
+  $Res call({Map<String, Answer> answerMap});
 }
 
 /// @nodoc
@@ -149,7 +149,7 @@ class __$ModuleLoadedCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
     ));
   }
 }
@@ -160,7 +160,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   const _$_ModuleLoaded({required this.answerMap});
 
   @override
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -196,7 +196,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<String, Answer> answerMap) moduleLoaded,
+    required TResult Function(Map<String, Answer> answerMap) moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
@@ -211,7 +211,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<String, Answer> answerMap)? moduleLoaded,
+    TResult Function(Map<String, Answer> answerMap)? moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
@@ -256,10 +256,10 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
 }
 
 abstract class _ModuleLoaded implements UpdateAnswerEvent {
-  const factory _ModuleLoaded({required KtMap<String, Answer> answerMap}) =
+  const factory _ModuleLoaded({required Map<String, Answer> answerMap}) =
       _$_ModuleLoaded;
 
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ModuleLoadedCopyWith<_ModuleLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -312,7 +312,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<String, Answer> answerMap) moduleLoaded,
+    required TResult Function(Map<String, Answer> answerMap) moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
@@ -327,7 +327,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<String, Answer> answerMap)? moduleLoaded,
+    TResult Function(Map<String, Answer> answerMap)? moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
@@ -528,7 +528,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<String, Answer> answerMap) moduleLoaded,
+    required TResult Function(Map<String, Answer> answerMap) moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
@@ -544,7 +544,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<String, Answer> answerMap)? moduleLoaded,
+    TResult Function(Map<String, Answer> answerMap)? moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
@@ -688,7 +688,7 @@ class _$_AnswerQIdListCleared
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<String, Answer> answerMap) moduleLoaded,
+    required TResult Function(Map<String, Answer> answerMap) moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
@@ -703,7 +703,7 @@ class _$_AnswerQIdListCleared
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<String, Answer> answerMap)? moduleLoaded,
+    TResult Function(Map<String, Answer> answerMap)? moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
@@ -806,7 +806,7 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KtMap<String, Answer> answerMap) moduleLoaded,
+    required TResult Function(Map<String, Answer> answerMap) moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
@@ -821,7 +821,7 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtMap<String, Answer> answerMap)? moduleLoaded,
+    TResult Function(Map<String, Answer> answerMap)? moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
@@ -874,7 +874,7 @@ class _$UpdateAnswerStateTearOff {
   const _$UpdateAnswerStateTearOff();
 
   _UpdateAnswerState call(
-      {required KtMap<String, Answer> answerMap,
+      {required Map<String, Answer> answerMap,
       required KtList<String> questionIdList,
       required LoadState updateState,
       required bool updateAnswerStatus,
@@ -894,7 +894,7 @@ const $UpdateAnswerState = _$UpdateAnswerStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAnswerState {
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   KtList<String> get questionIdList => throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
@@ -911,7 +911,7 @@ abstract class $UpdateAnswerStateCopyWith<$Res> {
           UpdateAnswerState value, $Res Function(UpdateAnswerState) then) =
       _$UpdateAnswerStateCopyWithImpl<$Res>;
   $Res call(
-      {KtMap<String, Answer> answerMap,
+      {Map<String, Answer> answerMap,
       KtList<String> questionIdList,
       LoadState updateState,
       bool updateAnswerStatus,
@@ -942,7 +942,7 @@ class _$UpdateAnswerStateCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
@@ -985,7 +985,7 @@ abstract class _$UpdateAnswerStateCopyWith<$Res>
       __$UpdateAnswerStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtMap<String, Answer> answerMap,
+      {Map<String, Answer> answerMap,
       KtList<String> questionIdList,
       LoadState updateState,
       bool updateAnswerStatus,
@@ -1020,7 +1020,7 @@ class __$UpdateAnswerStateCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
@@ -1054,7 +1054,7 @@ class _$_UpdateAnswerState extends _UpdateAnswerState
       : super._();
 
   @override
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
   @override
   final KtList<String> questionIdList;
   @override
@@ -1119,7 +1119,7 @@ class _$_UpdateAnswerState extends _UpdateAnswerState
 
 abstract class _UpdateAnswerState extends UpdateAnswerState {
   const factory _UpdateAnswerState(
-      {required KtMap<String, Answer> answerMap,
+      {required Map<String, Answer> answerMap,
       required KtList<String> questionIdList,
       required LoadState updateState,
       required bool updateAnswerStatus,
@@ -1127,7 +1127,7 @@ abstract class _UpdateAnswerState extends UpdateAnswerState {
   const _UpdateAnswerState._() : super._();
 
   @override
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
   KtList<String> get questionIdList => throw _privateConstructorUsedError;
   @override

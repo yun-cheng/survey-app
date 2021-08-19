@@ -67,16 +67,16 @@ void _updateAnswerStatusEventWorker(
     specialAnswerSwitched: (e) {
       logger('Event').i('UpdateAnswerStatusEvent: specialAnswerSwitched');
 
-      final newAnswerStatusMap =
-          KtMutableMap.from(state.answerStatusMap.asMap());
+      final answerStatusMap =
+          Map<String, AnswerStatus>.from(state.answerStatusMap);
 
-      newAnswerStatusMap[e.questionId] =
-          newAnswerStatusMap[e.questionId]!.switchSpecialAnswer();
+      answerStatusMap[e.questionId] =
+          answerStatusMap[e.questionId]!.switchSpecialAnswer();
 
       state = state
           .copyWith(
             updateState: LoadState.inProgress(),
-            answerStatusMap: newAnswerStatusMap.toMap(),
+            answerStatusMap: answerStatusMap,
           )
           .send(channel);
 

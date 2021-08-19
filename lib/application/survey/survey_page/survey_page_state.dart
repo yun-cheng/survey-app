@@ -13,8 +13,8 @@ class SurveyPageState with _$SurveyPageState {
     required Warning warning,
     required bool showWarning,
     // H_ answer
-    required KtMap<String, Answer> answerMap,
-    required KtMap<String, AnswerStatus> answerStatusMap,
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
     required KtList<String> questionIdList,
     // H_ questionMap
     required Map<String, Question> pageQuestionMap,
@@ -27,8 +27,8 @@ class SurveyPageState with _$SurveyPageState {
     required LoadState rebuildState,
     required LoadState restoreState,
     // H_ recode
-    required KtMap<String, Answer> recodeAnswerMap,
-    required KtMap<String, AnswerStatus> recodeAnswerStatusMap,
+    required Map<String, Answer> recodeAnswerMap,
+    required Map<String, AnswerStatus> recodeAnswerStatusMap,
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
@@ -37,8 +37,8 @@ class SurveyPageState with _$SurveyPageState {
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
-        answerMap: const KtMap<String, Answer>.empty(),
-        answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
+        answerMap: const <String, Answer>{},
+        answerStatusMap: const <String, AnswerStatus>{},
         questionIdList: const KtList<String>.empty(),
         pageQuestionMap: const <String, Question>{},
         contentQuestionMap: const <String, Question>{},
@@ -47,8 +47,8 @@ class SurveyPageState with _$SurveyPageState {
         loadState: LoadState.initial(),
         rebuildState: LoadState.initial(),
         restoreState: LoadState.initial(),
-        recodeAnswerMap: const KtMap<String, Answer>.empty(),
-        recodeAnswerStatusMap: const KtMap<String, AnswerStatus>.empty(),
+        recodeAnswerMap: const <String, Answer>{},
+        recodeAnswerStatusMap: const <String, AnswerStatus>{},
       );
 
   Map<String, dynamic> toJson() => SurveyPageStateDto.fromDomain(this).toJson();

@@ -43,11 +43,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       warning: WarningDto.fromDomain(domain.warning),
       showWarning: domain.showWarning,
       answerMap: domain.answerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      answerStatusMap: domain.answerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      answerStatusMap: domain.answerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
       questionIdList: domain.questionIdList.asList(),
       pageQuestionMap: domain.pageQuestionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
@@ -59,11 +57,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       isRecodeModule: domain.isRecodeModule,
       isReadOnly: domain.isReadOnly,
       recodeAnswerMap: domain.recodeAnswerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      recodeAnswerStatusMap: domain.recodeAnswerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      recodeAnswerStatusMap: domain.recodeAnswerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
     );
   }
 
@@ -74,10 +70,9 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       isLastPage: isLastPage,
       warning: warning.toDomain(),
       showWarning: showWarning,
-      answerMap:
-          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMap.from(answerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerStatusMap:
+          answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
       questionIdList: questionIdList.toImmutableList(),
       pageQuestionMap:
           pageQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
@@ -88,10 +83,10 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       restoreState: LoadState(restoreState),
       isRecodeModule: isRecodeModule,
       isReadOnly: isReadOnly,
-      recodeAnswerMap: KtMap.from(recodeAnswerMap)
-          .mapValues((entry) => entry.value.toDomain()),
-      recodeAnswerStatusMap: KtMap.from(recodeAnswerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      recodeAnswerMap:
+          recodeAnswerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      recodeAnswerStatusMap: recodeAnswerStatusMap
+          .map((key, value) => MapEntry(key, value.toDomain())),
     );
   }
 

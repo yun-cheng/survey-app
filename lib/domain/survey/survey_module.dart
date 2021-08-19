@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'answer.dart';
 import 'answer_status.dart';
@@ -13,13 +12,13 @@ class SurveyModule with _$SurveyModule {
 
   const factory SurveyModule({
     required Map<String, Question> questionMap,
-    required KtMap<String, Answer> answerMap,
-    required KtMap<String, AnswerStatus> answerStatusMap,
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
   }) = _SurveyModule;
 
   factory SurveyModule.empty() => const SurveyModule(
         questionMap: <String, Question>{},
-        answerMap: KtMap<String, Answer>.empty(),
-        answerStatusMap: KtMap<String, AnswerStatus>.empty(),
+        answerMap: <String, Answer>{},
+        answerStatusMap: <String, AnswerStatus>{},
       );
 }

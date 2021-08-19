@@ -18,18 +18,17 @@ UpdateAnswerStatusState answerMapUpdated(UpdateAnswerStatusState state) {
 UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
   logger('Compute').i('AnswerStatusTypeUpdated');
 
-  final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
+  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
   final answer = state.answerMap[state.questionId]!;
   final validateAnswer = state.questionMap[state.questionId]!.validateAnswer;
 
-  newAnswerStatusMap[state.questionId] =
-      newAnswerStatusMap[state.questionId]!.update(
+  answerStatusMap[state.questionId] = answerStatusMap[state.questionId]!.update(
     answer: answer,
     expression: validateAnswer,
   );
 
   return state.copyWith(
-    answerStatusMap: newAnswerStatusMap.toMap(),
+    answerStatusMap: answerStatusMap,
   );
 }
 
@@ -37,7 +36,7 @@ UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
 UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   logger('Compute').i('chainQuestionChecked');
 
-  final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
+  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
 
   KtList<String> changedUpperQIdList = const KtList<String>.empty();
   changedUpperQIdList = changedUpperQIdList.plusElement(state.questionId);
@@ -66,8 +65,7 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
               clearAnswerQIdList.contains(question.upperQuestionId)) &&
           !state.answerStatusMap[questionId]!.isSpecialAnswer) {
         // S_2-1 清空該題作答、重置該題答題狀況
-        newAnswerStatusMap[questionId] =
-            newAnswerStatusMap[questionId]!.reset();
+        answerStatusMap[questionId] = answerStatusMap[questionId]!.reset();
 
         // S_2-2 將該題 questionId 加入 changedUpperQIdList
         changedUpperQIdList = changedUpperQIdList.plusElement(questionId);
@@ -79,7 +77,7 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   });
 
   return state.copyWith(
-    answerStatusMap: newAnswerStatusMap.toMap(),
+    answerStatusMap: answerStatusMap,
     clearAnswerQIdList: clearAnswerQIdList,
   );
 }
@@ -89,18 +87,17 @@ UpdateAnswerStatusState showQuestionCheckedRecodeJob(
     UpdateAnswerStatusState state) {
   logger('Compute').i('showQuestionCheckedRecodeJob');
 
-  final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
+  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
 
   // S_ 在 mainAnswerStatusMap 隱藏的，也將 answerStatusMap 隱藏，其餘不變
   state.questionMap.forEach((questionId, question) {
     if (state.mainAnswerStatusMap[questionId]!.isHidden) {
-      newAnswerStatusMap[questionId] =
-          newAnswerStatusMap[questionId]!.setHidden();
+      answerStatusMap[questionId] = answerStatusMap[questionId]!.setHidden();
     }
   });
 
   return state.copyWith(
-    answerStatusMap: newAnswerStatusMap.toMap(),
+    answerStatusMap: answerStatusMap,
   );
 }
 
@@ -112,7 +109,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
     return showQuestionCheckedRecodeJob(state);
   }
 
-  final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
+  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
 
   KtList<String> clearAnswerQIdList = state.clearAnswerQIdList;
 
@@ -121,14 +118,14 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
       state.questionMap.filter((e) => !e.value.show.isEmpty).toMap();
 
   showQuestionMap.forEach((questionId, question) {
-    AnswerStatus newAnswerStatus = newAnswerStatusMap[questionId]!;
+    AnswerStatus newAnswerStatus = answerStatusMap[questionId]!;
     bool showQuestion;
 
     // S_1 判斷該題是否要出現
     // NOTE 有可能取到還未清空的答案，因此同時參考答題狀態
     showQuestion = question.show.evaluate(
       answerMap: state.answerMap,
-      answerStatusMap: newAnswerStatusMap.toMap(),
+      answerStatusMap: answerStatusMap,
     );
 
     // S_2 改變該題的 answerStatus
@@ -145,11 +142,11 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
       newAnswerStatus = newAnswerStatus.setHidden();
     }
 
-    newAnswerStatusMap[questionId] = newAnswerStatus;
+    answerStatusMap[questionId] = newAnswerStatus;
   });
 
   return state.copyWith(
-    answerStatusMap: newAnswerStatusMap.toMap(),
+    answerStatusMap: answerStatusMap,
     clearAnswerQIdList: clearAnswerQIdList,
   );
 }

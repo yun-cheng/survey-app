@@ -32,14 +32,14 @@ class FormattedText with _$FormattedText {
     required KtList<Response> responseList,
     required String surveyId,
     required ModuleType moduleType,
-    required KtMap<String, Answer> answerMap,
+    required Map<String, Answer> answerMap,
     required String respondentId,
   }) {
     Answer? newAnswer;
     if (type == FormatType.referenceKey()) {
       if (referenceKey.surveyId == surveyId &&
           referenceKey.moduleType == moduleType) {
-        newAnswer = answerMap.get(referenceKey.questionId);
+        newAnswer = answerMap[referenceKey.questionId];
       } else {
         newAnswer = responseList
                 .firstOrNull(
@@ -48,8 +48,7 @@ class FormattedText with _$FormattedText {
                       r.surveyId == referenceKey.surveyId &&
                       r.moduleType == referenceKey.moduleType,
                 )
-                ?.answerMap
-                .get(referenceKey.questionId) ??
+                ?.answerMap[referenceKey.questionId] ??
             referenceList
                 .firstOrNull(
                   (r) =>

@@ -63,7 +63,7 @@ class Question with _$Question {
     required KtList<Response> responseList,
     required String surveyId,
     required ModuleType moduleType,
-    required KtMap<String, Answer> answerMap,
+    required Map<String, Answer> answerMap,
     required String respondentId,
   }) {
     final newBody = body.map(

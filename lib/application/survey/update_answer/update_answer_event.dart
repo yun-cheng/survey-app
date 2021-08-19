@@ -4,7 +4,7 @@ part of 'update_answer_bloc.dart';
 class UpdateAnswerEvent with _$UpdateAnswerEvent {
   // H_ 進入問卷時載入必要 state
   const factory UpdateAnswerEvent.moduleLoaded({
-    required KtMap<String, Answer> answerMap,
+    required Map<String, Answer> answerMap,
   }) = _ModuleLoaded;
 
   // H_ 離開問卷時清空 state

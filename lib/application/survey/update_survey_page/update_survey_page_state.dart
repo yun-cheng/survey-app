@@ -9,7 +9,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required int page,
     required int newestPage,
     required Direction direction,
-    required KtMap<String, AnswerStatus> answerStatusMap,
+    required Map<String, AnswerStatus> answerStatusMap,
     required bool isLastPage,
     required Warning warning,
     required bool showWarning,
@@ -22,7 +22,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required KtList<Reference> referenceList,
     required Option<SurveyFailure> surveyFailure,
     required Respondent respondent,
-    required KtMap<String, Answer> answerMap,
+    required Map<String, Answer> answerMap,
     required KtList<Response> respondentResponseList,
     required String surveyId,
     required ModuleType moduleType,
@@ -39,8 +39,8 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required bool showLeaveButton,
     // H_ recode
     required Map<String, Question> mainQuestionMap,
-    required KtMap<String, Answer> mainAnswerMap,
-    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
+    required Map<String, Answer> mainAnswerMap,
+    required Map<String, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateSurveyPageState;
 
   factory UpdateSurveyPageState.initial() => UpdateSurveyPageState(
@@ -54,8 +54,8 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         questionMap: const <String, Question>{},
         pageQuestionMap: const <String, Question>{},
         contentQuestionMap: const <String, Question>{},
-        answerMap: const KtMap<String, Answer>.empty(),
-        answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
+        answerMap: const <String, Answer>{},
+        answerStatusMap: const <String, AnswerStatus>{},
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
@@ -73,8 +73,8 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         leavePage: false,
         finishResponse: false,
         showLeaveButton: true,
-        mainAnswerMap: const KtMap<String, Answer>.empty(),
-        mainAnswerStatusMap: const KtMap<String, AnswerStatus>.empty(),
+        mainAnswerMap: const <String, Answer>{},
+        mainAnswerStatusMap: const <String, AnswerStatus>{},
       );
 
   Map<String, dynamic> toJson() =>

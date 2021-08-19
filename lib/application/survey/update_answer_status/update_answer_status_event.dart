@@ -6,9 +6,9 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   const factory UpdateAnswerStatusEvent.moduleLoaded({
     required Map<String, Question> questionMap,
     required bool isRecodeModule,
-    required KtMap<String, Answer> answerMap,
-    required KtMap<String, AnswerStatus> answerStatusMap,
-    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
+    required Map<String, AnswerStatus> mainAnswerStatusMap,
   }) = _ModuleLoaded;
 
   // H_ 離開問卷時清空 state
@@ -16,7 +16,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
 
   // H_ answerMap 有變更時
   const factory UpdateAnswerStatusEvent.answerMapUpdated({
-    required KtMap<String, Answer> answerMap,
+    required Map<String, Answer> answerMap,
     required KtList<String> questionIdList,
     required bool updateAnswerStatus,
   }) = _AnswerMapUpdated;

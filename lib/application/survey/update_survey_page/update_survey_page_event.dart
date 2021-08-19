@@ -18,13 +18,13 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
     required ModuleType moduleType,
     required SimpleSurveyPageState surveyPageState,
     required Map<String, Question> questionMap,
-    required KtMap<String, Answer> answerMap,
-    required KtMap<String, AnswerStatus> answerStatusMap,
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
     required bool isReadOnly,
     required bool isRecodeModule,
     required Map<String, Question> mainQuestionMap,
-    required KtMap<String, Answer> mainAnswerMap,
-    required KtMap<String, AnswerStatus> mainAnswerStatusMap,
+    required Map<String, Answer> mainAnswerMap,
+    required Map<String, AnswerStatus> mainAnswerStatusMap,
     required Respondent respondent,
   }) = _StateRestored;
 
@@ -35,8 +35,8 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
 
   // H_ 作答有變更時，更新頁面，並檢查 warning
   const factory UpdateSurveyPageEvent.answerChanged({
-    required KtMap<String, Answer> answerMap,
-    required KtMap<String, AnswerStatus> answerStatusMap,
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
   }) = _AnswerChanged;
 
   // H_ 更新目錄題目

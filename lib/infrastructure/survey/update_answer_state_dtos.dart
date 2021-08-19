@@ -23,8 +23,7 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
   factory UpdateAnswerStateDto.fromDomain(UpdateAnswerState domain) {
     return UpdateAnswerStateDto(
       answerMap: domain.answerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       updateState: domain.updateState.value,
       questionIdList: domain.questionIdList.asList(),
       updateAnswerStatus: domain.updateAnswerStatus,
@@ -34,8 +33,7 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
 
   UpdateAnswerState toDomain() {
     return UpdateAnswerState.initial().copyWith(
-      answerMap:
-          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
+      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       updateState: LoadState(updateState),
       questionIdList: questionIdList.toImmutableList(),
       updateAnswerStatus: updateAnswerStatus,

@@ -65,7 +65,7 @@ ResponseState responseRestored(ResponseState state) {
 
   if (response == null) {
     // S_ 填入預設答案
-    final initAnswerMap = module.answerMap.toMutableMap();
+    final initAnswerMap = Map<String, Answer>.from(module.answerMap);
 
     // S_ 如果是查址模組且 breakInterview
     if (state.moduleType == ModuleType.visitReport() && state.breakInterview) {
@@ -92,7 +92,7 @@ ResponseState responseRestored(ResponseState state) {
       respondentId: state.respondent.id,
       interviewerId: state.interviewer.id,
       // TODO deviceId
-      answerMap: initAnswerMap.toMap(),
+      answerMap: initAnswerMap,
       answerStatusMap: module.answerStatusMap,
     );
   }

@@ -74,11 +74,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       contentQuestionMap: domain.contentQuestionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       answerMap: domain.answerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      answerStatusMap: domain.answerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      answerStatusMap: domain.answerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
       isLastPage: domain.isLastPage,
       warning: WarningDto.fromDomain(domain.warning),
       showWarning: domain.showWarning,
@@ -99,11 +97,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       finishResponse: domain.finishResponse,
       showLeaveButton: domain.showLeaveButton,
       mainAnswerMap: domain.mainAnswerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      mainAnswerStatusMap: domain.mainAnswerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      mainAnswerStatusMap: domain.mainAnswerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
     );
   }
 
@@ -124,10 +120,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
           pageQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
       contentQuestionMap: contentQuestionMap
           .map((key, value) => MapEntry(key, value.toDomain())),
-      answerMap:
-          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMap.from(answerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerStatusMap:
+          answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
       isLastPage: isLastPage,
       warning: warning.toDomain(),
       showWarning: showWarning,
@@ -146,10 +141,10 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       leavePage: leavePage,
       finishResponse: finishResponse,
       showLeaveButton: showLeaveButton,
-      mainAnswerMap: KtMap.from(mainAnswerMap)
-          .mapValues((entry) => entry.value.toDomain()),
-      mainAnswerStatusMap: KtMap.from(mainAnswerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      mainAnswerMap:
+          mainAnswerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      mainAnswerStatusMap: mainAnswerStatusMap
+          .map((key, value) => MapEntry(key, value.toDomain())),
     );
   }
 

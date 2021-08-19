@@ -7,8 +7,7 @@ UpdateAnswerState answerUpdated(
 ) {
   logger('Compute').i('AnswerUpdated');
 
-  // QUESTION 複製 map，不知有無其他方法
-  final newAnswerMap = KtMutableMap.from(state.answerMap.asMap());
+  final answerMap = Map<String, Answer>.from(state.answerMap);
   final oldAnswer = state.answerMap[e.question.id] ?? Answer.empty();
   Answer newAnswer;
 
@@ -28,12 +27,12 @@ UpdateAnswerState answerUpdated(
     );
   }
 
-  newAnswerMap[e.question.id] = newAnswer;
+  answerMap[e.question.id] = newAnswer;
 
   return state.copyWith(
     updateState: LoadState.success(),
     updateAnswerStatus: true,
-    answerMap: newAnswerMap.toMap(),
+    answerMap: answerMap,
     questionIdList: KtList.of(e.question.id),
   );
 }
@@ -45,16 +44,16 @@ UpdateAnswerState answerQIdListCleared(
 ) {
   logger('Compute').i('answerQIdListCleared');
 
-  final newAnswerMap = KtMutableMap.from(state.answerMap.asMap());
+  final answerMap = Map<String, Answer>.from(state.answerMap);
 
   e.questionIdList.forEach((questionId) {
-    newAnswerMap[questionId] = Answer.empty();
+    answerMap[questionId] = Answer.empty();
   });
 
   return state.copyWith(
     updateState: LoadState.success(),
     updateAnswerStatus: false,
-    answerMap: newAnswerMap.toMap(),
+    answerMap: answerMap,
     questionIdList: e.questionIdList,
   );
 }

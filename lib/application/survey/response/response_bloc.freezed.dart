@@ -68,8 +68,8 @@ class _$ResponseEventTearOff {
   }
 
   _ResponseUpdated responseUpdated(
-      {required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap,
+      {required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) {
     return _ResponseUpdated(
       answerMap: answerMap,
@@ -127,8 +127,8 @@ mixin _$ResponseEvent {
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -155,8 +155,8 @@ mixin _$ResponseEvent {
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -338,8 +338,8 @@ class _$_WatchResponseListStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -369,8 +369,8 @@ class _$_WatchResponseListStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -538,8 +538,8 @@ class _$_ResponseListReceived
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -569,8 +569,8 @@ class _$_ResponseListReceived
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -708,8 +708,8 @@ class _$_UploadTimerUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -739,8 +739,8 @@ class _$_UploadTimerUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -870,8 +870,8 @@ class _$_ResponseListUploading
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -901,8 +901,8 @@ class _$_ResponseListUploading
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1061,8 +1061,8 @@ class _$_ResponseListUploaded
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1092,8 +1092,8 @@ class _$_ResponseListUploaded
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1265,8 +1265,8 @@ class _$_SurveySelected
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1296,8 +1296,8 @@ class _$_SurveySelected
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1543,8 +1543,8 @@ class _$_ResponseStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1575,8 +1575,8 @@ class _$_ResponseStarted
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1664,8 +1664,8 @@ abstract class _$ResponseUpdatedCopyWith<$Res> {
           _ResponseUpdated value, $Res Function(_ResponseUpdated) then) =
       __$ResponseUpdatedCopyWithImpl<$Res>;
   $Res call(
-      {KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap,
+      {Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
@@ -1692,11 +1692,11 @@ class __$ResponseUpdatedCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState // ignore: cast_nullable_to_non_nullable
@@ -1724,9 +1724,9 @@ class _$_ResponseUpdated
       required this.surveyPageState});
 
   @override
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
   @override
-  final KtMap<String, AnswerStatus> answerStatusMap;
+  final Map<String, AnswerStatus> answerStatusMap;
   @override
   final SimpleSurveyPageState surveyPageState;
 
@@ -1789,8 +1789,8 @@ class _$_ResponseUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -1820,8 +1820,8 @@ class _$_ResponseUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -1886,12 +1886,12 @@ class _$_ResponseUpdated
 
 abstract class _ResponseUpdated implements ResponseEvent {
   const factory _ResponseUpdated(
-      {required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap,
+      {required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) = _$_ResponseUpdated;
 
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   SimpleSurveyPageState get surveyPageState =>
       throw _privateConstructorUsedError;
@@ -1989,8 +1989,8 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2020,8 +2020,8 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2194,8 +2194,8 @@ class _$_ResponseResumed
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2225,8 +2225,8 @@ class _$_ResponseResumed
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2389,8 +2389,8 @@ class _$_ReferenceListUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2420,8 +2420,8 @@ class _$_ReferenceListUpdated
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2552,8 +2552,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2583,8 +2583,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
@@ -2714,8 +2714,8 @@ class _$_TaskInitialized
             bool withResponseId, bool breakInterview, UniqueId responseId)
         responseStarted,
     required TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
@@ -2745,8 +2745,8 @@ class _$_TaskInitialized
             bool withResponseId, bool breakInterview, UniqueId responseId)?
         responseStarted,
     TResult Function(
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
             SimpleSurveyPageState surveyPageState)?
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,

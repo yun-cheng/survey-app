@@ -27,8 +27,8 @@ class FullExpression with _$FullExpression {
 
   bool evaluate({
     Answer? answer,
-    KtMap<String, Answer>? answerMap,
-    KtMap<String, AnswerStatus>? answerStatusMap,
+    Map<String, Answer>? answerMap,
+    Map<String, AnswerStatus>? answerStatusMap,
   }) {
     if (isEmpty) {
       return true;

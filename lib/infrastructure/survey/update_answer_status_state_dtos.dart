@@ -33,15 +33,12 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       isRecodeModule: domain.isRecodeModule,
       answerMap: domain.answerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      answerStatusMap: domain.answerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      answerStatusMap: domain.answerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
       clearAnswerQIdList: domain.clearAnswerQIdList.asList(),
-      mainAnswerStatusMap: domain.mainAnswerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+      mainAnswerStatusMap: domain.mainAnswerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
       questionId: domain.questionId,
       restoreState: domain.restoreState.value,
       updateState: domain.updateState.value,
@@ -53,13 +50,12 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       questionMap:
           questionMap.map((key, value) => MapEntry(key, value.toDomain())),
       isRecodeModule: isRecodeModule,
-      answerMap:
-          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMap.from(answerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerStatusMap:
+          answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
       clearAnswerQIdList: clearAnswerQIdList.toImmutableList(),
-      mainAnswerStatusMap: KtMap.from(mainAnswerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      mainAnswerStatusMap: mainAnswerStatusMap
+          .map((key, value) => MapEntry(key, value.toDomain())),
       questionId: questionId,
       updateState: LoadState(updateState),
       restoreState: LoadState(restoreState),

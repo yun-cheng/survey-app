@@ -53,8 +53,8 @@ class ResponseEvent with _$ResponseEvent {
 
   // H_ 作答或切換頁數時更新 response
   const factory ResponseEvent.responseUpdated({
-    required KtMap<String, Answer> answerMap,
-    required KtMap<String, AnswerStatus> answerStatusMap,
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
     required SimpleSurveyPageState surveyPageState,
   }) = _ResponseUpdated;
 

@@ -18,8 +18,8 @@ class _$SurveyModuleTearOff {
 
   _SurveyModule call(
       {required Map<String, Question> questionMap,
-      required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap}) {
+      required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap}) {
     return _SurveyModule(
       questionMap: questionMap,
       answerMap: answerMap,
@@ -34,8 +34,8 @@ const $SurveyModule = _$SurveyModuleTearOff();
 /// @nodoc
 mixin _$SurveyModule {
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -50,8 +50,8 @@ abstract class $SurveyModuleCopyWith<$Res> {
       _$SurveyModuleCopyWithImpl<$Res>;
   $Res call(
       {Map<String, Question> questionMap,
-      KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap});
+      Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -76,11 +76,11 @@ class _$SurveyModuleCopyWithImpl<$Res> implements $SurveyModuleCopyWith<$Res> {
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
     ));
   }
 }
@@ -94,8 +94,8 @@ abstract class _$SurveyModuleCopyWith<$Res>
   @override
   $Res call(
       {Map<String, Question> questionMap,
-      KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap});
+      Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap});
 }
 
 /// @nodoc
@@ -122,11 +122,11 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
     ));
   }
 }
@@ -143,9 +143,9 @@ class _$_SurveyModule extends _SurveyModule {
   @override
   final Map<String, Question> questionMap;
   @override
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
   @override
-  final KtMap<String, AnswerStatus> answerStatusMap;
+  final Map<String, AnswerStatus> answerStatusMap;
 
   @override
   String toString() {
@@ -183,16 +183,16 @@ class _$_SurveyModule extends _SurveyModule {
 abstract class _SurveyModule extends SurveyModule {
   const factory _SurveyModule(
       {required Map<String, Question> questionMap,
-      required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap}) = _$_SurveyModule;
+      required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap}) = _$_SurveyModule;
   const _SurveyModule._() : super._();
 
   @override
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

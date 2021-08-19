@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/survey/survey_module.dart';
 import 'answer_dtos.dart';
@@ -24,11 +23,9 @@ class SurveyModuleDto with _$SurveyModuleDto {
       questionMap: domain.questionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       answerMap: domain.answerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      answerStatusMap: domain.answerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      answerStatusMap: domain.answerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
     );
   }
 
@@ -36,10 +33,9 @@ class SurveyModuleDto with _$SurveyModuleDto {
     return SurveyModule(
       questionMap:
           questionMap.map((key, value) => MapEntry(key, value.toDomain())),
-      answerMap:
-          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMap.from(answerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerStatusMap:
+          answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
     );
   }
 

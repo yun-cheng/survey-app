@@ -34,8 +34,8 @@ class _$ResponseTearOff {
       required DeviceTimeStamp lastChangedTimeStamp,
       required ResponseStatus responseStatus,
       required bool isDeleted,
-      required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap,
+      required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) {
     return _Response(
       teamId: teamId,
@@ -88,8 +88,8 @@ mixin _$Response {
       throw _privateConstructorUsedError;
   ResponseStatus get responseStatus => throw _privateConstructorUsedError;
   bool get isDeleted => throw _privateConstructorUsedError; // H_ 內容
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   SimpleSurveyPageState get surveyPageState =>
       throw _privateConstructorUsedError;
@@ -121,8 +121,8 @@ abstract class $ResponseCopyWith<$Res> {
       DeviceTimeStamp lastChangedTimeStamp,
       ResponseStatus responseStatus,
       bool isDeleted,
-      KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap,
+      Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
   $ModuleTypeCopyWith<$Res> get moduleType;
@@ -241,11 +241,11 @@ class _$ResponseCopyWithImpl<$Res> implements $ResponseCopyWith<$Res> {
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState // ignore: cast_nullable_to_non_nullable
@@ -356,8 +356,8 @@ abstract class _$ResponseCopyWith<$Res> implements $ResponseCopyWith<$Res> {
       DeviceTimeStamp lastChangedTimeStamp,
       ResponseStatus responseStatus,
       bool isDeleted,
-      KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap,
+      Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap,
       SimpleSurveyPageState surveyPageState});
 
   @override
@@ -488,11 +488,11 @@ class __$ResponseCopyWithImpl<$Res> extends _$ResponseCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
       surveyPageState: surveyPageState == freezed
           ? _value.surveyPageState
           : surveyPageState // ignore: cast_nullable_to_non_nullable
@@ -562,9 +562,9 @@ class _$_Response extends _Response {
   @override
   final bool isDeleted;
   @override // H_ 內容
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
   @override
-  final KtMap<String, AnswerStatus> answerStatusMap;
+  final Map<String, AnswerStatus> answerStatusMap;
   @override
   final SimpleSurveyPageState surveyPageState;
 
@@ -682,8 +682,8 @@ abstract class _Response extends Response {
       required DeviceTimeStamp lastChangedTimeStamp,
       required ResponseStatus responseStatus,
       required bool isDeleted,
-      required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap,
+      required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) = _$_Response;
   const _Response._() : super._();
 
@@ -724,9 +724,9 @@ abstract class _Response extends Response {
   @override
   bool get isDeleted => throw _privateConstructorUsedError;
   @override // H_ 內容
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   SimpleSurveyPageState get surveyPageState =>

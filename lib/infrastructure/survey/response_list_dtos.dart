@@ -99,11 +99,9 @@ class ResponseDto with _$ResponseDto {
       isDeleted: domain.isDeleted,
       // H_ 內容
       answerMap: domain.answerMap
-          .mapValues((entry) => AnswerDto.fromDomain(entry.value))
-          .asMap(),
-      answerStatusMap: domain.answerStatusMap
-          .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
+      answerStatusMap: domain.answerStatusMap.map(
+          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
       surveyPageState:
           SimpleSurveyPageStateDto.fromDomain(domain.surveyPageState),
     );
@@ -132,10 +130,9 @@ class ResponseDto with _$ResponseDto {
       responseStatus: ResponseStatus(responseStatus),
       isDeleted: isDeleted,
       // H_ 內容
-      answerMap:
-          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMap.from(answerStatusMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerStatusMap:
+          answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
       surveyPageState: surveyPageState.toDomain(),
     );
   }

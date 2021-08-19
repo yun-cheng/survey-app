@@ -19,9 +19,9 @@ class _$UpdateAnswerStatusEventTearOff {
   _ModuleLoaded moduleLoaded(
       {required Map<String, Question> questionMap,
       required bool isRecodeModule,
-      required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap,
-      required KtMap<String, AnswerStatus> mainAnswerStatusMap}) {
+      required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
+      required Map<String, AnswerStatus> mainAnswerStatusMap}) {
     return _ModuleLoaded(
       questionMap: questionMap,
       isRecodeModule: isRecodeModule,
@@ -36,7 +36,7 @@ class _$UpdateAnswerStatusEventTearOff {
   }
 
   _AnswerMapUpdated answerMapUpdated(
-      {required KtMap<String, Answer> answerMap,
+      {required Map<String, Answer> answerMap,
       required KtList<String> questionIdList,
       required bool updateAnswerStatus}) {
     return _AnswerMapUpdated(
@@ -74,12 +74,12 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(KtMap<String, Answer> answerMap,
+    required TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
@@ -93,12 +93,12 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)?
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<String, Answer> answerMap,
+    TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
@@ -156,9 +156,9 @@ abstract class _$ModuleLoadedCopyWith<$Res> {
   $Res call(
       {Map<String, Question> questionMap,
       bool isRecodeModule,
-      KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap,
-      KtMap<String, AnswerStatus> mainAnswerStatusMap});
+      Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap,
+      Map<String, AnswerStatus> mainAnswerStatusMap});
 }
 
 /// @nodoc
@@ -192,15 +192,15 @@ class __$ModuleLoadedCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
     ));
   }
 }
@@ -220,11 +220,11 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   final bool isRecodeModule;
   @override
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
   @override
-  final KtMap<String, AnswerStatus> answerStatusMap;
+  final Map<String, AnswerStatus> answerStatusMap;
   @override
-  final KtMap<String, AnswerStatus> mainAnswerStatusMap;
+  final Map<String, AnswerStatus> mainAnswerStatusMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -284,12 +284,12 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(KtMap<String, Answer> answerMap,
+    required TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
@@ -307,12 +307,12 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)?
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<String, Answer> answerMap,
+    TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
@@ -363,17 +363,17 @@ abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
   const factory _ModuleLoaded(
           {required Map<String, Question> questionMap,
           required bool isRecodeModule,
-          required KtMap<String, Answer> answerMap,
-          required KtMap<String, AnswerStatus> answerStatusMap,
-          required KtMap<String, AnswerStatus> mainAnswerStatusMap}) =
+          required Map<String, Answer> answerMap,
+          required Map<String, AnswerStatus> answerStatusMap,
+          required Map<String, AnswerStatus> mainAnswerStatusMap}) =
       _$_ModuleLoaded;
 
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
+  Map<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ModuleLoadedCopyWith<_ModuleLoaded> get copyWith =>
@@ -431,12 +431,12 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(KtMap<String, Answer> answerMap,
+    required TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
@@ -453,12 +453,12 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)?
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<String, Answer> answerMap,
+    TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
@@ -514,7 +514,7 @@ abstract class _$AnswerMapUpdatedCopyWith<$Res> {
           _AnswerMapUpdated value, $Res Function(_AnswerMapUpdated) then) =
       __$AnswerMapUpdatedCopyWithImpl<$Res>;
   $Res call(
-      {KtMap<String, Answer> answerMap,
+      {Map<String, Answer> answerMap,
       KtList<String> questionIdList,
       bool updateAnswerStatus});
 }
@@ -540,7 +540,7 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
@@ -564,7 +564,7 @@ class _$_AnswerMapUpdated
       required this.updateAnswerStatus});
 
   @override
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
   @override
   final KtList<String> questionIdList;
   @override
@@ -619,12 +619,12 @@ class _$_AnswerMapUpdated
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(KtMap<String, Answer> answerMap,
+    required TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
@@ -641,12 +641,12 @@ class _$_AnswerMapUpdated
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)?
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<String, Answer> answerMap,
+    TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
@@ -694,11 +694,11 @@ class _$_AnswerMapUpdated
 
 abstract class _AnswerMapUpdated implements UpdateAnswerStatusEvent {
   const factory _AnswerMapUpdated(
-      {required KtMap<String, Answer> answerMap,
+      {required Map<String, Answer> answerMap,
       required KtList<String> questionIdList,
       required bool updateAnswerStatus}) = _$_AnswerMapUpdated;
 
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   KtList<String> get questionIdList => throw _privateConstructorUsedError;
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -787,12 +787,12 @@ class _$_SpecialAnswerSwitched
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(KtMap<String, Answer> answerMap,
+    required TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
@@ -809,12 +809,12 @@ class _$_SpecialAnswerSwitched
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)?
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<String, Answer> answerMap,
+    TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
@@ -952,12 +952,12 @@ class _$_AnswerQIdListCleared
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(KtMap<String, Answer> answerMap,
+    required TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
@@ -974,12 +974,12 @@ class _$_AnswerQIdListCleared
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)?
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<String, Answer> answerMap,
+    TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
@@ -1088,12 +1088,12 @@ class _$_TaskInitialized
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(KtMap<String, Answer> answerMap,
+    required TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)
         answerMapUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
@@ -1110,12 +1110,12 @@ class _$_TaskInitialized
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
-            KtMap<String, Answer> answerMap,
-            KtMap<String, AnswerStatus> answerStatusMap,
-            KtMap<String, AnswerStatus> mainAnswerStatusMap)?
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(KtMap<String, Answer> answerMap,
+    TResult Function(Map<String, Answer> answerMap,
             KtList<String> questionIdList, bool updateAnswerStatus)?
         answerMapUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
@@ -1173,12 +1173,12 @@ class _$UpdateAnswerStatusStateTearOff {
       {required LoadState restoreState,
       required LoadState updateState,
       required Map<String, Question> questionMap,
-      required KtMap<String, Answer> answerMap,
-      required KtMap<String, AnswerStatus> answerStatusMap,
+      required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
       required String questionId,
       required KtList<String> clearAnswerQIdList,
       required bool isRecodeModule,
-      required KtMap<String, AnswerStatus> mainAnswerStatusMap}) {
+      required Map<String, AnswerStatus> mainAnswerStatusMap}) {
     return _UpdateAnswerStatusState(
       restoreState: restoreState,
       updateState: updateState,
@@ -1201,14 +1201,14 @@ mixin _$UpdateAnswerStatusState {
   LoadState get restoreState => throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   String get questionId => throw _privateConstructorUsedError;
   KtList<String> get clearAnswerQIdList =>
       throw _privateConstructorUsedError; // H_ recode
   bool get isRecodeModule => throw _privateConstructorUsedError;
-  KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
+  Map<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1225,12 +1225,12 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       {LoadState restoreState,
       LoadState updateState,
       Map<String, Question> questionMap,
-      KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap,
+      Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap,
       String questionId,
       KtList<String> clearAnswerQIdList,
       bool isRecodeModule,
-      KtMap<String, AnswerStatus> mainAnswerStatusMap});
+      Map<String, AnswerStatus> mainAnswerStatusMap});
 
   $LoadStateCopyWith<$Res> get restoreState;
   $LoadStateCopyWith<$Res> get updateState;
@@ -1273,11 +1273,11 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
@@ -1293,7 +1293,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
     ));
   }
 
@@ -1323,12 +1323,12 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       {LoadState restoreState,
       LoadState updateState,
       Map<String, Question> questionMap,
-      KtMap<String, Answer> answerMap,
-      KtMap<String, AnswerStatus> answerStatusMap,
+      Map<String, Answer> answerMap,
+      Map<String, AnswerStatus> answerStatusMap,
       String questionId,
       KtList<String> clearAnswerQIdList,
       bool isRecodeModule,
-      KtMap<String, AnswerStatus> mainAnswerStatusMap});
+      Map<String, AnswerStatus> mainAnswerStatusMap});
 
   @override
   $LoadStateCopyWith<$Res> get restoreState;
@@ -1376,11 +1376,11 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, Answer>,
+              as Map<String, Answer>,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
       questionId: questionId == freezed
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
@@ -1396,7 +1396,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, AnswerStatus>,
+              as Map<String, AnswerStatus>,
     ));
   }
 }
@@ -1424,9 +1424,9 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   final Map<String, Question> questionMap;
   @override
-  final KtMap<String, Answer> answerMap;
+  final Map<String, Answer> answerMap;
   @override
-  final KtMap<String, AnswerStatus> answerStatusMap;
+  final Map<String, AnswerStatus> answerStatusMap;
   @override
   final String questionId;
   @override
@@ -1434,7 +1434,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override // H_ recode
   final bool isRecodeModule;
   @override
-  final KtMap<String, AnswerStatus> mainAnswerStatusMap;
+  final Map<String, AnswerStatus> mainAnswerStatusMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -1515,12 +1515,12 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
           {required LoadState restoreState,
           required LoadState updateState,
           required Map<String, Question> questionMap,
-          required KtMap<String, Answer> answerMap,
-          required KtMap<String, AnswerStatus> answerStatusMap,
+          required Map<String, Answer> answerMap,
+          required Map<String, AnswerStatus> answerStatusMap,
           required String questionId,
           required KtList<String> clearAnswerQIdList,
           required bool isRecodeModule,
-          required KtMap<String, AnswerStatus> mainAnswerStatusMap}) =
+          required Map<String, AnswerStatus> mainAnswerStatusMap}) =
       _$_UpdateAnswerStatusState;
   const _UpdateAnswerStatusState._() : super._();
 
@@ -1531,9 +1531,9 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   @override
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
-  KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtMap<String, AnswerStatus> get answerStatusMap =>
+  Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   String get questionId => throw _privateConstructorUsedError;
@@ -1542,7 +1542,7 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   @override // H_ recode
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
-  KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
+  Map<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

@@ -64,17 +64,13 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
           late final DateTime date;
           late final String timeSession;
 
-          final dateStr =
-              r.answerMap.getOrDefault('date', Answer.empty()).value;
+          final dateStr = (r.answerMap['date'] ?? Answer.empty()).value;
 
           // S_ 紙本
           if (dateStr != null) {
             date = DateTimeX.fromDateTimeString(dateStr)!;
-            timeSession = r.answerMap
-                    .getOrDefault('time', Answer.empty())
-                    .choiceValue
-                    ?.id ??
-                '';
+            timeSession =
+                (r.answerMap['time'] ?? Answer.empty()).choiceValue?.id ?? '';
           } else {
             date = r.createdTimeStamp.value;
             if (date.hour < 12) {
@@ -93,10 +89,8 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
               .questionMap['status']
               ?.choiceList;
 
-          final statusChoiceId = r.answerMap
-              .getOrDefault('status', Answer.empty())
-              .choiceValue
-              ?.id;
+          final statusChoiceId =
+              (r.answerMap['status'] ?? Answer.empty()).choiceValue?.id;
 
           final statusChoice =
               statusChoiceList?.firstOrNull((c) => c.id == statusChoiceId) ??
@@ -104,8 +98,7 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
 
           final status = '${statusChoice.group} ${statusChoice.id}';
 
-          final note =
-              r.answerMap.getOrDefault('note', Answer.empty()).stringBody;
+          final note = (r.answerMap['note'] ?? Answer.empty()).stringBody;
 
           return VisitRecord(
             respondentId: r.respondentId,
