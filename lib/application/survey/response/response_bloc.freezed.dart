@@ -2828,7 +2828,7 @@ class _$ResponseStateTearOff {
       required Option<SurveyFailure> responseFailure,
       required Response response,
       required LoadState responseRestoreState,
-      required KtList<Question> questionList,
+      required Map<String, Question> questionMap,
       required bool withResponseId,
       required bool breakInterview,
       required UniqueId responseId,
@@ -2849,7 +2849,7 @@ class _$ResponseStateTearOff {
       responseFailure: responseFailure,
       response: response,
       responseRestoreState: responseRestoreState,
-      questionList: questionList,
+      questionMap: questionMap,
       withResponseId: withResponseId,
       breakInterview: breakInterview,
       responseId: responseId,
@@ -2880,7 +2880,7 @@ mixin _$ResponseState {
       throw _privateConstructorUsedError;
   Response get response => throw _privateConstructorUsedError;
   LoadState get responseRestoreState => throw _privateConstructorUsedError;
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
   bool get breakInterview => throw _privateConstructorUsedError;
   UniqueId get responseId => throw _privateConstructorUsedError;
@@ -2913,7 +2913,7 @@ abstract class $ResponseStateCopyWith<$Res> {
       Option<SurveyFailure> responseFailure,
       Response response,
       LoadState responseRestoreState,
-      KtList<Question> questionList,
+      Map<String, Question> questionMap,
       bool withResponseId,
       bool breakInterview,
       UniqueId responseId,
@@ -2957,7 +2957,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? responseFailure = freezed,
     Object? response = freezed,
     Object? responseRestoreState = freezed,
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? withResponseId = freezed,
     Object? breakInterview = freezed,
     Object? responseId = freezed,
@@ -3009,10 +3009,10 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.responseRestoreState
           : responseRestoreState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
@@ -3141,7 +3141,7 @@ abstract class _$ResponseStateCopyWith<$Res>
       Option<SurveyFailure> responseFailure,
       Response response,
       LoadState responseRestoreState,
-      KtList<Question> questionList,
+      Map<String, Question> questionMap,
       bool withResponseId,
       bool breakInterview,
       UniqueId responseId,
@@ -3197,7 +3197,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? responseFailure = freezed,
     Object? response = freezed,
     Object? responseRestoreState = freezed,
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? withResponseId = freezed,
     Object? breakInterview = freezed,
     Object? responseId = freezed,
@@ -3249,10 +3249,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.responseRestoreState
           : responseRestoreState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
@@ -3307,7 +3307,7 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       required this.responseFailure,
       required this.response,
       required this.responseRestoreState,
-      required this.questionList,
+      required this.questionMap,
       required this.withResponseId,
       required this.breakInterview,
       required this.responseId,
@@ -3340,7 +3340,7 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   @override
   final LoadState responseRestoreState;
   @override
-  final KtList<Question> questionList;
+  final Map<String, Question> questionMap;
   @override
   final bool withResponseId;
   @override
@@ -3362,7 +3362,7 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
+    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, downloadedResponseList: $downloadedResponseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionMap: $questionMap, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
   }
 
   @override
@@ -3381,7 +3381,7 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('responseFailure', responseFailure))
       ..add(DiagnosticsProperty('response', response))
       ..add(DiagnosticsProperty('responseRestoreState', responseRestoreState))
-      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('withResponseId', withResponseId))
       ..add(DiagnosticsProperty('breakInterview', breakInterview))
       ..add(DiagnosticsProperty('responseId', responseId))
@@ -3428,9 +3428,9 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
             (identical(other.responseRestoreState, responseRestoreState) ||
                 const DeepCollectionEquality().equals(
                     other.responseRestoreState, responseRestoreState)) &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.withResponseId, withResponseId) ||
                 const DeepCollectionEquality()
                     .equals(other.withResponseId, withResponseId)) &&
@@ -3474,7 +3474,7 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(responseFailure) ^
       const DeepCollectionEquality().hash(response) ^
       const DeepCollectionEquality().hash(responseRestoreState) ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(withResponseId) ^
       const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(responseId) ^
@@ -3503,7 +3503,7 @@ abstract class _ResponseState extends ResponseState {
       required Option<SurveyFailure> responseFailure,
       required Response response,
       required LoadState responseRestoreState,
-      required KtList<Question> questionList,
+      required Map<String, Question> questionMap,
       required bool withResponseId,
       required bool breakInterview,
       required UniqueId responseId,
@@ -3538,7 +3538,7 @@ abstract class _ResponseState extends ResponseState {
   @override
   LoadState get responseRestoreState => throw _privateConstructorUsedError;
   @override
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
   bool get withResponseId => throw _privateConstructorUsedError;
   @override

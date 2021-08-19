@@ -21,9 +21,9 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
     responseFailure: json['responseFailure'] as String?,
     response: ResponseDto.fromJson(json['response'] as Map<String, dynamic>),
     responseRestoreState: json['responseRestoreState'] as String,
-    questionList: (json['questionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    questionMap: (json['questionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
     withResponseId: json['withResponseId'] as bool,
     breakInterview: json['breakInterview'] as bool,
     responseId: json['responseId'] as String,
@@ -53,7 +53,8 @@ Map<String, dynamic> _$_$_ResponseStateDtoToJson(
       'responseFailure': instance.responseFailure,
       'response': instance.response.toJson(),
       'responseRestoreState': instance.responseRestoreState,
-      'questionList': instance.questionList.map((e) => e.toJson()).toList(),
+      'questionMap':
+          instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),
       'withResponseId': instance.withResponseId,
       'breakInterview': instance.breakInterview,
       'responseId': instance.responseId,

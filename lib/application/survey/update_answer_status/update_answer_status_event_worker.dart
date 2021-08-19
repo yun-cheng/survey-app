@@ -21,7 +21,7 @@ void _updateAnswerStatusEventWorker(
       state = state
           .copyWith(
             restoreState: LoadState.inProgress(),
-            questionList: e.questionList,
+            questionMap: e.questionMap,
             isRecodeModule: e.isRecodeModule,
             answerMap: e.answerMap,
             answerStatusMap: e.answerStatusMap,

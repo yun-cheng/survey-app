@@ -133,7 +133,7 @@ ResponseState responseRestored(ResponseState state) {
     responseRestoreState: LoadState.success(),
     response: response,
     responseList: state.responseList.plusElement(response),
-    questionList: module.questionList,
+    questionMap: module.questionMap,
     withResponseId: false,
     mainResponse: mainResponse,
   );

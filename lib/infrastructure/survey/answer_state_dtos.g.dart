@@ -8,9 +8,9 @@ part of 'answer_state_dtos.dart';
 
 _$_AnswerStateDto _$_$_AnswerStateDtoFromJson(Map<String, dynamic> json) {
   return _$_AnswerStateDto(
-    questionList: (json['questionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    questionMap: (json['questionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
     question: QuestionDto.fromJson(json['question'] as Map<String, dynamic>),
     isReadOnly: json['isReadOnly'] as bool,
     isRecodeModule: json['isRecodeModule'] as bool,
@@ -21,7 +21,8 @@ _$_AnswerStateDto _$_$_AnswerStateDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_AnswerStateDtoToJson(_$_AnswerStateDto instance) =>
     <String, dynamic>{
-      'questionList': instance.questionList.map((e) => e.toJson()).toList(),
+      'questionMap':
+          instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),
       'question': instance.question.toJson(),
       'isReadOnly': instance.isReadOnly,
       'isRecodeModule': instance.isRecodeModule,

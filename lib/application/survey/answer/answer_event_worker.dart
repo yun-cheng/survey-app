@@ -19,7 +19,7 @@ void _answerEventWorker(
 
       state = state
           .copyWith(
-            questionList: e.questionList,
+            questionMap: e.questionMap,
             question: Question.empty(),
             isReadOnly: e.isReadOnly,
             isRecodeModule: e.isRecodeModule,

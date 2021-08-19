@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/core/iterable_extensions.dart';
 import "package:kt_dart/collection.dart";
+import 'package:supercharged/supercharged.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -25,16 +28,14 @@ class TableBox extends StatelessWidget {
     logger('Build').i('TableBox');
 
     // S_ 篩出是這個 tableId 的 questions
-    final pageQuestionList =
-        context.read<SurveyPageBloc>().state.pageQuestionList;
+    final pageQuestionMap =
+        context.read<SurveyPageBloc>().state.pageQuestionMap;
 
-    final tableQuestionList = pageQuestionList.filter(
+    final tableQuestionList = pageQuestionMap.values.filter(
         (question) => question.tableId == tableId && !question.type.isTable);
 
     List<Widget> createSimpleTableRows() {
-      final choiceList = tableQuestionList
-          .get(0)
-          .initChoiceList
+      final choiceList = tableQuestionList.first.initChoiceList
           .filter((choice) => !choice.isSpecialAnswer);
 
       // S_ titleRow
@@ -62,7 +63,7 @@ class TableBox extends StatelessWidget {
               question: question,
             ),
           )
-          .asList();
+          .toList();
 
       return [
         Row(
@@ -81,7 +82,7 @@ class TableBox extends StatelessWidget {
       final pTableQuestionList =
           tableQuestionList.partition((question) => question.rowId == -1);
 
-      final colQuestionList = pTableQuestionList.first;
+      final colQuestionList = pTableQuestionList.item1;
 
       // S_ titleRow
       final titleRowCells = colQuestionList
@@ -92,29 +93,32 @@ class TableBox extends StatelessWidget {
               isTitle: true,
             ),
           )
-          .asList();
+          .toList();
 
       // S_ questionsRows
-      final rowQuestionMap =
-          pTableQuestionList.second.groupBy((question) => question.rowId);
+      final rowQuestionMap = pTableQuestionList.item2
+          .groupBy<int, Question>((question) => question.rowId);
 
-      final questionsRows = rowQuestionMap.map((e) {
-        final questionCells = e.value
-            .mapIndexed(
-              (index, question) => ComplexCellBox(
-                questionId: question.id,
-                question: question,
-                isFirstColumn: index == 0,
+      final Iterable<Row> questionsRows =
+          rowQuestionMap.values.map((questionList) {
+        final questionCells = questionList
+            .asMap()
+            .entries
+            .map(
+              (e) => ComplexCellBox(
+                questionId: e.value.id,
+                question: e.value,
+                isFirstColumn: e.key == 0,
               ),
             )
-            .asList();
+            .toList();
 
         return Row(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: questionCells,
         );
-      }).asList();
+      });
 
       return [
         Row(

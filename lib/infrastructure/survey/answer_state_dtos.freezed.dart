@@ -21,14 +21,14 @@ class _$AnswerStateDtoTearOff {
   const _$AnswerStateDtoTearOff();
 
   _AnswerStateDto call(
-      {required List<QuestionDto> questionList,
+      {required Map<String, QuestionDto> questionMap,
       required QuestionDto question,
       required bool isReadOnly,
       required bool isRecodeModule,
       required String loadState,
       required String rebuildState}) {
     return _AnswerStateDto(
-      questionList: questionList,
+      questionMap: questionMap,
       question: question,
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
@@ -47,7 +47,8 @@ const $AnswerStateDto = _$AnswerStateDtoTearOff();
 
 /// @nodoc
 mixin _$AnswerStateDto {
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
   QuestionDto get question => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
@@ -66,7 +67,7 @@ abstract class $AnswerStateDtoCopyWith<$Res> {
           AnswerStateDto value, $Res Function(AnswerStateDto) then) =
       _$AnswerStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {List<QuestionDto> questionList,
+      {Map<String, QuestionDto> questionMap,
       QuestionDto question,
       bool isReadOnly,
       bool isRecodeModule,
@@ -87,7 +88,7 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? question = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
@@ -95,10 +96,10 @@ class _$AnswerStateDtoCopyWithImpl<$Res>
     Object? rebuildState = freezed,
   }) {
     return _then(_value.copyWith(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       question: question == freezed
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -138,7 +139,7 @@ abstract class _$AnswerStateDtoCopyWith<$Res>
       __$AnswerStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<QuestionDto> questionList,
+      {Map<String, QuestionDto> questionMap,
       QuestionDto question,
       bool isReadOnly,
       bool isRecodeModule,
@@ -162,7 +163,7 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? question = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
@@ -170,10 +171,10 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
     Object? rebuildState = freezed,
   }) {
     return _then(_AnswerStateDto(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       question: question == freezed
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -202,7 +203,7 @@ class __$AnswerStateDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_AnswerStateDto extends _AnswerStateDto {
   const _$_AnswerStateDto(
-      {required this.questionList,
+      {required this.questionMap,
       required this.question,
       required this.isReadOnly,
       required this.isRecodeModule,
@@ -214,7 +215,7 @@ class _$_AnswerStateDto extends _AnswerStateDto {
       _$_$_AnswerStateDtoFromJson(json);
 
   @override
-  final List<QuestionDto> questionList;
+  final Map<String, QuestionDto> questionMap;
   @override
   final QuestionDto question;
   @override
@@ -228,16 +229,16 @@ class _$_AnswerStateDto extends _AnswerStateDto {
 
   @override
   String toString() {
-    return 'AnswerStateDto(questionList: $questionList, question: $question, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState)';
+    return 'AnswerStateDto(questionMap: $questionMap, question: $question, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AnswerStateDto &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.question, question) ||
                 const DeepCollectionEquality()
                     .equals(other.question, question)) &&
@@ -258,7 +259,7 @@ class _$_AnswerStateDto extends _AnswerStateDto {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(question) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
@@ -278,7 +279,7 @@ class _$_AnswerStateDto extends _AnswerStateDto {
 
 abstract class _AnswerStateDto extends AnswerStateDto {
   const factory _AnswerStateDto(
-      {required List<QuestionDto> questionList,
+      {required Map<String, QuestionDto> questionMap,
       required QuestionDto question,
       required bool isReadOnly,
       required bool isRecodeModule,
@@ -290,7 +291,8 @@ abstract class _AnswerStateDto extends AnswerStateDto {
       _$_AnswerStateDto.fromJson;
 
   @override
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
   @override
   QuestionDto get question => throw _privateConstructorUsedError;
   @override

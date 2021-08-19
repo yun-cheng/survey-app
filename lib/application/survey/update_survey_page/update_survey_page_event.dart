@@ -17,12 +17,12 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
     required String surveyId,
     required ModuleType moduleType,
     required SimpleSurveyPageState surveyPageState,
-    required KtList<Question> questionList,
+    required Map<String, Question> questionMap,
     required KtMap<String, Answer> answerMap,
     required KtMap<String, AnswerStatus> answerStatusMap,
     required bool isReadOnly,
     required bool isRecodeModule,
-    required KtList<Question> mainQuestionList,
+    required Map<String, Question> mainQuestionMap,
     required KtMap<String, Answer> mainAnswerMap,
     required KtMap<String, AnswerStatus> mainAnswerStatusMap,
     required Respondent respondent,
@@ -40,8 +40,8 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   }) = _AnswerChanged;
 
   // H_ 更新目錄題目
-  const factory UpdateSurveyPageEvent.contentQuestionListUpdated() =
-      _ContentQuestionListUpdated;
+  const factory UpdateSurveyPageEvent.contentQuestionMapUpdated() =
+      _ContentQuestionMapUpdated;
 
   // H_ 切換頁面相關 events
   const factory UpdateSurveyPageEvent.nextPagePressed() = _NextPagePressed;

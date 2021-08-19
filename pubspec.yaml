@@ -18,6 +18,8 @@ dependencies:
   path_provider: ^2.0.2
   freezed_annotation: ^0.14.2
   uuid: ^3.0.4
+  collection: ^1.15.0
+  supercharged: ^2.0.0
   # H_ log
   logger: ^1.0.0
   stack_trace: ^1.10.0

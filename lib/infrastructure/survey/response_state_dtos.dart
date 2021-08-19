@@ -31,7 +31,7 @@ class ResponseStateDto with _$ResponseStateDto {
     String? responseFailure,
     required ResponseDto response,
     required String responseRestoreState,
-    required List<QuestionDto> questionList,
+    required Map<String, QuestionDto> questionMap,
     required bool withResponseId,
     required bool breakInterview,
     required String responseId,
@@ -56,9 +56,8 @@ class ResponseStateDto with _$ResponseStateDto {
           domain.responseFailure.fold(() => null, (some) => some.value),
       response: ResponseDto.fromDomain(domain.response),
       responseRestoreState: domain.responseRestoreState.value,
-      questionList: domain.questionList
-          .map((question) => QuestionDto.fromDomain(question))
-          .asList(),
+      questionMap: domain.questionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       withResponseId: domain.withResponseId,
       breakInterview: domain.breakInterview,
       responseId: domain.responseId.value,
@@ -86,7 +85,8 @@ class ResponseStateDto with _$ResponseStateDto {
           optionOf(responseFailure).map((some) => SurveyFailure(some)),
       response: response.toDomain(),
       responseRestoreState: LoadState(responseRestoreState),
-      questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
+      questionMap:
+          questionMap.map((key, value) => MapEntry(key, value.toDomain())),
       withResponseId: withResponseId,
       breakInterview: breakInterview,
       responseId: UniqueId(responseId),

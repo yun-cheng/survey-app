@@ -24,10 +24,8 @@ class QuestionBox extends StatelessWidget {
       // NOTE 只在該題前後 body 都存在，且 body 有變更時，才 rebuild
       buildWhen: (p, c) {
         if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
-          final pQuestion =
-              p.pageQuestionList.firstOrNull((q) => q.id == questionId);
-          final cQuestion =
-              c.pageQuestionList.firstOrNull((q) => q.id == questionId);
+          final pQuestion = p.pageQuestionMap[questionId];
+          final cQuestion = c.pageQuestionMap[questionId];
 
           // NOTE 若 question 前或後不存在，交由上層 widget 處理
           if (pQuestion == null || cQuestion == null) {
@@ -41,9 +39,7 @@ class QuestionBox extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('QuestionBox');
 
-        final question =
-            state.pageQuestionList.firstOrNull((q) => q.id == questionId) ??
-                Question.empty();
+        final question = state.pageQuestionMap[questionId] ?? Question.empty();
 
         final questionText = question.toPlainTextBody(
           withId: !question.hideId || state.isRecodeModule,

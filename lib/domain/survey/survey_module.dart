@@ -12,13 +12,13 @@ class SurveyModule with _$SurveyModule {
   const SurveyModule._();
 
   const factory SurveyModule({
-    required KtList<Question> questionList,
+    required Map<String, Question> questionMap,
     required KtMap<String, Answer> answerMap,
     required KtMap<String, AnswerStatus> answerStatusMap,
   }) = _SurveyModule;
 
   factory SurveyModule.empty() => const SurveyModule(
-        questionList: KtList<Question>.empty(),
+        questionMap: <String, Question>{},
         answerMap: KtMap<String, Answer>.empty(),
         answerStatusMap: KtMap<String, AnswerStatus>.empty(),
       );

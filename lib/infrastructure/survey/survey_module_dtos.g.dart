@@ -8,14 +8,13 @@ part of 'survey_module_dtos.dart';
 
 _$_SurveyModuleDto _$_$_SurveyModuleDtoFromJson(Map<String, dynamic> json) {
   return _$_SurveyModuleDto(
-    questionList: (json['questionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    initialAnswerList: (json['initialAnswerList'] as Map<String, dynamic>).map(
+    questionMap: (json['questionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
+    answerMap: (json['answerMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
-    initialAnswerStatusList:
-        (json['initialAnswerStatusList'] as Map<String, dynamic>).map(
+    answerStatusMap: (json['answerStatusMap'] as Map<String, dynamic>).map(
       (k, e) =>
           MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
@@ -24,9 +23,9 @@ _$_SurveyModuleDto _$_$_SurveyModuleDtoFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_SurveyModuleDtoToJson(_$_SurveyModuleDto instance) =>
     <String, dynamic>{
-      'questionList': instance.questionList.map((e) => e.toJson()).toList(),
-      'initialAnswerList':
-          instance.initialAnswerList.map((k, e) => MapEntry(k, e.toJson())),
-      'initialAnswerStatusList': instance.initialAnswerStatusList
-          .map((k, e) => MapEntry(k, e.toJson())),
+      'questionMap':
+          instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),
+      'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
+      'answerStatusMap':
+          instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
     };

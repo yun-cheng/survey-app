@@ -30,9 +30,9 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     required int newestPage,
     required Direction direction,
     required SurveyPageUpdateType updateType,
-    required List<QuestionDto> questionList,
-    required List<QuestionDto> pageQuestionList,
-    required List<QuestionDto> contentQuestionList,
+    required Map<String, QuestionDto> questionMap,
+    required Map<String, QuestionDto> pageQuestionMap,
+    required Map<String, QuestionDto> contentQuestionMap,
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
     required bool isLastPage,
@@ -41,7 +41,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     required String updateState,
     required String restoreState,
     required bool isRecodeModule,
-    required List<QuestionDto> mainQuestionList,
+    required Map<String, QuestionDto> mainQuestionMap,
     required List<ResponseDto> respondentResponseList,
     required String surveyId,
     required String moduleType,
@@ -67,14 +67,12 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       newestPage: domain.newestPage,
       direction: domain.direction,
       updateType: domain.updateType,
-      questionList:
-          domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
-      pageQuestionList: domain.pageQuestionList
-          .map((e) => QuestionDto.fromDomain(e))
-          .asList(),
-      contentQuestionList: domain.contentQuestionList
-          .map((e) => QuestionDto.fromDomain(e))
-          .asList(),
+      questionMap: domain.questionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
+      pageQuestionMap: domain.pageQuestionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
+      contentQuestionMap: domain.contentQuestionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       answerMap: domain.answerMap
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
@@ -87,9 +85,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       updateState: domain.updateState.value,
       restoreState: domain.restoreState.value,
       isRecodeModule: domain.isRecodeModule,
-      mainQuestionList: domain.mainQuestionList
-          .map((e) => QuestionDto.fromDomain(e))
-          .asList(),
+      mainQuestionMap: domain.mainQuestionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       respondentResponseList: domain.respondentResponseList
           .map((e) => ResponseDto.fromDomain(e))
           .asList(),
@@ -121,11 +118,12 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       newestPage: newestPage,
       direction: direction,
       updateType: updateType,
-      questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
-      pageQuestionList:
-          pageQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
-      contentQuestionList:
-          contentQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
+      questionMap:
+          questionMap.map((key, value) => MapEntry(key, value.toDomain())),
+      pageQuestionMap:
+          pageQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
+      contentQuestionMap: contentQuestionMap
+          .map((key, value) => MapEntry(key, value.toDomain())),
       answerMap:
           KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
       answerStatusMap: KtMap.from(answerStatusMap)
@@ -136,8 +134,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       updateState: LoadState(updateState),
       restoreState: LoadState(restoreState),
       isRecodeModule: isRecodeModule,
-      mainQuestionList:
-          mainQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
+      mainQuestionMap:
+          mainQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
       respondentResponseList:
           respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
       surveyId: surveyId,

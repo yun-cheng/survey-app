@@ -17,11 +17,11 @@ class _$SurveyModuleTearOff {
   const _$SurveyModuleTearOff();
 
   _SurveyModule call(
-      {required KtList<Question> questionList,
+      {required Map<String, Question> questionMap,
       required KtMap<String, Answer> answerMap,
       required KtMap<String, AnswerStatus> answerStatusMap}) {
     return _SurveyModule(
-      questionList: questionList,
+      questionMap: questionMap,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
     );
@@ -33,7 +33,7 @@ const $SurveyModule = _$SurveyModuleTearOff();
 
 /// @nodoc
 mixin _$SurveyModule {
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
   KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $SurveyModuleCopyWith<$Res> {
           SurveyModule value, $Res Function(SurveyModule) then) =
       _$SurveyModuleCopyWithImpl<$Res>;
   $Res call(
-      {KtList<Question> questionList,
+      {Map<String, Question> questionMap,
       KtMap<String, Answer> answerMap,
       KtMap<String, AnswerStatus> answerStatusMap});
 }
@@ -64,15 +64,15 @@ class _$SurveyModuleCopyWithImpl<$Res> implements $SurveyModuleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
   }) {
     return _then(_value.copyWith(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -93,7 +93,7 @@ abstract class _$SurveyModuleCopyWith<$Res>
       __$SurveyModuleCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtList<Question> questionList,
+      {Map<String, Question> questionMap,
       KtMap<String, Answer> answerMap,
       KtMap<String, AnswerStatus> answerStatusMap});
 }
@@ -110,15 +110,15 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
   }) {
     return _then(_SurveyModule(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -135,13 +135,13 @@ class __$SurveyModuleCopyWithImpl<$Res> extends _$SurveyModuleCopyWithImpl<$Res>
 
 class _$_SurveyModule extends _SurveyModule {
   const _$_SurveyModule(
-      {required this.questionList,
+      {required this.questionMap,
       required this.answerMap,
       required this.answerStatusMap})
       : super._();
 
   @override
-  final KtList<Question> questionList;
+  final Map<String, Question> questionMap;
   @override
   final KtMap<String, Answer> answerMap;
   @override
@@ -149,16 +149,16 @@ class _$_SurveyModule extends _SurveyModule {
 
   @override
   String toString() {
-    return 'SurveyModule(questionList: $questionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap)';
+    return 'SurveyModule(questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _SurveyModule &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -170,7 +170,7 @@ class _$_SurveyModule extends _SurveyModule {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap);
 
@@ -182,13 +182,13 @@ class _$_SurveyModule extends _SurveyModule {
 
 abstract class _SurveyModule extends SurveyModule {
   const factory _SurveyModule(
-      {required KtList<Question> questionList,
+      {required Map<String, Question> questionMap,
       required KtMap<String, Answer> answerMap,
       required KtMap<String, AnswerStatus> answerStatusMap}) = _$_SurveyModule;
   const _SurveyModule._() : super._();
 
   @override
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
   KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override

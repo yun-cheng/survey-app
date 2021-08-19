@@ -39,10 +39,8 @@ class ChoicesBox extends HookWidget {
           }
 
           // S_ 該題選項有變更時，需要 rebuild
-          final pQuestion =
-              p.pageQuestionList.firstOrNull((q) => q.id == questionId);
-          final cQuestion =
-              c.pageQuestionList.firstOrNull((q) => q.id == questionId);
+          final pQuestion = p.pageQuestionMap[questionId];
+          final cQuestion = c.pageQuestionMap[questionId];
 
           // S_ 若 question 前或後不存在，交由上層 widget 處理
           if (pQuestion == null || cQuestion == null) {
@@ -55,10 +53,8 @@ class ChoicesBox extends HookWidget {
       },
     ).state;
 
-    final choiceList = state.pageQuestionList
-            .firstOrNull((q) => q.id == questionId)
-            ?.choiceList ??
-        const KtList.empty();
+    final choiceList =
+        state.pageQuestionMap[questionId]?.choiceList ?? const KtList.empty();
     final size = choiceList.size;
     answer.value = state.answerMap[questionId] ?? Answer.empty();
     final isSpecialAnswer =

@@ -37,7 +37,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
 
     context.read<AnswerBloc>().add(
           AnswerEvent.moduleLoaded(
-            questionList: state.questionList,
+            questionMap: state.questionMap,
             isReadOnly: isReadOnly,
             isRecodeModule: isRecodeModule,
           ),
@@ -49,21 +49,21 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
             respondent: state.respondent,
             moduleType: state.moduleType,
             surveyPageState: state.response.surveyPageState,
-            questionList: state.questionList,
+            questionMap: state.questionMap,
             answerMap: state.response.answerMap,
             answerStatusMap: state.response.answerStatusMap,
             isReadOnly: isReadOnly,
             isRecodeModule: isRecodeModule,
             mainAnswerMap: state.mainResponse.answerMap,
             mainAnswerStatusMap: state.mainResponse.answerStatusMap,
-            mainQuestionList:
-                state.survey.module[ModuleType.main()]!.questionList,
+            mainQuestionMap:
+                state.survey.module[ModuleType.main()]!.questionMap,
           ),
         );
 
     context.read<UpdateAnswerStatusBloc>().add(
           UpdateAnswerStatusEvent.moduleLoaded(
-            questionList: state.questionList,
+            questionMap: state.questionMap,
             isRecodeModule: isRecodeModule,
             answerMap: state.response.answerMap,
             answerStatusMap: state.response.answerStatusMap,

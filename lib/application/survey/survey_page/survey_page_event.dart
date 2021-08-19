@@ -13,13 +13,13 @@ class SurveyPageEvent with _$SurveyPageEvent {
 
   const factory SurveyPageEvent.pageUpdated({
     required int page,
-    required KtList<Question> pageQuestionList,
+    required Map<String, Question> pageQuestionMap,
     required bool isLastPage,
   }) = _PageUpdated;
 
-  const factory SurveyPageEvent.contentQuestionListUpdated({
-    required KtList<Question> contentQuestionList,
-  }) = _ContentQuestionListUpdated;
+  const factory SurveyPageEvent.contentQuestionMapUpdated({
+    required Map<String, Question> contentQuestionMap,
+  }) = _ContentQuestionMapUpdated;
 
   const factory SurveyPageEvent.warningUpdated({
     required Warning warning,

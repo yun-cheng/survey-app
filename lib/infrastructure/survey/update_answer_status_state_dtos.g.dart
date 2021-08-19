@@ -9,9 +9,9 @@ part of 'update_answer_status_state_dtos.dart';
 _$_UpdateAnswerStatusStateDto _$_$_UpdateAnswerStatusStateDtoFromJson(
     Map<String, dynamic> json) {
   return _$_UpdateAnswerStatusStateDto(
-    questionList: (json['questionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    questionMap: (json['questionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
     isRecodeModule: json['isRecodeModule'] as bool,
     answerMap: (json['answerMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
@@ -37,7 +37,8 @@ _$_UpdateAnswerStatusStateDto _$_$_UpdateAnswerStatusStateDtoFromJson(
 Map<String, dynamic> _$_$_UpdateAnswerStatusStateDtoToJson(
         _$_UpdateAnswerStatusStateDto instance) =>
     <String, dynamic>{
-      'questionList': instance.questionList.map((e) => e.toJson()).toList(),
+      'questionMap':
+          instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),
       'isRecodeModule': instance.isRecodeModule,
       'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerStatusMap':

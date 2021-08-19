@@ -15,7 +15,7 @@ class SurveyContentBody extends StatelessWidget {
       buildWhen: (p, c) =>
           (p.restoreState != c.restoreState &&
               c.restoreState == LoadState.success()) ||
-          p.contentQuestionList != c.contentQuestionList,
+          p.contentQuestionMap != c.contentQuestionMap,
       builder: (context, state) {
         logger('Build').i('SurveyContentBody');
 
@@ -24,7 +24,8 @@ class SurveyContentBody extends StatelessWidget {
             vertical: 10.0,
           ),
           itemBuilder: (context, index) {
-            final question = state.contentQuestionList[index];
+            final question =
+                state.contentQuestionMap.entries.elementAt(index).value;
 
             Icon leadingIcon;
             if (state.answerStatusMap[question.id]!.isAnswered) {
@@ -75,7 +76,7 @@ class SurveyContentBody extends StatelessWidget {
               ),
             );
           },
-          itemCount: state.contentQuestionList.size,
+          itemCount: state.contentQuestionMap.length,
         );
       },
     );

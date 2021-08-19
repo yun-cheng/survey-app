@@ -30,7 +30,7 @@ class _$ResponseStateDtoTearOff {
       String? responseFailure,
       required ResponseDto response,
       required String responseRestoreState,
-      required List<QuestionDto> questionList,
+      required Map<String, QuestionDto> questionMap,
       required bool withResponseId,
       required bool breakInterview,
       required String responseId,
@@ -50,7 +50,7 @@ class _$ResponseStateDtoTearOff {
       responseFailure: responseFailure,
       response: response,
       responseRestoreState: responseRestoreState,
-      questionList: questionList,
+      questionMap: questionMap,
       withResponseId: withResponseId,
       breakInterview: breakInterview,
       responseId: responseId,
@@ -83,7 +83,8 @@ mixin _$ResponseStateDto {
   String? get responseFailure => throw _privateConstructorUsedError;
   ResponseDto get response => throw _privateConstructorUsedError;
   String get responseRestoreState => throw _privateConstructorUsedError;
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
   bool get breakInterview => throw _privateConstructorUsedError;
   String get responseId => throw _privateConstructorUsedError;
@@ -116,7 +117,7 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       String? responseFailure,
       ResponseDto response,
       String responseRestoreState,
-      List<QuestionDto> questionList,
+      Map<String, QuestionDto> questionMap,
       bool withResponseId,
       bool breakInterview,
       String responseId,
@@ -154,7 +155,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object? responseFailure = freezed,
     Object? response = freezed,
     Object? responseRestoreState = freezed,
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? withResponseId = freezed,
     Object? breakInterview = freezed,
     Object? responseId = freezed,
@@ -202,10 +203,10 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.responseRestoreState
           : responseRestoreState // ignore: cast_nullable_to_non_nullable
               as String,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
@@ -298,7 +299,7 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       String? responseFailure,
       ResponseDto response,
       String responseRestoreState,
-      List<QuestionDto> questionList,
+      Map<String, QuestionDto> questionMap,
       bool withResponseId,
       bool breakInterview,
       String responseId,
@@ -343,7 +344,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? responseFailure = freezed,
     Object? response = freezed,
     Object? responseRestoreState = freezed,
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? withResponseId = freezed,
     Object? breakInterview = freezed,
     Object? responseId = freezed,
@@ -391,10 +392,10 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.responseRestoreState
           : responseRestoreState // ignore: cast_nullable_to_non_nullable
               as String,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
@@ -448,7 +449,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       this.responseFailure,
       required this.response,
       required this.responseRestoreState,
-      required this.questionList,
+      required this.questionMap,
       required this.withResponseId,
       required this.breakInterview,
       required this.responseId,
@@ -482,7 +483,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   final String responseRestoreState;
   @override
-  final List<QuestionDto> questionList;
+  final Map<String, QuestionDto> questionMap;
   @override
   final bool withResponseId;
   @override
@@ -504,7 +505,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionList: $questionList, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
+    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionMap: $questionMap, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
   }
 
   @override
@@ -537,9 +538,9 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             (identical(other.responseRestoreState, responseRestoreState) ||
                 const DeepCollectionEquality().equals(
                     other.responseRestoreState, responseRestoreState)) &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.withResponseId, withResponseId) ||
                 const DeepCollectionEquality()
                     .equals(other.withResponseId, withResponseId)) &&
@@ -582,7 +583,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(responseFailure) ^
       const DeepCollectionEquality().hash(response) ^
       const DeepCollectionEquality().hash(responseRestoreState) ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(withResponseId) ^
       const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(responseId) ^
@@ -615,7 +616,7 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       String? responseFailure,
       required ResponseDto response,
       required String responseRestoreState,
-      required List<QuestionDto> questionList,
+      required Map<String, QuestionDto> questionMap,
       required bool withResponseId,
       required bool breakInterview,
       required String responseId,
@@ -649,7 +650,8 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   @override
   String get responseRestoreState => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
   @override
   bool get withResponseId => throw _privateConstructorUsedError;
   @override

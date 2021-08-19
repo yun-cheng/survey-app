@@ -24,8 +24,8 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
     required List<String> questionIdList,
-    required List<QuestionDto> pageQuestionList,
-    required List<QuestionDto> contentQuestionList,
+    required Map<String, QuestionDto> pageQuestionMap,
+    required Map<String, QuestionDto> contentQuestionMap,
     required String loadState,
     required String rebuildState,
     required String restoreState,
@@ -49,12 +49,10 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
       questionIdList: domain.questionIdList.asList(),
-      pageQuestionList: domain.pageQuestionList
-          .map((e) => QuestionDto.fromDomain(e))
-          .asList(),
-      contentQuestionList: domain.contentQuestionList
-          .map((e) => QuestionDto.fromDomain(e))
-          .asList(),
+      pageQuestionMap: domain.pageQuestionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
+      contentQuestionMap: domain.contentQuestionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       loadState: domain.loadState.value,
       rebuildState: domain.rebuildState.value,
       restoreState: domain.restoreState.value,
@@ -81,10 +79,10 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       answerStatusMap: KtMap.from(answerStatusMap)
           .mapValues((entry) => entry.value.toDomain()),
       questionIdList: questionIdList.toImmutableList(),
-      pageQuestionList:
-          pageQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
-      contentQuestionList:
-          contentQuestionList.map((dto) => dto.toDomain()).toImmutableList(),
+      pageQuestionMap:
+          pageQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
+      contentQuestionMap: contentQuestionMap
+          .map((key, value) => MapEntry(key, value.toDomain())),
       loadState: LoadState(loadState),
       rebuildState: LoadState(rebuildState),
       restoreState: LoadState(restoreState),

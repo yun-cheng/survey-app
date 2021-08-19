@@ -41,10 +41,8 @@ class DropdownBox extends StatelessWidget {
           }
 
           // S_ 該題選項有變更時
-          final pQuestion =
-              p.pageQuestionList.firstOrNull((q) => q.id == questionId);
-          final cQuestion =
-              c.pageQuestionList.firstOrNull((q) => q.id == questionId);
+          final pQuestion = p.pageQuestionMap[questionId];
+          final cQuestion = c.pageQuestionMap[questionId];
 
           // NOTE 若 question 前或後不存在，交由上層 widget 處理
           if (pQuestion == null || cQuestion == null) {
@@ -65,9 +63,7 @@ class DropdownBox extends StatelessWidget {
         final isSpecialAnswer =
             state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
 
-        final choiceList = state.pageQuestionList
-                .firstOrNull((q) => q.id == questionId)
-                ?.choiceList ??
+        final choiceList = state.pageQuestionMap[questionId]?.choiceList ??
             const KtList.empty();
 
         final selectedChoice = choiceList.firstOrNull(

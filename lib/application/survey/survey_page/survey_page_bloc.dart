@@ -86,21 +86,21 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         yield state.copyWith(
           loadState: LoadState.success(),
           page: e.page,
-          pageQuestionList: e.pageQuestionList,
+          pageQuestionMap: e.pageQuestionMap,
           isLastPage: e.isLastPage,
         );
         add(const SurveyPageEvent.stateToJson());
       },
-      // H_ contentQuestionList
-      contentQuestionListUpdated: (e) async* {
-        logger('Event').i('SurveyPageEvent: contentQuestionListUpdated');
+      // H_ contentQuestionMap
+      contentQuestionMapUpdated: (e) async* {
+        logger('Event').i('SurveyPageEvent: contentQuestionMapUpdated');
 
         yield state.copyWith(
           loadState: LoadState.inProgress(),
         );
         yield state.copyWith(
           loadState: LoadState.success(),
-          contentQuestionList: e.contentQuestionList,
+          contentQuestionMap: e.contentQuestionMap,
         );
         add(const SurveyPageEvent.stateToJson());
       },

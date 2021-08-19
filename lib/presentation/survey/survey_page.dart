@@ -52,8 +52,7 @@ class SurveyPage extends HookWidget {
                 icon: const Icon(Icons.format_list_bulleted),
                 onPressed: () {
                   context.read<UpdateSurveyPageBloc>().add(
-                        const UpdateSurveyPageEvent
-                            .contentQuestionListUpdated(),
+                        const UpdateSurveyPageEvent.contentQuestionMapUpdated(),
                       );
                   context.pushRoute(const SurveyContentRoute());
                 },

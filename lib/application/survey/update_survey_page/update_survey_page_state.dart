@@ -26,10 +26,10 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required KtList<Response> respondentResponseList,
     required String surveyId,
     required ModuleType moduleType,
-    // H_ questionList
-    required KtList<Question> questionList,
-    required KtList<Question> pageQuestionList,
-    required KtList<Question> contentQuestionList,
+    // H_ questionMap
+    required Map<String, Question> questionMap,
+    required Map<String, Question> pageQuestionMap,
+    required Map<String, Question> contentQuestionMap,
     // H_ page state
     required bool isReadOnly,
     required bool appIsPaused,
@@ -38,7 +38,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     required bool finishResponse,
     required bool showLeaveButton,
     // H_ recode
-    required KtList<Question> mainQuestionList,
+    required Map<String, Question> mainQuestionMap,
     required KtMap<String, Answer> mainAnswerMap,
     required KtMap<String, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateSurveyPageState;
@@ -51,9 +51,9 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         page: 0,
         newestPage: 0,
         direction: Direction.current,
-        questionList: const KtList<Question>.empty(),
-        pageQuestionList: const KtList<Question>.empty(),
-        contentQuestionList: const KtList<Question>.empty(),
+        questionMap: const <String, Question>{},
+        pageQuestionMap: const <String, Question>{},
+        contentQuestionMap: const <String, Question>{},
         answerMap: const KtMap<String, Answer>.empty(),
         answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
         isLastPage: false,
@@ -63,7 +63,7 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         updateType: SurveyPageUpdateType.empty,
         restoreState: LoadState.initial(),
         isRecodeModule: false,
-        mainQuestionList: const KtList<Question>.empty(),
+        mainQuestionMap: const <String, Question>{},
         respondentResponseList: const KtList<Response>.empty(),
         surveyId: '',
         moduleType: ModuleType.empty(),

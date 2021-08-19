@@ -13,7 +13,7 @@ class AnswerStateDto with _$AnswerStateDto {
   const AnswerStateDto._();
 
   const factory AnswerStateDto({
-    required List<QuestionDto> questionList,
+    required Map<String, QuestionDto> questionMap,
     required QuestionDto question,
     required bool isReadOnly,
     required bool isRecodeModule,
@@ -23,8 +23,8 @@ class AnswerStateDto with _$AnswerStateDto {
 
   factory AnswerStateDto.fromDomain(AnswerState domain) {
     return AnswerStateDto(
-      questionList:
-          domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
+      questionMap: domain.questionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       question: QuestionDto.fromDomain(domain.question),
       isReadOnly: domain.isReadOnly,
       isRecodeModule: domain.isRecodeModule,
@@ -35,7 +35,8 @@ class AnswerStateDto with _$AnswerStateDto {
 
   AnswerState toDomain() {
     return AnswerState.initial().copyWith(
-      questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
+      questionMap:
+          questionMap.map((key, value) => MapEntry(key, value.toDomain())),
       question: question.toDomain(),
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,

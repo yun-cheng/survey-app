@@ -22,7 +22,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
   const _$UpdateAnswerStatusStateDtoTearOff();
 
   _UpdateAnswerStatusStateDto call(
-      {required List<QuestionDto> questionList,
+      {required Map<String, QuestionDto> questionMap,
       required bool isRecodeModule,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
@@ -32,7 +32,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       required String updateState,
       required String restoreState}) {
     return _UpdateAnswerStatusStateDto(
-      questionList: questionList,
+      questionMap: questionMap,
       isRecodeModule: isRecodeModule,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -54,7 +54,8 @@ const $UpdateAnswerStatusStateDto = _$UpdateAnswerStatusStateDtoTearOff();
 
 /// @nodoc
 mixin _$UpdateAnswerStatusStateDto {
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get answerStatusMap =>
@@ -78,7 +79,7 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
           $Res Function(UpdateAnswerStatusStateDto) then) =
       _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {List<QuestionDto> questionList,
+      {Map<String, QuestionDto> questionMap,
       bool isRecodeModule,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
@@ -100,7 +101,7 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
@@ -111,10 +112,10 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? restoreState = freezed,
   }) {
     return _then(_value.copyWith(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -160,7 +161,7 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<QuestionDto> questionList,
+      {Map<String, QuestionDto> questionMap,
       bool isRecodeModule,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
@@ -185,7 +186,7 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
@@ -196,10 +197,10 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? restoreState = freezed,
   }) {
     return _then(_UpdateAnswerStatusStateDto(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -240,7 +241,7 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   const _$_UpdateAnswerStatusStateDto(
-      {required this.questionList,
+      {required this.questionMap,
       required this.isRecodeModule,
       required this.answerMap,
       required this.answerStatusMap,
@@ -255,7 +256,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       _$_$_UpdateAnswerStatusStateDtoFromJson(json);
 
   @override
-  final List<QuestionDto> questionList;
+  final Map<String, QuestionDto> questionMap;
   @override
   final bool isRecodeModule;
   @override
@@ -275,16 +276,16 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(questionList: $questionList, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, clearAnswerQIdList: $clearAnswerQIdList, mainAnswerStatusMap: $mainAnswerStatusMap, questionId: $questionId, updateState: $updateState, restoreState: $restoreState)';
+    return 'UpdateAnswerStatusStateDto(questionMap: $questionMap, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, clearAnswerQIdList: $clearAnswerQIdList, mainAnswerStatusMap: $mainAnswerStatusMap, questionId: $questionId, updateState: $updateState, restoreState: $restoreState)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAnswerStatusStateDto &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)) &&
@@ -314,7 +315,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
@@ -338,7 +339,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
 abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   const factory _UpdateAnswerStatusStateDto(
-      {required List<QuestionDto> questionList,
+      {required Map<String, QuestionDto> questionMap,
       required bool isRecodeModule,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
@@ -353,7 +354,8 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
       _$_UpdateAnswerStatusStateDto.fromJson;
 
   @override
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
   @override
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override

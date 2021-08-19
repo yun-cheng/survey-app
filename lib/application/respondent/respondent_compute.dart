@@ -88,8 +88,9 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
 
           // S_ 要取得所選選項之分組
           final statusChoiceList = state
-              .survey.module[ModuleType.visitReport()]!.questionList
-              .firstOrNull((q) => q.id == 'status')
+              .survey
+              .module[ModuleType.visitReport()]!
+              .questionMap['status']
               ?.choiceList;
 
           final statusChoiceId = r.answerMap

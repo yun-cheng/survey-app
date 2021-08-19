@@ -17,11 +17,11 @@ class _$AnswerEventTearOff {
   const _$AnswerEventTearOff();
 
   _ModuleLoaded moduleLoaded(
-      {required KtList<Question> questionList,
+      {required Map<String, Question> questionMap,
       required bool isReadOnly,
       required bool isRecodeModule}) {
     return _ModuleLoaded(
-      questionList: questionList,
+      questionMap: questionMap,
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
     );
@@ -72,8 +72,8 @@ const $AnswerEvent = _$AnswerEventTearOff();
 mixin _$AnswerEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+    required TResult Function(Map<String, Question> questionMap,
+            bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(String questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
@@ -86,7 +86,7 @@ mixin _$AnswerEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isReadOnly,
+    TResult Function(Map<String, Question> questionMap, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
     TResult Function(String questionId, dynamic body, bool isNote,
@@ -145,7 +145,9 @@ abstract class _$ModuleLoadedCopyWith<$Res> {
           _ModuleLoaded value, $Res Function(_ModuleLoaded) then) =
       __$ModuleLoadedCopyWithImpl<$Res>;
   $Res call(
-      {KtList<Question> questionList, bool isReadOnly, bool isRecodeModule});
+      {Map<String, Question> questionMap,
+      bool isReadOnly,
+      bool isRecodeModule});
 }
 
 /// @nodoc
@@ -160,15 +162,15 @@ class __$ModuleLoadedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
   }) {
     return _then(_ModuleLoaded(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
@@ -185,12 +187,12 @@ class __$ModuleLoadedCopyWithImpl<$Res> extends _$AnswerEventCopyWithImpl<$Res>
 
 class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   const _$_ModuleLoaded(
-      {required this.questionList,
+      {required this.questionMap,
       required this.isReadOnly,
       required this.isRecodeModule});
 
   @override
-  final KtList<Question> questionList;
+  final Map<String, Question> questionMap;
   @override
   final bool isReadOnly;
   @override
@@ -198,7 +200,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AnswerEvent.moduleLoaded(questionList: $questionList, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule)';
+    return 'AnswerEvent.moduleLoaded(questionMap: $questionMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule)';
   }
 
   @override
@@ -206,7 +208,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AnswerEvent.moduleLoaded'))
-      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule));
   }
@@ -215,9 +217,9 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ModuleLoaded &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.isReadOnly, isReadOnly) ||
                 const DeepCollectionEquality()
                     .equals(other.isReadOnly, isReadOnly)) &&
@@ -229,7 +231,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule);
 
@@ -241,8 +243,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+    required TResult Function(Map<String, Question> questionMap,
+            bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(String questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
@@ -252,13 +254,13 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function() stateCleared,
     required TResult Function() taskInitialized,
   }) {
-    return moduleLoaded(questionList, isReadOnly, isRecodeModule);
+    return moduleLoaded(questionMap, isReadOnly, isRecodeModule);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isReadOnly,
+    TResult Function(Map<String, Question> questionMap, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
     TResult Function(String questionId, dynamic body, bool isNote,
@@ -271,7 +273,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
-      return moduleLoaded(questionList, isReadOnly, isRecodeModule);
+      return moduleLoaded(questionMap, isReadOnly, isRecodeModule);
     }
     return orElse();
   }
@@ -310,11 +312,11 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
 
 abstract class _ModuleLoaded implements AnswerEvent {
   const factory _ModuleLoaded(
-      {required KtList<Question> questionList,
+      {required Map<String, Question> questionMap,
       required bool isReadOnly,
       required bool isRecodeModule}) = _$_ModuleLoaded;
 
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -478,8 +480,8 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+    required TResult Function(Map<String, Question> questionMap,
+            bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(String questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
@@ -496,7 +498,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isReadOnly,
+    TResult Function(Map<String, Question> questionMap, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
     TResult Function(String questionId, dynamic body, bool isNote,
@@ -646,8 +648,8 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+    required TResult Function(Map<String, Question> questionMap,
+            bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(String questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
@@ -663,7 +665,7 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isReadOnly,
+    TResult Function(Map<String, Question> questionMap, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
     TResult Function(String questionId, dynamic body, bool isNote,
@@ -771,8 +773,8 @@ class _$_ReadOnlyToggled
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+    required TResult Function(Map<String, Question> questionMap,
+            bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(String questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
@@ -788,7 +790,7 @@ class _$_ReadOnlyToggled
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isReadOnly,
+    TResult Function(Map<String, Question> questionMap, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
     TResult Function(String questionId, dynamic body, bool isNote,
@@ -887,8 +889,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+    required TResult Function(Map<String, Question> questionMap,
+            bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(String questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
@@ -904,7 +906,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isReadOnly,
+    TResult Function(Map<String, Question> questionMap, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
     TResult Function(String questionId, dynamic body, bool isNote,
@@ -1006,8 +1008,8 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            KtList<Question> questionList, bool isReadOnly, bool isRecodeModule)
+    required TResult Function(Map<String, Question> questionMap,
+            bool isReadOnly, bool isRecodeModule)
         moduleLoaded,
     required TResult Function(String questionId, dynamic body, bool isNote,
             bool isSpecialAnswer, bool toggle, bool isRecode, String? noteOf)
@@ -1023,7 +1025,7 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KtList<Question> questionList, bool isReadOnly,
+    TResult Function(Map<String, Question> questionMap, bool isReadOnly,
             bool isRecodeModule)?
         moduleLoaded,
     TResult Function(String questionId, dynamic body, bool isNote,
@@ -1082,14 +1084,14 @@ class _$AnswerStateTearOff {
   const _$AnswerStateTearOff();
 
   _AnswerState call(
-      {required KtList<Question> questionList,
+      {required Map<String, Question> questionMap,
       required Question question,
       required bool isReadOnly,
       required bool isRecodeModule,
       required LoadState loadState,
       required LoadState rebuildState}) {
     return _AnswerState(
-      questionList: questionList,
+      questionMap: questionMap,
       question: question,
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
@@ -1104,7 +1106,7 @@ const $AnswerState = _$AnswerStateTearOff();
 
 /// @nodoc
 mixin _$AnswerState {
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   Question get question => throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
@@ -1122,7 +1124,7 @@ abstract class $AnswerStateCopyWith<$Res> {
           AnswerState value, $Res Function(AnswerState) then) =
       _$AnswerStateCopyWithImpl<$Res>;
   $Res call(
-      {KtList<Question> questionList,
+      {Map<String, Question> questionMap,
       Question question,
       bool isReadOnly,
       bool isRecodeModule,
@@ -1144,7 +1146,7 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? question = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
@@ -1152,10 +1154,10 @@ class _$AnswerStateCopyWithImpl<$Res> implements $AnswerStateCopyWith<$Res> {
     Object? rebuildState = freezed,
   }) {
     return _then(_value.copyWith(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       question: question == freezed
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -1209,7 +1211,7 @@ abstract class _$AnswerStateCopyWith<$Res>
       __$AnswerStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtList<Question> questionList,
+      {Map<String, Question> questionMap,
       Question question,
       bool isReadOnly,
       bool isRecodeModule,
@@ -1236,7 +1238,7 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? question = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
@@ -1244,10 +1246,10 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
     Object? rebuildState = freezed,
   }) {
     return _then(_AnswerState(
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       question: question == freezed
           ? _value.question
           : question // ignore: cast_nullable_to_non_nullable
@@ -1276,7 +1278,7 @@ class __$AnswerStateCopyWithImpl<$Res> extends _$AnswerStateCopyWithImpl<$Res>
 
 class _$_AnswerState extends _AnswerState with DiagnosticableTreeMixin {
   const _$_AnswerState(
-      {required this.questionList,
+      {required this.questionMap,
       required this.question,
       required this.isReadOnly,
       required this.isRecodeModule,
@@ -1285,7 +1287,7 @@ class _$_AnswerState extends _AnswerState with DiagnosticableTreeMixin {
       : super._();
 
   @override
-  final KtList<Question> questionList;
+  final Map<String, Question> questionMap;
   @override
   final Question question;
   @override
@@ -1299,7 +1301,7 @@ class _$_AnswerState extends _AnswerState with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'AnswerState(questionList: $questionList, question: $question, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState)';
+    return 'AnswerState(questionMap: $questionMap, question: $question, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState)';
   }
 
   @override
@@ -1307,7 +1309,7 @@ class _$_AnswerState extends _AnswerState with DiagnosticableTreeMixin {
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'AnswerState'))
-      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('question', question))
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
@@ -1319,9 +1321,9 @@ class _$_AnswerState extends _AnswerState with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AnswerState &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.question, question) ||
                 const DeepCollectionEquality()
                     .equals(other.question, question)) &&
@@ -1342,7 +1344,7 @@ class _$_AnswerState extends _AnswerState with DiagnosticableTreeMixin {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(question) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
@@ -1357,7 +1359,7 @@ class _$_AnswerState extends _AnswerState with DiagnosticableTreeMixin {
 
 abstract class _AnswerState extends AnswerState {
   const factory _AnswerState(
-      {required KtList<Question> questionList,
+      {required Map<String, Question> questionMap,
       required Question question,
       required bool isReadOnly,
       required bool isRecodeModule,
@@ -1366,7 +1368,7 @@ abstract class _AnswerState extends AnswerState {
   const _AnswerState._() : super._();
 
   @override
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
   Question get question => throw _privateConstructorUsedError;
   @override

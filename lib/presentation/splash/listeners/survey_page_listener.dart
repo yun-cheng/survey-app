@@ -19,15 +19,15 @@ final surveyPageListener =
       context.read<SurveyPageBloc>().add(
             SurveyPageEvent.pageUpdated(
               page: state.page,
-              pageQuestionList: state.pageQuestionList,
+              pageQuestionMap: state.pageQuestionMap,
               isLastPage: state.isLastPage,
             ),
           );
-    } else if (state.updateType == SurveyPageUpdateType.contentQuestionList) {
-      logger('Listen').i('SurveyPageBloc: contentQuestionList');
+    } else if (state.updateType == SurveyPageUpdateType.contentQuestionMap) {
+      logger('Listen').i('SurveyPageBloc: contentQuestionMap');
       context.read<SurveyPageBloc>().add(
-            SurveyPageEvent.contentQuestionListUpdated(
-              contentQuestionList: state.contentQuestionList,
+            SurveyPageEvent.contentQuestionMapUpdated(
+              contentQuestionMap: state.contentQuestionMap,
             ),
           );
     } else if (state.updateType == SurveyPageUpdateType.warning) {
@@ -41,7 +41,7 @@ final surveyPageListener =
     }
 
     if (!state.isReadOnly &&
-        state.updateType != SurveyPageUpdateType.contentQuestionList) {
+        state.updateType != SurveyPageUpdateType.contentQuestionMap) {
       // logger('Listen').i('SurveyPageBloc: ${state.updateType}');
       // H_ 存回 response
       context.read<ResponseBloc>().add(

@@ -20,15 +20,16 @@ _$_UpdateSurveyPageStateDto _$_$_UpdateSurveyPageStateDtoFromJson(
     newestPage: json['newestPage'] as int,
     direction: _$enumDecode(_$DirectionEnumMap, json['direction']),
     updateType: _$enumDecode(_$SurveyPageUpdateTypeEnumMap, json['updateType']),
-    questionList: (json['questionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    pageQuestionList: (json['pageQuestionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
-    contentQuestionList: (json['contentQuestionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    questionMap: (json['questionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
+    pageQuestionMap: (json['pageQuestionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
+    contentQuestionMap:
+        (json['contentQuestionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
     answerMap: (json['answerMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
@@ -42,9 +43,9 @@ _$_UpdateSurveyPageStateDto _$_$_UpdateSurveyPageStateDtoFromJson(
     updateState: json['updateState'] as String,
     restoreState: json['restoreState'] as String,
     isRecodeModule: json['isRecodeModule'] as bool,
-    mainQuestionList: (json['mainQuestionList'] as List<dynamic>)
-        .map((e) => QuestionDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    mainQuestionMap: (json['mainQuestionMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+    ),
     respondentResponseList: (json['respondentResponseList'] as List<dynamic>)
         .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -78,11 +79,12 @@ Map<String, dynamic> _$_$_UpdateSurveyPageStateDtoToJson(
       'newestPage': instance.newestPage,
       'direction': _$DirectionEnumMap[instance.direction],
       'updateType': _$SurveyPageUpdateTypeEnumMap[instance.updateType],
-      'questionList': instance.questionList.map((e) => e.toJson()).toList(),
-      'pageQuestionList':
-          instance.pageQuestionList.map((e) => e.toJson()).toList(),
-      'contentQuestionList':
-          instance.contentQuestionList.map((e) => e.toJson()).toList(),
+      'questionMap':
+          instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),
+      'pageQuestionMap':
+          instance.pageQuestionMap.map((k, e) => MapEntry(k, e.toJson())),
+      'contentQuestionMap':
+          instance.contentQuestionMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerStatusMap':
           instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
@@ -92,8 +94,8 @@ Map<String, dynamic> _$_$_UpdateSurveyPageStateDtoToJson(
       'updateState': instance.updateState,
       'restoreState': instance.restoreState,
       'isRecodeModule': instance.isRecodeModule,
-      'mainQuestionList':
-          instance.mainQuestionList.map((e) => e.toJson()).toList(),
+      'mainQuestionMap':
+          instance.mainQuestionMap.map((k, e) => MapEntry(k, e.toJson())),
       'respondentResponseList':
           instance.respondentResponseList.map((e) => e.toJson()).toList(),
       'surveyId': instance.surveyId,
@@ -145,6 +147,6 @@ const _$DirectionEnumMap = {
 const _$SurveyPageUpdateTypeEnumMap = {
   SurveyPageUpdateType.empty: '',
   SurveyPageUpdateType.page: 'page',
-  SurveyPageUpdateType.contentQuestionList: 'contentQuestionList',
+  SurveyPageUpdateType.contentQuestionMap: 'contentQuestionMap',
   SurveyPageUpdateType.warning: 'warning',
 };

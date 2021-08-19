@@ -16,9 +16,9 @@ class SurveyPageState with _$SurveyPageState {
     required KtMap<String, Answer> answerMap,
     required KtMap<String, AnswerStatus> answerStatusMap,
     required KtList<String> questionIdList,
-    // H_ questionList
-    required KtList<Question> pageQuestionList,
-    required KtList<Question> contentQuestionList,
+    // H_ questionMap
+    required Map<String, Question> pageQuestionMap,
+    required Map<String, Question> contentQuestionMap,
     // H_ info
     required bool isReadOnly,
     required bool isRecodeModule,
@@ -40,8 +40,8 @@ class SurveyPageState with _$SurveyPageState {
         answerMap: const KtMap<String, Answer>.empty(),
         answerStatusMap: const KtMap<String, AnswerStatus>.empty(),
         questionIdList: const KtList<String>.empty(),
-        pageQuestionList: const KtList<Question>.empty(),
-        contentQuestionList: const KtList<Question>.empty(),
+        pageQuestionMap: const <String, Question>{},
+        contentQuestionMap: const <String, Question>{},
         isReadOnly: false,
         isRecodeModule: false,
         loadState: LoadState.initial(),

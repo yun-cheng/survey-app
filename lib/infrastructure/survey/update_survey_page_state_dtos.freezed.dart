@@ -30,9 +30,9 @@ class _$UpdateSurveyPageStateDtoTearOff {
       required int newestPage,
       required Direction direction,
       required SurveyPageUpdateType updateType,
-      required List<QuestionDto> questionList,
-      required List<QuestionDto> pageQuestionList,
-      required List<QuestionDto> contentQuestionList,
+      required Map<String, QuestionDto> questionMap,
+      required Map<String, QuestionDto> pageQuestionMap,
+      required Map<String, QuestionDto> contentQuestionMap,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
       required bool isLastPage,
@@ -41,7 +41,7 @@ class _$UpdateSurveyPageStateDtoTearOff {
       required String updateState,
       required String restoreState,
       required bool isRecodeModule,
-      required List<QuestionDto> mainQuestionList,
+      required Map<String, QuestionDto> mainQuestionMap,
       required List<ResponseDto> respondentResponseList,
       required String surveyId,
       required String moduleType,
@@ -62,9 +62,9 @@ class _$UpdateSurveyPageStateDtoTearOff {
       newestPage: newestPage,
       direction: direction,
       updateType: updateType,
-      questionList: questionList,
-      pageQuestionList: pageQuestionList,
-      contentQuestionList: contentQuestionList,
+      questionMap: questionMap,
+      pageQuestionMap: pageQuestionMap,
+      contentQuestionMap: contentQuestionMap,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
@@ -73,7 +73,7 @@ class _$UpdateSurveyPageStateDtoTearOff {
       updateState: updateState,
       restoreState: restoreState,
       isRecodeModule: isRecodeModule,
-      mainQuestionList: mainQuestionList,
+      mainQuestionMap: mainQuestionMap,
       respondentResponseList: respondentResponseList,
       surveyId: surveyId,
       moduleType: moduleType,
@@ -106,9 +106,11 @@ mixin _$UpdateSurveyPageStateDto {
   int get newestPage => throw _privateConstructorUsedError;
   Direction get direction => throw _privateConstructorUsedError;
   SurveyPageUpdateType get updateType => throw _privateConstructorUsedError;
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
-  List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
-  List<QuestionDto> get contentQuestionList =>
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get pageQuestionMap =>
+      throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get contentQuestionMap =>
       throw _privateConstructorUsedError;
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get answerStatusMap =>
@@ -119,7 +121,8 @@ mixin _$UpdateSurveyPageStateDto {
   String get updateState => throw _privateConstructorUsedError;
   String get restoreState => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
-  List<QuestionDto> get mainQuestionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get mainQuestionMap =>
+      throw _privateConstructorUsedError;
   List<ResponseDto> get respondentResponseList =>
       throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
@@ -155,9 +158,9 @@ abstract class $UpdateSurveyPageStateDtoCopyWith<$Res> {
       int newestPage,
       Direction direction,
       SurveyPageUpdateType updateType,
-      List<QuestionDto> questionList,
-      List<QuestionDto> pageQuestionList,
-      List<QuestionDto> contentQuestionList,
+      Map<String, QuestionDto> questionMap,
+      Map<String, QuestionDto> pageQuestionMap,
+      Map<String, QuestionDto> contentQuestionMap,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
@@ -166,7 +169,7 @@ abstract class $UpdateSurveyPageStateDtoCopyWith<$Res> {
       String updateState,
       String restoreState,
       bool isRecodeModule,
-      List<QuestionDto> mainQuestionList,
+      Map<String, QuestionDto> mainQuestionMap,
       List<ResponseDto> respondentResponseList,
       String surveyId,
       String moduleType,
@@ -202,9 +205,9 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? newestPage = freezed,
     Object? direction = freezed,
     Object? updateType = freezed,
-    Object? questionList = freezed,
-    Object? pageQuestionList = freezed,
-    Object? contentQuestionList = freezed,
+    Object? questionMap = freezed,
+    Object? pageQuestionMap = freezed,
+    Object? contentQuestionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? isLastPage = freezed,
@@ -213,7 +216,7 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? updateState = freezed,
     Object? restoreState = freezed,
     Object? isRecodeModule = freezed,
-    Object? mainQuestionList = freezed,
+    Object? mainQuestionMap = freezed,
     Object? respondentResponseList = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -259,18 +262,18 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.updateType
           : updateType // ignore: cast_nullable_to_non_nullable
               as SurveyPageUpdateType,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
-      pageQuestionList: pageQuestionList == freezed
-          ? _value.pageQuestionList
-          : pageQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
-      contentQuestionList: contentQuestionList == freezed
-          ? _value.contentQuestionList
-          : contentQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
+      pageQuestionMap: pageQuestionMap == freezed
+          ? _value.pageQuestionMap
+          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
+      contentQuestionMap: contentQuestionMap == freezed
+          ? _value.contentQuestionMap
+          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -303,10 +306,10 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
               as bool,
-      mainQuestionList: mainQuestionList == freezed
-          ? _value.mainQuestionList
-          : mainQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      mainQuestionMap: mainQuestionMap == freezed
+          ? _value.mainQuestionMap
+          : mainQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
           : respondentResponseList // ignore: cast_nullable_to_non_nullable
@@ -385,9 +388,9 @@ abstract class _$UpdateSurveyPageStateDtoCopyWith<$Res>
       int newestPage,
       Direction direction,
       SurveyPageUpdateType updateType,
-      List<QuestionDto> questionList,
-      List<QuestionDto> pageQuestionList,
-      List<QuestionDto> contentQuestionList,
+      Map<String, QuestionDto> questionMap,
+      Map<String, QuestionDto> pageQuestionMap,
+      Map<String, QuestionDto> contentQuestionMap,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
@@ -396,7 +399,7 @@ abstract class _$UpdateSurveyPageStateDtoCopyWith<$Res>
       String updateState,
       String restoreState,
       bool isRecodeModule,
-      List<QuestionDto> mainQuestionList,
+      Map<String, QuestionDto> mainQuestionMap,
       List<ResponseDto> respondentResponseList,
       String surveyId,
       String moduleType,
@@ -437,9 +440,9 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? newestPage = freezed,
     Object? direction = freezed,
     Object? updateType = freezed,
-    Object? questionList = freezed,
-    Object? pageQuestionList = freezed,
-    Object? contentQuestionList = freezed,
+    Object? questionMap = freezed,
+    Object? pageQuestionMap = freezed,
+    Object? contentQuestionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? isLastPage = freezed,
@@ -448,7 +451,7 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? updateState = freezed,
     Object? restoreState = freezed,
     Object? isRecodeModule = freezed,
-    Object? mainQuestionList = freezed,
+    Object? mainQuestionMap = freezed,
     Object? respondentResponseList = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -494,18 +497,18 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.updateType
           : updateType // ignore: cast_nullable_to_non_nullable
               as SurveyPageUpdateType,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
-      pageQuestionList: pageQuestionList == freezed
-          ? _value.pageQuestionList
-          : pageQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
-      contentQuestionList: contentQuestionList == freezed
-          ? _value.contentQuestionList
-          : contentQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
+      pageQuestionMap: pageQuestionMap == freezed
+          ? _value.pageQuestionMap
+          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
+      contentQuestionMap: contentQuestionMap == freezed
+          ? _value.contentQuestionMap
+          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -538,10 +541,10 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
               as bool,
-      mainQuestionList: mainQuestionList == freezed
-          ? _value.mainQuestionList
-          : mainQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      mainQuestionMap: mainQuestionMap == freezed
+          ? _value.mainQuestionMap
+          : mainQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       respondentResponseList: respondentResponseList == freezed
           ? _value.respondentResponseList
           : respondentResponseList // ignore: cast_nullable_to_non_nullable
@@ -602,9 +605,9 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       required this.newestPage,
       required this.direction,
       required this.updateType,
-      required this.questionList,
-      required this.pageQuestionList,
-      required this.contentQuestionList,
+      required this.questionMap,
+      required this.pageQuestionMap,
+      required this.contentQuestionMap,
       required this.answerMap,
       required this.answerStatusMap,
       required this.isLastPage,
@@ -613,7 +616,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       required this.updateState,
       required this.restoreState,
       required this.isRecodeModule,
-      required this.mainQuestionList,
+      required this.mainQuestionMap,
       required this.respondentResponseList,
       required this.surveyId,
       required this.moduleType,
@@ -647,11 +650,11 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
   @override
   final SurveyPageUpdateType updateType;
   @override
-  final List<QuestionDto> questionList;
+  final Map<String, QuestionDto> questionMap;
   @override
-  final List<QuestionDto> pageQuestionList;
+  final Map<String, QuestionDto> pageQuestionMap;
   @override
-  final List<QuestionDto> contentQuestionList;
+  final Map<String, QuestionDto> contentQuestionMap;
   @override
   final Map<String, AnswerDto> answerMap;
   @override
@@ -669,7 +672,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
   @override
   final bool isRecodeModule;
   @override
-  final List<QuestionDto> mainQuestionList;
+  final Map<String, QuestionDto> mainQuestionMap;
   @override
   final List<ResponseDto> respondentResponseList;
   @override
@@ -695,7 +698,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
 
   @override
   String toString() {
-    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionMap: $questionMap, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionMap: $mainQuestionMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -725,15 +728,15 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
             (identical(other.updateType, updateType) ||
                 const DeepCollectionEquality()
                     .equals(other.updateType, updateType)) &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
-            (identical(other.pageQuestionList, pageQuestionList) ||
+                    .equals(other.questionMap, questionMap)) &&
+            (identical(other.pageQuestionMap, pageQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageQuestionList, pageQuestionList)) &&
-            (identical(other.contentQuestionList, contentQuestionList) ||
+                    .equals(other.pageQuestionMap, pageQuestionMap)) &&
+            (identical(other.contentQuestionMap, contentQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.contentQuestionList, contentQuestionList)) &&
+                    .equals(other.contentQuestionMap, contentQuestionMap)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -758,9 +761,9 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)) &&
-            (identical(other.mainQuestionList, mainQuestionList) ||
+            (identical(other.mainQuestionMap, mainQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.mainQuestionList, mainQuestionList)) &&
+                    .equals(other.mainQuestionMap, mainQuestionMap)) &&
             (identical(other.respondentResponseList, respondentResponseList) ||
                 const DeepCollectionEquality().equals(
                     other.respondentResponseList, respondentResponseList)) &&
@@ -789,9 +792,9 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       const DeepCollectionEquality().hash(newestPage) ^
       const DeepCollectionEquality().hash(direction) ^
       const DeepCollectionEquality().hash(updateType) ^
-      const DeepCollectionEquality().hash(questionList) ^
-      const DeepCollectionEquality().hash(pageQuestionList) ^
-      const DeepCollectionEquality().hash(contentQuestionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
+      const DeepCollectionEquality().hash(pageQuestionMap) ^
+      const DeepCollectionEquality().hash(contentQuestionMap) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage) ^
@@ -800,7 +803,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       const DeepCollectionEquality().hash(updateState) ^
       const DeepCollectionEquality().hash(restoreState) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(mainQuestionList) ^
+      const DeepCollectionEquality().hash(mainQuestionMap) ^
       const DeepCollectionEquality().hash(respondentResponseList) ^
       const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType) ^
@@ -835,9 +838,9 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
           required int newestPage,
           required Direction direction,
           required SurveyPageUpdateType updateType,
-          required List<QuestionDto> questionList,
-          required List<QuestionDto> pageQuestionList,
-          required List<QuestionDto> contentQuestionList,
+          required Map<String, QuestionDto> questionMap,
+          required Map<String, QuestionDto> pageQuestionMap,
+          required Map<String, QuestionDto> contentQuestionMap,
           required Map<String, AnswerDto> answerMap,
           required Map<String, AnswerStatusDto> answerStatusMap,
           required bool isLastPage,
@@ -846,7 +849,7 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
           required String updateState,
           required String restoreState,
           required bool isRecodeModule,
-          required List<QuestionDto> mainQuestionList,
+          required Map<String, QuestionDto> mainQuestionMap,
           required List<ResponseDto> respondentResponseList,
           required String surveyId,
           required String moduleType,
@@ -881,11 +884,13 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
   @override
   SurveyPageUpdateType get updateType => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get questionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap =>
+      throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get pageQuestionMap =>
+      throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get contentQuestionList =>
+  Map<String, QuestionDto> get contentQuestionMap =>
       throw _privateConstructorUsedError;
   @override
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
@@ -905,7 +910,8 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
   @override
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get mainQuestionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get mainQuestionMap =>
+      throw _privateConstructorUsedError;
   @override
   List<ResponseDto> get respondentResponseList =>
       throw _privateConstructorUsedError;

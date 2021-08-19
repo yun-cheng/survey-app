@@ -5,7 +5,7 @@ class AnswerState with _$AnswerState {
   const AnswerState._();
 
   const factory AnswerState({
-    required KtList<Question> questionList,
+    required Map<String, Question> questionMap,
     required Question question,
     required bool isReadOnly,
     required bool isRecodeModule,
@@ -14,7 +14,7 @@ class AnswerState with _$AnswerState {
   }) = _AnswerState;
 
   factory AnswerState.initial() => AnswerState(
-        questionList: const KtList<Question>.empty(),
+        questionMap: const <String, Question>{},
         question: Question.empty(),
         isReadOnly: false,
         isRecodeModule: false,

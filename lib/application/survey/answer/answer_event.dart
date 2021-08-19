@@ -4,7 +4,7 @@ part of 'answer_bloc.dart';
 class AnswerEvent with _$AnswerEvent {
   // H_ 要開始問卷時載入模組
   const factory AnswerEvent.moduleLoaded({
-    required KtList<Question> questionList,
+    required Map<String, Question> questionMap,
     required bool isReadOnly,
     required bool isRecodeModule,
   }) = _ModuleLoaded;

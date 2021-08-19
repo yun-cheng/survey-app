@@ -14,20 +14,19 @@ class SurveyModuleDto with _$SurveyModuleDto {
   const SurveyModuleDto._();
 
   const factory SurveyModuleDto({
-    required List<QuestionDto> questionList,
-    required Map<String, AnswerDto> initialAnswerList,
-    required Map<String, AnswerStatusDto> initialAnswerStatusList,
+    required Map<String, QuestionDto> questionMap,
+    required Map<String, AnswerDto> answerMap,
+    required Map<String, AnswerStatusDto> answerStatusMap,
   }) = _SurveyModuleDto;
 
-  factory SurveyModuleDto.fromDomain(SurveyModule surveyModule) {
+  factory SurveyModuleDto.fromDomain(SurveyModule domain) {
     return SurveyModuleDto(
-      questionList: surveyModule.questionList
-          .map((question) => QuestionDto.fromDomain(question))
-          .asList(),
-      initialAnswerList: surveyModule.answerMap
+      questionMap: domain.questionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
+      answerMap: domain.answerMap
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
           .asMap(),
-      initialAnswerStatusList: surveyModule.answerStatusMap
+      answerStatusMap: domain.answerStatusMap
           .mapValues((entry) => AnswerStatusDto.fromDomain(entry.value))
           .asMap(),
     );
@@ -35,10 +34,11 @@ class SurveyModuleDto with _$SurveyModuleDto {
 
   SurveyModule toDomain() {
     return SurveyModule(
-      questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
-      answerMap: KtMap.from(initialAnswerList)
-          .mapValues((entry) => entry.value.toDomain()),
-      answerStatusMap: KtMap.from(initialAnswerStatusList)
+      questionMap:
+          questionMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerMap:
+          KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),
+      answerStatusMap: KtMap.from(answerStatusMap)
           .mapValues((entry) => entry.value.toDomain()),
     );
   }

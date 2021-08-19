@@ -53,12 +53,12 @@ void _updateSurveyPageEventWorker(
             isLastPage: e.surveyPageState.isLastPage,
             warning: e.surveyPageState.warning,
             showWarning: e.surveyPageState.showWarning,
-            questionList: e.questionList,
+            questionMap: e.questionMap,
             answerMap: e.answerMap,
             answerStatusMap: e.answerStatusMap,
             isReadOnly: e.isReadOnly,
             isRecodeModule: e.isRecodeModule,
-            mainQuestionList: e.mainQuestionList,
+            mainQuestionMap: e.mainQuestionMap,
             mainAnswerMap: e.mainAnswerMap,
             mainAnswerStatusMap: e.mainAnswerStatusMap,
             respondent: e.respondent,
@@ -66,7 +66,7 @@ void _updateSurveyPageEventWorker(
             moduleType: e.moduleType,
           )
           .send(channel);
-      state = pageQuestionListUpdated(state)
+      state = pageQuestionMapUpdated(state)
           .copyWith(
             restoreState: LoadState.success(),
           )
@@ -82,7 +82,7 @@ void _updateSurveyPageEventWorker(
             respondentResponseList: e.respondentResponseList,
           )
           .send(channel);
-      state = pageQuestionListUpdated(state).send(channel);
+      state = pageQuestionMapUpdated(state).send(channel);
     },
     // H_ 作答有變更時，更新頁面，並檢查 warning
     answerChanged: (e) {
@@ -98,17 +98,17 @@ void _updateSurveyPageEventWorker(
 
       if (!state.isRecodeModule) {
         // S_ 更新 page
-        state = pageQuestionListUpdated(state).send(channel);
+        state = pageQuestionMapUpdated(state).send(channel);
       }
 
       // S_ 更新 warning
       state = warningUpdatedFlow(channel, state);
     },
     // H_ 更新目錄題目
-    contentQuestionListUpdated: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: contentQuestionListUpdated');
+    contentQuestionMapUpdated: (e) {
+      logger('Event').i('UpdateSurveyPageEvent: contentQuestionMapUpdated');
 
-      state = contentQuestionListUpdated(state).send(channel);
+      state = contentQuestionMapUpdated(state).send(channel);
     },
     // H_ 切換頁面相關 events
     nextPagePressed: (e) {

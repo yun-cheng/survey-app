@@ -35,12 +35,12 @@ class _$UpdateSurveyPageEventTearOff {
       {required String surveyId,
       required ModuleType moduleType,
       required SimpleSurveyPageState surveyPageState,
-      required KtList<Question> questionList,
+      required Map<String, Question> questionMap,
       required KtMap<String, Answer> answerMap,
       required KtMap<String, AnswerStatus> answerStatusMap,
       required bool isReadOnly,
       required bool isRecodeModule,
-      required KtList<Question> mainQuestionList,
+      required Map<String, Question> mainQuestionMap,
       required KtMap<String, Answer> mainAnswerMap,
       required KtMap<String, AnswerStatus> mainAnswerStatusMap,
       required Respondent respondent}) {
@@ -48,12 +48,12 @@ class _$UpdateSurveyPageEventTearOff {
       surveyId: surveyId,
       moduleType: moduleType,
       surveyPageState: surveyPageState,
-      questionList: questionList,
+      questionMap: questionMap,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
-      mainQuestionList: mainQuestionList,
+      mainQuestionMap: mainQuestionMap,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
       respondent: respondent,
@@ -76,8 +76,8 @@ class _$UpdateSurveyPageEventTearOff {
     );
   }
 
-  _ContentQuestionListUpdated contentQuestionListUpdated() {
-    return const _ContentQuestionListUpdated();
+  _ContentQuestionMapUpdated contentQuestionMapUpdated() {
+    return const _ContentQuestionMapUpdated();
   }
 
   _NextPagePressed nextPagePressed() {
@@ -149,12 +149,12 @@ mixin _$UpdateSurveyPageEvent {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -164,7 +164,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -190,12 +190,12 @@ mixin _$UpdateSurveyPageEvent {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -205,7 +205,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -231,8 +231,8 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -257,8 +257,8 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -395,12 +395,12 @@ class _$_WatchReferenceListStarted
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -410,7 +410,7 @@ class _$_WatchReferenceListStarted
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -439,12 +439,12 @@ class _$_WatchReferenceListStarted
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -454,7 +454,7 @@ class _$_WatchReferenceListStarted
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -486,8 +486,8 @@ class _$_WatchReferenceListStarted
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -515,8 +515,8 @@ class _$_WatchReferenceListStarted
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -639,12 +639,12 @@ class _$_ReferenceListReceived
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -654,7 +654,7 @@ class _$_ReferenceListReceived
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -683,12 +683,12 @@ class _$_ReferenceListReceived
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -698,7 +698,7 @@ class _$_ReferenceListReceived
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -730,8 +730,8 @@ class _$_ReferenceListReceived
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -759,8 +759,8 @@ class _$_ReferenceListReceived
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -803,12 +803,12 @@ abstract class _$StateRestoredCopyWith<$Res> {
       {String surveyId,
       ModuleType moduleType,
       SimpleSurveyPageState surveyPageState,
-      KtList<Question> questionList,
+      Map<String, Question> questionMap,
       KtMap<String, Answer> answerMap,
       KtMap<String, AnswerStatus> answerStatusMap,
       bool isReadOnly,
       bool isRecodeModule,
-      KtList<Question> mainQuestionList,
+      Map<String, Question> mainQuestionMap,
       KtMap<String, Answer> mainAnswerMap,
       KtMap<String, AnswerStatus> mainAnswerStatusMap,
       Respondent respondent});
@@ -834,12 +834,12 @@ class __$StateRestoredCopyWithImpl<$Res>
     Object? surveyId = freezed,
     Object? moduleType = freezed,
     Object? surveyPageState = freezed,
-    Object? questionList = freezed,
+    Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
-    Object? mainQuestionList = freezed,
+    Object? mainQuestionMap = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
     Object? respondent = freezed,
@@ -857,10 +857,10 @@ class __$StateRestoredCopyWithImpl<$Res>
           ? _value.surveyPageState
           : surveyPageState // ignore: cast_nullable_to_non_nullable
               as SimpleSurveyPageState,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -877,10 +877,10 @@ class __$StateRestoredCopyWithImpl<$Res>
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
               as bool,
-      mainQuestionList: mainQuestionList == freezed
-          ? _value.mainQuestionList
-          : mainQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      mainQuestionMap: mainQuestionMap == freezed
+          ? _value.mainQuestionMap
+          : mainQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -926,12 +926,12 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
       {required this.surveyId,
       required this.moduleType,
       required this.surveyPageState,
-      required this.questionList,
+      required this.questionMap,
       required this.answerMap,
       required this.answerStatusMap,
       required this.isReadOnly,
       required this.isRecodeModule,
-      required this.mainQuestionList,
+      required this.mainQuestionMap,
       required this.mainAnswerMap,
       required this.mainAnswerStatusMap,
       required this.respondent});
@@ -943,7 +943,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   @override
   final SimpleSurveyPageState surveyPageState;
   @override
-  final KtList<Question> questionList;
+  final Map<String, Question> questionMap;
   @override
   final KtMap<String, Answer> answerMap;
   @override
@@ -953,7 +953,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
   @override
   final bool isRecodeModule;
   @override
-  final KtList<Question> mainQuestionList;
+  final Map<String, Question> mainQuestionMap;
   @override
   final KtMap<String, Answer> mainAnswerMap;
   @override
@@ -963,7 +963,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageEvent.stateRestored(surveyId: $surveyId, moduleType: $moduleType, surveyPageState: $surveyPageState, questionList: $questionList, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, respondent: $respondent)';
+    return 'UpdateSurveyPageEvent.stateRestored(surveyId: $surveyId, moduleType: $moduleType, surveyPageState: $surveyPageState, questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainQuestionMap: $mainQuestionMap, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, respondent: $respondent)';
   }
 
   @override
@@ -974,12 +974,12 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
       ..add(DiagnosticsProperty('surveyId', surveyId))
       ..add(DiagnosticsProperty('moduleType', moduleType))
       ..add(DiagnosticsProperty('surveyPageState', surveyPageState))
-      ..add(DiagnosticsProperty('questionList', questionList))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
-      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
+      ..add(DiagnosticsProperty('mainQuestionMap', mainQuestionMap))
       ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
       ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap))
       ..add(DiagnosticsProperty('respondent', respondent));
@@ -998,9 +998,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             (identical(other.surveyPageState, surveyPageState) ||
                 const DeepCollectionEquality()
                     .equals(other.surveyPageState, surveyPageState)) &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -1013,9 +1013,9 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)) &&
-            (identical(other.mainQuestionList, mainQuestionList) ||
+            (identical(other.mainQuestionMap, mainQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.mainQuestionList, mainQuestionList)) &&
+                    .equals(other.mainQuestionMap, mainQuestionMap)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.mainAnswerMap, mainAnswerMap)) &&
@@ -1033,12 +1033,12 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
       const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(surveyPageState) ^
-      const DeepCollectionEquality().hash(questionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(mainQuestionList) ^
+      const DeepCollectionEquality().hash(mainQuestionMap) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
       const DeepCollectionEquality().hash(respondent);
@@ -1060,12 +1060,12 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -1075,7 +1075,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -1093,12 +1093,12 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
         surveyId,
         moduleType,
         surveyPageState,
-        questionList,
+        questionMap,
         answerMap,
         answerStatusMap,
         isReadOnly,
         isRecodeModule,
-        mainQuestionList,
+        mainQuestionMap,
         mainAnswerMap,
         mainAnswerStatusMap,
         respondent);
@@ -1116,12 +1116,12 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -1131,7 +1131,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -1151,12 +1151,12 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
           surveyId,
           moduleType,
           surveyPageState,
-          questionList,
+          questionMap,
           answerMap,
           answerStatusMap,
           isReadOnly,
           isRecodeModule,
-          mainQuestionList,
+          mainQuestionMap,
           mainAnswerMap,
           mainAnswerStatusMap,
           respondent);
@@ -1175,8 +1175,8 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -1204,8 +1204,8 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -1232,12 +1232,12 @@ abstract class _StateRestored implements UpdateSurveyPageEvent {
       {required String surveyId,
       required ModuleType moduleType,
       required SimpleSurveyPageState surveyPageState,
-      required KtList<Question> questionList,
+      required Map<String, Question> questionMap,
       required KtMap<String, Answer> answerMap,
       required KtMap<String, AnswerStatus> answerStatusMap,
       required bool isReadOnly,
       required bool isRecodeModule,
-      required KtList<Question> mainQuestionList,
+      required Map<String, Question> mainQuestionMap,
       required KtMap<String, Answer> mainAnswerMap,
       required KtMap<String, AnswerStatus> mainAnswerStatusMap,
       required Respondent respondent}) = _$_StateRestored;
@@ -1246,13 +1246,14 @@ abstract class _StateRestored implements UpdateSurveyPageEvent {
   ModuleType get moduleType => throw _privateConstructorUsedError;
   SimpleSurveyPageState get surveyPageState =>
       throw _privateConstructorUsedError;
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   KtMap<String, Answer> get answerMap => throw _privateConstructorUsedError;
   KtMap<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
-  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
+  Map<String, Question> get mainQuestionMap =>
+      throw _privateConstructorUsedError;
   KtMap<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
   KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
@@ -1355,12 +1356,12 @@ class _$_RespondentResponseListUpdated
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -1370,7 +1371,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -1399,12 +1400,12 @@ class _$_RespondentResponseListUpdated
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -1414,7 +1415,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -1446,8 +1447,8 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -1475,8 +1476,8 @@ class _$_RespondentResponseListUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -1609,12 +1610,12 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -1624,7 +1625,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -1653,12 +1654,12 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -1668,7 +1669,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -1700,8 +1701,8 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -1729,8 +1730,8 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -1766,36 +1767,35 @@ abstract class _AnswerChanged implements UpdateSurveyPageEvent {
 }
 
 /// @nodoc
-abstract class _$ContentQuestionListUpdatedCopyWith<$Res> {
-  factory _$ContentQuestionListUpdatedCopyWith(
-          _ContentQuestionListUpdated value,
-          $Res Function(_ContentQuestionListUpdated) then) =
-      __$ContentQuestionListUpdatedCopyWithImpl<$Res>;
+abstract class _$ContentQuestionMapUpdatedCopyWith<$Res> {
+  factory _$ContentQuestionMapUpdatedCopyWith(_ContentQuestionMapUpdated value,
+          $Res Function(_ContentQuestionMapUpdated) then) =
+      __$ContentQuestionMapUpdatedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$ContentQuestionListUpdatedCopyWithImpl<$Res>
+class __$ContentQuestionMapUpdatedCopyWithImpl<$Res>
     extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$ContentQuestionListUpdatedCopyWith<$Res> {
-  __$ContentQuestionListUpdatedCopyWithImpl(_ContentQuestionListUpdated _value,
-      $Res Function(_ContentQuestionListUpdated) _then)
-      : super(_value, (v) => _then(v as _ContentQuestionListUpdated));
+    implements _$ContentQuestionMapUpdatedCopyWith<$Res> {
+  __$ContentQuestionMapUpdatedCopyWithImpl(_ContentQuestionMapUpdated _value,
+      $Res Function(_ContentQuestionMapUpdated) _then)
+      : super(_value, (v) => _then(v as _ContentQuestionMapUpdated));
 
   @override
-  _ContentQuestionListUpdated get _value =>
-      super._value as _ContentQuestionListUpdated;
+  _ContentQuestionMapUpdated get _value =>
+      super._value as _ContentQuestionMapUpdated;
 }
 
 /// @nodoc
 
-class _$_ContentQuestionListUpdated
+class _$_ContentQuestionMapUpdated
     with DiagnosticableTreeMixin
-    implements _ContentQuestionListUpdated {
-  const _$_ContentQuestionListUpdated();
+    implements _ContentQuestionMapUpdated {
+  const _$_ContentQuestionMapUpdated();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageEvent.contentQuestionListUpdated()';
+    return 'UpdateSurveyPageEvent.contentQuestionMapUpdated()';
   }
 
   @override
@@ -1803,12 +1803,12 @@ class _$_ContentQuestionListUpdated
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.contentQuestionListUpdated'));
+          'type', 'UpdateSurveyPageEvent.contentQuestionMapUpdated'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ContentQuestionListUpdated);
+    return identical(this, other) || (other is _ContentQuestionMapUpdated);
   }
 
   @override
@@ -1826,12 +1826,12 @@ class _$_ContentQuestionListUpdated
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -1841,7 +1841,7 @@ class _$_ContentQuestionListUpdated
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -1855,7 +1855,7 @@ class _$_ContentQuestionListUpdated
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
-    return contentQuestionListUpdated();
+    return contentQuestionMapUpdated();
   }
 
   @override
@@ -1870,12 +1870,12 @@ class _$_ContentQuestionListUpdated
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -1885,7 +1885,7 @@ class _$_ContentQuestionListUpdated
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -1900,8 +1900,8 @@ class _$_ContentQuestionListUpdated
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (contentQuestionListUpdated != null) {
-      return contentQuestionListUpdated();
+    if (contentQuestionMapUpdated != null) {
+      return contentQuestionMapUpdated();
     }
     return orElse();
   }
@@ -1917,8 +1917,8 @@ class _$_ContentQuestionListUpdated
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -1933,7 +1933,7 @@ class _$_ContentQuestionListUpdated
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return contentQuestionListUpdated(this);
+    return contentQuestionMapUpdated(this);
   }
 
   @override
@@ -1946,8 +1946,8 @@ class _$_ContentQuestionListUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -1962,15 +1962,15 @@ class _$_ContentQuestionListUpdated
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (contentQuestionListUpdated != null) {
-      return contentQuestionListUpdated(this);
+    if (contentQuestionMapUpdated != null) {
+      return contentQuestionMapUpdated(this);
     }
     return orElse();
   }
 }
 
-abstract class _ContentQuestionListUpdated implements UpdateSurveyPageEvent {
-  const factory _ContentQuestionListUpdated() = _$_ContentQuestionListUpdated;
+abstract class _ContentQuestionMapUpdated implements UpdateSurveyPageEvent {
+  const factory _ContentQuestionMapUpdated() = _$_ContentQuestionMapUpdated;
 }
 
 /// @nodoc
@@ -2032,12 +2032,12 @@ class _$_NextPagePressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -2047,7 +2047,7 @@ class _$_NextPagePressed
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -2076,12 +2076,12 @@ class _$_NextPagePressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -2091,7 +2091,7 @@ class _$_NextPagePressed
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -2123,8 +2123,8 @@ class _$_NextPagePressed
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -2152,8 +2152,8 @@ class _$_NextPagePressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -2238,12 +2238,12 @@ class _$_PreviousPagePressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -2253,7 +2253,7 @@ class _$_PreviousPagePressed
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -2282,12 +2282,12 @@ class _$_PreviousPagePressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -2297,7 +2297,7 @@ class _$_PreviousPagePressed
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -2329,8 +2329,8 @@ class _$_PreviousPagePressed
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -2358,8 +2358,8 @@ class _$_PreviousPagePressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -2467,12 +2467,12 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -2482,7 +2482,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -2511,12 +2511,12 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -2526,7 +2526,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -2558,8 +2558,8 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -2587,8 +2587,8 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -2678,12 +2678,12 @@ class _$_FinishedButtonPressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -2693,7 +2693,7 @@ class _$_FinishedButtonPressed
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -2722,12 +2722,12 @@ class _$_FinishedButtonPressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -2737,7 +2737,7 @@ class _$_FinishedButtonPressed
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -2769,8 +2769,8 @@ class _$_FinishedButtonPressed
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -2798,8 +2798,8 @@ class _$_FinishedButtonPressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -2881,12 +2881,12 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -2896,7 +2896,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -2925,12 +2925,12 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -2940,7 +2940,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -2972,8 +2972,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -3001,8 +3001,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -3087,12 +3087,12 @@ class _$_ReadOnlyToggled
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -3102,7 +3102,7 @@ class _$_ReadOnlyToggled
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -3131,12 +3131,12 @@ class _$_ReadOnlyToggled
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -3146,7 +3146,7 @@ class _$_ReadOnlyToggled
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -3178,8 +3178,8 @@ class _$_ReadOnlyToggled
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -3207,8 +3207,8 @@ class _$_ReadOnlyToggled
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -3321,12 +3321,12 @@ class _$_AppLifeCycleChanged
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -3336,7 +3336,7 @@ class _$_AppLifeCycleChanged
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -3365,12 +3365,12 @@ class _$_AppLifeCycleChanged
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -3380,7 +3380,7 @@ class _$_AppLifeCycleChanged
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -3412,8 +3412,8 @@ class _$_AppLifeCycleChanged
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -3441,8 +3441,8 @@ class _$_AppLifeCycleChanged
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -3530,12 +3530,12 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -3545,7 +3545,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -3574,12 +3574,12 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -3589,7 +3589,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -3621,8 +3621,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -3650,8 +3650,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -3736,12 +3736,12 @@ class _$_LeaveButtonPressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -3751,7 +3751,7 @@ class _$_LeaveButtonPressed
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -3780,12 +3780,12 @@ class _$_LeaveButtonPressed
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -3795,7 +3795,7 @@ class _$_LeaveButtonPressed
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -3827,8 +3827,8 @@ class _$_LeaveButtonPressed
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -3856,8 +3856,8 @@ class _$_LeaveButtonPressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -3942,12 +3942,12 @@ class _$_LeaveButtonHidden
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -3957,7 +3957,7 @@ class _$_LeaveButtonHidden
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -3986,12 +3986,12 @@ class _$_LeaveButtonHidden
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -4001,7 +4001,7 @@ class _$_LeaveButtonHidden
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -4033,8 +4033,8 @@ class _$_LeaveButtonHidden
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -4062,8 +4062,8 @@ class _$_LeaveButtonHidden
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -4144,12 +4144,12 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -4159,7 +4159,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -4188,12 +4188,12 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -4203,7 +4203,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -4235,8 +4235,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -4264,8 +4264,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -4350,12 +4350,12 @@ class _$_TaskInitialized
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
@@ -4365,7 +4365,7 @@ class _$_TaskInitialized
     required TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)
         answerChanged,
-    required TResult Function() contentQuestionListUpdated,
+    required TResult Function() contentQuestionMapUpdated,
     required TResult Function() nextPagePressed,
     required TResult Function() previousPagePressed,
     required TResult Function(int page) wentToPage,
@@ -4394,12 +4394,12 @@ class _$_TaskInitialized
             String surveyId,
             ModuleType moduleType,
             SimpleSurveyPageState surveyPageState,
-            KtList<Question> questionList,
+            Map<String, Question> questionMap,
             KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap,
             bool isReadOnly,
             bool isRecodeModule,
-            KtList<Question> mainQuestionList,
+            Map<String, Question> mainQuestionMap,
             KtMap<String, Answer> mainAnswerMap,
             KtMap<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
@@ -4409,7 +4409,7 @@ class _$_TaskInitialized
     TResult Function(KtMap<String, Answer> answerMap,
             KtMap<String, AnswerStatus> answerStatusMap)?
         answerChanged,
-    TResult Function()? contentQuestionListUpdated,
+    TResult Function()? contentQuestionMapUpdated,
     TResult Function()? nextPagePressed,
     TResult Function()? previousPagePressed,
     TResult Function(int page)? wentToPage,
@@ -4441,8 +4441,8 @@ class _$_TaskInitialized
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseListUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionListUpdated value)
-        contentQuestionListUpdated,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
     required TResult Function(_NextPagePressed value) nextPagePressed,
     required TResult Function(_PreviousPagePressed value) previousPagePressed,
     required TResult Function(_WentToPage value) wentToPage,
@@ -4470,8 +4470,8 @@ class _$_TaskInitialized
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseListUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionListUpdated value)?
-        contentQuestionListUpdated,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
     TResult Function(_NextPagePressed value)? nextPagePressed,
     TResult Function(_PreviousPagePressed value)? previousPagePressed,
     TResult Function(_WentToPage value)? wentToPage,
@@ -4521,16 +4521,16 @@ class _$UpdateSurveyPageStateTearOff {
       required KtList<Response> respondentResponseList,
       required String surveyId,
       required ModuleType moduleType,
-      required KtList<Question> questionList,
-      required KtList<Question> pageQuestionList,
-      required KtList<Question> contentQuestionList,
+      required Map<String, Question> questionMap,
+      required Map<String, Question> pageQuestionMap,
+      required Map<String, Question> contentQuestionMap,
       required bool isReadOnly,
       required bool appIsPaused,
       required bool showDialog,
       required bool leavePage,
       required bool finishResponse,
       required bool showLeaveButton,
-      required KtList<Question> mainQuestionList,
+      required Map<String, Question> mainQuestionMap,
       required KtMap<String, Answer> mainAnswerMap,
       required KtMap<String, AnswerStatus> mainAnswerStatusMap}) {
     return _UpdateSurveyPageState(
@@ -4553,16 +4553,16 @@ class _$UpdateSurveyPageStateTearOff {
       respondentResponseList: respondentResponseList,
       surveyId: surveyId,
       moduleType: moduleType,
-      questionList: questionList,
-      pageQuestionList: pageQuestionList,
-      contentQuestionList: contentQuestionList,
+      questionMap: questionMap,
+      pageQuestionMap: pageQuestionMap,
+      contentQuestionMap: contentQuestionMap,
       isReadOnly: isReadOnly,
       appIsPaused: appIsPaused,
       showDialog: showDialog,
       leavePage: leavePage,
       finishResponse: finishResponse,
       showLeaveButton: showLeaveButton,
-      mainQuestionList: mainQuestionList,
+      mainQuestionMap: mainQuestionMap,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
     );
@@ -4597,10 +4597,11 @@ mixin _$UpdateSurveyPageState {
       throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType =>
-      throw _privateConstructorUsedError; // H_ questionList
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
-  KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
-  KtList<Question> get contentQuestionList =>
+      throw _privateConstructorUsedError; // H_ questionMap
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Map<String, Question> get pageQuestionMap =>
+      throw _privateConstructorUsedError;
+  Map<String, Question> get contentQuestionMap =>
       throw _privateConstructorUsedError; // H_ page state
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get appIsPaused => throw _privateConstructorUsedError;
@@ -4608,7 +4609,8 @@ mixin _$UpdateSurveyPageState {
   bool get leavePage => throw _privateConstructorUsedError;
   bool get finishResponse => throw _privateConstructorUsedError;
   bool get showLeaveButton => throw _privateConstructorUsedError; // H_ recode
-  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
+  Map<String, Question> get mainQuestionMap =>
+      throw _privateConstructorUsedError;
   KtMap<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
   KtMap<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
@@ -4643,16 +4645,16 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
       KtList<Response> respondentResponseList,
       String surveyId,
       ModuleType moduleType,
-      KtList<Question> questionList,
-      KtList<Question> pageQuestionList,
-      KtList<Question> contentQuestionList,
+      Map<String, Question> questionMap,
+      Map<String, Question> pageQuestionMap,
+      Map<String, Question> contentQuestionMap,
       bool isReadOnly,
       bool appIsPaused,
       bool showDialog,
       bool leavePage,
       bool finishResponse,
       bool showLeaveButton,
-      KtList<Question> mainQuestionList,
+      Map<String, Question> mainQuestionMap,
       KtMap<String, Answer> mainAnswerMap,
       KtMap<String, AnswerStatus> mainAnswerStatusMap});
 
@@ -4694,16 +4696,16 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? respondentResponseList = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
-    Object? questionList = freezed,
-    Object? pageQuestionList = freezed,
-    Object? contentQuestionList = freezed,
+    Object? questionMap = freezed,
+    Object? pageQuestionMap = freezed,
+    Object? contentQuestionMap = freezed,
     Object? isReadOnly = freezed,
     Object? appIsPaused = freezed,
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
     Object? showLeaveButton = freezed,
-    Object? mainQuestionList = freezed,
+    Object? mainQuestionMap = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -4784,18 +4786,18 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as ModuleType,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
-      pageQuestionList: pageQuestionList == freezed
-          ? _value.pageQuestionList
-          : pageQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
-      contentQuestionList: contentQuestionList == freezed
-          ? _value.contentQuestionList
-          : contentQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
+      pageQuestionMap: pageQuestionMap == freezed
+          ? _value.pageQuestionMap
+          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
+      contentQuestionMap: contentQuestionMap == freezed
+          ? _value.contentQuestionMap
+          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
@@ -4820,10 +4822,10 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
               as bool,
-      mainQuestionList: mainQuestionList == freezed
-          ? _value.mainQuestionList
-          : mainQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      mainQuestionMap: mainQuestionMap == freezed
+          ? _value.mainQuestionMap
+          : mainQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -4905,16 +4907,16 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       KtList<Response> respondentResponseList,
       String surveyId,
       ModuleType moduleType,
-      KtList<Question> questionList,
-      KtList<Question> pageQuestionList,
-      KtList<Question> contentQuestionList,
+      Map<String, Question> questionMap,
+      Map<String, Question> pageQuestionMap,
+      Map<String, Question> contentQuestionMap,
       bool isReadOnly,
       bool appIsPaused,
       bool showDialog,
       bool leavePage,
       bool finishResponse,
       bool showLeaveButton,
-      KtList<Question> mainQuestionList,
+      Map<String, Question> mainQuestionMap,
       KtMap<String, Answer> mainAnswerMap,
       KtMap<String, AnswerStatus> mainAnswerStatusMap});
 
@@ -4964,16 +4966,16 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? respondentResponseList = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
-    Object? questionList = freezed,
-    Object? pageQuestionList = freezed,
-    Object? contentQuestionList = freezed,
+    Object? questionMap = freezed,
+    Object? pageQuestionMap = freezed,
+    Object? contentQuestionMap = freezed,
     Object? isReadOnly = freezed,
     Object? appIsPaused = freezed,
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
     Object? showLeaveButton = freezed,
-    Object? mainQuestionList = freezed,
+    Object? mainQuestionMap = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
   }) {
@@ -5054,18 +5056,18 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as ModuleType,
-      questionList: questionList == freezed
-          ? _value.questionList
-          : questionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
-      pageQuestionList: pageQuestionList == freezed
-          ? _value.pageQuestionList
-          : pageQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
-      contentQuestionList: contentQuestionList == freezed
-          ? _value.contentQuestionList
-          : contentQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
+      pageQuestionMap: pageQuestionMap == freezed
+          ? _value.pageQuestionMap
+          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
+      contentQuestionMap: contentQuestionMap == freezed
+          ? _value.contentQuestionMap
+          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
@@ -5090,10 +5092,10 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
               as bool,
-      mainQuestionList: mainQuestionList == freezed
-          ? _value.mainQuestionList
-          : mainQuestionList // ignore: cast_nullable_to_non_nullable
-              as KtList<Question>,
+      mainQuestionMap: mainQuestionMap == freezed
+          ? _value.mainQuestionMap
+          : mainQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -5130,16 +5132,16 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
       required this.respondentResponseList,
       required this.surveyId,
       required this.moduleType,
-      required this.questionList,
-      required this.pageQuestionList,
-      required this.contentQuestionList,
+      required this.questionMap,
+      required this.pageQuestionMap,
+      required this.contentQuestionMap,
       required this.isReadOnly,
       required this.appIsPaused,
       required this.showDialog,
       required this.leavePage,
       required this.finishResponse,
       required this.showLeaveButton,
-      required this.mainQuestionList,
+      required this.mainQuestionMap,
       required this.mainAnswerMap,
       required this.mainAnswerStatusMap})
       : super._();
@@ -5182,12 +5184,12 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
   final String surveyId;
   @override
   final ModuleType moduleType;
-  @override // H_ questionList
-  final KtList<Question> questionList;
+  @override // H_ questionMap
+  final Map<String, Question> questionMap;
   @override
-  final KtList<Question> pageQuestionList;
+  final Map<String, Question> pageQuestionMap;
   @override
-  final KtList<Question> contentQuestionList;
+  final Map<String, Question> contentQuestionMap;
   @override // H_ page state
   final bool isReadOnly;
   @override
@@ -5201,7 +5203,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
   @override
   final bool showLeaveButton;
   @override // H_ recode
-  final KtList<Question> mainQuestionList;
+  final Map<String, Question> mainQuestionMap;
   @override
   final KtMap<String, Answer> mainAnswerMap;
   @override
@@ -5209,7 +5211,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionList: $questionList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainQuestionList: $mainQuestionList, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionMap: $questionMap, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainQuestionMap: $mainQuestionMap, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -5237,16 +5239,16 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
           DiagnosticsProperty('respondentResponseList', respondentResponseList))
       ..add(DiagnosticsProperty('surveyId', surveyId))
       ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('questionList', questionList))
-      ..add(DiagnosticsProperty('pageQuestionList', pageQuestionList))
-      ..add(DiagnosticsProperty('contentQuestionList', contentQuestionList))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
+      ..add(DiagnosticsProperty('pageQuestionMap', pageQuestionMap))
+      ..add(DiagnosticsProperty('contentQuestionMap', contentQuestionMap))
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('appIsPaused', appIsPaused))
       ..add(DiagnosticsProperty('showDialog', showDialog))
       ..add(DiagnosticsProperty('leavePage', leavePage))
       ..add(DiagnosticsProperty('finishResponse', finishResponse))
       ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
-      ..add(DiagnosticsProperty('mainQuestionList', mainQuestionList))
+      ..add(DiagnosticsProperty('mainQuestionMap', mainQuestionMap))
       ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
       ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
   }
@@ -5311,22 +5313,22 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
             (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleType, moduleType)) &&
-            (identical(other.questionList, questionList) ||
+            (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionList, questionList)) &&
-            (identical(other.pageQuestionList, pageQuestionList) ||
+                    .equals(other.questionMap, questionMap)) &&
+            (identical(other.pageQuestionMap, pageQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageQuestionList, pageQuestionList)) &&
-            (identical(other.contentQuestionList, contentQuestionList) ||
+                    .equals(other.pageQuestionMap, pageQuestionMap)) &&
+            (identical(other.contentQuestionMap, contentQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.contentQuestionList, contentQuestionList)) &&
+                    .equals(other.contentQuestionMap, contentQuestionMap)) &&
             (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
             (identical(other.appIsPaused, appIsPaused) || const DeepCollectionEquality().equals(other.appIsPaused, appIsPaused)) &&
             (identical(other.showDialog, showDialog) || const DeepCollectionEquality().equals(other.showDialog, showDialog)) &&
             (identical(other.leavePage, leavePage) || const DeepCollectionEquality().equals(other.leavePage, leavePage)) &&
             (identical(other.finishResponse, finishResponse) || const DeepCollectionEquality().equals(other.finishResponse, finishResponse)) &&
             (identical(other.showLeaveButton, showLeaveButton) || const DeepCollectionEquality().equals(other.showLeaveButton, showLeaveButton)) &&
-            (identical(other.mainQuestionList, mainQuestionList) || const DeepCollectionEquality().equals(other.mainQuestionList, mainQuestionList)) &&
+            (identical(other.mainQuestionMap, mainQuestionMap) || const DeepCollectionEquality().equals(other.mainQuestionMap, mainQuestionMap)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) || const DeepCollectionEquality().equals(other.mainAnswerMap, mainAnswerMap)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
   }
@@ -5353,16 +5355,16 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
       const DeepCollectionEquality().hash(respondentResponseList) ^
       const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(questionList) ^
-      const DeepCollectionEquality().hash(pageQuestionList) ^
-      const DeepCollectionEquality().hash(contentQuestionList) ^
+      const DeepCollectionEquality().hash(questionMap) ^
+      const DeepCollectionEquality().hash(pageQuestionMap) ^
+      const DeepCollectionEquality().hash(contentQuestionMap) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(appIsPaused) ^
       const DeepCollectionEquality().hash(showDialog) ^
       const DeepCollectionEquality().hash(leavePage) ^
       const DeepCollectionEquality().hash(finishResponse) ^
       const DeepCollectionEquality().hash(showLeaveButton) ^
-      const DeepCollectionEquality().hash(mainQuestionList) ^
+      const DeepCollectionEquality().hash(mainQuestionMap) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap);
 
@@ -5394,16 +5396,16 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
           required KtList<Response> respondentResponseList,
           required String surveyId,
           required ModuleType moduleType,
-          required KtList<Question> questionList,
-          required KtList<Question> pageQuestionList,
-          required KtList<Question> contentQuestionList,
+          required Map<String, Question> questionMap,
+          required Map<String, Question> pageQuestionMap,
+          required Map<String, Question> contentQuestionMap,
           required bool isReadOnly,
           required bool appIsPaused,
           required bool showDialog,
           required bool leavePage,
           required bool finishResponse,
           required bool showLeaveButton,
-          required KtList<Question> mainQuestionList,
+          required Map<String, Question> mainQuestionMap,
           required KtMap<String, Answer> mainAnswerMap,
           required KtMap<String, AnswerStatus> mainAnswerStatusMap}) =
       _$_UpdateSurveyPageState;
@@ -5449,12 +5451,13 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   String get surveyId => throw _privateConstructorUsedError;
   @override
   ModuleType get moduleType => throw _privateConstructorUsedError;
-  @override // H_ questionList
-  KtList<Question> get questionList => throw _privateConstructorUsedError;
+  @override // H_ questionMap
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
-  KtList<Question> get pageQuestionList => throw _privateConstructorUsedError;
+  Map<String, Question> get pageQuestionMap =>
+      throw _privateConstructorUsedError;
   @override
-  KtList<Question> get contentQuestionList =>
+  Map<String, Question> get contentQuestionMap =>
       throw _privateConstructorUsedError;
   @override // H_ page state
   bool get isReadOnly => throw _privateConstructorUsedError;
@@ -5469,7 +5472,8 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   @override
   bool get showLeaveButton => throw _privateConstructorUsedError;
   @override // H_ recode
-  KtList<Question> get mainQuestionList => throw _privateConstructorUsedError;
+  Map<String, Question> get mainQuestionMap =>
+      throw _privateConstructorUsedError;
   @override
   KtMap<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
   @override

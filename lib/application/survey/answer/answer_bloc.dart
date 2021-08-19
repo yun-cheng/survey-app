@@ -53,8 +53,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
             (!state.isRecodeModule || (state.isRecodeModule && e.isRecode))) {
           logger('Event').i('AnswerEvent: answerChanged');
 
-          final question =
-              state.questionList.first((q) => q.id == e.questionId);
+          final question = state.questionMap[e.questionId]!;
 
           _updateAnswerBloc.add(UpdateAnswerEvent.answerUpdated(
             question: question,

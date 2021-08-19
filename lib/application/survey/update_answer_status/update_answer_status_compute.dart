@@ -20,9 +20,7 @@ UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
 
   final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
   final answer = state.answerMap[state.questionId]!;
-  final validateAnswer = state.questionList
-      .first((question) => question.id == state.questionId)
-      .validateAnswer;
+  final validateAnswer = state.questionMap[state.questionId]!.validateAnswer;
 
   newAnswerStatusMap[state.questionId] =
       newAnswerStatusMap[state.questionId]!.update(
@@ -37,7 +35,7 @@ UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
 
 // H_ 某題作答變更後，檢驗後續連鎖題的作答，如不符則清空並重置該題作答與答題狀況
 UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
-  logger('Compute').i('LowerQuestionListChecked');
+  logger('Compute').i('chainQuestionChecked');
 
   final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
 
@@ -47,16 +45,17 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   KtList<String> clearAnswerQIdList = state.clearAnswerQIdList;
 
   // S_ 篩出所有是連鎖題下層的題目
-  final lowerQuestionList =
-      state.questionList.filter((_question) => _question.upperQuestionId != '');
 
-  lowerQuestionList.forEach((question) {
+  final lowerQuestionMap =
+      state.questionMap.filter((e) => e.value.upperQuestionId != '').toMap();
+
+  lowerQuestionMap.forEach((questionId, question) {
     // S_0 如果該題的 upperQuestionId 在 changedUpperQIdList 中
     if (changedUpperQIdList.contains(question.upperQuestionId)) {
       // S_1 準備比對上層的答案跟下層答案選項的 upperChoiceId
       final upperAnswerChoiceId =
           state.answerMap[question.upperQuestionId]!.value?.id;
-      final lowerAnswerChoice = state.answerMap[question.id]!.value;
+      final lowerAnswerChoice = state.answerMap[questionId]!.value;
       final lowerChoice = question.choiceList
           .firstOrNull((_choice) => _choice.simple() == lowerAnswerChoice);
 
@@ -65,16 +64,16 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
       if (lowerChoice != null &&
           (lowerChoice.upperChoiceId != upperAnswerChoiceId ||
               clearAnswerQIdList.contains(question.upperQuestionId)) &&
-          !state.answerStatusMap[question.id]!.isSpecialAnswer) {
+          !state.answerStatusMap[questionId]!.isSpecialAnswer) {
         // S_2-1 清空該題作答、重置該題答題狀況
-        newAnswerStatusMap[question.id] =
-            newAnswerStatusMap[question.id]!.reset();
+        newAnswerStatusMap[questionId] =
+            newAnswerStatusMap[questionId]!.reset();
 
         // S_2-2 將該題 questionId 加入 changedUpperQIdList
-        changedUpperQIdList = changedUpperQIdList.plusElement(question.id);
+        changedUpperQIdList = changedUpperQIdList.plusElement(questionId);
 
         // S_2-3 將該題 questionId 加入 clearAnswerQIdList
-        clearAnswerQIdList = clearAnswerQIdList.plusElement(question.id);
+        clearAnswerQIdList = clearAnswerQIdList.plusElement(questionId);
       }
     }
   });
@@ -93,10 +92,10 @@ UpdateAnswerStatusState showQuestionCheckedRecodeJob(
   final newAnswerStatusMap = KtMutableMap.from(state.answerStatusMap.asMap());
 
   // S_ 在 mainAnswerStatusMap 隱藏的，也將 answerStatusMap 隱藏，其餘不變
-  state.questionList.forEach((question) {
-    if (state.mainAnswerStatusMap[question.id]!.isHidden) {
-      newAnswerStatusMap[question.id] =
-          newAnswerStatusMap[question.id]!.setHidden();
+  state.questionMap.forEach((questionId, question) {
+    if (state.mainAnswerStatusMap[questionId]!.isHidden) {
+      newAnswerStatusMap[questionId] =
+          newAnswerStatusMap[questionId]!.setHidden();
     }
   });
 
@@ -107,7 +106,7 @@ UpdateAnswerStatusState showQuestionCheckedRecodeJob(
 
 // H_ 判斷有設定題目出現條件的題目是否顯示
 UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
-  logger('Compute').i('ShowQuestionListChecked');
+  logger('Compute').i('showQuestionChecked');
 
   if (state.isRecodeModule) {
     return showQuestionCheckedRecodeJob(state);
@@ -118,11 +117,11 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
   KtList<String> clearAnswerQIdList = state.clearAnswerQIdList;
 
   // S_ 篩出有設定題目出現條件的題目
-  final showQuestionList =
-      state.questionList.filter((question) => !question.show.isEmpty);
+  final showQuestionMap =
+      state.questionMap.filter((e) => !e.value.show.isEmpty).toMap();
 
-  showQuestionList.forEach((question) {
-    AnswerStatus newAnswerStatus = newAnswerStatusMap[question.id]!;
+  showQuestionMap.forEach((questionId, question) {
+    AnswerStatus newAnswerStatus = newAnswerStatusMap[questionId]!;
     bool showQuestion;
 
     // S_1 判斷該題是否要出現
@@ -142,11 +141,11 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
       }
       // S_2-c2 過去顯示，現在要隱藏時，清空作答
     } else if (!showQuestion && !newAnswerStatus.isHidden) {
-      clearAnswerQIdList = clearAnswerQIdList.plusElement(question.id);
+      clearAnswerQIdList = clearAnswerQIdList.plusElement(questionId);
       newAnswerStatus = newAnswerStatus.setHidden();
     }
 
-    newAnswerStatusMap[question.id] = newAnswerStatus;
+    newAnswerStatusMap[questionId] = newAnswerStatus;
   });
 
   return state.copyWith(

@@ -201,8 +201,8 @@ enum SurveyPageUpdateType {
   empty,
   @JsonValue('page')
   page,
-  @JsonValue('contentQuestionList')
-  contentQuestionList,
+  @JsonValue('contentQuestionMap')
+  contentQuestionMap,
   @JsonValue('warning')
   warning,
 }

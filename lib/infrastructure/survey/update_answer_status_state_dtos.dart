@@ -15,7 +15,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
   const UpdateAnswerStatusStateDto._();
 
   const factory UpdateAnswerStatusStateDto({
-    required List<QuestionDto> questionList,
+    required Map<String, QuestionDto> questionMap,
     required bool isRecodeModule,
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
@@ -29,8 +29,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
   factory UpdateAnswerStatusStateDto.fromDomain(
       UpdateAnswerStatusState domain) {
     return UpdateAnswerStatusStateDto(
-      questionList:
-          domain.questionList.map((e) => QuestionDto.fromDomain(e)).asList(),
+      questionMap: domain.questionMap
+          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       isRecodeModule: domain.isRecodeModule,
       answerMap: domain.answerMap
           .mapValues((entry) => AnswerDto.fromDomain(entry.value))
@@ -50,7 +50,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
 
   UpdateAnswerStatusState toDomain() {
     return UpdateAnswerStatusState.initial().copyWith(
-      questionList: questionList.map((dto) => dto.toDomain()).toImmutableList(),
+      questionMap:
+          questionMap.map((key, value) => MapEntry(key, value.toDomain())),
       isRecodeModule: isRecodeModule,
       answerMap:
           KtMap.from(answerMap).mapValues((entry) => entry.value.toDomain()),

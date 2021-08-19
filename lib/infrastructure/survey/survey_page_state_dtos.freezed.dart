@@ -29,8 +29,8 @@ class _$SurveyPageStateDtoTearOff {
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
       required List<String> questionIdList,
-      required List<QuestionDto> pageQuestionList,
-      required List<QuestionDto> contentQuestionList,
+      required Map<String, QuestionDto> pageQuestionMap,
+      required Map<String, QuestionDto> contentQuestionMap,
       required String loadState,
       required String rebuildState,
       required String restoreState,
@@ -47,8 +47,8 @@ class _$SurveyPageStateDtoTearOff {
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       questionIdList: questionIdList,
-      pageQuestionList: pageQuestionList,
-      contentQuestionList: contentQuestionList,
+      pageQuestionMap: pageQuestionMap,
+      contentQuestionMap: contentQuestionMap,
       loadState: loadState,
       rebuildState: rebuildState,
       restoreState: restoreState,
@@ -78,8 +78,9 @@ mixin _$SurveyPageStateDto {
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
   List<String> get questionIdList => throw _privateConstructorUsedError;
-  List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
-  List<QuestionDto> get contentQuestionList =>
+  Map<String, QuestionDto> get pageQuestionMap =>
+      throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get contentQuestionMap =>
       throw _privateConstructorUsedError;
   String get loadState => throw _privateConstructorUsedError;
   String get rebuildState => throw _privateConstructorUsedError;
@@ -111,8 +112,8 @@ abstract class $SurveyPageStateDtoCopyWith<$Res> {
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       List<String> questionIdList,
-      List<QuestionDto> pageQuestionList,
-      List<QuestionDto> contentQuestionList,
+      Map<String, QuestionDto> pageQuestionMap,
+      Map<String, QuestionDto> contentQuestionMap,
       String loadState,
       String rebuildState,
       String restoreState,
@@ -143,8 +144,8 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? questionIdList = freezed,
-    Object? pageQuestionList = freezed,
-    Object? contentQuestionList = freezed,
+    Object? pageQuestionMap = freezed,
+    Object? contentQuestionMap = freezed,
     Object? loadState = freezed,
     Object? rebuildState = freezed,
     Object? restoreState = freezed,
@@ -186,14 +187,14 @@ class _$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      pageQuestionList: pageQuestionList == freezed
-          ? _value.pageQuestionList
-          : pageQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
-      contentQuestionList: contentQuestionList == freezed
-          ? _value.contentQuestionList
-          : contentQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      pageQuestionMap: pageQuestionMap == freezed
+          ? _value.pageQuestionMap
+          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
+      contentQuestionMap: contentQuestionMap == freezed
+          ? _value.contentQuestionMap
+          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
@@ -249,8 +250,8 @@ abstract class _$SurveyPageStateDtoCopyWith<$Res>
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       List<String> questionIdList,
-      List<QuestionDto> pageQuestionList,
-      List<QuestionDto> contentQuestionList,
+      Map<String, QuestionDto> pageQuestionMap,
+      Map<String, QuestionDto> contentQuestionMap,
       String loadState,
       String rebuildState,
       String restoreState,
@@ -284,8 +285,8 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? questionIdList = freezed,
-    Object? pageQuestionList = freezed,
-    Object? contentQuestionList = freezed,
+    Object? pageQuestionMap = freezed,
+    Object? contentQuestionMap = freezed,
     Object? loadState = freezed,
     Object? rebuildState = freezed,
     Object? restoreState = freezed,
@@ -327,14 +328,14 @@ class __$SurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      pageQuestionList: pageQuestionList == freezed
-          ? _value.pageQuestionList
-          : pageQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
-      contentQuestionList: contentQuestionList == freezed
-          ? _value.contentQuestionList
-          : contentQuestionList // ignore: cast_nullable_to_non_nullable
-              as List<QuestionDto>,
+      pageQuestionMap: pageQuestionMap == freezed
+          ? _value.pageQuestionMap
+          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
+      contentQuestionMap: contentQuestionMap == freezed
+          ? _value.contentQuestionMap
+          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, QuestionDto>,
       loadState: loadState == freezed
           ? _value.loadState
           : loadState // ignore: cast_nullable_to_non_nullable
@@ -379,8 +380,8 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       required this.answerMap,
       required this.answerStatusMap,
       required this.questionIdList,
-      required this.pageQuestionList,
-      required this.contentQuestionList,
+      required this.pageQuestionMap,
+      required this.contentQuestionMap,
       required this.loadState,
       required this.rebuildState,
       required this.restoreState,
@@ -410,9 +411,9 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
   @override
   final List<String> questionIdList;
   @override
-  final List<QuestionDto> pageQuestionList;
+  final Map<String, QuestionDto> pageQuestionMap;
   @override
-  final List<QuestionDto> contentQuestionList;
+  final Map<String, QuestionDto> contentQuestionMap;
   @override
   final String loadState;
   @override
@@ -430,7 +431,7 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
 
   @override
   String toString() {
-    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, pageQuestionList: $pageQuestionList, contentQuestionList: $contentQuestionList, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, isReadOnly: $isReadOnly, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
+    return 'SurveyPageStateDto(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, isReadOnly: $isReadOnly, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
   }
 
   @override
@@ -460,12 +461,12 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
             (identical(other.questionIdList, questionIdList) ||
                 const DeepCollectionEquality()
                     .equals(other.questionIdList, questionIdList)) &&
-            (identical(other.pageQuestionList, pageQuestionList) ||
+            (identical(other.pageQuestionMap, pageQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageQuestionList, pageQuestionList)) &&
-            (identical(other.contentQuestionList, contentQuestionList) ||
+                    .equals(other.pageQuestionMap, pageQuestionMap)) &&
+            (identical(other.contentQuestionMap, contentQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.contentQuestionList, contentQuestionList)) &&
+                    .equals(other.contentQuestionMap, contentQuestionMap)) &&
             (identical(other.loadState, loadState) ||
                 const DeepCollectionEquality()
                     .equals(other.loadState, loadState)) &&
@@ -500,8 +501,8 @@ class _$_SurveyPageStateDto extends _SurveyPageStateDto {
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(questionIdList) ^
-      const DeepCollectionEquality().hash(pageQuestionList) ^
-      const DeepCollectionEquality().hash(contentQuestionList) ^
+      const DeepCollectionEquality().hash(pageQuestionMap) ^
+      const DeepCollectionEquality().hash(contentQuestionMap) ^
       const DeepCollectionEquality().hash(loadState) ^
       const DeepCollectionEquality().hash(rebuildState) ^
       const DeepCollectionEquality().hash(restoreState) ^
@@ -531,8 +532,8 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
           required Map<String, AnswerDto> answerMap,
           required Map<String, AnswerStatusDto> answerStatusMap,
           required List<String> questionIdList,
-          required List<QuestionDto> pageQuestionList,
-          required List<QuestionDto> contentQuestionList,
+          required Map<String, QuestionDto> pageQuestionMap,
+          required Map<String, QuestionDto> contentQuestionMap,
           required String loadState,
           required String rebuildState,
           required String restoreState,
@@ -564,9 +565,10 @@ abstract class _SurveyPageStateDto extends SurveyPageStateDto {
   @override
   List<String> get questionIdList => throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get pageQuestionList => throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get pageQuestionMap =>
+      throw _privateConstructorUsedError;
   @override
-  List<QuestionDto> get contentQuestionList =>
+  Map<String, QuestionDto> get contentQuestionMap =>
       throw _privateConstructorUsedError;
   @override
   String get loadState => throw _privateConstructorUsedError;

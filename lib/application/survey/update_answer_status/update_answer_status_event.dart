@@ -4,7 +4,7 @@ part of 'update_answer_status_bloc.dart';
 class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   // H_ 進入問卷時載入必要 state
   const factory UpdateAnswerStatusEvent.moduleLoaded({
-    required KtList<Question> questionList,
+    required Map<String, Question> questionMap,
     required bool isRecodeModule,
     required KtMap<String, Answer> answerMap,
     required KtMap<String, AnswerStatus> answerStatusMap,
