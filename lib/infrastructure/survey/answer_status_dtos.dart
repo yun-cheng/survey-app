@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/survey/answer_status.dart';
 import '../../domain/survey/value_objects.dart';
@@ -17,12 +16,11 @@ class AnswerStatusDto with _$AnswerStatusDto {
     @Default({}) Map<String, String> noteMap,
   }) = _AnswerStatusDto;
 
-  factory AnswerStatusDto.fromDomain(AnswerStatus answerStatus) {
+  factory AnswerStatusDto.fromDomain(AnswerStatus domain) {
     return AnswerStatusDto(
-      answerStatusType: answerStatus.type.value,
-      isSpecialAnswer: answerStatus.isSpecialAnswer,
-      noteMap:
-          answerStatus.noteMap.mapValues((entry) => entry.value.value).asMap(),
+      answerStatusType: domain.type.value,
+      isSpecialAnswer: domain.isSpecialAnswer,
+      noteMap: domain.noteMap.map((key, value) => MapEntry(key, value.value)),
     );
   }
 
@@ -30,8 +28,8 @@ class AnswerStatusDto with _$AnswerStatusDto {
     return AnswerStatus(
       type: AnswerStatusType(answerStatusType),
       isSpecialAnswer: isSpecialAnswer,
-      noteMap: KtMutableMap.from(noteMap)
-          .mapValues((entry) => AnswerStatusType(entry.value)),
+      noteMap:
+          noteMap.map((key, value) => MapEntry(key, AnswerStatusType(value))),
     );
   }
 

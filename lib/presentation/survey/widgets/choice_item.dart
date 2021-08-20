@@ -80,7 +80,7 @@ class ChoiceItem extends HookWidget {
                 NoteBox(
                   questionId: questionId,
                   choice: choice,
-                  note: answer.value.noteMap?.getOrDefault(choice.id, '') ?? '',
+                  note: answer.value.noteMap?[choice] ?? '',
                   canEdit: canEdit,
                 ),
               ]

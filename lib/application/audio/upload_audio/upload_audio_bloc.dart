@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../../domain/audio/audio.dart';
 import '../../../domain/audio/audio_failure.dart';
@@ -30,10 +29,11 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
       audioAdded: (e) async* {
         logger('Event').i('UploadAudioBloc: audioAdded');
 
+        final audioMap = Map<UniqueId, Audio>.from(state.audioMap);
+        audioMap[e.audio.fileName] = e.audio;
+
         yield state.copyWith(
-          audioMap: (state.audioMap.toMutableMap()
-                ..put(e.audio.fileName, e.audio))
-              .toMap(),
+          audioMap: audioMap,
         );
 
         add(const UploadAudioEvent.audioUploading());
@@ -42,7 +42,7 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
         logger('Upload').i('UploadAudioBloc: audioUploading');
 
         await _uploadProgressWatcher?.cancel();
-        if (state.audioMap.isNotEmpty()) {
+        if (state.audioMap.isNotEmpty) {
           _uploadProgressWatcher =
               _iAudioRepository.uploadAudioMap(audioMap: state.audioMap).listen(
                     (failureOrAudio) =>
@@ -53,7 +53,7 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
       audioUploaded: (e) async* {
         logger('Event').i('UploadAudioBloc: audioUploaded');
 
-        final audioMap = state.audioMap.toMutableMap();
+        final audioMap = Map<UniqueId, Audio>.from(state.audioMap);
 
         yield e.failureOrAudio.fold(
           (f) => state.copyWith(
@@ -63,7 +63,7 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
           (audio) => state.copyWith(
             uploadState: LoadState.success(),
             audioFailure: none(),
-            audioMap: audioMap.minus(audio.fileName).toMap(),
+            audioMap: audioMap..remove(audio.fileName),
           ),
         );
       },

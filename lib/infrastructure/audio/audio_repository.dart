@@ -29,10 +29,10 @@ class AudioRepository implements IAudioRepository {
 
   @override
   Stream<Either<AudioFailure, Audio>> uploadAudioMap({
-    required KtMap<UniqueId, Audio> audioMap,
+    required Map<UniqueId, Audio> audioMap,
   }) async* {
-    for (final entry in audioMap.iter) {
-      yield await uploadAudio(audio: entry.value);
+    for (final audio in audioMap.values) {
+      yield await uploadAudio(audio: audio);
     }
   }
 

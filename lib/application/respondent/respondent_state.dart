@@ -26,14 +26,14 @@ class RespondentState with _$RespondentState {
         respondentListList: const KtList<RespondentList>.empty(),
         respondentList: const KtList<Respondent>.empty(),
         currentTab: TabType.start,
-        tabScrollPosition: TabTypeX.toImmutableMap()
-            .mapValues((_) => CardScrollPosition.empty()),
+        tabScrollPosition: TabTypeX.toMap()
+            .map((key, value) => MapEntry(key, CardScrollPosition.empty())),
         needToJump: false,
         jumpToIndex: 0,
         respondentFailure: none(),
         selectedRespondentId: '',
-        visitRecordsMap: const VisitRecordsMap.empty(),
-        tabRespondentsMap: const TabRespondentsMap.empty(),
+        visitRecordsMap: const {},
+        tabRespondentsMap: const {},
         responseInfoList: const KtList<Response>.empty(),
       );
 

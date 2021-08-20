@@ -553,7 +553,7 @@ class _$UploadAudioStateTearOff {
   const _$UploadAudioStateTearOff();
 
   _UploadAudioState call(
-      {required KtMap<UniqueId, Audio> audioMap,
+      {required Map<UniqueId, Audio> audioMap,
       required LoadState uploadState,
       required Option<AudioFailure> audioFailure}) {
     return _UploadAudioState(
@@ -569,7 +569,7 @@ const $UploadAudioState = _$UploadAudioStateTearOff();
 
 /// @nodoc
 mixin _$UploadAudioState {
-  KtMap<UniqueId, Audio> get audioMap => throw _privateConstructorUsedError;
+  Map<UniqueId, Audio> get audioMap => throw _privateConstructorUsedError;
   LoadState get uploadState => throw _privateConstructorUsedError;
   Option<AudioFailure> get audioFailure => throw _privateConstructorUsedError;
 
@@ -584,7 +584,7 @@ abstract class $UploadAudioStateCopyWith<$Res> {
           UploadAudioState value, $Res Function(UploadAudioState) then) =
       _$UploadAudioStateCopyWithImpl<$Res>;
   $Res call(
-      {KtMap<UniqueId, Audio> audioMap,
+      {Map<UniqueId, Audio> audioMap,
       LoadState uploadState,
       Option<AudioFailure> audioFailure});
 
@@ -610,7 +610,7 @@ class _$UploadAudioStateCopyWithImpl<$Res>
       audioMap: audioMap == freezed
           ? _value.audioMap
           : audioMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<UniqueId, Audio>,
+              as Map<UniqueId, Audio>,
       uploadState: uploadState == freezed
           ? _value.uploadState
           : uploadState // ignore: cast_nullable_to_non_nullable
@@ -638,7 +638,7 @@ abstract class _$UploadAudioStateCopyWith<$Res>
       __$UploadAudioStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {KtMap<UniqueId, Audio> audioMap,
+      {Map<UniqueId, Audio> audioMap,
       LoadState uploadState,
       Option<AudioFailure> audioFailure});
 
@@ -667,7 +667,7 @@ class __$UploadAudioStateCopyWithImpl<$Res>
       audioMap: audioMap == freezed
           ? _value.audioMap
           : audioMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<UniqueId, Audio>,
+              as Map<UniqueId, Audio>,
       uploadState: uploadState == freezed
           ? _value.uploadState
           : uploadState // ignore: cast_nullable_to_non_nullable
@@ -689,7 +689,7 @@ class _$_UploadAudioState implements _UploadAudioState {
       required this.audioFailure});
 
   @override
-  final KtMap<UniqueId, Audio> audioMap;
+  final Map<UniqueId, Audio> audioMap;
   @override
   final LoadState uploadState;
   @override
@@ -730,12 +730,12 @@ class _$_UploadAudioState implements _UploadAudioState {
 
 abstract class _UploadAudioState implements UploadAudioState {
   const factory _UploadAudioState(
-      {required KtMap<UniqueId, Audio> audioMap,
+      {required Map<UniqueId, Audio> audioMap,
       required LoadState uploadState,
       required Option<AudioFailure> audioFailure}) = _$_UploadAudioState;
 
   @override
-  KtMap<UniqueId, Audio> get audioMap => throw _privateConstructorUsedError;
+  Map<UniqueId, Audio> get audioMap => throw _privateConstructorUsedError;
   @override
   LoadState get uploadState => throw _privateConstructorUsedError;
   @override

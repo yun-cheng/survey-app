@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/audio/upload_audio/upload_audio_bloc.dart';
 import '../../domain/audio/audio_failure.dart';
@@ -23,9 +22,7 @@ class UploadAudioStateDto with _$UploadAudioStateDto {
   factory UploadAudioStateDto.fromDomain(UploadAudioState domain) {
     return UploadAudioStateDto(
       audioMap: domain.audioMap
-          .mapKeys((entry) => entry.key.value)
-          .mapValues((entry) => AudioDto.fromDomain(entry.value))
-          .asMap(),
+          .map((key, value) => MapEntry(key.value, AudioDto.fromDomain(value))),
       uploadState: domain.uploadState.value,
       audioFailure: domain.audioFailure.fold(() => null, (some) => some.value),
     );
@@ -33,9 +30,8 @@ class UploadAudioStateDto with _$UploadAudioStateDto {
 
   UploadAudioState toDomain() {
     return UploadAudioState(
-      audioMap: KtMap.from(audioMap)
-          .mapKeys((entry) => UniqueId(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
+      audioMap: audioMap
+          .map((key, value) => MapEntry(UniqueId(key), value.toDomain())),
       uploadState: LoadState(uploadState),
       audioFailure: optionOf(audioFailure).map((some) => AudioFailure(some)),
     );

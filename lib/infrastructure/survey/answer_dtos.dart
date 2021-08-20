@@ -34,7 +34,7 @@ class AnswerDto with _$AnswerDto {
       choiceListValue: domain.choiceListValue
           ?.map((choice) => SimpleChoiceDto.fromDomain(choice))
           .asList(),
-      noteMap: domain.noteMap?.asMap(),
+      noteMap: domain.noteMap,
     );
   }
 
@@ -47,7 +47,7 @@ class AnswerDto with _$AnswerDto {
       choiceValue: choiceValue?.toDomain(),
       choiceListValue:
           choiceListValue?.map((choice) => choice.toDomain()).toImmutableList(),
-      noteMap: noteMap != null ? KtMap.from(noteMap!) : null,
+      noteMap: noteMap,
     );
   }
 

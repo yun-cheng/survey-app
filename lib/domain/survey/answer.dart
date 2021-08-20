@@ -17,7 +17,7 @@ class Answer with _$Answer {
     int? intValue,
     SimpleChoice? choiceValue,
     KtList<SimpleChoice>? choiceListValue,
-    KtMap<String, String>? noteMap,
+    Map<String, String>? noteMap,
   }) = _Answer;
 
   // H_ 產生
@@ -125,7 +125,7 @@ class Answer with _$Answer {
   }
 
   String choiceToString(SimpleChoice choice) {
-    String? noteString = noteMap?.get(choice.id);
+    String? noteString = noteMap?[choice.id];
     noteString = noteString != null ? '：$noteString' : '';
     return '${choice.body}$noteString';
   }
@@ -189,14 +189,13 @@ class Answer with _$Answer {
       return this;
     }
 
-    final newNoteMap =
-        KtMutableMap<String, String>.from(noteMap?.asMap() ?? {});
+    final newNoteMap = Map<String, String>.from(noteMap ?? {});
 
-    newNoteMap.put(choiceId, '');
+    newNoteMap[choiceId] = '';
 
     return copyWith(
       withNote: true,
-      noteMap: newNoteMap.toMap(),
+      noteMap: newNoteMap,
     );
   }
 
@@ -209,14 +208,13 @@ class Answer with _$Answer {
       return this;
     }
 
-    final newNoteMap =
-        KtMutableMap<String, String>.from(noteMap?.asMap() ?? {});
+    final newNoteMap = Map<String, String>.from(noteMap ?? {});
 
     newNoteMap.remove(choiceId);
 
     return copyWith(
-      withNote: newNoteMap.isNotEmpty(),
-      noteMap: newNoteMap.isNotEmpty() ? newNoteMap.toMap() : null,
+      withNote: newNoteMap.isNotEmpty,
+      noteMap: newNoteMap.isNotEmpty ? newNoteMap : null,
     );
   }
 
@@ -272,11 +270,11 @@ class Answer with _$Answer {
 
   // H_ note 操作
   Answer setNote(String noteValue, String noteOf) {
-    final newNoteMap = KtMutableMap.from(noteMap!.asMap());
-    newNoteMap.put(noteOf, noteValue);
+    final newNoteMap = Map<String, String>.from(noteMap ?? {});
+    newNoteMap[noteOf] = noteValue;
 
     return copyWith(
-      noteMap: newNoteMap.toMap(),
+      noteMap: newNoteMap,
     );
   }
 

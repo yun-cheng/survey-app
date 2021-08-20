@@ -23,7 +23,7 @@ class _$AnswerTearOff {
       int? intValue,
       SimpleChoice? choiceValue,
       KtList<SimpleChoice>? choiceListValue,
-      KtMap<String, String>? noteMap}) {
+      Map<String, String>? noteMap}) {
     return _Answer(
       type: type,
       withNote: withNote,
@@ -48,7 +48,7 @@ mixin _$Answer {
   SimpleChoice? get choiceValue => throw _privateConstructorUsedError;
   KtList<SimpleChoice>? get choiceListValue =>
       throw _privateConstructorUsedError;
-  KtMap<String, String>? get noteMap => throw _privateConstructorUsedError;
+  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AnswerCopyWith<Answer> get copyWith => throw _privateConstructorUsedError;
@@ -65,7 +65,7 @@ abstract class $AnswerCopyWith<$Res> {
       int? intValue,
       SimpleChoice? choiceValue,
       KtList<SimpleChoice>? choiceListValue,
-      KtMap<String, String>? noteMap});
+      Map<String, String>? noteMap});
 
   $AnswerTypeCopyWith<$Res> get type;
   $SimpleChoiceCopyWith<$Res>? get choiceValue;
@@ -117,7 +117,7 @@ class _$AnswerCopyWithImpl<$Res> implements $AnswerCopyWith<$Res> {
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, String>?,
+              as Map<String, String>?,
     ));
   }
 
@@ -152,7 +152,7 @@ abstract class _$AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       int? intValue,
       SimpleChoice? choiceValue,
       KtList<SimpleChoice>? choiceListValue,
-      KtMap<String, String>? noteMap});
+      Map<String, String>? noteMap});
 
   @override
   $AnswerTypeCopyWith<$Res> get type;
@@ -207,7 +207,7 @@ class __$AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res>
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, String>?,
+              as Map<String, String>?,
     ));
   }
 }
@@ -238,7 +238,7 @@ class _$_Answer extends _Answer {
   @override
   final KtList<SimpleChoice>? choiceListValue;
   @override
-  final KtMap<String, String>? noteMap;
+  final Map<String, String>? noteMap;
 
   @override
   String toString() {
@@ -295,7 +295,7 @@ abstract class _Answer extends Answer {
       int? intValue,
       SimpleChoice? choiceValue,
       KtList<SimpleChoice>? choiceListValue,
-      KtMap<String, String>? noteMap}) = _$_Answer;
+      Map<String, String>? noteMap}) = _$_Answer;
   const _Answer._() : super._();
 
   @override
@@ -312,7 +312,7 @@ abstract class _Answer extends Answer {
   KtList<SimpleChoice>? get choiceListValue =>
       throw _privateConstructorUsedError;
   @override
-  KtMap<String, String>? get noteMap => throw _privateConstructorUsedError;
+  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$AnswerCopyWith<_Answer> get copyWith => throw _privateConstructorUsedError;

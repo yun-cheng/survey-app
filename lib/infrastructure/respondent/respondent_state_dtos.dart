@@ -47,22 +47,17 @@ class RespondentStateDto with _$RespondentStateDto {
           .map((e) => RespondentDto.fromDomain(e))
           .asList(),
       currentTab: domain.currentTab,
-      tabScrollPosition: domain.tabScrollPosition
-          .mapValues((e) => CardScrollPositionDto.fromDomain(e.value))
-          .asMap(),
+      tabScrollPosition: domain.tabScrollPosition.map((key, value) =>
+          MapEntry(key, CardScrollPositionDto.fromDomain(value))),
       needToJump: domain.needToJump,
       jumpToIndex: domain.jumpToIndex,
       selectedRespondentId: domain.selectedRespondentId,
       respondentFailure:
           domain.respondentFailure.fold(() => null, (some) => some.value),
-      visitRecordsMap: domain.visitRecordsMap
-          .mapValues((entry) =>
-              entry.value.map((e) => VisitRecordDto.fromDomain(e)).asList())
-          .asMap(),
-      tabRespondentsMap: domain.tabRespondentsMap
-          .mapValues((entry) =>
-              entry.value.map((e) => RespondentDto.fromDomain(e)).asList())
-          .asMap(),
+      visitRecordsMap: domain.visitRecordsMap.map((key, value) => MapEntry(
+          key, value.map((e) => VisitRecordDto.fromDomain(e)).asList())),
+      tabRespondentsMap: domain.tabRespondentsMap.map((key, value) => MapEntry(
+          key, value.map((e) => RespondentDto.fromDomain(e)).asList())),
       responseInfoList: domain.responseInfoList
           .map((e) => ResponseDto.fromDomain(e))
           .asList(),
@@ -78,17 +73,17 @@ class RespondentStateDto with _$RespondentStateDto {
       respondentList:
           respondentList.map((dto) => dto.toDomain()).toImmutableList(),
       currentTab: currentTab,
-      tabScrollPosition:
-          KtMap.from(tabScrollPosition).mapValues((e) => e.value.toDomain()),
+      tabScrollPosition: tabScrollPosition
+          .map((key, value) => MapEntry(key, value.toDomain())),
       needToJump: needToJump,
       jumpToIndex: jumpToIndex,
       selectedRespondentId: selectedRespondentId,
       respondentFailure:
           optionOf(respondentFailure).map((some) => RespondentFailure(some)),
-      visitRecordsMap: KtMap.from(visitRecordsMap).mapValues((entry) =>
-          entry.value.map((dto) => dto.toDomain()).toImmutableList()),
-      tabRespondentsMap: KtMap.from(tabRespondentsMap).mapValues((entry) =>
-          entry.value.map((dto) => dto.toDomain()).toImmutableList()),
+      visitRecordsMap: visitRecordsMap.map((key, value) =>
+          MapEntry(key, value.map((dto) => dto.toDomain()).toImmutableList())),
+      tabRespondentsMap: tabRespondentsMap.map((key, value) =>
+          MapEntry(key, value.map((dto) => dto.toDomain()).toImmutableList())),
       responseInfoList:
           responseInfoList.map((dto) => dto.toDomain()).toImmutableList(),
     );

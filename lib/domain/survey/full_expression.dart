@@ -5,7 +5,6 @@ import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
 import 'package:interviewer_quiz_flutter_app/domain/survey/expression.dart';
-import 'package:kt_dart/collection.dart';
 
 part 'full_expression.freezed.dart';
 
@@ -15,12 +14,12 @@ class FullExpression with _$FullExpression {
 
   const factory FullExpression({
     required String body,
-    required KtMap<String, Expression> expressionMap,
+    required Map<String, Expression> expressionMap,
   }) = _FullExpression;
 
   factory FullExpression.empty() => const FullExpression(
         body: '',
-        expressionMap: KtMap<String, Expression>.empty(),
+        expressionMap: <String, Expression>{},
       );
 
   bool get isEmpty => body == '';
@@ -36,22 +35,23 @@ class FullExpression with _$FullExpression {
     // NOTE 目標是將 (((A || B) && C) || D) 轉換成 true/false，
     //  其中 A、B、C、D 都代表著類似 (Q1 != 3) 的 expression
 
-    final newExpressionMap = KtMutableMap<String, bool>.empty();
+    late final Map<String, bool> newExpressionMap;
 
     // H_1 各個 expression 轉成 bool
     // S_c1 validateAnswer 使用
     if (answer != null) {
-      expressionMap.mapValuesTo(
-        newExpressionMap,
-        (entry) => entry.value.evaluate(answer: answer),
+      newExpressionMap = expressionMap.map(
+        (key, value) => MapEntry(key, value.evaluate(answer: answer)),
       );
       // S_c2 showQuestion 使用
     } else {
-      expressionMap.mapValuesTo(
-        newExpressionMap,
-        (entry) => entry.value.evaluate(
-          answer: answerMap![entry.value.field]!,
-          answerStatus: answerStatusMap?[entry.value.field],
+      newExpressionMap = expressionMap.map(
+        (key, value) => MapEntry(
+          key,
+          value.evaluate(
+            answer: answerMap![value.field]!,
+            answerStatus: answerStatusMap?[value.field],
+          ),
         ),
       );
     }

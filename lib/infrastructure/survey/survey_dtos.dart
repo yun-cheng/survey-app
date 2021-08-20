@@ -20,16 +20,14 @@ class SurveyDto with _$SurveyDto {
     required Map<String, SurveyModuleDto> module,
   }) = _SurveyDto;
 
-  factory SurveyDto.fromDomain(Survey survey) {
+  factory SurveyDto.fromDomain(Survey domain) {
     return SurveyDto(
-      surveyId: survey.id,
-      surveyName: survey.name,
-      teamId: survey.teamId,
-      projectId: survey.projectId,
-      module: survey.module
-          .mapKeys((entry) => entry.key.value)
-          .mapValues((entry) => SurveyModuleDto.fromDomain(entry.value))
-          .asMap(),
+      surveyId: domain.id,
+      surveyName: domain.name,
+      teamId: domain.teamId,
+      projectId: domain.projectId,
+      module: domain.module.map((key, value) =>
+          MapEntry(key.value, SurveyModuleDto.fromDomain(value))),
     );
   }
 
@@ -39,9 +37,8 @@ class SurveyDto with _$SurveyDto {
       name: surveyName,
       teamId: teamId,
       projectId: projectId,
-      module: KtMap.from(module)
-          .mapKeys((entry) => ModuleType(entry.key))
-          .mapValues((entry) => entry.value.toDomain()),
+      module: module
+          .map((key, value) => MapEntry(ModuleType(key), value.toDomain())),
     );
   }
 

@@ -116,7 +116,7 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
       .groupBy((r) => r.respondentId);
 
   return state.copyWith(
-    visitRecordsMap: visitRecordsMap.toMap(),
+    visitRecordsMap: visitRecordsMap.asMap(),
   );
 }
 
@@ -136,7 +136,7 @@ RespondentState tabRespondentsUpdated(
 RespondentState tabRespondentsUpdatedJob(RespondentState state) {
   logger('Compute').i('tabRespondentsUpdatedJob');
 
-  final tabRespondentsMap = TabRespondentsMMap.empty();
+  final TabRespondentsMap tabRespondentsMap = {};
 
   KtPair<KtList<Response>, KtList<Response>> pResponseList;
   KtPair<KtList<Respondent>, KtList<Respondent>> pRespondentList;
@@ -202,9 +202,8 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
   // S_4-1 剩下的就在訪問分頁
   tabRespondentsMap[TabType.start] = pRespondentList.second;
 
-  tabRespondentsMap.mapValuesTo(
-    tabRespondentsMap,
-    (e) => e.value
+  tabRespondentsMap.updateAll(
+    (key, value) => value
         .groupBy((r) => r.countyTown)
         .mapValues(
           (e1) => e1.value.mapIndexed(
@@ -222,7 +221,7 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
   );
 
   return state.copyWith(
-    tabRespondentsMap: tabRespondentsMap.toMap(),
+    tabRespondentsMap: tabRespondentsMap,
   );
 }
 
@@ -243,17 +242,16 @@ RespondentState pageScrolled(
       state.tabRespondentsMap[state.currentTab]!.getOrNull(0);
 
   if (firstRespondent != null) {
-    final tabScrollPosition = state.tabScrollPosition.toMutableMap();
-    tabScrollPosition.put(
-        e.tabType,
-        CardScrollPosition(
-          firstCardIndex: firstCardIndex,
-          firstCardAlignment: firstCardAlignment,
-          firstRespondent: firstRespondent,
-        ));
+    final TabScrollPosition tabScrollPosition =
+        Map.from(state.tabScrollPosition);
+    tabScrollPosition[e.tabType] = CardScrollPosition(
+      firstCardIndex: firstCardIndex,
+      firstCardAlignment: firstCardAlignment,
+      firstRespondent: firstRespondent,
+    );
 
     return state.copyWith(
-      tabScrollPosition: tabScrollPosition.toMap(),
+      tabScrollPosition: tabScrollPosition,
     );
   } else {
     return state;

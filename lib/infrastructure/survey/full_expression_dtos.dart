@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/survey/expression.dart';
 import '../../domain/survey/full_expression.dart';
@@ -18,20 +17,19 @@ class FullExpressionDto with _$FullExpressionDto {
     required Map<String, ExpressionDto> expressionMap,
   }) = _FullExpressionDto;
 
-  factory FullExpressionDto.fromDomain(FullExpression fullExpression) {
+  factory FullExpressionDto.fromDomain(FullExpression domain) {
     return FullExpressionDto(
-      fullExpressionBody: fullExpression.body,
-      expressionMap: fullExpression.expressionMap
-          .mapValues((entry) => ExpressionDto.fromDomain(entry.value))
-          .asMap(),
+      fullExpressionBody: domain.body,
+      expressionMap: domain.expressionMap
+          .map((key, value) => MapEntry(key, ExpressionDto.fromDomain(value))),
     );
   }
 
   FullExpression toDomain() {
     return FullExpression(
       body: fullExpressionBody,
-      expressionMap: KtMap.from(expressionMap)
-          .mapValues((entry) => entry.value.toDomain()),
+      expressionMap:
+          expressionMap.map((key, value) => MapEntry(key, value.toDomain())),
     );
   }
 

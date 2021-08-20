@@ -59,7 +59,7 @@ ResponseState responseRestored(ResponseState state) {
         .firstOrNull();
   }
 
-  final module = state.survey.module.get(state.moduleType)!;
+  final module = state.survey.module[state.moduleType]!;
 
   // S_2 若無篩出，則新創一個 response
 

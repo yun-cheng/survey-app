@@ -2357,13 +2357,13 @@ class _$RespondentStateTearOff {
       required Survey survey,
       required KtList<Respondent> respondentList,
       required TabType currentTab,
-      required KtMap<TabType, CardScrollPosition> tabScrollPosition,
+      required Map<TabType, CardScrollPosition> tabScrollPosition,
       required bool needToJump,
       required int jumpToIndex,
       required Option<RespondentFailure> respondentFailure,
       required String selectedRespondentId,
-      required KtMap<String, KtList<VisitRecord>> visitRecordsMap,
-      required KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      required Map<String, KtList<VisitRecord>> visitRecordsMap,
+      required Map<TabType, KtList<Respondent>> tabRespondentsMap,
       required KtList<Response> responseInfoList}) {
     return _RespondentState(
       respondentListListState: respondentListListState,
@@ -2394,16 +2394,16 @@ mixin _$RespondentState {
   Survey get survey => throw _privateConstructorUsedError;
   KtList<Respondent> get respondentList => throw _privateConstructorUsedError;
   TabType get currentTab => throw _privateConstructorUsedError;
-  KtMap<TabType, CardScrollPosition> get tabScrollPosition =>
+  Map<TabType, CardScrollPosition> get tabScrollPosition =>
       throw _privateConstructorUsedError;
   bool get needToJump => throw _privateConstructorUsedError;
   int get jumpToIndex => throw _privateConstructorUsedError;
   Option<RespondentFailure> get respondentFailure =>
       throw _privateConstructorUsedError;
   String get selectedRespondentId => throw _privateConstructorUsedError;
-  KtMap<String, KtList<VisitRecord>> get visitRecordsMap =>
+  Map<String, KtList<VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
-  KtMap<TabType, KtList<Respondent>> get tabRespondentsMap =>
+  Map<TabType, KtList<Respondent>> get tabRespondentsMap =>
       throw _privateConstructorUsedError;
   KtList<Response> get responseInfoList => throw _privateConstructorUsedError;
 
@@ -2423,13 +2423,13 @@ abstract class $RespondentStateCopyWith<$Res> {
       Survey survey,
       KtList<Respondent> respondentList,
       TabType currentTab,
-      KtMap<TabType, CardScrollPosition> tabScrollPosition,
+      Map<TabType, CardScrollPosition> tabScrollPosition,
       bool needToJump,
       int jumpToIndex,
       Option<RespondentFailure> respondentFailure,
       String selectedRespondentId,
-      KtMap<String, KtList<VisitRecord>> visitRecordsMap,
-      KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      Map<String, KtList<VisitRecord>> visitRecordsMap,
+      Map<TabType, KtList<Respondent>> tabRespondentsMap,
       KtList<Response> responseInfoList});
 
   $LoadStateCopyWith<$Res> get respondentListListState;
@@ -2485,7 +2485,7 @@ class _$RespondentStateCopyWithImpl<$Res>
       tabScrollPosition: tabScrollPosition == freezed
           ? _value.tabScrollPosition
           : tabScrollPosition // ignore: cast_nullable_to_non_nullable
-              as KtMap<TabType, CardScrollPosition>,
+              as Map<TabType, CardScrollPosition>,
       needToJump: needToJump == freezed
           ? _value.needToJump
           : needToJump // ignore: cast_nullable_to_non_nullable
@@ -2505,11 +2505,11 @@ class _$RespondentStateCopyWithImpl<$Res>
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, KtList<VisitRecord>>,
+              as Map<String, KtList<VisitRecord>>,
       tabRespondentsMap: tabRespondentsMap == freezed
           ? _value.tabRespondentsMap
           : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<TabType, KtList<Respondent>>,
+              as Map<TabType, KtList<Respondent>>,
       responseInfoList: responseInfoList == freezed
           ? _value.responseInfoList
           : responseInfoList // ignore: cast_nullable_to_non_nullable
@@ -2545,13 +2545,13 @@ abstract class _$RespondentStateCopyWith<$Res>
       Survey survey,
       KtList<Respondent> respondentList,
       TabType currentTab,
-      KtMap<TabType, CardScrollPosition> tabScrollPosition,
+      Map<TabType, CardScrollPosition> tabScrollPosition,
       bool needToJump,
       int jumpToIndex,
       Option<RespondentFailure> respondentFailure,
       String selectedRespondentId,
-      KtMap<String, KtList<VisitRecord>> visitRecordsMap,
-      KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      Map<String, KtList<VisitRecord>> visitRecordsMap,
+      Map<TabType, KtList<Respondent>> tabRespondentsMap,
       KtList<Response> responseInfoList});
 
   @override
@@ -2611,7 +2611,7 @@ class __$RespondentStateCopyWithImpl<$Res>
       tabScrollPosition: tabScrollPosition == freezed
           ? _value.tabScrollPosition
           : tabScrollPosition // ignore: cast_nullable_to_non_nullable
-              as KtMap<TabType, CardScrollPosition>,
+              as Map<TabType, CardScrollPosition>,
       needToJump: needToJump == freezed
           ? _value.needToJump
           : needToJump // ignore: cast_nullable_to_non_nullable
@@ -2631,11 +2631,11 @@ class __$RespondentStateCopyWithImpl<$Res>
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<String, KtList<VisitRecord>>,
+              as Map<String, KtList<VisitRecord>>,
       tabRespondentsMap: tabRespondentsMap == freezed
           ? _value.tabRespondentsMap
           : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
-              as KtMap<TabType, KtList<Respondent>>,
+              as Map<TabType, KtList<Respondent>>,
       responseInfoList: responseInfoList == freezed
           ? _value.responseInfoList
           : responseInfoList // ignore: cast_nullable_to_non_nullable
@@ -2674,7 +2674,7 @@ class _$_RespondentState extends _RespondentState with DiagnosticableTreeMixin {
   @override
   final TabType currentTab;
   @override
-  final KtMap<TabType, CardScrollPosition> tabScrollPosition;
+  final Map<TabType, CardScrollPosition> tabScrollPosition;
   @override
   final bool needToJump;
   @override
@@ -2684,9 +2684,9 @@ class _$_RespondentState extends _RespondentState with DiagnosticableTreeMixin {
   @override
   final String selectedRespondentId;
   @override
-  final KtMap<String, KtList<VisitRecord>> visitRecordsMap;
+  final Map<String, KtList<VisitRecord>> visitRecordsMap;
   @override
-  final KtMap<TabType, KtList<Respondent>> tabRespondentsMap;
+  final Map<TabType, KtList<Respondent>> tabRespondentsMap;
   @override
   final KtList<Response> responseInfoList;
 
@@ -2791,13 +2791,13 @@ abstract class _RespondentState extends RespondentState {
       required Survey survey,
       required KtList<Respondent> respondentList,
       required TabType currentTab,
-      required KtMap<TabType, CardScrollPosition> tabScrollPosition,
+      required Map<TabType, CardScrollPosition> tabScrollPosition,
       required bool needToJump,
       required int jumpToIndex,
       required Option<RespondentFailure> respondentFailure,
       required String selectedRespondentId,
-      required KtMap<String, KtList<VisitRecord>> visitRecordsMap,
-      required KtMap<TabType, KtList<Respondent>> tabRespondentsMap,
+      required Map<String, KtList<VisitRecord>> visitRecordsMap,
+      required Map<TabType, KtList<Respondent>> tabRespondentsMap,
       required KtList<Response> responseInfoList}) = _$_RespondentState;
   const _RespondentState._() : super._();
 
@@ -2813,7 +2813,7 @@ abstract class _RespondentState extends RespondentState {
   @override
   TabType get currentTab => throw _privateConstructorUsedError;
   @override
-  KtMap<TabType, CardScrollPosition> get tabScrollPosition =>
+  Map<TabType, CardScrollPosition> get tabScrollPosition =>
       throw _privateConstructorUsedError;
   @override
   bool get needToJump => throw _privateConstructorUsedError;
@@ -2825,10 +2825,10 @@ abstract class _RespondentState extends RespondentState {
   @override
   String get selectedRespondentId => throw _privateConstructorUsedError;
   @override
-  KtMap<String, KtList<VisitRecord>> get visitRecordsMap =>
+  Map<String, KtList<VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
   @override
-  KtMap<TabType, KtList<Respondent>> get tabRespondentsMap =>
+  Map<TabType, KtList<Respondent>> get tabRespondentsMap =>
       throw _privateConstructorUsedError;
   @override
   KtList<Response> get responseInfoList => throw _privateConstructorUsedError;

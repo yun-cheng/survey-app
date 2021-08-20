@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'answer.dart';
 import 'full_expression.dart';
@@ -16,13 +15,13 @@ class AnswerStatus with _$AnswerStatus {
   const factory AnswerStatus({
     required AnswerStatusType type,
     required bool isSpecialAnswer,
-    required KtMap<String, AnswerStatusType> noteMap,
+    required Map<String, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
   factory AnswerStatus.empty() => AnswerStatus(
         type: AnswerStatusType.empty(),
         isSpecialAnswer: false,
-        noteMap: const KtMap<String, AnswerStatusType>.empty(),
+        noteMap: const <String, AnswerStatusType>{},
       );
 
   // H_ 直接改變狀態
@@ -41,7 +40,7 @@ class AnswerStatus with _$AnswerStatus {
   AnswerStatus reset() => AnswerStatus(
         type: AnswerStatusType.unanswered(),
         isSpecialAnswer: false,
-        noteMap: const KtMap<String, AnswerStatusType>.empty(),
+        noteMap: const <String, AnswerStatusType>{},
       );
 
   // H_ 更新狀態
@@ -85,17 +84,14 @@ class AnswerStatus with _$AnswerStatus {
   }
 
   AnswerStatus updateNoteMap(Answer answer) {
-    final newNoteMap = KtMutableMap<String, AnswerStatusType>.empty();
+    final newNoteMap = <String, AnswerStatusType>{};
     if (answer.withNote) {
       answer.noteMap!.forEach((choiceId, note) {
-        newNoteMap.put(
-          choiceId,
-          AnswerStatusType.fromString(note),
-        );
+        newNoteMap[choiceId] = AnswerStatusType.fromString(note);
       });
     }
     return copyWith(
-      noteMap: newNoteMap.toMap(),
+      noteMap: newNoteMap,
     );
   }
 
@@ -122,23 +118,12 @@ class AnswerStatus with _$AnswerStatus {
   AnswerStatus switchSpecialAnswer() => AnswerStatus(
         type: AnswerStatusType.unanswered(),
         isSpecialAnswer: !isSpecialAnswer,
-        noteMap: const KtMap<String, AnswerStatusType>.empty(),
+        noteMap: const <String, AnswerStatusType>{},
       );
 
   // H_ 取得狀態
-  bool get noteIsAnswered {
-    return noteMap.all((_, value) => value.isCompleted);
-  }
-
-  bool get isAnswered {
-    return type.isAnswered && noteIsAnswered;
-  }
-
-  bool get isHidden {
-    return type.isHidden;
-  }
-
-  bool get isCompleted {
-    return isAnswered || isHidden;
-  }
+  bool get noteIsAnswered => noteMap.entries.every((e) => e.value.isCompleted);
+  bool get isAnswered => type.isAnswered && noteIsAnswered;
+  bool get isHidden => type.isHidden;
+  bool get isCompleted => isAnswered || isHidden;
 }

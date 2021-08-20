@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../survey/survey_module.dart';
 import '../survey/value_objects.dart';
@@ -15,7 +14,7 @@ class Survey with _$Survey {
     required String name,
     required String teamId,
     required String projectId,
-    required KtMap<ModuleType, SurveyModule> module,
+    required Map<ModuleType, SurveyModule> module,
   }) = _Survey;
 
   factory Survey.empty() => const Survey(
@@ -23,7 +22,7 @@ class Survey with _$Survey {
         name: '',
         teamId: '',
         projectId: '',
-        module: KtMap<ModuleType, SurveyModule>.empty(),
+        module: <ModuleType, SurveyModule>{},
       );
 
   // NOTE 避免 print 太多東西出來

@@ -21,7 +21,7 @@ class _$SurveyTearOff {
       required String name,
       required String teamId,
       required String projectId,
-      required KtMap<ModuleType, SurveyModule> module}) {
+      required Map<ModuleType, SurveyModule> module}) {
     return _Survey(
       id: id,
       name: name,
@@ -41,7 +41,7 @@ mixin _$Survey {
   String get name => throw _privateConstructorUsedError;
   String get teamId => throw _privateConstructorUsedError;
   String get projectId => throw _privateConstructorUsedError;
-  KtMap<ModuleType, SurveyModule> get module =>
+  Map<ModuleType, SurveyModule> get module =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -57,7 +57,7 @@ abstract class $SurveyCopyWith<$Res> {
       String name,
       String teamId,
       String projectId,
-      KtMap<ModuleType, SurveyModule> module});
+      Map<ModuleType, SurveyModule> module});
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
-              as KtMap<ModuleType, SurveyModule>,
+              as Map<ModuleType, SurveyModule>,
     ));
   }
 }
@@ -111,7 +111,7 @@ abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
       String name,
       String teamId,
       String projectId,
-      KtMap<ModuleType, SurveyModule> module});
+      Map<ModuleType, SurveyModule> module});
 }
 
 /// @nodoc
@@ -151,7 +151,7 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
-              as KtMap<ModuleType, SurveyModule>,
+              as Map<ModuleType, SurveyModule>,
     ));
   }
 }
@@ -176,7 +176,7 @@ class _$_Survey extends _Survey {
   @override
   final String projectId;
   @override
-  final KtMap<ModuleType, SurveyModule> module;
+  final Map<ModuleType, SurveyModule> module;
 
   @override
   bool operator ==(dynamic other) {
@@ -216,7 +216,7 @@ abstract class _Survey extends Survey {
       required String name,
       required String teamId,
       required String projectId,
-      required KtMap<ModuleType, SurveyModule> module}) = _$_Survey;
+      required Map<ModuleType, SurveyModule> module}) = _$_Survey;
   const _Survey._() : super._();
 
   @override
@@ -228,7 +228,7 @@ abstract class _Survey extends Survey {
   @override
   String get projectId => throw _privateConstructorUsedError;
   @override
-  KtMap<ModuleType, SurveyModule> get module =>
+  Map<ModuleType, SurveyModule> get module =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

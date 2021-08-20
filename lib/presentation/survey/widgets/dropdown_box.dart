@@ -148,8 +148,7 @@ class DropdownBox extends StatelessWidget {
               NoteBox(
                 questionId: questionId,
                 choice: selectedChoice,
-                note: thisAnswer.noteMap?.getOrDefault(selectedChoice.id, '') ??
-                    '',
+                note: thisAnswer.noteMap?[selectedChoice.id] ?? '',
                 canEdit: canEdit,
               ),
             ]

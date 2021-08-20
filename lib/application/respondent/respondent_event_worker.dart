@@ -66,26 +66,25 @@ void _respondentEventWorker(
 
       final currentTab = TabType.values[e.index];
       Respondent? firstRespondent;
-      final tabScrollPosition = state.tabScrollPosition.toMutableMap();
+      final TabScrollPosition tabScrollPosition =
+          Map.from(state.tabScrollPosition);
 
       if (state.tabScrollPosition[currentTab]!.firstRespondent ==
           Respondent.empty()) {
         firstRespondent = state.tabRespondentsMap[currentTab]!.getOrNull(0);
 
         if (firstRespondent != null) {
-          tabScrollPosition.put(
-              currentTab,
-              CardScrollPosition(
-                firstCardIndex: 0,
-                firstCardAlignment: 0.0,
-                firstRespondent: firstRespondent,
-              ));
+          tabScrollPosition[currentTab] = CardScrollPosition(
+            firstCardIndex: 0,
+            firstCardAlignment: 0.0,
+            firstRespondent: firstRespondent,
+          );
         }
       }
       state = state
           .copyWith(
             currentTab: currentTab,
-            tabScrollPosition: tabScrollPosition.toMap(),
+            tabScrollPosition: tabScrollPosition,
           )
           .send(channel);
     },
