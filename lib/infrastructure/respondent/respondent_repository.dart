@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
+import 'package:supercharged_dart/supercharged_dart.dart';
 
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/respondent/respondent_failure.dart';
-import '../../domain/respondent/respondent_list.dart';
+import '../../domain/respondent/typedefs.dart';
 import '../core/firestore_helpers.dart';
-import 'respondent_list_dtos.dart';
+import 'respondent_dtos.dart';
 
 @LazySingleton(as: IRespondentRepository)
 class RespondentRepository implements IRespondentRepository {
@@ -17,8 +17,8 @@ class RespondentRepository implements IRespondentRepository {
   RespondentRepository(this._firestore);
 
   @override
-  Stream<Either<RespondentFailure, KtList<RespondentList>>>
-      watchRespondentListList({
+  Stream<Either<RespondentFailure, SurveyRespondentMap>>
+      watchSurveyRespondentMap({
     required String teamId,
     required String interviewerId,
   }) async* {
@@ -28,14 +28,19 @@ class RespondentRepository implements IRespondentRepository {
         .where('teamId', isEqualTo: teamId)
         .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
-        .map((snapshot) => right<RespondentFailure, KtList<RespondentList>>(
-            RespondentListListDto.fromFirestore(snapshot).toDomain()))
-        .onErrorReturnWith((e, stackTrace) {
+        .map((snapshot) {
+      final map = snapshot.docs
+          .map((doc) => SurveyRespondentMapDocDto.fromJson(
+                  doc.data()! as Map<String, dynamic>)
+              .toDomain())
+          .toMap();
+
+      return right<RespondentFailure, SurveyRespondentMap>(map);
+    }).onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(RespondentFailure.insufficientPermission());
-      } else {
-        return left(RespondentFailure.unexpected());
       }
+      return left(RespondentFailure.unexpected());
     });
   }
 }

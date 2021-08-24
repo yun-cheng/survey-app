@@ -25,7 +25,7 @@ class _$WatchSurveyEventTearOff {
   }
 
   _SurveyListReceived surveyListReceived(
-      Either<SurveyFailure, KtList<Survey>> failureOrSurveyList) {
+      Either<SurveyFailure, List<Survey>> failureOrSurveyList) {
     return _SurveyListReceived(
       failureOrSurveyList,
     );
@@ -52,7 +52,7 @@ mixin _$WatchSurveyEvent {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
+            Either<SurveyFailure, List<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
@@ -62,7 +62,7 @@ mixin _$WatchSurveyEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
-    TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
@@ -188,7 +188,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
+            Either<SurveyFailure, List<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
@@ -201,7 +201,7 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
-    TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
@@ -258,7 +258,7 @@ abstract class _$SurveyListReceivedCopyWith<$Res> {
   factory _$SurveyListReceivedCopyWith(
           _SurveyListReceived value, $Res Function(_SurveyListReceived) then) =
       __$SurveyListReceivedCopyWithImpl<$Res>;
-  $Res call({Either<SurveyFailure, KtList<Survey>> failureOrSurveyList});
+  $Res call({Either<SurveyFailure, List<Survey>> failureOrSurveyList});
 }
 
 /// @nodoc
@@ -280,7 +280,7 @@ class __$SurveyListReceivedCopyWithImpl<$Res>
       failureOrSurveyList == freezed
           ? _value.failureOrSurveyList
           : failureOrSurveyList // ignore: cast_nullable_to_non_nullable
-              as Either<SurveyFailure, KtList<Survey>>,
+              as Either<SurveyFailure, List<Survey>>,
     ));
   }
 }
@@ -291,7 +291,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
   const _$_SurveyListReceived(this.failureOrSurveyList);
 
   @override
-  final Either<SurveyFailure, KtList<Survey>> failureOrSurveyList;
+  final Either<SurveyFailure, List<Survey>> failureOrSurveyList;
 
   @override
   String toString() {
@@ -323,7 +323,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
+            Either<SurveyFailure, List<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
@@ -336,7 +336,7 @@ class _$_SurveyListReceived implements _SurveyListReceived {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
-    TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
@@ -378,10 +378,10 @@ class _$_SurveyListReceived implements _SurveyListReceived {
 
 abstract class _SurveyListReceived implements WatchSurveyEvent {
   const factory _SurveyListReceived(
-          Either<SurveyFailure, KtList<Survey>> failureOrSurveyList) =
+          Either<SurveyFailure, List<Survey>> failureOrSurveyList) =
       _$_SurveyListReceived;
 
-  Either<SurveyFailure, KtList<Survey>> get failureOrSurveyList =>
+  Either<SurveyFailure, List<Survey>> get failureOrSurveyList =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$SurveyListReceivedCopyWith<_SurveyListReceived> get copyWith =>
@@ -465,7 +465,7 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
+            Either<SurveyFailure, List<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
@@ -478,7 +478,7 @@ class _$_SurveySelected implements _SurveySelected {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
-    TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
@@ -569,7 +569,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(String teamId, String interviewerId)
         watchSurveyListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)
+            Either<SurveyFailure, List<Survey>> failureOrSurveyList)
         surveyListReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
@@ -582,7 +582,7 @@ class _$_LoggedOut implements _LoggedOut {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
-    TResult Function(Either<SurveyFailure, KtList<Survey>> failureOrSurveyList)?
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
         surveyListReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
@@ -632,7 +632,7 @@ class _$WatchSurveyStateTearOff {
 
   _SurveyState call(
       {required LoadState surveyListState,
-      required KtList<Survey> surveyList,
+      required List<Survey> surveyList,
       required Survey survey,
       required Option<SurveyFailure> surveyFailure}) {
     return _SurveyState(
@@ -650,7 +650,7 @@ const $WatchSurveyState = _$WatchSurveyStateTearOff();
 /// @nodoc
 mixin _$WatchSurveyState {
   LoadState get surveyListState => throw _privateConstructorUsedError;
-  KtList<Survey> get surveyList => throw _privateConstructorUsedError;
+  List<Survey> get surveyList => throw _privateConstructorUsedError;
   Survey get survey => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
 
@@ -666,7 +666,7 @@ abstract class $WatchSurveyStateCopyWith<$Res> {
       _$WatchSurveyStateCopyWithImpl<$Res>;
   $Res call(
       {LoadState surveyListState,
-      KtList<Survey> surveyList,
+      List<Survey> surveyList,
       Survey survey,
       Option<SurveyFailure> surveyFailure});
 
@@ -698,7 +698,7 @@ class _$WatchSurveyStateCopyWithImpl<$Res>
       surveyList: surveyList == freezed
           ? _value.surveyList
           : surveyList // ignore: cast_nullable_to_non_nullable
-              as KtList<Survey>,
+              as List<Survey>,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -734,7 +734,7 @@ abstract class _$SurveyStateCopyWith<$Res>
   @override
   $Res call(
       {LoadState surveyListState,
-      KtList<Survey> surveyList,
+      List<Survey> surveyList,
       Survey survey,
       Option<SurveyFailure> surveyFailure});
 
@@ -770,7 +770,7 @@ class __$SurveyStateCopyWithImpl<$Res>
       surveyList: surveyList == freezed
           ? _value.surveyList
           : surveyList // ignore: cast_nullable_to_non_nullable
-              as KtList<Survey>,
+              as List<Survey>,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -795,7 +795,7 @@ class _$_SurveyState implements _SurveyState {
   @override
   final LoadState surveyListState;
   @override
-  final KtList<Survey> surveyList;
+  final List<Survey> surveyList;
   @override
   final Survey survey;
   @override
@@ -840,14 +840,14 @@ class _$_SurveyState implements _SurveyState {
 abstract class _SurveyState implements WatchSurveyState {
   const factory _SurveyState(
       {required LoadState surveyListState,
-      required KtList<Survey> surveyList,
+      required List<Survey> surveyList,
       required Survey survey,
       required Option<SurveyFailure> surveyFailure}) = _$_SurveyState;
 
   @override
   LoadState get surveyListState => throw _privateConstructorUsedError;
   @override
-  KtList<Survey> get surveyList => throw _privateConstructorUsedError;
+  List<Survey> get surveyList => throw _privateConstructorUsedError;
   @override
   Survey get survey => throw _privateConstructorUsedError;
   @override

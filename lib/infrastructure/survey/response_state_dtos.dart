@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/response/response_bloc.dart';
 import '../../domain/core/value_objects.dart';
@@ -21,13 +20,13 @@ class ResponseStateDto with _$ResponseStateDto {
   const ResponseStateDto._();
 
   const factory ResponseStateDto({
-    // NOTE downloadedResponseList 不須儲存
+    // NOTE downloadedResponseMap 不須儲存
     required SurveyDto survey,
     required RespondentDto respondent,
     required InterviewerDto interviewer,
     required String moduleType,
-    required String responseListState,
-    required List<ResponseDto> responseList,
+    required String responseMapState,
+    required ResponseMapDto responseMap,
     String? responseFailure,
     required ResponseDto response,
     required String responseRestoreState,
@@ -36,10 +35,11 @@ class ResponseStateDto with _$ResponseStateDto {
     required bool breakInterview,
     required String responseId,
     required ResponseDto mainResponse,
-    required List<ResponseDto> respondentResponseList,
+    required Map<String, ResponseDto> respondentResponseMap,
+    required bool updateRespondentResponseMap,
     required String updateState,
     required bool updateVisitReportsMap,
-    required bool updateTabRespondentsMap,
+    required bool updateTabRespondentMap,
     required List<ReferenceDto> referenceList,
   }) = _ResponseStateDto;
 
@@ -49,9 +49,8 @@ class ResponseStateDto with _$ResponseStateDto {
       respondent: RespondentDto.fromDomain(domain.respondent),
       interviewer: InterviewerDto.fromDomain(domain.interviewer),
       moduleType: domain.moduleType.value,
-      responseListState: domain.responseListState.value,
-      responseList:
-          domain.responseList.map((e) => ResponseDto.fromDomain(e)).asList(),
+      responseMapState: domain.responseMapState.value,
+      responseMap: ResponseMapDto.fromDomain(domain.responseMap),
       responseFailure:
           domain.responseFailure.fold(() => null, (some) => some.value),
       response: ResponseDto.fromDomain(domain.response),
@@ -62,14 +61,14 @@ class ResponseStateDto with _$ResponseStateDto {
       breakInterview: domain.breakInterview,
       responseId: domain.responseId.value,
       mainResponse: ResponseDto.fromDomain(domain.mainResponse),
-      respondentResponseList: domain.respondentResponseList
-          .map((e) => ResponseDto.fromDomain(e))
-          .asList(),
+      respondentResponseMap: domain.respondentResponseMap.map(
+          (key, value) => MapEntry(key.value, ResponseDto.fromDomain(value))),
+      updateRespondentResponseMap: domain.updateRespondentResponseMap,
       updateState: domain.updateState.value,
       updateVisitReportsMap: domain.updateVisitReportsMap,
-      updateTabRespondentsMap: domain.updateTabRespondentsMap,
+      updateTabRespondentMap: domain.updateTabRespondentMap,
       referenceList:
-          domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).asList(),
+          domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).toList(),
     );
   }
 
@@ -79,8 +78,8 @@ class ResponseStateDto with _$ResponseStateDto {
       respondent: respondent.toDomain(),
       interviewer: interviewer.toDomain(),
       moduleType: ModuleType(moduleType),
-      responseListState: LoadState(responseListState),
-      responseList: responseList.map((dto) => dto.toDomain()).toImmutableList(),
+      responseMapState: LoadState(responseMapState),
+      responseMap: responseMap.toDomain(),
       responseFailure:
           optionOf(responseFailure).map((some) => SurveyFailure(some)),
       response: response.toDomain(),
@@ -91,13 +90,13 @@ class ResponseStateDto with _$ResponseStateDto {
       breakInterview: breakInterview,
       responseId: UniqueId(responseId),
       mainResponse: mainResponse.toDomain(),
-      respondentResponseList:
-          respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
+      respondentResponseMap: respondentResponseMap
+          .map((key, value) => MapEntry(ModuleType(key), value.toDomain())),
+      updateRespondentResponseMap: updateRespondentResponseMap,
       updateState: LoadState(updateState),
       updateVisitReportsMap: updateVisitReportsMap,
-      updateTabRespondentsMap: updateTabRespondentsMap,
-      referenceList:
-          referenceList.map((dto) => dto.toDomain()).toImmutableList(),
+      updateTabRespondentMap: updateTabRespondentMap,
+      referenceList: referenceList.map((dto) => dto.toDomain()).toList(),
     );
   }
 

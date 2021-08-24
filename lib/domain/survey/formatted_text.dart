@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'answer.dart';
 import 'reference.dart';
@@ -28,8 +27,8 @@ class FormattedText with _$FormattedText {
       );
 
   FormattedText getAnswer({
-    required KtList<Reference> referenceList,
-    required KtList<Response> responseList,
+    required List<Reference> referenceList,
+    required Map<ModuleType, Response> respondentResponseMap,
     required String surveyId,
     required ModuleType moduleType,
     required Map<String, Answer> answerMap,
@@ -41,16 +40,10 @@ class FormattedText with _$FormattedText {
           referenceKey.moduleType == moduleType) {
         newAnswer = answerMap[referenceKey.questionId];
       } else {
-        newAnswer = responseList
-                .firstOrNull(
-                  (r) =>
-                      r.respondentId == respondentId &&
-                      r.surveyId == referenceKey.surveyId &&
-                      r.moduleType == referenceKey.moduleType,
-                )
+        newAnswer = respondentResponseMap[referenceKey.moduleType]
                 ?.answerMap[referenceKey.questionId] ??
             referenceList
-                .firstOrNull(
+                .firstWhereOrNull(
                   (r) =>
                       r.respondentId == respondentId &&
                       r.surveyId == referenceKey.surveyId &&

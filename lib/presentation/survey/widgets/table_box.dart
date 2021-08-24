@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/core/iterable_extensions.dart';
-import "package:kt_dart/collection.dart";
 import 'package:supercharged/supercharged.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../../infrastructure/core/extensions.dart';
 import '../../core/constants.dart';
 import 'choices_row.dart';
 import 'complex_cell_box.dart';
@@ -31,12 +30,15 @@ class TableBox extends StatelessWidget {
     final pageQuestionMap =
         context.read<SurveyPageBloc>().state.pageQuestionMap;
 
-    final tableQuestionList = pageQuestionMap.values.filter(
-        (question) => question.tableId == tableId && !question.type.isTable);
+    final tableQuestionList = pageQuestionMap.values
+        .filter(
+            (question) => question.tableId == tableId && !question.type.isTable)
+        .toList();
 
     List<Widget> createSimpleTableRows() {
       final choiceList = tableQuestionList.first.initChoiceList
-          .filter((choice) => !choice.isSpecialAnswer);
+          .filter((choice) => !choice.isSpecialAnswer)
+          .toList();
 
       // S_ titleRow
       final titleRow = choiceList
@@ -50,7 +52,7 @@ class TableBox extends StatelessWidget {
               ),
             ),
           )
-          .asList();
+          .toList();
 
       // S_ ChoicesRows
       final choicesRows = tableQuestionList

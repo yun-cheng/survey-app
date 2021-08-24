@@ -8,12 +8,12 @@ class WatchSurveyEvent with _$WatchSurveyEvent {
   }) = _WatchSurveyListStarted;
 
   const factory WatchSurveyEvent.surveyListReceived(
-    Either<SurveyFailure, KtList<Survey>> failureOrSurveyList,
+    Either<SurveyFailure, List<Survey>> failureOrSurveyList,
   ) = _SurveyListReceived;
 
   const factory WatchSurveyEvent.surveySelected({
     required Survey survey,
   }) = _SurveySelected;
 
-    const factory WatchSurveyEvent.loggedOut() = _LoggedOut;
+  const factory WatchSurveyEvent.loggedOut() = _LoggedOut;
 }

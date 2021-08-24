@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../domain/core/value_objects.dart';
@@ -46,7 +45,7 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
           .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       answerStatusMap: domain.answerStatusMap.map(
           (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
-      questionIdList: domain.questionIdList.asList(),
+      questionIdList: domain.questionIdList,
       pageQuestionMap: domain.pageQuestionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       contentQuestionMap: domain.contentQuestionMap
@@ -73,7 +72,7 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       answerStatusMap:
           answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
-      questionIdList: questionIdList.toImmutableList(),
+      questionIdList: questionIdList,
       pageQuestionMap:
           pageQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
       contentQuestionMap: contentQuestionMap

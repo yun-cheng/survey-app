@@ -2,15 +2,14 @@ part of 'respondent_bloc.dart';
 
 @freezed
 class RespondentEvent with _$RespondentEvent {
-  const factory RespondentEvent.watchRespondentListListStarted({
+  const factory RespondentEvent.watchSurveyRespondentMapStarted({
     required String teamId,
     required String interviewerId,
-  }) = _WatchRespondentListListStarted;
+  }) = _WatchSurveyRespondentMapStarted;
 
-  const factory RespondentEvent.respondentListListReceived(
-    Either<RespondentFailure, KtList<RespondentList>>
-        failureOrRespondentListList,
-  ) = _RespondentListListReceived;
+  const factory RespondentEvent.surveyRespondentMapReceived(
+    Either<RespondentFailure, SurveyRespondentMap> failureOrSurveyRespondentMap,
+  ) = _SurveyRespondentMapReceived;
 
   // H_ 使用者選擇問卷
   const factory RespondentEvent.surveySelected({
@@ -43,12 +42,12 @@ class RespondentEvent with _$RespondentEvent {
 
   // H_ 查址紀錄更新時
   const factory RespondentEvent.visitReportUpdated({
-    required KtList<Response> responseList,
+    required ResponseMap responseMap,
   }) = _VisitReportUpdated;
 
   // H_ 分頁受訪者名單更新時
   const factory RespondentEvent.tabRespondentsUpdated({
-    required KtList<Response> responseList,
+    required ResponseMap responseMap,
   }) = _TabRespondentsUpdated;
 
   const factory RespondentEvent.loggedOut() = _LoggedOut;

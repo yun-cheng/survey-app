@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:tuple/tuple.dart';
@@ -37,7 +36,7 @@ part 'update_survey_page_state.dart';
 class UpdateSurveyPageBloc
     extends Bloc<UpdateSurveyPageEvent, UpdateSurveyPageState> {
   final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, KtList<Reference>>>?
+  StreamSubscription<Either<SurveyFailure, List<Reference>>>?
       _referenceListSubscription;
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;

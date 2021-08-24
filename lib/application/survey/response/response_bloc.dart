@@ -5,7 +5,6 @@ import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tuple/tuple.dart';
 
@@ -22,8 +21,10 @@ import '../../../domain/survey/reference.dart';
 import '../../../domain/survey/response.dart';
 import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/survey_failure.dart';
+import '../../../domain/survey/typedefs.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/event_task.dart';
+import '../../../infrastructure/core/extensions.dart';
 import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/response_state_dtos.dart';
 
@@ -35,8 +36,8 @@ part 'response_state.dart';
 
 class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
   final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, KtList<Response>>>?
-      _responseListSubscription;
+  StreamSubscription<Either<SurveyFailure, ResponseMap>>?
+      _responseMapSubscription;
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;
   AsyncExecutor? _jsonExecutor;
@@ -58,21 +59,21 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
       taskInitialized: (e) async* {
         yield await taskInitialized();
       },
-      // H_ 監聽 responseList
-      watchResponseListStarted: (e) async* {
-        logger('Watch').i('ResponseBloc: watchResponseListStarted');
+      // H_ 監聽 responseMap
+      watchResponseMapStarted: (e) async* {
+        logger('Watch').i('ResponseBloc: watchResponseMapStarted');
 
         yield* eventTaskSent(event);
 
-        await _responseListSubscription?.cancel();
-        _responseListSubscription = _surveyRepository
-            .watchResponseList(
+        await _responseMapSubscription?.cancel();
+        _responseMapSubscription = _surveyRepository
+            .watchResponseMap(
               teamId: e.teamId,
               interviewerId: e.interviewer.id,
             )
             .listen(
-              (failureOrResponseList) => add(
-                  ResponseEvent.responseListReceived(failureOrResponseList)),
+              (failureOrResponseMap) =>
+                  add(ResponseEvent.responseMapReceived(failureOrResponseMap)),
             );
       },
       // H_ 上傳倒數計時
@@ -82,36 +83,36 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
         // S_1 若閒置 10 秒未更新則上傳，
         _inactiveTimer = Timer(
           const Duration(seconds: 10),
-          () => add(const ResponseEvent.responseListUploading()),
+          () => add(const ResponseEvent.responseMapUploading()),
         );
 
         // S_2 或從同步後第一次更新開始算 30 秒未閒置則依然上傳
         if (_activeTimer == null || !_activeTimer!.isActive) {
           _activeTimer = Timer(
             const Duration(seconds: 30),
-            () => add(const ResponseEvent.responseListUploading()),
+            () => add(const ResponseEvent.responseMapUploading()),
           );
         }
       },
-      // H_ 上傳 responseList
-      responseListUploading: (e) async* {
+      // H_ 上傳 responseMap
+      responseMapUploading: (e) async* {
         _activeTimer?.cancel();
         _inactiveTimer?.cancel();
 
-        if (state.responseList.isNotEmpty()) {
-          logger('Upload').i('responseListUploading');
+        if (state.responseMap.isNotEmpty) {
+          logger('Upload').i('responseMapUploading');
           _surveyRepository
-              .uploadResponseList(
-                responseList: state.responseList,
+              .uploadResponseMap(
+                responseMap: state.responseMap,
               )
               .then(
                 (failureOrSuccess) =>
-                    add(ResponseEvent.responseListUploaded(failureOrSuccess)),
+                    add(ResponseEvent.responseMapUploaded(failureOrSuccess)),
               );
         }
       },
-      responseListUploaded: (e) async* {
-        logger('Test').e('ResponseEvent: responseListUploaded');
+      responseMapUploaded: (e) async* {
+        logger('Test').e('ResponseEvent: responseMapUploaded');
 
         // TODO
       },
@@ -124,21 +125,21 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
       },
       // H_ 使用者結束編輯這次問卷模組的回覆
       editFinished: (e) async* {
-        logger('Event').i('ResponseEvent: editFinished');
+        logger('User Event').i('ResponseEvent: editFinished');
 
         add(const ResponseEvent.uploadTimerUpdated());
         yield* eventTaskSent(event);
       },
       // H_ 使用者在閒置後，選擇繼續訪問
       responseResumed: (e) async* {
-        logger('Event').i('ResponseEvent: responseResumed');
+        logger('User Event').i('ResponseEvent: responseResumed');
 
         add(const ResponseEvent.uploadTimerUpdated());
         yield* eventTaskSent(event);
       },
       loggedOut: (e) async* {
-        _responseListSubscription?.cancel();
-        _surveyRepository.cleanResponseList(
+        _responseMapSubscription?.cancel();
+        _surveyRepository.cleanResponseMap(
           teamId: state.survey.teamId,
           interviewerId: state.interviewer.id,
         );
@@ -217,7 +218,7 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
 
   @override
   Future<void> close() {
-    _responseListSubscription?.cancel();
+    _responseMapSubscription?.cancel();
     _inactiveTimer?.cancel();
     _activeTimer?.cancel();
     _eventExecutor?.close();

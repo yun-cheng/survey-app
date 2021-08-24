@@ -14,10 +14,12 @@ Logger logger([String? tag, int? methodShow]) {
     'Test',
     'Debug',
     'Event',
+    'User Event',
     'State',
     // 'InProgress',
     'Success',
     'Task',
+    // 'Compute',
     // 'Json',
   ];
   final alwaysAllowFilePathList = <String>[
@@ -27,7 +29,7 @@ Logger logger([String? tag, int? methodShow]) {
     // 'application/respondent',
     // H_ survey
     // 'application/survey',
-    // 'presentation/survey',
+    'presentation/survey',
     // 'presentation/overview',
     // H_
     // 'presentation',

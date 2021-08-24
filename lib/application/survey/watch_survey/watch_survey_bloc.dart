@@ -4,7 +4,6 @@ import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../../domain/core/logger.dart';
 import '../../../domain/overview/survey.dart';
@@ -18,7 +17,7 @@ part 'watch_survey_state.dart';
 
 class WatchSurveyBloc extends HydratedBloc<WatchSurveyEvent, WatchSurveyState> {
   final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, KtList<Survey>>>?
+  StreamSubscription<Either<SurveyFailure, List<Survey>>>?
       _surveyListSubscription;
 
   WatchSurveyBloc(this._surveyRepository) : super(WatchSurveyState.initial());

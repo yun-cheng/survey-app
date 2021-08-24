@@ -13,29 +13,29 @@ void _respondentEventWorker(
   var state = tuple.item2 as RespondentState;
 
   e.maybeMap(
-    watchRespondentListListStarted: (e) {
+    watchSurveyRespondentMapStarted: (e) {
       state = state
           .copyWith(
-            respondentListListState: LoadState.inProgress(),
+            surveyRespondentMapState: LoadState.inProgress(),
             respondentFailure: none(),
           )
           .send(channel);
     },
-    respondentListListReceived: (e) {
-      logger('Receive').i('RespondentEvent: respondentListListReceived');
+    surveyRespondentMapReceived: (e) {
+      logger('Receive').i('RespondentEvent: surveyRespondentMapReceived');
 
-      state = e.failureOrRespondentListList.fold(
+      state = e.failureOrSurveyRespondentMap.fold(
         (f) => state.copyWith(
-          respondentListListState: LoadState.failure(),
+          surveyRespondentMapState: LoadState.failure(),
           respondentFailure: some(f),
         ),
-        (respondentListList) => state.copyWith(
-          respondentListListState: LoadState.success(),
-          respondentListList: respondentListList,
+        (surveyRespondentMap) => state.copyWith(
+          surveyRespondentMapState: LoadState.success(),
+          surveyRespondentMap: surveyRespondentMap,
           respondentFailure: none(),
         ),
       );
-      state = respondentListLoaded(state).send(channel);
+      state = respondentMapLoaded(state).send(channel);
     },
     // H_ 使用者選擇問卷
     surveySelected: (e) {
@@ -45,7 +45,7 @@ void _respondentEventWorker(
         survey: e.survey,
         respondentFailure: none(),
       );
-      state = respondentListLoaded(state).send(channel);
+      state = respondentMapLoaded(state).send(channel);
     },
     // H_ 使用者選擇受訪者
     respondentSelected: (e) {
@@ -71,7 +71,8 @@ void _respondentEventWorker(
 
       if (state.tabScrollPosition[currentTab]!.firstRespondent ==
           Respondent.empty()) {
-        firstRespondent = state.tabRespondentsMap[currentTab]!.getOrNull(0);
+        firstRespondent =
+            state.tabRespondentMap[currentTab]!.values.firstOrNull;
 
         if (firstRespondent != null) {
           tabScrollPosition[currentTab] = CardScrollPosition(
@@ -110,15 +111,16 @@ void _respondentEventWorker(
           )
           .send(channel);
 
-      final jumpToIndex = state.respondentList
+      final jumpToIndex = state.respondentMap.values
           .indexOfFirst((r) => r.countyTown == e.countyTown);
 
-      state = state
-          .copyWith(
-            needToJump: true,
-            jumpToIndex: jumpToIndex,
-          )
-          .send(channel);
+      // FIXME
+      // state = state
+      //     .copyWith(
+      //       needToJump: true,
+      //       jumpToIndex: jumpToIndex,
+      //     )
+      //     .send(channel);
     },
     // H_ 滾動頁面時
     pageScrolled: (e) {

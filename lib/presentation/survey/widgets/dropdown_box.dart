@@ -1,6 +1,6 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
@@ -49,7 +49,8 @@ class DropdownBox extends StatelessWidget {
             return false;
           }
 
-          return pQuestion.choiceList != cQuestion.choiceList;
+          return !const DeepCollectionEquality()
+              .equals(pQuestion.choiceList, cQuestion.choiceList);
         }
         return false;
       },
@@ -63,19 +64,17 @@ class DropdownBox extends StatelessWidget {
         final isSpecialAnswer =
             state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
 
-        final choiceList = state.pageQuestionMap[questionId]?.choiceList ??
-            const KtList.empty();
+        final choiceList = state.pageQuestionMap[questionId]?.choiceList ?? [];
 
-        final selectedChoice = choiceList.firstOrNull(
+        final selectedChoice = choiceList.firstWhereOrNull(
                 (choice) => choice.id == thisAnswer.choiceValue?.id) ??
             Choice.empty();
 
         final choiceItemList = choiceList
             .map((choice) {
-              KtList<DropdownMenuItem<String>> itemList =
-                  const KtList<DropdownMenuItem<String>>.empty();
+              final itemList = <DropdownMenuItem<String>>[];
               if (choice.isGroupFirst) {
-                itemList = itemList.plusElement(
+                itemList.add(
                   DropdownMenuItem(
                     enabled: false,
                     value: 'G_${choice.id}',
@@ -92,17 +91,18 @@ class DropdownBox extends StatelessWidget {
                   ),
                 );
               }
-              return itemList.plusElement(
-                DropdownMenuItem(
-                  value: choice.id,
-                  child: Text(
-                    '(${choice.id}) ${choice.body}',
+              return itemList
+                ..add(
+                  DropdownMenuItem(
+                    value: choice.id,
+                    child: Text(
+                      '(${choice.id}) ${choice.body}',
+                    ),
                   ),
-                ),
-              );
+                );
             })
-            .flatMap((e) => e)
-            .asList();
+            .flattened
+            .toList();
 
         return Column(
           // crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -135,8 +135,8 @@ class DropdownBox extends StatelessWidget {
                   context.read<AnswerBloc>().add(
                         AnswerEvent.answerChangedWith(
                           questionId: questionId,
-                          body:
-                              choiceList.first((choice) => choice.id == value),
+                          body: choiceList
+                              .firstWhere((choice) => choice.id == value),
                           isSpecialAnswer: isSpecialAnswer,
                           // asSingle: choice.asSingle,
                         ),

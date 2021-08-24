@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/value_objects.dart';
@@ -36,7 +35,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       answerStatusMap: domain.answerStatusMap.map(
           (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
-      clearAnswerQIdList: domain.clearAnswerQIdList.asList(),
+      clearAnswerQIdList: domain.clearAnswerQIdList.toList(),
       mainAnswerStatusMap: domain.mainAnswerStatusMap.map(
           (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
       questionId: domain.questionId,
@@ -53,7 +52,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       answerStatusMap:
           answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
-      clearAnswerQIdList: clearAnswerQIdList.toImmutableList(),
+      clearAnswerQIdList: clearAnswerQIdList.toList(),
       mainAnswerStatusMap: mainAnswerStatusMap
           .map((key, value) => MapEntry(key, value.toDomain())),
       questionId: questionId,

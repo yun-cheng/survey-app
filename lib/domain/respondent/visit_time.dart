@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import '../../infrastructure/core/date_time_extensions.dart';
+
+import '../../infrastructure/core/extensions.dart';
+
 part 'visit_time.freezed.dart';
 
 @freezed

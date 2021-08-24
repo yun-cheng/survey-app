@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'answer.dart';
 import 'answer_status.dart';
@@ -52,31 +51,29 @@ class Expression with _$Expression {
           return comparisonComparableValue.toSet() !=
               answerComparableValue.toSet();
         } else if (operator == Operator.isIn()) {
-          return (comparisonComparableValue as KtList)
+          return (comparisonComparableValue as List)
               .contains(answerComparableValue);
         } else if (operator == Operator.notIn()) {
-          return !(comparisonComparableValue as KtList)
+          return !(comparisonComparableValue as List)
               .contains(answerComparableValue);
         } else if (operator == Operator.contains()) {
-          return (answerComparableValue as KtList)
+          return (answerComparableValue as List)
               .contains(comparisonComparableValue);
         } else if (operator == Operator.notContains()) {
-          return !(answerComparableValue as KtList)
+          return !(answerComparableValue as List)
               .contains(comparisonComparableValue);
         } else if (operator == Operator.containsAll()) {
-          return (answerComparableValue as KtList)
-              .containsAll(comparisonComparableValue as KtList);
+          return (comparisonComparableValue as List)
+              .every((e) => (answerComparableValue as List).contains(e));
         } else if (operator == Operator.notContainsAll()) {
-          return !(answerComparableValue as KtList)
-              .containsAll(comparisonComparableValue as KtList);
+          return (comparisonComparableValue as List)
+              .any((e) => !(answerComparableValue as List).contains(e));
         } else if (operator == Operator.containsAny()) {
-          return (answerComparableValue as KtList)
-              .intersect(comparisonComparableValue as KtList)
-              .isNotEmpty();
+          return (comparisonComparableValue as List)
+              .any((e) => (answerComparableValue as List).contains(e));
         } else if (operator == Operator.notContainsAny()) {
-          return (answerComparableValue as KtList)
-              .intersect(comparisonComparableValue as KtList)
-              .isEmpty();
+          return (comparisonComparableValue as List)
+              .every((e) => !(answerComparableValue as List).contains(e));
         }
       }
     } catch (e) {

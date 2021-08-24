@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'simple_choice.dart';
 import 'value_objects.dart';
@@ -16,7 +15,7 @@ class Answer with _$Answer {
     String? stringValue,
     int? intValue,
     SimpleChoice? choiceValue,
-    KtList<SimpleChoice>? choiceListValue,
+    List<SimpleChoice>? choiceListValue,
     Map<String, String>? noteMap,
   }) = _Answer;
 
@@ -55,7 +54,7 @@ class Answer with _$Answer {
     } else if (type == AnswerType.choice()) {
       return choiceValue == SimpleChoice.empty();
     } else if (type == AnswerType.choiceList()) {
-      return choiceListValue!.isEmpty();
+      return choiceListValue!.isEmpty;
     }
 
     return true;
@@ -108,9 +107,7 @@ class Answer with _$Answer {
       result = choiceValue?.id;
     } else if (type == AnswerType.choiceList()) {
       // TODO 如要使用，可能須排序
-      result = choiceListValue
-          ?.map((choice) => choice.id)
-          .joinToString(separator: ',');
+      result = choiceListValue?.map((choice) => choice.id).join(',');
     }
     return result ?? '';
   }
@@ -142,9 +139,8 @@ class Answer with _$Answer {
       // result = '${choiceValue.body}$noteString';
       result = choiceToString(choiceValue!);
     } else if (type == AnswerType.choiceList()) {
-      result = choiceListValue!
-          .map((choice) => choiceToString(choice))
-          .joinToString(separator: '、');
+      result =
+          choiceListValue!.map((choice) => choiceToString(choice)).join('、');
     }
     return result ?? '';
   }
@@ -158,7 +154,7 @@ class Answer with _$Answer {
     } else if (type == AnswerType.choice()) {
       comparableValue = choiceValue?.id;
     } else if (type == AnswerType.choiceList()) {
-      comparableValue = choiceListValue?.map((choice) => choice.id);
+      comparableValue = choiceListValue?.map((choice) => choice.id).toList();
     }
 
     return comparableValue ?? '';
@@ -240,31 +236,30 @@ class Answer with _$Answer {
     required bool asNote,
   }) {
     if (type == AnswerType.choiceList()) {
+      final newChoiceListValue = [...choiceListValue!];
       if (choiceListValue!.contains(choice)) {
         return copyWith(
-          choiceListValue: choiceListValue!.minusElement(choice),
+          choiceListValue: newChoiceListValue..remove(choice),
         ).removeChoiceNote(
           choiceId: choice.id,
           asNote: asNote,
         );
       } else {
         return copyWith(
-          choiceListValue: choiceListValue!.plusElement(choice),
+          choiceListValue: newChoiceListValue..add(choice),
         ).addChoiceNote(
           choiceId: choice.id,
           asNote: asNote,
         );
       }
     } else {
-      return clear()
-          .copyWith(
-            type: AnswerType.choiceList(),
-            choiceListValue: KtList<SimpleChoice>.from([choice]),
-          )
-          .addChoiceNote(
-            choiceId: choice.id,
-            asNote: asNote,
-          );
+      return clear().copyWith(
+        type: AnswerType.choiceList(),
+        choiceListValue: [choice],
+      ).addChoiceNote(
+        choiceId: choice.id,
+        asNote: asNote,
+      );
     }
   }
 

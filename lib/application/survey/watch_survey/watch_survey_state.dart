@@ -4,14 +4,14 @@ part of 'watch_survey_bloc.dart';
 class WatchSurveyState with _$WatchSurveyState {
   const factory WatchSurveyState({
     required LoadState surveyListState,
-    required KtList<Survey> surveyList,
+    required List<Survey> surveyList,
     required Survey survey,
     required Option<SurveyFailure> surveyFailure,
   }) = _SurveyState;
 
   factory WatchSurveyState.initial() => WatchSurveyState(
         surveyListState: LoadState.initial(),
-        surveyList: const KtList<Survey>.empty(),
+        surveyList: const [],
         survey: Survey.empty(),
         surveyFailure: none(),
       );

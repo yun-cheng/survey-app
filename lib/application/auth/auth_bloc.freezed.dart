@@ -21,7 +21,7 @@ class _$AuthEventTearOff {
   }
 
   _TeamListReceived teamListReceived(
-      Either<AuthFailure, KtList<Team>> failureOrTeamList) {
+      Either<AuthFailure, List<Team>> failureOrTeamList) {
     return _TeamListReceived(
       failureOrTeamList,
     );
@@ -38,7 +38,7 @@ class _$AuthEventTearOff {
   }
 
   _InterviewerListReceived interviewerListReceived(
-      Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList) {
+      Either<AuthFailure, List<Interviewer>> failureOrInterviewerList) {
     return _InterviewerListReceived(
       failureOrInterviewerList,
     );
@@ -73,13 +73,12 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -90,12 +89,12 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -192,13 +191,12 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -212,12 +210,12 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -280,7 +278,7 @@ abstract class _$TeamListReceivedCopyWith<$Res> {
   factory _$TeamListReceivedCopyWith(
           _TeamListReceived value, $Res Function(_TeamListReceived) then) =
       __$TeamListReceivedCopyWithImpl<$Res>;
-  $Res call({Either<AuthFailure, KtList<Team>> failureOrTeamList});
+  $Res call({Either<AuthFailure, List<Team>> failureOrTeamList});
 }
 
 /// @nodoc
@@ -302,7 +300,7 @@ class __$TeamListReceivedCopyWithImpl<$Res>
       failureOrTeamList == freezed
           ? _value.failureOrTeamList
           : failureOrTeamList // ignore: cast_nullable_to_non_nullable
-              as Either<AuthFailure, KtList<Team>>,
+              as Either<AuthFailure, List<Team>>,
     ));
   }
 }
@@ -313,7 +311,7 @@ class _$_TeamListReceived implements _TeamListReceived {
   const _$_TeamListReceived(this.failureOrTeamList);
 
   @override
-  final Either<AuthFailure, KtList<Team>> failureOrTeamList;
+  final Either<AuthFailure, List<Team>> failureOrTeamList;
 
   @override
   String toString() {
@@ -343,13 +341,12 @@ class _$_TeamListReceived implements _TeamListReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -363,12 +360,12 @@ class _$_TeamListReceived implements _TeamListReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -424,10 +421,9 @@ class _$_TeamListReceived implements _TeamListReceived {
 
 abstract class _TeamListReceived implements AuthEvent {
   const factory _TeamListReceived(
-          Either<AuthFailure, KtList<Team>> failureOrTeamList) =
-      _$_TeamListReceived;
+      Either<AuthFailure, List<Team>> failureOrTeamList) = _$_TeamListReceived;
 
-  Either<AuthFailure, KtList<Team>> get failureOrTeamList =>
+  Either<AuthFailure, List<Team>> get failureOrTeamList =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$TeamListReceivedCopyWith<_TeamListReceived> get copyWith =>
@@ -508,13 +504,12 @@ class _$_TeamSelected implements _TeamSelected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -528,12 +523,12 @@ class _$_TeamSelected implements _TeamSelected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -640,13 +635,12 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -660,12 +654,12 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -728,8 +722,7 @@ abstract class _$InterviewerListReceivedCopyWith<$Res> {
   factory _$InterviewerListReceivedCopyWith(_InterviewerListReceived value,
           $Res Function(_InterviewerListReceived) then) =
       __$InterviewerListReceivedCopyWithImpl<$Res>;
-  $Res call(
-      {Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList});
+  $Res call({Either<AuthFailure, List<Interviewer>> failureOrInterviewerList});
 }
 
 /// @nodoc
@@ -752,7 +745,7 @@ class __$InterviewerListReceivedCopyWithImpl<$Res>
       failureOrInterviewerList == freezed
           ? _value.failureOrInterviewerList
           : failureOrInterviewerList // ignore: cast_nullable_to_non_nullable
-              as Either<AuthFailure, KtList<Interviewer>>,
+              as Either<AuthFailure, List<Interviewer>>,
     ));
   }
 }
@@ -763,7 +756,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
   const _$_InterviewerListReceived(this.failureOrInterviewerList);
 
   @override
-  final Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList;
+  final Either<AuthFailure, List<Interviewer>> failureOrInterviewerList;
 
   @override
   String toString() {
@@ -795,13 +788,12 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -815,12 +807,12 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -876,10 +868,10 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
 
 abstract class _InterviewerListReceived implements AuthEvent {
   const factory _InterviewerListReceived(
-          Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList) =
+          Either<AuthFailure, List<Interviewer>> failureOrInterviewerList) =
       _$_InterviewerListReceived;
 
-  Either<AuthFailure, KtList<Interviewer>> get failureOrInterviewerList =>
+  Either<AuthFailure, List<Interviewer>> get failureOrInterviewerList =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$InterviewerListReceivedCopyWith<_InterviewerListReceived> get copyWith =>
@@ -950,13 +942,12 @@ class _$_IdChanged implements _IdChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -970,12 +961,12 @@ class _$_IdChanged implements _IdChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -1104,13 +1095,12 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -1124,12 +1114,12 @@ class _$_PasswordChanged implements _PasswordChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -1232,13 +1222,12 @@ class _$_SignInPressed implements _SignInPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -1252,12 +1241,12 @@ class _$_SignInPressed implements _SignInPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -1354,13 +1343,12 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchTeamListStarted,
-    required TResult Function(
-            Either<AuthFailure, KtList<Team>> failureOrTeamList)
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
     required TResult Function(Team team) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
         interviewerListReceived,
     required TResult Function(String id) idChanged,
     required TResult Function(String password) passwordChanged,
@@ -1374,12 +1362,12 @@ class _$_LoggedOut implements _LoggedOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchTeamListStarted,
-    TResult Function(Either<AuthFailure, KtList<Team>> failureOrTeamList)?
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
     TResult Function(Team team)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
-            Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList)?
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
         interviewerListReceived,
     TResult Function(String id)? idChanged,
     TResult Function(String password)? passwordChanged,
@@ -1443,10 +1431,10 @@ class _$AuthStateTearOff {
 
   _AuthState call(
       {required LoadState teamListState,
-      required KtList<Team> teamList,
+      required List<Team> teamList,
       required Team team,
       required LoadState interviewerListState,
-      required KtList<Interviewer> interviewerList,
+      required List<Interviewer> interviewerList,
       required String id,
       required String password,
       required LoadState signInState,
@@ -1475,10 +1463,10 @@ const $AuthState = _$AuthStateTearOff();
 /// @nodoc
 mixin _$AuthState {
   LoadState get teamListState => throw _privateConstructorUsedError;
-  KtList<Team> get teamList => throw _privateConstructorUsedError;
+  List<Team> get teamList => throw _privateConstructorUsedError;
   Team get team => throw _privateConstructorUsedError;
   LoadState get interviewerListState => throw _privateConstructorUsedError;
-  KtList<Interviewer> get interviewerList => throw _privateConstructorUsedError;
+  List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   LoadState get signInState => throw _privateConstructorUsedError;
@@ -1497,10 +1485,10 @@ abstract class $AuthStateCopyWith<$Res> {
       _$AuthStateCopyWithImpl<$Res>;
   $Res call(
       {LoadState teamListState,
-      KtList<Team> teamList,
+      List<Team> teamList,
       Team team,
       LoadState interviewerListState,
-      KtList<Interviewer> interviewerList,
+      List<Interviewer> interviewerList,
       String id,
       String password,
       LoadState signInState,
@@ -1545,7 +1533,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
       teamList: teamList == freezed
           ? _value.teamList
           : teamList // ignore: cast_nullable_to_non_nullable
-              as KtList<Team>,
+              as List<Team>,
       team: team == freezed
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
@@ -1557,7 +1545,7 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
-              as KtList<Interviewer>,
+              as List<Interviewer>,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1629,10 +1617,10 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
   @override
   $Res call(
       {LoadState teamListState,
-      KtList<Team> teamList,
+      List<Team> teamList,
       Team team,
       LoadState interviewerListState,
-      KtList<Interviewer> interviewerList,
+      List<Interviewer> interviewerList,
       String id,
       String password,
       LoadState signInState,
@@ -1683,7 +1671,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       teamList: teamList == freezed
           ? _value.teamList
           : teamList // ignore: cast_nullable_to_non_nullable
-              as KtList<Team>,
+              as List<Team>,
       team: team == freezed
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
@@ -1695,7 +1683,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
-              as KtList<Interviewer>,
+              as List<Interviewer>,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1743,13 +1731,13 @@ class _$_AuthState implements _AuthState {
   @override
   final LoadState teamListState;
   @override
-  final KtList<Team> teamList;
+  final List<Team> teamList;
   @override
   final Team team;
   @override
   final LoadState interviewerListState;
   @override
-  final KtList<Interviewer> interviewerList;
+  final List<Interviewer> interviewerList;
   @override
   final String id;
   @override
@@ -1829,10 +1817,10 @@ class _$_AuthState implements _AuthState {
 abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {required LoadState teamListState,
-      required KtList<Team> teamList,
+      required List<Team> teamList,
       required Team team,
       required LoadState interviewerListState,
-      required KtList<Interviewer> interviewerList,
+      required List<Interviewer> interviewerList,
       required String id,
       required String password,
       required LoadState signInState,
@@ -1843,13 +1831,13 @@ abstract class _AuthState implements AuthState {
   @override
   LoadState get teamListState => throw _privateConstructorUsedError;
   @override
-  KtList<Team> get teamList => throw _privateConstructorUsedError;
+  List<Team> get teamList => throw _privateConstructorUsedError;
   @override
   Team get team => throw _privateConstructorUsedError;
   @override
   LoadState get interviewerListState => throw _privateConstructorUsedError;
   @override
-  KtList<Interviewer> get interviewerList => throw _privateConstructorUsedError;
+  List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
   @override
   String get id => throw _privateConstructorUsedError;
   @override

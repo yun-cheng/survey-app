@@ -21,10 +21,10 @@ class _$RespondentStateDtoTearOff {
   const _$RespondentStateDtoTearOff();
 
   _RespondentStateDto call(
-      {required String respondentListListState,
-      required List<RespondentListDto> respondentListList,
+      {required String surveyRespondentMapState,
+      required Map<String, Map<String, RespondentDto>> surveyRespondentMap,
       required SurveyDto survey,
-      required List<RespondentDto> respondentList,
+      required Map<String, RespondentDto> respondentMap,
       required TabType currentTab,
       required Map<TabType, CardScrollPositionDto> tabScrollPosition,
       required bool needToJump,
@@ -32,13 +32,13 @@ class _$RespondentStateDtoTearOff {
       required String selectedRespondentId,
       String? respondentFailure,
       required Map<String, List<VisitRecordDto>> visitRecordsMap,
-      required Map<TabType, List<RespondentDto>> tabRespondentsMap,
-      required List<ResponseDto> responseInfoList}) {
+      required Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
+      required ResponseMapDto responseInfoMap}) {
     return _RespondentStateDto(
-      respondentListListState: respondentListListState,
-      respondentListList: respondentListList,
+      surveyRespondentMapState: surveyRespondentMapState,
+      surveyRespondentMap: surveyRespondentMap,
       survey: survey,
-      respondentList: respondentList,
+      respondentMap: respondentMap,
       currentTab: currentTab,
       tabScrollPosition: tabScrollPosition,
       needToJump: needToJump,
@@ -46,8 +46,8 @@ class _$RespondentStateDtoTearOff {
       selectedRespondentId: selectedRespondentId,
       respondentFailure: respondentFailure,
       visitRecordsMap: visitRecordsMap,
-      tabRespondentsMap: tabRespondentsMap,
-      responseInfoList: responseInfoList,
+      tabRespondentMap: tabRespondentMap,
+      responseInfoMap: responseInfoMap,
     );
   }
 
@@ -61,11 +61,12 @@ const $RespondentStateDto = _$RespondentStateDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentStateDto {
-  String get respondentListListState => throw _privateConstructorUsedError;
-  List<RespondentListDto> get respondentListList =>
+  String get surveyRespondentMapState => throw _privateConstructorUsedError;
+  Map<String, Map<String, RespondentDto>> get surveyRespondentMap =>
       throw _privateConstructorUsedError;
   SurveyDto get survey => throw _privateConstructorUsedError;
-  List<RespondentDto> get respondentList => throw _privateConstructorUsedError;
+  Map<String, RespondentDto> get respondentMap =>
+      throw _privateConstructorUsedError;
   TabType get currentTab => throw _privateConstructorUsedError;
   Map<TabType, CardScrollPositionDto> get tabScrollPosition =>
       throw _privateConstructorUsedError;
@@ -75,9 +76,9 @@ mixin _$RespondentStateDto {
   String? get respondentFailure => throw _privateConstructorUsedError;
   Map<String, List<VisitRecordDto>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
-  Map<TabType, List<RespondentDto>> get tabRespondentsMap =>
+  Map<TabType, Map<String, RespondentDto>> get tabRespondentMap =>
       throw _privateConstructorUsedError;
-  List<ResponseDto> get responseInfoList => throw _privateConstructorUsedError;
+  ResponseMapDto get responseInfoMap => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -91,10 +92,10 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
           RespondentStateDto value, $Res Function(RespondentStateDto) then) =
       _$RespondentStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {String respondentListListState,
-      List<RespondentListDto> respondentListList,
+      {String surveyRespondentMapState,
+      Map<String, Map<String, RespondentDto>> surveyRespondentMap,
       SurveyDto survey,
-      List<RespondentDto> respondentList,
+      Map<String, RespondentDto> respondentMap,
       TabType currentTab,
       Map<TabType, CardScrollPositionDto> tabScrollPosition,
       bool needToJump,
@@ -102,10 +103,11 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
       String selectedRespondentId,
       String? respondentFailure,
       Map<String, List<VisitRecordDto>> visitRecordsMap,
-      Map<TabType, List<RespondentDto>> tabRespondentsMap,
-      List<ResponseDto> responseInfoList});
+      Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
+      ResponseMapDto responseInfoMap});
 
   $SurveyDtoCopyWith<$Res> get survey;
+  $ResponseMapDtoCopyWith<$Res> get responseInfoMap;
 }
 
 /// @nodoc
@@ -119,10 +121,10 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? respondentListListState = freezed,
-    Object? respondentListList = freezed,
+    Object? surveyRespondentMapState = freezed,
+    Object? surveyRespondentMap = freezed,
     Object? survey = freezed,
-    Object? respondentList = freezed,
+    Object? respondentMap = freezed,
     Object? currentTab = freezed,
     Object? tabScrollPosition = freezed,
     Object? needToJump = freezed,
@@ -130,26 +132,26 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
     Object? selectedRespondentId = freezed,
     Object? respondentFailure = freezed,
     Object? visitRecordsMap = freezed,
-    Object? tabRespondentsMap = freezed,
-    Object? responseInfoList = freezed,
+    Object? tabRespondentMap = freezed,
+    Object? responseInfoMap = freezed,
   }) {
     return _then(_value.copyWith(
-      respondentListListState: respondentListListState == freezed
-          ? _value.respondentListListState
-          : respondentListListState // ignore: cast_nullable_to_non_nullable
+      surveyRespondentMapState: surveyRespondentMapState == freezed
+          ? _value.surveyRespondentMapState
+          : surveyRespondentMapState // ignore: cast_nullable_to_non_nullable
               as String,
-      respondentListList: respondentListList == freezed
-          ? _value.respondentListList
-          : respondentListList // ignore: cast_nullable_to_non_nullable
-              as List<RespondentListDto>,
+      surveyRespondentMap: surveyRespondentMap == freezed
+          ? _value.surveyRespondentMap
+          : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<String, RespondentDto>>,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as SurveyDto,
-      respondentList: respondentList == freezed
-          ? _value.respondentList
-          : respondentList // ignore: cast_nullable_to_non_nullable
-              as List<RespondentDto>,
+      respondentMap: respondentMap == freezed
+          ? _value.respondentMap
+          : respondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, RespondentDto>,
       currentTab: currentTab == freezed
           ? _value.currentTab
           : currentTab // ignore: cast_nullable_to_non_nullable
@@ -178,14 +180,14 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as Map<String, List<VisitRecordDto>>,
-      tabRespondentsMap: tabRespondentsMap == freezed
-          ? _value.tabRespondentsMap
-          : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, List<RespondentDto>>,
-      responseInfoList: responseInfoList == freezed
-          ? _value.responseInfoList
-          : responseInfoList // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+      tabRespondentMap: tabRespondentMap == freezed
+          ? _value.tabRespondentMap
+          : tabRespondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, Map<String, RespondentDto>>,
+      responseInfoMap: responseInfoMap == freezed
+          ? _value.responseInfoMap
+          : responseInfoMap // ignore: cast_nullable_to_non_nullable
+              as ResponseMapDto,
     ));
   }
 
@@ -193,6 +195,13 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
   $SurveyDtoCopyWith<$Res> get survey {
     return $SurveyDtoCopyWith<$Res>(_value.survey, (value) {
       return _then(_value.copyWith(survey: value));
+    });
+  }
+
+  @override
+  $ResponseMapDtoCopyWith<$Res> get responseInfoMap {
+    return $ResponseMapDtoCopyWith<$Res>(_value.responseInfoMap, (value) {
+      return _then(_value.copyWith(responseInfoMap: value));
     });
   }
 }
@@ -205,10 +214,10 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       __$RespondentStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String respondentListListState,
-      List<RespondentListDto> respondentListList,
+      {String surveyRespondentMapState,
+      Map<String, Map<String, RespondentDto>> surveyRespondentMap,
       SurveyDto survey,
-      List<RespondentDto> respondentList,
+      Map<String, RespondentDto> respondentMap,
       TabType currentTab,
       Map<TabType, CardScrollPositionDto> tabScrollPosition,
       bool needToJump,
@@ -216,11 +225,13 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       String selectedRespondentId,
       String? respondentFailure,
       Map<String, List<VisitRecordDto>> visitRecordsMap,
-      Map<TabType, List<RespondentDto>> tabRespondentsMap,
-      List<ResponseDto> responseInfoList});
+      Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
+      ResponseMapDto responseInfoMap});
 
   @override
   $SurveyDtoCopyWith<$Res> get survey;
+  @override
+  $ResponseMapDtoCopyWith<$Res> get responseInfoMap;
 }
 
 /// @nodoc
@@ -236,10 +247,10 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? respondentListListState = freezed,
-    Object? respondentListList = freezed,
+    Object? surveyRespondentMapState = freezed,
+    Object? surveyRespondentMap = freezed,
     Object? survey = freezed,
-    Object? respondentList = freezed,
+    Object? respondentMap = freezed,
     Object? currentTab = freezed,
     Object? tabScrollPosition = freezed,
     Object? needToJump = freezed,
@@ -247,26 +258,26 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
     Object? selectedRespondentId = freezed,
     Object? respondentFailure = freezed,
     Object? visitRecordsMap = freezed,
-    Object? tabRespondentsMap = freezed,
-    Object? responseInfoList = freezed,
+    Object? tabRespondentMap = freezed,
+    Object? responseInfoMap = freezed,
   }) {
     return _then(_RespondentStateDto(
-      respondentListListState: respondentListListState == freezed
-          ? _value.respondentListListState
-          : respondentListListState // ignore: cast_nullable_to_non_nullable
+      surveyRespondentMapState: surveyRespondentMapState == freezed
+          ? _value.surveyRespondentMapState
+          : surveyRespondentMapState // ignore: cast_nullable_to_non_nullable
               as String,
-      respondentListList: respondentListList == freezed
-          ? _value.respondentListList
-          : respondentListList // ignore: cast_nullable_to_non_nullable
-              as List<RespondentListDto>,
+      surveyRespondentMap: surveyRespondentMap == freezed
+          ? _value.surveyRespondentMap
+          : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Map<String, RespondentDto>>,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as SurveyDto,
-      respondentList: respondentList == freezed
-          ? _value.respondentList
-          : respondentList // ignore: cast_nullable_to_non_nullable
-              as List<RespondentDto>,
+      respondentMap: respondentMap == freezed
+          ? _value.respondentMap
+          : respondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, RespondentDto>,
       currentTab: currentTab == freezed
           ? _value.currentTab
           : currentTab // ignore: cast_nullable_to_non_nullable
@@ -295,14 +306,14 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as Map<String, List<VisitRecordDto>>,
-      tabRespondentsMap: tabRespondentsMap == freezed
-          ? _value.tabRespondentsMap
-          : tabRespondentsMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, List<RespondentDto>>,
-      responseInfoList: responseInfoList == freezed
-          ? _value.responseInfoList
-          : responseInfoList // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+      tabRespondentMap: tabRespondentMap == freezed
+          ? _value.tabRespondentMap
+          : tabRespondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<TabType, Map<String, RespondentDto>>,
+      responseInfoMap: responseInfoMap == freezed
+          ? _value.responseInfoMap
+          : responseInfoMap // ignore: cast_nullable_to_non_nullable
+              as ResponseMapDto,
     ));
   }
 }
@@ -311,10 +322,10 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RespondentStateDto extends _RespondentStateDto {
   const _$_RespondentStateDto(
-      {required this.respondentListListState,
-      required this.respondentListList,
+      {required this.surveyRespondentMapState,
+      required this.surveyRespondentMap,
       required this.survey,
-      required this.respondentList,
+      required this.respondentMap,
       required this.currentTab,
       required this.tabScrollPosition,
       required this.needToJump,
@@ -322,21 +333,21 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       required this.selectedRespondentId,
       this.respondentFailure,
       required this.visitRecordsMap,
-      required this.tabRespondentsMap,
-      required this.responseInfoList})
+      required this.tabRespondentMap,
+      required this.responseInfoMap})
       : super._();
 
   factory _$_RespondentStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_RespondentStateDtoFromJson(json);
 
   @override
-  final String respondentListListState;
+  final String surveyRespondentMapState;
   @override
-  final List<RespondentListDto> respondentListList;
+  final Map<String, Map<String, RespondentDto>> surveyRespondentMap;
   @override
   final SurveyDto survey;
   @override
-  final List<RespondentDto> respondentList;
+  final Map<String, RespondentDto> respondentMap;
   @override
   final TabType currentTab;
   @override
@@ -352,13 +363,13 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   @override
   final Map<String, List<VisitRecordDto>> visitRecordsMap;
   @override
-  final Map<TabType, List<RespondentDto>> tabRespondentsMap;
+  final Map<TabType, Map<String, RespondentDto>> tabRespondentMap;
   @override
-  final List<ResponseDto> responseInfoList;
+  final ResponseMapDto responseInfoMap;
 
   @override
   String toString() {
-    return 'RespondentStateDto(respondentListListState: $respondentListListState, respondentListList: $respondentListList, survey: $survey, respondentList: $respondentList, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, needToJump: $needToJump, jumpToIndex: $jumpToIndex, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure, visitRecordsMap: $visitRecordsMap, tabRespondentsMap: $tabRespondentsMap, responseInfoList: $responseInfoList)';
+    return 'RespondentStateDto(surveyRespondentMapState: $surveyRespondentMapState, surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, needToJump: $needToJump, jumpToIndex: $jumpToIndex, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
   }
 
   @override
@@ -366,17 +377,18 @@ class _$_RespondentStateDto extends _RespondentStateDto {
     return identical(this, other) ||
         (other is _RespondentStateDto &&
             (identical(
-                    other.respondentListListState, respondentListListState) ||
+                    other.surveyRespondentMapState, surveyRespondentMapState) ||
                 const DeepCollectionEquality().equals(
-                    other.respondentListListState, respondentListListState)) &&
-            (identical(other.respondentListList, respondentListList) ||
+                    other.surveyRespondentMapState,
+                    surveyRespondentMapState)) &&
+            (identical(other.surveyRespondentMap, surveyRespondentMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.respondentListList, respondentListList)) &&
+                    .equals(other.surveyRespondentMap, surveyRespondentMap)) &&
             (identical(other.survey, survey) ||
                 const DeepCollectionEquality().equals(other.survey, survey)) &&
-            (identical(other.respondentList, respondentList) ||
+            (identical(other.respondentMap, respondentMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.respondentList, respondentList)) &&
+                    .equals(other.respondentMap, respondentMap)) &&
             (identical(other.currentTab, currentTab) ||
                 const DeepCollectionEquality()
                     .equals(other.currentTab, currentTab)) &&
@@ -398,21 +410,21 @@ class _$_RespondentStateDto extends _RespondentStateDto {
             (identical(other.visitRecordsMap, visitRecordsMap) ||
                 const DeepCollectionEquality()
                     .equals(other.visitRecordsMap, visitRecordsMap)) &&
-            (identical(other.tabRespondentsMap, tabRespondentsMap) ||
+            (identical(other.tabRespondentMap, tabRespondentMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.tabRespondentsMap, tabRespondentsMap)) &&
-            (identical(other.responseInfoList, responseInfoList) ||
+                    .equals(other.tabRespondentMap, tabRespondentMap)) &&
+            (identical(other.responseInfoMap, responseInfoMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.responseInfoList, responseInfoList)));
+                    .equals(other.responseInfoMap, responseInfoMap)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentListListState) ^
-      const DeepCollectionEquality().hash(respondentListList) ^
+      const DeepCollectionEquality().hash(surveyRespondentMapState) ^
+      const DeepCollectionEquality().hash(surveyRespondentMap) ^
       const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(respondentList) ^
+      const DeepCollectionEquality().hash(respondentMap) ^
       const DeepCollectionEquality().hash(currentTab) ^
       const DeepCollectionEquality().hash(tabScrollPosition) ^
       const DeepCollectionEquality().hash(needToJump) ^
@@ -420,8 +432,8 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       const DeepCollectionEquality().hash(selectedRespondentId) ^
       const DeepCollectionEquality().hash(respondentFailure) ^
       const DeepCollectionEquality().hash(visitRecordsMap) ^
-      const DeepCollectionEquality().hash(tabRespondentsMap) ^
-      const DeepCollectionEquality().hash(responseInfoList);
+      const DeepCollectionEquality().hash(tabRespondentMap) ^
+      const DeepCollectionEquality().hash(responseInfoMap);
 
   @JsonKey(ignore: true)
   @override
@@ -436,10 +448,10 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 
 abstract class _RespondentStateDto extends RespondentStateDto {
   const factory _RespondentStateDto(
-      {required String respondentListListState,
-      required List<RespondentListDto> respondentListList,
+      {required String surveyRespondentMapState,
+      required Map<String, Map<String, RespondentDto>> surveyRespondentMap,
       required SurveyDto survey,
-      required List<RespondentDto> respondentList,
+      required Map<String, RespondentDto> respondentMap,
       required TabType currentTab,
       required Map<TabType, CardScrollPositionDto> tabScrollPosition,
       required bool needToJump,
@@ -447,22 +459,23 @@ abstract class _RespondentStateDto extends RespondentStateDto {
       required String selectedRespondentId,
       String? respondentFailure,
       required Map<String, List<VisitRecordDto>> visitRecordsMap,
-      required Map<TabType, List<RespondentDto>> tabRespondentsMap,
-      required List<ResponseDto> responseInfoList}) = _$_RespondentStateDto;
+      required Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
+      required ResponseMapDto responseInfoMap}) = _$_RespondentStateDto;
   const _RespondentStateDto._() : super._();
 
   factory _RespondentStateDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentStateDto.fromJson;
 
   @override
-  String get respondentListListState => throw _privateConstructorUsedError;
+  String get surveyRespondentMapState => throw _privateConstructorUsedError;
   @override
-  List<RespondentListDto> get respondentListList =>
+  Map<String, Map<String, RespondentDto>> get surveyRespondentMap =>
       throw _privateConstructorUsedError;
   @override
   SurveyDto get survey => throw _privateConstructorUsedError;
   @override
-  List<RespondentDto> get respondentList => throw _privateConstructorUsedError;
+  Map<String, RespondentDto> get respondentMap =>
+      throw _privateConstructorUsedError;
   @override
   TabType get currentTab => throw _privateConstructorUsedError;
   @override
@@ -480,10 +493,10 @@ abstract class _RespondentStateDto extends RespondentStateDto {
   Map<String, List<VisitRecordDto>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
   @override
-  Map<TabType, List<RespondentDto>> get tabRespondentsMap =>
+  Map<TabType, Map<String, RespondentDto>> get tabRespondentMap =>
       throw _privateConstructorUsedError;
   @override
-  List<ResponseDto> get responseInfoList => throw _privateConstructorUsedError;
+  ResponseMapDto get responseInfoMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RespondentStateDtoCopyWith<_RespondentStateDto> get copyWith =>

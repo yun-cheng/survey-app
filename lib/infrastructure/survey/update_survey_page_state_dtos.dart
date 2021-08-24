@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../domain/core/value_objects.dart';
@@ -42,7 +41,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     required String restoreState,
     required bool isRecodeModule,
     required Map<String, QuestionDto> mainQuestionMap,
-    required List<ResponseDto> respondentResponseList,
+    required Map<String, ResponseDto> respondentResponseMap,
     required String surveyId,
     required String moduleType,
     required bool isReadOnly,
@@ -59,7 +58,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     return UpdateSurveyPageStateDto(
       referenceListState: domain.referenceListState.value,
       referenceList:
-          domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).asList(),
+          domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).toList(),
       surveyFailure:
           domain.surveyFailure.fold(() => null, (some) => some.value),
       respondent: RespondentDto.fromDomain(domain.respondent),
@@ -85,9 +84,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       isRecodeModule: domain.isRecodeModule,
       mainQuestionMap: domain.mainQuestionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
-      respondentResponseList: domain.respondentResponseList
-          .map((e) => ResponseDto.fromDomain(e))
-          .asList(),
+      respondentResponseMap: domain.respondentResponseMap.map(
+          (key, value) => MapEntry(key.value, ResponseDto.fromDomain(value))),
       surveyId: domain.surveyId,
       moduleType: domain.moduleType.value,
       isReadOnly: domain.isReadOnly,
@@ -106,8 +104,7 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
   UpdateSurveyPageState toDomain() {
     return UpdateSurveyPageState.initial().copyWith(
       referenceListState: LoadState(referenceListState),
-      referenceList:
-          referenceList.map((dto) => dto.toDomain()).toImmutableList(),
+      referenceList: referenceList.map((dto) => dto.toDomain()).toList(),
       surveyFailure: optionOf(surveyFailure).map((some) => SurveyFailure(some)),
       respondent: respondent.toDomain(),
       page: page,
@@ -131,8 +128,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       isRecodeModule: isRecodeModule,
       mainQuestionMap:
           mainQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
-      respondentResponseList:
-          respondentResponseList.map((dto) => dto.toDomain()).toImmutableList(),
+      respondentResponseMap: respondentResponseMap
+          .map((key, value) => MapEntry(ModuleType(key), value.toDomain())),
       surveyId: surveyId,
       moduleType: ModuleType(moduleType),
       isReadOnly: isReadOnly,

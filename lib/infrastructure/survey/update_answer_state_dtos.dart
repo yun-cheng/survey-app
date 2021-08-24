@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../domain/core/value_objects.dart';
@@ -25,7 +24,7 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
       answerMap: domain.answerMap
           .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       updateState: domain.updateState.value,
-      questionIdList: domain.questionIdList.asList(),
+      questionIdList: domain.questionIdList,
       updateAnswerStatus: domain.updateAnswerStatus,
       restoreState: domain.restoreState.value,
     );
@@ -35,7 +34,7 @@ class UpdateAnswerStateDto with _$UpdateAnswerStateDto {
     return UpdateAnswerState.initial().copyWith(
       answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       updateState: LoadState(updateState),
-      questionIdList: questionIdList.toImmutableList(),
+      questionIdList: questionIdList,
       updateAnswerStatus: updateAnswerStatus,
       restoreState: LoadState(restoreState),
     );

@@ -20,13 +20,13 @@ class _$QuestionTearOff {
       {required String id,
       required bool hideId,
       required int serialNumber,
-      required KtList<FormattedText> body,
+      required List<FormattedText> body,
       required String stringBody,
       required String note,
       required QuestionType type,
       required FullExpression show,
-      required KtList<Choice> choiceList,
-      required KtList<Choice> initChoiceList,
+      required List<Choice> choiceList,
+      required List<Choice> initChoiceList,
       required bool hasSpecialAnswer,
       required FullExpression validateAnswer,
       required String upperQuestionId,
@@ -64,13 +64,13 @@ mixin _$Question {
   String get id => throw _privateConstructorUsedError;
   bool get hideId => throw _privateConstructorUsedError;
   int get serialNumber => throw _privateConstructorUsedError;
-  KtList<FormattedText> get body => throw _privateConstructorUsedError;
+  List<FormattedText> get body => throw _privateConstructorUsedError;
   String get stringBody => throw _privateConstructorUsedError;
   String get note => throw _privateConstructorUsedError;
   QuestionType get type => throw _privateConstructorUsedError;
   FullExpression get show => throw _privateConstructorUsedError;
-  KtList<Choice> get choiceList => throw _privateConstructorUsedError;
-  KtList<Choice> get initChoiceList => throw _privateConstructorUsedError;
+  List<Choice> get choiceList => throw _privateConstructorUsedError;
+  List<Choice> get initChoiceList => throw _privateConstructorUsedError;
   bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   FullExpression get validateAnswer => throw _privateConstructorUsedError;
   String get upperQuestionId => throw _privateConstructorUsedError;
@@ -92,13 +92,13 @@ abstract class $QuestionCopyWith<$Res> {
       {String id,
       bool hideId,
       int serialNumber,
-      KtList<FormattedText> body,
+      List<FormattedText> body,
       String stringBody,
       String note,
       QuestionType type,
       FullExpression show,
-      KtList<Choice> choiceList,
-      KtList<Choice> initChoiceList,
+      List<Choice> choiceList,
+      List<Choice> initChoiceList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       String upperQuestionId,
@@ -156,7 +156,7 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as KtList<FormattedText>,
+              as List<FormattedText>,
       stringBody: stringBody == freezed
           ? _value.stringBody
           : stringBody // ignore: cast_nullable_to_non_nullable
@@ -176,11 +176,11 @@ class _$QuestionCopyWithImpl<$Res> implements $QuestionCopyWith<$Res> {
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList // ignore: cast_nullable_to_non_nullable
-              as KtList<Choice>,
+              as List<Choice>,
       initChoiceList: initChoiceList == freezed
           ? _value.initChoiceList
           : initChoiceList // ignore: cast_nullable_to_non_nullable
-              as KtList<Choice>,
+              as List<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
           : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
@@ -243,13 +243,13 @@ abstract class _$QuestionCopyWith<$Res> implements $QuestionCopyWith<$Res> {
       {String id,
       bool hideId,
       int serialNumber,
-      KtList<FormattedText> body,
+      List<FormattedText> body,
       String stringBody,
       String note,
       QuestionType type,
       FullExpression show,
-      KtList<Choice> choiceList,
-      KtList<Choice> initChoiceList,
+      List<Choice> choiceList,
+      List<Choice> initChoiceList,
       bool hasSpecialAnswer,
       FullExpression validateAnswer,
       String upperQuestionId,
@@ -311,7 +311,7 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       body: body == freezed
           ? _value.body
           : body // ignore: cast_nullable_to_non_nullable
-              as KtList<FormattedText>,
+              as List<FormattedText>,
       stringBody: stringBody == freezed
           ? _value.stringBody
           : stringBody // ignore: cast_nullable_to_non_nullable
@@ -331,11 +331,11 @@ class __$QuestionCopyWithImpl<$Res> extends _$QuestionCopyWithImpl<$Res>
       choiceList: choiceList == freezed
           ? _value.choiceList
           : choiceList // ignore: cast_nullable_to_non_nullable
-              as KtList<Choice>,
+              as List<Choice>,
       initChoiceList: initChoiceList == freezed
           ? _value.initChoiceList
           : initChoiceList // ignore: cast_nullable_to_non_nullable
-              as KtList<Choice>,
+              as List<Choice>,
       hasSpecialAnswer: hasSpecialAnswer == freezed
           ? _value.hasSpecialAnswer
           : hasSpecialAnswer // ignore: cast_nullable_to_non_nullable
@@ -398,7 +398,7 @@ class _$_Question extends _Question {
   @override
   final int serialNumber;
   @override
-  final KtList<FormattedText> body;
+  final List<FormattedText> body;
   @override
   final String stringBody;
   @override
@@ -408,9 +408,9 @@ class _$_Question extends _Question {
   @override
   final FullExpression show;
   @override
-  final KtList<Choice> choiceList;
+  final List<Choice> choiceList;
   @override
-  final KtList<Choice> initChoiceList;
+  final List<Choice> initChoiceList;
   @override
   final bool hasSpecialAnswer;
   @override
@@ -513,13 +513,13 @@ abstract class _Question extends Question {
       {required String id,
       required bool hideId,
       required int serialNumber,
-      required KtList<FormattedText> body,
+      required List<FormattedText> body,
       required String stringBody,
       required String note,
       required QuestionType type,
       required FullExpression show,
-      required KtList<Choice> choiceList,
-      required KtList<Choice> initChoiceList,
+      required List<Choice> choiceList,
+      required List<Choice> initChoiceList,
       required bool hasSpecialAnswer,
       required FullExpression validateAnswer,
       required String upperQuestionId,
@@ -536,7 +536,7 @@ abstract class _Question extends Question {
   @override
   int get serialNumber => throw _privateConstructorUsedError;
   @override
-  KtList<FormattedText> get body => throw _privateConstructorUsedError;
+  List<FormattedText> get body => throw _privateConstructorUsedError;
   @override
   String get stringBody => throw _privateConstructorUsedError;
   @override
@@ -546,9 +546,9 @@ abstract class _Question extends Question {
   @override
   FullExpression get show => throw _privateConstructorUsedError;
   @override
-  KtList<Choice> get choiceList => throw _privateConstructorUsedError;
+  List<Choice> get choiceList => throw _privateConstructorUsedError;
   @override
-  KtList<Choice> get initChoiceList => throw _privateConstructorUsedError;
+  List<Choice> get initChoiceList => throw _privateConstructorUsedError;
   @override
   bool get hasSpecialAnswer => throw _privateConstructorUsedError;
   @override

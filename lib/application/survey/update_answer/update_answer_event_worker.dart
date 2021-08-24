@@ -23,7 +23,7 @@ void _updateAnswerEventWorker(
             restoreState: LoadState.inProgress(),
             updateState: LoadState.success(),
             answerMap: e.answerMap,
-            questionIdList: const KtList<String>.empty(),
+            questionIdList: const [],
             updateAnswerStatus: false,
           )
           .send(channel);
@@ -37,12 +37,10 @@ void _updateAnswerEventWorker(
     answerUpdated: (e) {
       logger('Event').i('UpdateAnswerEvent: answerUpdated');
 
-      state = state
-          .copyWith(
-            updateState: LoadState.inProgress(),
-            questionIdList: KtList.of(e.question.id),
-          )
-          .send(channel);
+      state = state.copyWith(
+        updateState: LoadState.inProgress(),
+        questionIdList: [e.question.id],
+      ).send(channel);
       state = answerUpdated(e, state).send(channel);
     },
     // H_ 清空部分題目作答

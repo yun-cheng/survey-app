@@ -6,7 +6,7 @@ class UpdateAnswerState with _$UpdateAnswerState {
 
   const factory UpdateAnswerState({
     required Map<String, Answer> answerMap,
-    required KtList<String> questionIdList,
+    required List<String> questionIdList,
     required LoadState updateState,
     required bool updateAnswerStatus,
     required LoadState restoreState,
@@ -14,7 +14,7 @@ class UpdateAnswerState with _$UpdateAnswerState {
 
   factory UpdateAnswerState.initial() => UpdateAnswerState(
         answerMap: const <String, Answer>{},
-        questionIdList: const KtList<String>.empty(),
+        questionIdList: const [],
         updateState: LoadState.initial(),
         updateAnswerStatus: false,
         restoreState: LoadState.initial(),

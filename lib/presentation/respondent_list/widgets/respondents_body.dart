@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../../domain/respondent/respondent.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../core/widgets/automatic_keep_alive_hook.dart';
 import 'respondent_card.dart';
@@ -47,19 +45,19 @@ class RespondentsBody extends HookWidget {
 
     return BlocBuilder<RespondentBloc, RespondentState>(
       buildWhen: (p, c) =>
-          (p.respondentListListState != c.respondentListListState &&
-              c.respondentListListState == LoadState.success()) ||
-          p.tabRespondentsMap[tabType] != c.tabRespondentsMap[tabType],
+          (p.surveyRespondentMapState != c.surveyRespondentMapState &&
+              c.surveyRespondentMapState == LoadState.success()) ||
+          p.tabRespondentMap[tabType] != c.tabRespondentMap[tabType],
       builder: (context, state) {
         logger('Build').i('RespondentsBody: list');
 
-        if (state.respondentListListState == LoadState.success()) {
-          final respondentList = state.tabRespondentsMap[tabType] ??
-              const KtList<Respondent>.empty();
+        if (state.surveyRespondentMapState == LoadState.success()) {
+          final respondentList =
+              state.tabRespondentMap[tabType]?.values.toList() ?? [];
 
           return ScrollablePositionedList.builder(
             // shrinkWrap: true,
-            itemCount: respondentList.size,
+            itemCount: respondentList.length,
             itemScrollController: controller,
             itemPositionsListener: listener,
             itemBuilder: (context, index) {

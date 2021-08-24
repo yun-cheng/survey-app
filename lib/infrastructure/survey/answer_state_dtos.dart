@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/answer/answer_bloc.dart';
 import '../../domain/core/value_objects.dart';

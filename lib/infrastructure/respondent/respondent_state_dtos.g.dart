@@ -9,14 +9,20 @@ part of 'respondent_state_dtos.dart';
 _$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
     Map<String, dynamic> json) {
   return _$_RespondentStateDto(
-    respondentListListState: json['respondentListListState'] as String,
-    respondentListList: (json['respondentListList'] as List<dynamic>)
-        .map((e) => RespondentListDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    surveyRespondentMapState: json['surveyRespondentMapState'] as String,
+    surveyRespondentMap:
+        (json['surveyRespondentMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(
+          k,
+          (e as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+          )),
+    ),
     survey: SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
-    respondentList: (json['respondentList'] as List<dynamic>)
-        .map((e) => RespondentDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    respondentMap: (json['respondentMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+    ),
     currentTab: _$enumDecode(_$TabTypeEnumMap, json['currentTab']),
     tabScrollPosition: (json['tabScrollPosition'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(_$enumDecode(_$TabTypeEnumMap, k),
@@ -33,27 +39,28 @@ _$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
               .map((e) => VisitRecordDto.fromJson(e as Map<String, dynamic>))
               .toList()),
     ),
-    tabRespondentsMap: (json['tabRespondentsMap'] as Map<String, dynamic>).map(
+    tabRespondentMap: (json['tabRespondentMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(
           _$enumDecode(_$TabTypeEnumMap, k),
-          (e as List<dynamic>)
-              .map((e) => RespondentDto.fromJson(e as Map<String, dynamic>))
-              .toList()),
+          (e as Map<String, dynamic>).map(
+            (k, e) =>
+                MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+          )),
     ),
-    responseInfoList: (json['responseInfoList'] as List<dynamic>)
-        .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    responseInfoMap: ResponseMapDto.fromJson(
+        json['responseInfoMap'] as Map<String, dynamic>),
   );
 }
 
 Map<String, dynamic> _$_$_RespondentStateDtoToJson(
         _$_RespondentStateDto instance) =>
     <String, dynamic>{
-      'respondentListListState': instance.respondentListListState,
-      'respondentListList':
-          instance.respondentListList.map((e) => e.toJson()).toList(),
+      'surveyRespondentMapState': instance.surveyRespondentMapState,
+      'surveyRespondentMap': instance.surveyRespondentMap
+          .map((k, e) => MapEntry(k, e.map((k, e) => MapEntry(k, e.toJson())))),
       'survey': instance.survey.toJson(),
-      'respondentList': instance.respondentList.map((e) => e.toJson()).toList(),
+      'respondentMap':
+          instance.respondentMap.map((k, e) => MapEntry(k, e.toJson())),
       'currentTab': _$TabTypeEnumMap[instance.currentTab],
       'tabScrollPosition': instance.tabScrollPosition
           .map((k, e) => MapEntry(_$TabTypeEnumMap[k], e.toJson())),
@@ -63,10 +70,9 @@ Map<String, dynamic> _$_$_RespondentStateDtoToJson(
       'respondentFailure': instance.respondentFailure,
       'visitRecordsMap': instance.visitRecordsMap
           .map((k, e) => MapEntry(k, e.map((e) => e.toJson()).toList())),
-      'tabRespondentsMap': instance.tabRespondentsMap.map((k, e) =>
-          MapEntry(_$TabTypeEnumMap[k], e.map((e) => e.toJson()).toList())),
-      'responseInfoList':
-          instance.responseInfoList.map((e) => e.toJson()).toList(),
+      'tabRespondentMap': instance.tabRespondentMap.map((k, e) => MapEntry(
+          _$TabTypeEnumMap[k], e.map((k, e) => MapEntry(k, e.toJson())))),
+      'responseInfoMap': instance.responseInfoMap.toJson(),
     };
 
 K _$enumDecode<K, V>(

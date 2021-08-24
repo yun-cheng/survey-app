@@ -73,7 +73,7 @@ class VisitHistory extends StatelessWidget {
               ),
             );
           },
-          itemCount: visitRecords != null ? visitRecords.size : 0,
+          itemCount: visitRecords != null ? visitRecords.length : 0,
         );
       },
     );

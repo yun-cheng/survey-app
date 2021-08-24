@@ -25,7 +25,7 @@ class _$UpdateSurveyPageEventTearOff {
   }
 
   _ReferenceListReceived referenceListReceived(
-      Either<SurveyFailure, KtList<Reference>> failureOrReferenceList) {
+      Either<SurveyFailure, List<Reference>> failureOrReferenceList) {
     return _ReferenceListReceived(
       failureOrReferenceList,
     );
@@ -60,10 +60,10 @@ class _$UpdateSurveyPageEventTearOff {
     );
   }
 
-  _RespondentResponseListUpdated respondentResponseListUpdated(
-      {required KtList<Response> respondentResponseList}) {
+  _RespondentResponseListUpdated respondentResponseMapUpdated(
+      {required Map<ModuleType, Response> respondentResponseMap}) {
     return _RespondentResponseListUpdated(
-      respondentResponseList: respondentResponseList,
+      respondentResponseMap: respondentResponseMap,
     );
   }
 
@@ -143,7 +143,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -159,8 +159,8 @@ mixin _$UpdateSurveyPageEvent {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -184,7 +184,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -200,8 +200,8 @@ mixin _$UpdateSurveyPageEvent {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -229,7 +229,7 @@ mixin _$UpdateSurveyPageEvent {
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -255,7 +255,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -389,7 +389,7 @@ class _$_WatchReferenceListStarted
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -405,8 +405,8 @@ class _$_WatchReferenceListStarted
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -433,7 +433,7 @@ class _$_WatchReferenceListStarted
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -449,8 +449,8 @@ class _$_WatchReferenceListStarted
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -484,7 +484,7 @@ class _$_WatchReferenceListStarted
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -513,7 +513,7 @@ class _$_WatchReferenceListStarted
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -555,7 +555,7 @@ abstract class _$ReferenceListReceivedCopyWith<$Res> {
   factory _$ReferenceListReceivedCopyWith(_ReferenceListReceived value,
           $Res Function(_ReferenceListReceived) then) =
       __$ReferenceListReceivedCopyWithImpl<$Res>;
-  $Res call({Either<SurveyFailure, KtList<Reference>> failureOrReferenceList});
+  $Res call({Either<SurveyFailure, List<Reference>> failureOrReferenceList});
 }
 
 /// @nodoc
@@ -577,7 +577,7 @@ class __$ReferenceListReceivedCopyWithImpl<$Res>
       failureOrReferenceList == freezed
           ? _value.failureOrReferenceList
           : failureOrReferenceList // ignore: cast_nullable_to_non_nullable
-              as Either<SurveyFailure, KtList<Reference>>,
+              as Either<SurveyFailure, List<Reference>>,
     ));
   }
 }
@@ -590,7 +590,7 @@ class _$_ReferenceListReceived
   const _$_ReferenceListReceived(this.failureOrReferenceList);
 
   @override
-  final Either<SurveyFailure, KtList<Reference>> failureOrReferenceList;
+  final Either<SurveyFailure, List<Reference>> failureOrReferenceList;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -633,7 +633,7 @@ class _$_ReferenceListReceived
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -649,8 +649,8 @@ class _$_ReferenceListReceived
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -677,7 +677,7 @@ class _$_ReferenceListReceived
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -693,8 +693,8 @@ class _$_ReferenceListReceived
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -728,7 +728,7 @@ class _$_ReferenceListReceived
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -757,7 +757,7 @@ class _$_ReferenceListReceived
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -784,10 +784,10 @@ class _$_ReferenceListReceived
 
 abstract class _ReferenceListReceived implements UpdateSurveyPageEvent {
   const factory _ReferenceListReceived(
-          Either<SurveyFailure, KtList<Reference>> failureOrReferenceList) =
+          Either<SurveyFailure, List<Reference>> failureOrReferenceList) =
       _$_ReferenceListReceived;
 
-  Either<SurveyFailure, KtList<Reference>> get failureOrReferenceList =>
+  Either<SurveyFailure, List<Reference>> get failureOrReferenceList =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith =>
@@ -1054,7 +1054,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -1070,8 +1070,8 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -1110,7 +1110,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -1126,8 +1126,8 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -1173,7 +1173,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -1202,7 +1202,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -1269,7 +1269,7 @@ abstract class _$RespondentResponseListUpdatedCopyWith<$Res> {
           _RespondentResponseListUpdated value,
           $Res Function(_RespondentResponseListUpdated) then) =
       __$RespondentResponseListUpdatedCopyWithImpl<$Res>;
-  $Res call({KtList<Response> respondentResponseList});
+  $Res call({Map<ModuleType, Response> respondentResponseMap});
 }
 
 /// @nodoc
@@ -1287,13 +1287,13 @@ class __$RespondentResponseListUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? respondentResponseList = freezed,
+    Object? respondentResponseMap = freezed,
   }) {
     return _then(_RespondentResponseListUpdated(
-      respondentResponseList: respondentResponseList == freezed
-          ? _value.respondentResponseList
-          : respondentResponseList // ignore: cast_nullable_to_non_nullable
-              as KtList<Response>,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
     ));
   }
 }
@@ -1303,15 +1303,14 @@ class __$RespondentResponseListUpdatedCopyWithImpl<$Res>
 class _$_RespondentResponseListUpdated
     with DiagnosticableTreeMixin
     implements _RespondentResponseListUpdated {
-  const _$_RespondentResponseListUpdated(
-      {required this.respondentResponseList});
+  const _$_RespondentResponseListUpdated({required this.respondentResponseMap});
 
   @override
-  final KtList<Response> respondentResponseList;
+  final Map<ModuleType, Response> respondentResponseMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageEvent.respondentResponseListUpdated(respondentResponseList: $respondentResponseList)';
+    return 'UpdateSurveyPageEvent.respondentResponseMapUpdated(respondentResponseMap: $respondentResponseMap)';
   }
 
   @override
@@ -1319,24 +1318,24 @@ class _$_RespondentResponseListUpdated
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.respondentResponseListUpdated'))
-      ..add(DiagnosticsProperty(
-          'respondentResponseList', respondentResponseList));
+          'type', 'UpdateSurveyPageEvent.respondentResponseMapUpdated'))
+      ..add(
+          DiagnosticsProperty('respondentResponseMap', respondentResponseMap));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RespondentResponseListUpdated &&
-            (identical(other.respondentResponseList, respondentResponseList) ||
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
                 const DeepCollectionEquality().equals(
-                    other.respondentResponseList, respondentResponseList)));
+                    other.respondentResponseMap, respondentResponseMap)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentResponseList);
+      const DeepCollectionEquality().hash(respondentResponseMap);
 
   @JsonKey(ignore: true)
   @override
@@ -1350,7 +1349,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -1366,8 +1365,8 @@ class _$_RespondentResponseListUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -1385,7 +1384,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
-    return respondentResponseListUpdated(respondentResponseList);
+    return respondentResponseMapUpdated(respondentResponseMap);
   }
 
   @override
@@ -1394,7 +1393,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -1410,8 +1409,8 @@ class _$_RespondentResponseListUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -1430,8 +1429,8 @@ class _$_RespondentResponseListUpdated
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (respondentResponseListUpdated != null) {
-      return respondentResponseListUpdated(respondentResponseList);
+    if (respondentResponseMapUpdated != null) {
+      return respondentResponseMapUpdated(respondentResponseMap);
     }
     return orElse();
   }
@@ -1445,7 +1444,7 @@ class _$_RespondentResponseListUpdated
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -1463,7 +1462,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return respondentResponseListUpdated(this);
+    return respondentResponseMapUpdated(this);
   }
 
   @override
@@ -1474,7 +1473,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -1492,8 +1491,8 @@ class _$_RespondentResponseListUpdated
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (respondentResponseListUpdated != null) {
-      return respondentResponseListUpdated(this);
+    if (respondentResponseMapUpdated != null) {
+      return respondentResponseMapUpdated(this);
     }
     return orElse();
   }
@@ -1501,10 +1500,10 @@ class _$_RespondentResponseListUpdated
 
 abstract class _RespondentResponseListUpdated implements UpdateSurveyPageEvent {
   const factory _RespondentResponseListUpdated(
-          {required KtList<Response> respondentResponseList}) =
+          {required Map<ModuleType, Response> respondentResponseMap}) =
       _$_RespondentResponseListUpdated;
 
-  KtList<Response> get respondentResponseList =>
+  Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$RespondentResponseListUpdatedCopyWith<_RespondentResponseListUpdated>
@@ -1604,7 +1603,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -1620,8 +1619,8 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -1648,7 +1647,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -1664,8 +1663,8 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -1699,7 +1698,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -1728,7 +1727,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -1820,7 +1819,7 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -1836,8 +1835,8 @@ class _$_ContentQuestionMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -1864,7 +1863,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -1880,8 +1879,8 @@ class _$_ContentQuestionMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -1915,7 +1914,7 @@ class _$_ContentQuestionMapUpdated
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -1944,7 +1943,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2026,7 +2025,7 @@ class _$_NextPagePressed
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -2042,8 +2041,8 @@ class _$_NextPagePressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -2070,7 +2069,7 @@ class _$_NextPagePressed
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -2086,8 +2085,8 @@ class _$_NextPagePressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -2121,7 +2120,7 @@ class _$_NextPagePressed
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2150,7 +2149,7 @@ class _$_NextPagePressed
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2232,7 +2231,7 @@ class _$_PreviousPagePressed
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -2248,8 +2247,8 @@ class _$_PreviousPagePressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -2276,7 +2275,7 @@ class _$_PreviousPagePressed
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -2292,8 +2291,8 @@ class _$_PreviousPagePressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -2327,7 +2326,7 @@ class _$_PreviousPagePressed
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2356,7 +2355,7 @@ class _$_PreviousPagePressed
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2461,7 +2460,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -2477,8 +2476,8 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -2505,7 +2504,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -2521,8 +2520,8 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -2556,7 +2555,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2585,7 +2584,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2672,7 +2671,7 @@ class _$_FinishedButtonPressed
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -2688,8 +2687,8 @@ class _$_FinishedButtonPressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -2716,7 +2715,7 @@ class _$_FinishedButtonPressed
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -2732,8 +2731,8 @@ class _$_FinishedButtonPressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -2767,7 +2766,7 @@ class _$_FinishedButtonPressed
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2796,7 +2795,7 @@ class _$_FinishedButtonPressed
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2875,7 +2874,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -2891,8 +2890,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -2919,7 +2918,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -2935,8 +2934,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -2970,7 +2969,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2999,7 +2998,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3081,7 +3080,7 @@ class _$_ReadOnlyToggled
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -3097,8 +3096,8 @@ class _$_ReadOnlyToggled
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -3125,7 +3124,7 @@ class _$_ReadOnlyToggled
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -3141,8 +3140,8 @@ class _$_ReadOnlyToggled
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -3176,7 +3175,7 @@ class _$_ReadOnlyToggled
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3205,7 +3204,7 @@ class _$_ReadOnlyToggled
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3315,7 +3314,7 @@ class _$_AppLifeCycleChanged
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -3331,8 +3330,8 @@ class _$_AppLifeCycleChanged
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -3359,7 +3358,7 @@ class _$_AppLifeCycleChanged
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -3375,8 +3374,8 @@ class _$_AppLifeCycleChanged
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -3410,7 +3409,7 @@ class _$_AppLifeCycleChanged
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3439,7 +3438,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3524,7 +3523,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -3540,8 +3539,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -3568,7 +3567,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -3584,8 +3583,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -3619,7 +3618,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3648,7 +3647,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3730,7 +3729,7 @@ class _$_LeaveButtonPressed
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -3746,8 +3745,8 @@ class _$_LeaveButtonPressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -3774,7 +3773,7 @@ class _$_LeaveButtonPressed
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -3790,8 +3789,8 @@ class _$_LeaveButtonPressed
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -3825,7 +3824,7 @@ class _$_LeaveButtonPressed
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3854,7 +3853,7 @@ class _$_LeaveButtonPressed
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3936,7 +3935,7 @@ class _$_LeaveButtonHidden
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -3952,8 +3951,8 @@ class _$_LeaveButtonHidden
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -3980,7 +3979,7 @@ class _$_LeaveButtonHidden
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -3996,8 +3995,8 @@ class _$_LeaveButtonHidden
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -4031,7 +4030,7 @@ class _$_LeaveButtonHidden
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -4060,7 +4059,7 @@ class _$_LeaveButtonHidden
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -4138,7 +4137,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -4154,8 +4153,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -4182,7 +4181,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -4198,8 +4197,8 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -4233,7 +4232,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -4262,7 +4261,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -4344,7 +4343,7 @@ class _$_TaskInitialized
     required TResult Function(String teamId, String interviewerId)
         watchReferenceListStarted,
     required TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
         referenceListReceived,
     required TResult Function(
             String surveyId,
@@ -4360,8 +4359,8 @@ class _$_TaskInitialized
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)
         stateRestored,
-    required TResult Function(KtList<Response> respondentResponseList)
-        respondentResponseListUpdated,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
     required TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
@@ -4388,7 +4387,7 @@ class _$_TaskInitialized
     TResult Function(String teamId, String interviewerId)?
         watchReferenceListStarted,
     TResult Function(
-            Either<SurveyFailure, KtList<Reference>> failureOrReferenceList)?
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
         referenceListReceived,
     TResult Function(
             String surveyId,
@@ -4404,8 +4403,8 @@ class _$_TaskInitialized
             Map<String, AnswerStatus> mainAnswerStatusMap,
             Respondent respondent)?
         stateRestored,
-    TResult Function(KtList<Response> respondentResponseList)?
-        respondentResponseListUpdated,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
     TResult Function(Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
@@ -4439,7 +4438,7 @@ class _$_TaskInitialized
         referenceListReceived,
     required TResult Function(_StateRestored value) stateRestored,
     required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -4468,7 +4467,7 @@ class _$_TaskInitialized
     TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_StateRestored value)? stateRestored,
     TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseListUpdated,
+        respondentResponseMapUpdated,
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -4514,11 +4513,11 @@ class _$UpdateSurveyPageStateTearOff {
       required SurveyPageUpdateType updateType,
       required LoadState restoreState,
       required LoadState referenceListState,
-      required KtList<Reference> referenceList,
+      required List<Reference> referenceList,
       required Option<SurveyFailure> surveyFailure,
       required Respondent respondent,
       required Map<String, Answer> answerMap,
-      required KtList<Response> respondentResponseList,
+      required Map<ModuleType, Response> respondentResponseMap,
       required String surveyId,
       required ModuleType moduleType,
       required Map<String, Question> questionMap,
@@ -4550,7 +4549,7 @@ class _$UpdateSurveyPageStateTearOff {
       surveyFailure: surveyFailure,
       respondent: respondent,
       answerMap: answerMap,
-      respondentResponseList: respondentResponseList,
+      respondentResponseMap: respondentResponseMap,
       surveyId: surveyId,
       moduleType: moduleType,
       questionMap: questionMap,
@@ -4589,11 +4588,11 @@ mixin _$UpdateSurveyPageState {
   LoadState get restoreState =>
       throw _privateConstructorUsedError; // H_ reference
   LoadState get referenceListState => throw _privateConstructorUsedError;
-  KtList<Reference> get referenceList => throw _privateConstructorUsedError;
+  List<Reference> get referenceList => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
   Respondent get respondent => throw _privateConstructorUsedError;
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtList<Response> get respondentResponseList =>
+  Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType =>
@@ -4638,11 +4637,11 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
       SurveyPageUpdateType updateType,
       LoadState restoreState,
       LoadState referenceListState,
-      KtList<Reference> referenceList,
+      List<Reference> referenceList,
       Option<SurveyFailure> surveyFailure,
       Respondent respondent,
       Map<String, Answer> answerMap,
-      KtList<Response> respondentResponseList,
+      Map<ModuleType, Response> respondentResponseMap,
       String surveyId,
       ModuleType moduleType,
       Map<String, Question> questionMap,
@@ -4693,7 +4692,7 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? surveyFailure = freezed,
     Object? respondent = freezed,
     Object? answerMap = freezed,
-    Object? respondentResponseList = freezed,
+    Object? respondentResponseMap = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
     Object? questionMap = freezed,
@@ -4761,7 +4760,7 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
-              as KtList<Reference>,
+              as List<Reference>,
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure // ignore: cast_nullable_to_non_nullable
@@ -4774,10 +4773,10 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Answer>,
-      respondentResponseList: respondentResponseList == freezed
-          ? _value.respondentResponseList
-          : respondentResponseList // ignore: cast_nullable_to_non_nullable
-              as KtList<Response>,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
@@ -4900,11 +4899,11 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       SurveyPageUpdateType updateType,
       LoadState restoreState,
       LoadState referenceListState,
-      KtList<Reference> referenceList,
+      List<Reference> referenceList,
       Option<SurveyFailure> surveyFailure,
       Respondent respondent,
       Map<String, Answer> answerMap,
-      KtList<Response> respondentResponseList,
+      Map<ModuleType, Response> respondentResponseMap,
       String surveyId,
       ModuleType moduleType,
       Map<String, Question> questionMap,
@@ -4963,7 +4962,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
     Object? surveyFailure = freezed,
     Object? respondent = freezed,
     Object? answerMap = freezed,
-    Object? respondentResponseList = freezed,
+    Object? respondentResponseMap = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
     Object? questionMap = freezed,
@@ -5031,7 +5030,7 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
-              as KtList<Reference>,
+              as List<Reference>,
       surveyFailure: surveyFailure == freezed
           ? _value.surveyFailure
           : surveyFailure // ignore: cast_nullable_to_non_nullable
@@ -5044,10 +5043,10 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Answer>,
-      respondentResponseList: respondentResponseList == freezed
-          ? _value.respondentResponseList
-          : respondentResponseList // ignore: cast_nullable_to_non_nullable
-              as KtList<Response>,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
@@ -5129,7 +5128,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
       required this.surveyFailure,
       required this.respondent,
       required this.answerMap,
-      required this.respondentResponseList,
+      required this.respondentResponseMap,
       required this.surveyId,
       required this.moduleType,
       required this.questionMap,
@@ -5171,7 +5170,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
   @override // H_ reference
   final LoadState referenceListState;
   @override
-  final KtList<Reference> referenceList;
+  final List<Reference> referenceList;
   @override
   final Option<SurveyFailure> surveyFailure;
   @override
@@ -5179,7 +5178,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
   @override
   final Map<String, Answer> answerMap;
   @override
-  final KtList<Response> respondentResponseList;
+  final Map<ModuleType, Response> respondentResponseMap;
   @override
   final String surveyId;
   @override
@@ -5211,7 +5210,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseList: $respondentResponseList, surveyId: $surveyId, moduleType: $moduleType, questionMap: $questionMap, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainQuestionMap: $mainQuestionMap, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseMap: $respondentResponseMap, surveyId: $surveyId, moduleType: $moduleType, questionMap: $questionMap, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainQuestionMap: $mainQuestionMap, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -5235,8 +5234,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
       ..add(DiagnosticsProperty('surveyFailure', surveyFailure))
       ..add(DiagnosticsProperty('respondent', respondent))
       ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(
-          DiagnosticsProperty('respondentResponseList', respondentResponseList))
+      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
       ..add(DiagnosticsProperty('surveyId', surveyId))
       ..add(DiagnosticsProperty('moduleType', moduleType))
       ..add(DiagnosticsProperty('questionMap', questionMap))
@@ -5304,9 +5302,9 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
-            (identical(other.respondentResponseList, respondentResponseList) ||
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
                 const DeepCollectionEquality().equals(
-                    other.respondentResponseList, respondentResponseList)) &&
+                    other.respondentResponseMap, respondentResponseMap)) &&
             (identical(other.surveyId, surveyId) ||
                 const DeepCollectionEquality()
                     .equals(other.surveyId, surveyId)) &&
@@ -5352,7 +5350,7 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
       const DeepCollectionEquality().hash(surveyFailure) ^
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(respondentResponseList) ^
+      const DeepCollectionEquality().hash(respondentResponseMap) ^
       const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(questionMap) ^
@@ -5389,11 +5387,11 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
           required SurveyPageUpdateType updateType,
           required LoadState restoreState,
           required LoadState referenceListState,
-          required KtList<Reference> referenceList,
+          required List<Reference> referenceList,
           required Option<SurveyFailure> surveyFailure,
           required Respondent respondent,
           required Map<String, Answer> answerMap,
-          required KtList<Response> respondentResponseList,
+          required Map<ModuleType, Response> respondentResponseMap,
           required String surveyId,
           required ModuleType moduleType,
           required Map<String, Question> questionMap,
@@ -5437,7 +5435,7 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   @override // H_ reference
   LoadState get referenceListState => throw _privateConstructorUsedError;
   @override
-  KtList<Reference> get referenceList => throw _privateConstructorUsedError;
+  List<Reference> get referenceList => throw _privateConstructorUsedError;
   @override
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
   @override
@@ -5445,7 +5443,7 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   @override
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtList<Response> get respondentResponseList =>
+  Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
   @override
   String get surveyId => throw _privateConstructorUsedError;

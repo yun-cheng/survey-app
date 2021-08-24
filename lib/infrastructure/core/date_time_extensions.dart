@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of 'extensions.dart';
 
 extension IntExtension on int {
   String pad0() {

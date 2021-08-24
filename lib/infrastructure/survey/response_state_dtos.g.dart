@@ -14,10 +14,9 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
     interviewer:
         InterviewerDto.fromJson(json['interviewer'] as Map<String, dynamic>),
     moduleType: json['moduleType'] as String,
-    responseListState: json['responseListState'] as String,
-    responseList: (json['responseList'] as List<dynamic>)
-        .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    responseMapState: json['responseMapState'] as String,
+    responseMap:
+        ResponseMapDto.fromJson(json['responseMap'] as Map<String, dynamic>),
     responseFailure: json['responseFailure'] as String?,
     response: ResponseDto.fromJson(json['response'] as Map<String, dynamic>),
     responseRestoreState: json['responseRestoreState'] as String,
@@ -29,12 +28,14 @@ _$_ResponseStateDto _$_$_ResponseStateDtoFromJson(Map<String, dynamic> json) {
     responseId: json['responseId'] as String,
     mainResponse:
         ResponseDto.fromJson(json['mainResponse'] as Map<String, dynamic>),
-    respondentResponseList: (json['respondentResponseList'] as List<dynamic>)
-        .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    respondentResponseMap:
+        (json['respondentResponseMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, ResponseDto.fromJson(e as Map<String, dynamic>)),
+    ),
+    updateRespondentResponseMap: json['updateRespondentResponseMap'] as bool,
     updateState: json['updateState'] as String,
     updateVisitReportsMap: json['updateVisitReportsMap'] as bool,
-    updateTabRespondentsMap: json['updateTabRespondentsMap'] as bool,
+    updateTabRespondentMap: json['updateTabRespondentMap'] as bool,
     referenceList: (json['referenceList'] as List<dynamic>)
         .map((e) => ReferenceDto.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -48,8 +49,8 @@ Map<String, dynamic> _$_$_ResponseStateDtoToJson(
       'respondent': instance.respondent.toJson(),
       'interviewer': instance.interviewer.toJson(),
       'moduleType': instance.moduleType,
-      'responseListState': instance.responseListState,
-      'responseList': instance.responseList.map((e) => e.toJson()).toList(),
+      'responseMapState': instance.responseMapState,
+      'responseMap': instance.responseMap.toJson(),
       'responseFailure': instance.responseFailure,
       'response': instance.response.toJson(),
       'responseRestoreState': instance.responseRestoreState,
@@ -59,10 +60,11 @@ Map<String, dynamic> _$_$_ResponseStateDtoToJson(
       'breakInterview': instance.breakInterview,
       'responseId': instance.responseId,
       'mainResponse': instance.mainResponse.toJson(),
-      'respondentResponseList':
-          instance.respondentResponseList.map((e) => e.toJson()).toList(),
+      'respondentResponseMap':
+          instance.respondentResponseMap.map((k, e) => MapEntry(k, e.toJson())),
+      'updateRespondentResponseMap': instance.updateRespondentResponseMap,
       'updateState': instance.updateState,
       'updateVisitReportsMap': instance.updateVisitReportsMap,
-      'updateTabRespondentsMap': instance.updateTabRespondentsMap,
+      'updateTabRespondentMap': instance.updateTabRespondentMap,
       'referenceList': instance.referenceList.map((e) => e.toJson()).toList(),
     };

@@ -17,7 +17,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   // H_ answerMap 有變更時
   const factory UpdateAnswerStatusEvent.answerMapUpdated({
     required Map<String, Answer> answerMap,
-    required KtList<String> questionIdList,
+    required List<String> questionIdList,
     required bool updateAnswerStatus,
   }) = _AnswerMapUpdated;
 
@@ -28,7 +28,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
 
   // H_ 清空部分題目作答
   const factory UpdateAnswerStatusEvent.answerQIdListCleared({
-    required KtList<String> questionIdList,
+    required List<String> questionIdList,
   }) = _AnswerQIdListCleared;
 
   const factory UpdateAnswerStatusEvent.taskInitialized() = _TaskInitialized;

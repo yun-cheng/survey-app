@@ -13,43 +13,43 @@ void _responseEventWorker(
   var state = tuple.item2 as ResponseState;
 
   e.maybeMap(
-    // H_ 監聽 responseList
-    watchResponseListStarted: (e) {
+    // H_ 監聽 responseMap
+    watchResponseMapStarted: (e) {
       state = state
           .copyWith(
             interviewer: e.interviewer,
-            responseListState: LoadState.inProgress(),
+            responseMapState: LoadState.inProgress(),
             responseFailure: none(),
           )
           .send(channel);
     },
-    // H_2 接收到 responseList
-    responseListReceived: (e) {
-      logger('Receive').i('ResponseBloc: responseListReceived');
+    // H_2 接收到 responseMap
+    responseMapReceived: (e) {
+      logger('Receive').i('ResponseBloc: responseMapReceived');
 
-      state = e.failureOrResponseList
+      state = e.failureOrResponseMap
           .fold(
             (f) => state.copyWith(
-              responseListState: LoadState.failure(),
+              responseMapState: LoadState.failure(),
               responseFailure: some(f),
             ),
-            (responseList) => state.copyWith(
-              responseListState: LoadState.success(),
+            (responseMap) => state.copyWith(
+              responseMapState: LoadState.success(),
               updateState: LoadState.inProgress(),
-              downloadedResponseList: responseList,
+              downloadedResponseMap: responseMap,
               responseFailure: none(),
             ),
           )
           .send(channel);
 
-      // S_ merge responseList
+      // S_ merge responseMap
       state = state
           .copyWith(
             updateVisitReportsMap: false,
-            updateTabRespondentsMap: false,
+            updateTabRespondentMap: false,
           )
           .send(channel);
-      state = responseListMerged(state).send(channel);
+      state = responseMapMerged(state).send(channel);
     },
     // H_ referenceList 更新時
     referenceListUpdated: (e) {
@@ -61,7 +61,7 @@ void _responseEventWorker(
     },
     // H_ 使用者選擇問卷
     surveySelected: (e) {
-      logger('Event').i('ResponseEvent: surveySelected');
+      logger('User Event').i('ResponseEvent: surveySelected');
 
       state = state
           .copyWith(
@@ -77,7 +77,7 @@ void _responseEventWorker(
     },
     // H_ 使用者選擇要開始進行的問卷模組
     responseStarted: (e) {
-      logger('Event').i('ResponseEvent: responseStarted');
+      logger('User Event').i('ResponseEvent: responseStarted');
 
       state = state
           .copyWith(
@@ -93,11 +93,12 @@ void _responseEventWorker(
       state = state
           .copyWith(
             responseRestoreState: LoadState.inProgress(),
+            updateRespondentResponseMap: false,
           )
           .send(channel);
       state = responseRestored(state).send(channel);
 
-      state = respondentResponseListUpdated(state).send(channel);
+      state = respondentResponseMapUpdated(state).send(channel);
     },
     // H_ 使用者在閒置後，選擇繼續訪問
     responseResumed: (e) {
@@ -112,7 +113,7 @@ void _responseEventWorker(
       state = state
           .copyWith(
             updateVisitReportsMap: false,
-            updateTabRespondentsMap: false,
+            updateTabRespondentMap: false,
           )
           .send(channel);
       state = editFinished(e, state).send(channel);

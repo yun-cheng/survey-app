@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/overview/survey.dart';
 import '../../domain/survey/value_objects.dart';

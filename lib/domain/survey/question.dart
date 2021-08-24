@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'answer.dart';
 import 'choice.dart';
@@ -19,13 +18,13 @@ class Question with _$Question {
     required String id,
     required bool hideId,
     required int serialNumber,
-    required KtList<FormattedText> body,
+    required List<FormattedText> body,
     required String stringBody,
     required String note,
     required QuestionType type,
     required FullExpression show,
-    required KtList<Choice> choiceList,
-    required KtList<Choice> initChoiceList,
+    required List<Choice> choiceList,
+    required List<Choice> initChoiceList,
     required bool hasSpecialAnswer,
     required FullExpression validateAnswer,
     required String upperQuestionId,
@@ -40,12 +39,12 @@ class Question with _$Question {
         id: '',
         hideId: false,
         serialNumber: 0,
-        body: emptyList<FormattedText>(),
+        body: <FormattedText>[],
         stringBody: '',
         note: '',
         type: QuestionType.description(),
-        choiceList: emptyList<Choice>(),
-        initChoiceList: emptyList<Choice>(),
+        choiceList: <Choice>[],
+        initChoiceList: <Choice>[],
         hasSpecialAnswer: false,
         show: FullExpression.empty(),
         validateAnswer: FullExpression.empty(),
@@ -59,30 +58,32 @@ class Question with _$Question {
   bool get isEmpty => id == '';
 
   Question updateBody({
-    required KtList<Reference> referenceList,
-    required KtList<Response> responseList,
+    required List<Reference> referenceList,
+    required Map<ModuleType, Response> respondentResponseMap,
     required String surveyId,
     required ModuleType moduleType,
     required Map<String, Answer> answerMap,
     required String respondentId,
   }) {
-    final newBody = body.map(
-      (item) => item.getAnswer(
-        referenceList: referenceList,
-        responseList: responseList,
-        surveyId: surveyId,
-        moduleType: moduleType,
-        answerMap: answerMap,
-        respondentId: respondentId,
-      ),
-    );
+    final newBody = body
+        .map(
+          (item) => item.getAnswer(
+            referenceList: referenceList,
+            respondentResponseMap: respondentResponseMap,
+            surveyId: surveyId,
+            moduleType: moduleType,
+            answerMap: answerMap,
+            respondentId: respondentId,
+          ),
+        )
+        .toList();
     return copyWith(
       body: newBody,
       stringBody: newBody
           .map(
             (item) => item.toPlainText(),
           )
-          .joinToString(separator: ''),
+          .join(),
     );
   }
 

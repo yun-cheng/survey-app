@@ -38,7 +38,7 @@ class SurveyBody extends StatelessWidget {
         buildWhen: (p, c) =>
             (p.loadState != c.loadState &&
                 c.loadState == LoadState.success()) &&
-            (p.page != c.page || c.page == 0),
+            (p.page != c.page || p.page == -99),
         builder: (context, state) {
           logger('Build').i('SurveyBody: List of QaCard');
 

@@ -42,7 +42,7 @@ class PageControlBar extends HookWidget {
               p.isLastPage != c.isLastPage ||
               p.warning != c.warning ||
               p.showWarning != c.showWarning ||
-              c.page == 0;
+              p.page == -99;
         }
         return false;
       },

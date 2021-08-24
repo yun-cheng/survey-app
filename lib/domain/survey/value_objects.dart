@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import 'simple_choice.dart';
 
@@ -85,8 +84,8 @@ class AnswerStatusType with _$AnswerStatusType {
       choice == SimpleChoice.empty()
           ? AnswerStatusType.unanswered()
           : AnswerStatusType.answered();
-  factory AnswerStatusType.fromChoiceList(KtList<SimpleChoice> choiceList) =>
-      choiceList.isEmpty()
+  factory AnswerStatusType.fromChoiceList(List<SimpleChoice> choiceList) =>
+      choiceList.isEmpty
           ? AnswerStatusType.unanswered()
           : AnswerStatusType.answered();
 

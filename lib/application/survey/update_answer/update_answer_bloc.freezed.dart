@@ -44,7 +44,7 @@ class _$UpdateAnswerEventTearOff {
   }
 
   _AnswerQIdListCleared answerQIdListCleared(
-      {required KtList<String> questionIdList}) {
+      {required List<String> questionIdList}) {
     return _AnswerQIdListCleared(
       questionIdList: questionIdList,
     );
@@ -67,8 +67,7 @@ mixin _$UpdateAnswerEvent {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
         answerUpdated,
-    required TResult Function(KtList<String> questionIdList)
-        answerQIdListCleared,
+    required TResult Function(List<String> questionIdList) answerQIdListCleared,
     required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
@@ -79,7 +78,7 @@ mixin _$UpdateAnswerEvent {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
         answerUpdated,
-    TResult Function(KtList<String> questionIdList)? answerQIdListCleared,
+    TResult Function(List<String> questionIdList)? answerQIdListCleared,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) =>
@@ -201,8 +200,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
         answerUpdated,
-    required TResult Function(KtList<String> questionIdList)
-        answerQIdListCleared,
+    required TResult Function(List<String> questionIdList) answerQIdListCleared,
     required TResult Function() taskInitialized,
   }) {
     return moduleLoaded(answerMap);
@@ -216,7 +214,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
         answerUpdated,
-    TResult Function(KtList<String> questionIdList)? answerQIdListCleared,
+    TResult Function(List<String> questionIdList)? answerQIdListCleared,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
@@ -317,8 +315,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
         answerUpdated,
-    required TResult Function(KtList<String> questionIdList)
-        answerQIdListCleared,
+    required TResult Function(List<String> questionIdList) answerQIdListCleared,
     required TResult Function() taskInitialized,
   }) {
     return stateCleared();
@@ -332,7 +329,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
         answerUpdated,
-    TResult Function(KtList<String> questionIdList)? answerQIdListCleared,
+    TResult Function(List<String> questionIdList)? answerQIdListCleared,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
@@ -533,8 +530,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
         answerUpdated,
-    required TResult Function(KtList<String> questionIdList)
-        answerQIdListCleared,
+    required TResult Function(List<String> questionIdList) answerQIdListCleared,
     required TResult Function() taskInitialized,
   }) {
     return answerUpdated(
@@ -549,7 +545,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
         answerUpdated,
-    TResult Function(KtList<String> questionIdList)? answerQIdListCleared,
+    TResult Function(List<String> questionIdList)? answerQIdListCleared,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
@@ -614,7 +610,7 @@ abstract class _$AnswerQIdListClearedCopyWith<$Res> {
   factory _$AnswerQIdListClearedCopyWith(_AnswerQIdListCleared value,
           $Res Function(_AnswerQIdListCleared) then) =
       __$AnswerQIdListClearedCopyWithImpl<$Res>;
-  $Res call({KtList<String> questionIdList});
+  $Res call({List<String> questionIdList});
 }
 
 /// @nodoc
@@ -636,7 +632,7 @@ class __$AnswerQIdListClearedCopyWithImpl<$Res>
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
-              as KtList<String>,
+              as List<String>,
     ));
   }
 }
@@ -649,7 +645,7 @@ class _$_AnswerQIdListCleared
   const _$_AnswerQIdListCleared({required this.questionIdList});
 
   @override
-  final KtList<String> questionIdList;
+  final List<String> questionIdList;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -693,8 +689,7 @@ class _$_AnswerQIdListCleared
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
         answerUpdated,
-    required TResult Function(KtList<String> questionIdList)
-        answerQIdListCleared,
+    required TResult Function(List<String> questionIdList) answerQIdListCleared,
     required TResult Function() taskInitialized,
   }) {
     return answerQIdListCleared(questionIdList);
@@ -708,7 +703,7 @@ class _$_AnswerQIdListCleared
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
         answerUpdated,
-    TResult Function(KtList<String> questionIdList)? answerQIdListCleared,
+    TResult Function(List<String> questionIdList)? answerQIdListCleared,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
@@ -748,10 +743,10 @@ class _$_AnswerQIdListCleared
 }
 
 abstract class _AnswerQIdListCleared implements UpdateAnswerEvent {
-  const factory _AnswerQIdListCleared(
-      {required KtList<String> questionIdList}) = _$_AnswerQIdListCleared;
+  const factory _AnswerQIdListCleared({required List<String> questionIdList}) =
+      _$_AnswerQIdListCleared;
 
-  KtList<String> get questionIdList => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
       throw _privateConstructorUsedError;
@@ -811,8 +806,7 @@ class _$_TaskInitialized
     required TResult Function(Question question, dynamic answerValue,
             bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
         answerUpdated,
-    required TResult Function(KtList<String> questionIdList)
-        answerQIdListCleared,
+    required TResult Function(List<String> questionIdList) answerQIdListCleared,
     required TResult Function() taskInitialized,
   }) {
     return taskInitialized();
@@ -826,7 +820,7 @@ class _$_TaskInitialized
     TResult Function(Question question, dynamic answerValue, bool toggle,
             bool isSpecialAnswer, bool isNote, String? noteOf)?
         answerUpdated,
-    TResult Function(KtList<String> questionIdList)? answerQIdListCleared,
+    TResult Function(List<String> questionIdList)? answerQIdListCleared,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
@@ -875,7 +869,7 @@ class _$UpdateAnswerStateTearOff {
 
   _UpdateAnswerState call(
       {required Map<String, Answer> answerMap,
-      required KtList<String> questionIdList,
+      required List<String> questionIdList,
       required LoadState updateState,
       required bool updateAnswerStatus,
       required LoadState restoreState}) {
@@ -895,7 +889,7 @@ const $UpdateAnswerState = _$UpdateAnswerStateTearOff();
 /// @nodoc
 mixin _$UpdateAnswerState {
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtList<String> get questionIdList => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
   bool get updateAnswerStatus => throw _privateConstructorUsedError;
   LoadState get restoreState => throw _privateConstructorUsedError;
@@ -912,7 +906,7 @@ abstract class $UpdateAnswerStateCopyWith<$Res> {
       _$UpdateAnswerStateCopyWithImpl<$Res>;
   $Res call(
       {Map<String, Answer> answerMap,
-      KtList<String> questionIdList,
+      List<String> questionIdList,
       LoadState updateState,
       bool updateAnswerStatus,
       LoadState restoreState});
@@ -946,7 +940,7 @@ class _$UpdateAnswerStateCopyWithImpl<$Res>
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
-              as KtList<String>,
+              as List<String>,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
@@ -986,7 +980,7 @@ abstract class _$UpdateAnswerStateCopyWith<$Res>
   @override
   $Res call(
       {Map<String, Answer> answerMap,
-      KtList<String> questionIdList,
+      List<String> questionIdList,
       LoadState updateState,
       bool updateAnswerStatus,
       LoadState restoreState});
@@ -1024,7 +1018,7 @@ class __$UpdateAnswerStateCopyWithImpl<$Res>
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
-              as KtList<String>,
+              as List<String>,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
@@ -1056,7 +1050,7 @@ class _$_UpdateAnswerState extends _UpdateAnswerState
   @override
   final Map<String, Answer> answerMap;
   @override
-  final KtList<String> questionIdList;
+  final List<String> questionIdList;
   @override
   final LoadState updateState;
   @override
@@ -1120,7 +1114,7 @@ class _$_UpdateAnswerState extends _UpdateAnswerState
 abstract class _UpdateAnswerState extends UpdateAnswerState {
   const factory _UpdateAnswerState(
       {required Map<String, Answer> answerMap,
-      required KtList<String> questionIdList,
+      required List<String> questionIdList,
       required LoadState updateState,
       required bool updateAnswerStatus,
       required LoadState restoreState}) = _$_UpdateAnswerState;
@@ -1129,7 +1123,7 @@ abstract class _UpdateAnswerState extends UpdateAnswerState {
   @override
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
-  KtList<String> get questionIdList => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   @override
   LoadState get updateState => throw _privateConstructorUsedError;
   @override

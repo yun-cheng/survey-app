@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../domain/auth/auth_failure.dart';
@@ -19,12 +19,12 @@ class ManualAuthFacade implements IAuthFacade {
   ManualAuthFacade(this._firestore);
 
   @override
-  Stream<Either<AuthFailure, KtList<Team>>> watchTeamList() async* {
+  Stream<Either<AuthFailure, List<Team>>> watchTeamList() async* {
     final teamCollection = _firestore.teamCollection;
 
     yield* teamCollection
         .snapshots()
-        .map((snapshot) => right<AuthFailure, KtList<Team>>(
+        .map((snapshot) => right<AuthFailure, List<Team>>(
             TeamListDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
@@ -36,7 +36,7 @@ class ManualAuthFacade implements IAuthFacade {
   }
 
   @override
-  Stream<Either<AuthFailure, KtList<Interviewer>>> watchInterviewerList({
+  Stream<Either<AuthFailure, List<Interviewer>>> watchInterviewerList({
     required String teamId,
   }) async* {
     final interviewerListCollection = _firestore.interviewerListCollection;
@@ -44,7 +44,7 @@ class ManualAuthFacade implements IAuthFacade {
     yield* interviewerListCollection
         .doc(teamId)
         .snapshots()
-        .map((snapshot) => right<AuthFailure, KtList<Interviewer>>(
+        .map((snapshot) => right<AuthFailure, List<Interviewer>>(
             InterviewerListDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
@@ -59,12 +59,10 @@ class ManualAuthFacade implements IAuthFacade {
   Either<AuthFailure, Interviewer> signIn({
     required String interviewerId,
     required String password,
-    required KtList<Interviewer> interviewerList,
+    required List<Interviewer> interviewerList,
   }) {
-    final Interviewer? matchInterviewer = interviewerList
-        .filter((interviewer) =>
-            interviewer.id == interviewerId && interviewer.password == password)
-        .firstOrNull();
+    final matchInterviewer = interviewerList.firstWhereOrNull((interviewer) =>
+        interviewer.id == interviewerId && interviewer.password == password);
 
     return optionOf(matchInterviewer).fold(
       () => left(AuthFailure.invalidIdAndPasswordCombination()),

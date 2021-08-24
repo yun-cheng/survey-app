@@ -69,9 +69,13 @@ class Response with _$Response {
   @override
   String toString() {
     return '''
-    Response(respondentId: $respondentId,
-    ticketId: $ticketId),
-    lastChangedTimeStamp: $lastChangedTimeStamp),\n
+    Response(
+    responseId: $responseId,
+    tempResponseId: $tempResponseId,
+    ticketId: $ticketId,
+    respondentId: $respondentId,
+    lastChangedTimeStamp: $lastChangedTimeStamp,
+    ),
     ''';
   }
 

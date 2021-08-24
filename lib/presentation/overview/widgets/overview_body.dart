@@ -18,7 +18,7 @@ class OverviewBody extends StatelessWidget {
               c.surveyListState == LoadState.success()) ||
           p.surveyList != c.surveyList,
       builder: (context, state) {
-        if (!state.surveyList.isEmpty()) {
+        if (state.surveyList.isNotEmpty) {
           return ListView.builder(
             shrinkWrap: true,
             itemBuilder: (context, index) {
@@ -29,7 +29,7 @@ class OverviewBody extends StatelessWidget {
                 survey: survey,
               );
             },
-            itemCount: state.surveyList.size,
+            itemCount: state.surveyList.length,
           );
         }
 

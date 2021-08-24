@@ -1,39 +1,52 @@
 part of 'response_bloc.dart';
 
-// H_ 合併下載的與本地的 responseList
-ResponseState responseListMerged(ResponseState state) {
-  logger('Compute').i('responseListMerged');
+// H_ 合併下載的與本地的 responseMap
+ResponseState responseMapMerged(ResponseState state) {
+  logger('Compute').i('responseMapMerged');
 
-  // S_ 合併剛下載的 responseList 與當前的 responseList，
-  // NOTE 不會有同 responseId 的情形，因為每次 responseRestored 都會創新的。
-  final newList =
-      state.responseList.union(state.downloadedResponseList).toList();
+  final responseMap = {...state.responseMap};
+  bool updateVisitReportsMap = false;
+  bool updateTabRespondentMap = false;
 
-  final diffList = state.downloadedResponseList.minus(state.responseList);
+  // S_ 合併剛下載的 responseMap 與當前的 responseMap，
+  //  各個 responseId 保留 lastChanngedTimeStamp 最晚的
+  // NOTE 不會有同 responseId 的情形，因為
+  //  1. 每次 responseRestored 都會創新的
+  //  2. Firestore 上的 documentId 就是 responseId
+  for (final response in state.downloadedResponseMap.values) {
+    final responseId = response.responseId;
+    if (!responseMap.containsKey(response.responseId) ||
+        response.lastChangedTimeStamp.toInt() >
+            (responseMap[responseId]?.lastChangedTimeStamp.toInt() ?? -1)) {
+      responseMap[responseId] = response;
 
-  // S_ 新下載的 responseList 包含查址模組
-  final updateVisitReportsMap = diffList.any(
-    (r) =>
-        r.surveyId == state.survey.id &&
-        r.moduleType == ModuleType.visitReport(),
-  );
+      // S_ 新下載的 responseMap 包含查址模組
+      if (!updateVisitReportsMap &&
+          response.surveyId == state.survey.id &&
+          response.moduleType == ModuleType.visitReport()) {
+        updateVisitReportsMap = true;
+      }
 
-  // S_ 新下載的 responseList 包含完成的 response
-  final updateTabRespondentsMap = diffList.any(
-    (r) => r.surveyId == state.survey.id && r.responseStatus.isFinished,
-  );
+      // S_ 新下載的 responseMap 包含完成的 response
+      if (!updateVisitReportsMap &&
+          response.surveyId == state.survey.id &&
+          response.responseStatus.isFinished) {
+        updateTabRespondentMap = true;
+      }
+    }
+  }
 
   // TODO 如果在其他 device 剛好更新當前 respondent 的不同模組新 response，
-  //  則要更新 respondentResponseList
+  //  則要更新 respondentResponseMap
 
   return state.copyWith(
-    responseList: newList,
+    responseMap: responseMap,
     updateVisitReportsMap: updateVisitReportsMap,
-    updateTabRespondentsMap: updateTabRespondentsMap,
+    updateTabRespondentMap: updateTabRespondentMap,
   );
 }
 
-// H_ 從 responseList 回復要進行的 response
+// H_ 從 responseMap 回復要進行的 response
 ResponseState responseRestored(ResponseState state) {
   logger('Compute').i('ResponseRestored');
 
@@ -41,22 +54,22 @@ ResponseState responseRestored(ResponseState state) {
   Response? response;
   // S_1-c1 如果有 responseId 則直接篩出來
   if (state.withResponseId) {
-    response =
-        state.responseList.firstOrNull((r) => r.responseId == state.responseId);
+    response = state.responseMap[state.responseId];
   } else if (state.moduleType != ModuleType.visitReport()) {
     // S_1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
     // FIXME 可能要再加上篩同 deviceId
-    response = state.responseList
-        .filter(
+    response = state.responseMap.values
+        .where(
           (r) =>
               r.respondentId == state.respondent.id &&
               r.surveyId == state.survey.id &&
               r.moduleType == state.moduleType,
         )
-        .sortedByDescending(
+        .toList()
+        .sortedByDescendingX(
           (r) => r.lastChangedTimeStamp.toInt(),
         )
-        .firstOrNull();
+        .firstOrNull;
   }
 
   final module = state.survey.module[state.moduleType]!;
@@ -73,16 +86,16 @@ ResponseState responseRestored(ResponseState state) {
     }
 
     // S_ 如果從 referenceList 可以篩出對應的 reference，表示要當作預設作答
-    final initAnswerList = state.referenceList.filter(
+    final initAnswerList = state.referenceList.where(
       (r) =>
           r.respondentId == state.respondent.id &&
           r.surveyId == state.survey.id &&
           r.moduleType == state.moduleType,
     );
 
-    initAnswerList.forEach((reference) {
+    for (final reference in initAnswerList) {
       initAnswerMap[reference.questionId] = reference.answer;
-    });
+    }
 
     response = Response.empty().copyWith(
       teamId: state.survey.teamId,
@@ -113,26 +126,30 @@ ResponseState responseRestored(ResponseState state) {
   // S_4 如果是預過錄，則需要參考 mainResponse
   Response? mainResponse;
   if (state.moduleType == ModuleType.recode()) {
-    final mainResponseList = state.responseList
-        .filter(
+    mainResponse = state.responseMap.values
+        .where(
           (r) =>
               r.responseStatus == ResponseStatus.finished() &&
               r.respondentId == state.respondent.id &&
               r.surveyId == state.survey.id &&
               r.moduleType == ModuleType.main(),
         )
-        .sortedByDescending(
+        .toList()
+        .sortedByDescendingX(
           (r) => r.lastChangedTimeStamp.toInt(),
-        );
-
-    mainResponse = mainResponseList.firstOrNull();
+        )
+        .firstOrNull;
   }
   mainResponse ??= Response.empty();
+
+  // S_
+  final responseMap = {...state.responseMap};
+  responseMap[response.responseId] = response;
 
   return state.copyWith(
     responseRestoreState: LoadState.success(),
     response: response,
-    responseList: state.responseList.plusElement(response),
+    responseMap: responseMap,
     questionMap: module.questionMap,
     withResponseId: false,
     mainResponse: mainResponse,
@@ -156,13 +173,12 @@ ResponseState responseUpdated(
   );
 
   // S_2
-  final newList = state.responseList
-      .filterNot((r) => r.responseId == newResponse.responseId)
-      .plusElement(newResponse);
+  final responseMap = {...state.responseMap};
+  responseMap[newResponse.responseId] = newResponse;
 
   return state.copyWith(
     response: newResponse,
-    responseList: newList,
+    responseMap: responseMap,
   );
 }
 
@@ -195,15 +211,14 @@ ResponseState editFinished(
     }
 
     // S_2
-    final newList = state.responseList
-        .filterNot((r) => r.responseId == newResponse.responseId)
-        .plusElement(newResponse);
+    final responseMap = {...state.responseMap};
+    responseMap[newResponse.responseId] = newResponse;
 
     return state.copyWith(
       response: newResponse,
-      responseList: newList,
+      responseMap: responseMap,
       updateVisitReportsMap: newResponse.moduleType == ModuleType.visitReport(),
-      updateTabRespondentsMap:
+      updateTabRespondentMap:
           e.responseFinished && newResponse.moduleType.needUpdateTab,
     );
   } else {
@@ -238,26 +253,30 @@ ResponseState responseResumed(
 }
 
 // H_ 更新當前受訪者在其他模組的 responses
-ResponseState respondentResponseListUpdated(ResponseState state) {
-  logger('Compute').i('RespondentResponseListUpdated');
+ResponseState respondentResponseMapUpdated(ResponseState state) {
+  logger('Compute').i('RespondentResponseMapUpdated');
 
   // S_ 篩出當前 moduleType 以外的不同 moduleType 最後更新那筆
-  final subsetList = state.responseList
-      .filter(
+  final subsetMap = state.responseMap.values
+      .where(
         (r) =>
             r.respondentId == state.respondent.id &&
             r.surveyId == state.survey.id &&
             r.moduleType != state.moduleType,
       )
-      .sortedByDescending(
+      .toList()
+      .sortedByDescendingX(
         (r) => r.lastChangedTimeStamp.toInt(),
       )
-      .groupBy((r) => r.moduleType)
-      .mapValues((r) => r.value.getOrNull(0))
-      .toList()
-      .map((p) => p.second!);
+      .groupListsBy((r) => r.moduleType)
+      .mapValues((e) => e.first);
+
+  final updateRespondentResponseMap =
+      state.respondentResponseMap.mapValues((r) => r.tempResponseId) !=
+          subsetMap.mapValues((r) => r.tempResponseId);
 
   return state.copyWith(
-    respondentResponseList: subsetList,
+    updateRespondentResponseMap: updateRespondentResponseMap,
+    respondentResponseMap: subsetMap,
   );
 }

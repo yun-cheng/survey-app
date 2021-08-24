@@ -33,7 +33,7 @@ UpdateAnswerState answerUpdated(
     updateState: LoadState.success(),
     updateAnswerStatus: true,
     answerMap: answerMap,
-    questionIdList: KtList.of(e.question.id),
+    questionIdList: [e.question.id],
   );
 }
 

@@ -9,7 +9,7 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   }) = _WatchReferenceListStarted;
 
   const factory UpdateSurveyPageEvent.referenceListReceived(
-    Either<SurveyFailure, KtList<Reference>> failureOrReferenceList,
+    Either<SurveyFailure, List<Reference>> failureOrReferenceList,
   ) = _ReferenceListReceived;
 
   // H_ 進入問卷時載入必要 state
@@ -29,8 +29,8 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   }) = _StateRestored;
 
   // H_ 當前受訪者在其他模組的 response 更新時
-  const factory UpdateSurveyPageEvent.respondentResponseListUpdated({
-    required KtList<Response> respondentResponseList,
+  const factory UpdateSurveyPageEvent.respondentResponseMapUpdated({
+    required Map<ModuleType, Response> respondentResponseMap,
   }) = _RespondentResponseListUpdated;
 
   // H_ 作答有變更時，更新頁面，並檢查 warning

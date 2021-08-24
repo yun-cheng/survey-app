@@ -48,7 +48,7 @@ void _updateAnswerStatusEventWorker(
             .copyWith(
               updateState: LoadState.inProgress(),
               answerMap: e.answerMap,
-              questionId: e.questionIdList.first(),
+              questionId: e.questionIdList.first,
             )
             .send(channel);
         state = answerMapUpdated(state).send(channel);
@@ -112,9 +112,7 @@ UpdateAnswerStatusState qIdListAnswerClearedFlow(
         questionIdList: state.clearAnswerQIdList),
   );
 
-  return state
-      .copyWith(
-        clearAnswerQIdList: const KtList<String>.empty(),
-      )
-      .send(channel);
+  return state.copyWith(
+    clearAnswerQIdList: const [],
+  ).send(channel);
 }

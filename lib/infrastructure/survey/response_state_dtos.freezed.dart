@@ -25,8 +25,8 @@ class _$ResponseStateDtoTearOff {
       required RespondentDto respondent,
       required InterviewerDto interviewer,
       required String moduleType,
-      required String responseListState,
-      required List<ResponseDto> responseList,
+      required String responseMapState,
+      required ResponseMapDto responseMap,
       String? responseFailure,
       required ResponseDto response,
       required String responseRestoreState,
@@ -35,18 +35,19 @@ class _$ResponseStateDtoTearOff {
       required bool breakInterview,
       required String responseId,
       required ResponseDto mainResponse,
-      required List<ResponseDto> respondentResponseList,
+      required Map<String, ResponseDto> respondentResponseMap,
+      required bool updateRespondentResponseMap,
       required String updateState,
       required bool updateVisitReportsMap,
-      required bool updateTabRespondentsMap,
+      required bool updateTabRespondentMap,
       required List<ReferenceDto> referenceList}) {
     return _ResponseStateDto(
       survey: survey,
       respondent: respondent,
       interviewer: interviewer,
       moduleType: moduleType,
-      responseListState: responseListState,
-      responseList: responseList,
+      responseMapState: responseMapState,
+      responseMap: responseMap,
       responseFailure: responseFailure,
       response: response,
       responseRestoreState: responseRestoreState,
@@ -55,10 +56,11 @@ class _$ResponseStateDtoTearOff {
       breakInterview: breakInterview,
       responseId: responseId,
       mainResponse: mainResponse,
-      respondentResponseList: respondentResponseList,
+      respondentResponseMap: respondentResponseMap,
+      updateRespondentResponseMap: updateRespondentResponseMap,
       updateState: updateState,
       updateVisitReportsMap: updateVisitReportsMap,
-      updateTabRespondentsMap: updateTabRespondentsMap,
+      updateTabRespondentMap: updateTabRespondentMap,
       referenceList: referenceList,
     );
   }
@@ -73,13 +75,13 @@ const $ResponseStateDto = _$ResponseStateDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseStateDto {
-// NOTE downloadedResponseList 不須儲存
+// NOTE downloadedResponseMap 不須儲存
   SurveyDto get survey => throw _privateConstructorUsedError;
   RespondentDto get respondent => throw _privateConstructorUsedError;
   InterviewerDto get interviewer => throw _privateConstructorUsedError;
   String get moduleType => throw _privateConstructorUsedError;
-  String get responseListState => throw _privateConstructorUsedError;
-  List<ResponseDto> get responseList => throw _privateConstructorUsedError;
+  String get responseMapState => throw _privateConstructorUsedError;
+  ResponseMapDto get responseMap => throw _privateConstructorUsedError;
   String? get responseFailure => throw _privateConstructorUsedError;
   ResponseDto get response => throw _privateConstructorUsedError;
   String get responseRestoreState => throw _privateConstructorUsedError;
@@ -89,11 +91,12 @@ mixin _$ResponseStateDto {
   bool get breakInterview => throw _privateConstructorUsedError;
   String get responseId => throw _privateConstructorUsedError;
   ResponseDto get mainResponse => throw _privateConstructorUsedError;
-  List<ResponseDto> get respondentResponseList =>
+  Map<String, ResponseDto> get respondentResponseMap =>
       throw _privateConstructorUsedError;
+  bool get updateRespondentResponseMap => throw _privateConstructorUsedError;
   String get updateState => throw _privateConstructorUsedError;
   bool get updateVisitReportsMap => throw _privateConstructorUsedError;
-  bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
+  bool get updateTabRespondentMap => throw _privateConstructorUsedError;
   List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -112,8 +115,8 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       RespondentDto respondent,
       InterviewerDto interviewer,
       String moduleType,
-      String responseListState,
-      List<ResponseDto> responseList,
+      String responseMapState,
+      ResponseMapDto responseMap,
       String? responseFailure,
       ResponseDto response,
       String responseRestoreState,
@@ -122,15 +125,17 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       bool breakInterview,
       String responseId,
       ResponseDto mainResponse,
-      List<ResponseDto> respondentResponseList,
+      Map<String, ResponseDto> respondentResponseMap,
+      bool updateRespondentResponseMap,
       String updateState,
       bool updateVisitReportsMap,
-      bool updateTabRespondentsMap,
+      bool updateTabRespondentMap,
       List<ReferenceDto> referenceList});
 
   $SurveyDtoCopyWith<$Res> get survey;
   $RespondentDtoCopyWith<$Res> get respondent;
   $InterviewerDtoCopyWith<$Res> get interviewer;
+  $ResponseMapDtoCopyWith<$Res> get responseMap;
   $ResponseDtoCopyWith<$Res> get response;
   $ResponseDtoCopyWith<$Res> get mainResponse;
 }
@@ -150,8 +155,8 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object? respondent = freezed,
     Object? interviewer = freezed,
     Object? moduleType = freezed,
-    Object? responseListState = freezed,
-    Object? responseList = freezed,
+    Object? responseMapState = freezed,
+    Object? responseMap = freezed,
     Object? responseFailure = freezed,
     Object? response = freezed,
     Object? responseRestoreState = freezed,
@@ -160,10 +165,11 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
-    Object? respondentResponseList = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? updateRespondentResponseMap = freezed,
     Object? updateState = freezed,
     Object? updateVisitReportsMap = freezed,
-    Object? updateTabRespondentsMap = freezed,
+    Object? updateTabRespondentMap = freezed,
     Object? referenceList = freezed,
   }) {
     return _then(_value.copyWith(
@@ -183,14 +189,14 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as String,
-      responseListState: responseListState == freezed
-          ? _value.responseListState
-          : responseListState // ignore: cast_nullable_to_non_nullable
+      responseMapState: responseMapState == freezed
+          ? _value.responseMapState
+          : responseMapState // ignore: cast_nullable_to_non_nullable
               as String,
-      responseList: responseList == freezed
-          ? _value.responseList
-          : responseList // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+      responseMap: responseMap == freezed
+          ? _value.responseMap
+          : responseMap // ignore: cast_nullable_to_non_nullable
+              as ResponseMapDto,
       responseFailure: responseFailure == freezed
           ? _value.responseFailure
           : responseFailure // ignore: cast_nullable_to_non_nullable
@@ -223,10 +229,14 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
               as ResponseDto,
-      respondentResponseList: respondentResponseList == freezed
-          ? _value.respondentResponseList
-          : respondentResponseList // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, ResponseDto>,
+      updateRespondentResponseMap: updateRespondentResponseMap == freezed
+          ? _value.updateRespondentResponseMap
+          : updateRespondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
@@ -235,9 +245,9 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.updateVisitReportsMap
           : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
               as bool,
-      updateTabRespondentsMap: updateTabRespondentsMap == freezed
-          ? _value.updateTabRespondentsMap
-          : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
+      updateTabRespondentMap: updateTabRespondentMap == freezed
+          ? _value.updateTabRespondentMap
+          : updateTabRespondentMap // ignore: cast_nullable_to_non_nullable
               as bool,
       referenceList: referenceList == freezed
           ? _value.referenceList
@@ -268,6 +278,13 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
   }
 
   @override
+  $ResponseMapDtoCopyWith<$Res> get responseMap {
+    return $ResponseMapDtoCopyWith<$Res>(_value.responseMap, (value) {
+      return _then(_value.copyWith(responseMap: value));
+    });
+  }
+
+  @override
   $ResponseDtoCopyWith<$Res> get response {
     return $ResponseDtoCopyWith<$Res>(_value.response, (value) {
       return _then(_value.copyWith(response: value));
@@ -294,8 +311,8 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       RespondentDto respondent,
       InterviewerDto interviewer,
       String moduleType,
-      String responseListState,
-      List<ResponseDto> responseList,
+      String responseMapState,
+      ResponseMapDto responseMap,
       String? responseFailure,
       ResponseDto response,
       String responseRestoreState,
@@ -304,10 +321,11 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       bool breakInterview,
       String responseId,
       ResponseDto mainResponse,
-      List<ResponseDto> respondentResponseList,
+      Map<String, ResponseDto> respondentResponseMap,
+      bool updateRespondentResponseMap,
       String updateState,
       bool updateVisitReportsMap,
-      bool updateTabRespondentsMap,
+      bool updateTabRespondentMap,
       List<ReferenceDto> referenceList});
 
   @override
@@ -316,6 +334,8 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
   $RespondentDtoCopyWith<$Res> get respondent;
   @override
   $InterviewerDtoCopyWith<$Res> get interviewer;
+  @override
+  $ResponseMapDtoCopyWith<$Res> get responseMap;
   @override
   $ResponseDtoCopyWith<$Res> get response;
   @override
@@ -339,8 +359,8 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? respondent = freezed,
     Object? interviewer = freezed,
     Object? moduleType = freezed,
-    Object? responseListState = freezed,
-    Object? responseList = freezed,
+    Object? responseMapState = freezed,
+    Object? responseMap = freezed,
     Object? responseFailure = freezed,
     Object? response = freezed,
     Object? responseRestoreState = freezed,
@@ -349,10 +369,11 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
-    Object? respondentResponseList = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? updateRespondentResponseMap = freezed,
     Object? updateState = freezed,
     Object? updateVisitReportsMap = freezed,
-    Object? updateTabRespondentsMap = freezed,
+    Object? updateTabRespondentMap = freezed,
     Object? referenceList = freezed,
   }) {
     return _then(_ResponseStateDto(
@@ -372,14 +393,14 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as String,
-      responseListState: responseListState == freezed
-          ? _value.responseListState
-          : responseListState // ignore: cast_nullable_to_non_nullable
+      responseMapState: responseMapState == freezed
+          ? _value.responseMapState
+          : responseMapState // ignore: cast_nullable_to_non_nullable
               as String,
-      responseList: responseList == freezed
-          ? _value.responseList
-          : responseList // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+      responseMap: responseMap == freezed
+          ? _value.responseMap
+          : responseMap // ignore: cast_nullable_to_non_nullable
+              as ResponseMapDto,
       responseFailure: responseFailure == freezed
           ? _value.responseFailure
           : responseFailure // ignore: cast_nullable_to_non_nullable
@@ -412,10 +433,14 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
               as ResponseDto,
-      respondentResponseList: respondentResponseList == freezed
-          ? _value.respondentResponseList
-          : respondentResponseList // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, ResponseDto>,
+      updateRespondentResponseMap: updateRespondentResponseMap == freezed
+          ? _value.updateRespondentResponseMap
+          : updateRespondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
@@ -424,9 +449,9 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.updateVisitReportsMap
           : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
               as bool,
-      updateTabRespondentsMap: updateTabRespondentsMap == freezed
-          ? _value.updateTabRespondentsMap
-          : updateTabRespondentsMap // ignore: cast_nullable_to_non_nullable
+      updateTabRespondentMap: updateTabRespondentMap == freezed
+          ? _value.updateTabRespondentMap
+          : updateTabRespondentMap // ignore: cast_nullable_to_non_nullable
               as bool,
       referenceList: referenceList == freezed
           ? _value.referenceList
@@ -444,8 +469,8 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       required this.respondent,
       required this.interviewer,
       required this.moduleType,
-      required this.responseListState,
-      required this.responseList,
+      required this.responseMapState,
+      required this.responseMap,
       this.responseFailure,
       required this.response,
       required this.responseRestoreState,
@@ -454,17 +479,18 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       required this.breakInterview,
       required this.responseId,
       required this.mainResponse,
-      required this.respondentResponseList,
+      required this.respondentResponseMap,
+      required this.updateRespondentResponseMap,
       required this.updateState,
       required this.updateVisitReportsMap,
-      required this.updateTabRespondentsMap,
+      required this.updateTabRespondentMap,
       required this.referenceList})
       : super._();
 
   factory _$_ResponseStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_ResponseStateDtoFromJson(json);
 
-  @override // NOTE downloadedResponseList 不須儲存
+  @override // NOTE downloadedResponseMap 不須儲存
   final SurveyDto survey;
   @override
   final RespondentDto respondent;
@@ -473,9 +499,9 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   final String moduleType;
   @override
-  final String responseListState;
+  final String responseMapState;
   @override
-  final List<ResponseDto> responseList;
+  final ResponseMapDto responseMap;
   @override
   final String? responseFailure;
   @override
@@ -493,19 +519,21 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   final ResponseDto mainResponse;
   @override
-  final List<ResponseDto> respondentResponseList;
+  final Map<String, ResponseDto> respondentResponseMap;
+  @override
+  final bool updateRespondentResponseMap;
   @override
   final String updateState;
   @override
   final bool updateVisitReportsMap;
   @override
-  final bool updateTabRespondentsMap;
+  final bool updateTabRespondentMap;
   @override
   final List<ReferenceDto> referenceList;
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseListState: $responseListState, responseList: $responseList, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionMap: $questionMap, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseList: $respondentResponseList, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentsMap: $updateTabRespondentsMap, referenceList: $referenceList)';
+    return 'ResponseStateDto(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseMapState: $responseMapState, responseMap: $responseMap, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionMap: $questionMap, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseMap: $respondentResponseMap, updateRespondentResponseMap: $updateRespondentResponseMap, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentMap: $updateTabRespondentMap, referenceList: $referenceList)';
   }
 
   @override
@@ -523,12 +551,12 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleType, moduleType)) &&
-            (identical(other.responseListState, responseListState) ||
+            (identical(other.responseMapState, responseMapState) ||
                 const DeepCollectionEquality()
-                    .equals(other.responseListState, responseListState)) &&
-            (identical(other.responseList, responseList) ||
+                    .equals(other.responseMapState, responseMapState)) &&
+            (identical(other.responseMap, responseMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.responseList, responseList)) &&
+                    .equals(other.responseMap, responseMap)) &&
             (identical(other.responseFailure, responseFailure) ||
                 const DeepCollectionEquality()
                     .equals(other.responseFailure, responseFailure)) &&
@@ -553,19 +581,22 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             (identical(other.mainResponse, mainResponse) ||
                 const DeepCollectionEquality()
                     .equals(other.mainResponse, mainResponse)) &&
-            (identical(other.respondentResponseList, respondentResponseList) ||
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
                 const DeepCollectionEquality().equals(
-                    other.respondentResponseList, respondentResponseList)) &&
+                    other.respondentResponseMap, respondentResponseMap)) &&
+            (identical(other.updateRespondentResponseMap, updateRespondentResponseMap) ||
+                const DeepCollectionEquality().equals(
+                    other.updateRespondentResponseMap,
+                    updateRespondentResponseMap)) &&
             (identical(other.updateState, updateState) ||
                 const DeepCollectionEquality()
                     .equals(other.updateState, updateState)) &&
             (identical(other.updateVisitReportsMap, updateVisitReportsMap) ||
                 const DeepCollectionEquality().equals(
                     other.updateVisitReportsMap, updateVisitReportsMap)) &&
-            (identical(
-                    other.updateTabRespondentsMap, updateTabRespondentsMap) ||
+            (identical(other.updateTabRespondentMap, updateTabRespondentMap) ||
                 const DeepCollectionEquality().equals(
-                    other.updateTabRespondentsMap, updateTabRespondentsMap)) &&
+                    other.updateTabRespondentMap, updateTabRespondentMap)) &&
             (identical(other.referenceList, referenceList) ||
                 const DeepCollectionEquality()
                     .equals(other.referenceList, referenceList)));
@@ -578,8 +609,8 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(interviewer) ^
       const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(responseListState) ^
-      const DeepCollectionEquality().hash(responseList) ^
+      const DeepCollectionEquality().hash(responseMapState) ^
+      const DeepCollectionEquality().hash(responseMap) ^
       const DeepCollectionEquality().hash(responseFailure) ^
       const DeepCollectionEquality().hash(response) ^
       const DeepCollectionEquality().hash(responseRestoreState) ^
@@ -588,10 +619,11 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(responseId) ^
       const DeepCollectionEquality().hash(mainResponse) ^
-      const DeepCollectionEquality().hash(respondentResponseList) ^
+      const DeepCollectionEquality().hash(respondentResponseMap) ^
+      const DeepCollectionEquality().hash(updateRespondentResponseMap) ^
       const DeepCollectionEquality().hash(updateState) ^
       const DeepCollectionEquality().hash(updateVisitReportsMap) ^
-      const DeepCollectionEquality().hash(updateTabRespondentsMap) ^
+      const DeepCollectionEquality().hash(updateTabRespondentMap) ^
       const DeepCollectionEquality().hash(referenceList);
 
   @JsonKey(ignore: true)
@@ -611,8 +643,8 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       required RespondentDto respondent,
       required InterviewerDto interviewer,
       required String moduleType,
-      required String responseListState,
-      required List<ResponseDto> responseList,
+      required String responseMapState,
+      required ResponseMapDto responseMap,
       String? responseFailure,
       required ResponseDto response,
       required String responseRestoreState,
@@ -621,17 +653,18 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       required bool breakInterview,
       required String responseId,
       required ResponseDto mainResponse,
-      required List<ResponseDto> respondentResponseList,
+      required Map<String, ResponseDto> respondentResponseMap,
+      required bool updateRespondentResponseMap,
       required String updateState,
       required bool updateVisitReportsMap,
-      required bool updateTabRespondentsMap,
+      required bool updateTabRespondentMap,
       required List<ReferenceDto> referenceList}) = _$_ResponseStateDto;
   const _ResponseStateDto._() : super._();
 
   factory _ResponseStateDto.fromJson(Map<String, dynamic> json) =
       _$_ResponseStateDto.fromJson;
 
-  @override // NOTE downloadedResponseList 不須儲存
+  @override // NOTE downloadedResponseMap 不須儲存
   SurveyDto get survey => throw _privateConstructorUsedError;
   @override
   RespondentDto get respondent => throw _privateConstructorUsedError;
@@ -640,9 +673,9 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   @override
   String get moduleType => throw _privateConstructorUsedError;
   @override
-  String get responseListState => throw _privateConstructorUsedError;
+  String get responseMapState => throw _privateConstructorUsedError;
   @override
-  List<ResponseDto> get responseList => throw _privateConstructorUsedError;
+  ResponseMapDto get responseMap => throw _privateConstructorUsedError;
   @override
   String? get responseFailure => throw _privateConstructorUsedError;
   @override
@@ -661,14 +694,16 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   @override
   ResponseDto get mainResponse => throw _privateConstructorUsedError;
   @override
-  List<ResponseDto> get respondentResponseList =>
+  Map<String, ResponseDto> get respondentResponseMap =>
       throw _privateConstructorUsedError;
+  @override
+  bool get updateRespondentResponseMap => throw _privateConstructorUsedError;
   @override
   String get updateState => throw _privateConstructorUsedError;
   @override
   bool get updateVisitReportsMap => throw _privateConstructorUsedError;
   @override
-  bool get updateTabRespondentsMap => throw _privateConstructorUsedError;
+  bool get updateTabRespondentMap => throw _privateConstructorUsedError;
   @override
   List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
   @override

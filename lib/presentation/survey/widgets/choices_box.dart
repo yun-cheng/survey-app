@@ -1,7 +1,7 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -47,15 +47,15 @@ class ChoicesBox extends HookWidget {
             return false;
           }
 
-          return pQuestion.choiceList != cQuestion.choiceList;
+          return !const DeepCollectionEquality()
+              .equals(pQuestion.choiceList, cQuestion.choiceList);
         }
         return false;
       },
     ).state;
 
-    final choiceList =
-        state.pageQuestionMap[questionId]?.choiceList ?? const KtList.empty();
-    final size = choiceList.size;
+    final choiceList = state.pageQuestionMap[questionId]?.choiceList ?? [];
+    final size = choiceList.length;
     answer.value = state.answerMap[questionId] ?? Answer.empty();
     final isSpecialAnswer =
         state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;

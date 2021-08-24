@@ -73,13 +73,13 @@ void _updateSurveyPageEventWorker(
           .send(channel);
     },
     // H_ 當前受訪者在其他模組的 response 更新時，更新頁面
-    respondentResponseListUpdated: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: respondentResponseListUpdated');
+    respondentResponseMapUpdated: (e) {
+      logger('Event').i('UpdateSurveyPageEvent: respondentResponseMapUpdated');
 
       state = state
           .copyWith(
             updateState: LoadState.inProgress(),
-            respondentResponseList: e.respondentResponseList,
+            respondentResponseMap: e.respondentResponseMap,
           )
           .send(channel);
       state = pageQuestionMapUpdated(state).send(channel);
@@ -106,13 +106,13 @@ void _updateSurveyPageEventWorker(
     },
     // H_ 更新目錄題目
     contentQuestionMapUpdated: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: contentQuestionMapUpdated');
+      logger('User Event').i('UpdateSurveyPageEvent: contentQuestionMapUpdated');
 
       state = contentQuestionMapUpdated(state).send(channel);
     },
     // H_ 切換頁面相關 events
     nextPagePressed: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: nextPagePressed');
+      logger('User Event').i('UpdateSurveyPageEvent: nextPagePressed');
 
       state = state
           .copyWith(
@@ -147,7 +147,7 @@ void _updateSurveyPageEventWorker(
       }
     },
     previousPagePressed: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: previousPagePressed');
+      logger('User Event').i('UpdateSurveyPageEvent: previousPagePressed');
 
       state = state
           .copyWith(
@@ -158,7 +158,7 @@ void _updateSurveyPageEventWorker(
       state = pageUpdated(state).send(channel);
     },
     wentToPage: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: wentToPage');
+      logger('User Event').i('UpdateSurveyPageEvent: wentToPage');
 
       state = state
           .copyWith(
@@ -171,7 +171,7 @@ void _updateSurveyPageEventWorker(
     },
     // H_ 使用者點擊完成問卷
     finishedButtonPressed: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: finishedButtonPressed');
+      logger('User Event').i('UpdateSurveyPageEvent: finishedButtonPressed');
 
       state = state
           .copyWith(
@@ -199,7 +199,7 @@ void _updateSurveyPageEventWorker(
       state = UpdateSurveyPageState.initial()
           .copyWith(
             referenceList: state.referenceList,
-            respondentResponseList: state.respondentResponseList,
+            respondentResponseMap: state.respondentResponseMap,
             referenceListState: state.referenceListState,
             surveyFailure: state.surveyFailure,
           )
@@ -236,7 +236,7 @@ void _updateSurveyPageEventWorker(
     },
     // H_ 關閉 dialog
     dialogClosed: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: dialogClosed');
+      logger('User Event').i('UpdateSurveyPageEvent: dialogClosed');
 
       state = state
           .copyWith(
@@ -246,7 +246,7 @@ void _updateSurveyPageEventWorker(
     },
     // H_ 點擊離開按鈕時
     leaveButtonPressed: (e) {
-      logger('Event').i('UpdateSurveyPageEvent: leaveButtonPressed');
+      logger('User Event').i('UpdateSurveyPageEvent: leaveButtonPressed');
 
       state = state
           .copyWith(

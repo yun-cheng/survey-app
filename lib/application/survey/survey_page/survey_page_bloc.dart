@@ -4,11 +4,10 @@ import 'package:async_task/async_task.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
@@ -146,7 +145,7 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         logger('Event').i('SurveyPageEvent: questionIdListCleared');
 
         yield state.copyWith(
-          questionIdList: const KtList<String>.empty(),
+          questionIdList: const [],
         );
         add(const SurveyPageEvent.stateToJson());
       },

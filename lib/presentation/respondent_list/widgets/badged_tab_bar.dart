@@ -54,7 +54,7 @@ class BadgedTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(
-        buildWhen: (p, c) => p.tabRespondentsMap != c.tabRespondentsMap,
+        buildWhen: (p, c) => p.tabRespondentMap != c.tabRespondentMap,
         builder: (context, state) {
           logger('Build').i('BadgedTabBar');
 
@@ -62,13 +62,14 @@ class BadgedTabBar extends StatelessWidget {
             controller: tabController,
             labelStyle: kH3TextStyle,
             tabs: <Widget>[
-              tabTitle('訪問', state.tabRespondentsMap[TabType.start]?.size ?? 0),
+              tabTitle(
+                  '訪問', state.tabRespondentMap[TabType.start]?.length ?? 0),
               tabTitle('訪問紀錄',
-                  state.tabRespondentsMap[TabType.interviewReport]?.size ?? 0),
+                  state.tabRespondentMap[TabType.interviewReport]?.length ?? 0),
               tabTitle(
-                  '預過錄', state.tabRespondentsMap[TabType.recode]?.size ?? 0),
+                  '預過錄', state.tabRespondentMap[TabType.recode]?.length ?? 0),
               tabTitle(
-                  '完成', state.tabRespondentsMap[TabType.finished]?.size ?? 0),
+                  '完成', state.tabRespondentMap[TabType.finished]?.length ?? 0),
             ],
           );
         });

@@ -7,7 +7,7 @@ import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../../infrastructure/core/date_time_extensions.dart';
+import '../../../infrastructure/core/extensions.dart';
 import '../../core/constants.dart';
 
 class DateTimeBox extends HookWidget {

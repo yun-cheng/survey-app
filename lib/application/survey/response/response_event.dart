@@ -2,25 +2,25 @@ part of 'response_bloc.dart';
 
 @freezed
 class ResponseEvent with _$ResponseEvent {
-  // H_ 監聽 responseList
-  const factory ResponseEvent.watchResponseListStarted({
+  // H_ 監聽 responseMap
+  const factory ResponseEvent.watchResponseMapStarted({
     required String teamId,
     required Interviewer interviewer,
-  }) = _WatchResponseListStarted;
+  }) = _WatchResponseMapStarted;
 
-  const factory ResponseEvent.responseListReceived(
-    Either<SurveyFailure, KtList<Response>> failureOrResponseList,
-  ) = _ResponseListReceived;
+  const factory ResponseEvent.responseMapReceived(
+    Either<SurveyFailure, ResponseMap> failureOrResponseMap,
+  ) = _ResponseMapReceived;
 
   // H_ 上傳倒數計時
   const factory ResponseEvent.uploadTimerUpdated() = _UploadTimerUpdated;
 
-  // H_ 上傳 responseList
-  const factory ResponseEvent.responseListUploading() = _ResponseListUploading;
+  // H_ 上傳 responseMap
+  const factory ResponseEvent.responseMapUploading() = _ResponseMapUploading;
 
-  const factory ResponseEvent.responseListUploaded(
+  const factory ResponseEvent.responseMapUploaded(
     Either<SurveyFailure, Unit> failureOrSuccess,
-  ) = _ResponseListUploaded;
+  ) = _ResponseMapUploaded;
 
   // H_ 使用者選擇問卷
   const factory ResponseEvent.surveySelected({
@@ -70,7 +70,7 @@ class ResponseEvent with _$ResponseEvent {
 
   // H_ referenceList 更新時
   const factory ResponseEvent.referenceListUpdated({
-    required KtList<Reference> referenceList,
+    required List<Reference> referenceList,
   }) = _ReferenceListUpdated;
 
   const factory ResponseEvent.loggedOut() = _LoggedOut;

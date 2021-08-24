@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/auth/auth_bloc.dart';
 import '../../domain/auth/auth_failure.dart';
@@ -32,12 +31,12 @@ class AuthStateDto with _$AuthStateDto {
   factory AuthStateDto.fromDomain(AuthState authState) {
     return AuthStateDto(
       teamListState: authState.teamListState.value,
-      teamList: authState.teamList.map((e) => TeamDto.fromDomain(e)).asList(),
+      teamList: authState.teamList.map((e) => TeamDto.fromDomain(e)).toList(),
       team: TeamDto.fromDomain(authState.team),
       interviewerListState: authState.interviewerListState.value,
       interviewerList: authState.interviewerList
           .map((e) => InterviewerDto.fromDomain(e))
-          .asList(),
+          .toList(),
       id: authState.id,
       password: authState.password,
       signInState: authState.signInState.value,
@@ -50,11 +49,10 @@ class AuthStateDto with _$AuthStateDto {
   AuthState toDomain() {
     return AuthState.initial().copyWith(
       teamListState: LoadState(teamListState),
-      teamList: teamList.map((dto) => dto.toDomain()).toImmutableList(),
+      teamList: teamList.map((dto) => dto.toDomain()).toList(),
       team: team.toDomain(),
       interviewerListState: LoadState(interviewerListState),
-      interviewerList:
-          interviewerList.map((dto) => dto.toDomain()).toImmutableList(),
+      interviewerList: interviewerList.map((dto) => dto.toDomain()).toList(),
       id: this.id,
       password: password,
       signInState: LoadState(signInState),

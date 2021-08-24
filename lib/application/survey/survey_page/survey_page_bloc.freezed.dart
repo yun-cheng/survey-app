@@ -18,7 +18,7 @@ class _$SurveyPageEventTearOff {
 
   _AnswerMapUpdated answerMapUpdated(
       {required Map<String, Answer> answerMap,
-      required KtList<String> questionIdList}) {
+      required List<String> questionIdList}) {
     return _AnswerMapUpdated(
       answerMap: answerMap,
       questionIdList: questionIdList,
@@ -96,7 +96,7 @@ mixin _$SurveyPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -121,7 +121,7 @@ mixin _$SurveyPageEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -201,7 +201,7 @@ abstract class _$AnswerMapUpdatedCopyWith<$Res> {
   factory _$AnswerMapUpdatedCopyWith(
           _AnswerMapUpdated value, $Res Function(_AnswerMapUpdated) then) =
       __$AnswerMapUpdatedCopyWithImpl<$Res>;
-  $Res call({Map<String, Answer> answerMap, KtList<String> questionIdList});
+  $Res call({Map<String, Answer> answerMap, List<String> questionIdList});
 }
 
 /// @nodoc
@@ -228,7 +228,7 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
-              as KtList<String>,
+              as List<String>,
     ));
   }
 }
@@ -244,7 +244,7 @@ class _$_AnswerMapUpdated
   @override
   final Map<String, Answer> answerMap;
   @override
-  final KtList<String> questionIdList;
+  final List<String> questionIdList;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -287,7 +287,7 @@ class _$_AnswerMapUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -315,7 +315,7 @@ class _$_AnswerMapUpdated
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -389,10 +389,10 @@ class _$_AnswerMapUpdated
 abstract class _AnswerMapUpdated implements SurveyPageEvent {
   const factory _AnswerMapUpdated(
       {required Map<String, Answer> answerMap,
-      required KtList<String> questionIdList}) = _$_AnswerMapUpdated;
+      required List<String> questionIdList}) = _$_AnswerMapUpdated;
 
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  KtList<String> get questionIdList => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerMapUpdatedCopyWith<_AnswerMapUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -478,7 +478,7 @@ class _$_AnswerStatusMapUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -506,7 +506,7 @@ class _$_AnswerStatusMapUpdated
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -691,7 +691,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -719,7 +719,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -887,7 +887,7 @@ class _$_ContentQuestionMapUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -915,7 +915,7 @@ class _$_ContentQuestionMapUpdated
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1097,7 +1097,7 @@ class _$_WarningUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1125,7 +1125,7 @@ class _$_WarningUpdated
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1328,7 +1328,7 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1357,7 +1357,7 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1494,7 +1494,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1522,7 +1522,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1648,7 +1648,7 @@ class _$_QuestionIdListCleared
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1676,7 +1676,7 @@ class _$_QuestionIdListCleared
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1798,7 +1798,7 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1826,7 +1826,7 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -1951,7 +1951,7 @@ class _$_TaskInitialized
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)
+            Map<String, Answer> answerMap, List<String> questionIdList)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
@@ -1979,7 +1979,7 @@ class _$_TaskInitialized
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(
-            Map<String, Answer> answerMap, KtList<String> questionIdList)?
+            Map<String, Answer> answerMap, List<String> questionIdList)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
@@ -2066,7 +2066,7 @@ class _$SurveyPageStateTearOff {
       required bool showWarning,
       required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
-      required KtList<String> questionIdList,
+      required List<String> questionIdList,
       required Map<String, Question> pageQuestionMap,
       required Map<String, Question> contentQuestionMap,
       required bool isReadOnly,
@@ -2112,7 +2112,7 @@ mixin _$SurveyPageState {
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  KtList<String> get questionIdList =>
+  List<String> get questionIdList =>
       throw _privateConstructorUsedError; // H_ questionMap
   Map<String, Question> get pageQuestionMap =>
       throw _privateConstructorUsedError;
@@ -2145,7 +2145,7 @@ abstract class $SurveyPageStateCopyWith<$Res> {
       bool showWarning,
       Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
-      KtList<String> questionIdList,
+      List<String> questionIdList,
       Map<String, Question> pageQuestionMap,
       Map<String, Question> contentQuestionMap,
       bool isReadOnly,
@@ -2223,7 +2223,7 @@ class _$SurveyPageStateCopyWithImpl<$Res>
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
-              as KtList<String>,
+              as List<String>,
       pageQuestionMap: pageQuestionMap == freezed
           ? _value.pageQuestionMap
           : pageQuestionMap // ignore: cast_nullable_to_non_nullable
@@ -2307,7 +2307,7 @@ abstract class _$SurveyPageStateCopyWith<$Res>
       bool showWarning,
       Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
-      KtList<String> questionIdList,
+      List<String> questionIdList,
       Map<String, Question> pageQuestionMap,
       Map<String, Question> contentQuestionMap,
       bool isReadOnly,
@@ -2391,7 +2391,7 @@ class __$SurveyPageStateCopyWithImpl<$Res>
       questionIdList: questionIdList == freezed
           ? _value.questionIdList
           : questionIdList // ignore: cast_nullable_to_non_nullable
-              as KtList<String>,
+              as List<String>,
       pageQuestionMap: pageQuestionMap == freezed
           ? _value.pageQuestionMap
           : pageQuestionMap // ignore: cast_nullable_to_non_nullable
@@ -2470,7 +2470,7 @@ class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
   @override
   final Map<String, AnswerStatus> answerStatusMap;
   @override
-  final KtList<String> questionIdList;
+  final List<String> questionIdList;
   @override // H_ questionMap
   final Map<String, Question> pageQuestionMap;
   @override
@@ -2612,7 +2612,7 @@ abstract class _SurveyPageState extends SurveyPageState {
           required bool showWarning,
           required Map<String, Answer> answerMap,
           required Map<String, AnswerStatus> answerStatusMap,
-          required KtList<String> questionIdList,
+          required List<String> questionIdList,
           required Map<String, Question> pageQuestionMap,
           required Map<String, Question> contentQuestionMap,
           required bool isReadOnly,
@@ -2641,7 +2641,7 @@ abstract class _SurveyPageState extends SurveyPageState {
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  KtList<String> get questionIdList => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   @override // H_ questionMap
   Map<String, Question> get pageQuestionMap =>
       throw _privateConstructorUsedError;

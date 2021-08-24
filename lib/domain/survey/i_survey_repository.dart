@@ -1,32 +1,31 @@
 import 'package:dartz/dartz.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../overview/survey.dart';
 import 'reference.dart';
-import 'response.dart';
 import 'survey_failure.dart';
+import 'typedefs.dart';
 
 abstract class ISurveyRepository {
-  Stream<Either<SurveyFailure, KtList<Survey>>> watchSurveyList({
+  Stream<Either<SurveyFailure, List<Survey>>> watchSurveyList({
     required String teamId,
     required String interviewerId,
   });
 
-  Stream<Either<SurveyFailure, KtList<Reference>>> watchReferenceList({
+  Stream<Either<SurveyFailure, List<Reference>>> watchReferenceList({
     required String teamId,
     required String interviewerId,
   });
 
-  Stream<Either<SurveyFailure, KtList<Response>>> watchResponseList({
+  Stream<Either<SurveyFailure, ResponseMap>> watchResponseMap({
     required String teamId,
     required String interviewerId,
   });
 
-  Future<Either<SurveyFailure, Unit>> uploadResponseList({
-    required KtList<Response> responseList,
+  Future<Either<SurveyFailure, Unit>> uploadResponseMap({
+    required ResponseMap responseMap,
   });
 
-  Future<Either<SurveyFailure, Unit>> cleanResponseList({
+  Future<Either<SurveyFailure, Unit>> cleanResponseMap({
     required String teamId,
     required String interviewerId,
   });

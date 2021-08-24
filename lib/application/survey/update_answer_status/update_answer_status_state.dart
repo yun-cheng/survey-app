@@ -11,21 +11,21 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
     required String questionId,
-    required KtList<String> clearAnswerQIdList,
+    required List<String> clearAnswerQIdList,
     // H_ recode
     required bool isRecodeModule,
     required Map<String, AnswerStatus> mainAnswerStatusMap,
   }) = _UpdateAnswerStatusState;
 
   factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(
-        questionMap: const <String, Question>{},
+        questionMap: const {},
         isRecodeModule: false,
-        answerMap: const <String, Answer>{},
-        answerStatusMap: const <String, AnswerStatus>{},
+        answerMap: const {},
+        answerStatusMap: const {},
         questionId: '',
         updateState: LoadState.initial(),
         restoreState: LoadState.initial(),
-        clearAnswerQIdList: const KtList<String>.empty(),
+        clearAnswerQIdList: const [],
         mainAnswerStatusMap: const <String, AnswerStatus>{},
       );
 

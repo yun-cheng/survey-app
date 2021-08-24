@@ -4,12 +4,12 @@ part of 'auth_bloc.dart';
 class AuthEvent with _$AuthEvent {
   const factory AuthEvent.watchTeamListStarted() = _WatchTeamListStarted;
   const factory AuthEvent.teamListReceived(
-      Either<AuthFailure, KtList<Team>> failureOrTeamList) = _TeamListReceived;
+      Either<AuthFailure, List<Team>> failureOrTeamList) = _TeamListReceived;
   const factory AuthEvent.teamSelected(Team team) = _TeamSelected;
   const factory AuthEvent.watchInterviewerListStarted() =
       _WatchInterviewerListStarted;
   const factory AuthEvent.interviewerListReceived(
-          Either<AuthFailure, KtList<Interviewer>> failureOrInterviewerList) =
+          Either<AuthFailure, List<Interviewer>> failureOrInterviewerList) =
       _InterviewerListReceived;
   const factory AuthEvent.idChanged(String id) = _IdChanged;
   const factory AuthEvent.passwordChanged(String password) = _PasswordChanged;

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -31,12 +30,12 @@ class GroupTopBar extends StatelessWidget {
         controller.jumpTo(index: state.jumpToIndex);
       },
       buildWhen: (p, c) {
-        if (p.respondentListListState != c.respondentListListState ||
+        if (p.surveyRespondentMapState != c.surveyRespondentMapState ||
             p.currentTab != c.currentTab ||
             p.tabScrollPosition[p.currentTab]!.firstRespondent !=
                 c.tabScrollPosition[c.currentTab]!.firstRespondent ||
-            p.tabRespondentsMap[c.currentTab] !=
-                c.tabRespondentsMap[c.currentTab]) {
+            p.tabRespondentMap[c.currentTab] !=
+                c.tabRespondentMap[c.currentTab]) {
           return true;
         }
         return false;
@@ -44,11 +43,12 @@ class GroupTopBar extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('GroupTopBar');
 
-        if (state.respondentListListState == LoadState.success()) {
+        if (state.surveyRespondentMapState == LoadState.success()) {
           final townFirstRespondentList = state
-                  .tabRespondentsMap[state.currentTab]
-                  ?.filter((r) => r.isCountyTownFirst) ??
-              const KtList<Respondent>.empty();
+                  .tabRespondentMap[state.currentTab]?.values
+                  .where((r) => r.isCountyTownFirst)
+                  .toList() ??
+              const [];
 
           return TownDropDown(
             townFirstRespondentList: townFirstRespondentList,
@@ -62,7 +62,7 @@ class GroupTopBar extends StatelessWidget {
 }
 
 class TownDropDown extends HookWidget {
-  final KtList<Respondent> townFirstRespondentList;
+  final List<Respondent> townFirstRespondentList;
 
   const TownDropDown({
     Key? key,
@@ -75,9 +75,9 @@ class TownDropDown extends HookWidget {
 
     final selectedCountyTown = useState<String?>(null);
 
-    if (townFirstRespondentList.isNotEmpty() &&
+    if (townFirstRespondentList.isNotEmpty &&
         selectedCountyTown.value == null) {
-      selectedCountyTown.value = townFirstRespondentList.get(0).countyTown;
+      selectedCountyTown.value = townFirstRespondentList.first.countyTown;
     }
 
     final selectedItemList = townFirstRespondentList
@@ -87,7 +87,7 @@ class TownDropDown extends HookWidget {
             style: kCardH2TextStyle,
           ),
         )
-        .asList();
+        .toList();
 
     final choiceItemList = townFirstRespondentList
         .map(
@@ -98,7 +98,7 @@ class TownDropDown extends HookWidget {
             ),
           ),
         )
-        .asList();
+        .toList();
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

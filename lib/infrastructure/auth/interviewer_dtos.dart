@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/auth/interviewer.dart';
 
@@ -15,16 +14,16 @@ class InterviewerListDto with _$InterviewerListDto {
     required List<InterviewerDto> list,
   }) = _InterviewerListDto;
 
-  factory InterviewerListDto.fromDomain(KtList<Interviewer> interviewerList) {
+  factory InterviewerListDto.fromDomain(List<Interviewer> interviewerList) {
     return InterviewerListDto(
       list: interviewerList
           .map((interviewer) => InterviewerDto.fromDomain(interviewer))
-          .asList(),
+          .toList(),
     );
   }
 
-  KtList<Interviewer> toDomain() {
-    return list.map((dto) => dto.toDomain()).toImmutableList();
+  List<Interviewer> toDomain() {
+    return list.map((dto) => dto.toDomain()).toList();
   }
 
   // TODO 是否要 trycatch?

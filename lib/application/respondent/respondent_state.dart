@@ -5,36 +5,36 @@ class RespondentState with _$RespondentState {
   const RespondentState._();
 
   const factory RespondentState({
-    required LoadState respondentListListState,
-    required KtList<RespondentList> respondentListList,
+    required LoadState surveyRespondentMapState,
+    required SurveyRespondentMap surveyRespondentMap,
     required Survey survey,
-    required KtList<Respondent> respondentList,
+    required Map<String, Respondent> respondentMap,
     required TabType currentTab,
-    required TabScrollPosition tabScrollPosition,
+    required Map<TabType, CardScrollPosition> tabScrollPosition,
     required bool needToJump,
     required int jumpToIndex,
     required Option<RespondentFailure> respondentFailure,
     required String selectedRespondentId,
     required VisitRecordsMap visitRecordsMap,
-    required TabRespondentsMap tabRespondentsMap,
-    required KtList<Response> responseInfoList,
+    required TabRespondentMap tabRespondentMap,
+    required ResponseMap responseInfoMap,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(
         survey: Survey.empty(),
-        respondentListListState: LoadState.initial(),
-        respondentListList: const KtList<RespondentList>.empty(),
-        respondentList: const KtList<Respondent>.empty(),
+        surveyRespondentMapState: LoadState.initial(),
+        surveyRespondentMap: const {},
+        respondentMap: const {},
         currentTab: TabType.start,
-        tabScrollPosition: TabTypeX.toMap()
-            .map((key, value) => MapEntry(key, CardScrollPosition.empty())),
+        tabScrollPosition:
+            TabTypeX.toMap().mapValues((e) => CardScrollPosition.empty()),
         needToJump: false,
         jumpToIndex: 0,
         respondentFailure: none(),
         selectedRespondentId: '',
         visitRecordsMap: const {},
-        tabRespondentsMap: const {},
-        responseInfoList: const KtList<Response>.empty(),
+        tabRespondentMap: const {},
+        responseInfoMap: const {},
       );
 
   Map<String, dynamic> toJson() => RespondentStateDto.fromDomain(this).toJson();

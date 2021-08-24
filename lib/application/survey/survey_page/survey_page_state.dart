@@ -15,7 +15,7 @@ class SurveyPageState with _$SurveyPageState {
     // H_ answer
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
-    required KtList<String> questionIdList,
+    required List<String> questionIdList,
     // H_ questionMap
     required Map<String, Question> pageQuestionMap,
     required Map<String, Question> contentQuestionMap,
@@ -32,23 +32,23 @@ class SurveyPageState with _$SurveyPageState {
   }) = _SurveyPageState;
 
   factory SurveyPageState.initial() => SurveyPageState(
-        page: 0,
-        newestPage: 0,
+        page: -99,
+        newestPage: -99,
         isLastPage: false,
         warning: Warning.empty(),
         showWarning: false,
-        answerMap: const <String, Answer>{},
-        answerStatusMap: const <String, AnswerStatus>{},
-        questionIdList: const KtList<String>.empty(),
-        pageQuestionMap: const <String, Question>{},
-        contentQuestionMap: const <String, Question>{},
+        answerMap: const {},
+        answerStatusMap: const {},
+        questionIdList: const [],
+        pageQuestionMap: const {},
+        contentQuestionMap: const {},
         isReadOnly: false,
         isRecodeModule: false,
         loadState: LoadState.initial(),
         rebuildState: LoadState.initial(),
         restoreState: LoadState.initial(),
-        recodeAnswerMap: const <String, Answer>{},
-        recodeAnswerStatusMap: const <String, AnswerStatus>{},
+        recodeAnswerMap: const {},
+        recodeAnswerStatusMap: const {},
       );
 
   Map<String, dynamic> toJson() => SurveyPageStateDto.fromDomain(this).toJson();

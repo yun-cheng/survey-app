@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/core/value_objects.dart';
@@ -25,7 +24,7 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
     return WatchSurveyStateDto(
       surveyListState: domain.surveyListState.value,
       surveyList:
-          domain.surveyList.map((e) => SurveyDto.fromDomain(e)).asList(),
+          domain.surveyList.map((e) => SurveyDto.fromDomain(e)).toList(),
       survey: SurveyDto.fromDomain(domain.survey),
       surveyFailure:
           domain.surveyFailure.fold(() => null, (some) => some.value),
@@ -35,7 +34,7 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
   WatchSurveyState toDomain() {
     return WatchSurveyState.initial().copyWith(
       surveyListState: LoadState(surveyListState),
-      surveyList: surveyList.map((dto) => dto.toDomain()).toImmutableList(),
+      surveyList: surveyList.map((dto) => dto.toDomain()).toList(),
       survey: survey.toDomain(),
       surveyFailure: optionOf(surveyFailure).map((some) => SurveyFailure(some)),
     );

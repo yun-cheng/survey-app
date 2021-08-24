@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/core/value_objects.dart';
 import '../../domain/survey/response.dart';
+import '../../domain/survey/typedefs.dart';
 import '../../domain/survey/value_objects.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
@@ -13,31 +13,31 @@ part 'response_list_dtos.freezed.dart';
 part 'response_list_dtos.g.dart';
 
 @freezed
-class ResponseListDto with _$ResponseListDto {
-  const ResponseListDto._();
+class ResponseMapDto with _$ResponseMapDto {
+  const ResponseMapDto._();
 
-  const factory ResponseListDto({
-    required List<ResponseDto> list,
-  }) = _ResponseListDto;
+  const factory ResponseMapDto({
+    required Map<String, ResponseDto> map,
+  }) = _ResponseMapDto;
 
-  factory ResponseListDto.fromDomain(KtList<Response> responseList) {
-    return ResponseListDto(
-      list: responseList
-          .map((response) => ResponseDto.fromDomain(response))
-          .asList(),
+  factory ResponseMapDto.fromDomain(ResponseMap domain) {
+    return ResponseMapDto(
+      map: domain.map(
+          (key, value) => MapEntry(key.value, ResponseDto.fromDomain(value))),
     );
   }
 
-  KtList<Response> toDomain() {
-    return list.map((dto) => dto.toDomain()).toImmutableList();
+  ResponseMap toDomain() {
+    return map.map((key, value) => MapEntry(UniqueId(key), value.toDomain()));
   }
 
-  factory ResponseListDto.fromJson(Map<String, dynamic> json) =>
-      _$ResponseListDtoFromJson(json);
+  factory ResponseMapDto.fromJson(Map<String, dynamic> json) =>
+      _$ResponseMapDtoFromJson(json);
 
-  factory ResponseListDto.fromFirestore(QuerySnapshot snapshot) {
-    final list = snapshot.docs.map((doc) => doc.data()).toList();
-    return ResponseListDto.fromJson({'list': list});
+  factory ResponseMapDto.fromFirestore(QuerySnapshot snapshot) {
+    final iterable = snapshot.docs.map((doc) => MapEntry(doc.id, doc.data()));
+
+    return ResponseMapDto.fromJson(Map.fromEntries(iterable));
   }
 }
 

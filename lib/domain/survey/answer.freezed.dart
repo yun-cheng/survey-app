@@ -22,7 +22,7 @@ class _$AnswerTearOff {
       String? stringValue,
       int? intValue,
       SimpleChoice? choiceValue,
-      KtList<SimpleChoice>? choiceListValue,
+      List<SimpleChoice>? choiceListValue,
       Map<String, String>? noteMap}) {
     return _Answer(
       type: type,
@@ -46,8 +46,7 @@ mixin _$Answer {
   String? get stringValue => throw _privateConstructorUsedError;
   int? get intValue => throw _privateConstructorUsedError;
   SimpleChoice? get choiceValue => throw _privateConstructorUsedError;
-  KtList<SimpleChoice>? get choiceListValue =>
-      throw _privateConstructorUsedError;
+  List<SimpleChoice>? get choiceListValue => throw _privateConstructorUsedError;
   Map<String, String>? get noteMap => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -64,7 +63,7 @@ abstract class $AnswerCopyWith<$Res> {
       String? stringValue,
       int? intValue,
       SimpleChoice? choiceValue,
-      KtList<SimpleChoice>? choiceListValue,
+      List<SimpleChoice>? choiceListValue,
       Map<String, String>? noteMap});
 
   $AnswerTypeCopyWith<$Res> get type;
@@ -113,7 +112,7 @@ class _$AnswerCopyWithImpl<$Res> implements $AnswerCopyWith<$Res> {
       choiceListValue: choiceListValue == freezed
           ? _value.choiceListValue
           : choiceListValue // ignore: cast_nullable_to_non_nullable
-              as KtList<SimpleChoice>?,
+              as List<SimpleChoice>?,
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
@@ -151,7 +150,7 @@ abstract class _$AnswerCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       String? stringValue,
       int? intValue,
       SimpleChoice? choiceValue,
-      KtList<SimpleChoice>? choiceListValue,
+      List<SimpleChoice>? choiceListValue,
       Map<String, String>? noteMap});
 
   @override
@@ -203,7 +202,7 @@ class __$AnswerCopyWithImpl<$Res> extends _$AnswerCopyWithImpl<$Res>
       choiceListValue: choiceListValue == freezed
           ? _value.choiceListValue
           : choiceListValue // ignore: cast_nullable_to_non_nullable
-              as KtList<SimpleChoice>?,
+              as List<SimpleChoice>?,
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
@@ -236,7 +235,7 @@ class _$_Answer extends _Answer {
   @override
   final SimpleChoice? choiceValue;
   @override
-  final KtList<SimpleChoice>? choiceListValue;
+  final List<SimpleChoice>? choiceListValue;
   @override
   final Map<String, String>? noteMap;
 
@@ -294,7 +293,7 @@ abstract class _Answer extends Answer {
       String? stringValue,
       int? intValue,
       SimpleChoice? choiceValue,
-      KtList<SimpleChoice>? choiceListValue,
+      List<SimpleChoice>? choiceListValue,
       Map<String, String>? noteMap}) = _$_Answer;
   const _Answer._() : super._();
 
@@ -309,8 +308,7 @@ abstract class _Answer extends Answer {
   @override
   SimpleChoice? get choiceValue => throw _privateConstructorUsedError;
   @override
-  KtList<SimpleChoice>? get choiceListValue =>
-      throw _privateConstructorUsedError;
+  List<SimpleChoice>? get choiceListValue => throw _privateConstructorUsedError;
   @override
   Map<String, String>? get noteMap => throw _privateConstructorUsedError;
   @override

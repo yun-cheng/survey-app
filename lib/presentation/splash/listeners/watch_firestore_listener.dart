@@ -27,13 +27,13 @@ final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
           ),
         );
     context.read<RespondentBloc>().add(
-          RespondentEvent.watchRespondentListListStarted(
+          RespondentEvent.watchSurveyRespondentMapStarted(
             teamId: state.team.id,
             interviewerId: state.interviewer.id,
           ),
         );
     context.read<ResponseBloc>().add(
-          ResponseEvent.watchResponseListStarted(
+          ResponseEvent.watchResponseMapStarted(
             teamId: state.team.id,
             interviewer: state.interviewer,
           ),

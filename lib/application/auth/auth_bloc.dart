@@ -3,14 +3,13 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:meta/meta.dart';
 
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
+import '../../domain/core/value_objects.dart';
 import '../../infrastructure/auth/auth_state_dtos.dart';
 
 part 'auth_bloc.freezed.dart';
@@ -19,8 +18,8 @@ part 'auth_state.dart';
 
 class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
-  StreamSubscription<Either<AuthFailure, KtList<Team>>>? _teamListSubscription;
-  StreamSubscription<Either<AuthFailure, KtList<Interviewer>>>?
+  StreamSubscription<Either<AuthFailure, List<Team>>>? _teamListSubscription;
+  StreamSubscription<Either<AuthFailure, List<Interviewer>>>?
       _interviewerListSubscription;
 
   AuthBloc(this._authFacade) : super(AuthState.initial()) {

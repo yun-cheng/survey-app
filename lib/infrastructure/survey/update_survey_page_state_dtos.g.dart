@@ -46,9 +46,10 @@ _$_UpdateSurveyPageStateDto _$_$_UpdateSurveyPageStateDtoFromJson(
     mainQuestionMap: (json['mainQuestionMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
     ),
-    respondentResponseList: (json['respondentResponseList'] as List<dynamic>)
-        .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+    respondentResponseMap:
+        (json['respondentResponseMap'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, ResponseDto.fromJson(e as Map<String, dynamic>)),
+    ),
     surveyId: json['surveyId'] as String,
     moduleType: json['moduleType'] as String,
     isReadOnly: json['isReadOnly'] as bool,
@@ -96,8 +97,8 @@ Map<String, dynamic> _$_$_UpdateSurveyPageStateDtoToJson(
       'isRecodeModule': instance.isRecodeModule,
       'mainQuestionMap':
           instance.mainQuestionMap.map((k, e) => MapEntry(k, e.toJson())),
-      'respondentResponseList':
-          instance.respondentResponseList.map((e) => e.toJson()).toList(),
+      'respondentResponseMap':
+          instance.respondentResponseMap.map((k, e) => MapEntry(k, e.toJson())),
       'surveyId': instance.surveyId,
       'moduleType': instance.moduleType,
       'isReadOnly': instance.isReadOnly,

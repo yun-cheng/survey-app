@@ -4,10 +4,10 @@ part of 'auth_bloc.dart';
 class AuthState with _$AuthState {
   const factory AuthState({
     required LoadState teamListState,
-    required KtList<Team> teamList,
+    required List<Team> teamList,
     required Team team,
     required LoadState interviewerListState,
-    required KtList<Interviewer> interviewerList,
+    required List<Interviewer> interviewerList,
     required String id,
     required String password,
     required LoadState signInState,
@@ -18,10 +18,10 @@ class AuthState with _$AuthState {
 
   factory AuthState.initial() => AuthState(
         teamListState: LoadState.initial(),
-        teamList: const KtList<Team>.empty(),
+        teamList: const [],
         team: Team.empty(),
         interviewerListState: LoadState.initial(),
-        interviewerList: const KtList<Interviewer>.empty(),
+        interviewerList: const [],
         id: '',
         password: '',
         signInState: LoadState.initial(),

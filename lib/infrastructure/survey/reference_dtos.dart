@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/survey/reference.dart';
 import '../../domain/survey/value_objects.dart';
@@ -53,16 +52,16 @@ class ReferenceListDto with _$ReferenceListDto {
     required List<ReferenceDto> list,
   }) = _ReferenceListDto;
 
-  factory ReferenceListDto.fromDomain(KtList<Reference> domain) {
+  factory ReferenceListDto.fromDomain(List<Reference> domain) {
     return ReferenceListDto(
       list: domain
           .map((reference) => ReferenceDto.fromDomain(reference))
-          .asList(),
+          .toList(),
     );
   }
 
-  KtList<Reference> toDomain() {
-    return list.map((dto) => dto.toDomain()).toImmutableList();
+  List<Reference> toDomain() {
+    return list.map((dto) => dto.toDomain()).toList();
   }
 
   factory ReferenceListDto.fromJson(Map<String, dynamic> json) =>

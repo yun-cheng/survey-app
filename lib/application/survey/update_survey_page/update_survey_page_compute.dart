@@ -26,7 +26,7 @@ UpdateSurveyPageState pageQuestionMapUpdated(UpdateSurveyPageState state) {
     // S_ 將題目敘述中有連結其他作答的地方更新
     question = question.updateBody(
       referenceList: state.referenceList,
-      responseList: state.respondentResponseList,
+      respondentResponseMap: state.respondentResponseMap,
       surveyId: state.surveyId,
       moduleType: state.moduleType,
       answerMap: answerMap,
@@ -34,7 +34,7 @@ UpdateSurveyPageState pageQuestionMapUpdated(UpdateSurveyPageState state) {
     );
 
     if (question.type.isChoice) {
-      KtList<Choice> choiceList = question.choiceList;
+      List<Choice> choiceList = question.choiceList;
 
       // NOTE 有可能尚未作答
       final thisAnswer = answerMap[questionId] ?? Answer.empty();
@@ -44,18 +44,22 @@ UpdateSurveyPageState pageQuestionMapUpdated(UpdateSurveyPageState state) {
       if (question.upperQuestionId.isNotEmpty && !isSpecialAnswer) {
         final upperAnswer = answerMap[question.upperQuestionId];
         // NOTE 用 id 文字比對
-        choiceList = question.choiceList.filter(
-            (choice) => choice.upperChoiceId == upperAnswer!.valueString);
+        choiceList = question.choiceList
+            .filter(
+                (choice) => choice.upperChoiceId == upperAnswer!.valueString)
+            .toList();
       }
 
       // H_ 篩選是否為特殊作答的選項
       choiceList = choiceList
-          .filter((choice) => choice.isSpecialAnswer == isSpecialAnswer);
+          .filter((choice) => choice.isSpecialAnswer == isSpecialAnswer)
+          .toList();
 
       // H_ 如果是唯讀或預過錄模組，只保留選擇的選項
       if (state.isReadOnly || state.isRecodeModule) {
-        choiceList =
-            choiceList.filter((choice) => thisAnswer.contains(choice.simple()));
+        choiceList = choiceList
+            .filter((choice) => thisAnswer.contains(choice.simple()))
+            .toList();
       }
 
       question = question.copyWith(
@@ -198,7 +202,7 @@ UpdateSurveyPageState contentQuestionMapUpdated(UpdateSurveyPageState state) {
       questionId,
       question.updateBody(
         referenceList: state.referenceList,
-        responseList: state.respondentResponseList,
+        respondentResponseMap: state.respondentResponseMap,
         surveyId: state.surveyId,
         moduleType: state.moduleType,
         answerMap: answerMap,

@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/survey/answer.dart';
 import '../../domain/survey/value_objects.dart';
@@ -33,7 +32,7 @@ class AnswerDto with _$AnswerDto {
           : null,
       choiceListValue: domain.choiceListValue
           ?.map((choice) => SimpleChoiceDto.fromDomain(choice))
-          .asList(),
+          .toList(),
       noteMap: domain.noteMap,
     );
   }
@@ -46,7 +45,7 @@ class AnswerDto with _$AnswerDto {
       intValue: intValue,
       choiceValue: choiceValue?.toDomain(),
       choiceListValue:
-          choiceListValue?.map((choice) => choice.toDomain()).toImmutableList(),
+          choiceListValue?.map((choice) => choice.toDomain()).toList(),
       noteMap: noteMap,
     );
   }

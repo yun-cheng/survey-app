@@ -26,3 +26,20 @@ Map<String, dynamic> _$_$_RespondentDtoToJson(_$_RespondentDto instance) =>
       'isCountyTownFirst': instance.isCountyTownFirst,
       'isVillageFirst': instance.isVillageFirst,
     };
+
+_$_SurveyRespondentMapDocDto _$_$_SurveyRespondentMapDocDtoFromJson(
+    Map<String, dynamic> json) {
+  return _$_SurveyRespondentMapDocDto(
+    surveyId: json['surveyId'] as String,
+    map: (json['map'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+    ),
+  );
+}
+
+Map<String, dynamic> _$_$_SurveyRespondentMapDocDtoToJson(
+        _$_SurveyRespondentMapDocDto instance) =>
+    <String, dynamic>{
+      'surveyId': instance.surveyId,
+      'map': instance.map.map((k, e) => MapEntry(k, e.toJson())),
+    };

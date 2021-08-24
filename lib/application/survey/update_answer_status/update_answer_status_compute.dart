@@ -38,13 +38,11 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
 
   final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
 
-  KtList<String> changedUpperQIdList = const KtList<String>.empty();
-  changedUpperQIdList = changedUpperQIdList.plusElement(state.questionId);
+  final changedUpperQIdList = [state.questionId];
   // NOTE 因為無法直接更新 answerMap，因此將要清除的加進 clearAnswerQIdList，後面一次清除
-  KtList<String> clearAnswerQIdList = state.clearAnswerQIdList;
+  final clearAnswerQIdList = [...state.clearAnswerQIdList];
 
   // S_ 篩出所有是連鎖題下層的題目
-
   final lowerQuestionMap =
       state.questionMap.filter((e) => e.value.upperQuestionId != '').toMap();
 
@@ -56,7 +54,7 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
           state.answerMap[question.upperQuestionId]!.value?.id;
       final lowerAnswerChoice = state.answerMap[questionId]!.value;
       final lowerChoice = question.choiceList
-          .firstOrNull((_choice) => _choice.simple() == lowerAnswerChoice);
+          .firstWhereOrNull((_choice) => _choice.simple() == lowerAnswerChoice);
 
       //  S_2 如果下層已答且比對不符亦非特殊作答
       // FIXME 目前若下層為特殊作答就直接略過
@@ -68,10 +66,10 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
         answerStatusMap[questionId] = answerStatusMap[questionId]!.reset();
 
         // S_2-2 將該題 questionId 加入 changedUpperQIdList
-        changedUpperQIdList = changedUpperQIdList.plusElement(questionId);
+        changedUpperQIdList.add(questionId);
 
         // S_2-3 將該題 questionId 加入 clearAnswerQIdList
-        clearAnswerQIdList = clearAnswerQIdList.plusElement(questionId);
+        clearAnswerQIdList.add(questionId);
       }
     }
   });
@@ -109,9 +107,8 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
     return showQuestionCheckedRecodeJob(state);
   }
 
-  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
-
-  KtList<String> clearAnswerQIdList = state.clearAnswerQIdList;
+  final answerStatusMap = {...state.answerStatusMap};
+  final clearAnswerQIdList = [...state.clearAnswerQIdList];
 
   // S_ 篩出有設定題目出現條件的題目
   final showQuestionMap =
@@ -138,7 +135,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
       }
       // S_2-c2 過去顯示，現在要隱藏時，清空作答
     } else if (!showQuestion && !newAnswerStatus.isHidden) {
-      clearAnswerQIdList = clearAnswerQIdList.plusElement(questionId);
+      clearAnswerQIdList.add(questionId);
       newAnswerStatus = newAnswerStatus.setHidden();
     }
 

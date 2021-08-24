@@ -6,19 +6,18 @@ import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
-import 'package:kt_dart/collection.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:supercharged_dart/supercharged_dart.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../domain/core/logger.dart';
+import '../../domain/core/value_objects.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/respondent/card_scroll_position.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/respondent/respondent.dart';
 import '../../domain/respondent/respondent_failure.dart';
-import '../../domain/respondent/respondent_list.dart';
 import '../../domain/respondent/typedefs.dart';
 import '../../domain/respondent/value_objects.dart';
 import '../../domain/respondent/visit_record.dart';
@@ -26,9 +25,10 @@ import '../../domain/respondent/visit_time.dart';
 import '../../domain/survey/answer.dart';
 import '../../domain/survey/choice.dart';
 import '../../domain/survey/response.dart';
+import '../../domain/survey/typedefs.dart';
 import '../../domain/survey/value_objects.dart';
-import '../../infrastructure/core/date_time_extensions.dart';
 import '../../infrastructure/core/event_task.dart';
+import '../../infrastructure/core/extensions.dart';
 import '../../infrastructure/core/json_task.dart';
 import '../../infrastructure/respondent/respondent_state_dtos.dart';
 
@@ -40,8 +40,8 @@ part 'respondent_state.dart';
 
 class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
   final IRespondentRepository _respondentRepository;
-  StreamSubscription<Either<RespondentFailure, KtList<RespondentList>>>?
-      _respondentListListSubscription;
+  StreamSubscription<Either<RespondentFailure, SurveyRespondentMap>>?
+      _surveyRespondentMapSubscription;
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;
   AsyncExecutor? _jsonExecutor;
@@ -61,24 +61,25 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
       taskInitialized: (e) async* {
         yield await taskInitialized();
       },
-      watchRespondentListListStarted: (e) async* {
-        logger('Watch').i('RespondentEvent: watchRespondentListListStarted');
+      watchSurveyRespondentMapStarted: (e) async* {
+        logger('Watch').i('RespondentEvent: watchSurveyRespondentMapStarted');
+
         yield* eventTaskSent(event);
 
-        await _respondentListListSubscription?.cancel();
-        _respondentListListSubscription = _respondentRepository
-            .watchRespondentListList(
+        await _surveyRespondentMapSubscription?.cancel();
+        _surveyRespondentMapSubscription = _respondentRepository
+            .watchSurveyRespondentMap(
               teamId: e.teamId,
               interviewerId: e.interviewerId,
             )
             .listen(
-              (failureOrRespondentListList) => add(
-                  RespondentEvent.respondentListListReceived(
-                      failureOrRespondentListList)),
+              (failureOrSurveyRespondentMap) => add(
+                  RespondentEvent.surveyRespondentMapReceived(
+                      failureOrSurveyRespondentMap)),
             );
       },
       loggedOut: (e) async* {
-        _respondentListListSubscription?.cancel();
+        _surveyRespondentMapSubscription?.cancel();
         yield* eventTaskSent(event);
       },
       orElse: () async* {
@@ -152,7 +153,7 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
 
   @override
   Future<void> close() {
-    _respondentListListSubscription?.cancel();
+    _surveyRespondentMapSubscription?.cancel();
     _eventExecutor?.close();
     _jsonExecutor?.close();
 

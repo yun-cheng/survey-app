@@ -15,7 +15,7 @@ final visitReportListener = BlocListener<ResponseBloc, ResponseState>(
 
     context.read<RespondentBloc>().add(
           RespondentEvent.visitReportUpdated(
-            responseList: state.responseList,
+            responseMap: state.responseMap,
           ),
         );
   },

@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../domain/auth/team.dart';
 
@@ -15,14 +14,14 @@ class TeamListDto with _$TeamListDto {
     required List<TeamDto> list,
   }) = _TeamListDto;
 
-  factory TeamListDto.fromDomain(KtList<Team> teamList) {
+  factory TeamListDto.fromDomain(List<Team> teamList) {
     return TeamListDto(
-      list: teamList.map((team) => TeamDto.fromDomain(team)).asList(),
+      list: teamList.map((team) => TeamDto.fromDomain(team)).toList(),
     );
   }
 
-  KtList<Team> toDomain() {
-    return list.map((dto) => dto.toDomain()).toImmutableList();
+  List<Team> toDomain() {
+    return list.map((dto) => dto.toDomain()).toList();
   }
 
   factory TeamListDto.fromJson(Map<String, dynamic> json) =>

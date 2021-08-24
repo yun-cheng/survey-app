@@ -6,17 +6,17 @@ part of 'response_list_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ResponseListDto _$_$_ResponseListDtoFromJson(Map<String, dynamic> json) {
-  return _$_ResponseListDto(
-    list: (json['list'] as List<dynamic>)
-        .map((e) => ResponseDto.fromJson(e as Map<String, dynamic>))
-        .toList(),
+_$_ResponseMapDto _$_$_ResponseMapDtoFromJson(Map<String, dynamic> json) {
+  return _$_ResponseMapDto(
+    map: (json['map'] as Map<String, dynamic>).map(
+      (k, e) => MapEntry(k, ResponseDto.fromJson(e as Map<String, dynamic>)),
+    ),
   );
 }
 
-Map<String, dynamic> _$_$_ResponseListDtoToJson(_$_ResponseListDto instance) =>
+Map<String, dynamic> _$_$_ResponseMapDtoToJson(_$_ResponseMapDto instance) =>
     <String, dynamic>{
-      'list': instance.list.map((e) => e.toJson()).toList(),
+      'map': instance.map.map((k, e) => MapEntry(k, e.toJson())),
     };
 
 _$_ResponseDto _$_$_ResponseDtoFromJson(Map<String, dynamic> json) {

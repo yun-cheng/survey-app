@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kt_dart/collection.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../domain/auth/team.dart';
@@ -25,7 +24,7 @@ class Teambox extends StatelessWidget {
                   child: Text(team.name),
                 ),
               )
-              .asList(),
+              .toList(),
           onChanged: (Team? value) =>
               context.read<AuthBloc>().add(AuthEvent.teamSelected(value!)),
           style: kPTextStyle.copyWith(

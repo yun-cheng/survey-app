@@ -8,14 +8,14 @@ import '../../../domain/core/logger.dart';
 final tabRespondentsListener = BlocListener<ResponseBloc, ResponseState>(
   listenWhen: (p, c) =>
       p.survey != c.survey ||
-      (p.updateTabRespondentsMap != c.updateTabRespondentsMap &&
-          c.updateTabRespondentsMap),
+      (p.updateTabRespondentMap != c.updateTabRespondentMap &&
+          c.updateTabRespondentMap),
   listener: (context, state) {
     logger('Listen').i('ResponseBloc: tabRespondents');
 
     context.read<RespondentBloc>().add(
           RespondentEvent.tabRespondentsUpdated(
-            responseList: state.responseList,
+            responseMap: state.responseMap,
           ),
         );
   },

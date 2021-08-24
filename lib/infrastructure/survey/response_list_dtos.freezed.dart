@@ -12,154 +12,154 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ResponseListDto _$ResponseListDtoFromJson(Map<String, dynamic> json) {
-  return _ResponseListDto.fromJson(json);
+ResponseMapDto _$ResponseMapDtoFromJson(Map<String, dynamic> json) {
+  return _ResponseMapDto.fromJson(json);
 }
 
 /// @nodoc
-class _$ResponseListDtoTearOff {
-  const _$ResponseListDtoTearOff();
+class _$ResponseMapDtoTearOff {
+  const _$ResponseMapDtoTearOff();
 
-  _ResponseListDto call({required List<ResponseDto> list}) {
-    return _ResponseListDto(
-      list: list,
+  _ResponseMapDto call({required Map<String, ResponseDto> map}) {
+    return _ResponseMapDto(
+      map: map,
     );
   }
 
-  ResponseListDto fromJson(Map<String, Object> json) {
-    return ResponseListDto.fromJson(json);
+  ResponseMapDto fromJson(Map<String, Object> json) {
+    return ResponseMapDto.fromJson(json);
   }
 }
 
 /// @nodoc
-const $ResponseListDto = _$ResponseListDtoTearOff();
+const $ResponseMapDto = _$ResponseMapDtoTearOff();
 
 /// @nodoc
-mixin _$ResponseListDto {
-  List<ResponseDto> get list => throw _privateConstructorUsedError;
+mixin _$ResponseMapDto {
+  Map<String, ResponseDto> get map => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ResponseListDtoCopyWith<ResponseListDto> get copyWith =>
+  $ResponseMapDtoCopyWith<ResponseMapDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ResponseListDtoCopyWith<$Res> {
-  factory $ResponseListDtoCopyWith(
-          ResponseListDto value, $Res Function(ResponseListDto) then) =
-      _$ResponseListDtoCopyWithImpl<$Res>;
-  $Res call({List<ResponseDto> list});
+abstract class $ResponseMapDtoCopyWith<$Res> {
+  factory $ResponseMapDtoCopyWith(
+          ResponseMapDto value, $Res Function(ResponseMapDto) then) =
+      _$ResponseMapDtoCopyWithImpl<$Res>;
+  $Res call({Map<String, ResponseDto> map});
 }
 
 /// @nodoc
-class _$ResponseListDtoCopyWithImpl<$Res>
-    implements $ResponseListDtoCopyWith<$Res> {
-  _$ResponseListDtoCopyWithImpl(this._value, this._then);
+class _$ResponseMapDtoCopyWithImpl<$Res>
+    implements $ResponseMapDtoCopyWith<$Res> {
+  _$ResponseMapDtoCopyWithImpl(this._value, this._then);
 
-  final ResponseListDto _value;
+  final ResponseMapDto _value;
   // ignore: unused_field
-  final $Res Function(ResponseListDto) _then;
+  final $Res Function(ResponseMapDto) _then;
 
   @override
   $Res call({
-    Object? list = freezed,
+    Object? map = freezed,
   }) {
     return _then(_value.copyWith(
-      list: list == freezed
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+      map: map == freezed
+          ? _value.map
+          : map // ignore: cast_nullable_to_non_nullable
+              as Map<String, ResponseDto>,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$ResponseListDtoCopyWith<$Res>
-    implements $ResponseListDtoCopyWith<$Res> {
-  factory _$ResponseListDtoCopyWith(
-          _ResponseListDto value, $Res Function(_ResponseListDto) then) =
-      __$ResponseListDtoCopyWithImpl<$Res>;
+abstract class _$ResponseMapDtoCopyWith<$Res>
+    implements $ResponseMapDtoCopyWith<$Res> {
+  factory _$ResponseMapDtoCopyWith(
+          _ResponseMapDto value, $Res Function(_ResponseMapDto) then) =
+      __$ResponseMapDtoCopyWithImpl<$Res>;
   @override
-  $Res call({List<ResponseDto> list});
+  $Res call({Map<String, ResponseDto> map});
 }
 
 /// @nodoc
-class __$ResponseListDtoCopyWithImpl<$Res>
-    extends _$ResponseListDtoCopyWithImpl<$Res>
-    implements _$ResponseListDtoCopyWith<$Res> {
-  __$ResponseListDtoCopyWithImpl(
-      _ResponseListDto _value, $Res Function(_ResponseListDto) _then)
-      : super(_value, (v) => _then(v as _ResponseListDto));
+class __$ResponseMapDtoCopyWithImpl<$Res>
+    extends _$ResponseMapDtoCopyWithImpl<$Res>
+    implements _$ResponseMapDtoCopyWith<$Res> {
+  __$ResponseMapDtoCopyWithImpl(
+      _ResponseMapDto _value, $Res Function(_ResponseMapDto) _then)
+      : super(_value, (v) => _then(v as _ResponseMapDto));
 
   @override
-  _ResponseListDto get _value => super._value as _ResponseListDto;
+  _ResponseMapDto get _value => super._value as _ResponseMapDto;
 
   @override
   $Res call({
-    Object? list = freezed,
+    Object? map = freezed,
   }) {
-    return _then(_ResponseListDto(
-      list: list == freezed
-          ? _value.list
-          : list // ignore: cast_nullable_to_non_nullable
-              as List<ResponseDto>,
+    return _then(_ResponseMapDto(
+      map: map == freezed
+          ? _value.map
+          : map // ignore: cast_nullable_to_non_nullable
+              as Map<String, ResponseDto>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_ResponseListDto extends _ResponseListDto {
-  const _$_ResponseListDto({required this.list}) : super._();
+class _$_ResponseMapDto extends _ResponseMapDto {
+  const _$_ResponseMapDto({required this.map}) : super._();
 
-  factory _$_ResponseListDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_ResponseListDtoFromJson(json);
+  factory _$_ResponseMapDto.fromJson(Map<String, dynamic> json) =>
+      _$_$_ResponseMapDtoFromJson(json);
 
   @override
-  final List<ResponseDto> list;
+  final Map<String, ResponseDto> map;
 
   @override
   String toString() {
-    return 'ResponseListDto(list: $list)';
+    return 'ResponseMapDto(map: $map)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseListDto &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+        (other is _ResponseMapDto &&
+            (identical(other.map, map) ||
+                const DeepCollectionEquality().equals(other.map, map)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(map);
 
   @JsonKey(ignore: true)
   @override
-  _$ResponseListDtoCopyWith<_ResponseListDto> get copyWith =>
-      __$ResponseListDtoCopyWithImpl<_ResponseListDto>(this, _$identity);
+  _$ResponseMapDtoCopyWith<_ResponseMapDto> get copyWith =>
+      __$ResponseMapDtoCopyWithImpl<_ResponseMapDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ResponseListDtoToJson(this);
+    return _$_$_ResponseMapDtoToJson(this);
   }
 }
 
-abstract class _ResponseListDto extends ResponseListDto {
-  const factory _ResponseListDto({required List<ResponseDto> list}) =
-      _$_ResponseListDto;
-  const _ResponseListDto._() : super._();
+abstract class _ResponseMapDto extends ResponseMapDto {
+  const factory _ResponseMapDto({required Map<String, ResponseDto> map}) =
+      _$_ResponseMapDto;
+  const _ResponseMapDto._() : super._();
 
-  factory _ResponseListDto.fromJson(Map<String, dynamic> json) =
-      _$_ResponseListDto.fromJson;
+  factory _ResponseMapDto.fromJson(Map<String, dynamic> json) =
+      _$_ResponseMapDto.fromJson;
 
   @override
-  List<ResponseDto> get list => throw _privateConstructorUsedError;
+  Map<String, ResponseDto> get map => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ResponseListDtoCopyWith<_ResponseListDto> get copyWith =>
+  _$ResponseMapDtoCopyWith<_ResponseMapDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

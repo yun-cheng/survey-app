@@ -22,7 +22,7 @@ class UpdateAnswerEvent with _$UpdateAnswerEvent {
 
   // H_ 清空部分題目作答
   const factory UpdateAnswerEvent.answerQIdListCleared({
-    required KtList<String> questionIdList,
+    required List<String> questionIdList,
   }) = _AnswerQIdListCleared;
 
   const factory UpdateAnswerEvent.taskInitialized() = _TaskInitialized;

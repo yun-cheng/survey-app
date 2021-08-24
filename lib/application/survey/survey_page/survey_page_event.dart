@@ -4,7 +4,7 @@ part of 'survey_page_bloc.dart';
 class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.answerMapUpdated({
     required Map<String, Answer> answerMap,
-    required KtList<String> questionIdList,
+    required List<String> questionIdList,
   }) = _AnswerMapUpdated;
 
   const factory SurveyPageEvent.answerStatusMapUpdated({
