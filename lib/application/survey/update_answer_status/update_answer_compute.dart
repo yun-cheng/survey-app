@@ -1,9 +1,9 @@
-part of 'update_answer_bloc.dart';
+part of 'update_answer_status_bloc.dart';
 
 // H_ 該題作答更新
-UpdateAnswerState answerUpdated(
+UpdateAnswerStatusState answerUpdated(
   _AnswerUpdated e,
-  UpdateAnswerState state,
+  UpdateAnswerStatusState state,
 ) {
   logger('Compute').i('AnswerUpdated');
 
@@ -30,30 +30,30 @@ UpdateAnswerState answerUpdated(
   answerMap[e.question.id] = newAnswer;
 
   return state.copyWith(
-    updateState: LoadState.success(),
-    updateAnswerStatus: true,
     answerMap: answerMap,
     questionIdList: [e.question.id],
   );
 }
 
 // H_ 清空部分題目作答
-UpdateAnswerState answerQIdListCleared(
-  _AnswerQIdListCleared e,
-  UpdateAnswerState state,
+UpdateAnswerStatusState answerQIdListCleared(
+  UpdateAnswerStatusState state,
 ) {
   logger('Compute').i('answerQIdListCleared');
 
-  final answerMap = Map<String, Answer>.from(state.answerMap);
+  if (state.clearAnswerQIdList.isNotEmpty) {
+    final answerMap = {...state.answerMap};
 
-  e.questionIdList.forEach((questionId) {
-    answerMap[questionId] = Answer.empty();
-  });
+    state.clearAnswerQIdList.forEach((questionId) {
+      answerMap[questionId] = Answer.empty();
+    });
 
-  return state.copyWith(
-    updateState: LoadState.success(),
-    updateAnswerStatus: false,
-    answerMap: answerMap,
-    questionIdList: e.questionIdList,
-  );
+    return state.copyWith(
+      answerMap: answerMap,
+      clearAnswerQIdList: const [],
+      questionIdList: state.clearAnswerQIdList,
+    );
+  }
+
+  return state;
 }

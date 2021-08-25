@@ -4,6 +4,7 @@ import 'package:async_task/async_task.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/choice.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:tuple/tuple.dart';
@@ -16,9 +17,9 @@ import '../../../domain/survey/question.dart';
 import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/update_answer_status_state_dtos.dart';
-import '../update_answer/update_answer_bloc.dart';
 
 part 'update_answer_status_bloc.freezed.dart';
+part 'update_answer_compute.dart';
 part 'update_answer_status_compute.dart';
 part 'update_answer_status_event.dart';
 part 'update_answer_status_event_worker.dart';
@@ -26,14 +27,12 @@ part 'update_answer_status_state.dart';
 
 class UpdateAnswerStatusBloc
     extends Bloc<UpdateAnswerStatusEvent, UpdateAnswerStatusState> {
-  final UpdateAnswerBloc _updateAnswerBloc;
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;
   AsyncExecutor? _jsonExecutor;
   AsyncTaskChannel? _jsonChannel;
 
   UpdateAnswerStatusBloc(
-    this._updateAnswerBloc,
   ) : super(UpdateAnswerStatusState.initial()) {
     add(const UpdateAnswerStatusEvent.taskInitialized());
   }
@@ -45,16 +44,6 @@ class UpdateAnswerStatusBloc
     yield* event.maybeMap(
       taskInitialized: (e) async* {
         yield await taskInitialized();
-      },
-      // H_ 清空部分題目作答
-      answerQIdListCleared: (e) async* {
-        logger('Event').i('UpdateAnswerStatusEvent: qIdListAnswerCleared');
-
-        _updateAnswerBloc.add(
-          UpdateAnswerEvent.answerQIdListCleared(
-            questionIdList: e.questionIdList,
-          ),
-        );
       },
       orElse: () async* {
         yield* eventTaskSent(event);

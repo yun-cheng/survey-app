@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../application/core/device/device_bloc.dart';
-import 'listeners/answer_map_listener.dart';
 import 'listeners/answer_status_map_listener.dart';
 import 'listeners/app_life_cycle_listener.dart';
 import 'listeners/audio_recorder_listener.dart';
@@ -48,7 +47,6 @@ class SplashPage extends HookWidget {
         watchFirestoreListener,
         referenceListListener,
         // H_ survey
-        answerMapListener,
         answerStatusMapListener,
         surveyPageListener,
         audioRecorderListener,

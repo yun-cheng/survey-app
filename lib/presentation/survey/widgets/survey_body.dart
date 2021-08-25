@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -12,9 +11,6 @@ import 'qa_card.dart';
 class SurveyBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final updateAnswerStateIsRestored =
-        context.select((UpdateAnswerBloc bloc) => bloc.state.restoreState) ==
-            LoadState.success();
     final updateAnswerStatusStateIsRestored = context
             .select((UpdateAnswerStatusBloc bloc) => bloc.state.restoreState) ==
         LoadState.success();
@@ -23,11 +19,9 @@ class SurveyBody extends StatelessWidget {
         LoadState.success();
 
     logger('Build').i(
-        'SurveyBody: $updateAnswerStateIsRestored $updateAnswerStatusStateIsRestored $updateSurveyPageStateIsRestored');
+        'SurveyBody: $updateAnswerStatusStateIsRestored $updateSurveyPageStateIsRestored');
 
-    if (updateAnswerStateIsRestored &&
-        updateAnswerStatusStateIsRestored &&
-        updateSurveyPageStateIsRestored) {
+    if (updateAnswerStatusStateIsRestored && updateSurveyPageStateIsRestored) {
       return BlocBuilder<SurveyPageBloc, SurveyPageState>(
         // NOTE 回復 response 或該頁題目有變更時才需要 rebuild
         // HIGHLIGHT 除了這兩種情境會 build，剛進入 SurveyPage 也會 build，

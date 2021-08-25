@@ -4,7 +4,6 @@ import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -68,12 +67,6 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
             answerMap: state.response.answerMap,
             answerStatusMap: state.response.answerStatusMap,
             mainAnswerStatusMap: state.mainResponse.answerStatusMap,
-          ),
-        );
-
-    context.read<UpdateAnswerBloc>().add(
-          UpdateAnswerEvent.moduleLoaded(
-            answerMap: state.response.answerMap,
           ),
         );
 

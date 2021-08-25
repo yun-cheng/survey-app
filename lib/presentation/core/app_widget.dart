@@ -12,7 +12,6 @@ import '../../application/respondent/respondent_bloc.dart';
 import '../../application/survey/answer/answer_bloc.dart';
 import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
@@ -61,26 +60,19 @@ class AppWidget extends StatelessWidget {
           ),
         ),
         BlocProvider(
-          create: (_) => UpdateAnswerBloc(),
-          lazy: false,
-        ),
-        BlocProvider(
           create: (_) => UpdateSurveyPageBloc(
             getIt<ISurveyRepository>(),
           ),
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => UpdateAnswerStatusBloc(
-            context.read<UpdateAnswerBloc>(),
-          ),
+          create: (context) => UpdateAnswerStatusBloc(),
           lazy: false,
         ),
         // HIGHLIGHT lazy: false 用來在 app 啟動時就觸發這個 bloc，
         //  其他 bloc 不需要是因為都在 SplashPage 啟動了
         BlocProvider(
           create: (context) => AnswerBloc(
-            context.read<UpdateAnswerBloc>(),
             context.read<UpdateAnswerStatusBloc>(),
           ),
           lazy: false,

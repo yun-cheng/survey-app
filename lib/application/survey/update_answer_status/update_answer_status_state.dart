@@ -11,10 +11,13 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
     required String questionId,
+    required List<String> questionIdList,
     required List<String> clearAnswerQIdList,
     // H_ recode
     required bool isRecodeModule,
     required Map<String, AnswerStatus> mainAnswerStatusMap,
+    // H_
+    required List<UpdateSurveyPageStateType> updateType,
   }) = _UpdateAnswerStatusState;
 
   factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(
@@ -23,10 +26,12 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         answerMap: const {},
         answerStatusMap: const {},
         questionId: '',
+        questionIdList: const [],
         updateState: LoadState.initial(),
         restoreState: LoadState.initial(),
         clearAnswerQIdList: const [],
         mainAnswerStatusMap: const <String, AnswerStatus>{},
+        updateType: const [],
       );
 
   Map<String, dynamic> toJson() =>
@@ -40,3 +45,18 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
 
 UpdateAnswerStatusState _stateFromJson(Map<String, dynamic> json) =>
     UpdateAnswerStatusStateDto.fromJson(json).toDomain();
+
+@freezed
+class UpdateSurveyPageStateType with _$UpdateSurveyPageStateType {
+  const UpdateSurveyPageStateType._();
+
+  const factory UpdateSurveyPageStateType(String value) =
+      _UpdateSurveyPageStateType;
+
+  factory UpdateSurveyPageStateType.empty() =>
+      const UpdateSurveyPageStateType('');
+  factory UpdateSurveyPageStateType.answerMap() =>
+      const UpdateSurveyPageStateType('answerMap');
+  factory UpdateSurveyPageStateType.answerStatusMap() =>
+      const UpdateSurveyPageStateType('answerStatusMap');
+}

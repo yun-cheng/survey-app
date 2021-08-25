@@ -16,6 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UpdateAnswerStatusEventTearOff {
   const _$UpdateAnswerStatusEventTearOff();
 
+  _TaskInitialized taskInitialized() {
+    return const _TaskInitialized();
+  }
+
   _ModuleLoaded moduleLoaded(
       {required Map<String, Question> questionMap,
       required bool isRecodeModule,
@@ -35,14 +39,20 @@ class _$UpdateAnswerStatusEventTearOff {
     return const _StateCleared();
   }
 
-  _AnswerMapUpdated answerMapUpdated(
-      {required Map<String, Answer> answerMap,
-      required List<String> questionIdList,
-      required bool updateAnswerStatus}) {
-    return _AnswerMapUpdated(
-      answerMap: answerMap,
-      questionIdList: questionIdList,
-      updateAnswerStatus: updateAnswerStatus,
+  _AnswerUpdated answerUpdated(
+      {required Question question,
+      required dynamic answerValue,
+      required bool toggle,
+      required bool isSpecialAnswer,
+      required bool isNote,
+      String? noteOf}) {
+    return _AnswerUpdated(
+      question: question,
+      answerValue: answerValue,
+      toggle: toggle,
+      isSpecialAnswer: isSpecialAnswer,
+      isNote: isNote,
+      noteOf: noteOf,
     );
   }
 
@@ -50,17 +60,6 @@ class _$UpdateAnswerStatusEventTearOff {
     return _SpecialAnswerSwitched(
       questionId: questionId,
     );
-  }
-
-  _AnswerQIdListCleared answerQIdListCleared(
-      {required List<String> questionIdList}) {
-    return _AnswerQIdListCleared(
-      questionIdList: questionIdList,
-    );
-  }
-
-  _TaskInitialized taskInitialized() {
-    return const _TaskInitialized();
   }
 }
 
@@ -71,6 +70,7 @@ const $UpdateAnswerStatusEvent = _$UpdateAnswerStatusEventTearOff();
 mixin _$UpdateAnswerStatusEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -79,16 +79,15 @@ mixin _$UpdateAnswerStatusEvent {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Map<String, Answer> answerMap,
-            List<String> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+        answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(List<String> questionIdList) answerQIdListCleared,
-    required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -97,34 +96,30 @@ mixin _$UpdateAnswerStatusEvent {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Map<String, Answer> answerMap, List<String> questionIdList,
-            bool updateAnswerStatus)?
-        answerMapUpdated,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, String? noteOf)?
+        answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(List<String> questionIdList)? answerQIdListCleared,
-    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -145,6 +140,131 @@ class _$UpdateAnswerStatusEventCopyWithImpl<$Res>
   final UpdateAnswerStatusEvent _value;
   // ignore: unused_field
   final $Res Function(UpdateAnswerStatusEvent) _then;
+}
+
+/// @nodoc
+abstract class _$TaskInitializedCopyWith<$Res> {
+  factory _$TaskInitializedCopyWith(
+          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
+      __$TaskInitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$TaskInitializedCopyWithImpl<$Res>
+    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
+    implements _$TaskInitializedCopyWith<$Res> {
+  __$TaskInitializedCopyWithImpl(
+      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
+      : super(_value, (v) => _then(v as _TaskInitialized));
+
+  @override
+  _TaskInitialized get _value => super._value as _TaskInitialized;
+}
+
+/// @nodoc
+
+class _$_TaskInitialized
+    with DiagnosticableTreeMixin
+    implements _TaskInitialized {
+  const _$_TaskInitialized();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerStatusEvent.taskInitialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateAnswerStatusEvent.taskInitialized'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _TaskInitialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() taskInitialized,
+    required TResult Function(
+            Map<String, Question> questionMap,
+            bool isRecodeModule,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)
+        moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+        answerUpdated,
+    required TResult Function(String questionId) specialAnswerSwitched,
+  }) {
+    return taskInitialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? taskInitialized,
+    TResult Function(
+            Map<String, Question> questionMap,
+            bool isRecodeModule,
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, AnswerStatus> mainAnswerStatusMap)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, String? noteOf)?
+        answerUpdated,
+    TResult Function(String questionId)? specialAnswerSwitched,
+    required TResult orElse(),
+  }) {
+    if (taskInitialized != null) {
+      return taskInitialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_SpecialAnswerSwitched value)
+        specialAnswerSwitched,
+  }) {
+    return taskInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
+    required TResult orElse(),
+  }) {
+    if (taskInitialized != null) {
+      return taskInitialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskInitialized implements UpdateAnswerStatusEvent {
+  const factory _TaskInitialized() = _$_TaskInitialized;
 }
 
 /// @nodoc
@@ -280,6 +400,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -288,12 +409,10 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Map<String, Answer> answerMap,
-            List<String> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+        answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(List<String> questionIdList) answerQIdListCleared,
-    required TResult Function() taskInitialized,
   }) {
     return moduleLoaded(questionMap, isRecodeModule, answerMap, answerStatusMap,
         mainAnswerStatusMap);
@@ -302,6 +421,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -310,12 +430,10 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Map<String, Answer> answerMap, List<String> questionIdList,
-            bool updateAnswerStatus)?
-        answerMapUpdated,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, String? noteOf)?
+        answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(List<String> questionIdList)? answerQIdListCleared,
-    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -328,13 +446,12 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return moduleLoaded(this);
   }
@@ -342,12 +459,11 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -426,6 +542,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -434,12 +551,10 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Map<String, Answer> answerMap,
-            List<String> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+        answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(List<String> questionIdList) answerQIdListCleared,
-    required TResult Function() taskInitialized,
   }) {
     return stateCleared();
   }
@@ -447,6 +562,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -455,12 +571,10 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Map<String, Answer> answerMap, List<String> questionIdList,
-            bool updateAnswerStatus)?
-        answerMapUpdated,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, String? noteOf)?
+        answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(List<String> questionIdList)? answerQIdListCleared,
-    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -472,13 +586,12 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return stateCleared(this);
   }
@@ -486,12 +599,11 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -506,113 +618,160 @@ abstract class _StateCleared implements UpdateAnswerStatusEvent {
 }
 
 /// @nodoc
-abstract class _$AnswerMapUpdatedCopyWith<$Res> {
-  factory _$AnswerMapUpdatedCopyWith(
-          _AnswerMapUpdated value, $Res Function(_AnswerMapUpdated) then) =
-      __$AnswerMapUpdatedCopyWithImpl<$Res>;
+abstract class _$AnswerUpdatedCopyWith<$Res> {
+  factory _$AnswerUpdatedCopyWith(
+          _AnswerUpdated value, $Res Function(_AnswerUpdated) then) =
+      __$AnswerUpdatedCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, Answer> answerMap,
-      List<String> questionIdList,
-      bool updateAnswerStatus});
+      {Question question,
+      dynamic answerValue,
+      bool toggle,
+      bool isSpecialAnswer,
+      bool isNote,
+      String? noteOf});
+
+  $QuestionCopyWith<$Res> get question;
 }
 
 /// @nodoc
-class __$AnswerMapUpdatedCopyWithImpl<$Res>
+class __$AnswerUpdatedCopyWithImpl<$Res>
     extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$AnswerMapUpdatedCopyWith<$Res> {
-  __$AnswerMapUpdatedCopyWithImpl(
-      _AnswerMapUpdated _value, $Res Function(_AnswerMapUpdated) _then)
-      : super(_value, (v) => _then(v as _AnswerMapUpdated));
+    implements _$AnswerUpdatedCopyWith<$Res> {
+  __$AnswerUpdatedCopyWithImpl(
+      _AnswerUpdated _value, $Res Function(_AnswerUpdated) _then)
+      : super(_value, (v) => _then(v as _AnswerUpdated));
 
   @override
-  _AnswerMapUpdated get _value => super._value as _AnswerMapUpdated;
+  _AnswerUpdated get _value => super._value as _AnswerUpdated;
 
   @override
   $Res call({
-    Object? answerMap = freezed,
-    Object? questionIdList = freezed,
-    Object? updateAnswerStatus = freezed,
+    Object? question = freezed,
+    Object? answerValue = freezed,
+    Object? toggle = freezed,
+    Object? isSpecialAnswer = freezed,
+    Object? isNote = freezed,
+    Object? noteOf = freezed,
   }) {
-    return _then(_AnswerMapUpdated(
-      answerMap: answerMap == freezed
-          ? _value.answerMap
-          : answerMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Answer>,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      updateAnswerStatus: updateAnswerStatus == freezed
-          ? _value.updateAnswerStatus
-          : updateAnswerStatus // ignore: cast_nullable_to_non_nullable
+    return _then(_AnswerUpdated(
+      question: question == freezed
+          ? _value.question
+          : question // ignore: cast_nullable_to_non_nullable
+              as Question,
+      answerValue: answerValue == freezed
+          ? _value.answerValue
+          : answerValue // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+      toggle: toggle == freezed
+          ? _value.toggle
+          : toggle // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSpecialAnswer: isSpecialAnswer == freezed
+          ? _value.isSpecialAnswer
+          : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isNote: isNote == freezed
+          ? _value.isNote
+          : isNote // ignore: cast_nullable_to_non_nullable
+              as bool,
+      noteOf: noteOf == freezed
+          ? _value.noteOf
+          : noteOf // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
+  }
+
+  @override
+  $QuestionCopyWith<$Res> get question {
+    return $QuestionCopyWith<$Res>(_value.question, (value) {
+      return _then(_value.copyWith(question: value));
+    });
   }
 }
 
 /// @nodoc
 
-class _$_AnswerMapUpdated
-    with DiagnosticableTreeMixin
-    implements _AnswerMapUpdated {
-  const _$_AnswerMapUpdated(
-      {required this.answerMap,
-      required this.questionIdList,
-      required this.updateAnswerStatus});
+class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
+  const _$_AnswerUpdated(
+      {required this.question,
+      required this.answerValue,
+      required this.toggle,
+      required this.isSpecialAnswer,
+      required this.isNote,
+      this.noteOf});
 
   @override
-  final Map<String, Answer> answerMap;
+  final Question question;
   @override
-  final List<String> questionIdList;
+  final dynamic answerValue;
   @override
-  final bool updateAnswerStatus;
+  final bool toggle;
+  @override
+  final bool isSpecialAnswer;
+  @override
+  final bool isNote;
+  @override
+  final String? noteOf;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.answerMapUpdated(answerMap: $answerMap, questionIdList: $questionIdList, updateAnswerStatus: $updateAnswerStatus)';
+    return 'UpdateAnswerStatusEvent.answerUpdated(question: $question, answerValue: $answerValue, toggle: $toggle, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, noteOf: $noteOf)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.answerMapUpdated'))
-      ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('questionIdList', questionIdList))
-      ..add(DiagnosticsProperty('updateAnswerStatus', updateAnswerStatus));
+      ..add(
+          DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.answerUpdated'))
+      ..add(DiagnosticsProperty('question', question))
+      ..add(DiagnosticsProperty('answerValue', answerValue))
+      ..add(DiagnosticsProperty('toggle', toggle))
+      ..add(DiagnosticsProperty('isSpecialAnswer', isSpecialAnswer))
+      ..add(DiagnosticsProperty('isNote', isNote))
+      ..add(DiagnosticsProperty('noteOf', noteOf));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AnswerMapUpdated &&
-            (identical(other.answerMap, answerMap) ||
+        (other is _AnswerUpdated &&
+            (identical(other.question, question) ||
                 const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.questionIdList, questionIdList) ||
+                    .equals(other.question, question)) &&
+            (identical(other.answerValue, answerValue) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionIdList, questionIdList)) &&
-            (identical(other.updateAnswerStatus, updateAnswerStatus) ||
+                    .equals(other.answerValue, answerValue)) &&
+            (identical(other.toggle, toggle) ||
+                const DeepCollectionEquality().equals(other.toggle, toggle)) &&
+            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
                 const DeepCollectionEquality()
-                    .equals(other.updateAnswerStatus, updateAnswerStatus)));
+                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
+            (identical(other.isNote, isNote) ||
+                const DeepCollectionEquality().equals(other.isNote, isNote)) &&
+            (identical(other.noteOf, noteOf) ||
+                const DeepCollectionEquality().equals(other.noteOf, noteOf)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(questionIdList) ^
-      const DeepCollectionEquality().hash(updateAnswerStatus);
+      const DeepCollectionEquality().hash(question) ^
+      const DeepCollectionEquality().hash(answerValue) ^
+      const DeepCollectionEquality().hash(toggle) ^
+      const DeepCollectionEquality().hash(isSpecialAnswer) ^
+      const DeepCollectionEquality().hash(isNote) ^
+      const DeepCollectionEquality().hash(noteOf);
 
   @JsonKey(ignore: true)
   @override
-  _$AnswerMapUpdatedCopyWith<_AnswerMapUpdated> get copyWith =>
-      __$AnswerMapUpdatedCopyWithImpl<_AnswerMapUpdated>(this, _$identity);
+  _$AnswerUpdatedCopyWith<_AnswerUpdated> get copyWith =>
+      __$AnswerUpdatedCopyWithImpl<_AnswerUpdated>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -621,19 +780,19 @@ class _$_AnswerMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Map<String, Answer> answerMap,
-            List<String> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+        answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(List<String> questionIdList) answerQIdListCleared,
-    required TResult Function() taskInitialized,
   }) {
-    return answerMapUpdated(answerMap, questionIdList, updateAnswerStatus);
+    return answerUpdated(
+        question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -642,16 +801,15 @@ class _$_AnswerMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Map<String, Answer> answerMap, List<String> questionIdList,
-            bool updateAnswerStatus)?
-        answerMapUpdated,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, String? noteOf)?
+        answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(List<String> questionIdList)? answerQIdListCleared,
-    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (answerMapUpdated != null) {
-      return answerMapUpdated(answerMap, questionIdList, updateAnswerStatus);
+    if (answerUpdated != null) {
+      return answerUpdated(
+          question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
     }
     return orElse();
   }
@@ -659,46 +817,50 @@ class _$_AnswerMapUpdated
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return answerMapUpdated(this);
+    return answerUpdated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (answerMapUpdated != null) {
-      return answerMapUpdated(this);
+    if (answerUpdated != null) {
+      return answerUpdated(this);
     }
     return orElse();
   }
 }
 
-abstract class _AnswerMapUpdated implements UpdateAnswerStatusEvent {
-  const factory _AnswerMapUpdated(
-      {required Map<String, Answer> answerMap,
-      required List<String> questionIdList,
-      required bool updateAnswerStatus}) = _$_AnswerMapUpdated;
+abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
+  const factory _AnswerUpdated(
+      {required Question question,
+      required dynamic answerValue,
+      required bool toggle,
+      required bool isSpecialAnswer,
+      required bool isNote,
+      String? noteOf}) = _$_AnswerUpdated;
 
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  List<String> get questionIdList => throw _privateConstructorUsedError;
-  bool get updateAnswerStatus => throw _privateConstructorUsedError;
+  Question get question => throw _privateConstructorUsedError;
+  dynamic get answerValue => throw _privateConstructorUsedError;
+  bool get toggle => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isNote => throw _privateConstructorUsedError;
+  String? get noteOf => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$AnswerMapUpdatedCopyWith<_AnswerMapUpdated> get copyWith =>
+  _$AnswerUpdatedCopyWith<_AnswerUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -780,6 +942,7 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -788,12 +951,10 @@ class _$_SpecialAnswerSwitched
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Map<String, Answer> answerMap,
-            List<String> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
+    required TResult Function(Question question, dynamic answerValue,
+            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+        answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(List<String> questionIdList) answerQIdListCleared,
-    required TResult Function() taskInitialized,
   }) {
     return specialAnswerSwitched(questionId);
   }
@@ -801,6 +962,7 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
             bool isRecodeModule,
@@ -809,12 +971,10 @@ class _$_SpecialAnswerSwitched
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Map<String, Answer> answerMap, List<String> questionIdList,
-            bool updateAnswerStatus)?
-        answerMapUpdated,
+    TResult Function(Question question, dynamic answerValue, bool toggle,
+            bool isSpecialAnswer, bool isNote, String? noteOf)?
+        answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(List<String> questionIdList)? answerQIdListCleared,
-    TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -826,13 +986,12 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_SpecialAnswerSwitched value)
         specialAnswerSwitched,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return specialAnswerSwitched(this);
   }
@@ -840,12 +999,11 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -866,299 +1024,6 @@ abstract class _SpecialAnswerSwitched implements UpdateAnswerStatusEvent {
 }
 
 /// @nodoc
-abstract class _$AnswerQIdListClearedCopyWith<$Res> {
-  factory _$AnswerQIdListClearedCopyWith(_AnswerQIdListCleared value,
-          $Res Function(_AnswerQIdListCleared) then) =
-      __$AnswerQIdListClearedCopyWithImpl<$Res>;
-  $Res call({List<String> questionIdList});
-}
-
-/// @nodoc
-class __$AnswerQIdListClearedCopyWithImpl<$Res>
-    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$AnswerQIdListClearedCopyWith<$Res> {
-  __$AnswerQIdListClearedCopyWithImpl(
-      _AnswerQIdListCleared _value, $Res Function(_AnswerQIdListCleared) _then)
-      : super(_value, (v) => _then(v as _AnswerQIdListCleared));
-
-  @override
-  _AnswerQIdListCleared get _value => super._value as _AnswerQIdListCleared;
-
-  @override
-  $Res call({
-    Object? questionIdList = freezed,
-  }) {
-    return _then(_AnswerQIdListCleared(
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_AnswerQIdListCleared
-    with DiagnosticableTreeMixin
-    implements _AnswerQIdListCleared {
-  const _$_AnswerQIdListCleared({required this.questionIdList});
-
-  @override
-  final List<String> questionIdList;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.answerQIdListCleared(questionIdList: $questionIdList)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.answerQIdListCleared'))
-      ..add(DiagnosticsProperty('questionIdList', questionIdList));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _AnswerQIdListCleared &&
-            (identical(other.questionIdList, questionIdList) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionIdList, questionIdList)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionIdList);
-
-  @JsonKey(ignore: true)
-  @override
-  _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
-      __$AnswerQIdListClearedCopyWithImpl<_AnswerQIdListCleared>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            Map<String, Question> questionMap,
-            bool isRecodeModule,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap)
-        moduleLoaded,
-    required TResult Function() stateCleared,
-    required TResult Function(Map<String, Answer> answerMap,
-            List<String> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(List<String> questionIdList) answerQIdListCleared,
-    required TResult Function() taskInitialized,
-  }) {
-    return answerQIdListCleared(questionIdList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Question> questionMap,
-            bool isRecodeModule,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(Map<String, Answer> answerMap, List<String> questionIdList,
-            bool updateAnswerStatus)?
-        answerMapUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(List<String> questionIdList)? answerQIdListCleared,
-    TResult Function()? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (answerQIdListCleared != null) {
-      return answerQIdListCleared(questionIdList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_TaskInitialized value) taskInitialized,
-  }) {
-    return answerQIdListCleared(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_TaskInitialized value)? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (answerQIdListCleared != null) {
-      return answerQIdListCleared(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AnswerQIdListCleared implements UpdateAnswerStatusEvent {
-  const factory _AnswerQIdListCleared({required List<String> questionIdList}) =
-      _$_AnswerQIdListCleared;
-
-  List<String> get questionIdList => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$AnswerQIdListClearedCopyWith<_AnswerQIdListCleared> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$TaskInitializedCopyWith<$Res> {
-  factory _$TaskInitializedCopyWith(
-          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
-      __$TaskInitializedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$TaskInitializedCopyWithImpl<$Res>
-    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$TaskInitializedCopyWith<$Res> {
-  __$TaskInitializedCopyWithImpl(
-      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
-      : super(_value, (v) => _then(v as _TaskInitialized));
-
-  @override
-  _TaskInitialized get _value => super._value as _TaskInitialized;
-}
-
-/// @nodoc
-
-class _$_TaskInitialized
-    with DiagnosticableTreeMixin
-    implements _TaskInitialized {
-  const _$_TaskInitialized();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.taskInitialized()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.taskInitialized'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TaskInitialized);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            Map<String, Question> questionMap,
-            bool isRecodeModule,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap)
-        moduleLoaded,
-    required TResult Function() stateCleared,
-    required TResult Function(Map<String, Answer> answerMap,
-            List<String> questionIdList, bool updateAnswerStatus)
-        answerMapUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(List<String> questionIdList) answerQIdListCleared,
-    required TResult Function() taskInitialized,
-  }) {
-    return taskInitialized();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Question> questionMap,
-            bool isRecodeModule,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(Map<String, Answer> answerMap, List<String> questionIdList,
-            bool updateAnswerStatus)?
-        answerMapUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(List<String> questionIdList)? answerQIdListCleared,
-    TResult Function()? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (taskInitialized != null) {
-      return taskInitialized();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerMapUpdated value) answerMapUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
-    required TResult Function(_AnswerQIdListCleared value) answerQIdListCleared,
-    required TResult Function(_TaskInitialized value) taskInitialized,
-  }) {
-    return taskInitialized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerMapUpdated value)? answerMapUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_AnswerQIdListCleared value)? answerQIdListCleared,
-    TResult Function(_TaskInitialized value)? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (taskInitialized != null) {
-      return taskInitialized(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TaskInitialized implements UpdateAnswerStatusEvent {
-  const factory _TaskInitialized() = _$_TaskInitialized;
-}
-
-/// @nodoc
 class _$UpdateAnswerStatusStateTearOff {
   const _$UpdateAnswerStatusStateTearOff();
 
@@ -1169,9 +1034,11 @@ class _$UpdateAnswerStatusStateTearOff {
       required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
       required String questionId,
+      required List<String> questionIdList,
       required List<String> clearAnswerQIdList,
       required bool isRecodeModule,
-      required Map<String, AnswerStatus> mainAnswerStatusMap}) {
+      required Map<String, AnswerStatus> mainAnswerStatusMap,
+      required List<UpdateSurveyPageStateType> updateType}) {
     return _UpdateAnswerStatusState(
       restoreState: restoreState,
       updateState: updateState,
@@ -1179,9 +1046,11 @@ class _$UpdateAnswerStatusStateTearOff {
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       questionId: questionId,
+      questionIdList: questionIdList,
       clearAnswerQIdList: clearAnswerQIdList,
       isRecodeModule: isRecodeModule,
       mainAnswerStatusMap: mainAnswerStatusMap,
+      updateType: updateType,
     );
   }
 }
@@ -1198,10 +1067,13 @@ mixin _$UpdateAnswerStatusState {
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   String get questionId => throw _privateConstructorUsedError;
+  List<String> get questionIdList => throw _privateConstructorUsedError;
   List<String> get clearAnswerQIdList =>
       throw _privateConstructorUsedError; // H_ recode
   bool get isRecodeModule => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get mainAnswerStatusMap =>
+      throw _privateConstructorUsedError; // H_
+  List<UpdateSurveyPageStateType> get updateType =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1221,9 +1093,11 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
       String questionId,
+      List<String> questionIdList,
       List<String> clearAnswerQIdList,
       bool isRecodeModule,
-      Map<String, AnswerStatus> mainAnswerStatusMap});
+      Map<String, AnswerStatus> mainAnswerStatusMap,
+      List<UpdateSurveyPageStateType> updateType});
 
   $LoadStateCopyWith<$Res> get restoreState;
   $LoadStateCopyWith<$Res> get updateState;
@@ -1246,9 +1120,11 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? clearAnswerQIdList = freezed,
     Object? isRecodeModule = freezed,
     Object? mainAnswerStatusMap = freezed,
+    Object? updateType = freezed,
   }) {
     return _then(_value.copyWith(
       restoreState: restoreState == freezed
@@ -1275,6 +1151,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
               as String,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       clearAnswerQIdList: clearAnswerQIdList == freezed
           ? _value.clearAnswerQIdList
           : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
@@ -1287,6 +1167,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      updateType: updateType == freezed
+          ? _value.updateType
+          : updateType // ignore: cast_nullable_to_non_nullable
+              as List<UpdateSurveyPageStateType>,
     ));
   }
 
@@ -1319,9 +1203,11 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
       String questionId,
+      List<String> questionIdList,
       List<String> clearAnswerQIdList,
       bool isRecodeModule,
-      Map<String, AnswerStatus> mainAnswerStatusMap});
+      Map<String, AnswerStatus> mainAnswerStatusMap,
+      List<UpdateSurveyPageStateType> updateType});
 
   @override
   $LoadStateCopyWith<$Res> get restoreState;
@@ -1349,9 +1235,11 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? questionId = freezed,
+    Object? questionIdList = freezed,
     Object? clearAnswerQIdList = freezed,
     Object? isRecodeModule = freezed,
     Object? mainAnswerStatusMap = freezed,
+    Object? updateType = freezed,
   }) {
     return _then(_UpdateAnswerStatusState(
       restoreState: restoreState == freezed
@@ -1378,6 +1266,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
               as String,
+      questionIdList: questionIdList == freezed
+          ? _value.questionIdList
+          : questionIdList // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       clearAnswerQIdList: clearAnswerQIdList == freezed
           ? _value.clearAnswerQIdList
           : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
@@ -1390,6 +1282,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      updateType: updateType == freezed
+          ? _value.updateType
+          : updateType // ignore: cast_nullable_to_non_nullable
+              as List<UpdateSurveyPageStateType>,
     ));
   }
 }
@@ -1405,9 +1301,11 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.answerMap,
       required this.answerStatusMap,
       required this.questionId,
+      required this.questionIdList,
       required this.clearAnswerQIdList,
       required this.isRecodeModule,
-      required this.mainAnswerStatusMap})
+      required this.mainAnswerStatusMap,
+      required this.updateType})
       : super._();
 
   @override
@@ -1423,15 +1321,19 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   final String questionId;
   @override
+  final List<String> questionIdList;
+  @override
   final List<String> clearAnswerQIdList;
   @override // H_ recode
   final bool isRecodeModule;
   @override
   final Map<String, AnswerStatus> mainAnswerStatusMap;
+  @override // H_
+  final List<UpdateSurveyPageStateType> updateType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(restoreState: $restoreState, updateState: $updateState, questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, clearAnswerQIdList: $clearAnswerQIdList, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateAnswerStatusState(restoreState: $restoreState, updateState: $updateState, questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, questionIdList: $questionIdList, clearAnswerQIdList: $clearAnswerQIdList, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap, updateType: $updateType)';
   }
 
   @override
@@ -1445,9 +1347,11 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
       ..add(DiagnosticsProperty('questionId', questionId))
+      ..add(DiagnosticsProperty('questionIdList', questionIdList))
       ..add(DiagnosticsProperty('clearAnswerQIdList', clearAnswerQIdList))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
-      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap))
+      ..add(DiagnosticsProperty('updateType', updateType));
   }
 
   @override
@@ -1472,6 +1376,9 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             (identical(other.questionId, questionId) ||
                 const DeepCollectionEquality()
                     .equals(other.questionId, questionId)) &&
+            (identical(other.questionIdList, questionIdList) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionIdList, questionIdList)) &&
             (identical(other.clearAnswerQIdList, clearAnswerQIdList) ||
                 const DeepCollectionEquality()
                     .equals(other.clearAnswerQIdList, clearAnswerQIdList)) &&
@@ -1480,7 +1387,10 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
                     .equals(other.isRecodeModule, isRecodeModule)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
+                    .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)) &&
+            (identical(other.updateType, updateType) ||
+                const DeepCollectionEquality()
+                    .equals(other.updateType, updateType)));
   }
 
   @override
@@ -1492,9 +1402,11 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(questionId) ^
+      const DeepCollectionEquality().hash(questionIdList) ^
       const DeepCollectionEquality().hash(clearAnswerQIdList) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(mainAnswerStatusMap);
+      const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
+      const DeepCollectionEquality().hash(updateType);
 
   @JsonKey(ignore: true)
   @override
@@ -1511,9 +1423,11 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
           required Map<String, Answer> answerMap,
           required Map<String, AnswerStatus> answerStatusMap,
           required String questionId,
+          required List<String> questionIdList,
           required List<String> clearAnswerQIdList,
           required bool isRecodeModule,
-          required Map<String, AnswerStatus> mainAnswerStatusMap}) =
+          required Map<String, AnswerStatus> mainAnswerStatusMap,
+          required List<UpdateSurveyPageStateType> updateType}) =
       _$_UpdateAnswerStatusState;
   const _UpdateAnswerStatusState._() : super._();
 
@@ -1531,14 +1445,162 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   @override
   String get questionId => throw _privateConstructorUsedError;
   @override
+  List<String> get questionIdList => throw _privateConstructorUsedError;
+  @override
   List<String> get clearAnswerQIdList => throw _privateConstructorUsedError;
   @override // H_ recode
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
+  @override // H_
+  List<UpdateSurveyPageStateType> get updateType =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpdateAnswerStatusStateCopyWith<_UpdateAnswerStatusState> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$UpdateSurveyPageStateTypeTearOff {
+  const _$UpdateSurveyPageStateTypeTearOff();
+
+  _UpdateSurveyPageStateType call(String value) {
+    return _UpdateSurveyPageStateType(
+      value,
+    );
+  }
+}
+
+/// @nodoc
+const $UpdateSurveyPageStateType = _$UpdateSurveyPageStateTypeTearOff();
+
+/// @nodoc
+mixin _$UpdateSurveyPageStateType {
+  String get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UpdateSurveyPageStateTypeCopyWith<UpdateSurveyPageStateType> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateSurveyPageStateTypeCopyWith<$Res> {
+  factory $UpdateSurveyPageStateTypeCopyWith(UpdateSurveyPageStateType value,
+          $Res Function(UpdateSurveyPageStateType) then) =
+      _$UpdateSurveyPageStateTypeCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$UpdateSurveyPageStateTypeCopyWithImpl<$Res>
+    implements $UpdateSurveyPageStateTypeCopyWith<$Res> {
+  _$UpdateSurveyPageStateTypeCopyWithImpl(this._value, this._then);
+
+  final UpdateSurveyPageStateType _value;
+  // ignore: unused_field
+  final $Res Function(UpdateSurveyPageStateType) _then;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$UpdateSurveyPageStateTypeCopyWith<$Res>
+    implements $UpdateSurveyPageStateTypeCopyWith<$Res> {
+  factory _$UpdateSurveyPageStateTypeCopyWith(_UpdateSurveyPageStateType value,
+          $Res Function(_UpdateSurveyPageStateType) then) =
+      __$UpdateSurveyPageStateTypeCopyWithImpl<$Res>;
+  @override
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$UpdateSurveyPageStateTypeCopyWithImpl<$Res>
+    extends _$UpdateSurveyPageStateTypeCopyWithImpl<$Res>
+    implements _$UpdateSurveyPageStateTypeCopyWith<$Res> {
+  __$UpdateSurveyPageStateTypeCopyWithImpl(_UpdateSurveyPageStateType _value,
+      $Res Function(_UpdateSurveyPageStateType) _then)
+      : super(_value, (v) => _then(v as _UpdateSurveyPageStateType));
+
+  @override
+  _UpdateSurveyPageStateType get _value =>
+      super._value as _UpdateSurveyPageStateType;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_UpdateSurveyPageStateType(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateSurveyPageStateType extends _UpdateSurveyPageStateType
+    with DiagnosticableTreeMixin {
+  const _$_UpdateSurveyPageStateType(this.value) : super._();
+
+  @override
+  final String value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateSurveyPageStateType(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageStateType'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateSurveyPageStateType &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateSurveyPageStateTypeCopyWith<_UpdateSurveyPageStateType>
+      get copyWith =>
+          __$UpdateSurveyPageStateTypeCopyWithImpl<_UpdateSurveyPageStateType>(
+              this, _$identity);
+}
+
+abstract class _UpdateSurveyPageStateType extends UpdateSurveyPageStateType {
+  const factory _UpdateSurveyPageStateType(String value) =
+      _$_UpdateSurveyPageStateType;
+  const _UpdateSurveyPageStateType._() : super._();
+
+  @override
+  String get value => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$UpdateSurveyPageStateTypeCopyWith<_UpdateSurveyPageStateType>
+      get copyWith => throw _privateConstructorUsedError;
 }

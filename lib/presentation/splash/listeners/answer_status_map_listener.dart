@@ -13,17 +13,29 @@ final answerStatusMapListener =
   listener: (context, state) {
     logger('Listen').i('UpdateAnswerStatusBloc');
 
-    context.read<UpdateSurveyPageBloc>().add(
-          UpdateSurveyPageEvent.answerChanged(
-            answerMap: state.answerMap,
-            answerStatusMap: state.answerStatusMap,
-          ),
-        );
+    if (state.updateType.contains(UpdateSurveyPageStateType.answerMap())) {
+      context.read<SurveyPageBloc>().add(
+            SurveyPageEvent.answerMapUpdated(
+              answerMap: state.answerMap,
+              questionIdList: state.questionIdList,
+            ),
+          );
+    }
 
-    context.read<SurveyPageBloc>().add(
-          SurveyPageEvent.answerStatusMapUpdated(
-            answerStatusMap: state.answerStatusMap,
-          ),
-        );
+    if (state.updateType
+        .contains(UpdateSurveyPageStateType.answerStatusMap())) {
+      context.read<UpdateSurveyPageBloc>().add(
+            UpdateSurveyPageEvent.answerChanged(
+              answerMap: state.answerMap,
+              answerStatusMap: state.answerStatusMap,
+            ),
+          );
+
+      context.read<SurveyPageBloc>().add(
+            SurveyPageEvent.answerStatusMapUpdated(
+              answerStatusMap: state.answerStatusMap,
+            ),
+          );
+    }
   },
 );

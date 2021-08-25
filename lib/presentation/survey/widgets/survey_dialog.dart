@@ -8,7 +8,6 @@ import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../application/survey/update_answer/update_answer_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -181,9 +180,6 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
 }
 
 void clearSurveyPageState(BuildContext context) {
-  context.read<UpdateAnswerBloc>().add(
-        const UpdateAnswerEvent.stateCleared(),
-      );
   context.read<UpdateAnswerStatusBloc>().add(
         const UpdateAnswerStatusEvent.stateCleared(),
       );

@@ -14,7 +14,6 @@ import '../../../domain/survey/question.dart';
 import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/answer_state_dtos.dart';
-import '../update_answer/update_answer_bloc.dart';
 import '../update_answer_status/update_answer_status_bloc.dart';
 
 part 'answer_bloc.freezed.dart';
@@ -24,7 +23,6 @@ part 'answer_state.dart';
 
 // NOTE 這個 bloc 用來轉發使用者的互動事件到其他 bloc
 class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
-  final UpdateAnswerBloc _updateAnswerBloc;
   final UpdateAnswerStatusBloc _updateAnswerStatusBloc;
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;
@@ -32,7 +30,6 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
   AsyncTaskChannel? _jsonChannel;
 
   AnswerBloc(
-    this._updateAnswerBloc,
     this._updateAnswerStatusBloc,
   ) : super(AnswerState.initial()) {
     add(const AnswerEvent.taskInitialized());
@@ -54,7 +51,7 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
 
           final question = state.questionMap[e.questionId]!;
 
-          _updateAnswerBloc.add(UpdateAnswerEvent.answerUpdated(
+          _updateAnswerStatusBloc.add(UpdateAnswerStatusEvent.answerUpdated(
             question: question,
             answerValue: e.body,
             toggle: e.toggle,
@@ -68,12 +65,6 @@ class AnswerBloc extends Bloc<AnswerEvent, AnswerState> {
       specialAnswerSwitched: (e) async* {
         if (!state.isReadOnly && !state.isRecodeModule) {
           logger('User Event').i('AnswerEvent: specialAnswerSwitched');
-
-          _updateAnswerBloc.add(
-            UpdateAnswerEvent.answerQIdListCleared(
-              questionIdList: [e.questionId],
-            ),
-          );
 
           _updateAnswerStatusBloc
               .add(UpdateAnswerStatusEvent.specialAnswerSwitched(

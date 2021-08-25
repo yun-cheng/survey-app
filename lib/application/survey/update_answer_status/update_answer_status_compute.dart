@@ -1,24 +1,25 @@
 part of 'update_answer_status_bloc.dart';
 
 // H_ answerMap 有變更時
-UpdateAnswerStatusState answerMapUpdated(UpdateAnswerStatusState state) {
+UpdateAnswerStatusState answerStatusMapUpdated(
+    UpdateAnswerStatusState previousState) {
   logger('Compute').i('AnswerMapUpdated');
 
-  final state1 = answerStatusTypeUpdated(state);
+  var state = answerStatusTypeUpdated(previousState);
 
   if (!state.isRecodeModule) {
-    final state2 = chainQuestionChecked(state1);
-    return showQuestionChecked(state2);
-  } else {
-    return state1;
+    state = chainQuestionChecked(state);
+    state = showQuestionChecked(state);
   }
+
+  return state;
 }
 
 // H_ 更新該題答題狀態
 UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
   logger('Compute').i('AnswerStatusTypeUpdated');
 
-  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
+  final answerStatusMap = {...state.answerStatusMap};
   final answer = state.answerMap[state.questionId]!;
   final validateAnswer = state.questionMap[state.questionId]!.validateAnswer;
 
@@ -36,7 +37,7 @@ UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
 UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   logger('Compute').i('chainQuestionChecked');
 
-  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
+  final answerStatusMap = {...state.answerStatusMap};
 
   final changedUpperQIdList = [state.questionId];
   // NOTE 因為無法直接更新 answerMap，因此將要清除的加進 clearAnswerQIdList，後面一次清除
@@ -85,7 +86,7 @@ UpdateAnswerStatusState showQuestionCheckedRecodeJob(
     UpdateAnswerStatusState state) {
   logger('Compute').i('showQuestionCheckedRecodeJob');
 
-  final answerStatusMap = Map<String, AnswerStatus>.from(state.answerStatusMap);
+  final answerStatusMap = {...state.answerStatusMap};
 
   // S_ 在 mainAnswerStatusMap 隱藏的，也將 answerStatusMap 隱藏，其餘不變
   state.questionMap.forEach((questionId, question) {
@@ -142,8 +143,9 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
     answerStatusMap[questionId] = newAnswerStatus;
   });
 
-  return state.copyWith(
+  final state1 = state.copyWith(
     answerStatusMap: answerStatusMap,
     clearAnswerQIdList: clearAnswerQIdList,
   );
+  return answerQIdListCleared(state1);
 }
