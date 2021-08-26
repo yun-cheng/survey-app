@@ -19,6 +19,7 @@ void _updateAnswerStatusEventWorker(
       logger('Event').i('UpdateAnswerStatusEvent: moduleLoaded');
 
       state = state.copyWith(
+        isReadOnly: e.isReadOnly,
         restoreState: LoadState.inProgress(),
         questionMap: e.questionMap,
         isRecodeModule: e.isRecodeModule,
@@ -39,61 +40,67 @@ void _updateAnswerStatusEventWorker(
     },
     // H_ 該題作答更新
     answerUpdated: (e) {
-      logger('Event').i('UpdateAnswerEvent: answerUpdated');
+      if (!state.isReadOnly &&
+          (!state.isRecodeModule || (state.isRecodeModule && e.isRecode))) {
+        logger('User Event').i('UpdateAnswerStatusEvent: answerUpdated');
 
-      // S_ 單純更新 answerMap
-      state = state.copyWith(
-        updateState: LoadState.inProgress(),
-        questionIdList: const [],
-      ).send(channel);
-      state = answerUpdated(e, state).copyWith(
-        updateState: LoadState.success(),
-        updateType: [UpdateSurveyPageStateType.answerMap()],
-      ).send(channel);
+        // S_ 單純更新 answerMap
+        state = state.copyWith(
+          updateState: LoadState.inProgress(),
+          questionIdList: const [],
+        ).send(channel);
+        state = answerUpdated(e, state).copyWith(
+          updateState: LoadState.success(),
+          updateType: [UpdateSurveyPageStateType.answerMap()],
+        ).send(channel);
 
-      // S_ 更新 answerStatus
-      state = state
-          .copyWith(
-            updateState: LoadState.inProgress(),
-            questionIdList: const [],
-            questionId: e.question.id,
-          )
-          .send(channel);
+        // S_ 更新 answerStatus
+        state = state
+            .copyWith(
+              updateState: LoadState.inProgress(),
+              questionIdList: const [],
+              questionId: e.questionId,
+            )
+            .send(channel);
 
-      state = answerStatusMapUpdated(state).copyWith(
-        updateState: LoadState.success(),
-        updateType: [
-          UpdateSurveyPageStateType.answerMap(),
-          UpdateSurveyPageStateType.answerStatusMap(),
-        ],
-      ).send(channel);
+        state = answerStatusMapUpdated(state).copyWith(
+          updateState: LoadState.success(),
+          updateType: [
+            UpdateSurveyPageStateType.answerMap(),
+            UpdateSurveyPageStateType.answerStatusMap(),
+          ],
+        ).send(channel);
+      }
     },
     // H_ 切換該題特殊作答時
     specialAnswerSwitched: (e) {
-      logger('Event').i('UpdateAnswerStatusEvent: specialAnswerSwitched');
+      if (!state.isReadOnly && !state.isRecodeModule) {
+        logger('User Event')
+            .i('UpdateAnswerStatusEvent: specialAnswerSwitched');
 
-      final answerMap = {...state.answerMap};
-      final answerStatusMap = {...state.answerStatusMap};
+        final answerMap = {...state.answerMap};
+        final answerStatusMap = {...state.answerStatusMap};
 
-      answerMap[e.questionId] = Answer.empty();
+        answerMap[e.questionId] = Answer.empty();
 
-      answerStatusMap[e.questionId] =
-          answerStatusMap[e.questionId]!.switchSpecialAnswer();
+        answerStatusMap[e.questionId] =
+            answerStatusMap[e.questionId]!.switchSpecialAnswer();
 
-      state = state.copyWith(
-        updateState: LoadState.inProgress(),
-        answerMap: answerMap,
-        answerStatusMap: answerStatusMap,
-        clearAnswerQIdList: [e.questionId],
-      ).send(channel);
+        state = state.copyWith(
+          updateState: LoadState.inProgress(),
+          answerMap: answerMap,
+          answerStatusMap: answerStatusMap,
+          clearAnswerQIdList: [e.questionId],
+        ).send(channel);
 
-      state = showQuestionChecked(state).copyWith(
-        updateState: LoadState.success(),
-        updateType: [
-          UpdateSurveyPageStateType.answerMap(),
-          UpdateSurveyPageStateType.answerStatusMap(),
-        ],
-      ).send(channel);
+        state = showQuestionChecked(state).copyWith(
+          updateState: LoadState.success(),
+          updateType: [
+            UpdateSurveyPageStateType.answerMap(),
+            UpdateSurveyPageStateType.answerStatusMap(),
+          ],
+        ).send(channel);
+      }
     },
     // H_ 離開問卷時清空 state
     stateCleared: (e) {

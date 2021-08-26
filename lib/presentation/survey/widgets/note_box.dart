@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/choice.dart';
 import '../../core/constants.dart';
@@ -43,10 +43,10 @@ class NoteBox extends HookWidget {
         ),
         // maxLines: null,
         onChanged: (value) {
-          context.read<AnswerBloc>().add(
-                AnswerEvent.answerChangedWith(
+          context.read<UpdateAnswerStatusBloc>().add(
+                UpdateAnswerStatusEvent.answerUpdated(
                   questionId: questionId,
-                  body: value,
+                  answerValue: value,
                   isNote: true,
                   noteOf: choice.id,
                 ),

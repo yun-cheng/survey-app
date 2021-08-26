@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
@@ -50,10 +50,10 @@ class PhoneBox extends StatelessWidget {
               keyboardType: TextInputType.phone,
               // autocorrect: false,
               onChanged: (value) {
-                context.read<AnswerBloc>().add(
-                      AnswerEvent.answerChangedWith(
+                context.read<UpdateAnswerStatusBloc>().add(
+                      UpdateAnswerStatusEvent.answerUpdated(
                         questionId: questionId,
-                        body: value,
+                        answerValue: value,
                       ),
                     );
               },

@@ -14,6 +14,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
   const UpdateAnswerStatusStateDto._();
 
   const factory UpdateAnswerStatusStateDto({
+    required bool isReadOnly,
     required Map<String, QuestionDto> questionMap,
     required bool isRecodeModule,
     required Map<String, AnswerDto> answerMap,
@@ -30,6 +31,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
   factory UpdateAnswerStatusStateDto.fromDomain(
       UpdateAnswerStatusState domain) {
     return UpdateAnswerStatusStateDto(
+      isReadOnly: domain.isReadOnly,
       questionMap: domain.questionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       isRecodeModule: domain.isRecodeModule,
@@ -50,6 +52,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
 
   UpdateAnswerStatusState toDomain() {
     return UpdateAnswerStatusState.initial().copyWith(
+      isReadOnly: isReadOnly,
       questionMap:
           questionMap.map((key, value) => MapEntry(key, value.toDomain())),
       isRecodeModule: isRecodeModule,

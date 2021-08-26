@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/answer/answer_bloc.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../core/constants.dart';
 
 class SpecialAnswerSwitch extends StatelessWidget {
@@ -22,8 +22,10 @@ class SpecialAnswerSwitch extends StatelessWidget {
       children: [
         Switch(
           value: isSpecialAnswer,
-          onChanged: (_) => context.read<AnswerBloc>().add(
-                AnswerEvent.specialAnswerSwitched(questionId: questionId),
+          onChanged: (_) => context.read<UpdateAnswerStatusBloc>().add(
+                UpdateAnswerStatusEvent.specialAnswerSwitched(
+                  questionId: questionId,
+                ),
               ),
         ),
         if (showText)

@@ -2,8 +2,8 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
@@ -132,10 +132,10 @@ class DropdownBox extends StatelessWidget {
                 // },
                 items: choiceItemList,
                 onChanged: (String? value) {
-                  context.read<AnswerBloc>().add(
-                        AnswerEvent.answerChangedWith(
+                  context.read<UpdateAnswerStatusBloc>().add(
+                        UpdateAnswerStatusEvent.answerUpdated(
                           questionId: questionId,
-                          body: choiceList
+                          answerValue: choiceList
                               .firstWhere((choice) => choice.id == value),
                           isSpecialAnswer: isSpecialAnswer,
                           // asSingle: choice.asSingle,

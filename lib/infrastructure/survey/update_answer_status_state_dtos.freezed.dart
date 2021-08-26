@@ -22,7 +22,8 @@ class _$UpdateAnswerStatusStateDtoTearOff {
   const _$UpdateAnswerStatusStateDtoTearOff();
 
   _UpdateAnswerStatusStateDto call(
-      {required Map<String, QuestionDto> questionMap,
+      {required bool isReadOnly,
+      required Map<String, QuestionDto> questionMap,
       required bool isRecodeModule,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
@@ -34,6 +35,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       required String restoreState,
       required List<String> updateType}) {
     return _UpdateAnswerStatusStateDto(
+      isReadOnly: isReadOnly,
       questionMap: questionMap,
       isRecodeModule: isRecodeModule,
       answerMap: answerMap,
@@ -58,6 +60,7 @@ const $UpdateAnswerStatusStateDto = _$UpdateAnswerStatusStateDtoTearOff();
 
 /// @nodoc
 mixin _$UpdateAnswerStatusStateDto {
+  bool get isReadOnly => throw _privateConstructorUsedError;
   Map<String, QuestionDto> get questionMap =>
       throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
@@ -85,7 +88,8 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
           $Res Function(UpdateAnswerStatusStateDto) then) =
       _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, QuestionDto> questionMap,
+      {bool isReadOnly,
+      Map<String, QuestionDto> questionMap,
       bool isRecodeModule,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
@@ -109,6 +113,7 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? isReadOnly = freezed,
     Object? questionMap = freezed,
     Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
@@ -122,6 +127,10 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? updateType = freezed,
   }) {
     return _then(_value.copyWith(
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -179,7 +188,8 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, QuestionDto> questionMap,
+      {bool isReadOnly,
+      Map<String, QuestionDto> questionMap,
       bool isRecodeModule,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
@@ -206,6 +216,7 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? isReadOnly = freezed,
     Object? questionMap = freezed,
     Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
@@ -219,6 +230,10 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? updateType = freezed,
   }) {
     return _then(_UpdateAnswerStatusStateDto(
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -271,7 +286,8 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   const _$_UpdateAnswerStatusStateDto(
-      {required this.questionMap,
+      {required this.isReadOnly,
+      required this.questionMap,
       required this.isRecodeModule,
       required this.answerMap,
       required this.answerStatusMap,
@@ -287,6 +303,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   factory _$_UpdateAnswerStatusStateDto.fromJson(Map<String, dynamic> json) =>
       _$_$_UpdateAnswerStatusStateDtoFromJson(json);
 
+  @override
+  final bool isReadOnly;
   @override
   final Map<String, QuestionDto> questionMap;
   @override
@@ -312,13 +330,16 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(questionMap: $questionMap, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, clearAnswerQIdList: $clearAnswerQIdList, mainAnswerStatusMap: $mainAnswerStatusMap, questionId: $questionId, updateState: $updateState, restoreState: $restoreState, updateType: $updateType)';
+    return 'UpdateAnswerStatusStateDto(isReadOnly: $isReadOnly, questionMap: $questionMap, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, clearAnswerQIdList: $clearAnswerQIdList, mainAnswerStatusMap: $mainAnswerStatusMap, questionId: $questionId, updateState: $updateState, restoreState: $restoreState, updateType: $updateType)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAnswerStatusStateDto &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
             (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
                     .equals(other.questionMap, questionMap)) &&
@@ -357,6 +378,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(answerMap) ^
@@ -383,7 +405,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
 abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   const factory _UpdateAnswerStatusStateDto(
-      {required Map<String, QuestionDto> questionMap,
+      {required bool isReadOnly,
+      required Map<String, QuestionDto> questionMap,
       required bool isRecodeModule,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
@@ -399,6 +422,8 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   factory _UpdateAnswerStatusStateDto.fromJson(Map<String, dynamic> json) =
       _$_UpdateAnswerStatusStateDto.fromJson;
 
+  @override
+  bool get isReadOnly => throw _privateConstructorUsedError;
   @override
   Map<String, QuestionDto> get questionMap =>
       throw _privateConstructorUsedError;

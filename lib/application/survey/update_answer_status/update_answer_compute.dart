@@ -7,13 +7,14 @@ UpdateAnswerStatusState answerUpdated(
 ) {
   logger('Compute').i('AnswerUpdated');
 
+  final question = state.questionMap[e.questionId]!;
   final answerMap = Map<String, Answer>.from(state.answerMap);
-  final oldAnswer = state.answerMap[e.question.id] ?? Answer.empty();
+  final oldAnswer = state.answerMap[e.questionId] ?? Answer.empty();
   Answer newAnswer;
 
   if (e.isNote) {
     newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
-  } else if (!e.question.type.isChoice & !e.isSpecialAnswer) {
+  } else if (!question.type.isChoice & !e.isSpecialAnswer) {
     newAnswer = oldAnswer.setString(e.answerValue);
   } else if ((e.answerValue as Choice).asSingle || !e.toggle) {
     newAnswer = oldAnswer.setChoice(
@@ -27,11 +28,11 @@ UpdateAnswerStatusState answerUpdated(
     );
   }
 
-  answerMap[e.question.id] = newAnswer;
+  answerMap[e.questionId] = newAnswer;
 
   return state.copyWith(
     answerMap: answerMap,
-    questionIdList: [e.question.id],
+    questionIdList: [e.questionId],
   );
 }
 

@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
-import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
@@ -188,8 +187,5 @@ void clearSurveyPageState(BuildContext context) {
       );
   context.read<SurveyPageBloc>().add(
         const SurveyPageEvent.stateCleared(),
-      );
-  context.read<AnswerBloc>().add(
-        const AnswerEvent.stateCleared(),
       );
 }

@@ -5,6 +5,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
   const UpdateAnswerStatusState._();
 
   const factory UpdateAnswerStatusState({
+    required bool isReadOnly,
     required LoadState restoreState,
     required LoadState updateState,
     required Map<String, Question> questionMap,
@@ -21,6 +22,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
   }) = _UpdateAnswerStatusState;
 
   factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(
+        isReadOnly: false,
         questionMap: const {},
         isRecodeModule: false,
         answerMap: const {},

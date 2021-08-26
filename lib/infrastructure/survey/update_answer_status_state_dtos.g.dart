@@ -9,6 +9,7 @@ part of 'update_answer_status_state_dtos.dart';
 _$_UpdateAnswerStatusStateDto _$_$_UpdateAnswerStatusStateDtoFromJson(
     Map<String, dynamic> json) {
   return _$_UpdateAnswerStatusStateDto(
+    isReadOnly: json['isReadOnly'] as bool,
     questionMap: (json['questionMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
     ),
@@ -42,6 +43,7 @@ _$_UpdateAnswerStatusStateDto _$_$_UpdateAnswerStatusStateDtoFromJson(
 Map<String, dynamic> _$_$_UpdateAnswerStatusStateDtoToJson(
         _$_UpdateAnswerStatusStateDto instance) =>
     <String, dynamic>{
+      'isReadOnly': instance.isReadOnly,
       'questionMap':
           instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),
       'isRecodeModule': instance.isRecodeModule,

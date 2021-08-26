@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
-import '../../../application/survey/answer/answer_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
@@ -34,14 +33,6 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
           ),
         );
 
-    context.read<AnswerBloc>().add(
-          AnswerEvent.moduleLoaded(
-            questionMap: state.questionMap,
-            isReadOnly: isReadOnly,
-            isRecodeModule: isRecodeModule,
-          ),
-        );
-
     context.read<UpdateSurveyPageBloc>().add(
           UpdateSurveyPageEvent.stateRestored(
             surveyId: state.survey.id,
@@ -62,6 +53,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
 
     context.read<UpdateAnswerStatusBloc>().add(
           UpdateAnswerStatusEvent.moduleLoaded(
+            isReadOnly: isReadOnly,
             questionMap: state.questionMap,
             isRecodeModule: isRecodeModule,
             answerMap: state.response.answerMap,

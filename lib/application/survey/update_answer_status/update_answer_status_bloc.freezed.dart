@@ -22,12 +22,14 @@ class _$UpdateAnswerStatusEventTearOff {
 
   _ModuleLoaded moduleLoaded(
       {required Map<String, Question> questionMap,
+      required bool isReadOnly,
       required bool isRecodeModule,
       required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
       required Map<String, AnswerStatus> mainAnswerStatusMap}) {
     return _ModuleLoaded(
       questionMap: questionMap,
+      isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -40,19 +42,21 @@ class _$UpdateAnswerStatusEventTearOff {
   }
 
   _AnswerUpdated answerUpdated(
-      {required Question question,
+      {required String questionId,
       required dynamic answerValue,
-      required bool toggle,
-      required bool isSpecialAnswer,
-      required bool isNote,
-      String? noteOf}) {
+      bool isSpecialAnswer = false,
+      bool isNote = false,
+      bool toggle = false,
+      String? noteOf,
+      bool isRecode = false}) {
     return _AnswerUpdated(
-      question: question,
+      questionId: questionId,
       answerValue: answerValue,
-      toggle: toggle,
       isSpecialAnswer: isSpecialAnswer,
       isNote: isNote,
+      toggle: toggle,
       noteOf: noteOf,
+      isRecode: isRecode,
     );
   }
 
@@ -73,14 +77,21 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)
         answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
   }) =>
@@ -90,14 +101,21 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, String? noteOf)?
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
         answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
     required TResult orElse(),
@@ -195,14 +213,21 @@ class _$_TaskInitialized
     required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)
         answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
   }) {
@@ -215,14 +240,21 @@ class _$_TaskInitialized
     TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, String? noteOf)?
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
         answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
     required TResult orElse(),
@@ -274,6 +306,7 @@ abstract class _$ModuleLoadedCopyWith<$Res> {
       __$ModuleLoadedCopyWithImpl<$Res>;
   $Res call(
       {Map<String, Question> questionMap,
+      bool isReadOnly,
       bool isRecodeModule,
       Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
@@ -294,6 +327,7 @@ class __$ModuleLoadedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? questionMap = freezed,
+    Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
@@ -304,6 +338,10 @@ class __$ModuleLoadedCopyWithImpl<$Res>
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -329,6 +367,7 @@ class __$ModuleLoadedCopyWithImpl<$Res>
 class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   const _$_ModuleLoaded(
       {required this.questionMap,
+      required this.isReadOnly,
       required this.isRecodeModule,
       required this.answerMap,
       required this.answerStatusMap,
@@ -336,6 +375,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
 
   @override
   final Map<String, Question> questionMap;
+  @override
+  final bool isReadOnly;
   @override
   final bool isRecodeModule;
   @override
@@ -347,7 +388,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.moduleLoaded(questionMap: $questionMap, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateAnswerStatusEvent.moduleLoaded(questionMap: $questionMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -356,6 +397,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     properties
       ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.moduleLoaded'))
       ..add(DiagnosticsProperty('questionMap', questionMap))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
@@ -369,6 +411,9 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
                     .equals(other.questionMap, questionMap)) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)) &&
@@ -387,6 +432,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(questionMap) ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
@@ -403,19 +449,26 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)
         answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
   }) {
-    return moduleLoaded(questionMap, isRecodeModule, answerMap, answerStatusMap,
-        mainAnswerStatusMap);
+    return moduleLoaded(questionMap, isReadOnly, isRecodeModule, answerMap,
+        answerStatusMap, mainAnswerStatusMap);
   }
 
   @override
@@ -424,20 +477,27 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, String? noteOf)?
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
         answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
-      return moduleLoaded(questionMap, isRecodeModule, answerMap,
+      return moduleLoaded(questionMap, isReadOnly, isRecodeModule, answerMap,
           answerStatusMap, mainAnswerStatusMap);
     }
     return orElse();
@@ -476,6 +536,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
 abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
   const factory _ModuleLoaded(
           {required Map<String, Question> questionMap,
+          required bool isReadOnly,
           required bool isRecodeModule,
           required Map<String, Answer> answerMap,
           required Map<String, AnswerStatus> answerStatusMap,
@@ -483,6 +544,7 @@ abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
       _$_ModuleLoaded;
 
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
@@ -545,14 +607,21 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)
         answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
   }) {
@@ -565,14 +634,21 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, String? noteOf)?
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
         answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
     required TResult orElse(),
@@ -623,14 +699,13 @@ abstract class _$AnswerUpdatedCopyWith<$Res> {
           _AnswerUpdated value, $Res Function(_AnswerUpdated) then) =
       __$AnswerUpdatedCopyWithImpl<$Res>;
   $Res call(
-      {Question question,
+      {String questionId,
       dynamic answerValue,
-      bool toggle,
       bool isSpecialAnswer,
       bool isNote,
-      String? noteOf});
-
-  $QuestionCopyWith<$Res> get question;
+      bool toggle,
+      String? noteOf,
+      bool isRecode});
 }
 
 /// @nodoc
@@ -646,26 +721,23 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? question = freezed,
+    Object? questionId = freezed,
     Object? answerValue = freezed,
-    Object? toggle = freezed,
     Object? isSpecialAnswer = freezed,
     Object? isNote = freezed,
+    Object? toggle = freezed,
     Object? noteOf = freezed,
+    Object? isRecode = freezed,
   }) {
     return _then(_AnswerUpdated(
-      question: question == freezed
-          ? _value.question
-          : question // ignore: cast_nullable_to_non_nullable
-              as Question,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
       answerValue: answerValue == freezed
           ? _value.answerValue
           : answerValue // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      toggle: toggle == freezed
-          ? _value.toggle
-          : toggle // ignore: cast_nullable_to_non_nullable
-              as bool,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
@@ -674,48 +746,56 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
           ? _value.isNote
           : isNote // ignore: cast_nullable_to_non_nullable
               as bool,
+      toggle: toggle == freezed
+          ? _value.toggle
+          : toggle // ignore: cast_nullable_to_non_nullable
+              as bool,
       noteOf: noteOf == freezed
           ? _value.noteOf
           : noteOf // ignore: cast_nullable_to_non_nullable
               as String?,
+      isRecode: isRecode == freezed
+          ? _value.isRecode
+          : isRecode // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
-  }
-
-  @override
-  $QuestionCopyWith<$Res> get question {
-    return $QuestionCopyWith<$Res>(_value.question, (value) {
-      return _then(_value.copyWith(question: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
-  const _$_AnswerUpdated(
-      {required this.question,
+  _$_AnswerUpdated(
+      {required this.questionId,
       required this.answerValue,
-      required this.toggle,
-      required this.isSpecialAnswer,
-      required this.isNote,
-      this.noteOf});
+      this.isSpecialAnswer = false,
+      this.isNote = false,
+      this.toggle = false,
+      this.noteOf,
+      this.isRecode = false});
 
   @override
-  final Question question;
+  final String questionId;
   @override
   final dynamic answerValue;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isSpecialAnswer;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isNote;
+  @JsonKey(defaultValue: false)
   @override
   final bool toggle;
   @override
-  final bool isSpecialAnswer;
-  @override
-  final bool isNote;
-  @override
   final String? noteOf;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isRecode;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.answerUpdated(question: $question, answerValue: $answerValue, toggle: $toggle, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, noteOf: $noteOf)';
+    return 'UpdateAnswerStatusEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, toggle: $toggle, noteOf: $noteOf, isRecode: $isRecode)';
   }
 
   @override
@@ -724,44 +804,49 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     properties
       ..add(
           DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.answerUpdated'))
-      ..add(DiagnosticsProperty('question', question))
+      ..add(DiagnosticsProperty('questionId', questionId))
       ..add(DiagnosticsProperty('answerValue', answerValue))
-      ..add(DiagnosticsProperty('toggle', toggle))
       ..add(DiagnosticsProperty('isSpecialAnswer', isSpecialAnswer))
       ..add(DiagnosticsProperty('isNote', isNote))
-      ..add(DiagnosticsProperty('noteOf', noteOf));
+      ..add(DiagnosticsProperty('toggle', toggle))
+      ..add(DiagnosticsProperty('noteOf', noteOf))
+      ..add(DiagnosticsProperty('isRecode', isRecode));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _AnswerUpdated &&
-            (identical(other.question, question) ||
+            (identical(other.questionId, questionId) ||
                 const DeepCollectionEquality()
-                    .equals(other.question, question)) &&
+                    .equals(other.questionId, questionId)) &&
             (identical(other.answerValue, answerValue) ||
                 const DeepCollectionEquality()
                     .equals(other.answerValue, answerValue)) &&
-            (identical(other.toggle, toggle) ||
-                const DeepCollectionEquality().equals(other.toggle, toggle)) &&
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
                 const DeepCollectionEquality()
                     .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
             (identical(other.isNote, isNote) ||
                 const DeepCollectionEquality().equals(other.isNote, isNote)) &&
+            (identical(other.toggle, toggle) ||
+                const DeepCollectionEquality().equals(other.toggle, toggle)) &&
             (identical(other.noteOf, noteOf) ||
-                const DeepCollectionEquality().equals(other.noteOf, noteOf)));
+                const DeepCollectionEquality().equals(other.noteOf, noteOf)) &&
+            (identical(other.isRecode, isRecode) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecode, isRecode)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(question) ^
+      const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(answerValue) ^
-      const DeepCollectionEquality().hash(toggle) ^
       const DeepCollectionEquality().hash(isSpecialAnswer) ^
       const DeepCollectionEquality().hash(isNote) ^
-      const DeepCollectionEquality().hash(noteOf);
+      const DeepCollectionEquality().hash(toggle) ^
+      const DeepCollectionEquality().hash(noteOf) ^
+      const DeepCollectionEquality().hash(isRecode);
 
   @JsonKey(ignore: true)
   @override
@@ -774,19 +859,26 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)
         answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
   }) {
-    return answerUpdated(
-        question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
+    return answerUpdated(questionId, answerValue, isSpecialAnswer, isNote,
+        toggle, noteOf, isRecode);
   }
 
   @override
@@ -795,21 +887,28 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, String? noteOf)?
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
         answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
-      return answerUpdated(
-          question, answerValue, toggle, isSpecialAnswer, isNote, noteOf);
+      return answerUpdated(questionId, answerValue, isSpecialAnswer, isNote,
+          toggle, noteOf, isRecode);
     }
     return orElse();
   }
@@ -845,20 +944,22 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
 }
 
 abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
-  const factory _AnswerUpdated(
-      {required Question question,
+  factory _AnswerUpdated(
+      {required String questionId,
       required dynamic answerValue,
-      required bool toggle,
-      required bool isSpecialAnswer,
-      required bool isNote,
-      String? noteOf}) = _$_AnswerUpdated;
+      bool isSpecialAnswer,
+      bool isNote,
+      bool toggle,
+      String? noteOf,
+      bool isRecode}) = _$_AnswerUpdated;
 
-  Question get question => throw _privateConstructorUsedError;
+  String get questionId => throw _privateConstructorUsedError;
   dynamic get answerValue => throw _privateConstructorUsedError;
-  bool get toggle => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
   bool get isNote => throw _privateConstructorUsedError;
+  bool get toggle => throw _privateConstructorUsedError;
   String? get noteOf => throw _privateConstructorUsedError;
+  bool get isRecode => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerUpdatedCopyWith<_AnswerUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -945,14 +1046,21 @@ class _$_SpecialAnswerSwitched
     required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)
         moduleLoaded,
     required TResult Function() stateCleared,
-    required TResult Function(Question question, dynamic answerValue,
-            bool toggle, bool isSpecialAnswer, bool isNote, String? noteOf)
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)
         answerUpdated,
     required TResult Function(String questionId) specialAnswerSwitched,
   }) {
@@ -965,14 +1073,21 @@ class _$_SpecialAnswerSwitched
     TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Question> questionMap,
+            bool isReadOnly,
             bool isRecodeModule,
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         moduleLoaded,
     TResult Function()? stateCleared,
-    TResult Function(Question question, dynamic answerValue, bool toggle,
-            bool isSpecialAnswer, bool isNote, String? noteOf)?
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
         answerUpdated,
     TResult Function(String questionId)? specialAnswerSwitched,
     required TResult orElse(),
@@ -1028,7 +1143,8 @@ class _$UpdateAnswerStatusStateTearOff {
   const _$UpdateAnswerStatusStateTearOff();
 
   _UpdateAnswerStatusState call(
-      {required LoadState restoreState,
+      {required bool isReadOnly,
+      required LoadState restoreState,
       required LoadState updateState,
       required Map<String, Question> questionMap,
       required Map<String, Answer> answerMap,
@@ -1040,6 +1156,7 @@ class _$UpdateAnswerStatusStateTearOff {
       required Map<String, AnswerStatus> mainAnswerStatusMap,
       required List<UpdateSurveyPageStateType> updateType}) {
     return _UpdateAnswerStatusState(
+      isReadOnly: isReadOnly,
       restoreState: restoreState,
       updateState: updateState,
       questionMap: questionMap,
@@ -1060,6 +1177,7 @@ const $UpdateAnswerStatusState = _$UpdateAnswerStatusStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAnswerStatusState {
+  bool get isReadOnly => throw _privateConstructorUsedError;
   LoadState get restoreState => throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
@@ -1087,7 +1205,8 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
           $Res Function(UpdateAnswerStatusState) then) =
       _$UpdateAnswerStatusStateCopyWithImpl<$Res>;
   $Res call(
-      {LoadState restoreState,
+      {bool isReadOnly,
+      LoadState restoreState,
       LoadState updateState,
       Map<String, Question> questionMap,
       Map<String, Answer> answerMap,
@@ -1114,6 +1233,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? isReadOnly = freezed,
     Object? restoreState = freezed,
     Object? updateState = freezed,
     Object? questionMap = freezed,
@@ -1127,6 +1247,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? updateType = freezed,
   }) {
     return _then(_value.copyWith(
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
@@ -1197,7 +1321,8 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       __$UpdateAnswerStatusStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {LoadState restoreState,
+      {bool isReadOnly,
+      LoadState restoreState,
       LoadState updateState,
       Map<String, Question> questionMap,
       Map<String, Answer> answerMap,
@@ -1229,6 +1354,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? isReadOnly = freezed,
     Object? restoreState = freezed,
     Object? updateState = freezed,
     Object? questionMap = freezed,
@@ -1242,6 +1368,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? updateType = freezed,
   }) {
     return _then(_UpdateAnswerStatusState(
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
@@ -1295,7 +1425,8 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
 class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
     with DiagnosticableTreeMixin {
   const _$_UpdateAnswerStatusState(
-      {required this.restoreState,
+      {required this.isReadOnly,
+      required this.restoreState,
       required this.updateState,
       required this.questionMap,
       required this.answerMap,
@@ -1308,6 +1439,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.updateType})
       : super._();
 
+  @override
+  final bool isReadOnly;
   @override
   final LoadState restoreState;
   @override
@@ -1333,7 +1466,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(restoreState: $restoreState, updateState: $updateState, questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, questionIdList: $questionIdList, clearAnswerQIdList: $clearAnswerQIdList, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap, updateType: $updateType)';
+    return 'UpdateAnswerStatusState(isReadOnly: $isReadOnly, restoreState: $restoreState, updateState: $updateState, questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, questionIdList: $questionIdList, clearAnswerQIdList: $clearAnswerQIdList, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap, updateType: $updateType)';
   }
 
   @override
@@ -1341,6 +1474,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusState'))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('restoreState', restoreState))
       ..add(DiagnosticsProperty('updateState', updateState))
       ..add(DiagnosticsProperty('questionMap', questionMap))
@@ -1358,6 +1492,9 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAnswerStatusState &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
             (identical(other.restoreState, restoreState) ||
                 const DeepCollectionEquality()
                     .equals(other.restoreState, restoreState)) &&
@@ -1396,6 +1533,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(restoreState) ^
       const DeepCollectionEquality().hash(updateState) ^
       const DeepCollectionEquality().hash(questionMap) ^
@@ -1417,7 +1555,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
 abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   const factory _UpdateAnswerStatusState(
-          {required LoadState restoreState,
+          {required bool isReadOnly,
+          required LoadState restoreState,
           required LoadState updateState,
           required Map<String, Question> questionMap,
           required Map<String, Answer> answerMap,
@@ -1431,6 +1570,8 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
       _$_UpdateAnswerStatusState;
   const _UpdateAnswerStatusState._() : super._();
 
+  @override
+  bool get isReadOnly => throw _privateConstructorUsedError;
   @override
   LoadState get restoreState => throw _privateConstructorUsedError;
   @override

@@ -7,6 +7,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   // H_ 進入問卷時載入必要 state
   const factory UpdateAnswerStatusEvent.moduleLoaded({
     required Map<String, Question> questionMap,
+    required bool isReadOnly,
     required bool isRecodeModule,
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
@@ -17,13 +18,14 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   const factory UpdateAnswerStatusEvent.stateCleared() = _StateCleared;
 
   // H_ 該題作答更新
-  const factory UpdateAnswerStatusEvent.answerUpdated({
-    required Question question,
+  factory UpdateAnswerStatusEvent.answerUpdated({
+    required String questionId,
     required dynamic answerValue,
-    required bool toggle,
-    required bool isSpecialAnswer,
-    required bool isNote,
+    @Default(false) bool isSpecialAnswer,
+    @Default(false) bool isNote,
+    @Default(false) bool toggle,
     String? noteOf,
+    @Default(false) bool isRecode,
   }) = _AnswerUpdated;
 
   // H_ 切換該題特殊作答時
