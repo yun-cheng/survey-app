@@ -1,14 +1,19 @@
 part of 'update_survey_page_bloc.dart';
 
-List<AsyncTask> _eventTaskTypeRegister() =>
-    [EventTask(_updateSurveyPageEventWorker)];
-
-List<AsyncTask> _jsonTaskTypeRegister() =>
-    [JsonTask(path: '', boxName: '', stateFromJson: _stateFromJson)];
+List<AsyncTask> _eventTaskTypeRegister() => [
+      EventTask(
+        path: '',
+        boxName: '',
+        stateFromJson: _stateFromJson,
+        eventWorker: _updateSurveyPageEventWorker,
+      )
+    ];
 
 void _updateSurveyPageEventWorker(
   Tuple2 tuple,
   AsyncTaskChannel channel,
+  Box box,
+  Lock lock,
 ) {
   final e = tuple.item1 as UpdateSurveyPageEvent;
   var state = tuple.item2 as UpdateSurveyPageState;
@@ -38,7 +43,8 @@ void _updateSurveyPageEventWorker(
               surveyFailure: none(),
             ),
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 進入問卷時載入必要 state
     stateRestored: (e) {
@@ -70,7 +76,8 @@ void _updateSurveyPageEventWorker(
           .copyWith(
             restoreState: LoadState.success(),
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 當前受訪者在其他模組的 response 更新時，更新頁面
     respondentResponseMapUpdated: (e) {
@@ -82,7 +89,7 @@ void _updateSurveyPageEventWorker(
             respondentResponseMap: e.respondentResponseMap,
           )
           .send(channel);
-      state = pageQuestionMapUpdated(state).send(channel);
+      state = pageQuestionMapUpdated(state).send(channel).saveState(box, lock);
     },
     // H_ 作答有變更時，更新頁面，並檢查 warning
     answerChanged: (e) {
@@ -102,13 +109,15 @@ void _updateSurveyPageEventWorker(
       }
 
       // S_ 更新 warning
-      state = warningUpdatedFlow(channel, state);
+      state = warningUpdatedFlow(channel, state).saveState(box, lock);
     },
     // H_ 更新目錄題目
     contentQuestionMapUpdated: (e) {
-      logger('User Event').i('UpdateSurveyPageEvent: contentQuestionMapUpdated');
+      logger('User Event')
+          .i('UpdateSurveyPageEvent: contentQuestionMapUpdated');
 
-      state = contentQuestionMapUpdated(state).send(channel);
+      state =
+          contentQuestionMapUpdated(state).send(channel).saveState(box, lock);
     },
     // H_ 切換頁面相關 events
     nextPagePressed: (e) {
@@ -145,6 +154,7 @@ void _updateSurveyPageEventWorker(
             )
             .send(channel);
       }
+      state.saveState(box, lock);
     },
     previousPagePressed: (e) {
       logger('User Event').i('UpdateSurveyPageEvent: previousPagePressed');
@@ -155,7 +165,7 @@ void _updateSurveyPageEventWorker(
             direction: Direction.previous,
           )
           .send(channel);
-      state = pageUpdated(state).send(channel);
+      state = pageUpdated(state).send(channel).saveState(box, lock);
     },
     wentToPage: (e) {
       logger('User Event').i('UpdateSurveyPageEvent: wentToPage');
@@ -167,7 +177,7 @@ void _updateSurveyPageEventWorker(
             direction: Direction.current,
           )
           .send(channel);
-      state = pageUpdated(state).send(channel);
+      state = pageUpdated(state).send(channel).saveState(box, lock);
     },
     // H_ 使用者點擊完成問卷
     finishedButtonPressed: (e) {
@@ -189,7 +199,8 @@ void _updateSurveyPageEventWorker(
             leavePage: warningIsEmpty,
             finishResponse: warningIsEmpty,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 離開問卷時清空 referenceList 以外的 state
     stateCleared: (e) {
@@ -203,7 +214,8 @@ void _updateSurveyPageEventWorker(
             referenceListState: state.referenceListState,
             surveyFailure: state.surveyFailure,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 切換唯讀
     readOnlyToggled: (e) {
@@ -213,7 +225,8 @@ void _updateSurveyPageEventWorker(
           .copyWith(
             isReadOnly: !state.isReadOnly,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ lifeCycle 變更時
     appLifeCycleChanged: (e) {
@@ -232,7 +245,8 @@ void _updateSurveyPageEventWorker(
             appIsPaused: e.isPaused,
             showDialog: showDialog,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 關閉 dialog
     dialogClosed: (e) {
@@ -242,7 +256,8 @@ void _updateSurveyPageEventWorker(
           .copyWith(
             showDialog: false,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 點擊離開按鈕時
     leaveButtonPressed: (e) {
@@ -255,14 +270,19 @@ void _updateSurveyPageEventWorker(
             leavePage:
                 state.moduleType != ModuleType.main() || state.isReadOnly,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 隱藏離開按鈕
     leaveButtonHidden: (e) {
-      state = state.copyWith(showLeaveButton: false).send(channel);
+      state = state
+          .copyWith(showLeaveButton: false)
+          .send(channel)
+          .saveState(box, lock);
     },
     loggedOut: (e) {
-      state = UpdateSurveyPageState.initial().send(channel);
+      state =
+          UpdateSurveyPageState.initial().send(channel).saveState(box, lock);
     },
     orElse: () {},
   );

@@ -84,6 +84,11 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
     channel.send(this);
     return this;
   }
+
+  UpdateSurveyPageState saveState(Box box, Lock lock) {
+    toJsonTask(box: box, lock: lock, state: this);
+    return this;
+  }
 }
 
 UpdateSurveyPageState _stateFromJson(Map<String, dynamic> json) =>

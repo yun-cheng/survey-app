@@ -1,13 +1,19 @@
 part of 'response_bloc.dart';
 
-List<AsyncTask> _eventTaskTypeRegister() => [EventTask(_responseEventWorker)];
-
-List<AsyncTask> _jsonTaskTypeRegister() =>
-    [JsonTask(path: '', boxName: '', stateFromJson: _stateFromJson)];
+List<AsyncTask> _eventTaskTypeRegister() => [
+      EventTask(
+        path: '',
+        boxName: '',
+        stateFromJson: _stateFromJson,
+        eventWorker: _responseEventWorker,
+      )
+    ];
 
 void _responseEventWorker(
   Tuple2 tuple,
   AsyncTaskChannel channel,
+  Box box,
+  Lock lock,
 ) {
   final e = tuple.item1 as ResponseEvent;
   var state = tuple.item2 as ResponseState;
@@ -49,7 +55,7 @@ void _responseEventWorker(
             updateTabRespondentMap: false,
           )
           .send(channel);
-      state = responseMapMerged(state).send(channel);
+      state = responseMapMerged(state).send(channel).saveState(box, lock);
     },
     // H_ referenceList 更新時
     referenceListUpdated: (e) {
@@ -57,7 +63,8 @@ void _responseEventWorker(
           .copyWith(
             referenceList: e.referenceList,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 使用者選擇問卷
     surveySelected: (e) {
@@ -73,7 +80,8 @@ void _responseEventWorker(
             updateState: LoadState.success(),
             survey: e.survey,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 使用者選擇要開始進行的問卷模組
     responseStarted: (e) {
@@ -98,15 +106,17 @@ void _responseEventWorker(
           .send(channel);
       state = responseRestored(state).send(channel);
 
-      state = respondentResponseMapUpdated(state).send(channel);
+      state = respondentResponseMapUpdated(state)
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 使用者在閒置後，選擇繼續訪問
     responseResumed: (e) {
-      state = responseResumed(e, state).send(channel);
+      state = responseResumed(e, state).send(channel).saveState(box, lock);
     },
     // H_ 作答或切換頁數時更新 response
     responseUpdated: (e) {
-      state = responseUpdated(e, state).send(channel);
+      state = responseUpdated(e, state).send(channel).saveState(box, lock);
     },
     // H_ 使用者結束編輯這次問卷模組的回覆
     editFinished: (e) {
@@ -116,10 +126,10 @@ void _responseEventWorker(
             updateTabRespondentMap: false,
           )
           .send(channel);
-      state = editFinished(e, state).send(channel);
+      state = editFinished(e, state).send(channel).saveState(box, lock);
     },
     loggedOut: (e) {
-      state = ResponseState.initial().send(channel);
+      state = ResponseState.initial().send(channel).saveState(box, lock);
     },
     orElse: () {},
   );

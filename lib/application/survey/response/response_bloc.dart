@@ -4,8 +4,10 @@ import 'package:async_task/async_task.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hive/hive.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:synchronized/synchronized.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../../domain/auth/interviewer.dart';
@@ -25,7 +27,6 @@ import '../../../domain/survey/typedefs.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/extensions.dart';
-import '../../../infrastructure/core/json_task.dart';
 import '../../../infrastructure/survey/response_state_dtos.dart';
 
 part 'response_bloc.freezed.dart';
@@ -40,8 +41,7 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
       _responseMapSubscription;
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;
-  AsyncExecutor? _jsonExecutor;
-  AsyncTaskChannel? _jsonChannel;
+
   Timer? _activeTimer;
   Timer? _inactiveTimer;
 
@@ -157,7 +157,15 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
     logger('Task').e('ResponseBloc: taskInitialized');
 
     // S_ event task
-    final eventTask = EventTask(_responseEventWorker);
+    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
+    final path = dir?.path ?? '';
+
+    final eventTask = EventTask(
+      path: path,
+      boxName: 'ResponseState',
+      stateFromJson: _stateFromJson,
+      eventWorker: _responseEventWorker,
+    );
 
     _eventExecutor = AsyncExecutor(
       parallelism: 1,
@@ -167,26 +175,8 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
     _eventExecutor!.execute(eventTask);
     _eventChannel = await eventTask.channel();
 
-    // S_ json task
-    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
-    final path = dir?.path ?? '';
-
-    final jsonTask = JsonTask(
-      path: path,
-      boxName: 'ResponseState',
-      stateFromJson: _stateFromJson,
-    );
-
-    _jsonExecutor = AsyncExecutor(
-      parallelism: 1,
-      taskTypeRegister: _jsonTaskTypeRegister,
-    );
-
-    _jsonExecutor!.execute(jsonTask);
-    _jsonChannel = await jsonTask.channel();
-
     // S_ initState
-    final initState = await _jsonChannel!.sendAndWaitResponse('initState');
+    final initState = await _eventChannel!.sendAndWaitResponse('initState');
     if (initState is ResponseState) {
       logger('State').i('ResponseState: initState');
 
@@ -207,7 +197,6 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
 
       if (msg is ResponseState) {
         yield msg;
-        _jsonChannel!.send(msg);
       } else if (msg is ResponseEvent) {
         add(msg);
       } else if (msg is bool) {
@@ -222,7 +211,6 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
     _inactiveTimer?.cancel();
     _activeTimer?.cancel();
     _eventExecutor?.close();
-    _jsonExecutor?.close();
 
     return super.close();
   }

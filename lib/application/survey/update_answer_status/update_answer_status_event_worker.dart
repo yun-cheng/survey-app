@@ -1,14 +1,19 @@
 part of 'update_answer_status_bloc.dart';
 
-List<AsyncTask> _eventTaskTypeRegister() =>
-    [EventTask(_updateAnswerStatusEventWorker)];
-
-List<AsyncTask> _jsonTaskTypeRegister() =>
-    [JsonTask(path: '', boxName: '', stateFromJson: _stateFromJson)];
+List<AsyncTask> _eventTaskTypeRegister() => [
+      EventTask(
+        path: '',
+        boxName: '',
+        stateFromJson: _stateFromJson,
+        eventWorker: _updateAnswerStatusEventWorker,
+      )
+    ];
 
 void _updateAnswerStatusEventWorker(
   Tuple2 tuple,
   AsyncTaskChannel channel,
+  Box box,
+  Lock lock,
 ) {
   final e = tuple.item1 as UpdateAnswerStatusEvent;
   var state = tuple.item2 as UpdateAnswerStatusState;
@@ -29,14 +34,17 @@ void _updateAnswerStatusEventWorker(
         questionIdList: const [],
         updateType: const [],
       ).send(channel);
-      state = showQuestionChecked(state).copyWith(
-        updateState: LoadState.success(),
-        restoreState: LoadState.success(),
-        updateType: [
-          UpdateSurveyPageStateType.answerMap(),
-          UpdateSurveyPageStateType.answerStatusMap(),
-        ],
-      ).send(channel);
+      state = showQuestionChecked(state)
+          .copyWith(
+            updateState: LoadState.success(),
+            restoreState: LoadState.success(),
+            updateType: [
+              UpdateSurveyPageStateType.answerMap(),
+              UpdateSurveyPageStateType.answerStatusMap(),
+            ],
+          )
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 該題作答更新
     answerUpdated: (e) {
@@ -63,13 +71,16 @@ void _updateAnswerStatusEventWorker(
             )
             .send(channel);
 
-        state = answerStatusMapUpdated(state).copyWith(
-          updateState: LoadState.success(),
-          updateType: [
-            UpdateSurveyPageStateType.answerMap(),
-            UpdateSurveyPageStateType.answerStatusMap(),
-          ],
-        ).send(channel);
+        state = answerStatusMapUpdated(state)
+            .copyWith(
+              updateState: LoadState.success(),
+              updateType: [
+                UpdateSurveyPageStateType.answerMap(),
+                UpdateSurveyPageStateType.answerStatusMap(),
+              ],
+            )
+            .send(channel)
+            .saveState(box, lock);
       }
     },
     // H_ 切換該題特殊作答時
@@ -93,20 +104,24 @@ void _updateAnswerStatusEventWorker(
           clearAnswerQIdList: [e.questionId],
         ).send(channel);
 
-        state = showQuestionChecked(state).copyWith(
-          updateState: LoadState.success(),
-          updateType: [
-            UpdateSurveyPageStateType.answerMap(),
-            UpdateSurveyPageStateType.answerStatusMap(),
-          ],
-        ).send(channel);
+        state = showQuestionChecked(state)
+            .copyWith(
+              updateState: LoadState.success(),
+              updateType: [
+                UpdateSurveyPageStateType.answerMap(),
+                UpdateSurveyPageStateType.answerStatusMap(),
+              ],
+            )
+            .send(channel)
+            .saveState(box, lock);
       }
     },
     // H_ 離開問卷時清空 state
     stateCleared: (e) {
       logger('Event').i('UpdateAnswerStatusEvent: stateCleared');
 
-      state = UpdateAnswerStatusState.initial().send(channel);
+      state =
+          UpdateAnswerStatusState.initial().send(channel).saveState(box, lock);
     },
     orElse: () {},
   );

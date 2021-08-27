@@ -43,6 +43,11 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     channel.send(this);
     return this;
   }
+
+  UpdateAnswerStatusState saveState(Box box, Lock lock) {
+    toJsonTask(box: box, lock: lock, state: this);
+    return this;
+  }
 }
 
 UpdateAnswerStatusState _stateFromJson(Map<String, dynamic> json) =>

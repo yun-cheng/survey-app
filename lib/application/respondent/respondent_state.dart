@@ -43,6 +43,11 @@ class RespondentState with _$RespondentState {
     channel.send(this);
     return this;
   }
+
+  RespondentState saveState(Box box, Lock lock) {
+    toJsonTask(box: box, lock: lock, state: this);
+    return this;
+  }
 }
 
 RespondentState _stateFromJson(Map<String, dynamic> json) =>

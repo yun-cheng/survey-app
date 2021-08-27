@@ -1,13 +1,19 @@
 part of 'respondent_bloc.dart';
 
-List<AsyncTask> _eventTaskTypeRegister() => [EventTask(_respondentEventWorker)];
-
-List<AsyncTask> _jsonTaskTypeRegister() =>
-    [JsonTask(path: '', boxName: '', stateFromJson: _stateFromJson)];
+List<AsyncTask> _eventTaskTypeRegister() => [
+      EventTask(
+        path: '',
+        boxName: '',
+        stateFromJson: _stateFromJson,
+        eventWorker: _respondentEventWorker,
+      )
+    ];
 
 void _respondentEventWorker(
   Tuple2 tuple,
   AsyncTaskChannel channel,
+  Box box,
+  Lock lock,
 ) {
   final e = tuple.item1 as RespondentEvent;
   var state = tuple.item2 as RespondentState;
@@ -35,7 +41,7 @@ void _respondentEventWorker(
           respondentFailure: none(),
         ),
       );
-      state = respondentMapLoaded(state).send(channel);
+      state = respondentMapLoaded(state).send(channel).saveState(box, lock);
     },
     // H_ 使用者選擇問卷
     surveySelected: (e) {
@@ -45,7 +51,7 @@ void _respondentEventWorker(
         survey: e.survey,
         respondentFailure: none(),
       );
-      state = respondentMapLoaded(state).send(channel);
+      state = respondentMapLoaded(state).send(channel).saveState(box, lock);
     },
     // H_ 使用者選擇受訪者
     respondentSelected: (e) {
@@ -58,7 +64,8 @@ void _respondentEventWorker(
                 : e.respondentId,
             respondentFailure: none(),
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 切換分頁時
     tabSwitched: (e) {
@@ -87,19 +94,21 @@ void _respondentEventWorker(
             currentTab: currentTab,
             tabScrollPosition: tabScrollPosition,
           )
-          .send(channel);
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 分頁受訪者名單更新時
     tabRespondentsUpdated: (e) {
       logger('Event').i('RespondentEvent: tabRespondentsUpdated');
 
-      state = tabRespondentsUpdated(e, state).send(channel);
+      state =
+          tabRespondentsUpdated(e, state).send(channel).saveState(box, lock);
     },
     // H_ 查址紀錄更新時
     visitReportUpdated: (e) {
       logger('Event').i('RespondentEvent: visitReportUpdated');
 
-      state = visitReportUpdated(e, state).send(channel);
+      state = visitReportUpdated(e, state).send(channel).saveState(box, lock);
     },
     // H_ 切換鄉鎮市區
     jumpedToTown: (e) {
@@ -131,7 +140,7 @@ void _respondentEventWorker(
       logger('Event').i('RespondentEvent: textSearched');
     },
     loggedOut: (e) {
-      state = RespondentState.initial().send(channel);
+      state = RespondentState.initial().send(channel).saveState(box, lock);
     },
     orElse: () {},
   );
