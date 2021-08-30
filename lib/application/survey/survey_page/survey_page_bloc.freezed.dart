@@ -18,10 +18,10 @@ class _$SurveyPageEventTearOff {
 
   _AnswerMapUpdated answerMapUpdated(
       {required Map<String, Answer> answerMap,
-      required List<String> questionIdList}) {
+      required Set<String> updatedQIdSet}) {
     return _AnswerMapUpdated(
       answerMap: answerMap,
-      questionIdList: questionIdList,
+      updatedQIdSet: updatedQIdSet,
     );
   }
 
@@ -34,19 +34,23 @@ class _$SurveyPageEventTearOff {
 
   _PageUpdated pageUpdated(
       {required int page,
-      required Map<String, Question> pageQuestionMap,
+      required Set<String> pageQIdSet,
+      required Map<String, Question> questionMap,
       required bool isLastPage}) {
     return _PageUpdated(
       page: page,
-      pageQuestionMap: pageQuestionMap,
+      pageQIdSet: pageQIdSet,
+      questionMap: questionMap,
       isLastPage: isLastPage,
     );
   }
 
   _ContentQuestionMapUpdated contentQuestionMapUpdated(
-      {required Map<String, Question> contentQuestionMap}) {
+      {required Set<String> contentQIdSet,
+      required Map<String, Question> questionMap}) {
     return _ContentQuestionMapUpdated(
-      contentQuestionMap: contentQuestionMap,
+      contentQIdSet: contentQIdSet,
+      questionMap: questionMap,
     );
   }
 
@@ -75,8 +79,8 @@ class _$SurveyPageEventTearOff {
     return const _StateCleared();
   }
 
-  _QuestionIdListCleared questionIdListCleared() {
-    return const _QuestionIdListCleared();
+  _updatedQIdSetCleared updatedQIdSetCleared() {
+    return const _updatedQIdSetCleared();
   }
 
   _StateToJson stateToJson() {
@@ -96,14 +100,15 @@ mixin _$SurveyPageEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -113,22 +118,22 @@ mixin _$SurveyPageEvent {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -138,7 +143,7 @@ mixin _$SurveyPageEvent {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -155,8 +160,7 @@ mixin _$SurveyPageEvent {
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
@@ -171,7 +175,7 @@ mixin _$SurveyPageEvent {
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -201,7 +205,7 @@ abstract class _$AnswerMapUpdatedCopyWith<$Res> {
   factory _$AnswerMapUpdatedCopyWith(
           _AnswerMapUpdated value, $Res Function(_AnswerMapUpdated) then) =
       __$AnswerMapUpdatedCopyWithImpl<$Res>;
-  $Res call({Map<String, Answer> answerMap, List<String> questionIdList});
+  $Res call({Map<String, Answer> answerMap, Set<String> updatedQIdSet});
 }
 
 /// @nodoc
@@ -218,17 +222,17 @@ class __$AnswerMapUpdatedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? answerMap = freezed,
-    Object? questionIdList = freezed,
+    Object? updatedQIdSet = freezed,
   }) {
     return _then(_AnswerMapUpdated(
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Answer>,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      updatedQIdSet: updatedQIdSet == freezed
+          ? _value.updatedQIdSet
+          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
     ));
   }
 }
@@ -239,16 +243,16 @@ class _$_AnswerMapUpdated
     with DiagnosticableTreeMixin
     implements _AnswerMapUpdated {
   const _$_AnswerMapUpdated(
-      {required this.answerMap, required this.questionIdList});
+      {required this.answerMap, required this.updatedQIdSet});
 
   @override
   final Map<String, Answer> answerMap;
   @override
-  final List<String> questionIdList;
+  final Set<String> updatedQIdSet;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyPageEvent.answerMapUpdated(answerMap: $answerMap, questionIdList: $questionIdList)';
+    return 'SurveyPageEvent.answerMapUpdated(answerMap: $answerMap, updatedQIdSet: $updatedQIdSet)';
   }
 
   @override
@@ -257,7 +261,7 @@ class _$_AnswerMapUpdated
     properties
       ..add(DiagnosticsProperty('type', 'SurveyPageEvent.answerMapUpdated'))
       ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('questionIdList', questionIdList));
+      ..add(DiagnosticsProperty('updatedQIdSet', updatedQIdSet));
   }
 
   @override
@@ -267,16 +271,16 @@ class _$_AnswerMapUpdated
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
-            (identical(other.questionIdList, questionIdList) ||
+            (identical(other.updatedQIdSet, updatedQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionIdList, questionIdList)));
+                    .equals(other.updatedQIdSet, updatedQIdSet)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(questionIdList);
+      const DeepCollectionEquality().hash(updatedQIdSet);
 
   @JsonKey(ignore: true)
   @override
@@ -287,14 +291,15 @@ class _$_AnswerMapUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -304,25 +309,25 @@ class _$_AnswerMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
-    return answerMapUpdated(answerMap, questionIdList);
+    return answerMapUpdated(answerMap, updatedQIdSet);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -332,13 +337,13 @@ class _$_AnswerMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (answerMapUpdated != null) {
-      return answerMapUpdated(answerMap, questionIdList);
+      return answerMapUpdated(answerMap, updatedQIdSet);
     }
     return orElse();
   }
@@ -355,8 +360,7 @@ class _$_AnswerMapUpdated
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -374,7 +378,7 @@ class _$_AnswerMapUpdated
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -389,10 +393,10 @@ class _$_AnswerMapUpdated
 abstract class _AnswerMapUpdated implements SurveyPageEvent {
   const factory _AnswerMapUpdated(
       {required Map<String, Answer> answerMap,
-      required List<String> questionIdList}) = _$_AnswerMapUpdated;
+      required Set<String> updatedQIdSet}) = _$_AnswerMapUpdated;
 
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  List<String> get questionIdList => throw _privateConstructorUsedError;
+  Set<String> get updatedQIdSet => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerMapUpdatedCopyWith<_AnswerMapUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -478,14 +482,15 @@ class _$_AnswerStatusMapUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -495,7 +500,7 @@ class _$_AnswerStatusMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
@@ -505,15 +510,15 @@ class _$_AnswerStatusMapUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -523,7 +528,7 @@ class _$_AnswerStatusMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -546,8 +551,7 @@ class _$_AnswerStatusMapUpdated
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -565,7 +569,7 @@ class _$_AnswerStatusMapUpdated
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -594,7 +598,11 @@ abstract class _$PageUpdatedCopyWith<$Res> {
   factory _$PageUpdatedCopyWith(
           _PageUpdated value, $Res Function(_PageUpdated) then) =
       __$PageUpdatedCopyWithImpl<$Res>;
-  $Res call({int page, Map<String, Question> pageQuestionMap, bool isLastPage});
+  $Res call(
+      {int page,
+      Set<String> pageQIdSet,
+      Map<String, Question> questionMap,
+      bool isLastPage});
 }
 
 /// @nodoc
@@ -611,7 +619,8 @@ class __$PageUpdatedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = freezed,
-    Object? pageQuestionMap = freezed,
+    Object? pageQIdSet = freezed,
+    Object? questionMap = freezed,
     Object? isLastPage = freezed,
   }) {
     return _then(_PageUpdated(
@@ -619,9 +628,13 @@ class __$PageUpdatedCopyWithImpl<$Res>
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as int,
-      pageQuestionMap: pageQuestionMap == freezed
-          ? _value.pageQuestionMap
-          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
@@ -636,19 +649,22 @@ class __$PageUpdatedCopyWithImpl<$Res>
 class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
   const _$_PageUpdated(
       {required this.page,
-      required this.pageQuestionMap,
+      required this.pageQIdSet,
+      required this.questionMap,
       required this.isLastPage});
 
   @override
   final int page;
   @override
-  final Map<String, Question> pageQuestionMap;
+  final Set<String> pageQIdSet;
+  @override
+  final Map<String, Question> questionMap;
   @override
   final bool isLastPage;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyPageEvent.pageUpdated(page: $page, pageQuestionMap: $pageQuestionMap, isLastPage: $isLastPage)';
+    return 'SurveyPageEvent.pageUpdated(page: $page, pageQIdSet: $pageQIdSet, questionMap: $questionMap, isLastPage: $isLastPage)';
   }
 
   @override
@@ -657,7 +673,8 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     properties
       ..add(DiagnosticsProperty('type', 'SurveyPageEvent.pageUpdated'))
       ..add(DiagnosticsProperty('page', page))
-      ..add(DiagnosticsProperty('pageQuestionMap', pageQuestionMap))
+      ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('isLastPage', isLastPage));
   }
 
@@ -667,9 +684,12 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
         (other is _PageUpdated &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)) &&
-            (identical(other.pageQuestionMap, pageQuestionMap) ||
+            (identical(other.pageQIdSet, pageQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageQuestionMap, pageQuestionMap)) &&
+                    .equals(other.pageQIdSet, pageQIdSet)) &&
+            (identical(other.questionMap, questionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.isLastPage, isLastPage) ||
                 const DeepCollectionEquality()
                     .equals(other.isLastPage, isLastPage)));
@@ -679,7 +699,8 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(pageQuestionMap) ^
+      const DeepCollectionEquality().hash(pageQIdSet) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(isLastPage);
 
   @JsonKey(ignore: true)
@@ -691,14 +712,15 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -708,25 +730,25 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
-    return pageUpdated(page, pageQuestionMap, isLastPage);
+    return pageUpdated(page, pageQIdSet, questionMap, isLastPage);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -736,13 +758,13 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (pageUpdated != null) {
-      return pageUpdated(page, pageQuestionMap, isLastPage);
+      return pageUpdated(page, pageQIdSet, questionMap, isLastPage);
     }
     return orElse();
   }
@@ -759,8 +781,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -778,7 +799,7 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -793,12 +814,13 @@ class _$_PageUpdated with DiagnosticableTreeMixin implements _PageUpdated {
 abstract class _PageUpdated implements SurveyPageEvent {
   const factory _PageUpdated(
       {required int page,
-      required Map<String, Question> pageQuestionMap,
+      required Set<String> pageQIdSet,
+      required Map<String, Question> questionMap,
       required bool isLastPage}) = _$_PageUpdated;
 
   int get page => throw _privateConstructorUsedError;
-  Map<String, Question> get pageQuestionMap =>
-      throw _privateConstructorUsedError;
+  Set<String> get pageQIdSet => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$PageUpdatedCopyWith<_PageUpdated> get copyWith =>
@@ -810,7 +832,7 @@ abstract class _$ContentQuestionMapUpdatedCopyWith<$Res> {
   factory _$ContentQuestionMapUpdatedCopyWith(_ContentQuestionMapUpdated value,
           $Res Function(_ContentQuestionMapUpdated) then) =
       __$ContentQuestionMapUpdatedCopyWithImpl<$Res>;
-  $Res call({Map<String, Question> contentQuestionMap});
+  $Res call({Set<String> contentQIdSet, Map<String, Question> questionMap});
 }
 
 /// @nodoc
@@ -827,12 +849,17 @@ class __$ContentQuestionMapUpdatedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? contentQuestionMap = freezed,
+    Object? contentQIdSet = freezed,
+    Object? questionMap = freezed,
   }) {
     return _then(_ContentQuestionMapUpdated(
-      contentQuestionMap: contentQuestionMap == freezed
-          ? _value.contentQuestionMap
-          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
     ));
   }
@@ -843,14 +870,17 @@ class __$ContentQuestionMapUpdatedCopyWithImpl<$Res>
 class _$_ContentQuestionMapUpdated
     with DiagnosticableTreeMixin
     implements _ContentQuestionMapUpdated {
-  const _$_ContentQuestionMapUpdated({required this.contentQuestionMap});
+  const _$_ContentQuestionMapUpdated(
+      {required this.contentQIdSet, required this.questionMap});
 
   @override
-  final Map<String, Question> contentQuestionMap;
+  final Set<String> contentQIdSet;
+  @override
+  final Map<String, Question> questionMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyPageEvent.contentQuestionMapUpdated(contentQuestionMap: $contentQuestionMap)';
+    return 'SurveyPageEvent.contentQuestionMapUpdated(contentQIdSet: $contentQIdSet, questionMap: $questionMap)';
   }
 
   @override
@@ -859,22 +889,27 @@ class _$_ContentQuestionMapUpdated
     properties
       ..add(DiagnosticsProperty(
           'type', 'SurveyPageEvent.contentQuestionMapUpdated'))
-      ..add(DiagnosticsProperty('contentQuestionMap', contentQuestionMap));
+      ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
+      ..add(DiagnosticsProperty('questionMap', questionMap));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ContentQuestionMapUpdated &&
-            (identical(other.contentQuestionMap, contentQuestionMap) ||
+            (identical(other.contentQIdSet, contentQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.contentQuestionMap, contentQuestionMap)));
+                    .equals(other.contentQIdSet, contentQIdSet)) &&
+            (identical(other.questionMap, questionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionMap, questionMap)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(contentQuestionMap);
+      const DeepCollectionEquality().hash(contentQIdSet) ^
+      const DeepCollectionEquality().hash(questionMap);
 
   @JsonKey(ignore: true)
   @override
@@ -887,14 +922,15 @@ class _$_ContentQuestionMapUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -904,25 +940,25 @@ class _$_ContentQuestionMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
-    return contentQuestionMapUpdated(contentQuestionMap);
+    return contentQuestionMapUpdated(contentQIdSet, questionMap);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -932,13 +968,13 @@ class _$_ContentQuestionMapUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
     if (contentQuestionMapUpdated != null) {
-      return contentQuestionMapUpdated(contentQuestionMap);
+      return contentQuestionMapUpdated(contentQIdSet, questionMap);
     }
     return orElse();
   }
@@ -955,8 +991,7 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -974,7 +1009,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -988,11 +1023,12 @@ class _$_ContentQuestionMapUpdated
 
 abstract class _ContentQuestionMapUpdated implements SurveyPageEvent {
   const factory _ContentQuestionMapUpdated(
-          {required Map<String, Question> contentQuestionMap}) =
+          {required Set<String> contentQIdSet,
+          required Map<String, Question> questionMap}) =
       _$_ContentQuestionMapUpdated;
 
-  Map<String, Question> get contentQuestionMap =>
-      throw _privateConstructorUsedError;
+  Set<String> get contentQIdSet => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ContentQuestionMapUpdatedCopyWith<_ContentQuestionMapUpdated>
       get copyWith => throw _privateConstructorUsedError;
@@ -1097,14 +1133,15 @@ class _$_WarningUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -1114,7 +1151,7 @@ class _$_WarningUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
@@ -1124,15 +1161,15 @@ class _$_WarningUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -1142,7 +1179,7 @@ class _$_WarningUpdated
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1165,8 +1202,7 @@ class _$_WarningUpdated
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1184,7 +1220,7 @@ class _$_WarningUpdated
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1328,14 +1364,15 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -1345,7 +1382,7 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
@@ -1356,15 +1393,15 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -1374,7 +1411,7 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1398,8 +1435,7 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1417,7 +1453,7 @@ class _$_InfoUpdated with DiagnosticableTreeMixin implements _InfoUpdated {
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1494,14 +1530,15 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -1511,7 +1548,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
@@ -1521,15 +1558,15 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -1539,7 +1576,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1562,8 +1599,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1581,7 +1617,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1598,34 +1634,34 @@ abstract class _StateCleared implements SurveyPageEvent {
 }
 
 /// @nodoc
-abstract class _$QuestionIdListClearedCopyWith<$Res> {
-  factory _$QuestionIdListClearedCopyWith(_QuestionIdListCleared value,
-          $Res Function(_QuestionIdListCleared) then) =
-      __$QuestionIdListClearedCopyWithImpl<$Res>;
+abstract class _$updatedQIdSetClearedCopyWith<$Res> {
+  factory _$updatedQIdSetClearedCopyWith(_updatedQIdSetCleared value,
+          $Res Function(_updatedQIdSetCleared) then) =
+      __$updatedQIdSetClearedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$QuestionIdListClearedCopyWithImpl<$Res>
+class __$updatedQIdSetClearedCopyWithImpl<$Res>
     extends _$SurveyPageEventCopyWithImpl<$Res>
-    implements _$QuestionIdListClearedCopyWith<$Res> {
-  __$QuestionIdListClearedCopyWithImpl(_QuestionIdListCleared _value,
-      $Res Function(_QuestionIdListCleared) _then)
-      : super(_value, (v) => _then(v as _QuestionIdListCleared));
+    implements _$updatedQIdSetClearedCopyWith<$Res> {
+  __$updatedQIdSetClearedCopyWithImpl(
+      _updatedQIdSetCleared _value, $Res Function(_updatedQIdSetCleared) _then)
+      : super(_value, (v) => _then(v as _updatedQIdSetCleared));
 
   @override
-  _QuestionIdListCleared get _value => super._value as _QuestionIdListCleared;
+  _updatedQIdSetCleared get _value => super._value as _updatedQIdSetCleared;
 }
 
 /// @nodoc
 
-class _$_QuestionIdListCleared
+class _$_updatedQIdSetCleared
     with DiagnosticableTreeMixin
-    implements _QuestionIdListCleared {
-  const _$_QuestionIdListCleared();
+    implements _updatedQIdSetCleared {
+  const _$_updatedQIdSetCleared();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyPageEvent.questionIdListCleared()';
+    return 'SurveyPageEvent.updatedQIdSetCleared()';
   }
 
   @override
@@ -1633,12 +1669,12 @@ class _$_QuestionIdListCleared
     super.debugFillProperties(properties);
     properties
       ..add(
-          DiagnosticsProperty('type', 'SurveyPageEvent.questionIdListCleared'));
+          DiagnosticsProperty('type', 'SurveyPageEvent.updatedQIdSetCleared'));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _QuestionIdListCleared);
+    return identical(this, other) || (other is _updatedQIdSetCleared);
   }
 
   @override
@@ -1648,14 +1684,15 @@ class _$_QuestionIdListCleared
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -1665,25 +1702,25 @@ class _$_QuestionIdListCleared
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
-    return questionIdListCleared();
+    return updatedQIdSetCleared();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -1693,13 +1730,13 @@ class _$_QuestionIdListCleared
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (questionIdListCleared != null) {
-      return questionIdListCleared();
+    if (updatedQIdSetCleared != null) {
+      return updatedQIdSetCleared();
     }
     return orElse();
   }
@@ -1716,12 +1753,11 @@ class _$_QuestionIdListCleared
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return questionIdListCleared(this);
+    return updatedQIdSetCleared(this);
   }
 
   @override
@@ -1735,20 +1771,20 @@ class _$_QuestionIdListCleared
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (questionIdListCleared != null) {
-      return questionIdListCleared(this);
+    if (updatedQIdSetCleared != null) {
+      return updatedQIdSetCleared(this);
     }
     return orElse();
   }
 }
 
-abstract class _QuestionIdListCleared implements SurveyPageEvent {
-  const factory _QuestionIdListCleared() = _$_QuestionIdListCleared;
+abstract class _updatedQIdSetCleared implements SurveyPageEvent {
+  const factory _updatedQIdSetCleared() = _$_updatedQIdSetCleared;
 }
 
 /// @nodoc
@@ -1798,14 +1834,15 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -1815,7 +1852,7 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
@@ -1825,15 +1862,15 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -1843,7 +1880,7 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1866,8 +1903,7 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1885,7 +1921,7 @@ class _$_StateToJson with DiagnosticableTreeMixin implements _StateToJson {
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1951,14 +1987,15 @@ class _$_TaskInitialized
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)
+            Map<String, Answer> answerMap, Set<String> updatedQIdSet)
         answerMapUpdated,
     required TResult Function(Map<String, AnswerStatus> answerStatusMap)
         answerStatusMapUpdated,
-    required TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)
+    required TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)
         pageUpdated,
-    required TResult Function(Map<String, Question> contentQuestionMap)
+    required TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)
         contentQuestionMapUpdated,
     required TResult Function(Warning warning, bool showWarning) warningUpdated,
     required TResult Function(
@@ -1968,7 +2005,7 @@ class _$_TaskInitialized
             Map<String, AnswerStatus> mainAnswerStatusMap)
         infoUpdated,
     required TResult Function() stateCleared,
-    required TResult Function() questionIdListCleared,
+    required TResult Function() updatedQIdSetCleared,
     required TResult Function() stateToJson,
     required TResult Function() taskInitialized,
   }) {
@@ -1978,15 +2015,15 @@ class _$_TaskInitialized
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap, List<String> questionIdList)?
+    TResult Function(Map<String, Answer> answerMap, Set<String> updatedQIdSet)?
         answerMapUpdated,
     TResult Function(Map<String, AnswerStatus> answerStatusMap)?
         answerStatusMapUpdated,
-    TResult Function(
-            int page, Map<String, Question> pageQuestionMap, bool isLastPage)?
+    TResult Function(int page, Set<String> pageQIdSet,
+            Map<String, Question> questionMap, bool isLastPage)?
         pageUpdated,
-    TResult Function(Map<String, Question> contentQuestionMap)?
+    TResult Function(
+            Set<String> contentQIdSet, Map<String, Question> questionMap)?
         contentQuestionMapUpdated,
     TResult Function(Warning warning, bool showWarning)? warningUpdated,
     TResult Function(
@@ -1996,7 +2033,7 @@ class _$_TaskInitialized
             Map<String, AnswerStatus> mainAnswerStatusMap)?
         infoUpdated,
     TResult Function()? stateCleared,
-    TResult Function()? questionIdListCleared,
+    TResult Function()? updatedQIdSetCleared,
     TResult Function()? stateToJson,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -2019,8 +2056,7 @@ class _$_TaskInitialized
     required TResult Function(_WarningUpdated value) warningUpdated,
     required TResult Function(_InfoUpdated value) infoUpdated,
     required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_QuestionIdListCleared value)
-        questionIdListCleared,
+    required TResult Function(_updatedQIdSetCleared value) updatedQIdSetCleared,
     required TResult Function(_StateToJson value) stateToJson,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -2038,7 +2074,7 @@ class _$_TaskInitialized
     TResult Function(_WarningUpdated value)? warningUpdated,
     TResult Function(_InfoUpdated value)? infoUpdated,
     TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_QuestionIdListCleared value)? questionIdListCleared,
+    TResult Function(_updatedQIdSetCleared value)? updatedQIdSetCleared,
     TResult Function(_StateToJson value)? stateToJson,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -2066,9 +2102,10 @@ class _$SurveyPageStateTearOff {
       required bool showWarning,
       required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
-      required List<String> questionIdList,
-      required Map<String, Question> pageQuestionMap,
-      required Map<String, Question> contentQuestionMap,
+      required Set<String> updatedQIdSet,
+      required Set<String> pageQIdSet,
+      required Set<String> contentQIdSet,
+      required Map<String, Question> questionMap,
       required bool isReadOnly,
       required bool isRecodeModule,
       required LoadState loadState,
@@ -2084,9 +2121,10 @@ class _$SurveyPageStateTearOff {
       showWarning: showWarning,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
-      questionIdList: questionIdList,
-      pageQuestionMap: pageQuestionMap,
-      contentQuestionMap: contentQuestionMap,
+      updatedQIdSet: updatedQIdSet,
+      pageQIdSet: pageQIdSet,
+      contentQIdSet: contentQIdSet,
+      questionMap: questionMap,
       isReadOnly: isReadOnly,
       isRecodeModule: isRecodeModule,
       loadState: loadState,
@@ -2112,11 +2150,11 @@ mixin _$SurveyPageState {
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  List<String> get questionIdList =>
+  Set<String> get updatedQIdSet =>
       throw _privateConstructorUsedError; // H_ questionMap
-  Map<String, Question> get pageQuestionMap =>
-      throw _privateConstructorUsedError;
-  Map<String, Question> get contentQuestionMap =>
+  Set<String> get pageQIdSet => throw _privateConstructorUsedError;
+  Set<String> get contentQIdSet => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap =>
       throw _privateConstructorUsedError; // H_ info
   bool get isReadOnly => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError; // H_ state
@@ -2145,9 +2183,10 @@ abstract class $SurveyPageStateCopyWith<$Res> {
       bool showWarning,
       Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
-      List<String> questionIdList,
-      Map<String, Question> pageQuestionMap,
-      Map<String, Question> contentQuestionMap,
+      Set<String> updatedQIdSet,
+      Set<String> pageQIdSet,
+      Set<String> contentQIdSet,
+      Map<String, Question> questionMap,
       bool isReadOnly,
       bool isRecodeModule,
       LoadState loadState,
@@ -2180,9 +2219,10 @@ class _$SurveyPageStateCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionIdList = freezed,
-    Object? pageQuestionMap = freezed,
-    Object? contentQuestionMap = freezed,
+    Object? updatedQIdSet = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
+    Object? questionMap = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
     Object? loadState = freezed,
@@ -2220,17 +2260,21 @@ class _$SurveyPageStateCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      pageQuestionMap: pageQuestionMap == freezed
-          ? _value.pageQuestionMap
-          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      contentQuestionMap: contentQuestionMap == freezed
-          ? _value.contentQuestionMap
-          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+      updatedQIdSet: updatedQIdSet == freezed
+          ? _value.updatedQIdSet
+          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
@@ -2307,9 +2351,10 @@ abstract class _$SurveyPageStateCopyWith<$Res>
       bool showWarning,
       Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
-      List<String> questionIdList,
-      Map<String, Question> pageQuestionMap,
-      Map<String, Question> contentQuestionMap,
+      Set<String> updatedQIdSet,
+      Set<String> pageQIdSet,
+      Set<String> contentQIdSet,
+      Map<String, Question> questionMap,
       bool isReadOnly,
       bool isRecodeModule,
       LoadState loadState,
@@ -2348,9 +2393,10 @@ class __$SurveyPageStateCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionIdList = freezed,
-    Object? pageQuestionMap = freezed,
-    Object? contentQuestionMap = freezed,
+    Object? updatedQIdSet = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
+    Object? questionMap = freezed,
     Object? isReadOnly = freezed,
     Object? isRecodeModule = freezed,
     Object? loadState = freezed,
@@ -2388,17 +2434,21 @@ class __$SurveyPageStateCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      pageQuestionMap: pageQuestionMap == freezed
-          ? _value.pageQuestionMap
-          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      contentQuestionMap: contentQuestionMap == freezed
-          ? _value.contentQuestionMap
-          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
+      updatedQIdSet: updatedQIdSet == freezed
+          ? _value.updatedQIdSet
+          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
@@ -2443,9 +2493,10 @@ class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
       required this.showWarning,
       required this.answerMap,
       required this.answerStatusMap,
-      required this.questionIdList,
-      required this.pageQuestionMap,
-      required this.contentQuestionMap,
+      required this.updatedQIdSet,
+      required this.pageQIdSet,
+      required this.contentQIdSet,
+      required this.questionMap,
       required this.isReadOnly,
       required this.isRecodeModule,
       required this.loadState,
@@ -2470,11 +2521,13 @@ class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
   @override
   final Map<String, AnswerStatus> answerStatusMap;
   @override
-  final List<String> questionIdList;
+  final Set<String> updatedQIdSet;
   @override // H_ questionMap
-  final Map<String, Question> pageQuestionMap;
+  final Set<String> pageQIdSet;
   @override
-  final Map<String, Question> contentQuestionMap;
+  final Set<String> contentQIdSet;
+  @override
+  final Map<String, Question> questionMap;
   @override // H_ info
   final bool isReadOnly;
   @override
@@ -2492,7 +2545,7 @@ class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'SurveyPageState(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
+    return 'SurveyPageState(page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, answerMap: $answerMap, answerStatusMap: $answerStatusMap, updatedQIdSet: $updatedQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, questionMap: $questionMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, loadState: $loadState, rebuildState: $rebuildState, restoreState: $restoreState, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap)';
   }
 
   @override
@@ -2507,9 +2560,10 @@ class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('showWarning', showWarning))
       ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
-      ..add(DiagnosticsProperty('questionIdList', questionIdList))
-      ..add(DiagnosticsProperty('pageQuestionMap', pageQuestionMap))
-      ..add(DiagnosticsProperty('contentQuestionMap', contentQuestionMap))
+      ..add(DiagnosticsProperty('updatedQIdSet', updatedQIdSet))
+      ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
+      ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('loadState', loadState))
@@ -2544,15 +2598,18 @@ class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.questionIdList, questionIdList) ||
+            (identical(other.updatedQIdSet, updatedQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionIdList, questionIdList)) &&
-            (identical(other.pageQuestionMap, pageQuestionMap) ||
+                    .equals(other.updatedQIdSet, updatedQIdSet)) &&
+            (identical(other.pageQIdSet, pageQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageQuestionMap, pageQuestionMap)) &&
-            (identical(other.contentQuestionMap, contentQuestionMap) ||
+                    .equals(other.pageQIdSet, pageQIdSet)) &&
+            (identical(other.contentQIdSet, contentQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.contentQuestionMap, contentQuestionMap)) &&
+                    .equals(other.contentQIdSet, contentQIdSet)) &&
+            (identical(other.questionMap, questionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.isReadOnly, isReadOnly) ||
                 const DeepCollectionEquality()
                     .equals(other.isReadOnly, isReadOnly)) &&
@@ -2586,9 +2643,10 @@ class _$_SurveyPageState extends _SurveyPageState with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(questionIdList) ^
-      const DeepCollectionEquality().hash(pageQuestionMap) ^
-      const DeepCollectionEquality().hash(contentQuestionMap) ^
+      const DeepCollectionEquality().hash(updatedQIdSet) ^
+      const DeepCollectionEquality().hash(pageQIdSet) ^
+      const DeepCollectionEquality().hash(contentQIdSet) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(loadState) ^
@@ -2612,9 +2670,10 @@ abstract class _SurveyPageState extends SurveyPageState {
           required bool showWarning,
           required Map<String, Answer> answerMap,
           required Map<String, AnswerStatus> answerStatusMap,
-          required List<String> questionIdList,
-          required Map<String, Question> pageQuestionMap,
-          required Map<String, Question> contentQuestionMap,
+          required Set<String> updatedQIdSet,
+          required Set<String> pageQIdSet,
+          required Set<String> contentQIdSet,
+          required Map<String, Question> questionMap,
           required bool isReadOnly,
           required bool isRecodeModule,
           required LoadState loadState,
@@ -2641,13 +2700,13 @@ abstract class _SurveyPageState extends SurveyPageState {
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  List<String> get questionIdList => throw _privateConstructorUsedError;
+  Set<String> get updatedQIdSet => throw _privateConstructorUsedError;
   @override // H_ questionMap
-  Map<String, Question> get pageQuestionMap =>
-      throw _privateConstructorUsedError;
+  Set<String> get pageQIdSet => throw _privateConstructorUsedError;
   @override
-  Map<String, Question> get contentQuestionMap =>
-      throw _privateConstructorUsedError;
+  Set<String> get contentQIdSet => throw _privateConstructorUsedError;
+  @override
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override // H_ info
   bool get isReadOnly => throw _privateConstructorUsedError;
   @override

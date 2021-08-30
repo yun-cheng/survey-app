@@ -15,10 +15,11 @@ class SurveyPageState with _$SurveyPageState {
     // H_ answer
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
-    required List<String> questionIdList,
+    required Set<String> updatedQIdSet,
     // H_ questionMap
-    required Map<String, Question> pageQuestionMap,
-    required Map<String, Question> contentQuestionMap,
+    required Set<String> pageQIdSet,
+    required Set<String> contentQIdSet,
+    required Map<String, Question> questionMap,
     // H_ info
     required bool isReadOnly,
     required bool isRecodeModule,
@@ -39,9 +40,10 @@ class SurveyPageState with _$SurveyPageState {
         showWarning: false,
         answerMap: const {},
         answerStatusMap: const {},
-        questionIdList: const [],
-        pageQuestionMap: const {},
-        contentQuestionMap: const {},
+        updatedQIdSet: const {},
+        pageQIdSet: const {},
+        contentQIdSet: const {},
+        questionMap: const {},
         isReadOnly: false,
         isRecodeModule: false,
         loadState: LoadState.initial(),

@@ -80,17 +80,11 @@ class _$UpdateSurveyPageEventTearOff {
     return const _ContentQuestionMapUpdated();
   }
 
-  _NextPagePressed nextPagePressed() {
-    return const _NextPagePressed();
-  }
-
-  _PreviousPagePressed previousPagePressed() {
-    return const _PreviousPagePressed();
-  }
-
-  _WentToPage wentToPage(int page) {
-    return _WentToPage(
-      page,
+  _PageNavigatedTo pageNavigatedTo(
+      {Direction direction = Direction.current, int? page}) {
+    return _PageNavigatedTo(
+      direction: direction,
+      page: page,
     );
   }
 
@@ -165,9 +159,7 @@ mixin _$UpdateSurveyPageEvent {
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -206,9 +198,7 @@ mixin _$UpdateSurveyPageEvent {
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -233,9 +223,7 @@ mixin _$UpdateSurveyPageEvent {
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -259,9 +247,7 @@ mixin _$UpdateSurveyPageEvent {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -411,9 +397,7 @@ class _$_WatchReferenceListStarted
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -455,9 +439,7 @@ class _$_WatchReferenceListStarted
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -488,9 +470,7 @@ class _$_WatchReferenceListStarted
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -517,9 +497,7 @@ class _$_WatchReferenceListStarted
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -655,9 +633,7 @@ class _$_ReferenceListReceived
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -699,9 +675,7 @@ class _$_ReferenceListReceived
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -732,9 +706,7 @@ class _$_ReferenceListReceived
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -761,9 +733,7 @@ class _$_ReferenceListReceived
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -1076,9 +1046,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1132,9 +1100,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -1177,9 +1143,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -1206,9 +1170,7 @@ class _$_StateRestored with DiagnosticableTreeMixin implements _StateRestored {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -1371,9 +1333,7 @@ class _$_RespondentResponseListUpdated
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1415,9 +1375,7 @@ class _$_RespondentResponseListUpdated
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -1448,9 +1406,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -1477,9 +1433,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -1625,9 +1579,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1669,9 +1621,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -1702,9 +1652,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -1731,9 +1679,7 @@ class _$_AnswerChanged with DiagnosticableTreeMixin implements _AnswerChanged {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -1841,9 +1787,7 @@ class _$_ContentQuestionMapUpdated
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -1885,9 +1829,7 @@ class _$_ContentQuestionMapUpdated
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -1918,9 +1860,7 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -1947,9 +1887,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -1973,34 +1911,58 @@ abstract class _ContentQuestionMapUpdated implements UpdateSurveyPageEvent {
 }
 
 /// @nodoc
-abstract class _$NextPagePressedCopyWith<$Res> {
-  factory _$NextPagePressedCopyWith(
-          _NextPagePressed value, $Res Function(_NextPagePressed) then) =
-      __$NextPagePressedCopyWithImpl<$Res>;
+abstract class _$PageNavigatedToCopyWith<$Res> {
+  factory _$PageNavigatedToCopyWith(
+          _PageNavigatedTo value, $Res Function(_PageNavigatedTo) then) =
+      __$PageNavigatedToCopyWithImpl<$Res>;
+  $Res call({Direction direction, int? page});
 }
 
 /// @nodoc
-class __$NextPagePressedCopyWithImpl<$Res>
+class __$PageNavigatedToCopyWithImpl<$Res>
     extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$NextPagePressedCopyWith<$Res> {
-  __$NextPagePressedCopyWithImpl(
-      _NextPagePressed _value, $Res Function(_NextPagePressed) _then)
-      : super(_value, (v) => _then(v as _NextPagePressed));
+    implements _$PageNavigatedToCopyWith<$Res> {
+  __$PageNavigatedToCopyWithImpl(
+      _PageNavigatedTo _value, $Res Function(_PageNavigatedTo) _then)
+      : super(_value, (v) => _then(v as _PageNavigatedTo));
 
   @override
-  _NextPagePressed get _value => super._value as _NextPagePressed;
+  _PageNavigatedTo get _value => super._value as _PageNavigatedTo;
+
+  @override
+  $Res call({
+    Object? direction = freezed,
+    Object? page = freezed,
+  }) {
+    return _then(_PageNavigatedTo(
+      direction: direction == freezed
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as Direction,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int?,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$_NextPagePressed
+class _$_PageNavigatedTo
     with DiagnosticableTreeMixin
-    implements _NextPagePressed {
-  const _$_NextPagePressed();
+    implements _PageNavigatedTo {
+  const _$_PageNavigatedTo({this.direction = Direction.current, this.page});
+
+  @JsonKey(defaultValue: Direction.current)
+  @override
+  final Direction direction;
+  @override
+  final int? page;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageEvent.nextPagePressed()';
+    return 'UpdateSurveyPageEvent.pageNavigatedTo(direction: $direction, page: $page)';
   }
 
   @override
@@ -2008,451 +1970,32 @@ class _$_NextPagePressed
     super.debugFillProperties(properties);
     properties
       ..add(
-          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.nextPagePressed'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _NextPagePressed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function(
-            String surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            Map<String, Question> questionMap,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> mainQuestionMap,
-            Map<String, Answer> mainAnswerMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
-        respondentResponseMapUpdated,
-    required TResult Function(Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
-  }) {
-    return nextPagePressed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function(
-            String surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            Map<String, Question> questionMap,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> mainQuestionMap,
-            Map<String, Answer> mainAnswerMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
-        respondentResponseMapUpdated,
-    TResult Function(Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (nextPagePressed != null) {
-      return nextPagePressed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseMapUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionMapUpdated value)
-        contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
-  }) {
-    return nextPagePressed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseMapUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (nextPagePressed != null) {
-      return nextPagePressed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _NextPagePressed implements UpdateSurveyPageEvent {
-  const factory _NextPagePressed() = _$_NextPagePressed;
-}
-
-/// @nodoc
-abstract class _$PreviousPagePressedCopyWith<$Res> {
-  factory _$PreviousPagePressedCopyWith(_PreviousPagePressed value,
-          $Res Function(_PreviousPagePressed) then) =
-      __$PreviousPagePressedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$PreviousPagePressedCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$PreviousPagePressedCopyWith<$Res> {
-  __$PreviousPagePressedCopyWithImpl(
-      _PreviousPagePressed _value, $Res Function(_PreviousPagePressed) _then)
-      : super(_value, (v) => _then(v as _PreviousPagePressed));
-
-  @override
-  _PreviousPagePressed get _value => super._value as _PreviousPagePressed;
-}
-
-/// @nodoc
-
-class _$_PreviousPagePressed
-    with DiagnosticableTreeMixin
-    implements _PreviousPagePressed {
-  const _$_PreviousPagePressed();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageEvent.previousPagePressed()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateSurveyPageEvent.previousPagePressed'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PreviousPagePressed);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, String interviewerId)
-        watchReferenceListStarted,
-    required TResult Function(
-            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
-        referenceListReceived,
-    required TResult Function(
-            String surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            Map<String, Question> questionMap,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> mainQuestionMap,
-            Map<String, Answer> mainAnswerMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)
-        stateRestored,
-    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
-        respondentResponseMapUpdated,
-    required TResult Function(Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap)
-        answerChanged,
-    required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() stateCleared,
-    required TResult Function() readOnlyToggled,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
-  }) {
-    return previousPagePressed();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, String interviewerId)?
-        watchReferenceListStarted,
-    TResult Function(
-            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
-        referenceListReceived,
-    TResult Function(
-            String surveyId,
-            ModuleType moduleType,
-            SimpleSurveyPageState surveyPageState,
-            Map<String, Question> questionMap,
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> mainQuestionMap,
-            Map<String, Answer> mainAnswerMap,
-            Map<String, AnswerStatus> mainAnswerStatusMap,
-            Respondent respondent)?
-        stateRestored,
-    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
-        respondentResponseMapUpdated,
-    TResult Function(Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap)?
-        answerChanged,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? stateCleared,
-    TResult Function()? readOnlyToggled,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (previousPagePressed != null) {
-      return previousPagePressed();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchReferenceListStarted value)
-        watchReferenceListStarted,
-    required TResult Function(_ReferenceListReceived value)
-        referenceListReceived,
-    required TResult Function(_StateRestored value) stateRestored,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseMapUpdated,
-    required TResult Function(_AnswerChanged value) answerChanged,
-    required TResult Function(_ContentQuestionMapUpdated value)
-        contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_ReadOnlyToggled value) readOnlyToggled,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
-  }) {
-    return previousPagePressed(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchReferenceListStarted value)?
-        watchReferenceListStarted,
-    TResult Function(_ReferenceListReceived value)? referenceListReceived,
-    TResult Function(_StateRestored value)? stateRestored,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseMapUpdated,
-    TResult Function(_AnswerChanged value)? answerChanged,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (previousPagePressed != null) {
-      return previousPagePressed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PreviousPagePressed implements UpdateSurveyPageEvent {
-  const factory _PreviousPagePressed() = _$_PreviousPagePressed;
-}
-
-/// @nodoc
-abstract class _$WentToPageCopyWith<$Res> {
-  factory _$WentToPageCopyWith(
-          _WentToPage value, $Res Function(_WentToPage) then) =
-      __$WentToPageCopyWithImpl<$Res>;
-  $Res call({int page});
-}
-
-/// @nodoc
-class __$WentToPageCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageEventCopyWithImpl<$Res>
-    implements _$WentToPageCopyWith<$Res> {
-  __$WentToPageCopyWithImpl(
-      _WentToPage _value, $Res Function(_WentToPage) _then)
-      : super(_value, (v) => _then(v as _WentToPage));
-
-  @override
-  _WentToPage get _value => super._value as _WentToPage;
-
-  @override
-  $Res call({
-    Object? page = freezed,
-  }) {
-    return _then(_WentToPage(
-      page == freezed
-          ? _value.page
-          : page // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
-  const _$_WentToPage(this.page);
-
-  @override
-  final int page;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageEvent.wentToPage(page: $page)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageEvent.wentToPage'))
+          DiagnosticsProperty('type', 'UpdateSurveyPageEvent.pageNavigatedTo'))
+      ..add(DiagnosticsProperty('direction', direction))
       ..add(DiagnosticsProperty('page', page));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WentToPage &&
+        (other is _PageNavigatedTo &&
+            (identical(other.direction, direction) ||
+                const DeepCollectionEquality()
+                    .equals(other.direction, direction)) &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(page);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(direction) ^
+      const DeepCollectionEquality().hash(page);
 
   @JsonKey(ignore: true)
   @override
-  _$WentToPageCopyWith<_WentToPage> get copyWith =>
-      __$WentToPageCopyWithImpl<_WentToPage>(this, _$identity);
+  _$PageNavigatedToCopyWith<_PageNavigatedTo> get copyWith =>
+      __$PageNavigatedToCopyWithImpl<_PageNavigatedTo>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -2482,9 +2025,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2495,7 +2036,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
-    return wentToPage(page);
+    return pageNavigatedTo(direction, page);
   }
 
   @override
@@ -2526,9 +2067,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2540,8 +2079,8 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (wentToPage != null) {
-      return wentToPage(page);
+    if (pageNavigatedTo != null) {
+      return pageNavigatedTo(direction, page);
     }
     return orElse();
   }
@@ -2559,9 +2098,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -2573,7 +2110,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return wentToPage(this);
+    return pageNavigatedTo(this);
   }
 
   @override
@@ -2588,9 +2125,7 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -2602,19 +2137,21 @@ class _$_WentToPage with DiagnosticableTreeMixin implements _WentToPage {
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (wentToPage != null) {
-      return wentToPage(this);
+    if (pageNavigatedTo != null) {
+      return pageNavigatedTo(this);
     }
     return orElse();
   }
 }
 
-abstract class _WentToPage implements UpdateSurveyPageEvent {
-  const factory _WentToPage(int page) = _$_WentToPage;
+abstract class _PageNavigatedTo implements UpdateSurveyPageEvent {
+  const factory _PageNavigatedTo({Direction direction, int? page}) =
+      _$_PageNavigatedTo;
 
-  int get page => throw _privateConstructorUsedError;
+  Direction get direction => throw _privateConstructorUsedError;
+  int? get page => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  _$WentToPageCopyWith<_WentToPage> get copyWith =>
+  _$PageNavigatedToCopyWith<_PageNavigatedTo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2693,9 +2230,7 @@ class _$_FinishedButtonPressed
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2737,9 +2272,7 @@ class _$_FinishedButtonPressed
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2770,9 +2303,7 @@ class _$_FinishedButtonPressed
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -2799,9 +2330,7 @@ class _$_FinishedButtonPressed
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -2896,9 +2425,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -2940,9 +2467,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -2973,9 +2498,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -3002,9 +2525,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -3102,9 +2623,7 @@ class _$_ReadOnlyToggled
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3146,9 +2665,7 @@ class _$_ReadOnlyToggled
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3179,9 +2696,7 @@ class _$_ReadOnlyToggled
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -3208,9 +2723,7 @@ class _$_ReadOnlyToggled
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -3336,9 +2849,7 @@ class _$_AppLifeCycleChanged
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3380,9 +2891,7 @@ class _$_AppLifeCycleChanged
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3413,9 +2922,7 @@ class _$_AppLifeCycleChanged
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -3442,9 +2949,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -3545,9 +3050,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3589,9 +3092,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3622,9 +3123,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -3651,9 +3150,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -3751,9 +3248,7 @@ class _$_LeaveButtonPressed
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -3795,9 +3290,7 @@ class _$_LeaveButtonPressed
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -3828,9 +3321,7 @@ class _$_LeaveButtonPressed
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -3857,9 +3348,7 @@ class _$_LeaveButtonPressed
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -3957,9 +3446,7 @@ class _$_LeaveButtonHidden
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -4001,9 +3488,7 @@ class _$_LeaveButtonHidden
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -4034,9 +3519,7 @@ class _$_LeaveButtonHidden
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -4063,9 +3546,7 @@ class _$_LeaveButtonHidden
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -4159,9 +3640,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -4203,9 +3682,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -4236,9 +3713,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -4265,9 +3740,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -4365,9 +3838,7 @@ class _$_TaskInitialized
             Map<String, AnswerStatus> answerStatusMap)
         answerChanged,
     required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() nextPagePressed,
-    required TResult Function() previousPagePressed,
-    required TResult Function(int page) wentToPage,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() finishedButtonPressed,
     required TResult Function() stateCleared,
     required TResult Function() readOnlyToggled,
@@ -4409,9 +3880,7 @@ class _$_TaskInitialized
             Map<String, AnswerStatus> answerStatusMap)?
         answerChanged,
     TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? nextPagePressed,
-    TResult Function()? previousPagePressed,
-    TResult Function(int page)? wentToPage,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? finishedButtonPressed,
     TResult Function()? stateCleared,
     TResult Function()? readOnlyToggled,
@@ -4442,9 +3911,7 @@ class _$_TaskInitialized
     required TResult Function(_AnswerChanged value) answerChanged,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
-    required TResult Function(_NextPagePressed value) nextPagePressed,
-    required TResult Function(_PreviousPagePressed value) previousPagePressed,
-    required TResult Function(_WentToPage value) wentToPage,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
     required TResult Function(_StateCleared value) stateCleared,
@@ -4471,9 +3938,7 @@ class _$_TaskInitialized
     TResult Function(_AnswerChanged value)? answerChanged,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
-    TResult Function(_NextPagePressed value)? nextPagePressed,
-    TResult Function(_PreviousPagePressed value)? previousPagePressed,
-    TResult Function(_WentToPage value)? wentToPage,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_ReadOnlyToggled value)? readOnlyToggled,
@@ -4501,69 +3966,69 @@ class _$UpdateSurveyPageStateTearOff {
   const _$UpdateSurveyPageStateTearOff();
 
   _UpdateSurveyPageState call(
-      {required int page,
-      required int newestPage,
-      required Direction direction,
+      {required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
+      required int page,
+      required int newestPage,
       required bool isLastPage,
       required Warning warning,
       required bool showWarning,
-      required bool isRecodeModule,
-      required LoadState updateState,
-      required SurveyPageUpdateType updateType,
-      required LoadState restoreState,
-      required LoadState referenceListState,
-      required List<Reference> referenceList,
-      required Option<SurveyFailure> surveyFailure,
-      required Respondent respondent,
-      required Map<String, Answer> answerMap,
-      required Map<ModuleType, Response> respondentResponseMap,
-      required String surveyId,
-      required ModuleType moduleType,
-      required Map<String, Question> questionMap,
-      required Map<String, Question> pageQuestionMap,
-      required Map<String, Question> contentQuestionMap,
-      required bool isReadOnly,
+      required Direction direction,
       required bool appIsPaused,
       required bool showDialog,
       required bool leavePage,
       required bool finishResponse,
       required bool showLeaveButton,
+      required Set<String> pageQIdSet,
+      required Set<String> contentQIdSet,
+      required LoadState referenceListState,
+      required List<Reference> referenceList,
+      required Option<SurveyFailure> surveyFailure,
+      required Respondent respondent,
+      required Map<ModuleType, Response> respondentResponseMap,
+      required String surveyId,
+      required ModuleType moduleType,
+      required Map<String, Question> questionMap,
       required Map<String, Question> mainQuestionMap,
+      required bool isReadOnly,
+      required bool isRecodeModule,
       required Map<String, Answer> mainAnswerMap,
-      required Map<String, AnswerStatus> mainAnswerStatusMap}) {
+      required Map<String, AnswerStatus> mainAnswerStatusMap,
+      required LoadState restoreState,
+      required LoadState updateState,
+      required SurveyPageUpdateType updateType}) {
     return _UpdateSurveyPageState(
+      answerMap: answerMap,
+      answerStatusMap: answerStatusMap,
       page: page,
       newestPage: newestPage,
-      direction: direction,
-      answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
       warning: warning,
       showWarning: showWarning,
-      isRecodeModule: isRecodeModule,
-      updateState: updateState,
-      updateType: updateType,
-      restoreState: restoreState,
-      referenceListState: referenceListState,
-      referenceList: referenceList,
-      surveyFailure: surveyFailure,
-      respondent: respondent,
-      answerMap: answerMap,
-      respondentResponseMap: respondentResponseMap,
-      surveyId: surveyId,
-      moduleType: moduleType,
-      questionMap: questionMap,
-      pageQuestionMap: pageQuestionMap,
-      contentQuestionMap: contentQuestionMap,
-      isReadOnly: isReadOnly,
+      direction: direction,
       appIsPaused: appIsPaused,
       showDialog: showDialog,
       leavePage: leavePage,
       finishResponse: finishResponse,
       showLeaveButton: showLeaveButton,
+      pageQIdSet: pageQIdSet,
+      contentQIdSet: contentQIdSet,
+      referenceListState: referenceListState,
+      referenceList: referenceList,
+      surveyFailure: surveyFailure,
+      respondent: respondent,
+      respondentResponseMap: respondentResponseMap,
+      surveyId: surveyId,
+      moduleType: moduleType,
+      questionMap: questionMap,
       mainQuestionMap: mainQuestionMap,
+      isReadOnly: isReadOnly,
+      isRecodeModule: isRecodeModule,
       mainAnswerMap: mainAnswerMap,
       mainAnswerStatusMap: mainAnswerStatusMap,
+      restoreState: restoreState,
+      updateState: updateState,
+      updateType: updateType,
     );
   }
 }
@@ -4573,46 +4038,44 @@ const $UpdateSurveyPageState = _$UpdateSurveyPageStateTearOff();
 
 /// @nodoc
 mixin _$UpdateSurveyPageState {
-// H_ restore
-  int get page => throw _privateConstructorUsedError;
-  int get newestPage => throw _privateConstructorUsedError;
-  Direction get direction => throw _privateConstructorUsedError;
+// H_ 主要資料
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
+  int get page => throw _privateConstructorUsedError;
+  int get newestPage => throw _privateConstructorUsedError;
   bool get isLastPage => throw _privateConstructorUsedError;
   Warning get warning => throw _privateConstructorUsedError;
-  bool get showWarning => throw _privateConstructorUsedError;
-  bool get isRecodeModule => throw _privateConstructorUsedError;
-  LoadState get updateState => throw _privateConstructorUsedError;
-  SurveyPageUpdateType get updateType => throw _privateConstructorUsedError;
-  LoadState get restoreState =>
+  bool get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
+  Direction get direction => throw _privateConstructorUsedError;
+  bool get appIsPaused => throw _privateConstructorUsedError;
+  bool get showDialog => throw _privateConstructorUsedError;
+  bool get leavePage => throw _privateConstructorUsedError;
+  bool get finishResponse => throw _privateConstructorUsedError;
+  bool get showLeaveButton => throw _privateConstructorUsedError;
+  Set<String> get pageQIdSet => throw _privateConstructorUsedError;
+  Set<String> get contentQIdSet =>
       throw _privateConstructorUsedError; // H_ reference
   LoadState get referenceListState => throw _privateConstructorUsedError;
   List<Reference> get referenceList => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
   Respondent get respondent => throw _privateConstructorUsedError;
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
   ModuleType get moduleType =>
-      throw _privateConstructorUsedError; // H_ questionMap
+      throw _privateConstructorUsedError; // H_ 同 session 會變的參考資料
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
-  Map<String, Question> get pageQuestionMap =>
-      throw _privateConstructorUsedError;
-  Map<String, Question> get contentQuestionMap =>
-      throw _privateConstructorUsedError; // H_ page state
-  bool get isReadOnly => throw _privateConstructorUsedError;
-  bool get appIsPaused => throw _privateConstructorUsedError;
-  bool get showDialog => throw _privateConstructorUsedError;
-  bool get leavePage => throw _privateConstructorUsedError;
-  bool get finishResponse => throw _privateConstructorUsedError;
-  bool get showLeaveButton => throw _privateConstructorUsedError; // H_ recode
   Map<String, Question> get mainQuestionMap =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
   Map<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get mainAnswerStatusMap =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // H_ 狀態更新進度
+  LoadState get restoreState => throw _privateConstructorUsedError;
+  LoadState get updateState => throw _privateConstructorUsedError;
+  SurveyPageUpdateType get updateType => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateSurveyPageStateCopyWith<UpdateSurveyPageState> get copyWith =>
@@ -4625,44 +4088,44 @@ abstract class $UpdateSurveyPageStateCopyWith<$Res> {
           $Res Function(UpdateSurveyPageState) then) =
       _$UpdateSurveyPageStateCopyWithImpl<$Res>;
   $Res call(
-      {int page,
-      int newestPage,
-      Direction direction,
+      {Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
+      int page,
+      int newestPage,
       bool isLastPage,
       Warning warning,
       bool showWarning,
-      bool isRecodeModule,
-      LoadState updateState,
-      SurveyPageUpdateType updateType,
-      LoadState restoreState,
-      LoadState referenceListState,
-      List<Reference> referenceList,
-      Option<SurveyFailure> surveyFailure,
-      Respondent respondent,
-      Map<String, Answer> answerMap,
-      Map<ModuleType, Response> respondentResponseMap,
-      String surveyId,
-      ModuleType moduleType,
-      Map<String, Question> questionMap,
-      Map<String, Question> pageQuestionMap,
-      Map<String, Question> contentQuestionMap,
-      bool isReadOnly,
+      Direction direction,
       bool appIsPaused,
       bool showDialog,
       bool leavePage,
       bool finishResponse,
       bool showLeaveButton,
+      Set<String> pageQIdSet,
+      Set<String> contentQIdSet,
+      LoadState referenceListState,
+      List<Reference> referenceList,
+      Option<SurveyFailure> surveyFailure,
+      Respondent respondent,
+      Map<ModuleType, Response> respondentResponseMap,
+      String surveyId,
+      ModuleType moduleType,
+      Map<String, Question> questionMap,
       Map<String, Question> mainQuestionMap,
+      bool isReadOnly,
+      bool isRecodeModule,
       Map<String, Answer> mainAnswerMap,
-      Map<String, AnswerStatus> mainAnswerStatusMap});
+      Map<String, AnswerStatus> mainAnswerStatusMap,
+      LoadState restoreState,
+      LoadState updateState,
+      SurveyPageUpdateType updateType});
 
   $WarningCopyWith<$Res> get warning;
-  $LoadStateCopyWith<$Res> get updateState;
-  $LoadStateCopyWith<$Res> get restoreState;
   $LoadStateCopyWith<$Res> get referenceListState;
   $RespondentCopyWith<$Res> get respondent;
   $ModuleTypeCopyWith<$Res> get moduleType;
+  $LoadStateCopyWith<$Res> get restoreState;
+  $LoadStateCopyWith<$Res> get updateState;
 }
 
 /// @nodoc
@@ -4676,39 +4139,47 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
     Object? page = freezed,
     Object? newestPage = freezed,
-    Object? direction = freezed,
-    Object? answerStatusMap = freezed,
     Object? isLastPage = freezed,
     Object? warning = freezed,
     Object? showWarning = freezed,
-    Object? isRecodeModule = freezed,
-    Object? updateState = freezed,
-    Object? updateType = freezed,
-    Object? restoreState = freezed,
-    Object? referenceListState = freezed,
-    Object? referenceList = freezed,
-    Object? surveyFailure = freezed,
-    Object? respondent = freezed,
-    Object? answerMap = freezed,
-    Object? respondentResponseMap = freezed,
-    Object? surveyId = freezed,
-    Object? moduleType = freezed,
-    Object? questionMap = freezed,
-    Object? pageQuestionMap = freezed,
-    Object? contentQuestionMap = freezed,
-    Object? isReadOnly = freezed,
+    Object? direction = freezed,
     Object? appIsPaused = freezed,
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
     Object? showLeaveButton = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
+    Object? referenceListState = freezed,
+    Object? referenceList = freezed,
+    Object? surveyFailure = freezed,
+    Object? respondent = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionMap = freezed,
     Object? mainQuestionMap = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
+    Object? restoreState = freezed,
+    Object? updateState = freezed,
+    Object? updateType = freezed,
   }) {
     return _then(_value.copyWith(
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Answer>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatus>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -4717,14 +4188,6 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
               as int,
-      direction: direction == freezed
-          ? _value.direction
-          : direction // ignore: cast_nullable_to_non_nullable
-              as Direction,
-      answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
-          : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerStatus>,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -4737,70 +4200,10 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.showWarning
           : showWarning // ignore: cast_nullable_to_non_nullable
               as bool,
-      isRecodeModule: isRecodeModule == freezed
-          ? _value.isRecodeModule
-          : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
-      updateState: updateState == freezed
-          ? _value.updateState
-          : updateState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      updateType: updateType == freezed
-          ? _value.updateType
-          : updateType // ignore: cast_nullable_to_non_nullable
-              as SurveyPageUpdateType,
-      restoreState: restoreState == freezed
-          ? _value.restoreState
-          : restoreState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      referenceListState: referenceListState == freezed
-          ? _value.referenceListState
-          : referenceListState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      referenceList: referenceList == freezed
-          ? _value.referenceList
-          : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<Reference>,
-      surveyFailure: surveyFailure == freezed
-          ? _value.surveyFailure
-          : surveyFailure // ignore: cast_nullable_to_non_nullable
-              as Option<SurveyFailure>,
-      respondent: respondent == freezed
-          ? _value.respondent
-          : respondent // ignore: cast_nullable_to_non_nullable
-              as Respondent,
-      answerMap: answerMap == freezed
-          ? _value.answerMap
-          : answerMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Answer>,
-      respondentResponseMap: respondentResponseMap == freezed
-          ? _value.respondentResponseMap
-          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<ModuleType, Response>,
-      surveyId: surveyId == freezed
-          ? _value.surveyId
-          : surveyId // ignore: cast_nullable_to_non_nullable
-              as String,
-      moduleType: moduleType == freezed
-          ? _value.moduleType
-          : moduleType // ignore: cast_nullable_to_non_nullable
-              as ModuleType,
-      questionMap: questionMap == freezed
-          ? _value.questionMap
-          : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      pageQuestionMap: pageQuestionMap == freezed
-          ? _value.pageQuestionMap
-          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      contentQuestionMap: contentQuestionMap == freezed
-          ? _value.contentQuestionMap
-          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      isReadOnly: isReadOnly == freezed
-          ? _value.isReadOnly
-          : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
+      direction: direction == freezed
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as Direction,
       appIsPaused: appIsPaused == freezed
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
@@ -4821,10 +4224,58 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
               as bool,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      referenceListState: referenceListState == freezed
+          ? _value.referenceListState
+          : referenceListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as List<Reference>,
+      surveyFailure: surveyFailure == freezed
+          ? _value.surveyFailure
+          : surveyFailure // ignore: cast_nullable_to_non_nullable
+              as Option<SurveyFailure>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       mainQuestionMap: mainQuestionMap == freezed
           ? _value.mainQuestionMap
           : mainQuestionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -4833,6 +4284,18 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      updateState: updateState == freezed
+          ? _value.updateState
+          : updateState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      updateType: updateType == freezed
+          ? _value.updateType
+          : updateType // ignore: cast_nullable_to_non_nullable
+              as SurveyPageUpdateType,
     ));
   }
 
@@ -4840,20 +4303,6 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
   $WarningCopyWith<$Res> get warning {
     return $WarningCopyWith<$Res>(_value.warning, (value) {
       return _then(_value.copyWith(warning: value));
-    });
-  }
-
-  @override
-  $LoadStateCopyWith<$Res> get updateState {
-    return $LoadStateCopyWith<$Res>(_value.updateState, (value) {
-      return _then(_value.copyWith(updateState: value));
-    });
-  }
-
-  @override
-  $LoadStateCopyWith<$Res> get restoreState {
-    return $LoadStateCopyWith<$Res>(_value.restoreState, (value) {
-      return _then(_value.copyWith(restoreState: value));
     });
   }
 
@@ -4877,6 +4326,20 @@ class _$UpdateSurveyPageStateCopyWithImpl<$Res>
       return _then(_value.copyWith(moduleType: value));
     });
   }
+
+  @override
+  $LoadStateCopyWith<$Res> get restoreState {
+    return $LoadStateCopyWith<$Res>(_value.restoreState, (value) {
+      return _then(_value.copyWith(restoreState: value));
+    });
+  }
+
+  @override
+  $LoadStateCopyWith<$Res> get updateState {
+    return $LoadStateCopyWith<$Res>(_value.updateState, (value) {
+      return _then(_value.copyWith(updateState: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -4887,50 +4350,50 @@ abstract class _$UpdateSurveyPageStateCopyWith<$Res>
       __$UpdateSurveyPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int page,
-      int newestPage,
-      Direction direction,
+      {Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
+      int page,
+      int newestPage,
       bool isLastPage,
       Warning warning,
       bool showWarning,
-      bool isRecodeModule,
-      LoadState updateState,
-      SurveyPageUpdateType updateType,
-      LoadState restoreState,
-      LoadState referenceListState,
-      List<Reference> referenceList,
-      Option<SurveyFailure> surveyFailure,
-      Respondent respondent,
-      Map<String, Answer> answerMap,
-      Map<ModuleType, Response> respondentResponseMap,
-      String surveyId,
-      ModuleType moduleType,
-      Map<String, Question> questionMap,
-      Map<String, Question> pageQuestionMap,
-      Map<String, Question> contentQuestionMap,
-      bool isReadOnly,
+      Direction direction,
       bool appIsPaused,
       bool showDialog,
       bool leavePage,
       bool finishResponse,
       bool showLeaveButton,
+      Set<String> pageQIdSet,
+      Set<String> contentQIdSet,
+      LoadState referenceListState,
+      List<Reference> referenceList,
+      Option<SurveyFailure> surveyFailure,
+      Respondent respondent,
+      Map<ModuleType, Response> respondentResponseMap,
+      String surveyId,
+      ModuleType moduleType,
+      Map<String, Question> questionMap,
       Map<String, Question> mainQuestionMap,
+      bool isReadOnly,
+      bool isRecodeModule,
       Map<String, Answer> mainAnswerMap,
-      Map<String, AnswerStatus> mainAnswerStatusMap});
+      Map<String, AnswerStatus> mainAnswerStatusMap,
+      LoadState restoreState,
+      LoadState updateState,
+      SurveyPageUpdateType updateType});
 
   @override
   $WarningCopyWith<$Res> get warning;
-  @override
-  $LoadStateCopyWith<$Res> get updateState;
-  @override
-  $LoadStateCopyWith<$Res> get restoreState;
   @override
   $LoadStateCopyWith<$Res> get referenceListState;
   @override
   $RespondentCopyWith<$Res> get respondent;
   @override
   $ModuleTypeCopyWith<$Res> get moduleType;
+  @override
+  $LoadStateCopyWith<$Res> get restoreState;
+  @override
+  $LoadStateCopyWith<$Res> get updateState;
 }
 
 /// @nodoc
@@ -4946,39 +4409,47 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
     Object? page = freezed,
     Object? newestPage = freezed,
-    Object? direction = freezed,
-    Object? answerStatusMap = freezed,
     Object? isLastPage = freezed,
     Object? warning = freezed,
     Object? showWarning = freezed,
-    Object? isRecodeModule = freezed,
-    Object? updateState = freezed,
-    Object? updateType = freezed,
-    Object? restoreState = freezed,
-    Object? referenceListState = freezed,
-    Object? referenceList = freezed,
-    Object? surveyFailure = freezed,
-    Object? respondent = freezed,
-    Object? answerMap = freezed,
-    Object? respondentResponseMap = freezed,
-    Object? surveyId = freezed,
-    Object? moduleType = freezed,
-    Object? questionMap = freezed,
-    Object? pageQuestionMap = freezed,
-    Object? contentQuestionMap = freezed,
-    Object? isReadOnly = freezed,
+    Object? direction = freezed,
     Object? appIsPaused = freezed,
     Object? showDialog = freezed,
     Object? leavePage = freezed,
     Object? finishResponse = freezed,
     Object? showLeaveButton = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
+    Object? referenceListState = freezed,
+    Object? referenceList = freezed,
+    Object? surveyFailure = freezed,
+    Object? respondent = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? questionMap = freezed,
     Object? mainQuestionMap = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
     Object? mainAnswerMap = freezed,
     Object? mainAnswerStatusMap = freezed,
+    Object? restoreState = freezed,
+    Object? updateState = freezed,
+    Object? updateType = freezed,
   }) {
     return _then(_UpdateSurveyPageState(
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Answer>,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, AnswerStatus>,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
@@ -4987,14 +4458,6 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
               as int,
-      direction: direction == freezed
-          ? _value.direction
-          : direction // ignore: cast_nullable_to_non_nullable
-              as Direction,
-      answerStatusMap: answerStatusMap == freezed
-          ? _value.answerStatusMap
-          : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerStatus>,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
@@ -5007,70 +4470,10 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.showWarning
           : showWarning // ignore: cast_nullable_to_non_nullable
               as bool,
-      isRecodeModule: isRecodeModule == freezed
-          ? _value.isRecodeModule
-          : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
-      updateState: updateState == freezed
-          ? _value.updateState
-          : updateState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      updateType: updateType == freezed
-          ? _value.updateType
-          : updateType // ignore: cast_nullable_to_non_nullable
-              as SurveyPageUpdateType,
-      restoreState: restoreState == freezed
-          ? _value.restoreState
-          : restoreState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      referenceListState: referenceListState == freezed
-          ? _value.referenceListState
-          : referenceListState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      referenceList: referenceList == freezed
-          ? _value.referenceList
-          : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<Reference>,
-      surveyFailure: surveyFailure == freezed
-          ? _value.surveyFailure
-          : surveyFailure // ignore: cast_nullable_to_non_nullable
-              as Option<SurveyFailure>,
-      respondent: respondent == freezed
-          ? _value.respondent
-          : respondent // ignore: cast_nullable_to_non_nullable
-              as Respondent,
-      answerMap: answerMap == freezed
-          ? _value.answerMap
-          : answerMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Answer>,
-      respondentResponseMap: respondentResponseMap == freezed
-          ? _value.respondentResponseMap
-          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<ModuleType, Response>,
-      surveyId: surveyId == freezed
-          ? _value.surveyId
-          : surveyId // ignore: cast_nullable_to_non_nullable
-              as String,
-      moduleType: moduleType == freezed
-          ? _value.moduleType
-          : moduleType // ignore: cast_nullable_to_non_nullable
-              as ModuleType,
-      questionMap: questionMap == freezed
-          ? _value.questionMap
-          : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      pageQuestionMap: pageQuestionMap == freezed
-          ? _value.pageQuestionMap
-          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      contentQuestionMap: contentQuestionMap == freezed
-          ? _value.contentQuestionMap
-          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
-      isReadOnly: isReadOnly == freezed
-          ? _value.isReadOnly
-          : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
+      direction: direction == freezed
+          ? _value.direction
+          : direction // ignore: cast_nullable_to_non_nullable
+              as Direction,
       appIsPaused: appIsPaused == freezed
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
@@ -5091,10 +4494,58 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
               as bool,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      referenceListState: referenceListState == freezed
+          ? _value.referenceListState
+          : referenceListState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as List<Reference>,
+      surveyFailure: surveyFailure == freezed
+          ? _value.surveyFailure
+          : surveyFailure // ignore: cast_nullable_to_non_nullable
+              as Option<SurveyFailure>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       mainQuestionMap: mainQuestionMap == freezed
           ? _value.mainQuestionMap
           : mainQuestionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainAnswerMap: mainAnswerMap == freezed
           ? _value.mainAnswerMap
           : mainAnswerMap // ignore: cast_nullable_to_non_nullable
@@ -5103,6 +4554,18 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      updateState: updateState == freezed
+          ? _value.updateState
+          : updateState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      updateType: updateType == freezed
+          ? _value.updateType
+          : updateType // ignore: cast_nullable_to_non_nullable
+              as SurveyPageUpdateType,
     ));
   }
 }
@@ -5112,85 +4575,55 @@ class __$UpdateSurveyPageStateCopyWithImpl<$Res>
 class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
     with DiagnosticableTreeMixin {
   const _$_UpdateSurveyPageState(
-      {required this.page,
-      required this.newestPage,
-      required this.direction,
+      {required this.answerMap,
       required this.answerStatusMap,
+      required this.page,
+      required this.newestPage,
       required this.isLastPage,
       required this.warning,
       required this.showWarning,
-      required this.isRecodeModule,
-      required this.updateState,
-      required this.updateType,
-      required this.restoreState,
-      required this.referenceListState,
-      required this.referenceList,
-      required this.surveyFailure,
-      required this.respondent,
-      required this.answerMap,
-      required this.respondentResponseMap,
-      required this.surveyId,
-      required this.moduleType,
-      required this.questionMap,
-      required this.pageQuestionMap,
-      required this.contentQuestionMap,
-      required this.isReadOnly,
+      required this.direction,
       required this.appIsPaused,
       required this.showDialog,
       required this.leavePage,
       required this.finishResponse,
       required this.showLeaveButton,
+      required this.pageQIdSet,
+      required this.contentQIdSet,
+      required this.referenceListState,
+      required this.referenceList,
+      required this.surveyFailure,
+      required this.respondent,
+      required this.respondentResponseMap,
+      required this.surveyId,
+      required this.moduleType,
+      required this.questionMap,
       required this.mainQuestionMap,
+      required this.isReadOnly,
+      required this.isRecodeModule,
       required this.mainAnswerMap,
-      required this.mainAnswerStatusMap})
+      required this.mainAnswerStatusMap,
+      required this.restoreState,
+      required this.updateState,
+      required this.updateType})
       : super._();
 
-  @override // H_ restore
+  @override // H_ 主要資料
+  final Map<String, Answer> answerMap;
+  @override
+  final Map<String, AnswerStatus> answerStatusMap;
+  @override
   final int page;
   @override
   final int newestPage;
-  @override
-  final Direction direction;
-  @override
-  final Map<String, AnswerStatus> answerStatusMap;
   @override
   final bool isLastPage;
   @override
   final Warning warning;
   @override
   final bool showWarning;
-  @override
-  final bool isRecodeModule;
-  @override
-  final LoadState updateState;
-  @override
-  final SurveyPageUpdateType updateType;
-  @override
-  final LoadState restoreState;
-  @override // H_ reference
-  final LoadState referenceListState;
-  @override
-  final List<Reference> referenceList;
-  @override
-  final Option<SurveyFailure> surveyFailure;
-  @override
-  final Respondent respondent;
-  @override
-  final Map<String, Answer> answerMap;
-  @override
-  final Map<ModuleType, Response> respondentResponseMap;
-  @override
-  final String surveyId;
-  @override
-  final ModuleType moduleType;
-  @override // H_ questionMap
-  final Map<String, Question> questionMap;
-  @override
-  final Map<String, Question> pageQuestionMap;
-  @override
-  final Map<String, Question> contentQuestionMap;
-  @override // H_ page state
-  final bool isReadOnly;
+  @override // H_ 中間資料
+  final Direction direction;
   @override
   final bool appIsPaused;
   @override
@@ -5201,16 +4634,46 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
   final bool finishResponse;
   @override
   final bool showLeaveButton;
-  @override // H_ recode
+  @override
+  final Set<String> pageQIdSet;
+  @override
+  final Set<String> contentQIdSet;
+  @override // H_ reference
+  final LoadState referenceListState;
+  @override
+  final List<Reference> referenceList;
+  @override
+  final Option<SurveyFailure> surveyFailure;
+  @override
+  final Respondent respondent;
+  @override
+  final Map<ModuleType, Response> respondentResponseMap;
+  @override
+  final String surveyId;
+  @override
+  final ModuleType moduleType;
+  @override // H_ 同 session 會變的參考資料
+  final Map<String, Question> questionMap;
+  @override
   final Map<String, Question> mainQuestionMap;
+  @override // H_ 同 session 不變的參考資料
+  final bool isReadOnly;
+  @override
+  final bool isRecodeModule;
   @override
   final Map<String, Answer> mainAnswerMap;
   @override
   final Map<String, AnswerStatus> mainAnswerStatusMap;
+  @override // H_ 狀態更新進度
+  final LoadState restoreState;
+  @override
+  final LoadState updateState;
+  @override
+  final SurveyPageUpdateType updateType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageState(page: $page, newestPage: $newestPage, direction: $direction, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, isRecodeModule: $isRecodeModule, updateState: $updateState, updateType: $updateType, restoreState: $restoreState, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, answerMap: $answerMap, respondentResponseMap: $respondentResponseMap, surveyId: $surveyId, moduleType: $moduleType, questionMap: $questionMap, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainQuestionMap: $mainQuestionMap, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageState(answerMap: $answerMap, answerStatusMap: $answerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, direction: $direction, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, respondentResponseMap: $respondentResponseMap, surveyId: $surveyId, moduleType: $moduleType, questionMap: $questionMap, mainQuestionMap: $mainQuestionMap, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap, restoreState: $restoreState, updateState: $updateState, updateType: $updateType)';
   }
 
   @override
@@ -5218,54 +4681,54 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'UpdateSurveyPageState'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
       ..add(DiagnosticsProperty('page', page))
       ..add(DiagnosticsProperty('newestPage', newestPage))
-      ..add(DiagnosticsProperty('direction', direction))
-      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
       ..add(DiagnosticsProperty('isLastPage', isLastPage))
       ..add(DiagnosticsProperty('warning', warning))
       ..add(DiagnosticsProperty('showWarning', showWarning))
-      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
-      ..add(DiagnosticsProperty('updateState', updateState))
-      ..add(DiagnosticsProperty('updateType', updateType))
-      ..add(DiagnosticsProperty('restoreState', restoreState))
-      ..add(DiagnosticsProperty('referenceListState', referenceListState))
-      ..add(DiagnosticsProperty('referenceList', referenceList))
-      ..add(DiagnosticsProperty('surveyFailure', surveyFailure))
-      ..add(DiagnosticsProperty('respondent', respondent))
-      ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
-      ..add(DiagnosticsProperty('surveyId', surveyId))
-      ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('questionMap', questionMap))
-      ..add(DiagnosticsProperty('pageQuestionMap', pageQuestionMap))
-      ..add(DiagnosticsProperty('contentQuestionMap', contentQuestionMap))
-      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('direction', direction))
       ..add(DiagnosticsProperty('appIsPaused', appIsPaused))
       ..add(DiagnosticsProperty('showDialog', showDialog))
       ..add(DiagnosticsProperty('leavePage', leavePage))
       ..add(DiagnosticsProperty('finishResponse', finishResponse))
       ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
+      ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
+      ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
+      ..add(DiagnosticsProperty('referenceListState', referenceListState))
+      ..add(DiagnosticsProperty('referenceList', referenceList))
+      ..add(DiagnosticsProperty('surveyFailure', surveyFailure))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
+      ..add(DiagnosticsProperty('surveyId', surveyId))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('mainQuestionMap', mainQuestionMap))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('mainAnswerMap', mainAnswerMap))
-      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap));
+      ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap))
+      ..add(DiagnosticsProperty('restoreState', restoreState))
+      ..add(DiagnosticsProperty('updateState', updateState))
+      ..add(DiagnosticsProperty('updateType', updateType));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateSurveyPageState &&
+            (identical(other.answerMap, answerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerMap, answerMap)) &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)) &&
             (identical(other.page, page) ||
                 const DeepCollectionEquality().equals(other.page, page)) &&
             (identical(other.newestPage, newestPage) ||
                 const DeepCollectionEquality()
                     .equals(other.newestPage, newestPage)) &&
-            (identical(other.direction, direction) ||
-                const DeepCollectionEquality()
-                    .equals(other.direction, direction)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)) &&
             (identical(other.isLastPage, isLastPage) ||
                 const DeepCollectionEquality()
                     .equals(other.isLastPage, isLastPage)) &&
@@ -5275,18 +4738,30 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
             (identical(other.showWarning, showWarning) ||
                 const DeepCollectionEquality()
                     .equals(other.showWarning, showWarning)) &&
-            (identical(other.isRecodeModule, isRecodeModule) ||
+            (identical(other.direction, direction) ||
                 const DeepCollectionEquality()
-                    .equals(other.isRecodeModule, isRecodeModule)) &&
-            (identical(other.updateState, updateState) ||
+                    .equals(other.direction, direction)) &&
+            (identical(other.appIsPaused, appIsPaused) ||
                 const DeepCollectionEquality()
-                    .equals(other.updateState, updateState)) &&
-            (identical(other.updateType, updateType) ||
+                    .equals(other.appIsPaused, appIsPaused)) &&
+            (identical(other.showDialog, showDialog) ||
                 const DeepCollectionEquality()
-                    .equals(other.updateType, updateType)) &&
-            (identical(other.restoreState, restoreState) ||
+                    .equals(other.showDialog, showDialog)) &&
+            (identical(other.leavePage, leavePage) ||
                 const DeepCollectionEquality()
-                    .equals(other.restoreState, restoreState)) &&
+                    .equals(other.leavePage, leavePage)) &&
+            (identical(other.finishResponse, finishResponse) ||
+                const DeepCollectionEquality()
+                    .equals(other.finishResponse, finishResponse)) &&
+            (identical(other.showLeaveButton, showLeaveButton) ||
+                const DeepCollectionEquality()
+                    .equals(other.showLeaveButton, showLeaveButton)) &&
+            (identical(other.pageQIdSet, pageQIdSet) ||
+                const DeepCollectionEquality()
+                    .equals(other.pageQIdSet, pageQIdSet)) &&
+            (identical(other.contentQIdSet, contentQIdSet) ||
+                const DeepCollectionEquality()
+                    .equals(other.contentQIdSet, contentQIdSet)) &&
             (identical(other.referenceListState, referenceListState) ||
                 const DeepCollectionEquality()
                     .equals(other.referenceListState, referenceListState)) &&
@@ -5299,9 +4774,6 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
             (identical(other.respondent, respondent) ||
                 const DeepCollectionEquality()
                     .equals(other.respondent, respondent)) &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
             (identical(other.respondentResponseMap, respondentResponseMap) ||
                 const DeepCollectionEquality().equals(
                     other.respondentResponseMap, respondentResponseMap)) &&
@@ -5311,60 +4783,51 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
             (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleType, moduleType)) &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
-            (identical(other.pageQuestionMap, pageQuestionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageQuestionMap, pageQuestionMap)) &&
-            (identical(other.contentQuestionMap, contentQuestionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.contentQuestionMap, contentQuestionMap)) &&
-            (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
-            (identical(other.appIsPaused, appIsPaused) || const DeepCollectionEquality().equals(other.appIsPaused, appIsPaused)) &&
-            (identical(other.showDialog, showDialog) || const DeepCollectionEquality().equals(other.showDialog, showDialog)) &&
-            (identical(other.leavePage, leavePage) || const DeepCollectionEquality().equals(other.leavePage, leavePage)) &&
-            (identical(other.finishResponse, finishResponse) || const DeepCollectionEquality().equals(other.finishResponse, finishResponse)) &&
-            (identical(other.showLeaveButton, showLeaveButton) || const DeepCollectionEquality().equals(other.showLeaveButton, showLeaveButton)) &&
+            (identical(other.questionMap, questionMap) || const DeepCollectionEquality().equals(other.questionMap, questionMap)) &&
             (identical(other.mainQuestionMap, mainQuestionMap) || const DeepCollectionEquality().equals(other.mainQuestionMap, mainQuestionMap)) &&
+            (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.isRecodeModule, isRecodeModule) || const DeepCollectionEquality().equals(other.isRecodeModule, isRecodeModule)) &&
             (identical(other.mainAnswerMap, mainAnswerMap) || const DeepCollectionEquality().equals(other.mainAnswerMap, mainAnswerMap)) &&
-            (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)));
+            (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) || const DeepCollectionEquality().equals(other.mainAnswerStatusMap, mainAnswerStatusMap)) &&
+            (identical(other.restoreState, restoreState) || const DeepCollectionEquality().equals(other.restoreState, restoreState)) &&
+            (identical(other.updateState, updateState) || const DeepCollectionEquality().equals(other.updateState, updateState)) &&
+            (identical(other.updateType, updateType) || const DeepCollectionEquality().equals(other.updateType, updateType)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(answerMap) ^
+      const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(page) ^
       const DeepCollectionEquality().hash(newestPage) ^
-      const DeepCollectionEquality().hash(direction) ^
-      const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage) ^
       const DeepCollectionEquality().hash(warning) ^
       const DeepCollectionEquality().hash(showWarning) ^
-      const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(updateType) ^
-      const DeepCollectionEquality().hash(restoreState) ^
-      const DeepCollectionEquality().hash(referenceListState) ^
-      const DeepCollectionEquality().hash(referenceList) ^
-      const DeepCollectionEquality().hash(surveyFailure) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(pageQuestionMap) ^
-      const DeepCollectionEquality().hash(contentQuestionMap) ^
-      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(direction) ^
       const DeepCollectionEquality().hash(appIsPaused) ^
       const DeepCollectionEquality().hash(showDialog) ^
       const DeepCollectionEquality().hash(leavePage) ^
       const DeepCollectionEquality().hash(finishResponse) ^
       const DeepCollectionEquality().hash(showLeaveButton) ^
+      const DeepCollectionEquality().hash(pageQIdSet) ^
+      const DeepCollectionEquality().hash(contentQIdSet) ^
+      const DeepCollectionEquality().hash(referenceListState) ^
+      const DeepCollectionEquality().hash(referenceList) ^
+      const DeepCollectionEquality().hash(surveyFailure) ^
+      const DeepCollectionEquality().hash(respondent) ^
+      const DeepCollectionEquality().hash(respondentResponseMap) ^
+      const DeepCollectionEquality().hash(surveyId) ^
+      const DeepCollectionEquality().hash(moduleType) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(mainQuestionMap) ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(mainAnswerMap) ^
-      const DeepCollectionEquality().hash(mainAnswerStatusMap);
+      const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
+      const DeepCollectionEquality().hash(restoreState) ^
+      const DeepCollectionEquality().hash(updateState) ^
+      const DeepCollectionEquality().hash(updateType);
 
   @JsonKey(ignore: true)
   @override
@@ -5375,90 +4838,56 @@ class _$_UpdateSurveyPageState extends _UpdateSurveyPageState
 
 abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   const factory _UpdateSurveyPageState(
-          {required int page,
-          required int newestPage,
-          required Direction direction,
-          required Map<String, AnswerStatus> answerStatusMap,
-          required bool isLastPage,
-          required Warning warning,
-          required bool showWarning,
-          required bool isRecodeModule,
-          required LoadState updateState,
-          required SurveyPageUpdateType updateType,
-          required LoadState restoreState,
-          required LoadState referenceListState,
-          required List<Reference> referenceList,
-          required Option<SurveyFailure> surveyFailure,
-          required Respondent respondent,
-          required Map<String, Answer> answerMap,
-          required Map<ModuleType, Response> respondentResponseMap,
-          required String surveyId,
-          required ModuleType moduleType,
-          required Map<String, Question> questionMap,
-          required Map<String, Question> pageQuestionMap,
-          required Map<String, Question> contentQuestionMap,
-          required bool isReadOnly,
-          required bool appIsPaused,
-          required bool showDialog,
-          required bool leavePage,
-          required bool finishResponse,
-          required bool showLeaveButton,
-          required Map<String, Question> mainQuestionMap,
-          required Map<String, Answer> mainAnswerMap,
-          required Map<String, AnswerStatus> mainAnswerStatusMap}) =
-      _$_UpdateSurveyPageState;
+      {required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
+      required int page,
+      required int newestPage,
+      required bool isLastPage,
+      required Warning warning,
+      required bool showWarning,
+      required Direction direction,
+      required bool appIsPaused,
+      required bool showDialog,
+      required bool leavePage,
+      required bool finishResponse,
+      required bool showLeaveButton,
+      required Set<String> pageQIdSet,
+      required Set<String> contentQIdSet,
+      required LoadState referenceListState,
+      required List<Reference> referenceList,
+      required Option<SurveyFailure> surveyFailure,
+      required Respondent respondent,
+      required Map<ModuleType, Response> respondentResponseMap,
+      required String surveyId,
+      required ModuleType moduleType,
+      required Map<String, Question> questionMap,
+      required Map<String, Question> mainQuestionMap,
+      required bool isReadOnly,
+      required bool isRecodeModule,
+      required Map<String, Answer> mainAnswerMap,
+      required Map<String, AnswerStatus> mainAnswerStatusMap,
+      required LoadState restoreState,
+      required LoadState updateState,
+      required SurveyPageUpdateType updateType}) = _$_UpdateSurveyPageState;
   const _UpdateSurveyPageState._() : super._();
 
-  @override // H_ restore
-  int get page => throw _privateConstructorUsedError;
-  @override
-  int get newestPage => throw _privateConstructorUsedError;
-  @override
-  Direction get direction => throw _privateConstructorUsedError;
+  @override // H_ 主要資料
+  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
+  @override
+  int get page => throw _privateConstructorUsedError;
+  @override
+  int get newestPage => throw _privateConstructorUsedError;
   @override
   bool get isLastPage => throw _privateConstructorUsedError;
   @override
   Warning get warning => throw _privateConstructorUsedError;
   @override
   bool get showWarning => throw _privateConstructorUsedError;
-  @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
-  @override
-  LoadState get updateState => throw _privateConstructorUsedError;
-  @override
-  SurveyPageUpdateType get updateType => throw _privateConstructorUsedError;
-  @override
-  LoadState get restoreState => throw _privateConstructorUsedError;
-  @override // H_ reference
-  LoadState get referenceListState => throw _privateConstructorUsedError;
-  @override
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
-  @override
-  Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
-  @override
-  Respondent get respondent => throw _privateConstructorUsedError;
-  @override
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  @override
-  Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError;
-  @override
-  String get surveyId => throw _privateConstructorUsedError;
-  @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
-  @override // H_ questionMap
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
-  @override
-  Map<String, Question> get pageQuestionMap =>
-      throw _privateConstructorUsedError;
-  @override
-  Map<String, Question> get contentQuestionMap =>
-      throw _privateConstructorUsedError;
-  @override // H_ page state
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  @override // H_ 中間資料
+  Direction get direction => throw _privateConstructorUsedError;
   @override
   bool get appIsPaused => throw _privateConstructorUsedError;
   @override
@@ -5469,14 +4898,45 @@ abstract class _UpdateSurveyPageState extends UpdateSurveyPageState {
   bool get finishResponse => throw _privateConstructorUsedError;
   @override
   bool get showLeaveButton => throw _privateConstructorUsedError;
-  @override // H_ recode
+  @override
+  Set<String> get pageQIdSet => throw _privateConstructorUsedError;
+  @override
+  Set<String> get contentQIdSet => throw _privateConstructorUsedError;
+  @override // H_ reference
+  LoadState get referenceListState => throw _privateConstructorUsedError;
+  @override
+  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  @override
+  Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
+  @override
+  Respondent get respondent => throw _privateConstructorUsedError;
+  @override
+  Map<ModuleType, Response> get respondentResponseMap =>
+      throw _privateConstructorUsedError;
+  @override
+  String get surveyId => throw _privateConstructorUsedError;
+  @override
+  ModuleType get moduleType => throw _privateConstructorUsedError;
+  @override // H_ 同 session 會變的參考資料
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  @override
   Map<String, Question> get mainQuestionMap =>
       throw _privateConstructorUsedError;
+  @override // H_ 同 session 不變的參考資料
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  @override
+  bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
   Map<String, Answer> get mainAnswerMap => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
+  @override // H_ 狀態更新進度
+  LoadState get restoreState => throw _privateConstructorUsedError;
+  @override
+  LoadState get updateState => throw _privateConstructorUsedError;
+  @override
+  SurveyPageUpdateType get updateType => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpdateSurveyPageStateCopyWith<_UpdateSurveyPageState> get copyWith =>

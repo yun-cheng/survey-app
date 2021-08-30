@@ -5,35 +5,37 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
   const UpdateAnswerStatusState._();
 
   const factory UpdateAnswerStatusState({
-    required bool isReadOnly,
-    required LoadState restoreState,
-    required LoadState updateState,
-    required Map<String, Question> questionMap,
+    // H_ 主要資料
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
+    // H_ 中間資料
     required String questionId,
-    required List<String> questionIdList,
-    required List<String> clearAnswerQIdList,
-    // H_ recode
+    required Set<String> updatedQIdSet,
+    required Set<String> clearAnswerQIdSet,
+    // H_ 同 session 不變的參考資料
+    required bool isReadOnly,
+    required Map<String, Question> questionMap,
     required bool isRecodeModule,
     required Map<String, AnswerStatus> mainAnswerStatusMap,
-    // H_
-    required List<UpdateSurveyPageStateType> updateType,
+    // H_ 狀態更新進度
+    required LoadState restoreState,
+    required LoadState updateState,
+    required Set<UpdateSurveyPageStateType> updateType,
   }) = _UpdateAnswerStatusState;
 
   factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(
-        isReadOnly: false,
-        questionMap: const {},
-        isRecodeModule: false,
         answerMap: const {},
         answerStatusMap: const {},
         questionId: '',
-        questionIdList: const [],
-        updateState: LoadState.initial(),
-        restoreState: LoadState.initial(),
-        clearAnswerQIdList: const [],
+        updatedQIdSet: const {},
+        clearAnswerQIdSet: const {},
+        isReadOnly: false,
+        questionMap: const {},
+        isRecodeModule: false,
         mainAnswerStatusMap: const <String, AnswerStatus>{},
-        updateType: const [],
+        restoreState: LoadState.initial(),
+        updateState: LoadState.initial(),
+        updateType: const {},
       );
 
   Map<String, dynamic> toJson() =>

@@ -21,10 +21,10 @@ _$_UpdateAnswerStatusStateDto _$_$_UpdateAnswerStatusStateDtoFromJson(
       (k, e) =>
           MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
     ),
-    questionIdList: (json['questionIdList'] as List<dynamic>)
+    updatedQIdSet: (json['updatedQIdSet'] as List<dynamic>)
         .map((e) => e as String)
         .toList(),
-    clearAnswerQIdList: (json['clearAnswerQIdList'] as List<dynamic>)
+    clearAnswerQIdSet: (json['clearAnswerQIdSet'] as List<dynamic>)
         .map((e) => e as String)
         .toList(),
     mainAnswerStatusMap:
@@ -50,8 +50,8 @@ Map<String, dynamic> _$_$_UpdateAnswerStatusStateDtoToJson(
       'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerStatusMap':
           instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
-      'questionIdList': instance.questionIdList,
-      'clearAnswerQIdList': instance.clearAnswerQIdList,
+      'updatedQIdSet': instance.updatedQIdSet,
+      'clearAnswerQIdSet': instance.clearAnswerQIdSet,
       'mainAnswerStatusMap':
           instance.mainAnswerStatusMap.map((k, e) => MapEntry(k, e.toJson())),
       'questionId': instance.questionId,

@@ -25,7 +25,7 @@ class DropdownBox extends StatelessWidget {
       buildWhen: (p, c) {
         if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           // S_ 該題作答有變更時
-          if (c.questionIdList.contains(questionId) &&
+          if (c.updatedQIdSet.contains(questionId) &&
               p.answerMap[questionId] != c.answerMap[questionId]) {
             return true;
           }
@@ -40,12 +40,13 @@ class DropdownBox extends StatelessWidget {
             return true;
           }
 
-          // S_ 該題選項有變更時
-          final pQuestion = p.pageQuestionMap[questionId];
-          final cQuestion = c.pageQuestionMap[questionId];
+          // S_ 該題選項有變更時，需要 rebuild
+          final pQuestion = p.questionMap[questionId]!;
+          final cQuestion = c.questionMap[questionId]!;
 
-          // NOTE 若 question 前或後不存在，交由上層 widget 處理
-          if (pQuestion == null || cQuestion == null) {
+          // S_ 若 question 前或後不存在，交由上層 widget 處理
+          if (!p.pageQIdSet.contains(questionId) ||
+              !c.pageQIdSet.contains(questionId)) {
             return false;
           }
 
@@ -64,7 +65,7 @@ class DropdownBox extends StatelessWidget {
         final isSpecialAnswer =
             state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
 
-        final choiceList = state.pageQuestionMap[questionId]?.choiceList ?? [];
+        final choiceList = state.questionMap[questionId]?.choiceList ?? [];
 
         final selectedChoice = choiceList.firstWhereOrNull(
                 (choice) => choice.id == thisAnswer.choiceValue?.id) ??

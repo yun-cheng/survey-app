@@ -43,7 +43,7 @@ class ChoicesRow extends HookWidget {
       onEmitted: (_, p, c) {
         if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           // S_ 該題作答清空時，更新 answer
-          if (c.questionIdList.contains(questionId) &&
+          if (c.updatedQIdSet.contains(questionId) &&
               c.answerMap[questionId]! == Answer.empty()) {
             answer.value = Answer.empty();
           }

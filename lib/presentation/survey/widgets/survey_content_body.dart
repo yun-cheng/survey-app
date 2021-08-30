@@ -15,7 +15,7 @@ class SurveyContentBody extends StatelessWidget {
       buildWhen: (p, c) =>
           (p.restoreState != c.restoreState &&
               c.restoreState == LoadState.success()) ||
-          p.contentQuestionMap != c.contentQuestionMap,
+          p.contentQIdSet != c.contentQIdSet,
       builder: (context, state) {
         logger('Build').i('SurveyContentBody');
 
@@ -24,16 +24,16 @@ class SurveyContentBody extends StatelessWidget {
             vertical: 10.0,
           ),
           itemBuilder: (context, index) {
-            final question =
-                state.contentQuestionMap.entries.elementAt(index).value;
+            final questionId = state.contentQIdSet.elementAt(index);
+            final question = state.questionMap[questionId]!;
 
             Icon leadingIcon;
-            if (state.answerStatusMap[question.id]!.isAnswered) {
+            if (state.answerStatusMap[questionId]!.isAnswered) {
               leadingIcon = const Icon(
                 Icons.done,
                 color: kCardGreenTextColor,
               );
-            } else if (!state.answerStatusMap[question.id]!
+            } else if (!state.answerStatusMap[questionId]!
                     .toWarning(question)
                     .isEmpty &&
                 state.showWarning) {
@@ -66,8 +66,9 @@ class SurveyContentBody extends StatelessWidget {
                     ),
                     onTap: () {
                       context.read<UpdateSurveyPageBloc>().add(
-                            UpdateSurveyPageEvent.wentToPage(
-                                question.pageNumber),
+                            UpdateSurveyPageEvent.pageNavigatedTo(
+                              page: question.pageNumber,
+                            ),
                           );
                       context.router.pop();
                     },
@@ -76,7 +77,7 @@ class SurveyContentBody extends StatelessWidget {
               ),
             );
           },
-          itemCount: state.contentQuestionMap.length,
+          itemCount: state.contentQIdSet.length,
         );
       },
     );

@@ -40,8 +40,8 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   final answerStatusMap = {...state.answerStatusMap};
 
   final changedUpperQIdList = [state.questionId];
-  // NOTE 因為無法直接更新 answerMap，因此將要清除的加進 clearAnswerQIdList，後面一次清除
-  final clearAnswerQIdList = [...state.clearAnswerQIdList];
+  // NOTE 因為無法直接更新 answerMap，因此將要清除的加進 clearAnswerQIdSet，後面一次清除
+  final clearAnswerQIdSet = {...state.clearAnswerQIdSet};
 
   // S_ 篩出所有是連鎖題下層的題目
   final lowerQuestionMap =
@@ -61,7 +61,7 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
       // FIXME 目前若下層為特殊作答就直接略過
       if (lowerChoice != null &&
           (lowerChoice.upperChoiceId != upperAnswerChoiceId ||
-              clearAnswerQIdList.contains(question.upperQuestionId)) &&
+              clearAnswerQIdSet.contains(question.upperQuestionId)) &&
           !state.answerStatusMap[questionId]!.isSpecialAnswer) {
         // S_2-1 清空該題作答、重置該題答題狀況
         answerStatusMap[questionId] = answerStatusMap[questionId]!.reset();
@@ -69,15 +69,15 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
         // S_2-2 將該題 questionId 加入 changedUpperQIdList
         changedUpperQIdList.add(questionId);
 
-        // S_2-3 將該題 questionId 加入 clearAnswerQIdList
-        clearAnswerQIdList.add(questionId);
+        // S_2-3 將該題 questionId 加入 clearAnswerQIdSet
+        clearAnswerQIdSet.add(questionId);
       }
     }
   });
 
   return state.copyWith(
     answerStatusMap: answerStatusMap,
-    clearAnswerQIdList: clearAnswerQIdList,
+    clearAnswerQIdSet: clearAnswerQIdSet,
   );
 }
 
@@ -109,7 +109,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
   }
 
   final answerStatusMap = {...state.answerStatusMap};
-  final clearAnswerQIdList = [...state.clearAnswerQIdList];
+  final clearAnswerQIdSet = {...state.clearAnswerQIdSet};
 
   // S_ 篩出有設定題目出現條件的題目
   final showQuestionMap =
@@ -136,7 +136,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
       }
       // S_2-c2 過去顯示，現在要隱藏時，清空作答
     } else if (!showQuestion && !newAnswerStatus.isHidden) {
-      clearAnswerQIdList.add(questionId);
+      clearAnswerQIdSet.add(questionId);
       newAnswerStatus = newAnswerStatus.setHidden();
     }
 
@@ -145,7 +145,7 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
 
   final state1 = state.copyWith(
     answerStatusMap: answerStatusMap,
-    clearAnswerQIdList: clearAnswerQIdList,
+    clearAnswerQIdSet: clearAnswerQIdSet,
   );
   return answerQIdListCleared(state1);
 }

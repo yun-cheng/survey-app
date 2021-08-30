@@ -31,17 +31,17 @@ void _updateAnswerStatusEventWorker(
         answerMap: e.answerMap,
         answerStatusMap: e.answerStatusMap,
         mainAnswerStatusMap: e.mainAnswerStatusMap,
-        questionIdList: const [],
-        updateType: const [],
+        updatedQIdSet: const {},
+        updateType: const {},
       ).send(channel);
       state = showQuestionChecked(state)
           .copyWith(
             updateState: LoadState.success(),
             restoreState: LoadState.success(),
-            updateType: [
+            updateType: {
               UpdateSurveyPageStateType.answerMap(),
               UpdateSurveyPageStateType.answerStatusMap(),
-            ],
+            },
           )
           .send(channel)
           .saveState(box, lock);
@@ -55,18 +55,18 @@ void _updateAnswerStatusEventWorker(
         // S_ 單純更新 answerMap
         state = state.copyWith(
           updateState: LoadState.inProgress(),
-          questionIdList: const [],
+          updatedQIdSet: const {},
         ).send(channel);
         state = answerUpdated(e, state).copyWith(
           updateState: LoadState.success(),
-          updateType: [UpdateSurveyPageStateType.answerMap()],
+          updateType: {UpdateSurveyPageStateType.answerMap()},
         ).send(channel);
 
         // S_ 更新 answerStatus
         state = state
             .copyWith(
               updateState: LoadState.inProgress(),
-              questionIdList: const [],
+              updatedQIdSet: const {},
               questionId: e.questionId,
             )
             .send(channel);
@@ -74,10 +74,10 @@ void _updateAnswerStatusEventWorker(
         state = answerStatusMapUpdated(state)
             .copyWith(
               updateState: LoadState.success(),
-              updateType: [
+              updateType: {
                 UpdateSurveyPageStateType.answerMap(),
                 UpdateSurveyPageStateType.answerStatusMap(),
-              ],
+              },
             )
             .send(channel)
             .saveState(box, lock);
@@ -101,16 +101,16 @@ void _updateAnswerStatusEventWorker(
           updateState: LoadState.inProgress(),
           answerMap: answerMap,
           answerStatusMap: answerStatusMap,
-          clearAnswerQIdList: [e.questionId],
+          clearAnswerQIdSet: {e.questionId},
         ).send(channel);
 
         state = showQuestionChecked(state)
             .copyWith(
               updateState: LoadState.success(),
-              updateType: [
+              updateType: {
                 UpdateSurveyPageStateType.answerMap(),
                 UpdateSurveyPageStateType.answerStatusMap(),
-              ],
+              },
             )
             .send(channel)
             .saveState(box, lock);

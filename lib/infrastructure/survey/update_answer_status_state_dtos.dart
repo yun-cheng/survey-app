@@ -19,8 +19,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     required bool isRecodeModule,
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
-    required List<String> questionIdList,
-    required List<String> clearAnswerQIdList,
+    required List<String> updatedQIdSet,
+    required List<String> clearAnswerQIdSet,
     required Map<String, AnswerStatusDto> mainAnswerStatusMap,
     required String questionId,
     required String updateState,
@@ -39,8 +39,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
           .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       answerStatusMap: domain.answerStatusMap.map(
           (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
-      questionIdList: domain.questionIdList.toList(),
-      clearAnswerQIdList: domain.clearAnswerQIdList.toList(),
+      updatedQIdSet: domain.updatedQIdSet.toList(),
+      clearAnswerQIdSet: domain.clearAnswerQIdSet.toList(),
       mainAnswerStatusMap: domain.mainAnswerStatusMap.map(
           (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
       questionId: domain.questionId,
@@ -59,14 +59,14 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       answerStatusMap:
           answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
-      questionIdList: questionIdList.toList(),
-      clearAnswerQIdList: clearAnswerQIdList.toList(),
+      updatedQIdSet: updatedQIdSet.toSet(),
+      clearAnswerQIdSet: clearAnswerQIdSet.toSet(),
       mainAnswerStatusMap: mainAnswerStatusMap
           .map((key, value) => MapEntry(key, value.toDomain())),
       questionId: questionId,
       updateState: LoadState(updateState),
       restoreState: LoadState(restoreState),
-      updateType: updateType.map((e) => UpdateSurveyPageStateType(e)).toList(),
+      updateType: updateType.map((e) => UpdateSurveyPageStateType(e)).toSet(),
     );
   }
 

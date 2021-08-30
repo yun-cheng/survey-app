@@ -45,7 +45,7 @@ void _respondentEventWorker(
     },
     // H_ 使用者選擇問卷
     surveySelected: (e) {
-      logger('Event').i('RespondentEvent: surveySelected');
+      logger('User Event').i('RespondentEvent: surveySelected');
 
       state = state.copyWith(
         survey: e.survey,
@@ -55,7 +55,7 @@ void _respondentEventWorker(
     },
     // H_ 使用者選擇受訪者
     respondentSelected: (e) {
-      logger('Event').i('RespondentEvent: respondentSelected');
+      logger('User Event').i('RespondentEvent: respondentSelected');
 
       state = state
           .copyWith(
@@ -69,7 +69,7 @@ void _respondentEventWorker(
     },
     // H_ 切換分頁時
     tabSwitched: (e) {
-      logger('Event').i('RespondentEvent: tabSwitched');
+      logger('User Event').i('RespondentEvent: tabSwitched');
 
       final currentTab = TabType.values[e.index];
       Respondent? firstRespondent;

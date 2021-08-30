@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hive/hive.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
+import 'package:interviewer_quiz_flutter_app/infrastructure/core/extensions.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:synchronized/synchronized.dart';

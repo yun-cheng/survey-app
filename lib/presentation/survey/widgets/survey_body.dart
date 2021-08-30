@@ -42,20 +42,19 @@ class SurveyBody extends StatelessWidget {
             // return ScrollablePositionedList.builder(
             return ListView.builder(
               shrinkWrap: true,
-              itemCount: state.pageQuestionMap.length,
+              itemCount: state.pageQIdSet.length,
               // TODO
               // itemScrollController: controller,
               // itemPositionsListener: listener,
               itemBuilder: (context, index) {
                 // logger('Test').e('itemBuilder: QaCard');
 
-                final question =
-                    state.pageQuestionMap.entries.elementAt(index).value;
+                final questionId = state.pageQIdSet.elementAt(index);
 
                 return QaCard(
-                  key: Key(question.id),
+                  key: Key(questionId),
                   index: index,
-                  questionId: question.id,
+                  questionId: questionId,
                 );
               },
             );

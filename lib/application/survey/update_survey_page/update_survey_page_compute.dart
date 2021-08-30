@@ -5,22 +5,23 @@ part of 'update_survey_page_bloc.dart';
 UpdateSurveyPageState pageQuestionMapUpdated(UpdateSurveyPageState state) {
   logger('Compute').i('PageQuestionMapUpdated');
 
-  // S_1 篩出當前頁面的題目
-  final pageQuestionMap =
-      state.questionMap.filter((e) => e.value.pageNumber == state.page).toMap();
-
+  // S_ 要呈現的資訊
+  final questionMap = {
+    ...state.isRecodeModule ? state.mainQuestionMap : state.questionMap
+  };
   final answerMap =
       state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
   final answerStatusMap =
       state.isRecodeModule ? state.mainAnswerStatusMap : state.answerStatusMap;
 
-  final newPageQuestionMap = pageQuestionMap.map((questionId, _question) {
-    Question question = _question;
+  for (final questionId in state.pageQIdSet) {
+    var question = questionMap[questionId]!;
 
-    // S_ 若是預過錄模組，篩出原題目，但保留 recodeNeeded
+    // S_ 若是預過錄模組，呈現原題目，但保留 recodeNeeded
     if (state.isRecodeModule) {
-      question = state.mainQuestionMap[questionId]!;
-      question = question.copyWith(recodeNeeded: _question.recodeNeeded);
+      question = question.copyWith(
+        recodeNeeded: state.questionMap[questionId]!.recodeNeeded,
+      );
     }
 
     // S_ 將題目敘述中有連結其他作答的地方更新
@@ -28,13 +29,14 @@ UpdateSurveyPageState pageQuestionMapUpdated(UpdateSurveyPageState state) {
       referenceList: state.referenceList,
       respondentResponseMap: state.respondentResponseMap,
       surveyId: state.surveyId,
-      moduleType: state.moduleType,
+      moduleType: state.isRecodeModule ? ModuleType.main() : state.moduleType,
       answerMap: answerMap,
       respondentId: state.respondent.id,
     );
 
+    // S_ 如果是選擇題要篩選項
     if (question.type.isChoice) {
-      List<Choice> choiceList = question.choiceList;
+      var choiceList = question.initChoiceList;
 
       // NOTE 有可能尚未作答
       final thisAnswer = answerMap[questionId] ?? Answer.empty();
@@ -44,7 +46,7 @@ UpdateSurveyPageState pageQuestionMapUpdated(UpdateSurveyPageState state) {
       if (question.upperQuestionId.isNotEmpty && !isSpecialAnswer) {
         final upperAnswer = answerMap[question.upperQuestionId];
         // NOTE 用 id 文字比對
-        choiceList = question.choiceList
+        choiceList = question.initChoiceList
             .filter(
                 (choice) => choice.upperChoiceId == upperAnswer!.valueString)
             .toList();
@@ -67,18 +69,12 @@ UpdateSurveyPageState pageQuestionMapUpdated(UpdateSurveyPageState state) {
       );
     }
 
-    return MapEntry(questionId, question);
-  });
+    questionMap[questionId] = question;
+  }
 
-  final state1 = state.copyWith(
-    updateType: SurveyPageUpdateType.page,
-    pageQuestionMap: newPageQuestionMap,
-  );
-
-  // NOTE 因為每次作答變化都要重新檢查，只有在 stateRestored、respondentResponseListUpdated
-  //  不需要檢查，為了方便還是就直接放進來這邊一起跑，或許反而比較節省效能
-  return checkIsLastPage(state1).copyWith(
-    updateState: LoadState.success(),
+  return state.copyWith(
+    questionMap: state.isRecodeModule ? state.questionMap : questionMap,
+    mainQuestionMap: state.isRecodeModule ? questionMap : state.mainQuestionMap,
   );
 }
 
@@ -88,12 +84,7 @@ UpdateSurveyPageState pageUpdated(UpdateSurveyPageState state) {
 
   late final int newPage;
   if (state.direction == Direction.current) {
-    newPage = state.questionMap.entries
-        .firstWhere((e) =>
-            e.value.pageNumber == state.page &&
-            !state.answerStatusMap[e.key]!.isHidden)
-        .value
-        .pageNumber;
+    newPage = state.page;
   } else if (state.direction == Direction.next) {
     newPage = state.questionMap.entries
         .firstWhere((e) =>
@@ -113,12 +104,17 @@ UpdateSurveyPageState pageUpdated(UpdateSurveyPageState state) {
   // FIXME newestPage 有可能變小，而影響判斷?
   final newestPage = newPage > state.newestPage ? newPage : state.newestPage;
 
-  final state1 = state.copyWith(
-    updateType: SurveyPageUpdateType.page,
+  // S_ 篩出該頁面的題目id
+  final pageQIdSet = state.questionMap
+      .filterByValues((q) => q.pageNumber == newPage)
+      .keys
+      .toSet();
+
+  return state.copyWith(
     page: newPage,
     newestPage: newestPage,
+    pageQIdSet: pageQIdSet,
   );
-  return pageQuestionMapUpdated(state1);
 }
 
 // H_7 檢查是否是最後一頁
@@ -126,7 +122,7 @@ UpdateSurveyPageState checkIsLastPage(UpdateSurveyPageState state) {
   logger('Compute').i('CheckIsLastPage');
 
   // NOTE 篩出後面頁數第一筆不是隱藏的題目
-  final isLastPage = state.questionMap.entries.firstWhereOrNull((e) =>
+  final isLastPage = state.questionMap.entries.lastWhereOrNull((e) =>
           e.value.pageNumber > state.page &&
           !state.answerStatusMap[e.key]!.isHidden) ==
       null;
@@ -170,8 +166,6 @@ UpdateSurveyPageState warningUpdated(UpdateSurveyPageState state) {
   }
 
   return state.copyWith(
-    updateState: LoadState.success(),
-    updateType: SurveyPageUpdateType.warning,
     warning: warning,
     showWarning: showWarning,
   );
@@ -184,35 +178,31 @@ UpdateSurveyPageState contentQuestionMapUpdated(UpdateSurveyPageState state) {
   final answerMap =
       state.isRecodeModule ? state.mainAnswerMap : state.answerMap;
 
-  final contentQuestionMap = state.questionMap
-      .filter((e) =>
-          !state.answerStatusMap[e.key]!.isHidden &&
-          e.value.pageNumber <= state.newestPage)
-      .toMap()
-      // S_ 將題目敘述中有連結其他作答的地方更新
-      .map((questionId, _question) {
-    Question question = _question;
+  final contentQIdSet = state.questionMap
+      .filterByValues((q) =>
+          !state.answerStatusMap[q.id]!.isHidden &&
+          q.pageNumber <= state.newestPage)
+      .keys
+      .toSet();
 
-    // S_ 若是預過錄模組，篩出原題目
-    if (state.isRecodeModule) {
-      question = state.mainQuestionMap[questionId]!;
-    }
+  final questionMap = {
+    ...state.isRecodeModule ? state.mainQuestionMap : state.questionMap
+  };
 
-    return MapEntry(
-      questionId,
-      question.updateBody(
-        referenceList: state.referenceList,
-        respondentResponseMap: state.respondentResponseMap,
-        surveyId: state.surveyId,
-        moduleType: state.moduleType,
-        answerMap: answerMap,
-        respondentId: state.respondent.id,
-      ),
+  for (final questionId in contentQIdSet) {
+    questionMap[questionId] = questionMap[questionId]!.updateBody(
+      referenceList: state.referenceList,
+      respondentResponseMap: state.respondentResponseMap,
+      surveyId: state.surveyId,
+      moduleType: state.isRecodeModule ? ModuleType.main() : state.moduleType,
+      answerMap: answerMap,
+      respondentId: state.respondent.id,
     );
-  });
+  }
 
   return state.copyWith(
-    contentQuestionMap: contentQuestionMap,
-    updateType: SurveyPageUpdateType.contentQuestionMap,
+    contentQIdSet: contentQIdSet,
+    questionMap: state.isRecodeModule ? state.questionMap : questionMap,
+    mainQuestionMap: state.isRecodeModule ? questionMap : state.mainQuestionMap,
   );
 }

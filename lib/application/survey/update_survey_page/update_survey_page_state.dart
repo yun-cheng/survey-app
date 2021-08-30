@@ -5,42 +5,43 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
   const UpdateSurveyPageState._();
 
   const factory UpdateSurveyPageState({
-    // H_ restore
+    // H_ 主要資料
+    required Map<String, Answer> answerMap,
+    required Map<String, AnswerStatus> answerStatusMap,
     required int page,
     required int newestPage,
-    required Direction direction,
-    required Map<String, AnswerStatus> answerStatusMap,
     required bool isLastPage,
     required Warning warning,
     required bool showWarning,
-    required bool isRecodeModule,
-    required LoadState updateState,
-    required SurveyPageUpdateType updateType,
-    required LoadState restoreState,
-    // H_ reference
-    required LoadState referenceListState,
-    required List<Reference> referenceList,
-    required Option<SurveyFailure> surveyFailure,
-    required Respondent respondent,
-    required Map<String, Answer> answerMap,
-    required Map<ModuleType, Response> respondentResponseMap,
-    required String surveyId,
-    required ModuleType moduleType,
-    // H_ questionMap
-    required Map<String, Question> questionMap,
-    required Map<String, Question> pageQuestionMap,
-    required Map<String, Question> contentQuestionMap,
-    // H_ page state
-    required bool isReadOnly,
+    // H_ 中間資料
+    required Direction direction,
     required bool appIsPaused,
     required bool showDialog,
     required bool leavePage,
     required bool finishResponse,
     required bool showLeaveButton,
-    // H_ recode
+    required Set<String> pageQIdSet,
+    required Set<String> contentQIdSet,
+    // H_ reference
+    required LoadState referenceListState,
+    required List<Reference> referenceList,
+    required Option<SurveyFailure> surveyFailure,
+    required Respondent respondent,
+    required Map<ModuleType, Response> respondentResponseMap,
+    required String surveyId,
+    required ModuleType moduleType,
+    // H_ 同 session 會變的參考資料
+    required Map<String, Question> questionMap,
     required Map<String, Question> mainQuestionMap,
+    // H_ 同 session 不變的參考資料
+    required bool isReadOnly,
+    required bool isRecodeModule,
     required Map<String, Answer> mainAnswerMap,
     required Map<String, AnswerStatus> mainAnswerStatusMap,
+    // H_ 狀態更新進度
+    required LoadState restoreState,
+    required LoadState updateState,
+    required SurveyPageUpdateType updateType,
   }) = _UpdateSurveyPageState;
 
   factory UpdateSurveyPageState.initial() => UpdateSurveyPageState(
@@ -52,8 +53,8 @@ class UpdateSurveyPageState with _$UpdateSurveyPageState {
         newestPage: -99,
         direction: Direction.current,
         questionMap: const {},
-        pageQuestionMap: const {},
-        contentQuestionMap: const {},
+        pageQIdSet: const {},
+        contentQIdSet: const {},
         answerMap: const {},
         answerStatusMap: const {},
         isLastPage: false,

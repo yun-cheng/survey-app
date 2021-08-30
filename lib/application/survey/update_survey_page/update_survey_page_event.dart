@@ -43,11 +43,11 @@ class UpdateSurveyPageEvent with _$UpdateSurveyPageEvent {
   const factory UpdateSurveyPageEvent.contentQuestionMapUpdated() =
       _ContentQuestionMapUpdated;
 
-  // H_ 切換頁面相關 events
-  const factory UpdateSurveyPageEvent.nextPagePressed() = _NextPagePressed;
-  const factory UpdateSurveyPageEvent.previousPagePressed() =
-      _PreviousPagePressed;
-  const factory UpdateSurveyPageEvent.wentToPage(int page) = _WentToPage;
+  // H_ 切換頁面
+  const factory UpdateSurveyPageEvent.pageNavigatedTo({
+    @Default(Direction.current)  Direction direction,
+    int? page,
+  }) = _PageNavigatedTo;
 
   // H_ 使用者點擊完成問卷
   const factory UpdateSurveyPageEvent.finishedButtonPressed() =

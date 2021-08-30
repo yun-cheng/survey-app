@@ -54,9 +54,9 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
           answerMap: state.isRecodeModule ? state.answerMap : e.answerMap,
           recodeAnswerMap:
               state.isRecodeModule ? e.answerMap : state.recodeAnswerMap,
-          questionIdList: e.questionIdList,
+          updatedQIdSet: e.updatedQIdSet,
         );
-        add(const SurveyPageEvent.questionIdListCleared());
+        add(const SurveyPageEvent.updatedQIdSetCleared());
       },
       // H_ answerStatusMap
       answerStatusMapUpdated: (e) async* {
@@ -85,7 +85,8 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         yield state.copyWith(
           loadState: LoadState.success(),
           page: e.page,
-          pageQuestionMap: e.pageQuestionMap,
+          pageQIdSet: e.pageQIdSet,
+          questionMap: e.questionMap,
           isLastPage: e.isLastPage,
         );
         add(const SurveyPageEvent.stateToJson());
@@ -99,7 +100,8 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         );
         yield state.copyWith(
           loadState: LoadState.success(),
-          contentQuestionMap: e.contentQuestionMap,
+          contentQIdSet: e.contentQIdSet,
+          questionMap: e.questionMap,
         );
         add(const SurveyPageEvent.stateToJson());
       },
@@ -141,11 +143,11 @@ class SurveyPageBloc extends Bloc<SurveyPageEvent, SurveyPageState> {
         yield SurveyPageState.initial();
         add(const SurveyPageEvent.stateToJson());
       },
-      questionIdListCleared: (e) async* {
-        logger('Event').i('SurveyPageEvent: questionIdListCleared');
+      updatedQIdSetCleared: (e) async* {
+        logger('Event').i('SurveyPageEvent: updatedQIdSetCleared');
 
         yield state.copyWith(
-          questionIdList: const [],
+          updatedQIdSet: const {},
         );
         add(const SurveyPageEvent.stateToJson());
       },

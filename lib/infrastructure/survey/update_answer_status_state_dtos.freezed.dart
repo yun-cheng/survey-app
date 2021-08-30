@@ -27,8 +27,8 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       required bool isRecodeModule,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
-      required List<String> questionIdList,
-      required List<String> clearAnswerQIdList,
+      required List<String> updatedQIdSet,
+      required List<String> clearAnswerQIdSet,
       required Map<String, AnswerStatusDto> mainAnswerStatusMap,
       required String questionId,
       required String updateState,
@@ -40,8 +40,8 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       isRecodeModule: isRecodeModule,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
-      questionIdList: questionIdList,
-      clearAnswerQIdList: clearAnswerQIdList,
+      updatedQIdSet: updatedQIdSet,
+      clearAnswerQIdSet: clearAnswerQIdSet,
       mainAnswerStatusMap: mainAnswerStatusMap,
       questionId: questionId,
       updateState: updateState,
@@ -67,8 +67,8 @@ mixin _$UpdateAnswerStatusStateDto {
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  List<String> get questionIdList => throw _privateConstructorUsedError;
-  List<String> get clearAnswerQIdList => throw _privateConstructorUsedError;
+  List<String> get updatedQIdSet => throw _privateConstructorUsedError;
+  List<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
   String get questionId => throw _privateConstructorUsedError;
@@ -93,8 +93,8 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
       bool isRecodeModule,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
-      List<String> questionIdList,
-      List<String> clearAnswerQIdList,
+      List<String> updatedQIdSet,
+      List<String> clearAnswerQIdSet,
       Map<String, AnswerStatusDto> mainAnswerStatusMap,
       String questionId,
       String updateState,
@@ -118,8 +118,8 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionIdList = freezed,
-    Object? clearAnswerQIdList = freezed,
+    Object? updatedQIdSet = freezed,
+    Object? clearAnswerQIdSet = freezed,
     Object? mainAnswerStatusMap = freezed,
     Object? questionId = freezed,
     Object? updateState = freezed,
@@ -147,13 +147,13 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusDto>,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
+      updatedQIdSet: updatedQIdSet == freezed
+          ? _value.updatedQIdSet
+          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      clearAnswerQIdList: clearAnswerQIdList == freezed
-          ? _value.clearAnswerQIdList
-          : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
+      clearAnswerQIdSet: clearAnswerQIdSet == freezed
+          ? _value.clearAnswerQIdSet
+          : clearAnswerQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
@@ -193,8 +193,8 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       bool isRecodeModule,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
-      List<String> questionIdList,
-      List<String> clearAnswerQIdList,
+      List<String> updatedQIdSet,
+      List<String> clearAnswerQIdSet,
       Map<String, AnswerStatusDto> mainAnswerStatusMap,
       String questionId,
       String updateState,
@@ -221,8 +221,8 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
-    Object? questionIdList = freezed,
-    Object? clearAnswerQIdList = freezed,
+    Object? updatedQIdSet = freezed,
+    Object? clearAnswerQIdSet = freezed,
     Object? mainAnswerStatusMap = freezed,
     Object? questionId = freezed,
     Object? updateState = freezed,
@@ -250,13 +250,13 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatusDto>,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
+      updatedQIdSet: updatedQIdSet == freezed
+          ? _value.updatedQIdSet
+          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      clearAnswerQIdList: clearAnswerQIdList == freezed
-          ? _value.clearAnswerQIdList
-          : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
+      clearAnswerQIdSet: clearAnswerQIdSet == freezed
+          ? _value.clearAnswerQIdSet
+          : clearAnswerQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>,
       mainAnswerStatusMap: mainAnswerStatusMap == freezed
           ? _value.mainAnswerStatusMap
@@ -291,8 +291,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       required this.isRecodeModule,
       required this.answerMap,
       required this.answerStatusMap,
-      required this.questionIdList,
-      required this.clearAnswerQIdList,
+      required this.updatedQIdSet,
+      required this.clearAnswerQIdSet,
       required this.mainAnswerStatusMap,
       required this.questionId,
       required this.updateState,
@@ -314,9 +314,9 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   @override
   final Map<String, AnswerStatusDto> answerStatusMap;
   @override
-  final List<String> questionIdList;
+  final List<String> updatedQIdSet;
   @override
-  final List<String> clearAnswerQIdList;
+  final List<String> clearAnswerQIdSet;
   @override
   final Map<String, AnswerStatusDto> mainAnswerStatusMap;
   @override
@@ -330,7 +330,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(isReadOnly: $isReadOnly, questionMap: $questionMap, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionIdList: $questionIdList, clearAnswerQIdList: $clearAnswerQIdList, mainAnswerStatusMap: $mainAnswerStatusMap, questionId: $questionId, updateState: $updateState, restoreState: $restoreState, updateType: $updateType)';
+    return 'UpdateAnswerStatusStateDto(isReadOnly: $isReadOnly, questionMap: $questionMap, isRecodeModule: $isRecodeModule, answerMap: $answerMap, answerStatusMap: $answerStatusMap, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, mainAnswerStatusMap: $mainAnswerStatusMap, questionId: $questionId, updateState: $updateState, restoreState: $restoreState, updateType: $updateType)';
   }
 
   @override
@@ -352,12 +352,12 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
             (identical(other.answerStatusMap, answerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.questionIdList, questionIdList) ||
+            (identical(other.updatedQIdSet, updatedQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionIdList, questionIdList)) &&
-            (identical(other.clearAnswerQIdList, clearAnswerQIdList) ||
+                    .equals(other.updatedQIdSet, updatedQIdSet)) &&
+            (identical(other.clearAnswerQIdSet, clearAnswerQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.clearAnswerQIdList, clearAnswerQIdList)) &&
+                    .equals(other.clearAnswerQIdSet, clearAnswerQIdSet)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)) &&
@@ -383,8 +383,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(questionIdList) ^
-      const DeepCollectionEquality().hash(clearAnswerQIdList) ^
+      const DeepCollectionEquality().hash(updatedQIdSet) ^
+      const DeepCollectionEquality().hash(clearAnswerQIdSet) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
       const DeepCollectionEquality().hash(questionId) ^
       const DeepCollectionEquality().hash(updateState) ^
@@ -410,8 +410,8 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
       required bool isRecodeModule,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
-      required List<String> questionIdList,
-      required List<String> clearAnswerQIdList,
+      required List<String> updatedQIdSet,
+      required List<String> clearAnswerQIdSet,
       required Map<String, AnswerStatusDto> mainAnswerStatusMap,
       required String questionId,
       required String updateState,
@@ -435,9 +435,9 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  List<String> get questionIdList => throw _privateConstructorUsedError;
+  List<String> get updatedQIdSet => throw _privateConstructorUsedError;
   @override
-  List<String> get clearAnswerQIdList => throw _privateConstructorUsedError;
+  List<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerStatusDto> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;

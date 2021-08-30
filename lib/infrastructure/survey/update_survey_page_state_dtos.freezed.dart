@@ -31,8 +31,8 @@ class _$UpdateSurveyPageStateDtoTearOff {
       required Direction direction,
       required SurveyPageUpdateType updateType,
       required Map<String, QuestionDto> questionMap,
-      required Map<String, QuestionDto> pageQuestionMap,
-      required Map<String, QuestionDto> contentQuestionMap,
+      required List<String> pageQIdSet,
+      required List<String> contentQIdSet,
       required Map<String, AnswerDto> answerMap,
       required Map<String, AnswerStatusDto> answerStatusMap,
       required bool isLastPage,
@@ -63,8 +63,8 @@ class _$UpdateSurveyPageStateDtoTearOff {
       direction: direction,
       updateType: updateType,
       questionMap: questionMap,
-      pageQuestionMap: pageQuestionMap,
-      contentQuestionMap: contentQuestionMap,
+      pageQIdSet: pageQIdSet,
+      contentQIdSet: contentQIdSet,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       isLastPage: isLastPage,
@@ -108,10 +108,8 @@ mixin _$UpdateSurveyPageStateDto {
   SurveyPageUpdateType get updateType => throw _privateConstructorUsedError;
   Map<String, QuestionDto> get questionMap =>
       throw _privateConstructorUsedError;
-  Map<String, QuestionDto> get pageQuestionMap =>
-      throw _privateConstructorUsedError;
-  Map<String, QuestionDto> get contentQuestionMap =>
-      throw _privateConstructorUsedError;
+  List<String> get pageQIdSet => throw _privateConstructorUsedError;
+  List<String> get contentQIdSet => throw _privateConstructorUsedError;
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatusDto> get answerStatusMap =>
       throw _privateConstructorUsedError;
@@ -159,8 +157,8 @@ abstract class $UpdateSurveyPageStateDtoCopyWith<$Res> {
       Direction direction,
       SurveyPageUpdateType updateType,
       Map<String, QuestionDto> questionMap,
-      Map<String, QuestionDto> pageQuestionMap,
-      Map<String, QuestionDto> contentQuestionMap,
+      List<String> pageQIdSet,
+      List<String> contentQIdSet,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
@@ -206,8 +204,8 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? direction = freezed,
     Object? updateType = freezed,
     Object? questionMap = freezed,
-    Object? pageQuestionMap = freezed,
-    Object? contentQuestionMap = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? isLastPage = freezed,
@@ -266,14 +264,14 @@ class _$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, QuestionDto>,
-      pageQuestionMap: pageQuestionMap == freezed
-          ? _value.pageQuestionMap
-          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
-      contentQuestionMap: contentQuestionMap == freezed
-          ? _value.contentQuestionMap
-          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -389,8 +387,8 @@ abstract class _$UpdateSurveyPageStateDtoCopyWith<$Res>
       Direction direction,
       SurveyPageUpdateType updateType,
       Map<String, QuestionDto> questionMap,
-      Map<String, QuestionDto> pageQuestionMap,
-      Map<String, QuestionDto> contentQuestionMap,
+      List<String> pageQIdSet,
+      List<String> contentQIdSet,
       Map<String, AnswerDto> answerMap,
       Map<String, AnswerStatusDto> answerStatusMap,
       bool isLastPage,
@@ -441,8 +439,8 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
     Object? direction = freezed,
     Object? updateType = freezed,
     Object? questionMap = freezed,
-    Object? pageQuestionMap = freezed,
-    Object? contentQuestionMap = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? isLastPage = freezed,
@@ -501,14 +499,14 @@ class __$UpdateSurveyPageStateDtoCopyWithImpl<$Res>
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, QuestionDto>,
-      pageQuestionMap: pageQuestionMap == freezed
-          ? _value.pageQuestionMap
-          : pageQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
-      contentQuestionMap: contentQuestionMap == freezed
-          ? _value.contentQuestionMap
-          : contentQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -606,8 +604,8 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       required this.direction,
       required this.updateType,
       required this.questionMap,
-      required this.pageQuestionMap,
-      required this.contentQuestionMap,
+      required this.pageQIdSet,
+      required this.contentQIdSet,
       required this.answerMap,
       required this.answerStatusMap,
       required this.isLastPage,
@@ -652,9 +650,9 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
   @override
   final Map<String, QuestionDto> questionMap;
   @override
-  final Map<String, QuestionDto> pageQuestionMap;
+  final List<String> pageQIdSet;
   @override
-  final Map<String, QuestionDto> contentQuestionMap;
+  final List<String> contentQIdSet;
   @override
   final Map<String, AnswerDto> answerMap;
   @override
@@ -698,7 +696,7 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
 
   @override
   String toString() {
-    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionMap: $questionMap, pageQuestionMap: $pageQuestionMap, contentQuestionMap: $contentQuestionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionMap: $mainQuestionMap, respondentResponseMap: $respondentResponseMap, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
+    return 'UpdateSurveyPageStateDto(referenceListState: $referenceListState, referenceList: $referenceList, surveyFailure: $surveyFailure, respondent: $respondent, page: $page, newestPage: $newestPage, direction: $direction, updateType: $updateType, questionMap: $questionMap, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, answerMap: $answerMap, answerStatusMap: $answerStatusMap, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, updateState: $updateState, restoreState: $restoreState, isRecodeModule: $isRecodeModule, mainQuestionMap: $mainQuestionMap, respondentResponseMap: $respondentResponseMap, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, appIsPaused: $appIsPaused, showDialog: $showDialog, leavePage: $leavePage, finishResponse: $finishResponse, showLeaveButton: $showLeaveButton, mainAnswerMap: $mainAnswerMap, mainAnswerStatusMap: $mainAnswerStatusMap)';
   }
 
   @override
@@ -731,12 +729,12 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
             (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
                     .equals(other.questionMap, questionMap)) &&
-            (identical(other.pageQuestionMap, pageQuestionMap) ||
+            (identical(other.pageQIdSet, pageQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.pageQuestionMap, pageQuestionMap)) &&
-            (identical(other.contentQuestionMap, contentQuestionMap) ||
+                    .equals(other.pageQIdSet, pageQIdSet)) &&
+            (identical(other.contentQIdSet, contentQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.contentQuestionMap, contentQuestionMap)) &&
+                    .equals(other.contentQIdSet, contentQIdSet)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -793,8 +791,8 @@ class _$_UpdateSurveyPageStateDto extends _UpdateSurveyPageStateDto {
       const DeepCollectionEquality().hash(direction) ^
       const DeepCollectionEquality().hash(updateType) ^
       const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(pageQuestionMap) ^
-      const DeepCollectionEquality().hash(contentQuestionMap) ^
+      const DeepCollectionEquality().hash(pageQIdSet) ^
+      const DeepCollectionEquality().hash(contentQIdSet) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(isLastPage) ^
@@ -839,8 +837,8 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
           required Direction direction,
           required SurveyPageUpdateType updateType,
           required Map<String, QuestionDto> questionMap,
-          required Map<String, QuestionDto> pageQuestionMap,
-          required Map<String, QuestionDto> contentQuestionMap,
+          required List<String> pageQIdSet,
+          required List<String> contentQIdSet,
           required Map<String, AnswerDto> answerMap,
           required Map<String, AnswerStatusDto> answerStatusMap,
           required bool isLastPage,
@@ -887,11 +885,9 @@ abstract class _UpdateSurveyPageStateDto extends UpdateSurveyPageStateDto {
   Map<String, QuestionDto> get questionMap =>
       throw _privateConstructorUsedError;
   @override
-  Map<String, QuestionDto> get pageQuestionMap =>
-      throw _privateConstructorUsedError;
+  List<String> get pageQIdSet => throw _privateConstructorUsedError;
   @override
-  Map<String, QuestionDto> get contentQuestionMap =>
-      throw _privateConstructorUsedError;
+  List<String> get contentQIdSet => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
   @override

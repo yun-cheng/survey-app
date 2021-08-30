@@ -68,7 +68,9 @@ class PageControlBar extends HookWidget {
         Icons.arrow_back_ios_sharp,
         onPressed: () {
           context.read<UpdateSurveyPageBloc>().add(
-                const UpdateSurveyPageEvent.previousPagePressed(),
+                const UpdateSurveyPageEvent.pageNavigatedTo(
+                  direction: Direction.previous,
+                ),
               );
         },
       ),
@@ -83,7 +85,9 @@ class PageControlBar extends HookWidget {
         Icons.arrow_forward_ios_sharp,
         onPressed: () {
           context.read<UpdateSurveyPageBloc>().add(
-                const UpdateSurveyPageEvent.nextPagePressed(),
+                const UpdateSurveyPageEvent.pageNavigatedTo(
+                  direction: Direction.next,
+                ),
               );
         },
       ),
@@ -102,7 +106,9 @@ class PageControlBar extends HookWidget {
           style: kWarningButtonStyle,
           onPressed: () {
             context.read<UpdateSurveyPageBloc>().add(
-                  UpdateSurveyPageEvent.wentToPage(warning.pageNumber),
+                  UpdateSurveyPageEvent.pageNavigatedTo(
+                    page: warning.pageNumber,
+                  ),
                 );
           },
           child: Text(

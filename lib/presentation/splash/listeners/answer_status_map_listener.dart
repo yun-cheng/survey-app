@@ -17,7 +17,7 @@ final answerStatusMapListener =
       context.read<SurveyPageBloc>().add(
             SurveyPageEvent.answerMapUpdated(
               answerMap: state.answerMap,
-              questionIdList: state.questionIdList,
+              updatedQIdSet: state.updatedQIdSet,
             ),
           );
     }

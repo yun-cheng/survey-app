@@ -4,7 +4,7 @@ part of 'survey_page_bloc.dart';
 class SurveyPageEvent with _$SurveyPageEvent {
   const factory SurveyPageEvent.answerMapUpdated({
     required Map<String, Answer> answerMap,
-    required List<String> questionIdList,
+    required Set<String> updatedQIdSet,
   }) = _AnswerMapUpdated;
 
   const factory SurveyPageEvent.answerStatusMapUpdated({
@@ -13,12 +13,14 @@ class SurveyPageEvent with _$SurveyPageEvent {
 
   const factory SurveyPageEvent.pageUpdated({
     required int page,
-    required Map<String, Question> pageQuestionMap,
+    required Set<String> pageQIdSet,
+    required Map<String, Question> questionMap,
     required bool isLastPage,
   }) = _PageUpdated;
 
   const factory SurveyPageEvent.contentQuestionMapUpdated({
-    required Map<String, Question> contentQuestionMap,
+    required Set<String> contentQIdSet,
+    required Map<String, Question> questionMap,
   }) = _ContentQuestionMapUpdated;
 
   const factory SurveyPageEvent.warningUpdated({
@@ -35,8 +37,7 @@ class SurveyPageEvent with _$SurveyPageEvent {
 
   const factory SurveyPageEvent.stateCleared() = _StateCleared;
 
-  const factory SurveyPageEvent.questionIdListCleared() =
-      _QuestionIdListCleared;
+  const factory SurveyPageEvent.updatedQIdSetCleared() = _updatedQIdSetCleared;
 
   const factory SurveyPageEvent.stateToJson() = _StateToJson;
   const factory SurveyPageEvent.taskInitialized() = _TaskInitialized;

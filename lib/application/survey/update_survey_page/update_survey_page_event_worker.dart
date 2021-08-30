@@ -70,14 +70,14 @@ void _updateSurveyPageEventWorker(
             respondent: e.respondent,
             surveyId: e.surveyId,
             moduleType: e.moduleType,
+            //
+            direction: Direction.current,
           )
           .send(channel);
-      state = pageQuestionMapUpdated(state)
-          .copyWith(
-            restoreState: LoadState.success(),
-          )
-          .send(channel)
-          .saveState(box, lock);
+      state = state.copyWith(
+        restoreState: LoadState.success(),
+      );
+      state = pageUpdatedFlow(channel, state).saveState(box, lock);
     },
     // H_ 當前受訪者在其他模組的 response 更新時，更新頁面
     respondentResponseMapUpdated: (e) {
@@ -89,7 +89,13 @@ void _updateSurveyPageEventWorker(
             respondentResponseMap: e.respondentResponseMap,
           )
           .send(channel);
-      state = pageQuestionMapUpdated(state).send(channel).saveState(box, lock);
+      state = pageQuestionMapUpdated(state)
+          .copyWith(
+            updateState: LoadState.success(),
+            updateType: SurveyPageUpdateType.page,
+          )
+          .send(channel)
+          .saveState(box, lock);
     },
     // H_ 作答有變更時，更新頁面，並檢查 warning
     answerChanged: (e) {
@@ -104,8 +110,14 @@ void _updateSurveyPageEventWorker(
           .send(channel);
 
       if (!state.isRecodeModule) {
-        // S_ 更新 page
-        state = pageQuestionMapUpdated(state).send(channel);
+        // S_ 更新 page question
+        state = pageQuestionMapUpdated(state);
+        state = checkIsLastPage(state)
+            .copyWith(
+              updateState: LoadState.success(),
+              updateType: SurveyPageUpdateType.page,
+            )
+            .send(channel);
       }
 
       // S_ 更新 warning
@@ -116,35 +128,38 @@ void _updateSurveyPageEventWorker(
       logger('User Event')
           .i('UpdateSurveyPageEvent: contentQuestionMapUpdated');
 
-      state =
-          contentQuestionMapUpdated(state).send(channel).saveState(box, lock);
+      state = contentQuestionMapUpdated(state)
+          .copyWith(
+            updateType: SurveyPageUpdateType.contentQuestionMap,
+          )
+          .send(channel)
+          .saveState(box, lock);
     },
-    // H_ 切換頁面相關 events
-    nextPagePressed: (e) {
-      logger('User Event').i('UpdateSurveyPageEvent: nextPagePressed');
+    // H_ 切換頁面
+    pageNavigatedTo: (e) {
+      logger('User Event').i('UpdateSurveyPageEvent: pageNavigatedTo');
 
       state = state
           .copyWith(
             updateState: LoadState.inProgress(),
-            direction: Direction.next,
+            direction: e.direction,
+            page: e.page ?? state.page,
           )
           .send(channel);
 
-      // S_c1 不是在最新一頁
-      if (state.page != state.newestPage) {
-        state = pageUpdated(state).send(channel);
+      // S_c1 不是按下一頁，或不是在最新一頁
+      if (e.direction != Direction.next || state.page != state.newestPage) {
+        state = pageUpdatedFlow(channel, state);
 
-        // S_c2 在最新一頁，沒有 warning
+        // S_c2 在最新一頁，沒有 warning，則進到最新一頁
       } else if (state.warning.isEmpty) {
-        state = pageUpdated(state).send(channel);
+        state = pageUpdatedFlow(channel, state);
 
         // S_ 更新 warning
-        state = warningUpdatedFlow(
-          channel,
-          state.copyWith(showWarning: false),
-        );
+        state = state.copyWith(showWarning: false);
+        state = warningUpdatedFlow(channel, state);
 
-        // S_c2 在最新一頁，有 warning
+        // S_c3 在最新一頁，但有 warning
       } else {
         state = state
             .copyWith(
@@ -155,29 +170,6 @@ void _updateSurveyPageEventWorker(
             .send(channel);
       }
       state.saveState(box, lock);
-    },
-    previousPagePressed: (e) {
-      logger('User Event').i('UpdateSurveyPageEvent: previousPagePressed');
-
-      state = state
-          .copyWith(
-            updateState: LoadState.inProgress(),
-            direction: Direction.previous,
-          )
-          .send(channel);
-      state = pageUpdated(state).send(channel).saveState(box, lock);
-    },
-    wentToPage: (e) {
-      logger('User Event').i('UpdateSurveyPageEvent: wentToPage');
-
-      state = state
-          .copyWith(
-            updateState: LoadState.inProgress(),
-            page: e.page,
-            direction: Direction.current,
-          )
-          .send(channel);
-      state = pageUpdated(state).send(channel).saveState(box, lock);
     },
     // H_ 使用者點擊完成問卷
     finishedButtonPressed: (e) {
@@ -297,8 +289,28 @@ UpdateSurveyPageState warningUpdatedFlow(
   final state1 = state
       .copyWith(
         updateState: LoadState.inProgress(),
+      )
+      .send(channel);
+  return warningUpdated(state1)
+      .copyWith(
+        updateState: LoadState.success(),
         updateType: SurveyPageUpdateType.warning,
       )
       .send(channel);
-  return warningUpdated(state1).send(channel);
+}
+
+UpdateSurveyPageState pageUpdatedFlow(
+  AsyncTaskChannel channel,
+  UpdateSurveyPageState state,
+) {
+  var state1 = pageUpdated(state);
+  state1 = pageQuestionMapUpdated(state1);
+  state1 = checkIsLastPage(state1);
+
+  return state1
+      .copyWith(
+        updateState: LoadState.success(),
+        updateType: SurveyPageUpdateType.page,
+      )
+      .send(channel);
 }

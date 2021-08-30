@@ -30,8 +30,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
     required Direction direction,
     required SurveyPageUpdateType updateType,
     required Map<String, QuestionDto> questionMap,
-    required Map<String, QuestionDto> pageQuestionMap,
-    required Map<String, QuestionDto> contentQuestionMap,
+    required List<String> pageQIdSet,
+    required List<String> contentQIdSet,
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
     required bool isLastPage,
@@ -68,10 +68,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       updateType: domain.updateType,
       questionMap: domain.questionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
-      pageQuestionMap: domain.pageQuestionMap
-          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
-      contentQuestionMap: domain.contentQuestionMap
-          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
+      pageQIdSet: domain.pageQIdSet.toList(),
+      contentQIdSet: domain.contentQIdSet.toList(),
       answerMap: domain.answerMap
           .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       answerStatusMap: domain.answerStatusMap.map(
@@ -113,10 +111,8 @@ class UpdateSurveyPageStateDto with _$UpdateSurveyPageStateDto {
       updateType: updateType,
       questionMap:
           questionMap.map((key, value) => MapEntry(key, value.toDomain())),
-      pageQuestionMap:
-          pageQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
-      contentQuestionMap: contentQuestionMap
-          .map((key, value) => MapEntry(key, value.toDomain())),
+      pageQIdSet: pageQIdSet.toSet(),
+      contentQIdSet: contentQIdSet.toSet(),
       answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       answerStatusMap:
           answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),

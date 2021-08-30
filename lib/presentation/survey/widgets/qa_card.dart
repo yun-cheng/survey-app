@@ -56,8 +56,7 @@ class QaCard extends StatelessWidget {
 
         final isSpecialAnswer = answerStatus.isSpecialAnswer;
 
-        final thisQuestion =
-            state.pageQuestionMap[questionId] ?? Question.empty();
+        final thisQuestion = state.questionMap[questionId] ?? Question.empty();
 
         final visible = !answerStatus.isHidden &&
             (thisQuestion.tableId == '' ||

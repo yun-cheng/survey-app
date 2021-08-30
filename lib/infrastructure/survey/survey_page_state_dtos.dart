@@ -22,9 +22,10 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
     required bool showWarning,
     required Map<String, AnswerDto> answerMap,
     required Map<String, AnswerStatusDto> answerStatusMap,
-    required List<String> questionIdList,
-    required Map<String, QuestionDto> pageQuestionMap,
-    required Map<String, QuestionDto> contentQuestionMap,
+    required List<String> updatedQIdSet,
+    required List<String> pageQIdSet,
+    required List<String> contentQIdSet,
+    required Map<String, QuestionDto> questionMap,
     required String loadState,
     required String rebuildState,
     required String restoreState,
@@ -45,10 +46,10 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
           .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
       answerStatusMap: domain.answerStatusMap.map(
           (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
-      questionIdList: domain.questionIdList,
-      pageQuestionMap: domain.pageQuestionMap
-          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
-      contentQuestionMap: domain.contentQuestionMap
+      updatedQIdSet: domain.updatedQIdSet.toList(),
+      pageQIdSet: domain.pageQIdSet.toList(),
+      contentQIdSet: domain.contentQIdSet.toList(),
+      questionMap: domain.questionMap
           .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
       loadState: domain.loadState.value,
       rebuildState: domain.rebuildState.value,
@@ -72,11 +73,11 @@ class SurveyPageStateDto with _$SurveyPageStateDto {
       answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
       answerStatusMap:
           answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
-      questionIdList: questionIdList,
-      pageQuestionMap:
-          pageQuestionMap.map((key, value) => MapEntry(key, value.toDomain())),
-      contentQuestionMap: contentQuestionMap
-          .map((key, value) => MapEntry(key, value.toDomain())),
+      updatedQIdSet: updatedQIdSet.toSet(),
+      pageQIdSet: pageQIdSet.toSet(),
+      contentQIdSet: contentQIdSet.toSet(),
+      questionMap:
+          questionMap.map((key, value) => MapEntry(key, value.toDomain())),
       loadState: LoadState(loadState),
       rebuildState: LoadState(rebuildState),
       restoreState: LoadState(restoreState),

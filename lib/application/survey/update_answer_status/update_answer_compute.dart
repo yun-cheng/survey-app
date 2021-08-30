@@ -32,7 +32,7 @@ UpdateAnswerStatusState answerUpdated(
 
   return state.copyWith(
     answerMap: answerMap,
-    questionIdList: [e.questionId],
+    updatedQIdSet: {e.questionId},
   );
 }
 
@@ -42,17 +42,17 @@ UpdateAnswerStatusState answerQIdListCleared(
 ) {
   logger('Compute').i('answerQIdListCleared');
 
-  if (state.clearAnswerQIdList.isNotEmpty) {
+  if (state.clearAnswerQIdSet.isNotEmpty) {
     final answerMap = {...state.answerMap};
 
-    state.clearAnswerQIdList.forEach((questionId) {
+    state.clearAnswerQIdSet.forEach((questionId) {
       answerMap[questionId] = Answer.empty();
     });
 
     return state.copyWith(
       answerMap: answerMap,
-      clearAnswerQIdList: const [],
-      questionIdList: state.clearAnswerQIdList,
+      clearAnswerQIdSet: const {},
+      updatedQIdSet: state.clearAnswerQIdSet,
     );
   }
 

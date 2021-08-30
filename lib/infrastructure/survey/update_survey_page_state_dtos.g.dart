@@ -23,13 +23,11 @@ _$_UpdateSurveyPageStateDto _$_$_UpdateSurveyPageStateDtoFromJson(
     questionMap: (json['questionMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
     ),
-    pageQuestionMap: (json['pageQuestionMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
-    ),
-    contentQuestionMap:
-        (json['contentQuestionMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
-    ),
+    pageQIdSet:
+        (json['pageQIdSet'] as List<dynamic>).map((e) => e as String).toList(),
+    contentQIdSet: (json['contentQIdSet'] as List<dynamic>)
+        .map((e) => e as String)
+        .toList(),
     answerMap: (json['answerMap'] as Map<String, dynamic>).map(
       (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
     ),
@@ -82,10 +80,8 @@ Map<String, dynamic> _$_$_UpdateSurveyPageStateDtoToJson(
       'updateType': _$SurveyPageUpdateTypeEnumMap[instance.updateType],
       'questionMap':
           instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),
-      'pageQuestionMap':
-          instance.pageQuestionMap.map((k, e) => MapEntry(k, e.toJson())),
-      'contentQuestionMap':
-          instance.contentQuestionMap.map((k, e) => MapEntry(k, e.toJson())),
+      'pageQIdSet': instance.pageQIdSet,
+      'contentQIdSet': instance.contentQIdSet,
       'answerMap': instance.answerMap.map((k, e) => MapEntry(k, e.toJson())),
       'answerStatusMap':
           instance.answerStatusMap.map((k, e) => MapEntry(k, e.toJson())),

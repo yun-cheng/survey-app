@@ -33,17 +33,18 @@ class ChoicesBox extends HookWidget {
       onEmitted: (_, p, c) {
         if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
           // S_ 該題作答清空時，更新 answer
-          if (c.questionIdList.contains(questionId) &&
+          if (c.updatedQIdSet.contains(questionId) &&
               c.answerMap[questionId]! == Answer.empty()) {
             answer.value = Answer.empty();
           }
 
           // S_ 該題選項有變更時，需要 rebuild
-          final pQuestion = p.pageQuestionMap[questionId];
-          final cQuestion = c.pageQuestionMap[questionId];
+          final pQuestion = p.questionMap[questionId]!;
+          final cQuestion = c.questionMap[questionId]!;
 
           // S_ 若 question 前或後不存在，交由上層 widget 處理
-          if (pQuestion == null || cQuestion == null) {
+          if (!p.pageQIdSet.contains(questionId) ||
+              !c.pageQIdSet.contains(questionId)) {
             return false;
           }
 
@@ -54,7 +55,7 @@ class ChoicesBox extends HookWidget {
       },
     ).state;
 
-    final choiceList = state.pageQuestionMap[questionId]?.choiceList ?? [];
+    final choiceList = state.questionMap[questionId]?.choiceList ?? [];
     final size = choiceList.length;
     answer.value = state.answerMap[questionId] ?? Answer.empty();
     final isSpecialAnswer =

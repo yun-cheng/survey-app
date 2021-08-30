@@ -1143,30 +1143,30 @@ class _$UpdateAnswerStatusStateTearOff {
   const _$UpdateAnswerStatusStateTearOff();
 
   _UpdateAnswerStatusState call(
-      {required bool isReadOnly,
-      required LoadState restoreState,
-      required LoadState updateState,
-      required Map<String, Question> questionMap,
-      required Map<String, Answer> answerMap,
+      {required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
       required String questionId,
-      required List<String> questionIdList,
-      required List<String> clearAnswerQIdList,
+      required Set<String> updatedQIdSet,
+      required Set<String> clearAnswerQIdSet,
+      required bool isReadOnly,
+      required Map<String, Question> questionMap,
       required bool isRecodeModule,
       required Map<String, AnswerStatus> mainAnswerStatusMap,
-      required List<UpdateSurveyPageStateType> updateType}) {
+      required LoadState restoreState,
+      required LoadState updateState,
+      required Set<UpdateSurveyPageStateType> updateType}) {
     return _UpdateAnswerStatusState(
-      isReadOnly: isReadOnly,
-      restoreState: restoreState,
-      updateState: updateState,
-      questionMap: questionMap,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       questionId: questionId,
-      questionIdList: questionIdList,
-      clearAnswerQIdList: clearAnswerQIdList,
+      updatedQIdSet: updatedQIdSet,
+      clearAnswerQIdSet: clearAnswerQIdSet,
+      isReadOnly: isReadOnly,
+      questionMap: questionMap,
       isRecodeModule: isRecodeModule,
       mainAnswerStatusMap: mainAnswerStatusMap,
+      restoreState: restoreState,
+      updateState: updateState,
       updateType: updateType,
     );
   }
@@ -1177,21 +1177,22 @@ const $UpdateAnswerStatusState = _$UpdateAnswerStatusStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAnswerStatusState {
-  bool get isReadOnly => throw _privateConstructorUsedError;
-  LoadState get restoreState => throw _privateConstructorUsedError;
-  LoadState get updateState => throw _privateConstructorUsedError;
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+// H_ 主要資料
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+      throw _privateConstructorUsedError; // H_ 中間資料
   String get questionId => throw _privateConstructorUsedError;
-  List<String> get questionIdList => throw _privateConstructorUsedError;
-  List<String> get clearAnswerQIdList =>
-      throw _privateConstructorUsedError; // H_ recode
+  Set<String> get updatedQIdSet => throw _privateConstructorUsedError;
+  Set<String> get clearAnswerQIdSet =>
+      throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   bool get isRecodeModule => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get mainAnswerStatusMap =>
-      throw _privateConstructorUsedError; // H_
-  List<UpdateSurveyPageStateType> get updateType =>
+      throw _privateConstructorUsedError; // H_ 狀態更新進度
+  LoadState get restoreState => throw _privateConstructorUsedError;
+  LoadState get updateState => throw _privateConstructorUsedError;
+  Set<UpdateSurveyPageStateType> get updateType =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1205,18 +1206,18 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
           $Res Function(UpdateAnswerStatusState) then) =
       _$UpdateAnswerStatusStateCopyWithImpl<$Res>;
   $Res call(
-      {bool isReadOnly,
-      LoadState restoreState,
-      LoadState updateState,
-      Map<String, Question> questionMap,
-      Map<String, Answer> answerMap,
+      {Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
       String questionId,
-      List<String> questionIdList,
-      List<String> clearAnswerQIdList,
+      Set<String> updatedQIdSet,
+      Set<String> clearAnswerQIdSet,
+      bool isReadOnly,
+      Map<String, Question> questionMap,
       bool isRecodeModule,
       Map<String, AnswerStatus> mainAnswerStatusMap,
-      List<UpdateSurveyPageStateType> updateType});
+      LoadState restoreState,
+      LoadState updateState,
+      Set<UpdateSurveyPageStateType> updateType});
 
   $LoadStateCopyWith<$Res> get restoreState;
   $LoadStateCopyWith<$Res> get updateState;
@@ -1233,36 +1234,20 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isReadOnly = freezed,
-    Object? restoreState = freezed,
-    Object? updateState = freezed,
-    Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? questionId = freezed,
-    Object? questionIdList = freezed,
-    Object? clearAnswerQIdList = freezed,
+    Object? updatedQIdSet = freezed,
+    Object? clearAnswerQIdSet = freezed,
+    Object? isReadOnly = freezed,
+    Object? questionMap = freezed,
     Object? isRecodeModule = freezed,
     Object? mainAnswerStatusMap = freezed,
+    Object? restoreState = freezed,
+    Object? updateState = freezed,
     Object? updateType = freezed,
   }) {
     return _then(_value.copyWith(
-      isReadOnly: isReadOnly == freezed
-          ? _value.isReadOnly
-          : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
-      restoreState: restoreState == freezed
-          ? _value.restoreState
-          : restoreState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      updateState: updateState == freezed
-          ? _value.updateState
-          : updateState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      questionMap: questionMap == freezed
-          ? _value.questionMap
-          : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -1275,14 +1260,22 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
               as String,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      clearAnswerQIdList: clearAnswerQIdList == freezed
-          ? _value.clearAnswerQIdList
-          : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      updatedQIdSet: updatedQIdSet == freezed
+          ? _value.updatedQIdSet
+          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      clearAnswerQIdSet: clearAnswerQIdSet == freezed
+          ? _value.clearAnswerQIdSet
+          : clearAnswerQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -1291,10 +1284,18 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      updateState: updateState == freezed
+          ? _value.updateState
+          : updateState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       updateType: updateType == freezed
           ? _value.updateType
           : updateType // ignore: cast_nullable_to_non_nullable
-              as List<UpdateSurveyPageStateType>,
+              as Set<UpdateSurveyPageStateType>,
     ));
   }
 
@@ -1321,18 +1322,18 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       __$UpdateAnswerStatusStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {bool isReadOnly,
-      LoadState restoreState,
-      LoadState updateState,
-      Map<String, Question> questionMap,
-      Map<String, Answer> answerMap,
+      {Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
       String questionId,
-      List<String> questionIdList,
-      List<String> clearAnswerQIdList,
+      Set<String> updatedQIdSet,
+      Set<String> clearAnswerQIdSet,
+      bool isReadOnly,
+      Map<String, Question> questionMap,
       bool isRecodeModule,
       Map<String, AnswerStatus> mainAnswerStatusMap,
-      List<UpdateSurveyPageStateType> updateType});
+      LoadState restoreState,
+      LoadState updateState,
+      Set<UpdateSurveyPageStateType> updateType});
 
   @override
   $LoadStateCopyWith<$Res> get restoreState;
@@ -1354,36 +1355,20 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? isReadOnly = freezed,
-    Object? restoreState = freezed,
-    Object? updateState = freezed,
-    Object? questionMap = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? questionId = freezed,
-    Object? questionIdList = freezed,
-    Object? clearAnswerQIdList = freezed,
+    Object? updatedQIdSet = freezed,
+    Object? clearAnswerQIdSet = freezed,
+    Object? isReadOnly = freezed,
+    Object? questionMap = freezed,
     Object? isRecodeModule = freezed,
     Object? mainAnswerStatusMap = freezed,
+    Object? restoreState = freezed,
+    Object? updateState = freezed,
     Object? updateType = freezed,
   }) {
     return _then(_UpdateAnswerStatusState(
-      isReadOnly: isReadOnly == freezed
-          ? _value.isReadOnly
-          : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
-      restoreState: restoreState == freezed
-          ? _value.restoreState
-          : restoreState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      updateState: updateState == freezed
-          ? _value.updateState
-          : updateState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
-      questionMap: questionMap == freezed
-          ? _value.questionMap
-          : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -1396,14 +1381,22 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.questionId
           : questionId // ignore: cast_nullable_to_non_nullable
               as String,
-      questionIdList: questionIdList == freezed
-          ? _value.questionIdList
-          : questionIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      clearAnswerQIdList: clearAnswerQIdList == freezed
-          ? _value.clearAnswerQIdList
-          : clearAnswerQIdList // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+      updatedQIdSet: updatedQIdSet == freezed
+          ? _value.updatedQIdSet
+          : updatedQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      clearAnswerQIdSet: clearAnswerQIdSet == freezed
+          ? _value.clearAnswerQIdSet
+          : clearAnswerQIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<String>,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
@@ -1412,10 +1405,18 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.mainAnswerStatusMap
           : mainAnswerStatusMap // ignore: cast_nullable_to_non_nullable
               as Map<String, AnswerStatus>,
+      restoreState: restoreState == freezed
+          ? _value.restoreState
+          : restoreState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      updateState: updateState == freezed
+          ? _value.updateState
+          : updateState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       updateType: updateType == freezed
           ? _value.updateType
           : updateType // ignore: cast_nullable_to_non_nullable
-              as List<UpdateSurveyPageStateType>,
+              as Set<UpdateSurveyPageStateType>,
     ));
   }
 }
@@ -1425,48 +1426,48 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
 class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
     with DiagnosticableTreeMixin {
   const _$_UpdateAnswerStatusState(
-      {required this.isReadOnly,
-      required this.restoreState,
-      required this.updateState,
-      required this.questionMap,
-      required this.answerMap,
+      {required this.answerMap,
       required this.answerStatusMap,
       required this.questionId,
-      required this.questionIdList,
-      required this.clearAnswerQIdList,
+      required this.updatedQIdSet,
+      required this.clearAnswerQIdSet,
+      required this.isReadOnly,
+      required this.questionMap,
       required this.isRecodeModule,
       required this.mainAnswerStatusMap,
+      required this.restoreState,
+      required this.updateState,
       required this.updateType})
       : super._();
 
+  @override // H_ 主要資料
+  final Map<String, Answer> answerMap;
   @override
+  final Map<String, AnswerStatus> answerStatusMap;
+  @override // H_ 中間資料
+  final String questionId;
+  @override
+  final Set<String> updatedQIdSet;
+  @override
+  final Set<String> clearAnswerQIdSet;
+  @override // H_ 同 session 不變的參考資料
   final bool isReadOnly;
   @override
+  final Map<String, Question> questionMap;
+  @override
+  final bool isRecodeModule;
+  @override
+  final Map<String, AnswerStatus> mainAnswerStatusMap;
+  @override // H_ 狀態更新進度
   final LoadState restoreState;
   @override
   final LoadState updateState;
   @override
-  final Map<String, Question> questionMap;
-  @override
-  final Map<String, Answer> answerMap;
-  @override
-  final Map<String, AnswerStatus> answerStatusMap;
-  @override
-  final String questionId;
-  @override
-  final List<String> questionIdList;
-  @override
-  final List<String> clearAnswerQIdList;
-  @override // H_ recode
-  final bool isRecodeModule;
-  @override
-  final Map<String, AnswerStatus> mainAnswerStatusMap;
-  @override // H_
-  final List<UpdateSurveyPageStateType> updateType;
+  final Set<UpdateSurveyPageStateType> updateType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(isReadOnly: $isReadOnly, restoreState: $restoreState, updateState: $updateState, questionMap: $questionMap, answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, questionIdList: $questionIdList, clearAnswerQIdList: $clearAnswerQIdList, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap, updateType: $updateType)';
+    return 'UpdateAnswerStatusState(answerMap: $answerMap, answerStatusMap: $answerStatusMap, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, isReadOnly: $isReadOnly, questionMap: $questionMap, isRecodeModule: $isRecodeModule, mainAnswerStatusMap: $mainAnswerStatusMap, restoreState: $restoreState, updateState: $updateState, updateType: $updateType)';
   }
 
   @override
@@ -1474,17 +1475,17 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusState'))
-      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
-      ..add(DiagnosticsProperty('restoreState', restoreState))
-      ..add(DiagnosticsProperty('updateState', updateState))
-      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
       ..add(DiagnosticsProperty('questionId', questionId))
-      ..add(DiagnosticsProperty('questionIdList', questionIdList))
-      ..add(DiagnosticsProperty('clearAnswerQIdList', clearAnswerQIdList))
+      ..add(DiagnosticsProperty('updatedQIdSet', updatedQIdSet))
+      ..add(DiagnosticsProperty('clearAnswerQIdSet', clearAnswerQIdSet))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('mainAnswerStatusMap', mainAnswerStatusMap))
+      ..add(DiagnosticsProperty('restoreState', restoreState))
+      ..add(DiagnosticsProperty('updateState', updateState))
       ..add(DiagnosticsProperty('updateType', updateType));
   }
 
@@ -1492,18 +1493,6 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAnswerStatusState &&
-            (identical(other.isReadOnly, isReadOnly) ||
-                const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)) &&
-            (identical(other.restoreState, restoreState) ||
-                const DeepCollectionEquality()
-                    .equals(other.restoreState, restoreState)) &&
-            (identical(other.updateState, updateState) ||
-                const DeepCollectionEquality()
-                    .equals(other.updateState, updateState)) &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -1513,18 +1502,30 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             (identical(other.questionId, questionId) ||
                 const DeepCollectionEquality()
                     .equals(other.questionId, questionId)) &&
-            (identical(other.questionIdList, questionIdList) ||
+            (identical(other.updatedQIdSet, updatedQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.questionIdList, questionIdList)) &&
-            (identical(other.clearAnswerQIdList, clearAnswerQIdList) ||
+                    .equals(other.updatedQIdSet, updatedQIdSet)) &&
+            (identical(other.clearAnswerQIdSet, clearAnswerQIdSet) ||
                 const DeepCollectionEquality()
-                    .equals(other.clearAnswerQIdList, clearAnswerQIdList)) &&
+                    .equals(other.clearAnswerQIdSet, clearAnswerQIdSet)) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.questionMap, questionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionMap, questionMap)) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
                 const DeepCollectionEquality()
                     .equals(other.isRecodeModule, isRecodeModule)) &&
             (identical(other.mainAnswerStatusMap, mainAnswerStatusMap) ||
                 const DeepCollectionEquality()
                     .equals(other.mainAnswerStatusMap, mainAnswerStatusMap)) &&
+            (identical(other.restoreState, restoreState) ||
+                const DeepCollectionEquality()
+                    .equals(other.restoreState, restoreState)) &&
+            (identical(other.updateState, updateState) ||
+                const DeepCollectionEquality()
+                    .equals(other.updateState, updateState)) &&
             (identical(other.updateType, updateType) ||
                 const DeepCollectionEquality()
                     .equals(other.updateType, updateType)));
@@ -1533,17 +1534,17 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isReadOnly) ^
-      const DeepCollectionEquality().hash(restoreState) ^
-      const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(questionIdList) ^
-      const DeepCollectionEquality().hash(clearAnswerQIdList) ^
+      const DeepCollectionEquality().hash(updatedQIdSet) ^
+      const DeepCollectionEquality().hash(clearAnswerQIdSet) ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(mainAnswerStatusMap) ^
+      const DeepCollectionEquality().hash(restoreState) ^
+      const DeepCollectionEquality().hash(updateState) ^
       const DeepCollectionEquality().hash(updateType);
 
   @JsonKey(ignore: true)
@@ -1555,47 +1556,47 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
 abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   const factory _UpdateAnswerStatusState(
-          {required bool isReadOnly,
-          required LoadState restoreState,
-          required LoadState updateState,
-          required Map<String, Question> questionMap,
-          required Map<String, Answer> answerMap,
+          {required Map<String, Answer> answerMap,
           required Map<String, AnswerStatus> answerStatusMap,
           required String questionId,
-          required List<String> questionIdList,
-          required List<String> clearAnswerQIdList,
+          required Set<String> updatedQIdSet,
+          required Set<String> clearAnswerQIdSet,
+          required bool isReadOnly,
+          required Map<String, Question> questionMap,
           required bool isRecodeModule,
           required Map<String, AnswerStatus> mainAnswerStatusMap,
-          required List<UpdateSurveyPageStateType> updateType}) =
+          required LoadState restoreState,
+          required LoadState updateState,
+          required Set<UpdateSurveyPageStateType> updateType}) =
       _$_UpdateAnswerStatusState;
   const _UpdateAnswerStatusState._() : super._();
 
-  @override
-  bool get isReadOnly => throw _privateConstructorUsedError;
-  @override
-  LoadState get restoreState => throw _privateConstructorUsedError;
-  @override
-  LoadState get updateState => throw _privateConstructorUsedError;
-  @override
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
-  @override
+  @override // H_ 主要資料
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
-  @override
+  @override // H_ 中間資料
   String get questionId => throw _privateConstructorUsedError;
   @override
-  List<String> get questionIdList => throw _privateConstructorUsedError;
+  Set<String> get updatedQIdSet => throw _privateConstructorUsedError;
   @override
-  List<String> get clearAnswerQIdList => throw _privateConstructorUsedError;
-  @override // H_ recode
+  Set<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
+  @override // H_ 同 session 不變的參考資料
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  @override
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  @override
   bool get isRecodeModule => throw _privateConstructorUsedError;
   @override
   Map<String, AnswerStatus> get mainAnswerStatusMap =>
       throw _privateConstructorUsedError;
-  @override // H_
-  List<UpdateSurveyPageStateType> get updateType =>
+  @override // H_ 狀態更新進度
+  LoadState get restoreState => throw _privateConstructorUsedError;
+  @override
+  LoadState get updateState => throw _privateConstructorUsedError;
+  @override
+  Set<UpdateSurveyPageStateType> get updateType =>
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)

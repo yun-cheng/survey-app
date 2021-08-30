@@ -27,10 +27,11 @@ class TableBox extends StatelessWidget {
     logger('Build').i('TableBox');
 
     // S_ 篩出是這個 tableId 的 questions
-    final pageQuestionMap =
-        context.read<SurveyPageBloc>().state.pageQuestionMap;
+    final pageQIdSet = context.read<SurveyPageBloc>().state.pageQIdSet;
+    final questionMap = context.read<SurveyPageBloc>().state.questionMap;
 
-    final tableQuestionList = pageQuestionMap.values
+    final tableQuestionList = pageQIdSet
+        .map((questionId) => questionMap[questionId]!)
         .filter(
             (question) => question.tableId == tableId && !question.type.isTable)
         .toList();

@@ -25,7 +25,7 @@ class PhoneBox extends StatelessWidget {
         buildWhen: (p, c) =>
             (p.loadState != c.loadState &&
                 c.loadState == LoadState.success()) &&
-            ((c.questionIdList.contains(questionId) &&
+            ((c.updatedQIdSet.contains(questionId) &&
                     p.answerMap[questionId] != c.answerMap[questionId]) ||
                 p.isReadOnly != c.isReadOnly),
         builder: (context, state) {
