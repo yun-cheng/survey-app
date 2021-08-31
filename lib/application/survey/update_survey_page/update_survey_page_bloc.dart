@@ -55,7 +55,8 @@ class UpdateSurveyPageBloc
   ) async* {
     yield* event.maybeMap(
       taskInitialized: (e) async* {
-        yield await taskInitialized();
+        executorCreated();
+        await taskInitialized(restoreState: true);
       },
       // H_ 監聽 ReferenceList
       watchReferenceListStarted: (e) async* {
@@ -85,7 +86,16 @@ class UpdateSurveyPageBloc
     );
   }
 
-  Future<UpdateSurveyPageState> taskInitialized() async {
+  void executorCreated() {
+    _eventExecutor = AsyncExecutor(
+      parallelism: 1,
+      taskTypeRegister: _eventTaskTypeRegister,
+    );
+  }
+
+  Future<void> taskInitialized({
+    bool restoreState = false,
+  }) async {
     logger('Task').e('UpdateSurveyPageBloc: taskInitialized');
 
     // S_ event task
@@ -99,22 +109,19 @@ class UpdateSurveyPageBloc
       eventWorker: _updateSurveyPageEventWorker,
     );
 
-    _eventExecutor = AsyncExecutor(
-      parallelism: 1,
-      taskTypeRegister: _eventTaskTypeRegister,
-    );
-
     _eventExecutor!.execute(eventTask);
     _eventChannel = await eventTask.channel();
 
-    // S_ initState
-    final initState = await _eventChannel!.sendAndWaitResponse('initState');
-    if (initState is UpdateSurveyPageState) {
-      logger('State').i('UpdateSurveyPageState: initState');
+    // S_ restoreState
+    if (restoreState) {
+      final initState = await _eventChannel!.sendAndWaitResponse('initState');
+      if (initState is UpdateSurveyPageState) {
+        logger('State').i('UpdateSurveyPageState: initState');
 
-      return initState;
+        emit(initState);
+      }
+      emit(UpdateSurveyPageState.initial());
     }
-    return UpdateSurveyPageState.initial();
   }
 
   Stream<UpdateSurveyPageState> eventTaskSent(

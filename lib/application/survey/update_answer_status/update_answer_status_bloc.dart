@@ -30,6 +30,8 @@ class UpdateAnswerStatusBloc
     extends Bloc<UpdateAnswerStatusEvent, UpdateAnswerStatusState> {
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;
+  final _answerUpdatedList = <_AnswerUpdated>[];
+  StreamSubscription<UpdateAnswerStatusState>? _stateSubscription;
 
   UpdateAnswerStatusBloc() : super(UpdateAnswerStatusState.initial()) {
     add(const UpdateAnswerStatusEvent.taskInitialized());
@@ -41,7 +43,18 @@ class UpdateAnswerStatusBloc
   ) async* {
     yield* event.maybeMap(
       taskInitialized: (e) async* {
-        yield await taskInitialized();
+        executorCreated();
+        await taskInitialized(restoreState: true);
+      },
+      answerUpdated: (e) async* {
+        // NOTE 若短時間內快速輸入，同一題只保留最後一個輸入結果進去運算，除了多選題
+        if (_answerUpdatedList.isNotEmpty && !e.toggle) {
+          _answerUpdatedList.removeWhere((x) => x.questionId == e.questionId);
+        }
+        _answerUpdatedList.add(e);
+
+        _stateSubscription ??=
+            answerUpdatedStream().listen((_state) => emit(_state));
       },
       orElse: () async* {
         yield* eventTaskSent(event);
@@ -49,7 +62,30 @@ class UpdateAnswerStatusBloc
     );
   }
 
-  Future<UpdateAnswerStatusState> taskInitialized() async {
+  Stream<UpdateAnswerStatusState> answerUpdatedStream() async* {
+    while (true) {
+      if (_answerUpdatedList.isNotEmpty) {
+        final event = _answerUpdatedList.removeAt(0);
+        yield* eventTaskSent(event);
+        // await Future.delayed(Duration(milliseconds: 500));
+      } else {
+        _stateSubscription?.cancel();
+        _stateSubscription = null;
+        break;
+      }
+    }
+  }
+
+  void executorCreated() {
+    _eventExecutor = AsyncExecutor(
+      parallelism: 1,
+      taskTypeRegister: _eventTaskTypeRegister,
+    );
+  }
+
+  Future<void> taskInitialized({
+    bool restoreState = false,
+  }) async {
     logger('Task').e('UpdateAnswerStatusBloc: taskInitialized');
 
     // S_ event task
@@ -63,22 +99,19 @@ class UpdateAnswerStatusBloc
       eventWorker: _updateAnswerStatusEventWorker,
     );
 
-    _eventExecutor = AsyncExecutor(
-      parallelism: 1,
-      taskTypeRegister: _eventTaskTypeRegister,
-    );
-
     _eventExecutor!.execute(eventTask);
     _eventChannel = await eventTask.channel();
 
-    // S_ initState
-    final initState = await _eventChannel!.sendAndWaitResponse('initState');
-    if (initState is UpdateAnswerStatusState) {
-      logger('State').i('UpdateAnswerStatusState: initState');
+    // S_ restoreState
+    if (restoreState) {
+      final initState = await _eventChannel!.sendAndWaitResponse('initState');
+      if (initState is UpdateAnswerStatusState) {
+        logger('State').i('UpdateAnswerStatusState: initState');
 
-      return initState;
+        emit(initState);
+      }
+      emit(UpdateAnswerStatusState.initial());
     }
-    return UpdateAnswerStatusState.initial();
   }
 
   Stream<UpdateAnswerStatusState> eventTaskSent(
@@ -104,6 +137,7 @@ class UpdateAnswerStatusBloc
   @override
   Future<void> close() {
     _eventExecutor?.close();
+    _stateSubscription?.cancel();
 
     return super.close();
   }
