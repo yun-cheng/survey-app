@@ -2,8 +2,8 @@ part of 'response_bloc.dart';
 
 @freezed
 class ResponseEvent with _$ResponseEvent {
-  // H_ 監聽 responseMap
-  const factory ResponseEvent.watchResponseMapStarted({
+  // H_ 監聽 responseMap、ReferenceList
+  const factory ResponseEvent.watchResponseMapAndReferenceListStarted({
     required String teamId,
     required Interviewer interviewer,
   }) = _WatchResponseMapStarted;
@@ -11,6 +11,10 @@ class ResponseEvent with _$ResponseEvent {
   const factory ResponseEvent.responseMapReceived(
     Either<SurveyFailure, ResponseMap> failureOrResponseMap,
   ) = _ResponseMapReceived;
+
+  const factory ResponseEvent.referenceListReceived(
+    Either<SurveyFailure, List<Reference>> failureOrReferenceList,
+  ) = _ReferenceListReceived;
 
   // H_ 上傳倒數計時
   const factory ResponseEvent.uploadTimerUpdated() = _UploadTimerUpdated;
@@ -67,11 +71,6 @@ class ResponseEvent with _$ResponseEvent {
   // H_ 使用者在閒置後，選擇繼續訪問
   const factory ResponseEvent.responseResumed(UniqueId responseId) =
       _ResponseResumed;
-
-  // H_ referenceList 更新時
-  const factory ResponseEvent.referenceListUpdated({
-    required List<Reference> referenceList,
-  }) = _ReferenceListUpdated;
 
   const factory ResponseEvent.loggedOut() = _LoggedOut;
 

@@ -6,11 +6,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
-import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
+import '../../../domain/survey/simple_survey_page_state.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/constants.dart';
 import '../../routes/router.dart';
@@ -22,13 +21,13 @@ class SurveyLeadingButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocListener(
       listeners: [
-        BlocListener<UpdateSurveyPageBloc, UpdateSurveyPageState>(
+        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
           // NOTE 如果 app 閒置，則停止錄音，並結束編輯
           listenWhen: (p, c) =>
               (p.appIsPaused != c.appIsPaused && c.appIsPaused) &&
               c.moduleType == ModuleType.main(),
           listener: (context, state) {
-            logger('Listen').i('UpdateSurveyPageBloc: appIsPaused');
+            logger('Listen').i('UpdateAnswerStatusBloc: appIsPaused');
 
             context
                 .read<AudioRecorderBloc>()
@@ -38,7 +37,7 @@ class SurveyLeadingButton extends StatelessWidget {
                 );
           },
         ),
-        BlocListener<UpdateSurveyPageBloc, UpdateSurveyPageState>(
+        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
           listenWhen: (p, c) => p.showDialog != c.showDialog && c.showDialog,
           listener: (context, state) {
             logger('Build').i('SurveyDialog');
@@ -46,18 +45,39 @@ class SurveyLeadingButton extends StatelessWidget {
             showSurveyDialog(context);
           },
         ),
-        BlocListener<UpdateSurveyPageBloc, UpdateSurveyPageState>(
-          listenWhen: (p, c) => p.leavePage != c.leavePage && c.leavePage,
-          listener: (context, state) {
-            logger('Listen').i('UpdateSurveyPageBloc: leavePage');
+        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+            listenWhen: (p, c) =>
+                p.eventState != c.eventState &&
+                c.eventState == LoadState.success(),
+            listener: (context, state) {
+              if (!state.isReadOnly &&
+                  state.updateType.any((type) => type.saveResponse())) {
+                logger('Listen').i('UpdateAnswerStatusBloc: saveResponse');
 
-            backToRespondentsPage(context, finished: state.finishResponse);
-          },
-        )
+                // H_ 存回 response
+                context.read<ResponseBloc>().add(
+                      ResponseEvent.responseUpdated(
+                        answerMap: state.answerMap,
+                        answerStatusMap: state.answerStatusMap,
+                        surveyPageState: SimpleSurveyPageState(
+                          page: state.page,
+                          newestPage: state.newestPage,
+                          isLastPage: state.isLastPage,
+                          warning: state.warning,
+                          showWarning: state.showWarning,
+                        ),
+                      ),
+                    );
+              }
+
+              if (state.leavePage) {
+                backToRespondentsPage(context, finished: state.finishResponse);
+              }
+            }),
       ],
       child: Builder(builder: (context) {
-        final showLeaveButton = context
-            .select((UpdateSurveyPageBloc bloc) => bloc.state.showLeaveButton);
+        final showLeaveButton = context.select(
+            (UpdateAnswerStatusBloc bloc) => bloc.state.showLeaveButton);
 
         return Visibility(
           // NOTE 在中止訪問後的查址模組不讓使用者跳出
@@ -65,8 +85,8 @@ class SurveyLeadingButton extends StatelessWidget {
           child: IconButton(
               icon: const Icon(Icons.arrow_back),
               onPressed: () {
-                context.read<UpdateSurveyPageBloc>().add(
-                      const UpdateSurveyPageEvent.leaveButtonPressed(),
+                context.read<UpdateAnswerStatusBloc>().add(
+                      const UpdateAnswerStatusEvent.leaveButtonPressed(),
                     );
               }),
         );
@@ -77,7 +97,7 @@ class SurveyLeadingButton extends StatelessWidget {
 
 // NOTE 即使在目錄頁面也會顯示
 void showSurveyDialog(BuildContext context) {
-  final show = context.read<UpdateSurveyPageBloc>().state.showDialog;
+  final show = context.read<UpdateAnswerStatusBloc>().state.showDialog;
 
   // NOTE 只有在 main module 才會 show
   if (show) {
@@ -111,8 +131,8 @@ void showSurveyDialog(BuildContext context) {
                   child: const Text('繼續訪問'),
                   onPressed: () {
                     controller.dismiss();
-                    context.read<UpdateSurveyPageBloc>().add(
-                          const UpdateSurveyPageEvent.dialogClosed(),
+                    context.read<UpdateAnswerStatusBloc>().add(
+                          const UpdateAnswerStatusEvent.dialogClosed(),
                         );
 
                     // S_ 如果已閒置，則要開新的 response，並開始錄音
@@ -142,10 +162,12 @@ void switchToVisitReportModule(BuildContext context) {
   context.read<ResponseBloc>().add(
         const ResponseEvent.editFinished(responseFinished: false),
       );
-  clearSurveyPageState(context);
+  context.read<UpdateAnswerStatusBloc>().add(
+        const UpdateAnswerStatusEvent.stateCleared(),
+      );
 
-  context.read<UpdateSurveyPageBloc>().add(
-        const UpdateSurveyPageEvent.leaveButtonHidden(),
+  context.read<UpdateAnswerStatusBloc>().add(
+        const UpdateAnswerStatusEvent.leaveButtonHidden(),
       );
   final respondent = context.read<ResponseBloc>().state.respondent;
   context.read<ResponseBloc>().add(
@@ -165,8 +187,9 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
   context.read<ResponseBloc>().add(
         ResponseEvent.editFinished(responseFinished: finished),
       );
-
-  clearSurveyPageState(context);
+  context.read<UpdateAnswerStatusBloc>().add(
+        const UpdateAnswerStatusEvent.stateCleared(),
+      );
 
   context.read<NavigationBloc>().add(
         NavigationEvent.pageChanged(
@@ -176,16 +199,4 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
 
   // NOTE 從目錄頁要跳兩層，所以直接用 navigate
   context.router.navigate(const RespondentsRoute());
-}
-
-void clearSurveyPageState(BuildContext context) {
-  context.read<UpdateAnswerStatusBloc>().add(
-        const UpdateAnswerStatusEvent.stateCleared(),
-      );
-  context.read<UpdateSurveyPageBloc>().add(
-        const UpdateSurveyPageEvent.stateCleared(),
-      );
-  context.read<SurveyPageBloc>().add(
-        const SurveyPageEvent.stateCleared(),
-      );
 }

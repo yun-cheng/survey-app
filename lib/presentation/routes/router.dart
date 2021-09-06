@@ -14,11 +14,11 @@ export 'router.gr.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     MaterialRoute(page: SplashPage, initial: true),
-    MaterialRoute(page: SignInPage),
+    MaterialRoute(page: SignInPage, path: '/sign-in'),
     MaterialRoute(page: OverviewPage, path: '/overview'),
     MaterialRoute(page: RespondentsPage, path: '/respondents'),
     MaterialRoute(page: SurveyPage, path: '/survey'),
-    MaterialRoute(page: SurveyContentPage),
+    MaterialRoute(page: SurveyContentPage, path: '/survey-content'),
   ],
 )
 class $RootRouter {}

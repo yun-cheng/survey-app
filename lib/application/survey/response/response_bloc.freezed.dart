@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'response_bloc.dart';
 
@@ -16,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$ResponseEventTearOff {
   const _$ResponseEventTearOff();
 
-  _WatchResponseMapStarted watchResponseMapStarted(
+  _WatchResponseMapStarted watchResponseMapAndReferenceListStarted(
       {required String teamId, required Interviewer interviewer}) {
     return _WatchResponseMapStarted(
       teamId: teamId,
@@ -28,6 +29,13 @@ class _$ResponseEventTearOff {
       Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap) {
     return _ResponseMapReceived(
       failureOrResponseMap,
+    );
+  }
+
+  _ReferenceListReceived referenceListReceived(
+      Either<SurveyFailure, List<Reference>> failureOrReferenceList) {
+    return _ReferenceListReceived(
+      failureOrReferenceList,
     );
   }
 
@@ -90,13 +98,6 @@ class _$ResponseEventTearOff {
     );
   }
 
-  _ReferenceListUpdated referenceListUpdated(
-      {required List<Reference> referenceList}) {
-    return _ReferenceListUpdated(
-      referenceList: referenceList,
-    );
-  }
-
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
@@ -114,10 +115,13 @@ mixin _$ResponseEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -133,20 +137,21 @@ mixin _$ResponseEvent {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -162,7 +167,36 @@ mixin _$ResponseEvent {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -171,8 +205,10 @@ mixin _$ResponseEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -181,15 +217,16 @@ mixin _$ResponseEvent {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -198,7 +235,24 @@ mixin _$ResponseEvent {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -285,15 +339,15 @@ class _$_WatchResponseMapStarted
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ResponseEvent.watchResponseMapStarted(teamId: $teamId, interviewer: $interviewer)';
+    return 'ResponseEvent.watchResponseMapAndReferenceListStarted(teamId: $teamId, interviewer: $interviewer)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(
-          DiagnosticsProperty('type', 'ResponseEvent.watchResponseMapStarted'))
+      ..add(DiagnosticsProperty(
+          'type', 'ResponseEvent.watchResponseMapAndReferenceListStarted'))
       ..add(DiagnosticsProperty('teamId', teamId))
       ..add(DiagnosticsProperty('interviewer', interviewer));
   }
@@ -325,10 +379,13 @@ class _$_WatchResponseMapStarted
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -344,23 +401,24 @@ class _$_WatchResponseMapStarted
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
-    return watchResponseMapStarted(teamId, interviewer);
+    return watchResponseMapAndReferenceListStarted(teamId, interviewer);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -376,13 +434,45 @@ class _$_WatchResponseMapStarted
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return watchResponseMapAndReferenceListStarted?.call(teamId, interviewer);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
   }) {
-    if (watchResponseMapStarted != null) {
-      return watchResponseMapStarted(teamId, interviewer);
+    if (watchResponseMapAndReferenceListStarted != null) {
+      return watchResponseMapAndReferenceListStarted(teamId, interviewer);
     }
     return orElse();
   }
@@ -391,8 +481,10 @@ class _$_WatchResponseMapStarted
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -401,18 +493,19 @@ class _$_WatchResponseMapStarted
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
-    return watchResponseMapStarted(this);
+    return watchResponseMapAndReferenceListStarted(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -421,13 +514,33 @@ class _$_WatchResponseMapStarted
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return watchResponseMapAndReferenceListStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
   }) {
-    if (watchResponseMapStarted != null) {
-      return watchResponseMapStarted(this);
+    if (watchResponseMapAndReferenceListStarted != null) {
+      return watchResponseMapAndReferenceListStarted(this);
     }
     return orElse();
   }
@@ -525,10 +638,13 @@ class _$_ResponseMapReceived
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -544,8 +660,6 @@ class _$_ResponseMapReceived
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -554,13 +668,16 @@ class _$_ResponseMapReceived
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -576,7 +693,39 @@ class _$_ResponseMapReceived
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return responseMapReceived?.call(failureOrResponseMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -591,8 +740,10 @@ class _$_ResponseMapReceived
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -601,7 +752,6 @@ class _$_ResponseMapReceived
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -610,9 +760,11 @@ class _$_ResponseMapReceived
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -621,7 +773,27 @@ class _$_ResponseMapReceived
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return responseMapReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -642,6 +814,265 @@ abstract class _ResponseMapReceived implements ResponseEvent {
       throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ResponseMapReceivedCopyWith<_ResponseMapReceived> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ReferenceListReceivedCopyWith<$Res> {
+  factory _$ReferenceListReceivedCopyWith(_ReferenceListReceived value,
+          $Res Function(_ReferenceListReceived) then) =
+      __$ReferenceListReceivedCopyWithImpl<$Res>;
+  $Res call({Either<SurveyFailure, List<Reference>> failureOrReferenceList});
+}
+
+/// @nodoc
+class __$ReferenceListReceivedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$ReferenceListReceivedCopyWith<$Res> {
+  __$ReferenceListReceivedCopyWithImpl(_ReferenceListReceived _value,
+      $Res Function(_ReferenceListReceived) _then)
+      : super(_value, (v) => _then(v as _ReferenceListReceived));
+
+  @override
+  _ReferenceListReceived get _value => super._value as _ReferenceListReceived;
+
+  @override
+  $Res call({
+    Object? failureOrReferenceList = freezed,
+  }) {
+    return _then(_ReferenceListReceived(
+      failureOrReferenceList == freezed
+          ? _value.failureOrReferenceList
+          : failureOrReferenceList // ignore: cast_nullable_to_non_nullable
+              as Either<SurveyFailure, List<Reference>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ReferenceListReceived
+    with DiagnosticableTreeMixin
+    implements _ReferenceListReceived {
+  const _$_ReferenceListReceived(this.failureOrReferenceList);
+
+  @override
+  final Either<SurveyFailure, List<Reference>> failureOrReferenceList;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ResponseEvent.referenceListReceived(failureOrReferenceList: $failureOrReferenceList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.referenceListReceived'))
+      ..add(DiagnosticsProperty(
+          'failureOrReferenceList', failureOrReferenceList));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _ReferenceListReceived &&
+            (identical(other.failureOrReferenceList, failureOrReferenceList) ||
+                const DeepCollectionEquality().equals(
+                    other.failureOrReferenceList, failureOrReferenceList)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(failureOrReferenceList);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith =>
+      __$ReferenceListReceivedCopyWithImpl<_ReferenceListReceived>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String teamId, Interviewer interviewer)
+        watchResponseMapAndReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
+        responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseMapUploading,
+    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+        responseMapUploaded,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)
+        responseStarted,
+    required TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function() loggedOut,
+    required TResult Function() taskInitialized,
+  }) {
+    return referenceListReceived(failureOrReferenceList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return referenceListReceived?.call(failureOrReferenceList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+    required TResult orElse(),
+  }) {
+    if (referenceListReceived != null) {
+      return referenceListReceived(failureOrReferenceList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseMapStarted value)
+        watchResponseMapAndReferenceListStarted,
+    required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseMapUploading value) responseMapUploading,
+    required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_TaskInitialized value) taskInitialized,
+  }) {
+    return referenceListReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return referenceListReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+    required TResult orElse(),
+  }) {
+    if (referenceListReceived != null) {
+      return referenceListReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReferenceListReceived implements ResponseEvent {
+  const factory _ReferenceListReceived(
+          Either<SurveyFailure, List<Reference>> failureOrReferenceList) =
+      _$_ReferenceListReceived;
+
+  Either<SurveyFailure, List<Reference>> get failureOrReferenceList =>
+      throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -695,10 +1126,13 @@ class _$_UploadTimerUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -714,8 +1148,6 @@ class _$_UploadTimerUpdated
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -724,13 +1156,16 @@ class _$_UploadTimerUpdated
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -746,7 +1181,39 @@ class _$_UploadTimerUpdated
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return uploadTimerUpdated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -761,8 +1228,10 @@ class _$_UploadTimerUpdated
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -771,7 +1240,6 @@ class _$_UploadTimerUpdated
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -780,9 +1248,11 @@ class _$_UploadTimerUpdated
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -791,7 +1261,27 @@ class _$_UploadTimerUpdated
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return uploadTimerUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -857,10 +1347,13 @@ class _$_ResponseMapUploading
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -876,8 +1369,6 @@ class _$_ResponseMapUploading
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -886,13 +1377,16 @@ class _$_ResponseMapUploading
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -908,7 +1402,39 @@ class _$_ResponseMapUploading
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return responseMapUploading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -923,8 +1449,10 @@ class _$_ResponseMapUploading
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -933,7 +1461,6 @@ class _$_ResponseMapUploading
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -942,9 +1469,11 @@ class _$_ResponseMapUploading
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -953,7 +1482,27 @@ class _$_ResponseMapUploading
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return responseMapUploading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1048,10 +1597,13 @@ class _$_ResponseMapUploaded
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1067,8 +1619,6 @@ class _$_ResponseMapUploaded
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -1077,13 +1627,16 @@ class _$_ResponseMapUploaded
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1099,7 +1652,39 @@ class _$_ResponseMapUploaded
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return responseMapUploaded?.call(failureOrSuccess);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1114,8 +1699,10 @@ class _$_ResponseMapUploaded
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -1124,7 +1711,6 @@ class _$_ResponseMapUploaded
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1133,9 +1719,11 @@ class _$_ResponseMapUploaded
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -1144,7 +1732,27 @@ class _$_ResponseMapUploaded
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return responseMapUploaded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1252,10 +1860,13 @@ class _$_SurveySelected
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1271,8 +1882,6 @@ class _$_SurveySelected
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -1281,13 +1890,16 @@ class _$_SurveySelected
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1303,7 +1915,39 @@ class _$_SurveySelected
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return surveySelected?.call(survey);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1318,8 +1962,10 @@ class _$_SurveySelected
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -1328,7 +1974,6 @@ class _$_SurveySelected
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1337,9 +1982,11 @@ class _$_SurveySelected
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -1348,7 +1995,27 @@ class _$_SurveySelected
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return surveySelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1530,10 +2197,13 @@ class _$_ResponseStarted
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1549,8 +2219,6 @@ class _$_ResponseStarted
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -1560,13 +2228,16 @@ class _$_ResponseStarted
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1582,7 +2253,40 @@ class _$_ResponseStarted
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return responseStarted?.call(
+        respondent, moduleType, withResponseId, breakInterview, responseId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1598,8 +2302,10 @@ class _$_ResponseStarted
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -1608,7 +2314,6 @@ class _$_ResponseStarted
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1617,9 +2322,11 @@ class _$_ResponseStarted
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -1628,7 +2335,27 @@ class _$_ResponseStarted
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return responseStarted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1776,10 +2503,13 @@ class _$_ResponseUpdated
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1795,8 +2525,6 @@ class _$_ResponseUpdated
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -1805,13 +2533,16 @@ class _$_ResponseUpdated
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -1827,7 +2558,39 @@ class _$_ResponseUpdated
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return responseUpdated?.call(answerMap, answerStatusMap, surveyPageState);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -1842,8 +2605,10 @@ class _$_ResponseUpdated
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -1852,7 +2617,6 @@ class _$_ResponseUpdated
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -1861,9 +2625,11 @@ class _$_ResponseUpdated
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -1872,7 +2638,27 @@ class _$_ResponseUpdated
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return responseUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -1976,10 +2762,13 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -1995,8 +2784,6 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -2005,13 +2792,16 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2027,7 +2817,39 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return editFinished?.call(responseFinished);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -2042,8 +2864,10 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -2052,7 +2876,6 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -2061,9 +2884,11 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -2072,7 +2897,27 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return editFinished?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -2181,10 +3026,13 @@ class _$_ResponseResumed
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -2200,8 +3048,6 @@ class _$_ResponseResumed
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -2210,13 +3056,16 @@ class _$_ResponseResumed
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2232,7 +3081,39 @@ class _$_ResponseResumed
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return responseResumed?.call(responseId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -2247,8 +3128,10 @@ class _$_ResponseResumed
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -2257,7 +3140,6 @@ class _$_ResponseResumed
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -2266,9 +3148,11 @@ class _$_ResponseResumed
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -2277,7 +3161,27 @@ class _$_ResponseResumed
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return responseResumed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -2295,202 +3199,6 @@ abstract class _ResponseResumed implements ResponseEvent {
   UniqueId get responseId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$ReferenceListUpdatedCopyWith<$Res> {
-  factory _$ReferenceListUpdatedCopyWith(_ReferenceListUpdated value,
-          $Res Function(_ReferenceListUpdated) then) =
-      __$ReferenceListUpdatedCopyWithImpl<$Res>;
-  $Res call({List<Reference> referenceList});
-}
-
-/// @nodoc
-class __$ReferenceListUpdatedCopyWithImpl<$Res>
-    extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$ReferenceListUpdatedCopyWith<$Res> {
-  __$ReferenceListUpdatedCopyWithImpl(
-      _ReferenceListUpdated _value, $Res Function(_ReferenceListUpdated) _then)
-      : super(_value, (v) => _then(v as _ReferenceListUpdated));
-
-  @override
-  _ReferenceListUpdated get _value => super._value as _ReferenceListUpdated;
-
-  @override
-  $Res call({
-    Object? referenceList = freezed,
-  }) {
-    return _then(_ReferenceListUpdated(
-      referenceList: referenceList == freezed
-          ? _value.referenceList
-          : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<Reference>,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_ReferenceListUpdated
-    with DiagnosticableTreeMixin
-    implements _ReferenceListUpdated {
-  const _$_ReferenceListUpdated({required this.referenceList});
-
-  @override
-  final List<Reference> referenceList;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ResponseEvent.referenceListUpdated(referenceList: $referenceList)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.referenceListUpdated'))
-      ..add(DiagnosticsProperty('referenceList', referenceList));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _ReferenceListUpdated &&
-            (identical(other.referenceList, referenceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceList, referenceList)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(referenceList);
-
-  @JsonKey(ignore: true)
-  @override
-  _$ReferenceListUpdatedCopyWith<_ReferenceListUpdated> get copyWith =>
-      __$ReferenceListUpdatedCopyWithImpl<_ReferenceListUpdated>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
-    required TResult Function(
-            Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
-        responseMapReceived,
-    required TResult Function() uploadTimerUpdated,
-    required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
-        responseMapUploaded,
-    required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
-        responseStarted,
-    required TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)
-        responseUpdated,
-    required TResult Function(bool responseFinished) editFinished,
-    required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
-    required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
-  }) {
-    return referenceListUpdated(referenceList);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
-    TResult Function(
-            Either<SurveyFailure, Map<UniqueId, Response>>
-                failureOrResponseMap)?
-        responseMapReceived,
-    TResult Function()? uploadTimerUpdated,
-    TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
-        responseMapUploaded,
-    TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
-        responseStarted,
-    TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            SimpleSurveyPageState surveyPageState)?
-        responseUpdated,
-    TResult Function(bool responseFinished)? editFinished,
-    TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
-    TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (referenceListUpdated != null) {
-      return referenceListUpdated(referenceList);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
-    required TResult Function(_ResponseMapReceived value) responseMapReceived,
-    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
-    required TResult Function(_ResponseMapUploading value) responseMapUploading,
-    required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
-    required TResult Function(_SurveySelected value) surveySelected,
-    required TResult Function(_ResponseStarted value) responseStarted,
-    required TResult Function(_ResponseUpdated value) responseUpdated,
-    required TResult Function(_EditFinished value) editFinished,
-    required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
-    required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
-  }) {
-    return referenceListUpdated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
-    TResult Function(_ResponseMapReceived value)? responseMapReceived,
-    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
-    TResult Function(_ResponseMapUploading value)? responseMapUploading,
-    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
-    TResult Function(_SurveySelected value)? surveySelected,
-    TResult Function(_ResponseStarted value)? responseStarted,
-    TResult Function(_ResponseUpdated value)? responseUpdated,
-    TResult Function(_EditFinished value)? editFinished,
-    TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
-    required TResult orElse(),
-  }) {
-    if (referenceListUpdated != null) {
-      return referenceListUpdated(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ReferenceListUpdated implements ResponseEvent {
-  const factory _ReferenceListUpdated(
-      {required List<Reference> referenceList}) = _$_ReferenceListUpdated;
-
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$ReferenceListUpdatedCopyWith<_ReferenceListUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2539,10 +3247,13 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -2558,8 +3269,6 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -2568,13 +3277,16 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2590,7 +3302,39 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return loggedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -2605,8 +3349,10 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -2615,7 +3361,6 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -2624,9 +3369,11 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -2635,7 +3382,27 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return loggedOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -2701,10 +3468,13 @@ class _$_TaskInitialized
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String teamId, Interviewer interviewer)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
         responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
@@ -2720,8 +3490,6 @@ class _$_TaskInitialized
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
     required TResult Function() loggedOut,
     required TResult Function() taskInitialized,
   }) {
@@ -2730,13 +3498,16 @@ class _$_TaskInitialized
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
+  TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String teamId, Interviewer interviewer)?
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     TResult Function(
             Either<SurveyFailure, Map<UniqueId, Response>>
                 failureOrResponseMap)?
         responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
@@ -2752,7 +3523,39 @@ class _$_TaskInitialized
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return taskInitialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(Respondent respondent, ModuleType moduleType,
+            bool withResponseId, bool breakInterview, UniqueId responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
     TResult Function()? taskInitialized,
     required TResult orElse(),
@@ -2767,8 +3570,10 @@ class _$_TaskInitialized
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_WatchResponseMapStarted value)
-        watchResponseMapStarted,
+        watchResponseMapAndReferenceListStarted,
     required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
     required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
     required TResult Function(_ResponseMapUploading value) responseMapUploading,
     required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
@@ -2777,7 +3582,6 @@ class _$_TaskInitialized
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
@@ -2786,9 +3590,11 @@ class _$_TaskInitialized
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_WatchResponseMapStarted value)? watchResponseMapStarted,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
     TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
     TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
     TResult Function(_ResponseMapUploading value)? responseMapUploading,
     TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
@@ -2797,7 +3603,27 @@ class _$_TaskInitialized
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return taskInitialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_TaskInitialized value)? taskInitialized,
     required TResult orElse(),
@@ -2822,45 +3648,41 @@ class _$ResponseStateTearOff {
       required Respondent respondent,
       required Interviewer interviewer,
       required ModuleType moduleType,
-      required LoadState responseMapState,
       required Map<UniqueId, Response> responseMap,
       required Map<UniqueId, Response> downloadedResponseMap,
-      required Option<SurveyFailure> responseFailure,
       required Response response,
-      required LoadState responseRestoreState,
+      required Map<ModuleType, Response> respondentResponseMap,
+      required List<Reference> referenceList,
+      required bool breakInterview,
       required Map<String, Question> questionMap,
       required bool withResponseId,
-      required bool breakInterview,
       required UniqueId responseId,
       required Response mainResponse,
-      required Map<ModuleType, Response> respondentResponseMap,
-      required bool updateRespondentResponseMap,
+      required LoadState responseMapState,
+      required Option<SurveyFailure> responseFailure,
+      required LoadState eventState,
       required LoadState updateState,
-      required bool updateVisitReportsMap,
-      required bool updateTabRespondentMap,
-      required List<Reference> referenceList}) {
+      required Set<UpdateResponseStateType> updateType}) {
     return _ResponseState(
       survey: survey,
       respondent: respondent,
       interviewer: interviewer,
       moduleType: moduleType,
-      responseMapState: responseMapState,
       responseMap: responseMap,
       downloadedResponseMap: downloadedResponseMap,
-      responseFailure: responseFailure,
       response: response,
-      responseRestoreState: responseRestoreState,
+      respondentResponseMap: respondentResponseMap,
+      referenceList: referenceList,
+      breakInterview: breakInterview,
       questionMap: questionMap,
       withResponseId: withResponseId,
-      breakInterview: breakInterview,
       responseId: responseId,
       mainResponse: mainResponse,
-      respondentResponseMap: respondentResponseMap,
-      updateRespondentResponseMap: updateRespondentResponseMap,
+      responseMapState: responseMapState,
+      responseFailure: responseFailure,
+      eventState: eventState,
       updateState: updateState,
-      updateVisitReportsMap: updateVisitReportsMap,
-      updateTabRespondentMap: updateTabRespondentMap,
-      referenceList: referenceList,
+      updateType: updateType,
     );
   }
 }
@@ -2870,30 +3692,31 @@ const $ResponseState = _$ResponseStateTearOff();
 
 /// @nodoc
 mixin _$ResponseState {
+// H_ 主要資料
   Survey get survey => throw _privateConstructorUsedError;
   Respondent get respondent => throw _privateConstructorUsedError;
   Interviewer get interviewer => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
-  LoadState get responseMapState => throw _privateConstructorUsedError;
   Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   Map<UniqueId, Response> get downloadedResponseMap =>
       throw _privateConstructorUsedError;
-  Option<SurveyFailure> get responseFailure =>
-      throw _privateConstructorUsedError;
   Response get response => throw _privateConstructorUsedError;
-  LoadState get responseRestoreState => throw _privateConstructorUsedError;
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
-  bool get withResponseId => throw _privateConstructorUsedError;
-  bool get breakInterview => throw _privateConstructorUsedError;
-  UniqueId get responseId => throw _privateConstructorUsedError;
-  Response get mainResponse => throw _privateConstructorUsedError;
   Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
-  bool get updateRespondentResponseMap => throw _privateConstructorUsedError;
+  List<Reference> get referenceList =>
+      throw _privateConstructorUsedError; // H_ 中間資料
+  bool get breakInterview => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  bool get withResponseId => throw _privateConstructorUsedError;
+  UniqueId get responseId => throw _privateConstructorUsedError;
+  Response get mainResponse => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  LoadState get responseMapState => throw _privateConstructorUsedError;
+  Option<SurveyFailure> get responseFailure =>
+      throw _privateConstructorUsedError;
+  LoadState get eventState => throw _privateConstructorUsedError;
   LoadState get updateState => throw _privateConstructorUsedError;
-  bool get updateVisitReportsMap => throw _privateConstructorUsedError;
-  bool get updateTabRespondentMap => throw _privateConstructorUsedError;
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  Set<UpdateResponseStateType> get updateType =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ResponseStateCopyWith<ResponseState> get copyWith =>
@@ -2910,33 +3733,31 @@ abstract class $ResponseStateCopyWith<$Res> {
       Respondent respondent,
       Interviewer interviewer,
       ModuleType moduleType,
-      LoadState responseMapState,
       Map<UniqueId, Response> responseMap,
       Map<UniqueId, Response> downloadedResponseMap,
-      Option<SurveyFailure> responseFailure,
       Response response,
-      LoadState responseRestoreState,
+      Map<ModuleType, Response> respondentResponseMap,
+      List<Reference> referenceList,
+      bool breakInterview,
       Map<String, Question> questionMap,
       bool withResponseId,
-      bool breakInterview,
       UniqueId responseId,
       Response mainResponse,
-      Map<ModuleType, Response> respondentResponseMap,
-      bool updateRespondentResponseMap,
+      LoadState responseMapState,
+      Option<SurveyFailure> responseFailure,
+      LoadState eventState,
       LoadState updateState,
-      bool updateVisitReportsMap,
-      bool updateTabRespondentMap,
-      List<Reference> referenceList});
+      Set<UpdateResponseStateType> updateType});
 
   $SurveyCopyWith<$Res> get survey;
   $RespondentCopyWith<$Res> get respondent;
   $InterviewerCopyWith<$Res> get interviewer;
   $ModuleTypeCopyWith<$Res> get moduleType;
-  $LoadStateCopyWith<$Res> get responseMapState;
   $ResponseCopyWith<$Res> get response;
-  $LoadStateCopyWith<$Res> get responseRestoreState;
   $UniqueIdCopyWith<$Res> get responseId;
   $ResponseCopyWith<$Res> get mainResponse;
+  $LoadStateCopyWith<$Res> get responseMapState;
+  $LoadStateCopyWith<$Res> get eventState;
   $LoadStateCopyWith<$Res> get updateState;
 }
 
@@ -2955,23 +3776,21 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? respondent = freezed,
     Object? interviewer = freezed,
     Object? moduleType = freezed,
-    Object? responseMapState = freezed,
     Object? responseMap = freezed,
     Object? downloadedResponseMap = freezed,
-    Object? responseFailure = freezed,
     Object? response = freezed,
-    Object? responseRestoreState = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? referenceList = freezed,
+    Object? breakInterview = freezed,
     Object? questionMap = freezed,
     Object? withResponseId = freezed,
-    Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
-    Object? respondentResponseMap = freezed,
-    Object? updateRespondentResponseMap = freezed,
+    Object? responseMapState = freezed,
+    Object? responseFailure = freezed,
+    Object? eventState = freezed,
     Object? updateState = freezed,
-    Object? updateVisitReportsMap = freezed,
-    Object? updateTabRespondentMap = freezed,
-    Object? referenceList = freezed,
+    Object? updateType = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed
@@ -2990,10 +3809,6 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as ModuleType,
-      responseMapState: responseMapState == freezed
-          ? _value.responseMapState
-          : responseMapState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       responseMap: responseMap == freezed
           ? _value.responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
@@ -3002,18 +3817,22 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.downloadedResponseMap
           : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
-      responseFailure: responseFailure == freezed
-          ? _value.responseFailure
-          : responseFailure // ignore: cast_nullable_to_non_nullable
-              as Option<SurveyFailure>,
       response: response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as Response,
-      responseRestoreState: responseRestoreState == freezed
-          ? _value.responseRestoreState
-          : responseRestoreState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as List<Reference>,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
+              as bool,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -3021,10 +3840,6 @@ class _$ResponseStateCopyWithImpl<$Res>
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
-              as bool,
-      breakInterview: breakInterview == freezed
-          ? _value.breakInterview
-          : breakInterview // ignore: cast_nullable_to_non_nullable
               as bool,
       responseId: responseId == freezed
           ? _value.responseId
@@ -3034,30 +3849,26 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
               as Response,
-      respondentResponseMap: respondentResponseMap == freezed
-          ? _value.respondentResponseMap
-          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<ModuleType, Response>,
-      updateRespondentResponseMap: updateRespondentResponseMap == freezed
-          ? _value.updateRespondentResponseMap
-          : updateRespondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as bool,
+      responseMapState: responseMapState == freezed
+          ? _value.responseMapState
+          : responseMapState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      responseFailure: responseFailure == freezed
+          ? _value.responseFailure
+          : responseFailure // ignore: cast_nullable_to_non_nullable
+              as Option<SurveyFailure>,
+      eventState: eventState == freezed
+          ? _value.eventState
+          : eventState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      updateVisitReportsMap: updateVisitReportsMap == freezed
-          ? _value.updateVisitReportsMap
-          : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      updateTabRespondentMap: updateTabRespondentMap == freezed
-          ? _value.updateTabRespondentMap
-          : updateTabRespondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      referenceList: referenceList == freezed
-          ? _value.referenceList
-          : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<Reference>,
+      updateType: updateType == freezed
+          ? _value.updateType
+          : updateType // ignore: cast_nullable_to_non_nullable
+              as Set<UpdateResponseStateType>,
     ));
   }
 
@@ -3090,23 +3901,9 @@ class _$ResponseStateCopyWithImpl<$Res>
   }
 
   @override
-  $LoadStateCopyWith<$Res> get responseMapState {
-    return $LoadStateCopyWith<$Res>(_value.responseMapState, (value) {
-      return _then(_value.copyWith(responseMapState: value));
-    });
-  }
-
-  @override
   $ResponseCopyWith<$Res> get response {
     return $ResponseCopyWith<$Res>(_value.response, (value) {
       return _then(_value.copyWith(response: value));
-    });
-  }
-
-  @override
-  $LoadStateCopyWith<$Res> get responseRestoreState {
-    return $LoadStateCopyWith<$Res>(_value.responseRestoreState, (value) {
-      return _then(_value.copyWith(responseRestoreState: value));
     });
   }
 
@@ -3121,6 +3918,20 @@ class _$ResponseStateCopyWithImpl<$Res>
   $ResponseCopyWith<$Res> get mainResponse {
     return $ResponseCopyWith<$Res>(_value.mainResponse, (value) {
       return _then(_value.copyWith(mainResponse: value));
+    });
+  }
+
+  @override
+  $LoadStateCopyWith<$Res> get responseMapState {
+    return $LoadStateCopyWith<$Res>(_value.responseMapState, (value) {
+      return _then(_value.copyWith(responseMapState: value));
+    });
+  }
+
+  @override
+  $LoadStateCopyWith<$Res> get eventState {
+    return $LoadStateCopyWith<$Res>(_value.eventState, (value) {
+      return _then(_value.copyWith(eventState: value));
     });
   }
 
@@ -3144,23 +3955,21 @@ abstract class _$ResponseStateCopyWith<$Res>
       Respondent respondent,
       Interviewer interviewer,
       ModuleType moduleType,
-      LoadState responseMapState,
       Map<UniqueId, Response> responseMap,
       Map<UniqueId, Response> downloadedResponseMap,
-      Option<SurveyFailure> responseFailure,
       Response response,
-      LoadState responseRestoreState,
+      Map<ModuleType, Response> respondentResponseMap,
+      List<Reference> referenceList,
+      bool breakInterview,
       Map<String, Question> questionMap,
       bool withResponseId,
-      bool breakInterview,
       UniqueId responseId,
       Response mainResponse,
-      Map<ModuleType, Response> respondentResponseMap,
-      bool updateRespondentResponseMap,
+      LoadState responseMapState,
+      Option<SurveyFailure> responseFailure,
+      LoadState eventState,
       LoadState updateState,
-      bool updateVisitReportsMap,
-      bool updateTabRespondentMap,
-      List<Reference> referenceList});
+      Set<UpdateResponseStateType> updateType});
 
   @override
   $SurveyCopyWith<$Res> get survey;
@@ -3171,15 +3980,15 @@ abstract class _$ResponseStateCopyWith<$Res>
   @override
   $ModuleTypeCopyWith<$Res> get moduleType;
   @override
-  $LoadStateCopyWith<$Res> get responseMapState;
-  @override
   $ResponseCopyWith<$Res> get response;
-  @override
-  $LoadStateCopyWith<$Res> get responseRestoreState;
   @override
   $UniqueIdCopyWith<$Res> get responseId;
   @override
   $ResponseCopyWith<$Res> get mainResponse;
+  @override
+  $LoadStateCopyWith<$Res> get responseMapState;
+  @override
+  $LoadStateCopyWith<$Res> get eventState;
   @override
   $LoadStateCopyWith<$Res> get updateState;
 }
@@ -3201,23 +4010,21 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? respondent = freezed,
     Object? interviewer = freezed,
     Object? moduleType = freezed,
-    Object? responseMapState = freezed,
     Object? responseMap = freezed,
     Object? downloadedResponseMap = freezed,
-    Object? responseFailure = freezed,
     Object? response = freezed,
-    Object? responseRestoreState = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? referenceList = freezed,
+    Object? breakInterview = freezed,
     Object? questionMap = freezed,
     Object? withResponseId = freezed,
-    Object? breakInterview = freezed,
     Object? responseId = freezed,
     Object? mainResponse = freezed,
-    Object? respondentResponseMap = freezed,
-    Object? updateRespondentResponseMap = freezed,
+    Object? responseMapState = freezed,
+    Object? responseFailure = freezed,
+    Object? eventState = freezed,
     Object? updateState = freezed,
-    Object? updateVisitReportsMap = freezed,
-    Object? updateTabRespondentMap = freezed,
-    Object? referenceList = freezed,
+    Object? updateType = freezed,
   }) {
     return _then(_ResponseState(
       survey: survey == freezed
@@ -3236,10 +4043,6 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as ModuleType,
-      responseMapState: responseMapState == freezed
-          ? _value.responseMapState
-          : responseMapState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       responseMap: responseMap == freezed
           ? _value.responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
@@ -3248,18 +4051,22 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.downloadedResponseMap
           : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
-      responseFailure: responseFailure == freezed
-          ? _value.responseFailure
-          : responseFailure // ignore: cast_nullable_to_non_nullable
-              as Option<SurveyFailure>,
       response: response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as Response,
-      responseRestoreState: responseRestoreState == freezed
-          ? _value.responseRestoreState
-          : responseRestoreState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as List<Reference>,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
+              as bool,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
@@ -3267,10 +4074,6 @@ class __$ResponseStateCopyWithImpl<$Res>
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
-              as bool,
-      breakInterview: breakInterview == freezed
-          ? _value.breakInterview
-          : breakInterview // ignore: cast_nullable_to_non_nullable
               as bool,
       responseId: responseId == freezed
           ? _value.responseId
@@ -3280,30 +4083,26 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
               as Response,
-      respondentResponseMap: respondentResponseMap == freezed
-          ? _value.respondentResponseMap
-          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<ModuleType, Response>,
-      updateRespondentResponseMap: updateRespondentResponseMap == freezed
-          ? _value.updateRespondentResponseMap
-          : updateRespondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as bool,
+      responseMapState: responseMapState == freezed
+          ? _value.responseMapState
+          : responseMapState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
+      responseFailure: responseFailure == freezed
+          ? _value.responseFailure
+          : responseFailure // ignore: cast_nullable_to_non_nullable
+              as Option<SurveyFailure>,
+      eventState: eventState == freezed
+          ? _value.eventState
+          : eventState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      updateVisitReportsMap: updateVisitReportsMap == freezed
-          ? _value.updateVisitReportsMap
-          : updateVisitReportsMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      updateTabRespondentMap: updateTabRespondentMap == freezed
-          ? _value.updateTabRespondentMap
-          : updateTabRespondentMap // ignore: cast_nullable_to_non_nullable
-              as bool,
-      referenceList: referenceList == freezed
-          ? _value.referenceList
-          : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<Reference>,
+      updateType: updateType == freezed
+          ? _value.updateType
+          : updateType // ignore: cast_nullable_to_non_nullable
+              as Set<UpdateResponseStateType>,
     ));
   }
 }
@@ -3316,26 +4115,24 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       required this.respondent,
       required this.interviewer,
       required this.moduleType,
-      required this.responseMapState,
       required this.responseMap,
       required this.downloadedResponseMap,
-      required this.responseFailure,
       required this.response,
-      required this.responseRestoreState,
+      required this.respondentResponseMap,
+      required this.referenceList,
+      required this.breakInterview,
       required this.questionMap,
       required this.withResponseId,
-      required this.breakInterview,
       required this.responseId,
       required this.mainResponse,
-      required this.respondentResponseMap,
-      required this.updateRespondentResponseMap,
+      required this.responseMapState,
+      required this.responseFailure,
+      required this.eventState,
       required this.updateState,
-      required this.updateVisitReportsMap,
-      required this.updateTabRespondentMap,
-      required this.referenceList})
+      required this.updateType})
       : super._();
 
-  @override
+  @override // H_ 主要資料
   final Survey survey;
   @override
   final Respondent respondent;
@@ -3344,43 +4141,39 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   @override
   final ModuleType moduleType;
   @override
-  final LoadState responseMapState;
-  @override
   final Map<UniqueId, Response> responseMap;
   @override
   final Map<UniqueId, Response> downloadedResponseMap;
   @override
-  final Option<SurveyFailure> responseFailure;
-  @override
   final Response response;
   @override
-  final LoadState responseRestoreState;
+  final Map<ModuleType, Response> respondentResponseMap;
+  @override
+  final List<Reference> referenceList;
+  @override // H_ 中間資料
+  final bool breakInterview;
   @override
   final Map<String, Question> questionMap;
   @override
   final bool withResponseId;
   @override
-  final bool breakInterview;
-  @override
   final UniqueId responseId;
   @override
   final Response mainResponse;
+  @override // H_ 狀態更新進度
+  final LoadState responseMapState;
   @override
-  final Map<ModuleType, Response> respondentResponseMap;
+  final Option<SurveyFailure> responseFailure;
   @override
-  final bool updateRespondentResponseMap;
+  final LoadState eventState;
   @override
   final LoadState updateState;
   @override
-  final bool updateVisitReportsMap;
-  @override
-  final bool updateTabRespondentMap;
-  @override
-  final List<Reference> referenceList;
+  final Set<UpdateResponseStateType> updateType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseMapState: $responseMapState, responseMap: $responseMap, downloadedResponseMap: $downloadedResponseMap, responseFailure: $responseFailure, response: $response, responseRestoreState: $responseRestoreState, questionMap: $questionMap, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId, mainResponse: $mainResponse, respondentResponseMap: $respondentResponseMap, updateRespondentResponseMap: $updateRespondentResponseMap, updateState: $updateState, updateVisitReportsMap: $updateVisitReportsMap, updateTabRespondentMap: $updateTabRespondentMap, referenceList: $referenceList)';
+    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseMap: $responseMap, downloadedResponseMap: $downloadedResponseMap, response: $response, respondentResponseMap: $respondentResponseMap, referenceList: $referenceList, breakInterview: $breakInterview, questionMap: $questionMap, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateType: $updateType)';
   }
 
   @override
@@ -3392,25 +4185,21 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('respondent', respondent))
       ..add(DiagnosticsProperty('interviewer', interviewer))
       ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('responseMapState', responseMapState))
       ..add(DiagnosticsProperty('responseMap', responseMap))
       ..add(DiagnosticsProperty('downloadedResponseMap', downloadedResponseMap))
-      ..add(DiagnosticsProperty('responseFailure', responseFailure))
       ..add(DiagnosticsProperty('response', response))
-      ..add(DiagnosticsProperty('responseRestoreState', responseRestoreState))
+      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
+      ..add(DiagnosticsProperty('referenceList', referenceList))
+      ..add(DiagnosticsProperty('breakInterview', breakInterview))
       ..add(DiagnosticsProperty('questionMap', questionMap))
       ..add(DiagnosticsProperty('withResponseId', withResponseId))
-      ..add(DiagnosticsProperty('breakInterview', breakInterview))
       ..add(DiagnosticsProperty('responseId', responseId))
       ..add(DiagnosticsProperty('mainResponse', mainResponse))
-      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
-      ..add(DiagnosticsProperty(
-          'updateRespondentResponseMap', updateRespondentResponseMap))
+      ..add(DiagnosticsProperty('responseMapState', responseMapState))
+      ..add(DiagnosticsProperty('responseFailure', responseFailure))
+      ..add(DiagnosticsProperty('eventState', eventState))
       ..add(DiagnosticsProperty('updateState', updateState))
-      ..add(DiagnosticsProperty('updateVisitReportsMap', updateVisitReportsMap))
-      ..add(
-          DiagnosticsProperty('updateTabRespondentMap', updateTabRespondentMap))
-      ..add(DiagnosticsProperty('referenceList', referenceList));
+      ..add(DiagnosticsProperty('updateType', updateType));
   }
 
   @override
@@ -3428,56 +4217,51 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
             (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleType, moduleType)) &&
-            (identical(other.responseMapState, responseMapState) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMapState, responseMapState)) &&
             (identical(other.responseMap, responseMap) ||
                 const DeepCollectionEquality()
                     .equals(other.responseMap, responseMap)) &&
             (identical(other.downloadedResponseMap, downloadedResponseMap) ||
                 const DeepCollectionEquality().equals(
                     other.downloadedResponseMap, downloadedResponseMap)) &&
-            (identical(other.responseFailure, responseFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseFailure, responseFailure)) &&
             (identical(other.response, response) ||
                 const DeepCollectionEquality()
                     .equals(other.response, response)) &&
-            (identical(other.responseRestoreState, responseRestoreState) ||
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
                 const DeepCollectionEquality().equals(
-                    other.responseRestoreState, responseRestoreState)) &&
+                    other.respondentResponseMap, respondentResponseMap)) &&
+            (identical(other.referenceList, referenceList) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceList, referenceList)) &&
+            (identical(other.breakInterview, breakInterview) ||
+                const DeepCollectionEquality()
+                    .equals(other.breakInterview, breakInterview)) &&
             (identical(other.questionMap, questionMap) ||
                 const DeepCollectionEquality()
                     .equals(other.questionMap, questionMap)) &&
             (identical(other.withResponseId, withResponseId) ||
                 const DeepCollectionEquality()
                     .equals(other.withResponseId, withResponseId)) &&
-            (identical(other.breakInterview, breakInterview) ||
-                const DeepCollectionEquality()
-                    .equals(other.breakInterview, breakInterview)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
                     .equals(other.responseId, responseId)) &&
             (identical(other.mainResponse, mainResponse) ||
                 const DeepCollectionEquality()
                     .equals(other.mainResponse, mainResponse)) &&
-            (identical(other.respondentResponseMap, respondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.respondentResponseMap, respondentResponseMap)) &&
-            (identical(other.updateRespondentResponseMap, updateRespondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.updateRespondentResponseMap,
-                    updateRespondentResponseMap)) &&
+            (identical(other.responseMapState, responseMapState) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseMapState, responseMapState)) &&
+            (identical(other.responseFailure, responseFailure) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseFailure, responseFailure)) &&
+            (identical(other.eventState, eventState) ||
+                const DeepCollectionEquality()
+                    .equals(other.eventState, eventState)) &&
             (identical(other.updateState, updateState) ||
                 const DeepCollectionEquality()
                     .equals(other.updateState, updateState)) &&
-            (identical(other.updateVisitReportsMap, updateVisitReportsMap) ||
-                const DeepCollectionEquality().equals(
-                    other.updateVisitReportsMap, updateVisitReportsMap)) &&
-            (identical(other.updateTabRespondentMap, updateTabRespondentMap) ||
-                const DeepCollectionEquality().equals(
-                    other.updateTabRespondentMap, updateTabRespondentMap)) &&
-            (identical(other.referenceList, referenceList) || const DeepCollectionEquality().equals(other.referenceList, referenceList)));
+            (identical(other.updateType, updateType) ||
+                const DeepCollectionEquality()
+                    .equals(other.updateType, updateType)));
   }
 
   @override
@@ -3487,23 +4271,21 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(interviewer) ^
       const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(responseMapState) ^
       const DeepCollectionEquality().hash(responseMap) ^
       const DeepCollectionEquality().hash(downloadedResponseMap) ^
-      const DeepCollectionEquality().hash(responseFailure) ^
       const DeepCollectionEquality().hash(response) ^
-      const DeepCollectionEquality().hash(responseRestoreState) ^
+      const DeepCollectionEquality().hash(respondentResponseMap) ^
+      const DeepCollectionEquality().hash(referenceList) ^
+      const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(withResponseId) ^
-      const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(responseId) ^
       const DeepCollectionEquality().hash(mainResponse) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
-      const DeepCollectionEquality().hash(updateRespondentResponseMap) ^
+      const DeepCollectionEquality().hash(responseMapState) ^
+      const DeepCollectionEquality().hash(responseFailure) ^
+      const DeepCollectionEquality().hash(eventState) ^
       const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(updateVisitReportsMap) ^
-      const DeepCollectionEquality().hash(updateTabRespondentMap) ^
-      const DeepCollectionEquality().hash(referenceList);
+      const DeepCollectionEquality().hash(updateType);
 
   @JsonKey(ignore: true)
   @override
@@ -3517,26 +4299,24 @@ abstract class _ResponseState extends ResponseState {
       required Respondent respondent,
       required Interviewer interviewer,
       required ModuleType moduleType,
-      required LoadState responseMapState,
       required Map<UniqueId, Response> responseMap,
       required Map<UniqueId, Response> downloadedResponseMap,
-      required Option<SurveyFailure> responseFailure,
       required Response response,
-      required LoadState responseRestoreState,
+      required Map<ModuleType, Response> respondentResponseMap,
+      required List<Reference> referenceList,
+      required bool breakInterview,
       required Map<String, Question> questionMap,
       required bool withResponseId,
-      required bool breakInterview,
       required UniqueId responseId,
       required Response mainResponse,
-      required Map<ModuleType, Response> respondentResponseMap,
-      required bool updateRespondentResponseMap,
+      required LoadState responseMapState,
+      required Option<SurveyFailure> responseFailure,
+      required LoadState eventState,
       required LoadState updateState,
-      required bool updateVisitReportsMap,
-      required bool updateTabRespondentMap,
-      required List<Reference> referenceList}) = _$_ResponseState;
+      required Set<UpdateResponseStateType> updateType}) = _$_ResponseState;
   const _ResponseState._() : super._();
 
-  @override
+  @override // H_ 主要資料
   Survey get survey => throw _privateConstructorUsedError;
   @override
   Respondent get respondent => throw _privateConstructorUsedError;
@@ -3545,44 +4325,183 @@ abstract class _ResponseState extends ResponseState {
   @override
   ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
-  LoadState get responseMapState => throw _privateConstructorUsedError;
-  @override
   Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   @override
   Map<UniqueId, Response> get downloadedResponseMap =>
       throw _privateConstructorUsedError;
   @override
-  Option<SurveyFailure> get responseFailure =>
-      throw _privateConstructorUsedError;
-  @override
   Response get response => throw _privateConstructorUsedError;
   @override
-  LoadState get responseRestoreState => throw _privateConstructorUsedError;
+  Map<ModuleType, Response> get respondentResponseMap =>
+      throw _privateConstructorUsedError;
+  @override
+  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  @override // H_ 中間資料
+  bool get breakInterview => throw _privateConstructorUsedError;
   @override
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   @override
   bool get withResponseId => throw _privateConstructorUsedError;
   @override
-  bool get breakInterview => throw _privateConstructorUsedError;
-  @override
   UniqueId get responseId => throw _privateConstructorUsedError;
   @override
   Response get mainResponse => throw _privateConstructorUsedError;
+  @override // H_ 狀態更新進度
+  LoadState get responseMapState => throw _privateConstructorUsedError;
   @override
-  Map<ModuleType, Response> get respondentResponseMap =>
+  Option<SurveyFailure> get responseFailure =>
       throw _privateConstructorUsedError;
   @override
-  bool get updateRespondentResponseMap => throw _privateConstructorUsedError;
+  LoadState get eventState => throw _privateConstructorUsedError;
   @override
   LoadState get updateState => throw _privateConstructorUsedError;
   @override
-  bool get updateVisitReportsMap => throw _privateConstructorUsedError;
-  @override
-  bool get updateTabRespondentMap => throw _privateConstructorUsedError;
-  @override
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  Set<UpdateResponseStateType> get updateType =>
+      throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateCopyWith<_ResponseState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$UpdateResponseStateTypeTearOff {
+  const _$UpdateResponseStateTypeTearOff();
+
+  _UpdateResponseStateType call(String value) {
+    return _UpdateResponseStateType(
+      value,
+    );
+  }
+}
+
+/// @nodoc
+const $UpdateResponseStateType = _$UpdateResponseStateTypeTearOff();
+
+/// @nodoc
+mixin _$UpdateResponseStateType {
+  String get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $UpdateResponseStateTypeCopyWith<UpdateResponseStateType> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $UpdateResponseStateTypeCopyWith<$Res> {
+  factory $UpdateResponseStateTypeCopyWith(UpdateResponseStateType value,
+          $Res Function(UpdateResponseStateType) then) =
+      _$UpdateResponseStateTypeCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$UpdateResponseStateTypeCopyWithImpl<$Res>
+    implements $UpdateResponseStateTypeCopyWith<$Res> {
+  _$UpdateResponseStateTypeCopyWithImpl(this._value, this._then);
+
+  final UpdateResponseStateType _value;
+  // ignore: unused_field
+  final $Res Function(UpdateResponseStateType) _then;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$UpdateResponseStateTypeCopyWith<$Res>
+    implements $UpdateResponseStateTypeCopyWith<$Res> {
+  factory _$UpdateResponseStateTypeCopyWith(_UpdateResponseStateType value,
+          $Res Function(_UpdateResponseStateType) then) =
+      __$UpdateResponseStateTypeCopyWithImpl<$Res>;
+  @override
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$UpdateResponseStateTypeCopyWithImpl<$Res>
+    extends _$UpdateResponseStateTypeCopyWithImpl<$Res>
+    implements _$UpdateResponseStateTypeCopyWith<$Res> {
+  __$UpdateResponseStateTypeCopyWithImpl(_UpdateResponseStateType _value,
+      $Res Function(_UpdateResponseStateType) _then)
+      : super(_value, (v) => _then(v as _UpdateResponseStateType));
+
+  @override
+  _UpdateResponseStateType get _value =>
+      super._value as _UpdateResponseStateType;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_UpdateResponseStateType(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdateResponseStateType extends _UpdateResponseStateType
+    with DiagnosticableTreeMixin {
+  const _$_UpdateResponseStateType(this.value) : super._();
+
+  @override
+  final String value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateResponseStateType(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateResponseStateType'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _UpdateResponseStateType &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$UpdateResponseStateTypeCopyWith<_UpdateResponseStateType> get copyWith =>
+      __$UpdateResponseStateTypeCopyWithImpl<_UpdateResponseStateType>(
+          this, _$identity);
+}
+
+abstract class _UpdateResponseStateType extends UpdateResponseStateType {
+  const factory _UpdateResponseStateType(String value) =
+      _$_UpdateResponseStateType;
+  const _UpdateResponseStateType._() : super._();
+
+  @override
+  String get value => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$UpdateResponseStateTypeCopyWith<_UpdateResponseStateType> get copyWith =>
       throw _privateConstructorUsedError;
 }

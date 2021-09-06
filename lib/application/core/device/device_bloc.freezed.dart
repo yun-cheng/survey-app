@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'device_bloc.dart';
 
@@ -47,6 +48,13 @@ mixin _$DeviceEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchNetworkStarted,
+    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
     TResult Function(ConnectivityResult result)? networkChanged,
@@ -59,6 +67,13 @@ mixin _$DeviceEvent {
     required TResult Function(_WatchNetworkStarted value) watchNetworkStarted,
     required TResult Function(_NetworkChanged value) networkChanged,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
+    TResult Function(_NetworkChanged value)? networkChanged,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -137,6 +152,16 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchNetworkStarted,
+    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+  }) {
+    return watchNetworkStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
     TResult Function(ConnectivityResult result)? networkChanged,
@@ -157,6 +182,16 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
   }) {
     return watchNetworkStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
+    TResult Function(_NetworkChanged value)? networkChanged,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+  }) {
+    return watchNetworkStarted?.call(this);
   }
 
   @override
@@ -253,6 +288,16 @@ class _$_NetworkChanged implements _NetworkChanged {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchNetworkStarted,
+    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+  }) {
+    return networkChanged?.call(result);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
     TResult Function(ConnectivityResult result)? networkChanged,
@@ -273,6 +318,16 @@ class _$_NetworkChanged implements _NetworkChanged {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
   }) {
     return networkChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
+    TResult Function(_NetworkChanged value)? networkChanged,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+  }) {
+    return networkChanged?.call(this);
   }
 
   @override
@@ -376,6 +431,16 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchNetworkStarted,
+    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
+  }) {
+    return appLifeCycleChanged?.call(appLifeCycle);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
     TResult Function(ConnectivityResult result)? networkChanged,
@@ -396,6 +461,16 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
   }) {
     return appLifeCycleChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchNetworkStarted value)? watchNetworkStarted,
+    TResult Function(_NetworkChanged value)? networkChanged,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+  }) {
+    return appLifeCycleChanged?.call(this);
   }
 
   @override

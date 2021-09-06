@@ -6,17 +6,17 @@ part of 'visit_record_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_VisitRecordDto _$_$_VisitRecordDtoFromJson(Map<String, dynamic> json) {
-  return _$_VisitRecordDto(
-    respondentId: json['respondentId'] as String,
-    responseId: json['responseId'] as String,
-    visitTime: VisitTimeDto.fromJson(json['visitTime'] as Map<String, dynamic>),
-    status: json['status'] as String,
-    description: json['description'] as String,
-  );
-}
+_$_VisitRecordDto _$$_VisitRecordDtoFromJson(Map<String, dynamic> json) =>
+    _$_VisitRecordDto(
+      respondentId: json['respondentId'] as String,
+      responseId: json['responseId'] as String,
+      visitTime:
+          VisitTimeDto.fromJson(json['visitTime'] as Map<String, dynamic>),
+      status: json['status'] as String,
+      description: json['description'] as String,
+    );
 
-Map<String, dynamic> _$_$_VisitRecordDtoToJson(_$_VisitRecordDto instance) =>
+Map<String, dynamic> _$$_VisitRecordDtoToJson(_$_VisitRecordDto instance) =>
     <String, dynamic>{
       'respondentId': instance.respondentId,
       'responseId': instance.responseId,

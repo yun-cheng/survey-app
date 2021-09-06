@@ -36,13 +36,21 @@ ResponseState responseMapMerged(ResponseState state) {
     }
   }
 
+  // S_ updateType
+  final updateType = <UpdateResponseStateType>{};
+  if (updateVisitReportsMap) {
+    updateType.add(UpdateResponseStateType.visitReportsMap());
+  }
+  if (updateTabRespondentMap) {
+    updateType.add(UpdateResponseStateType.tabRespondentMap());
+  }
+
   // TODO 如果在其他 device 剛好更新當前 respondent 的不同模組新 response，
   //  則要更新 respondentResponseMap
 
   return state.copyWith(
     responseMap: responseMap,
-    updateVisitReportsMap: updateVisitReportsMap,
-    updateTabRespondentMap: updateTabRespondentMap,
+    updateType: updateType,
   );
 }
 
@@ -147,7 +155,6 @@ ResponseState responseRestored(ResponseState state) {
   responseMap[response.responseId] = response;
 
   return state.copyWith(
-    responseRestoreState: LoadState.success(),
     response: response,
     responseMap: responseMap,
     questionMap: module.questionMap,
@@ -214,15 +221,24 @@ ResponseState editFinished(
     final responseMap = {...state.responseMap};
     responseMap[newResponse.responseId] = newResponse;
 
+    // S_ updateType
+    final updateType = <UpdateResponseStateType>{};
+    if (newResponse.moduleType == ModuleType.visitReport()) {
+      updateType.add(UpdateResponseStateType.visitReportsMap());
+    }
+    if (e.responseFinished && newResponse.moduleType.needUpdateTab) {
+      updateType.add(UpdateResponseStateType.tabRespondentMap());
+    }
+
     return state.copyWith(
       response: newResponse,
       responseMap: responseMap,
-      updateVisitReportsMap: newResponse.moduleType == ModuleType.visitReport(),
-      updateTabRespondentMap:
-          e.responseFinished && newResponse.moduleType.needUpdateTab,
+      updateType: updateType,
     );
   } else {
-    return state;
+    return state.copyWith(
+      updateType: {},
+    );
   }
 }
 
@@ -271,12 +287,11 @@ ResponseState respondentResponseMapUpdated(ResponseState state) {
       .groupListsBy((r) => r.moduleType)
       .mapValues((e) => e.first);
 
-  final updateRespondentResponseMap =
-      state.respondentResponseMap.mapValues((r) => r.tempResponseId) !=
-          subsetMap.mapValues((r) => r.tempResponseId);
+  // final updateRespondentResponseMap =
+  //     state.respondentResponseMap.mapValues((r) => r.tempResponseId) !=
+  //         subsetMap.mapValues((r) => r.tempResponseId);
 
   return state.copyWith(
-    updateRespondentResponseMap: updateRespondentResponseMap,
     respondentResponseMap: subsetMap,
   );
 }

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'audio_recorder_bloc.dart';
 
@@ -51,6 +52,14 @@ mixin _$AudioRecorderEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(UniqueId fileName)? recordStarted,
+    TResult Function()? recordStopped,
+    TResult Function()? watchDbStreamStarted,
+    TResult Function(double db)? dbUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
@@ -65,6 +74,14 @@ mixin _$AudioRecorderEvent {
     required TResult Function(_RecordStopped value) recordStopped,
     required TResult Function(_WatchDbStreamStarted value) watchDbStreamStarted,
     required TResult Function(_DbUpdated value) dbUpdated,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RecordStarted value)? recordStarted,
+    TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_WatchDbStreamStarted value)? watchDbStreamStarted,
+    TResult Function(_DbUpdated value)? dbUpdated,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -188,6 +205,17 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(UniqueId fileName)? recordStarted,
+    TResult Function()? recordStopped,
+    TResult Function()? watchDbStreamStarted,
+    TResult Function(double db)? dbUpdated,
+  }) {
+    return recordStarted?.call(fileName);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
@@ -210,6 +238,17 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
     required TResult Function(_DbUpdated value) dbUpdated,
   }) {
     return recordStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RecordStarted value)? recordStarted,
+    TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_WatchDbStreamStarted value)? watchDbStreamStarted,
+    TResult Function(_DbUpdated value)? dbUpdated,
+  }) {
+    return recordStarted?.call(this);
   }
 
   @override
@@ -294,6 +333,17 @@ class _$_RecordStopped with DiagnosticableTreeMixin implements _RecordStopped {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(UniqueId fileName)? recordStarted,
+    TResult Function()? recordStopped,
+    TResult Function()? watchDbStreamStarted,
+    TResult Function(double db)? dbUpdated,
+  }) {
+    return recordStopped?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
@@ -316,6 +366,17 @@ class _$_RecordStopped with DiagnosticableTreeMixin implements _RecordStopped {
     required TResult Function(_DbUpdated value) dbUpdated,
   }) {
     return recordStopped(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RecordStarted value)? recordStarted,
+    TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_WatchDbStreamStarted value)? watchDbStreamStarted,
+    TResult Function(_DbUpdated value)? dbUpdated,
+  }) {
+    return recordStopped?.call(this);
   }
 
   @override
@@ -398,6 +459,17 @@ class _$_WatchDbStreamStarted
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(UniqueId fileName)? recordStarted,
+    TResult Function()? recordStopped,
+    TResult Function()? watchDbStreamStarted,
+    TResult Function(double db)? dbUpdated,
+  }) {
+    return watchDbStreamStarted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
@@ -420,6 +492,17 @@ class _$_WatchDbStreamStarted
     required TResult Function(_DbUpdated value) dbUpdated,
   }) {
     return watchDbStreamStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RecordStarted value)? recordStarted,
+    TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_WatchDbStreamStarted value)? watchDbStreamStarted,
+    TResult Function(_DbUpdated value)? dbUpdated,
+  }) {
+    return watchDbStreamStarted?.call(this);
   }
 
   @override
@@ -524,6 +607,17 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(UniqueId fileName)? recordStarted,
+    TResult Function()? recordStopped,
+    TResult Function()? watchDbStreamStarted,
+    TResult Function(double db)? dbUpdated,
+  }) {
+    return dbUpdated?.call(db);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(UniqueId fileName)? recordStarted,
     TResult Function()? recordStopped,
@@ -546,6 +640,17 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
     required TResult Function(_DbUpdated value) dbUpdated,
   }) {
     return dbUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_RecordStarted value)? recordStarted,
+    TResult Function(_RecordStopped value)? recordStopped,
+    TResult Function(_WatchDbStreamStarted value)? watchDbStreamStarted,
+    TResult Function(_DbUpdated value)? dbUpdated,
+  }) {
+    return dbUpdated?.call(this);
   }
 
   @override

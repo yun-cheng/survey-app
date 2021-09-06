@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'interviewer_dtos.dart';
 
@@ -114,7 +115,7 @@ class _$_InterviewerListDto extends _InterviewerListDto {
   const _$_InterviewerListDto({required this.list}) : super._();
 
   factory _$_InterviewerListDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_InterviewerListDtoFromJson(json);
+      _$$_InterviewerListDtoFromJson(json);
 
   @override
   final List<InterviewerDto> list;
@@ -143,7 +144,7 @@ class _$_InterviewerListDto extends _InterviewerListDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_InterviewerListDtoToJson(this);
+    return _$$_InterviewerListDtoToJson(this);
   }
 }
 
@@ -302,7 +303,7 @@ class _$_InterviewerDto extends _InterviewerDto {
       : super._();
 
   factory _$_InterviewerDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_InterviewerDtoFromJson(json);
+      _$$_InterviewerDtoFromJson(json);
 
   @override
   final String interviewerId;
@@ -345,7 +346,7 @@ class _$_InterviewerDto extends _InterviewerDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_InterviewerDtoToJson(this);
+    return _$$_InterviewerDtoToJson(this);
   }
 }
 

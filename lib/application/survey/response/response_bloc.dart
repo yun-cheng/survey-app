@@ -39,6 +39,8 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
   final ISurveyRepository _surveyRepository;
   StreamSubscription<Either<SurveyFailure, ResponseMap>>?
       _responseMapSubscription;
+  StreamSubscription<Either<SurveyFailure, List<Reference>>>?
+      _referenceListSubscription;
   AsyncExecutor? _eventExecutor;
   AsyncTaskChannel? _eventChannel;
 
@@ -57,11 +59,12 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
   ) async* {
     yield* event.maybeMap(
       taskInitialized: (e) async* {
-        yield await taskInitialized();
+        await taskInitialized(restoreState: true);
       },
       // H_ 監聽 responseMap
-      watchResponseMapStarted: (e) async* {
-        logger('Watch').i('ResponseBloc: watchResponseMapStarted');
+      watchResponseMapAndReferenceListStarted: (e) async* {
+        logger('Watch')
+            .i('ResponseBloc: watchResponseMapAndReferenceListStarted');
 
         yield* eventTaskSent(event);
 
@@ -72,8 +75,21 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
               interviewerId: e.interviewer.id,
             )
             .listen(
-              (failureOrResponseMap) =>
-                  add(ResponseEvent.responseMapReceived(failureOrResponseMap)),
+              (failureOrResponseMap) => add(
+                ResponseEvent.responseMapReceived(failureOrResponseMap),
+              ),
+            );
+
+        await _referenceListSubscription?.cancel();
+        _referenceListSubscription = _surveyRepository
+            .watchReferenceList(
+              teamId: e.teamId,
+              interviewerId: e.interviewer.id,
+            )
+            .listen(
+              (failureOrReferenceList) => add(
+                ResponseEvent.referenceListReceived(failureOrReferenceList),
+              ),
             );
       },
       // H_ 上傳倒數計時
@@ -153,7 +169,9 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
     );
   }
 
-  Future<ResponseState> taskInitialized() async {
+  Future<void> taskInitialized({
+    bool restoreState = false,
+  }) async {
     logger('Task').e('ResponseBloc: taskInitialized');
 
     // S_ event task
@@ -176,13 +194,14 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
     _eventChannel = await eventTask.channel();
 
     // S_ initState
-    final initState = await _eventChannel!.sendAndWaitResponse('initState');
-    if (initState is ResponseState) {
-      logger('State').i('ResponseState: initState');
+    if (restoreState) {
+      final initState = await _eventChannel!.sendAndWaitResponse('initState');
+      if (initState is ResponseState) {
+        logger('State').i('ResponseState: initState');
 
-      return initState;
+        emit(initState);
+      }
     }
-    return ResponseState.initial();
   }
 
   Stream<ResponseState> eventTaskSent(
@@ -208,6 +227,7 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
   @override
   Future<void> close() {
     _responseMapSubscription?.cancel();
+    _referenceListSubscription?.cancel();
     _inactiveTimer?.cancel();
     _activeTimer?.cancel();
     _eventExecutor?.close();

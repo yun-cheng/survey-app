@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'respondent_state_dtos.dart';
 
@@ -338,7 +339,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       : super._();
 
   factory _$_RespondentStateDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_RespondentStateDtoFromJson(json);
+      _$$_RespondentStateDtoFromJson(json);
 
   @override
   final String surveyRespondentMapState;
@@ -442,7 +443,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_RespondentStateDtoToJson(this);
+    return _$$_RespondentStateDtoToJson(this);
   }
 }
 

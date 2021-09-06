@@ -8,7 +8,6 @@ import '../../application/auth/auth_bloc.dart';
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
 import '../../application/survey/response/response_bloc.dart';
-import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
@@ -38,9 +37,6 @@ class OverviewPage extends StatelessWidget {
                 context
                     .read<WatchSurveyBloc>()
                     .add(const WatchSurveyEvent.loggedOut());
-                context
-                    .read<UpdateSurveyPageBloc>()
-                    .add(const UpdateSurveyPageEvent.loggedOut());
                 context
                     .read<RespondentBloc>()
                     .add(const RespondentEvent.loggedOut());

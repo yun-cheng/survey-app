@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
@@ -27,10 +26,15 @@ class TextBox extends HookWidget {
 
     // final textFieldKey = useMemoized(() => GlobalKey());
 
-    final state = context.read<SurveyPageBloc>().state;
-    final canEdit = !state.isReadOnly && !state.isRecodeModule;
+    final isReadOnly = context.read<UpdateAnswerStatusBloc>().state.isReadOnly;
+    final isRecodeModule =
+        context.read<UpdateAnswerStatusBloc>().state.isRecodeModule;
+    final canEdit = !isReadOnly && !isRecodeModule;
     final note =
-        (state.answerMap[questionId] ?? Answer.empty()).value as String? ?? '';
+        (context.read<UpdateAnswerStatusBloc>().state.answerMap[questionId] ??
+                    Answer.empty())
+                .value as String? ??
+            '';
 
     final controller = useTextEditingController(text: note);
 

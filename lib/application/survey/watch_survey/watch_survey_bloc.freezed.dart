@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'watch_survey_bloc.dart';
 
@@ -59,6 +60,16 @@ mixin _$WatchSurveyEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyListStarted,
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
+        surveyListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
@@ -76,6 +87,14 @@ mixin _$WatchSurveyEvent {
     required TResult Function(_SurveyListReceived value) surveyListReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
+    TResult Function(_SurveyListReceived value)? surveyListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -198,6 +217,19 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyListStarted,
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
+        surveyListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+  }) {
+    return watchSurveyListStarted?.call(teamId, interviewerId);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
@@ -223,6 +255,17 @@ class _$_WatchSurveyListStarted implements _WatchSurveyListStarted {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return watchSurveyListStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
+    TResult Function(_SurveyListReceived value)? surveyListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return watchSurveyListStarted?.call(this);
   }
 
   @override
@@ -333,6 +376,19 @@ class _$_SurveyListReceived implements _SurveyListReceived {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyListStarted,
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
+        surveyListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+  }) {
+    return surveyListReceived?.call(failureOrSurveyList);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
@@ -358,6 +414,17 @@ class _$_SurveyListReceived implements _SurveyListReceived {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return surveyListReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
+    TResult Function(_SurveyListReceived value)? surveyListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return surveyListReceived?.call(this);
   }
 
   @override
@@ -475,6 +542,19 @@ class _$_SurveySelected implements _SurveySelected {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyListStarted,
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
+        surveyListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+  }) {
+    return surveySelected?.call(survey);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
@@ -500,6 +580,17 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return surveySelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
+    TResult Function(_SurveyListReceived value)? surveyListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return surveySelected?.call(this);
   }
 
   @override
@@ -579,6 +670,19 @@ class _$_LoggedOut implements _LoggedOut {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyListStarted,
+    TResult Function(Either<SurveyFailure, List<Survey>> failureOrSurveyList)?
+        surveyListReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+  }) {
+    return loggedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyListStarted,
@@ -604,6 +708,17 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyListStarted value)? watchSurveyListStarted,
+    TResult Function(_SurveyListReceived value)? surveyListReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return loggedOut?.call(this);
   }
 
   @override

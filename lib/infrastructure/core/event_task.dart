@@ -54,13 +54,6 @@ class EventTask extends AsyncTask<Map, bool> {
   @override
   AsyncTaskChannel? channelInstantiator() => AsyncTaskChannel();
 
-  void fromJsonTask() {
-    final json = box.get('state') as Map<dynamic, dynamic>?;
-    final initState =
-        json != null ? stateFromJson(jsonConverter.fromJson(json)) : null;
-    _channel.send(initState);
-  }
-
   @override
   FutureOr<bool> run() async {
     _channel = channelResolved()!;
@@ -90,6 +83,13 @@ class EventTask extends AsyncTask<Map, bool> {
 
     return true;
   }
+
+  void fromJsonTask() {
+    final json = box.get('state') as Map<dynamic, dynamic>?;
+    final initState =
+        json != null ? stateFromJson(jsonConverter.fromJson(json)) : null;
+    _channel.send(initState);
+  }
 }
 
 Future<void> toJsonTask({
@@ -98,11 +98,11 @@ Future<void> toJsonTask({
   required dynamic state,
 }) async {
   int count = 1;
-  Map<String, dynamic>? json1;
+  Map<String, dynamic>? json;
   while (count < 10) {
     try {
-      final json = state.toJson() as Map<String, dynamic>;
-      json1 = JsonConverter().toJson(json);
+      json = state.toJson() as Map<String, dynamic>;
+      // json1 = JsonConverter().toJson(json);
       break;
     } catch (e) {
       await Future.delayed(const Duration(milliseconds: 100));
@@ -112,5 +112,5 @@ Future<void> toJsonTask({
     }
   }
 
-  lock.synchronized(() => box.put('state', json1));
+  lock.synchronized(() => box.put('state', json));
 }

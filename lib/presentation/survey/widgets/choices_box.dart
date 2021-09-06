@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
@@ -29,18 +29,15 @@ class ChoicesBox extends HookWidget {
 
     final answer = useValueNotifier(Answer.empty());
 
-    final state = useBloc<SurveyPageBloc, SurveyPageState>(
+    final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       onEmitted: (_, p, c) {
-        if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
+        if (p.updateState != c.updateState &&
+            c.updateState == LoadState.success()) {
           // S_ 該題作答清空時，更新 answer
           if (c.updatedQIdSet.contains(questionId) &&
               c.answerMap[questionId]! == Answer.empty()) {
             answer.value = Answer.empty();
           }
-
-          // S_ 該題選項有變更時，需要 rebuild
-          final pQuestion = p.questionMap[questionId]!;
-          final cQuestion = c.questionMap[questionId]!;
 
           // S_ 若 question 前或後不存在，交由上層 widget 處理
           if (!p.pageQIdSet.contains(questionId) ||
@@ -48,8 +45,11 @@ class ChoicesBox extends HookWidget {
             return false;
           }
 
-          return !const DeepCollectionEquality()
-              .equals(pQuestion.choiceList, cQuestion.choiceList);
+          // S_ 該題選項有變更時，需要 rebuild
+          return !const DeepCollectionEquality().equals(
+            p.questionMap[questionId]!.choiceList,
+            c.questionMap[questionId]!.choiceList,
+          );
         }
         return false;
       },

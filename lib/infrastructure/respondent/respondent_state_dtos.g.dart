@@ -6,53 +6,54 @@ part of 'respondent_state_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RespondentStateDto _$_$_RespondentStateDtoFromJson(
-    Map<String, dynamic> json) {
-  return _$_RespondentStateDto(
-    surveyRespondentMapState: json['surveyRespondentMapState'] as String,
-    surveyRespondentMap:
-        (json['surveyRespondentMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(
-          k,
-          (e as Map<String, dynamic>).map(
-            (k, e) =>
-                MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
-          )),
-    ),
-    survey: SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
-    respondentMap: (json['respondentMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
-    ),
-    currentTab: _$enumDecode(_$TabTypeEnumMap, json['currentTab']),
-    tabScrollPosition: (json['tabScrollPosition'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(_$enumDecode(_$TabTypeEnumMap, k),
-          CardScrollPositionDto.fromJson(e as Map<String, dynamic>)),
-    ),
-    needToJump: json['needToJump'] as bool,
-    jumpToIndex: json['jumpToIndex'] as int,
-    selectedRespondentId: json['selectedRespondentId'] as String,
-    respondentFailure: json['respondentFailure'] as String?,
-    visitRecordsMap: (json['visitRecordsMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(
-          k,
-          (e as List<dynamic>)
-              .map((e) => VisitRecordDto.fromJson(e as Map<String, dynamic>))
-              .toList()),
-    ),
-    tabRespondentMap: (json['tabRespondentMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(
-          _$enumDecode(_$TabTypeEnumMap, k),
-          (e as Map<String, dynamic>).map(
-            (k, e) =>
-                MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
-          )),
-    ),
-    responseInfoMap: ResponseMapDto.fromJson(
-        json['responseInfoMap'] as Map<String, dynamic>),
-  );
-}
+_$_RespondentStateDto _$$_RespondentStateDtoFromJson(
+        Map<String, dynamic> json) =>
+    _$_RespondentStateDto(
+      surveyRespondentMapState: json['surveyRespondentMapState'] as String,
+      surveyRespondentMap:
+          (json['surveyRespondentMap'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+            k,
+            (e as Map<String, dynamic>).map(
+              (k, e) => MapEntry(
+                  k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+            )),
+      ),
+      survey: SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
+      respondentMap: (json['respondentMap'] as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+      ),
+      currentTab: _$enumDecode(_$TabTypeEnumMap, json['currentTab']),
+      tabScrollPosition:
+          (json['tabScrollPosition'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(_$enumDecode(_$TabTypeEnumMap, k),
+            CardScrollPositionDto.fromJson(e as Map<String, dynamic>)),
+      ),
+      needToJump: json['needToJump'] as bool,
+      jumpToIndex: json['jumpToIndex'] as int,
+      selectedRespondentId: json['selectedRespondentId'] as String,
+      respondentFailure: json['respondentFailure'] as String?,
+      visitRecordsMap: (json['visitRecordsMap'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+            k,
+            (e as List<dynamic>)
+                .map((e) => VisitRecordDto.fromJson(e as Map<String, dynamic>))
+                .toList()),
+      ),
+      tabRespondentMap: (json['tabRespondentMap'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(
+            _$enumDecode(_$TabTypeEnumMap, k),
+            (e as Map<String, dynamic>).map(
+              (k, e) => MapEntry(
+                  k, RespondentDto.fromJson(e as Map<String, dynamic>)),
+            )),
+      ),
+      responseInfoMap: ResponseMapDto.fromJson(
+          json['responseInfoMap'] as Map<String, dynamic>),
+    );
 
-Map<String, dynamic> _$_$_RespondentStateDtoToJson(
+Map<String, dynamic> _$$_RespondentStateDtoToJson(
         _$_RespondentStateDto instance) =>
     <String, dynamic>{
       'surveyRespondentMapState': instance.surveyRespondentMapState,

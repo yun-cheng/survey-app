@@ -8,8 +8,9 @@ part 'value_objects.freezed.dart';
 class UniqueId with _$UniqueId {
   const UniqueId._();
 
-  factory UniqueId(String value) = _UniqueId;
+  const factory UniqueId(String value) = _UniqueId;
 
+  factory UniqueId.empty() => const UniqueId('');
   factory UniqueId.v1() => UniqueId(const Uuid().v1());
 }
 

@@ -19,17 +19,30 @@ UpdateAnswerStatusState answerStatusMapUpdated(
 UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
   logger('Compute').i('AnswerStatusTypeUpdated');
 
-  final answerStatusMap = {...state.answerStatusMap};
-  final answer = state.answerMap[state.questionId]!;
-  final validateAnswer = state.questionMap[state.questionId]!.validateAnswer;
+  final questionId = state.questionId;
+  final answerStatusMap = {
+    ...state.isRecodeModule
+        ? state.recodeAnswerStatusMap
+        : state.answerStatusMap
+  };
+  final answer = (state.isRecodeModule
+      ? state.recodeAnswerMap
+      : state.answerMap)[questionId]!;
+  final validateAnswer = (state.isRecodeModule
+          ? state.recodeQuestionMap
+          : state.questionMap)[questionId]!
+      .validateAnswer;
 
-  answerStatusMap[state.questionId] = answerStatusMap[state.questionId]!.update(
+  answerStatusMap[questionId] = answerStatusMap[questionId]!.update(
     answer: answer,
     expression: validateAnswer,
   );
 
   return state.copyWith(
-    answerStatusMap: answerStatusMap,
+    answerStatusMap:
+        state.isRecodeModule ? state.answerStatusMap : answerStatusMap,
+    recodeAnswerStatusMap:
+        state.isRecodeModule ? answerStatusMap : state.recodeAnswerStatusMap,
   );
 }
 
@@ -45,7 +58,7 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
 
   // S_ 篩出所有是連鎖題下層的題目
   final lowerQuestionMap =
-      state.questionMap.filter((e) => e.value.upperQuestionId != '').toMap();
+      state.questionMap.filterByValues((q) => q.upperQuestionId != '');
 
   lowerQuestionMap.forEach((questionId, question) {
     // S_0 如果該題的 upperQuestionId 在 changedUpperQIdList 中
@@ -86,22 +99,28 @@ UpdateAnswerStatusState showQuestionCheckedRecodeJob(
     UpdateAnswerStatusState state) {
   logger('Compute').i('showQuestionCheckedRecodeJob');
 
-  final answerStatusMap = {...state.answerStatusMap};
+  final answerStatusMap = {...state.recodeAnswerStatusMap};
 
-  // S_ 在 mainAnswerStatusMap 隱藏的，也將 answerStatusMap 隱藏，其餘不變
-  state.questionMap.forEach((questionId, question) {
-    if (state.mainAnswerStatusMap[questionId]!.isHidden) {
+  // S_ 在 answerStatusMap 隱藏的，也在 recodeAnswerStatusMap 隱藏，其餘不變
+  state.recodeQuestionMap.forEach((questionId, question) {
+    if (state.answerStatusMap[questionId]!.isHidden) {
       answerStatusMap[questionId] = answerStatusMap[questionId]!.setHidden();
     }
   });
 
   return state.copyWith(
-    answerStatusMap: answerStatusMap,
+    recodeAnswerStatusMap: answerStatusMap,
   );
 }
 
 // H_ 判斷有設定題目出現條件的題目是否顯示
-UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
+// NOTE 預設只檢查該頁，nextPage 是直到找到下一題就停止，all 則是檢查所有 showQuestion
+UpdateAnswerStatusState showQuestionChecked(
+  UpdateAnswerStatusState state, {
+  bool all = false,
+  bool toNextQuestion = false,
+  bool toNextIncomplete = false,
+}) {
   logger('Compute').i('showQuestionChecked');
 
   if (state.isRecodeModule) {
@@ -111,11 +130,23 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
   final answerStatusMap = {...state.answerStatusMap};
   final clearAnswerQIdSet = {...state.clearAnswerQIdSet};
 
-  // S_ 篩出有設定題目出現條件的題目
-  final showQuestionMap =
-      state.questionMap.filter((e) => !e.value.show.isEmpty).toMap();
+  // S_ 篩出有設定題目出現條件的題目，或該頁之後的題目
+  late final Map<String, Question> showQuestionMap;
 
-  showQuestionMap.forEach((questionId, question) {
+  if (toNextQuestion) {
+    showQuestionMap =
+        state.questionMap.filterByValues((q) => q.pageNumber > state.page);
+  } else {
+    showQuestionMap = state.questionMap.filterByValues(
+        (q) => !q.show.isEmpty && (all || q.pageNumber == state.page));
+  }
+
+  for (final question in showQuestionMap.values) {
+    if (toNextQuestion && question.show.isEmpty) {
+      break;
+    }
+
+    final questionId = question.id;
     AnswerStatus newAnswerStatus = answerStatusMap[questionId]!;
     bool showQuestion;
 
@@ -141,7 +172,11 @@ UpdateAnswerStatusState showQuestionChecked(UpdateAnswerStatusState state) {
     }
 
     answerStatusMap[questionId] = newAnswerStatus;
-  });
+
+    if (toNextQuestion && showQuestion) {
+      break;
+    }
+  }
 
   final state1 = state.copyWith(
     answerStatusMap: answerStatusMap,

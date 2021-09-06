@@ -4,8 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
-import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/constants.dart';
@@ -33,9 +32,9 @@ class PageControlBar extends HookWidget {
       return () => stream.cancel();
     });
 
-    final state = useBloc<SurveyPageBloc, SurveyPageState>(
+    final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       onEmitted: (_, p, c) {
-        if (p.loadState != c.loadState && c.loadState == LoadState.success()) {
+        if (p.updateState != c.updateState && c.updateState == LoadState.success()) {
           // HIGHLIGHT 初次進頁面可能這些條件都不變（如第一題是說明題），
           //  會導致沒出現 PageControlBar，故加上最後一個判斷條件
           return p.page != c.page ||
@@ -48,7 +47,7 @@ class PageControlBar extends HookWidget {
       },
     ).state;
 
-    final loadSuccess = state.loadState == LoadState.success();
+    final loadSuccess = state.updateState == LoadState.success();
     final currentPage = state.page;
     final isLastPage = state.isLastPage;
     final isReadOnly = state.isReadOnly;
@@ -67,8 +66,8 @@ class PageControlBar extends HookWidget {
       child: PageControlButton(
         Icons.arrow_back_ios_sharp,
         onPressed: () {
-          context.read<UpdateSurveyPageBloc>().add(
-                const UpdateSurveyPageEvent.pageNavigatedTo(
+          context.read<UpdateAnswerStatusBloc>().add(
+                const UpdateAnswerStatusEvent.pageNavigatedTo(
                   direction: Direction.previous,
                 ),
               );
@@ -84,8 +83,8 @@ class PageControlBar extends HookWidget {
       child: PageControlButton(
         Icons.arrow_forward_ios_sharp,
         onPressed: () {
-          context.read<UpdateSurveyPageBloc>().add(
-                const UpdateSurveyPageEvent.pageNavigatedTo(
+          context.read<UpdateAnswerStatusBloc>().add(
+                const UpdateAnswerStatusEvent.pageNavigatedTo(
                   direction: Direction.next,
                 ),
               );
@@ -105,8 +104,8 @@ class PageControlBar extends HookWidget {
         child: TextButton(
           style: kWarningButtonStyle,
           onPressed: () {
-            context.read<UpdateSurveyPageBloc>().add(
-                  UpdateSurveyPageEvent.pageNavigatedTo(
+            context.read<UpdateAnswerStatusBloc>().add(
+                  UpdateAnswerStatusEvent.pageNavigatedTo(
                     page: warning.pageNumber,
                   ),
                 );
@@ -132,8 +131,8 @@ class PageControlBar extends HookWidget {
         child: TextButton(
           style: kWarningButtonStyle,
           onPressed: () {
-            context.read<UpdateSurveyPageBloc>().add(
-                  const UpdateSurveyPageEvent.finishedButtonPressed(),
+            context.read<UpdateAnswerStatusBloc>().add(
+                  const UpdateAnswerStatusEvent.finishedButtonPressed(),
                 );
           },
           child: Text(

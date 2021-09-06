@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:supercharged/supercharged.dart';
 
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
@@ -27,8 +27,9 @@ class TableBox extends StatelessWidget {
     logger('Build').i('TableBox');
 
     // S_ 篩出是這個 tableId 的 questions
-    final pageQIdSet = context.read<SurveyPageBloc>().state.pageQIdSet;
-    final questionMap = context.read<SurveyPageBloc>().state.questionMap;
+    final pageQIdSet = context.read<UpdateAnswerStatusBloc>().state.pageQIdSet;
+    final questionMap =
+        context.read<UpdateAnswerStatusBloc>().state.questionMap;
 
     final tableQuestionList = pageQIdSet
         .map((questionId) => questionMap[questionId]!)

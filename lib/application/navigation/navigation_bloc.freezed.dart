@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'navigation_bloc.dart';
 
@@ -47,6 +48,13 @@ mixin _$NavigationEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
@@ -59,6 +67,13 @@ mixin _$NavigationEvent {
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PagePushed value) pagePushed,
     required TResult Function(_PageInitialized value) pageInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -184,6 +199,16 @@ class _$_PageChanged implements _PageChanged {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+  }) {
+    return pageChanged?.call(page, respondentId);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
@@ -204,6 +229,16 @@ class _$_PageChanged implements _PageChanged {
     required TResult Function(_PageInitialized value) pageInitialized,
   }) {
     return pageChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
+  }) {
+    return pageChanged?.call(this);
   }
 
   @override
@@ -282,6 +317,16 @@ class _$_PagePushed implements _PagePushed {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+  }) {
+    return pagePushed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
@@ -302,6 +347,16 @@ class _$_PagePushed implements _PagePushed {
     required TResult Function(_PageInitialized value) pageInitialized,
   }) {
     return pagePushed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
+  }) {
+    return pagePushed?.call(this);
   }
 
   @override
@@ -373,6 +428,16 @@ class _$_PageInitialized implements _PageInitialized {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function()? pagePushed,
+    TResult Function()? pageInitialized,
+  }) {
+    return pageInitialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
@@ -393,6 +458,16 @@ class _$_PageInitialized implements _PageInitialized {
     required TResult Function(_PageInitialized value) pageInitialized,
   }) {
     return pageInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PageChanged value)? pageChanged,
+    TResult Function(_PagePushed value)? pagePushed,
+    TResult Function(_PageInitialized value)? pageInitialized,
+  }) {
+    return pageInitialized?.call(this);
   }
 
   @override

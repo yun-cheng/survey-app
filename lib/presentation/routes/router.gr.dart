@@ -58,11 +58,11 @@ class RootRouter extends _i1.RootStackRouter {
   @override
   List<_i1.RouteConfig> get routes => [
         _i1.RouteConfig(SplashRoute.name, path: '/'),
-        _i1.RouteConfig(SignInRoute.name, path: '/sign-in-page'),
+        _i1.RouteConfig(SignInRoute.name, path: '/sign-in'),
         _i1.RouteConfig(OverviewRoute.name, path: '/overview'),
         _i1.RouteConfig(RespondentsRoute.name, path: '/respondents'),
         _i1.RouteConfig(SurveyRoute.name, path: '/survey'),
-        _i1.RouteConfig(SurveyContentRoute.name, path: '/survey-content-page')
+        _i1.RouteConfig(SurveyContentRoute.name, path: '/survey-content')
       ];
 }
 
@@ -73,7 +73,7 @@ class SplashRoute extends _i1.PageRouteInfo {
 }
 
 class SignInRoute extends _i1.PageRouteInfo {
-  const SignInRoute() : super(name, path: '/sign-in-page');
+  const SignInRoute() : super(name, path: '/sign-in');
 
   static const String name = 'SignInRoute';
 }
@@ -111,7 +111,7 @@ class SurveyRouteArgs {
 }
 
 class SurveyContentRoute extends _i1.PageRouteInfo {
-  const SurveyContentRoute() : super(name, path: '/survey-content-page');
+  const SurveyContentRoute() : super(name, path: '/survey-content');
 
   static const String name = 'SurveyContentRoute';
 }

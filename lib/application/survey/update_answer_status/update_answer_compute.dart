@@ -8,9 +8,11 @@ UpdateAnswerStatusState answerUpdated(
   logger('Compute').i('AnswerUpdated');
 
   final question = state.questionMap[e.questionId]!;
-  final answerMap = Map<String, Answer>.from(state.answerMap);
-  final oldAnswer = state.answerMap[e.questionId] ?? Answer.empty();
-  Answer newAnswer;
+  final answerMap = {
+    ...state.isRecodeModule ? state.recodeAnswerMap : state.answerMap
+  };
+  final oldAnswer = answerMap[e.questionId] ?? Answer.empty();
+  late final Answer newAnswer;
 
   if (e.isNote) {
     newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
@@ -31,7 +33,8 @@ UpdateAnswerStatusState answerUpdated(
   answerMap[e.questionId] = newAnswer;
 
   return state.copyWith(
-    answerMap: answerMap,
+    answerMap: state.isRecodeModule ? state.answerMap : answerMap,
+    recodeAnswerMap: state.isRecodeModule ? answerMap : state.recodeAnswerMap,
     updatedQIdSet: {e.questionId},
   );
 }

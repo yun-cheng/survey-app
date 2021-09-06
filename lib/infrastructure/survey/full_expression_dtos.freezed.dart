@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'full_expression_dtos.dart';
 
@@ -133,7 +134,7 @@ class _$_FullExpressionDto extends _FullExpressionDto {
       : super._();
 
   factory _$_FullExpressionDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_FullExpressionDtoFromJson(json);
+      _$$_FullExpressionDtoFromJson(json);
 
   @override
   final String fullExpressionBody;
@@ -170,7 +171,7 @@ class _$_FullExpressionDto extends _FullExpressionDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_FullExpressionDtoToJson(this);
+    return _$$_FullExpressionDtoToJson(this);
   }
 }
 
@@ -340,7 +341,7 @@ class _$_ExpressionDto extends _ExpressionDto {
       : super._();
 
   factory _$_ExpressionDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_ExpressionDtoFromJson(json);
+      _$$_ExpressionDtoFromJson(json);
 
   @override
   final String field;
@@ -382,7 +383,7 @@ class _$_ExpressionDto extends _ExpressionDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_ExpressionDtoToJson(this);
+    return _$$_ExpressionDtoToJson(this);
   }
 }
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
@@ -47,7 +46,7 @@ class ChoiceItem extends HookWidget {
           wait.value = false;
 
           // S_ 讓點擊動畫跑完
-          // await Future.delayed(const Duration(milliseconds: 200));
+          // await Future.delayed(const Duration(milliseconds: 500));
 
           context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(
@@ -64,8 +63,10 @@ class ChoiceItem extends HookWidget {
       return () => answer.removeListener(listener);
     });
 
-    final state = context.read<SurveyPageBloc>().state;
-    final canEdit = !state.isReadOnly && !state.isRecodeModule;
+    final isReadOnly = context.read<UpdateAnswerStatusBloc>().state.isReadOnly;
+    final isRecodeModule =
+        context.read<UpdateAnswerStatusBloc>().state.isRecodeModule;
+    final canEdit = !isReadOnly && !isRecodeModule;
 
     final itemTitle = isinCell
         ? Container()

@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'upload_audio_bloc.dart';
 
@@ -52,6 +53,14 @@ mixin _$UploadAudioEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Audio audio)? audioAdded,
+    TResult Function()? audioUploading,
+    TResult Function(Either<AudioFailure, Audio> failureOrAudio)? audioUploaded,
+    TResult Function()? loggedOut,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Audio audio)? audioAdded,
     TResult Function()? audioUploading,
@@ -66,6 +75,14 @@ mixin _$UploadAudioEvent {
     required TResult Function(_AudioUploading value) audioUploading,
     required TResult Function(_AudioUploaded value) audioUploaded,
     required TResult Function(_LoggedOut value) loggedOut,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AudioAdded value)? audioAdded,
+    TResult Function(_AudioUploading value)? audioUploading,
+    TResult Function(_AudioUploaded value)? audioUploaded,
+    TResult Function(_LoggedOut value)? loggedOut,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -181,6 +198,17 @@ class _$_AudioAdded implements _AudioAdded {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Audio audio)? audioAdded,
+    TResult Function()? audioUploading,
+    TResult Function(Either<AudioFailure, Audio> failureOrAudio)? audioUploaded,
+    TResult Function()? loggedOut,
+  }) {
+    return audioAdded?.call(audio);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Audio audio)? audioAdded,
     TResult Function()? audioUploading,
@@ -203,6 +231,17 @@ class _$_AudioAdded implements _AudioAdded {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return audioAdded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AudioAdded value)? audioAdded,
+    TResult Function(_AudioUploading value)? audioUploading,
+    TResult Function(_AudioUploaded value)? audioUploaded,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return audioAdded?.call(this);
   }
 
   @override
@@ -281,6 +320,17 @@ class _$_AudioUploading implements _AudioUploading {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Audio audio)? audioAdded,
+    TResult Function()? audioUploading,
+    TResult Function(Either<AudioFailure, Audio> failureOrAudio)? audioUploaded,
+    TResult Function()? loggedOut,
+  }) {
+    return audioUploading?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Audio audio)? audioAdded,
     TResult Function()? audioUploading,
@@ -303,6 +353,17 @@ class _$_AudioUploading implements _AudioUploading {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return audioUploading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AudioAdded value)? audioAdded,
+    TResult Function(_AudioUploading value)? audioUploading,
+    TResult Function(_AudioUploaded value)? audioUploaded,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return audioUploading?.call(this);
   }
 
   @override
@@ -403,6 +464,17 @@ class _$_AudioUploaded implements _AudioUploaded {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Audio audio)? audioAdded,
+    TResult Function()? audioUploading,
+    TResult Function(Either<AudioFailure, Audio> failureOrAudio)? audioUploaded,
+    TResult Function()? loggedOut,
+  }) {
+    return audioUploaded?.call(failureOrAudio);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Audio audio)? audioAdded,
     TResult Function()? audioUploading,
@@ -425,6 +497,17 @@ class _$_AudioUploaded implements _AudioUploaded {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return audioUploaded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AudioAdded value)? audioAdded,
+    TResult Function(_AudioUploading value)? audioUploading,
+    TResult Function(_AudioUploaded value)? audioUploaded,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return audioUploaded?.call(this);
   }
 
   @override
@@ -504,6 +587,17 @@ class _$_LoggedOut implements _LoggedOut {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(Audio audio)? audioAdded,
+    TResult Function()? audioUploading,
+    TResult Function(Either<AudioFailure, Audio> failureOrAudio)? audioUploaded,
+    TResult Function()? loggedOut,
+  }) {
+    return loggedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(Audio audio)? audioAdded,
     TResult Function()? audioUploading,
@@ -526,6 +620,17 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_LoggedOut value) loggedOut,
   }) {
     return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_AudioAdded value)? audioAdded,
+    TResult Function(_AudioUploading value)? audioUploading,
+    TResult Function(_AudioUploaded value)? audioUploaded,
+    TResult Function(_LoggedOut value)? loggedOut,
+  }) {
+    return loggedOut?.call(this);
   }
 
   @override

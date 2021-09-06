@@ -19,7 +19,8 @@ Logger logger([String? tag, int? methodShow]) {
     // 'InProgress',
     'Success',
     'Task',
-    // 'Compute',
+    'Listen',
+    'Compute',
     // 'Json',
   ];
   final alwaysAllowFilePathList = <String>[

@@ -16,7 +16,7 @@ dependencies:
   # H_ essential
   json_annotation: ^4.1.0
   path_provider: ^2.0.2
-  freezed_annotation: ^0.14.2
+  freezed_annotation: ^0.14.3
   uuid: ^3.0.4
   collection: ^1.15.0
   supercharged: ^2.0.0
@@ -36,15 +36,17 @@ dependencies:
   hive_flutter: ^1.1.0
   synchronized: ^3.0.0
   # H_ firebase
-  firebase_core: ^1.4.0
-  cloud_firestore: ^2.4.0
-  firebase_storage: ^10.0.1
+  firebase_core: ^1.6.0
+  cloud_firestore: ^2.5.1
+  firebase_storage: ^10.0.3
   # H_ network
   connectivity_plus: ^1.0.6
   # H_ recorder
   flutter_sound_lite: ^8.3.9
   permission_handler: ^8.1.4+2
   # H_ route
+  # FIXME 有問題，先直接改 package local 程式碼
+  #  https://github.com/Milad-Akarie/auto_route_library/issues/659#issuecomment-906828351
   auto_route: ^2.3.0
   # H_ widget/presentation
   sizer: ^2.0.13
@@ -65,11 +67,11 @@ dependencies:
   flash: ^2.0.1
   # H_ others
   dartz: ^0.10.0
-  kt_dart: ^0.9.1
+  # kt_dart: ^0.9.1
   tuple: ^2.0.0
   rxdart: ^0.27.0
   expression_language: ^1.0.1
-  isolate: ^2.1.1
+  # isolate: ^2.1.1
   async_task: ^1.0.11
 
 dev_dependencies:
@@ -77,12 +79,12 @@ dev_dependencies:
     sdk: flutter
   build_runner:
   # H_ essential
-  json_serializable: ^4.1.4
-  freezed: ^0.14.2
+  json_serializable: ^5.0.0
+  freezed: ^0.14.5
   # H_ get_it
   injectable_generator: ^1.4.1
   # H_ route
-  auto_route_generator: ^2.1.0
+  auto_route_generator: ^2.3.0
   # H_ lint
   lint: ^1.5.3
 

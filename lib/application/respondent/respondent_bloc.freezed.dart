@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'respondent_bloc.dart';
 
@@ -120,6 +121,28 @@ mixin _$RespondentEvent {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -159,6 +182,24 @@ mixin _$RespondentEvent {
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_TaskInitialized value) taskInitialized,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -318,6 +359,31 @@ class _$_WatchSurveyRespondentMapStarted
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return watchSurveyRespondentMapStarted?.call(teamId, interviewerId);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -365,6 +431,27 @@ class _$_WatchSurveyRespondentMapStarted
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return watchSurveyRespondentMapStarted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return watchSurveyRespondentMapStarted?.call(this);
   }
 
   @override
@@ -519,6 +606,31 @@ class _$_SurveyRespondentMapReceived
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return surveyRespondentMapReceived?.call(failureOrSurveyRespondentMap);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -566,6 +678,27 @@ class _$_SurveyRespondentMapReceived
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return surveyRespondentMapReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return surveyRespondentMapReceived?.call(this);
   }
 
   @override
@@ -715,6 +848,31 @@ class _$_SurveySelected
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return surveySelected?.call(survey);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -762,6 +920,27 @@ class _$_SurveySelected
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return surveySelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return surveySelected?.call(this);
   }
 
   @override
@@ -871,6 +1050,31 @@ class _$_TextSearched with DiagnosticableTreeMixin implements _TextSearched {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return textSearched?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -918,6 +1122,27 @@ class _$_TextSearched with DiagnosticableTreeMixin implements _TextSearched {
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return textSearched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return textSearched?.call(this);
   }
 
   @override
@@ -1051,6 +1276,31 @@ class _$_RespondentSelected
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return respondentSelected?.call(respondentId);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -1098,6 +1348,27 @@ class _$_RespondentSelected
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return respondentSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return respondentSelected?.call(this);
   }
 
   @override
@@ -1234,6 +1505,31 @@ class _$_TabSwitched with DiagnosticableTreeMixin implements _TabSwitched {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return tabSwitched?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -1281,6 +1577,27 @@ class _$_TabSwitched with DiagnosticableTreeMixin implements _TabSwitched {
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return tabSwitched(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return tabSwitched?.call(this);
   }
 
   @override
@@ -1430,6 +1747,31 @@ class _$_PageScrolled with DiagnosticableTreeMixin implements _PageScrolled {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return pageScrolled?.call(tabType, positions);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -1477,6 +1819,27 @@ class _$_PageScrolled with DiagnosticableTreeMixin implements _PageScrolled {
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return pageScrolled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return pageScrolled?.call(this);
   }
 
   @override
@@ -1616,6 +1979,31 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return jumpedToTown?.call(countyTown);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -1663,6 +2051,27 @@ class _$_JumpedToTown with DiagnosticableTreeMixin implements _JumpedToTown {
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return jumpedToTown(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return jumpedToTown?.call(this);
   }
 
   @override
@@ -1801,6 +2210,31 @@ class _$_VisitReportUpdated
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return visitReportUpdated?.call(responseMap);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -1848,6 +2282,27 @@ class _$_VisitReportUpdated
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return visitReportUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return visitReportUpdated?.call(this);
   }
 
   @override
@@ -1989,6 +2444,31 @@ class _$_TabRespondentsUpdated
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return tabRespondentsUpdated?.call(responseMap);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -2036,6 +2516,27 @@ class _$_TabRespondentsUpdated
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return tabRespondentsUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return tabRespondentsUpdated?.call(this);
   }
 
   @override
@@ -2144,6 +2645,31 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return loggedOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -2191,6 +2717,27 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return loggedOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return loggedOut?.call(this);
   }
 
   @override
@@ -2297,6 +2844,31 @@ class _$_TaskInitialized
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType, List<ItemPosition> positions)?
+        pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? taskInitialized,
+  }) {
+    return taskInitialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String teamId, String interviewerId)?
         watchSurveyRespondentMapStarted,
@@ -2344,6 +2916,27 @@ class _$_TaskInitialized
     required TResult Function(_TaskInitialized value) taskInitialized,
   }) {
     return taskInitialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_TaskInitialized value)? taskInitialized,
+  }) {
+    return taskInitialized?.call(this);
   }
 
   @override

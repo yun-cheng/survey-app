@@ -6,15 +6,14 @@ part of 'reference_key_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ReferenceKeyDto _$_$_ReferenceKeyDtoFromJson(Map<String, dynamic> json) {
-  return _$_ReferenceKeyDto(
-    surveyId: json['surveyId'] as String,
-    moduleType: json['moduleType'] as String,
-    questionId: json['questionId'] as String,
-  );
-}
+_$_ReferenceKeyDto _$$_ReferenceKeyDtoFromJson(Map<String, dynamic> json) =>
+    _$_ReferenceKeyDto(
+      surveyId: json['surveyId'] as String,
+      moduleType: json['moduleType'] as String,
+      questionId: json['questionId'] as String,
+    );
 
-Map<String, dynamic> _$_$_ReferenceKeyDtoToJson(_$_ReferenceKeyDto instance) =>
+Map<String, dynamic> _$$_ReferenceKeyDtoToJson(_$_ReferenceKeyDto instance) =>
     <String, dynamic>{
       'surveyId': instance.surveyId,
       'moduleType': instance.moduleType,

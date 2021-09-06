@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../application/survey/response/response_bloc.dart';
-import '../../application/survey/update_survey_page/update_survey_page_bloc.dart';
+import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
 import '../routes/router.gr.dart';
@@ -51,8 +51,8 @@ class SurveyPage extends HookWidget {
               IconButton(
                 icon: const Icon(Icons.format_list_bulleted),
                 onPressed: () {
-                  context.read<UpdateSurveyPageBloc>().add(
-                        const UpdateSurveyPageEvent.contentQuestionMapUpdated(),
+                  context.read<UpdateAnswerStatusBloc>().add(
+                        const UpdateAnswerStatusEvent.contentQuestionMapUpdated(),
                       );
                   context.pushRoute(const SurveyContentRoute());
                 },

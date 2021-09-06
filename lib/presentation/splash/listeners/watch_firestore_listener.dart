@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
-import '../../../application/survey/update_survey_page/update_survey_page_bloc.dart';
 import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
@@ -20,12 +19,6 @@ final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
             interviewerId: state.interviewer.id,
           ),
         );
-    context.read<UpdateSurveyPageBloc>().add(
-          UpdateSurveyPageEvent.watchReferenceListStarted(
-            teamId: state.team.id,
-            interviewerId: state.interviewer.id,
-          ),
-        );
     context.read<RespondentBloc>().add(
           RespondentEvent.watchSurveyRespondentMapStarted(
             teamId: state.team.id,
@@ -33,7 +26,7 @@ final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
           ),
         );
     context.read<ResponseBloc>().add(
-          ResponseEvent.watchResponseMapStarted(
+          ResponseEvent.watchResponseMapAndReferenceListStarted(
             teamId: state.team.id,
             interviewer: state.interviewer,
           ),

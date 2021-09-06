@@ -6,18 +6,17 @@ part of 'answer_status_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AnswerStatusDto _$_$_AnswerStatusDtoFromJson(Map<String, dynamic> json) {
-  return _$_AnswerStatusDto(
-    answerStatusType: json['answerStatusType'] as String,
-    isSpecialAnswer: json['isSpecialAnswer'] as bool? ?? false,
-    noteMap: (json['noteMap'] as Map<String, dynamic>?)?.map(
-          (k, e) => MapEntry(k, e as String),
-        ) ??
-        {},
-  );
-}
+_$_AnswerStatusDto _$$_AnswerStatusDtoFromJson(Map<String, dynamic> json) =>
+    _$_AnswerStatusDto(
+      answerStatusType: json['answerStatusType'] as String,
+      isSpecialAnswer: json['isSpecialAnswer'] as bool? ?? false,
+      noteMap: (json['noteMap'] as Map<String, dynamic>?)?.map(
+            (k, e) => MapEntry(k, e as String),
+          ) ??
+          {},
+    );
 
-Map<String, dynamic> _$_$_AnswerStatusDtoToJson(_$_AnswerStatusDto instance) =>
+Map<String, dynamic> _$$_AnswerStatusDtoToJson(_$_AnswerStatusDto instance) =>
     <String, dynamic>{
       'answerStatusType': instance.answerStatusType,
       'isSpecialAnswer': instance.isSpecialAnswer,

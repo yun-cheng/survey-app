@@ -6,18 +6,17 @@ part of 'simple_survey_page_state_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SimpleSurveyPageStateDto _$_$_SimpleSurveyPageStateDtoFromJson(
-    Map<String, dynamic> json) {
-  return _$_SimpleSurveyPageStateDto(
-    page: json['page'] as int,
-    newestPage: json['newestPage'] as int,
-    isLastPage: json['isLastPage'] as bool,
-    warning: WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
-    showWarning: json['showWarning'] as bool,
-  );
-}
+_$_SimpleSurveyPageStateDto _$$_SimpleSurveyPageStateDtoFromJson(
+        Map<String, dynamic> json) =>
+    _$_SimpleSurveyPageStateDto(
+      page: json['page'] as int,
+      newestPage: json['newestPage'] as int,
+      isLastPage: json['isLastPage'] as bool,
+      warning: WarningDto.fromJson(json['warning'] as Map<String, dynamic>),
+      showWarning: json['showWarning'] as bool,
+    );
 
-Map<String, dynamic> _$_$_SimpleSurveyPageStateDtoToJson(
+Map<String, dynamic> _$$_SimpleSurveyPageStateDtoToJson(
         _$_SimpleSurveyPageStateDto instance) =>
     <String, dynamic>{
       'page': instance.page,

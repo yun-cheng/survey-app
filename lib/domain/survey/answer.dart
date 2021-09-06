@@ -185,7 +185,7 @@ class Answer with _$Answer {
       return this;
     }
 
-    final newNoteMap = Map<String, String>.from(noteMap ?? {});
+    final newNoteMap = {...noteMap ?? {}};
 
     newNoteMap[choiceId] = '';
 
@@ -204,7 +204,7 @@ class Answer with _$Answer {
       return this;
     }
 
-    final newNoteMap = Map<String, String>.from(noteMap ?? {});
+    final newNoteMap = {...noteMap ?? {}};
 
     newNoteMap.remove(choiceId);
 
@@ -265,7 +265,7 @@ class Answer with _$Answer {
 
   // H_ note 操作
   Answer setNote(String noteValue, String noteOf) {
-    final newNoteMap = Map<String, String>.from(noteMap ?? {});
+    final newNoteMap = {...noteMap ?? {}};
     newNoteMap[noteOf] = noteValue;
 
     return copyWith(

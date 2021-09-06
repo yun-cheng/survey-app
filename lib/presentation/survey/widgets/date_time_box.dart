@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../application/survey/survey_page/survey_page_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
@@ -40,9 +39,10 @@ class DateTimeBox extends HookWidget {
           );
     }
 
-    return BlocBuilder<SurveyPageBloc, SurveyPageState>(
+    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) =>
-          (p.loadState != c.loadState && c.loadState == LoadState.success()) &&
+          (p.updateState != c.updateState &&
+              c.updateState == LoadState.success()) &&
           ((c.updatedQIdSet.contains(questionId) &&
                   p.answerMap[questionId] != c.answerMap[questionId]) ||
               p.isReadOnly != c.isReadOnly),

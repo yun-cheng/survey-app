@@ -6,22 +6,21 @@ part of 'survey_module_dtos.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SurveyModuleDto _$_$_SurveyModuleDtoFromJson(Map<String, dynamic> json) {
-  return _$_SurveyModuleDto(
-    questionMap: (json['questionMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
-    ),
-    answerMap: (json['answerMap'] as Map<String, dynamic>).map(
-      (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
-    ),
-    answerStatusMap: (json['answerStatusMap'] as Map<String, dynamic>).map(
-      (k, e) =>
-          MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
-    ),
-  );
-}
+_$_SurveyModuleDto _$$_SurveyModuleDtoFromJson(Map<String, dynamic> json) =>
+    _$_SurveyModuleDto(
+      questionMap: (json['questionMap'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, QuestionDto.fromJson(e as Map<String, dynamic>)),
+      ),
+      answerMap: (json['answerMap'] as Map<String, dynamic>).map(
+        (k, e) => MapEntry(k, AnswerDto.fromJson(e as Map<String, dynamic>)),
+      ),
+      answerStatusMap: (json['answerStatusMap'] as Map<String, dynamic>).map(
+        (k, e) =>
+            MapEntry(k, AnswerStatusDto.fromJson(e as Map<String, dynamic>)),
+      ),
+    );
 
-Map<String, dynamic> _$_$_SurveyModuleDtoToJson(_$_SurveyModuleDto instance) =>
+Map<String, dynamic> _$$_SurveyModuleDtoToJson(_$_SurveyModuleDto instance) =>
     <String, dynamic>{
       'questionMap':
           instance.questionMap.map((k, e) => MapEntry(k, e.toJson())),

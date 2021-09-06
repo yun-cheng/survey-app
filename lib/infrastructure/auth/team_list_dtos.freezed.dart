@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'team_list_dtos.dart';
 
@@ -112,7 +113,7 @@ class _$_TeamListDto extends _TeamListDto {
   const _$_TeamListDto({required this.list}) : super._();
 
   factory _$_TeamListDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_TeamListDtoFromJson(json);
+      _$$_TeamListDtoFromJson(json);
 
   @override
   final List<TeamDto> list;
@@ -141,7 +142,7 @@ class _$_TeamListDto extends _TeamListDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_TeamListDtoToJson(this);
+    return _$$_TeamListDtoToJson(this);
   }
 }
 
@@ -267,7 +268,7 @@ class _$_TeamDto extends _TeamDto {
   const _$_TeamDto({required this.teamId, required this.teamName}) : super._();
 
   factory _$_TeamDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_TeamDtoFromJson(json);
+      _$$_TeamDtoFromJson(json);
 
   @override
   final String teamId;
@@ -303,7 +304,7 @@ class _$_TeamDto extends _TeamDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_TeamDtoToJson(this);
+    return _$$_TeamDtoToJson(this);
   }
 }
 

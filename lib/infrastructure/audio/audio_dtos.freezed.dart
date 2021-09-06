@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'audio_dtos.dart';
 
@@ -120,7 +121,7 @@ class _$_AudioDto extends _AudioDto {
   const _$_AudioDto({required this.fileName, required this.type}) : super._();
 
   factory _$_AudioDto.fromJson(Map<String, dynamic> json) =>
-      _$_$_AudioDtoFromJson(json);
+      _$$_AudioDtoFromJson(json);
 
   @override
   final String fileName;
@@ -156,7 +157,7 @@ class _$_AudioDto extends _AudioDto {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_AudioDtoToJson(this);
+    return _$$_AudioDtoToJson(this);
   }
 }
 
