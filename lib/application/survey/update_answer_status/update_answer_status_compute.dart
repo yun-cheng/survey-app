@@ -43,6 +43,10 @@ UpdateAnswerStatusState answerStatusTypeUpdated(UpdateAnswerStatusState state) {
         state.isRecodeModule ? state.answerStatusMap : answerStatusMap,
     recodeAnswerStatusMap:
         state.isRecodeModule ? answerStatusMap : state.recodeAnswerStatusMap,
+    saveParameters: state.saveParameters.copyWith(
+      answerStatusMap: !state.isRecodeModule,
+      recodeAnswerStatusMap: state.isRecodeModule,
+    ),
   );
 }
 
@@ -91,6 +95,9 @@ UpdateAnswerStatusState chainQuestionChecked(UpdateAnswerStatusState state) {
   return state.copyWith(
     answerStatusMap: answerStatusMap,
     clearAnswerQIdSet: clearAnswerQIdSet,
+    saveParameters: state.saveParameters.copyWith(
+      answerStatusMap: true,
+    ),
   );
 }
 
@@ -110,6 +117,9 @@ UpdateAnswerStatusState showQuestionCheckedRecodeJob(
 
   return state.copyWith(
     recodeAnswerStatusMap: answerStatusMap,
+    saveParameters: state.saveParameters.copyWith(
+      recodeAnswerStatusMap: true,
+    ),
   );
 }
 
@@ -181,6 +191,9 @@ UpdateAnswerStatusState showQuestionChecked(
   final state1 = state.copyWith(
     answerStatusMap: answerStatusMap,
     clearAnswerQIdSet: clearAnswerQIdSet,
+    saveParameters: state.saveParameters.copyWith(
+      answerStatusMap: true,
+    ),
   );
   return answerQIdListCleared(state1);
 }

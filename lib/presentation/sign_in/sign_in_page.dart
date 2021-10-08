@@ -6,6 +6,8 @@ import '../core/widgets/tap_out_dismiss_keyboard.dart';
 import 'widgets/sign_in_form.dart';
 
 class SignInPage extends StatelessWidget {
+  const SignInPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     logger('Build').i('SignInPage');
@@ -25,7 +27,7 @@ class SignInPage extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
+                children: const <Widget>[
                   SignInForm(),
                 ],
               ),

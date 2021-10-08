@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 class CenterProgressIndicator extends StatelessWidget {
+  const CenterProgressIndicator({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(

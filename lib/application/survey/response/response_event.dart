@@ -74,5 +74,5 @@ class ResponseEvent with _$ResponseEvent {
 
   const factory ResponseEvent.loggedOut() = _LoggedOut;
 
-  const factory ResponseEvent.taskInitialized() = _TaskInitialized;
+  const factory ResponseEvent.initialized() = _Initialized;
 }

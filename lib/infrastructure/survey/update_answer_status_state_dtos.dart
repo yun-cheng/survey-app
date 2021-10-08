@@ -1,8 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/survey/value_objects.dart';
+import '../core/event_task.dart';
 import '../respondent/respondent_dtos.dart';
 import 'answer_dtos.dart';
 import 'answer_status_dtos.dart';
@@ -18,130 +20,184 @@ part 'update_answer_status_state_dtos.g.dart';
 class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
   const UpdateAnswerStatusStateDto._();
 
+  @JsonSerializable(includeIfNull: false)
   const factory UpdateAnswerStatusStateDto({
     // H_ 主要資料
-    required Map<String, AnswerDto> answerMap,
-    required Map<String, AnswerStatusDto> answerStatusMap,
-    required Map<String, AnswerDto> recodeAnswerMap,
-    required Map<String, AnswerStatusDto> recodeAnswerStatusMap,
-    required int page,
-    required int newestPage,
-    required bool isLastPage,
-    required WarningDto warning,
-    required bool showWarning,
+    Map<String, AnswerDto>? answerMap,
+    Map<String, AnswerStatusDto>? answerStatusMap,
+    Map<String, AnswerDto>? recodeAnswerMap,
+    Map<String, AnswerStatusDto>? recodeAnswerStatusMap,
+    int? page,
+    int? newestPage,
+    bool? isLastPage,
+    WarningDto? warning,
+    bool? showWarning,
     // H_ 中間資料
-    required List<String> pageQIdSet,
-    required List<String> contentQIdSet,
-    required bool finishResponse,
-    required bool showDialog,
-    required bool showLeaveButton,
-    required bool leavePage,
-    required bool appIsPaused,
+    List<String>? pageQIdSet,
+    List<String>? contentQIdSet,
+    bool? showDialog,
+    bool? showLeaveButton,
     // H_ 同 session 不變的參考資料
-    required RespondentDto respondent,
-    required String surveyId,
-    required String moduleType,
-    required bool isReadOnly,
-    required bool isRecodeModule,
-    required List<ReferenceDto> referenceList,
-    required Map<String, ResponseDto> respondentResponseMap,
+    RespondentDto? respondent,
+    String? surveyId,
+    String? moduleType,
+    bool? isReadOnly,
+    bool? isRecodeModule,
+    List<ReferenceDto>? referenceList,
+    Map<String, ResponseDto>? respondentResponseMap,
     // H_ 同 session 會變的參考資料
-    required Map<String, QuestionDto> questionMap,
-    required Map<String, QuestionDto> recodeQuestionMap,
+    Map<String, QuestionDto>? questionMap,
+    Map<String, QuestionDto>? recodeQuestionMap,
     // H_ 狀態更新進度
-    required String restoreState,
-    required String updateState,
+    String? restoreState,
+    String? updateState,
   }) = _UpdateAnswerStatusStateDto;
 
+  static Map<String, DtoInfo> infoMap() => const {
+        'referenceList': DtoInfo(
+          readOnly: true,
+        ),
+      };
+
+  // TODO saveParameters
   factory UpdateAnswerStatusStateDto.fromDomain(
       UpdateAnswerStatusState domain) {
     return UpdateAnswerStatusStateDto(
       // H_ 主要資料
-      answerMap: domain.answerMap
-          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
-      answerStatusMap: domain.answerStatusMap.map(
-          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
-      recodeAnswerMap: domain.recodeAnswerMap
-          .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value))),
-      recodeAnswerStatusMap: domain.recodeAnswerStatusMap.map(
-          (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value))),
-      page: domain.page,
-      newestPage: domain.newestPage,
-      isLastPage: domain.isLastPage,
-      warning: WarningDto.fromDomain(domain.warning),
-      showWarning: domain.showWarning,
+      answerMap: domain.saveParameters.answerMap
+          ? domain.answerMap
+              .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value)))
+          : null,
+      answerStatusMap: domain.saveParameters.answerStatusMap
+          ? domain.answerStatusMap.map(
+              (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value)))
+          : null,
+      recodeAnswerMap: domain.saveParameters.recodeAnswerMap
+          ? domain.recodeAnswerMap
+              .map((key, value) => MapEntry(key, AnswerDto.fromDomain(value)))
+          : null,
+      recodeAnswerStatusMap: domain.saveParameters.recodeAnswerStatusMap
+          ? domain.recodeAnswerStatusMap.map(
+              (key, value) => MapEntry(key, AnswerStatusDto.fromDomain(value)))
+          : null,
+      page: domain.saveParameters.page ? domain.page : null,
+      newestPage: domain.saveParameters.newestPage ? domain.newestPage : null,
+      isLastPage: domain.saveParameters.isLastPage ? domain.isLastPage : null,
+      warning: domain.saveParameters.warning
+          ? WarningDto.fromDomain(domain.warning)
+          : null,
+      showWarning:
+          domain.saveParameters.showWarning ? domain.showWarning : null,
       // H_ 中間資料
-      pageQIdSet: domain.pageQIdSet.toList(),
-      contentQIdSet: domain.contentQIdSet.toList(),
-      finishResponse: domain.finishResponse,
-      showDialog: domain.showDialog,
-      showLeaveButton: domain.showLeaveButton,
-      leavePage: domain.leavePage,
-      appIsPaused: domain.appIsPaused,
+      pageQIdSet:
+          domain.saveParameters.pageQIdSet ? domain.pageQIdSet.toList() : null,
+      contentQIdSet: domain.saveParameters.contentQIdSet
+          ? domain.contentQIdSet.toList()
+          : null,
+      showDialog: domain.saveParameters.showDialog ? domain.showDialog : null,
+      showLeaveButton:
+          domain.saveParameters.showLeaveButton ? domain.showLeaveButton : null,
       // H_ 同 session 不變的參考資料
-      respondent: RespondentDto.fromDomain(domain.respondent),
-      surveyId: domain.surveyId,
-      moduleType: domain.moduleType.value,
-      isReadOnly: domain.isReadOnly,
-      isRecodeModule: domain.isRecodeModule,
-      referenceList:
-          domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).toList(),
-      respondentResponseMap: domain.respondentResponseMap.map(
-          (key, value) => MapEntry(key.value, ResponseDto.fromDomain(value))),
+      respondent: domain.saveParameters.respondent
+          ? RespondentDto.fromDomain(domain.respondent)
+          : null,
+      surveyId: domain.saveParameters.surveyId ? domain.surveyId : null,
+      moduleType:
+          domain.saveParameters.moduleType ? domain.moduleType.value : null,
+      isReadOnly: domain.saveParameters.isReadOnly ? domain.isReadOnly : null,
+      isRecodeModule:
+          domain.saveParameters.isRecodeModule ? domain.isRecodeModule : null,
+      respondentResponseMap: domain.saveParameters.respondentResponseMap
+          ? domain.respondentResponseMap.map((key, value) =>
+              MapEntry(key.value, ResponseDto.fromDomain(value)))
+          : null,
       // H_ 同 session 會變的參考資料
-      questionMap: domain.questionMap
-          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
-      recodeQuestionMap: domain.recodeQuestionMap
-          .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value))),
-      // H_ 狀態更新進度
-      restoreState: domain.restoreState.value,
-      updateState: domain.updateState.value,
+      questionMap: domain.saveParameters.questionMap
+          ? domain.questionMap
+              .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value)))
+          : null,
+      recodeQuestionMap: domain.saveParameters.recodeQuestionMap
+          ? domain.recodeQuestionMap
+              .map((key, value) => MapEntry(key, QuestionDto.fromDomain(value)))
+          : null,
     );
   }
 
   UpdateAnswerStatusState toDomain() {
-    return UpdateAnswerStatusState.initial().copyWith(
+    final initial = UpdateAnswerStatusState.initial();
+    final state = initial.copyWith(
       // H_ 主要資料
-      answerMap: answerMap.map((key, value) => MapEntry(key, value.toDomain())),
-      answerStatusMap:
-          answerStatusMap.map((key, value) => MapEntry(key, value.toDomain())),
-      recodeAnswerMap:
-          recodeAnswerMap.map((key, value) => MapEntry(key, value.toDomain())),
+      answerMap:
+          answerMap?.map((key, value) => MapEntry(key, value.toDomain())) ??
+              initial.answerMap,
+      answerStatusMap: answerStatusMap
+              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
+          initial.answerStatusMap,
+      recodeAnswerMap: recodeAnswerMap
+              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
+          initial.recodeAnswerMap,
       recodeAnswerStatusMap: recodeAnswerStatusMap
-          .map((key, value) => MapEntry(key, value.toDomain())),
-      page: page,
-      newestPage: newestPage,
-      isLastPage: isLastPage,
-      warning: warning.toDomain(),
-      showWarning: showWarning,
+              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
+          initial.recodeAnswerStatusMap,
+      page: page ?? initial.page,
+      newestPage: newestPage ?? initial.newestPage,
+      isLastPage: isLastPage ?? initial.isLastPage,
+      warning: warning?.toDomain() ?? initial.warning,
+      showWarning: showWarning ?? initial.showWarning,
       // H_ 中間資料
-      pageQIdSet: pageQIdSet.toSet(),
-      contentQIdSet: contentQIdSet.toSet(),
-      finishResponse: finishResponse,
-      showDialog: showDialog,
-      showLeaveButton: showLeaveButton,
-      leavePage: leavePage,
-      appIsPaused: appIsPaused,
+      pageQIdSet: pageQIdSet?.toSet() ?? initial.pageQIdSet,
+      contentQIdSet: contentQIdSet?.toSet() ?? initial.contentQIdSet,
+      showDialog: showDialog ?? initial.showDialog,
+      showLeaveButton: showLeaveButton ?? initial.showLeaveButton,
       // H_ 同 session 不變的參考資料
-      respondent: respondent.toDomain(),
-      surveyId: surveyId,
-      moduleType: ModuleType(moduleType),
-      isReadOnly: isReadOnly,
-      isRecodeModule: isRecodeModule,
-      referenceList: referenceList.map((dto) => dto.toDomain()).toList(),
-      respondentResponseMap: respondentResponseMap
-          .map((key, value) => MapEntry(ModuleType(key), value.toDomain())),
+      respondent: respondent?.toDomain() ?? initial.respondent,
+      surveyId: surveyId ?? initial.surveyId,
+      moduleType:
+          moduleType != null ? ModuleType(moduleType!) : initial.moduleType,
+      isReadOnly: isReadOnly ?? initial.isReadOnly,
+      isRecodeModule: isRecodeModule ?? initial.isRecodeModule,
+      referenceList: referenceList?.map((dto) => dto.toDomain()).toList() ??
+          initial.referenceList,
+      respondentResponseMap: respondentResponseMap?.map(
+              (key, value) => MapEntry(ModuleType(key), value.toDomain())) ??
+          initial.respondentResponseMap,
       // H_ 同 session 會變的參考資料
       questionMap:
-          questionMap.map((key, value) => MapEntry(key, value.toDomain())),
+          questionMap?.map((key, value) => MapEntry(key, value.toDomain())) ??
+              initial.questionMap,
       recodeQuestionMap: recodeQuestionMap
-          .map((key, value) => MapEntry(key, value.toDomain())),
+              ?.map((key, value) => MapEntry(key, value.toDomain())) ??
+          initial.recodeQuestionMap,
       // H_ 狀態更新進度
-      restoreState: LoadState(restoreState),
-      updateState: LoadState(updateState),
+      eventState: LoadState.success(),
+      restoreState: LoadState.success(),
+      updateState: LoadState.success(),
+    );
+    return state.copyWith(
+      // NOTE 確保真的有出現 dialog
+      showDialog: state.moduleType == ModuleType.main() && !state.isReadOnly,
     );
   }
 
+  void saveState(ILocalStorage localStorage) => commonSaveState(
+        json: toJson(),
+        localStorage: localStorage,
+        infoMap: UpdateAnswerStatusStateDto.infoMap(),
+      );
+
   factory UpdateAnswerStatusStateDto.fromJson(Map<String, dynamic> json) =>
       _$UpdateAnswerStatusStateDtoFromJson(json);
+}
+
+Future<UpdateAnswerStatusState?> stateFromStorage(
+  ILocalStorage localStorage,
+) async {
+  final json = await jsonFromStorage(
+    localStorage: localStorage,
+    infoMap: UpdateAnswerStatusStateDto.infoMap(),
+  );
+
+  return json != null
+      ? UpdateAnswerStatusStateDto.fromJson(json).toDomain()
+      : null;
 }

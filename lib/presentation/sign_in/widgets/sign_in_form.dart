@@ -15,6 +15,8 @@ import 'password_box.dart';
 import 'team_box.dart';
 
 class SignInForm extends StatelessWidget {
+  const SignInForm({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // Future showErrorMessage(message) {

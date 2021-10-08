@@ -13,7 +13,7 @@ class JsonTask extends AsyncTask<Map, bool> {
   ) stateFromJson;
   final String path;
   late final Box box;
-  late final JsonConverter jsonConverter;
+  late final MyJsonConverter jsonConverter;
   late final AsyncTaskChannel _channel;
 
   JsonTask({
@@ -75,7 +75,7 @@ class JsonTask extends AsyncTask<Map, bool> {
     Hive.init(path);
     box = await Hive.openBox(boxName);
 
-    jsonConverter = JsonConverter();
+    jsonConverter = MyJsonConverter();
 
     while (true) {
       final msg = await _channel.waitMessage();

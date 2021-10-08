@@ -1,22 +1,24 @@
 part of 'update_answer_status_bloc.dart';
 
-List<AsyncTask> _eventTaskTypeRegister() => [
+List<AsyncTask> _taskTypeRegister() => [
       EventTask(
         path: '',
         boxName: '',
-        stateFromJson: _stateFromJson,
-        eventWorker: _updateAnswerStatusEventWorker,
+        stateFromStorage: stateFromStorage,
+        eventWorker: _eventWorker,
       )
     ];
 
-void _updateAnswerStatusEventWorker(
+void _eventWorker(
   Tuple2 tuple,
   AsyncTaskChannel channel,
-  Box box,
-  Lock lock,
+  ILocalStorage localStorage,
 ) {
   final e = tuple.item1 as UpdateAnswerStatusEvent;
-  var state = tuple.item2 as UpdateAnswerStatusState;
+  var state = (tuple.item2 as UpdateAnswerStatusState).copyWith(
+    updateParameters: StateParameters.initial(),
+    saveParameters: StateParameters.initial(),
+  );
 
   // S_
   state = state.sendEventInProgress(channel);
@@ -50,8 +52,8 @@ void _updateAnswerStatusEventWorker(
         questionMap: e.questionMap,
         recodeQuestionMap: e.recodeQuestionMap,
         updatedQIdSet: const {},
-        updateType: const {},
         direction: Direction.current,
+        saveParameters: StateParameters.clear(),
       );
       state = showQuestionChecked(state, all: true);
       state = pageUpdatedFlow(channel, state);
@@ -61,7 +63,11 @@ void _updateAnswerStatusEventWorker(
     stateCleared: (e) {
       logger('Event').i('UpdateAnswerStatusEvent: stateCleared');
 
-      state = UpdateAnswerStatusState.initial().send(channel);
+      state = UpdateAnswerStatusState.initial()
+          .copyWith(
+            saveParameters: StateParameters.clear(),
+          )
+          .send(channel);
     },
     // H_ 該題作答更新
     answerUpdated: (e) {
@@ -75,7 +81,9 @@ void _updateAnswerStatusEventWorker(
         ).sendInProgress(channel);
         state = answerUpdated(e, state).sendSuccessWithType(
           channel,
-          updateType: {UpdateSurveyPageStateType.answerMap()},
+          updateParameters: state.updateParameters.copyWith(
+            answerMap: true,
+          ),
         );
 
         // S_ 更新 answerStatus
@@ -86,10 +94,10 @@ void _updateAnswerStatusEventWorker(
 
         state = answerStatusMapUpdated(state).sendSuccessWithType(
           channel,
-          updateType: {
-            UpdateSurveyPageStateType.answerMap(),
-            UpdateSurveyPageStateType.answerStatusMap(),
-          },
+          updateParameters: state.updateParameters.copyWith(
+            answerMap: true,
+            answerStatusMap: true,
+          ),
         );
 
         // S_ 更新 page question
@@ -99,7 +107,9 @@ void _updateAnswerStatusEventWorker(
           state = pageQuestionMapUpdated(state);
           state = checkIsLastPage(state).sendSuccessWithType(
             channel,
-            updateType: {UpdateSurveyPageStateType.page()},
+            updateParameters: state.updateParameters.copyWith(
+              page: true,
+            ),
           );
         }
 
@@ -130,10 +140,14 @@ void _updateAnswerStatusEventWorker(
 
         state = showQuestionChecked(state).sendSuccessWithType(
           channel,
-          updateType: {
-            UpdateSurveyPageStateType.answerMap(),
-            UpdateSurveyPageStateType.answerStatusMap(),
-          },
+          updateParameters: state.updateParameters.copyWith(
+            answerMap: true,
+            answerStatusMap: true,
+          ),
+          saveParameters: state.saveParameters.copyWith(
+            answerMap: true,
+            answerStatusMap: true,
+          ),
         );
       }
     },
@@ -145,6 +159,9 @@ void _updateAnswerStatusEventWorker(
       state = state.copyWith(
         direction: e.direction,
         page: e.page ?? state.page,
+        saveParameters: state.saveParameters.copyWith(
+          page: true,
+        ),
       );
 
       // S_c1 不是按下一頁，或不是在最新一頁
@@ -163,12 +180,17 @@ void _updateAnswerStatusEventWorker(
       } else {
         state = state
             .copyWith(
-          showWarning: true,
-        )
+              showWarning: true,
+            )
             .sendSuccessWithType(
-          channel,
-          updateType: {UpdateSurveyPageStateType.warning()},
-        );
+              channel,
+              updateParameters: state.updateParameters.copyWith(
+                warning: true,
+              ),
+              saveParameters: state.saveParameters.copyWith(
+                showWarning: true,
+              ),
+            );
       }
     },
     // H_ 更新目錄題目
@@ -180,11 +202,10 @@ void _updateAnswerStatusEventWorker(
       state = showQuestionChecked(state, all: true);
       state = contentQuestionMapUpdated(state).sendSuccessWithType(
         channel,
-        updateType: {
-          UpdateSurveyPageStateType.contentQuestionMap(),
-          UpdateSurveyPageStateType.answerMap(),
-          UpdateSurveyPageStateType.answerStatusMap(),
-        },
+        updateParameters: state.updateParameters.copyWith(
+          answerMap: true,
+          answerStatusMap: true,
+        ),
       );
     },
     // H_ 使用者點擊完成問卷
@@ -196,14 +217,19 @@ void _updateAnswerStatusEventWorker(
 
       state = state
           .copyWith(
-        showWarning: !warningIsEmpty,
-        leavePage: warningIsEmpty,
-        finishResponse: warningIsEmpty,
-      )
+            showWarning: !warningIsEmpty,
+            leavePage: warningIsEmpty,
+            finishResponse: warningIsEmpty,
+          )
           .sendSuccessWithType(
-        channel,
-        updateType: {UpdateSurveyPageStateType.warning()},
-      );
+            channel,
+            updateParameters: state.updateParameters.copyWith(
+              warning: true,
+            ),
+            saveParameters: state.saveParameters.copyWith(
+              showWarning: true,
+            ),
+          );
     },
     // H_ 關閉 dialog
     dialogClosed: (e) {
@@ -211,6 +237,9 @@ void _updateAnswerStatusEventWorker(
 
       state = state.copyWith(
         showDialog: false,
+        saveParameters: state.saveParameters.copyWith(
+          showDialog: true,
+        ),
       );
     },
     // H_ 點擊離開按鈕時
@@ -220,12 +249,18 @@ void _updateAnswerStatusEventWorker(
       state = state.copyWith(
         showDialog: state.moduleType == ModuleType.main() && !state.isReadOnly,
         leavePage: state.moduleType != ModuleType.main() || state.isReadOnly,
+        saveParameters: state.saveParameters.copyWith(
+          showDialog: true,
+        ),
       );
     },
     // H_ 隱藏離開按鈕
     leaveButtonHidden: (e) {
       state = state.copyWith(
         showLeaveButton: false,
+        saveParameters: state.saveParameters.copyWith(
+          showLeaveButton: true,
+        ),
       );
     },
     // H_ lifeCycle 變更時
@@ -243,6 +278,9 @@ void _updateAnswerStatusEventWorker(
       state = state.copyWith(
         appIsPaused: e.isPaused,
         showDialog: showDialog,
+        saveParameters: state.saveParameters.copyWith(
+          showDialog: true,
+        ),
       );
     },
     // H_ 當前受訪者在其他模組的 response 更新時，更新頁面
@@ -253,10 +291,15 @@ void _updateAnswerStatusEventWorker(
       state = state.sendInProgress(channel);
       state = state.copyWith(
         respondentResponseMap: e.respondentResponseMap,
+        saveParameters: state.saveParameters.copyWith(
+          respondentResponseMap: true,
+        ),
       );
       state = pageQuestionMapUpdated(state).sendSuccessWithType(
         channel,
-        updateType: {UpdateSurveyPageStateType.page()},
+        updateParameters: state.updateParameters.copyWith(
+          page: true,
+        ),
       );
     },
     // H_ referenceList 更新時
@@ -269,9 +312,7 @@ void _updateAnswerStatusEventWorker(
   );
 
   // S_ 儲存資料
-  state = state.sendEventSuccessAndSave(channel, box, lock);
-
-  channel.send(false);
+  state = state.sendEventSuccessAndSave(channel, localStorage);
 }
 
 UpdateAnswerStatusState warningUpdatedFlow(
@@ -281,7 +322,9 @@ UpdateAnswerStatusState warningUpdatedFlow(
   final state1 = state.sendInProgress(channel);
   return warningUpdated(state1).sendSuccessWithType(
     channel,
-    updateType: {UpdateSurveyPageStateType.warning()},
+    updateParameters: state.updateParameters.copyWith(
+      warning: true,
+    ),
   );
 }
 
@@ -302,10 +345,10 @@ UpdateAnswerStatusState pageUpdatedFlow(
 
   return state1.sendSuccessWithType(
     channel,
-    updateType: {
-      UpdateSurveyPageStateType.page(),
-      UpdateSurveyPageStateType.answerMap(),
-      UpdateSurveyPageStateType.answerStatusMap(),
-    },
+    updateParameters: state.updateParameters.copyWith(
+      page: true,
+      answerMap: true,
+      answerStatusMap: true,
+    ),
   );
 }

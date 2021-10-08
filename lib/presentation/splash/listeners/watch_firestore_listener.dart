@@ -9,27 +9,30 @@ import '../../../domain/core/value_objects.dart';
 
 // H_ 監聽 Firestore
 final watchFirestoreListener = BlocListener<AuthBloc, AuthState>(
-  listenWhen: (p, c) => c.signInState == LoadState.success(),
+  listenWhen: (p, c) =>
+      p.signInState != c.signInState && c.signInState == LoadState.success(),
   listener: (context, state) {
     logger('Listen').i('AuthBloc');
 
-    context.read<WatchSurveyBloc>().add(
-          WatchSurveyEvent.watchSurveyListStarted(
-            teamId: state.team.id,
-            interviewerId: state.interviewer.id,
-          ),
-        );
-    context.read<RespondentBloc>().add(
-          RespondentEvent.watchSurveyRespondentMapStarted(
-            teamId: state.team.id,
-            interviewerId: state.interviewer.id,
-          ),
-        );
-    context.read<ResponseBloc>().add(
-          ResponseEvent.watchResponseMapAndReferenceListStarted(
-            teamId: state.team.id,
-            interviewer: state.interviewer,
-          ),
-        );
+    if (state.signInState == LoadState.success()) {
+      context.read<WatchSurveyBloc>().add(
+            WatchSurveyEvent.watchSurveyMapStarted(
+              teamId: state.team.id,
+              interviewerId: state.interviewer.id,
+            ),
+          );
+      context.read<RespondentBloc>().add(
+            RespondentEvent.watchSurveyRespondentMapStarted(
+              teamId: state.team.id,
+              interviewerId: state.interviewer.id,
+            ),
+          );
+      context.read<ResponseBloc>().add(
+            ResponseEvent.watchResponseMapAndReferenceListStarted(
+              teamId: state.team.id,
+              interviewer: state.interviewer,
+            ),
+          );
+    }
   },
 );

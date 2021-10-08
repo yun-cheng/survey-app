@@ -2,8 +2,6 @@ part of 'update_answer_status_bloc.dart';
 
 @freezed
 class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
-  const factory UpdateAnswerStatusEvent.taskInitialized() = _TaskInitialized;
-
   // H_ 進入問卷時載入必要 state
   const factory UpdateAnswerStatusEvent.moduleLoaded({
     required Map<String, Answer> answerMap,
@@ -78,4 +76,6 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   const factory UpdateAnswerStatusEvent.referenceListUpdated({
     required List<Reference> referenceList,
   }) = _ReferenceListUpdated;
+
+  const factory UpdateAnswerStatusEvent.initialized() = _Initialized;
 }

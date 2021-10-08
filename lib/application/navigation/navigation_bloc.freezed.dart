@@ -29,8 +29,8 @@ class _$NavigationEventTearOff {
     return const _PagePushed();
   }
 
-  _PageInitialized pageInitialized() {
-    return const _PageInitialized();
+  _Initialized initialized() {
+    return const _Initialized();
   }
 }
 
@@ -44,21 +44,21 @@ mixin _$NavigationEvent {
     required TResult Function(NavigationPage page, String? respondentId)
         pageChanged,
     required TResult Function() pagePushed,
-    required TResult Function() pageInitialized,
+    required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -66,21 +66,21 @@ mixin _$NavigationEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PagePushed value) pagePushed,
-    required TResult Function(_PageInitialized value) pageInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -192,7 +192,7 @@ class _$_PageChanged implements _PageChanged {
     required TResult Function(NavigationPage page, String? respondentId)
         pageChanged,
     required TResult Function() pagePushed,
-    required TResult Function() pageInitialized,
+    required TResult Function() initialized,
   }) {
     return pageChanged(page, respondentId);
   }
@@ -202,7 +202,7 @@ class _$_PageChanged implements _PageChanged {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
   }) {
     return pageChanged?.call(page, respondentId);
   }
@@ -212,7 +212,7 @@ class _$_PageChanged implements _PageChanged {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -226,7 +226,7 @@ class _$_PageChanged implements _PageChanged {
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PagePushed value) pagePushed,
-    required TResult Function(_PageInitialized value) pageInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return pageChanged(this);
   }
@@ -236,7 +236,7 @@ class _$_PageChanged implements _PageChanged {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return pageChanged?.call(this);
   }
@@ -246,7 +246,7 @@ class _$_PageChanged implements _PageChanged {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
@@ -310,7 +310,7 @@ class _$_PagePushed implements _PagePushed {
     required TResult Function(NavigationPage page, String? respondentId)
         pageChanged,
     required TResult Function() pagePushed,
-    required TResult Function() pageInitialized,
+    required TResult Function() initialized,
   }) {
     return pagePushed();
   }
@@ -320,7 +320,7 @@ class _$_PagePushed implements _PagePushed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
   }) {
     return pagePushed?.call();
   }
@@ -330,7 +330,7 @@ class _$_PagePushed implements _PagePushed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (pagePushed != null) {
@@ -344,7 +344,7 @@ class _$_PagePushed implements _PagePushed {
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PagePushed value) pagePushed,
-    required TResult Function(_PageInitialized value) pageInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return pagePushed(this);
   }
@@ -354,7 +354,7 @@ class _$_PagePushed implements _PagePushed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return pagePushed?.call(this);
   }
@@ -364,7 +364,7 @@ class _$_PagePushed implements _PagePushed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (pagePushed != null) {
@@ -379,37 +379,37 @@ abstract class _PagePushed implements NavigationEvent {
 }
 
 /// @nodoc
-abstract class _$PageInitializedCopyWith<$Res> {
-  factory _$PageInitializedCopyWith(
-          _PageInitialized value, $Res Function(_PageInitialized) then) =
-      __$PageInitializedCopyWithImpl<$Res>;
+abstract class _$InitializedCopyWith<$Res> {
+  factory _$InitializedCopyWith(
+          _Initialized value, $Res Function(_Initialized) then) =
+      __$InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$PageInitializedCopyWithImpl<$Res>
+class __$InitializedCopyWithImpl<$Res>
     extends _$NavigationEventCopyWithImpl<$Res>
-    implements _$PageInitializedCopyWith<$Res> {
-  __$PageInitializedCopyWithImpl(
-      _PageInitialized _value, $Res Function(_PageInitialized) _then)
-      : super(_value, (v) => _then(v as _PageInitialized));
+    implements _$InitializedCopyWith<$Res> {
+  __$InitializedCopyWithImpl(
+      _Initialized _value, $Res Function(_Initialized) _then)
+      : super(_value, (v) => _then(v as _Initialized));
 
   @override
-  _PageInitialized get _value => super._value as _PageInitialized;
+  _Initialized get _value => super._value as _Initialized;
 }
 
 /// @nodoc
 
-class _$_PageInitialized implements _PageInitialized {
-  const _$_PageInitialized();
+class _$_Initialized implements _Initialized {
+  const _$_Initialized();
 
   @override
   String toString() {
-    return 'NavigationEvent.pageInitialized()';
+    return 'NavigationEvent.initialized()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _PageInitialized);
+    return identical(this, other) || (other is _Initialized);
   }
 
   @override
@@ -421,9 +421,9 @@ class _$_PageInitialized implements _PageInitialized {
     required TResult Function(NavigationPage page, String? respondentId)
         pageChanged,
     required TResult Function() pagePushed,
-    required TResult Function() pageInitialized,
+    required TResult Function() initialized,
   }) {
-    return pageInitialized();
+    return initialized();
   }
 
   @override
@@ -431,9 +431,9 @@ class _$_PageInitialized implements _PageInitialized {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
   }) {
-    return pageInitialized?.call();
+    return initialized?.call();
   }
 
   @override
@@ -441,11 +441,11 @@ class _$_PageInitialized implements _PageInitialized {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(NavigationPage page, String? respondentId)? pageChanged,
     TResult Function()? pagePushed,
-    TResult Function()? pageInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
-    if (pageInitialized != null) {
-      return pageInitialized();
+    if (initialized != null) {
+      return initialized();
     }
     return orElse();
   }
@@ -455,9 +455,9 @@ class _$_PageInitialized implements _PageInitialized {
   TResult map<TResult extends Object?>({
     required TResult Function(_PageChanged value) pageChanged,
     required TResult Function(_PagePushed value) pagePushed,
-    required TResult Function(_PageInitialized value) pageInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
-    return pageInitialized(this);
+    return initialized(this);
   }
 
   @override
@@ -465,9 +465,9 @@ class _$_PageInitialized implements _PageInitialized {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
-    return pageInitialized?.call(this);
+    return initialized?.call(this);
   }
 
   @override
@@ -475,18 +475,18 @@ class _$_PageInitialized implements _PageInitialized {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PageChanged value)? pageChanged,
     TResult Function(_PagePushed value)? pagePushed,
-    TResult Function(_PageInitialized value)? pageInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
-    if (pageInitialized != null) {
-      return pageInitialized(this);
+    if (initialized != null) {
+      return initialized(this);
     }
     return orElse();
   }
 }
 
-abstract class _PageInitialized implements NavigationEvent {
-  const factory _PageInitialized() = _$_PageInitialized;
+abstract class _Initialized implements NavigationEvent {
+  const factory _Initialized() = _$_Initialized;
 }
 
 /// @nodoc

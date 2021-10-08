@@ -30,7 +30,7 @@ void jsonWorker(SendPort jsonReceiver) async {
   Hive.init(path);
   final box = await Hive.openBox(boxName);
 
-  final _jsonConverter = JsonConverter();
+  final _jsonConverter = MyJsonConverter();
 
   final json = box.get('state') as Map<dynamic, dynamic>?;
   final initState =

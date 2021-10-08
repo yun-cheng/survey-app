@@ -23,35 +23,38 @@ class RootRouter extends _i1.RootStackRouter {
     SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i3.SplashPage();
+          return const _i3.SplashPage();
         }),
     SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i4.SignInPage();
+          return const _i4.SignInPage();
         }),
     OverviewRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i5.OverviewPage();
+          return const _i5.OverviewPage();
         }),
     RespondentsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
-        builder: (_) {
-          return _i6.RespondentsPage();
+        builder: (data) {
+          final args = data.argsAs<RespondentsRouteArgs>(
+              orElse: () => const RespondentsRouteArgs());
+          return _i6.RespondentsPage(key: args.key);
         }),
     SurveyRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (data) {
           final args = data.argsAs<SurveyRouteArgs>();
           return _i7.SurveyPage(
+              key: args.key,
               respondentId: args.respondentId,
               showDialogOnRestart: args.showDialogOnRestart);
         }),
     SurveyContentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
         routeData: routeData,
         builder: (_) {
-          return _i8.SurveyContentPage();
+          return const _i8.SurveyContentPage();
         })
   };
 
@@ -84,17 +87,28 @@ class OverviewRoute extends _i1.PageRouteInfo {
   static const String name = 'OverviewRoute';
 }
 
-class RespondentsRoute extends _i1.PageRouteInfo {
-  const RespondentsRoute() : super(name, path: '/respondents');
+class RespondentsRoute extends _i1.PageRouteInfo<RespondentsRouteArgs> {
+  RespondentsRoute({_i2.Key? key})
+      : super(name, path: '/respondents', args: RespondentsRouteArgs(key: key));
 
   static const String name = 'RespondentsRoute';
 }
 
+class RespondentsRouteArgs {
+  const RespondentsRouteArgs({this.key});
+
+  final _i2.Key? key;
+}
+
 class SurveyRoute extends _i1.PageRouteInfo<SurveyRouteArgs> {
-  SurveyRoute({required String respondentId, required bool showDialogOnRestart})
+  SurveyRoute(
+      {_i2.Key? key,
+      required String respondentId,
+      required bool showDialogOnRestart})
       : super(name,
             path: '/survey',
             args: SurveyRouteArgs(
+                key: key,
                 respondentId: respondentId,
                 showDialogOnRestart: showDialogOnRestart));
 
@@ -103,7 +117,11 @@ class SurveyRoute extends _i1.PageRouteInfo<SurveyRouteArgs> {
 
 class SurveyRouteArgs {
   const SurveyRouteArgs(
-      {required this.respondentId, required this.showDialogOnRestart});
+      {this.key,
+      required this.respondentId,
+      required this.showDialogOnRestart});
+
+  final _i2.Key? key;
 
   final String respondentId;
 

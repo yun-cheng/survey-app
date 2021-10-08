@@ -6,7 +6,7 @@ import 'survey_failure.dart';
 import 'typedefs.dart';
 
 abstract class ISurveyRepository {
-  Stream<Either<SurveyFailure, List<Survey>>> watchSurveyList({
+  Stream<Either<SurveyFailure, Map<String, Survey>>> watchSurveyMap({
     required String teamId,
     required String interviewerId,
   });

@@ -15,6 +15,8 @@ import '../routes/router.gr.dart';
 import 'widgets/overview_body.dart';
 
 class OverviewPage extends StatelessWidget {
+  const OverviewPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     logger('Build').i('OverviewPage');
@@ -58,7 +60,7 @@ class OverviewPage extends StatelessWidget {
         ),
         body: SafeArea(
           child: Column(
-            children: [
+            children: const [
               Expanded(
                 child: OverviewBody(),
               ),

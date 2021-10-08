@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_sound_lite/flutter_sound.dart';
 import 'package:injectable/injectable.dart';
+import 'package:interviewer_quiz_flutter_app/domain/audio/value_objects.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -36,9 +37,9 @@ class AudioRecorder implements IAudioRecorder {
       }
 
       late final Codec codec;
-      if (audio == Audio.m4a()) {
+      if (audio.type == AudioType.m4a()) {
         codec = Codec.aacMP4;
-      } else if (audio == Audio.opus()) {
+      } else if (audio.type == AudioType.opus()) {
         codec = Codec.opusWebM;
       } else {
         codec = Codec.aacADTS;

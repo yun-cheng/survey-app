@@ -64,6 +64,10 @@ class _$AuthEventTearOff {
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
+
+  _Initialized initialized() {
+    return const _Initialized();
+  }
 }
 
 /// @nodoc
@@ -85,6 +89,7 @@ mixin _$AuthEvent {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -101,6 +106,7 @@ mixin _$AuthEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -117,6 +123,7 @@ mixin _$AuthEvent {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -133,6 +140,7 @@ mixin _$AuthEvent {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -147,6 +155,7 @@ mixin _$AuthEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -161,6 +170,7 @@ mixin _$AuthEvent {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -233,6 +243,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return watchTeamListStarted();
   }
@@ -252,6 +263,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return watchTeamListStarted?.call();
   }
@@ -271,6 +283,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (watchTeamListStarted != null) {
@@ -293,6 +306,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return watchTeamListStarted(this);
   }
@@ -310,6 +324,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return watchTeamListStarted?.call(this);
   }
@@ -327,6 +342,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (watchTeamListStarted != null) {
@@ -419,6 +435,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return teamListReceived(failureOrTeamList);
   }
@@ -438,6 +455,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return teamListReceived?.call(failureOrTeamList);
   }
@@ -457,6 +475,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (teamListReceived != null) {
@@ -479,6 +498,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return teamListReceived(this);
   }
@@ -496,6 +516,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return teamListReceived?.call(this);
   }
@@ -513,6 +534,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (teamListReceived != null) {
@@ -618,6 +640,7 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return teamSelected(team);
   }
@@ -637,6 +660,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return teamSelected?.call(team);
   }
@@ -656,6 +680,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (teamSelected != null) {
@@ -678,6 +703,7 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return teamSelected(this);
   }
@@ -695,6 +721,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return teamSelected?.call(this);
   }
@@ -712,6 +739,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (teamSelected != null) {
@@ -785,6 +813,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return watchInterviewerListStarted();
   }
@@ -804,6 +833,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return watchInterviewerListStarted?.call();
   }
@@ -823,6 +853,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (watchInterviewerListStarted != null) {
@@ -845,6 +876,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return watchInterviewerListStarted(this);
   }
@@ -862,6 +894,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return watchInterviewerListStarted?.call(this);
   }
@@ -879,6 +912,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (watchInterviewerListStarted != null) {
@@ -974,6 +1008,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return interviewerListReceived(failureOrInterviewerList);
   }
@@ -993,6 +1028,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return interviewerListReceived?.call(failureOrInterviewerList);
   }
@@ -1012,6 +1048,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (interviewerListReceived != null) {
@@ -1034,6 +1071,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return interviewerListReceived(this);
   }
@@ -1051,6 +1089,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return interviewerListReceived?.call(this);
   }
@@ -1068,6 +1107,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (interviewerListReceived != null) {
@@ -1164,6 +1204,7 @@ class _$_IdChanged implements _IdChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return idChanged(id);
   }
@@ -1183,6 +1224,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return idChanged?.call(id);
   }
@@ -1202,6 +1244,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (idChanged != null) {
@@ -1224,6 +1267,7 @@ class _$_IdChanged implements _IdChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return idChanged(this);
   }
@@ -1241,6 +1285,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return idChanged?.call(this);
   }
@@ -1258,6 +1303,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (idChanged != null) {
@@ -1353,6 +1399,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return passwordChanged(password);
   }
@@ -1372,6 +1419,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return passwordChanged?.call(password);
   }
@@ -1391,6 +1439,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -1413,6 +1462,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return passwordChanged(this);
   }
@@ -1430,6 +1480,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return passwordChanged?.call(this);
   }
@@ -1447,6 +1498,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (passwordChanged != null) {
@@ -1516,6 +1568,7 @@ class _$_SignInPressed implements _SignInPressed {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return signInPressed();
   }
@@ -1535,6 +1588,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return signInPressed?.call();
   }
@@ -1554,6 +1608,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (signInPressed != null) {
@@ -1576,6 +1631,7 @@ class _$_SignInPressed implements _SignInPressed {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return signInPressed(this);
   }
@@ -1593,6 +1649,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return signInPressed?.call(this);
   }
@@ -1610,6 +1667,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (signInPressed != null) {
@@ -1673,6 +1731,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(String password) passwordChanged,
     required TResult Function() signInPressed,
     required TResult Function() loggedOut,
+    required TResult Function() initialized,
   }) {
     return loggedOut();
   }
@@ -1692,6 +1751,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
   }) {
     return loggedOut?.call();
   }
@@ -1711,6 +1771,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(String password)? passwordChanged,
     TResult Function()? signInPressed,
     TResult Function()? loggedOut,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -1733,6 +1794,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_PasswordChanged value) passwordChanged,
     required TResult Function(_SignInPressed value) signInPressed,
     required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return loggedOut(this);
   }
@@ -1750,6 +1812,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return loggedOut?.call(this);
   }
@@ -1767,6 +1830,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_PasswordChanged value)? passwordChanged,
     TResult Function(_SignInPressed value)? signInPressed,
     TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -1778,6 +1842,170 @@ class _$_LoggedOut implements _LoggedOut {
 
 abstract class _LoggedOut implements AuthEvent {
   const factory _LoggedOut() = _$_LoggedOut;
+}
+
+/// @nodoc
+abstract class _$InitializedCopyWith<$Res> {
+  factory _$InitializedCopyWith(
+          _Initialized value, $Res Function(_Initialized) then) =
+      __$InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InitializedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$InitializedCopyWith<$Res> {
+  __$InitializedCopyWithImpl(
+      _Initialized _value, $Res Function(_Initialized) _then)
+      : super(_value, (v) => _then(v as _Initialized));
+
+  @override
+  _Initialized get _value => super._value as _Initialized;
+}
+
+/// @nodoc
+
+class _$_Initialized implements _Initialized {
+  const _$_Initialized();
+
+  @override
+  String toString() {
+    return 'AuthEvent.initialized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() watchTeamListStarted,
+    required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
+        teamListReceived,
+    required TResult Function(Team team) teamSelected,
+    required TResult Function() watchInterviewerListStarted,
+    required TResult Function(
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
+        interviewerListReceived,
+    required TResult Function(String id) idChanged,
+    required TResult Function(String password) passwordChanged,
+    required TResult Function() signInPressed,
+    required TResult Function() loggedOut,
+    required TResult Function() initialized,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+  }) {
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? watchTeamListStarted,
+    TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
+        teamListReceived,
+    TResult Function(Team team)? teamSelected,
+    TResult Function()? watchInterviewerListStarted,
+    TResult Function(
+            Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
+        interviewerListReceived,
+    TResult Function(String id)? idChanged,
+    TResult Function(String password)? passwordChanged,
+    TResult Function()? signInPressed,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchTeamListStarted value) watchTeamListStarted,
+    required TResult Function(_TeamListReceived value) teamListReceived,
+    required TResult Function(_TeamSelected value) teamSelected,
+    required TResult Function(_WatchInterviewerListStarted value)
+        watchInterviewerListStarted,
+    required TResult Function(_InterviewerListReceived value)
+        interviewerListReceived,
+    required TResult Function(_IdChanged value) idChanged,
+    required TResult Function(_PasswordChanged value) passwordChanged,
+    required TResult Function(_SignInPressed value) signInPressed,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchTeamListStarted value)? watchTeamListStarted,
+    TResult Function(_TeamListReceived value)? teamListReceived,
+    TResult Function(_TeamSelected value)? teamSelected,
+    TResult Function(_WatchInterviewerListStarted value)?
+        watchInterviewerListStarted,
+    TResult Function(_InterviewerListReceived value)? interviewerListReceived,
+    TResult Function(_IdChanged value)? idChanged,
+    TResult Function(_PasswordChanged value)? passwordChanged,
+    TResult Function(_SignInPressed value)? signInPressed,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized implements AuthEvent {
+  const factory _Initialized() = _$_Initialized;
 }
 
 /// @nodoc

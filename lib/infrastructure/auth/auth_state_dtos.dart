@@ -28,21 +28,21 @@ class AuthStateDto with _$AuthStateDto {
     required bool showErrorMessages,
   }) = _AuthStateDto;
 
-  factory AuthStateDto.fromDomain(AuthState authState) {
+  factory AuthStateDto.fromDomain(AuthState domain) {
     return AuthStateDto(
-      teamListState: authState.teamListState.value,
-      teamList: authState.teamList.map((e) => TeamDto.fromDomain(e)).toList(),
-      team: TeamDto.fromDomain(authState.team),
-      interviewerListState: authState.interviewerListState.value,
-      interviewerList: authState.interviewerList
+      teamListState: domain.teamListState.value,
+      teamList: domain.teamList.map((e) => TeamDto.fromDomain(e)).toList(),
+      team: TeamDto.fromDomain(domain.team),
+      interviewerListState: domain.interviewerListState.value,
+      interviewerList: domain.interviewerList
           .map((e) => InterviewerDto.fromDomain(e))
           .toList(),
-      id: authState.id,
-      password: authState.password,
-      signInState: authState.signInState.value,
-      interviewer: InterviewerDto.fromDomain(authState.interviewer),
-      authFailure: authState.authFailure.fold(() => null, (some) => some.value),
-      showErrorMessages: authState.showErrorMessages,
+      id: domain.id,
+      password: domain.password,
+      signInState: domain.signInState.value,
+      interviewer: InterviewerDto.fromDomain(domain.interviewer),
+      authFailure: domain.authFailure.fold(() => null, (some) => some.value),
+      showErrorMessages: domain.showErrorMessages,
     );
   }
 

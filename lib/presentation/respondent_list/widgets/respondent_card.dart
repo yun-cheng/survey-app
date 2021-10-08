@@ -55,8 +55,10 @@ class RespondentCard extends StatelessWidget {
               c.selectedRespondentId == respondent.id) ||
           // S_ 此卡片展開且查址紀錄有變
           (c.selectedRespondentId == respondent.id &&
-              (p.visitRecordsMap[respondent.id] !=
-                  c.visitRecordsMap[respondent.id])),
+              (!const DeepCollectionEquality().equals(
+                p.visitRecordsMap[respondent.id],
+                c.visitRecordsMap[respondent.id],
+              ))),
       builder: (context, state) {
         logger('Build').i('RespondentCard');
 
@@ -70,7 +72,7 @@ class RespondentCard extends StatelessWidget {
         // H_ module buttons
         Visibility moduleButton(
           String text,
-          ModuleType moduelType, {
+          ModuleType moduleType, {
           bool isCurrentTab = false,
           bool enabled = true,
         }) {
@@ -89,7 +91,7 @@ class RespondentCard extends StatelessWidget {
               style: buttonStyle,
               onPressed: () {
                 if (enabled) {
-                  moduleButtonPressed(moduelType);
+                  moduleButtonPressed(moduleType);
                 }
               },
               child: Text(

@@ -26,6 +26,9 @@ RespondentState responseInfoMapUpdated(
 ) {
   return state.copyWith(
     responseInfoMap: responseMap.mapValues((r) => r.onlyInfo()),
+    saveParameters: state.saveParameters.copyWith(
+      responseInfoMap: true,
+    ),
   );
 }
 
@@ -116,6 +119,9 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
 
   return state.copyWith(
     visitRecordsMap: visitRecordsMap,
+    saveParameters: state.saveParameters.copyWith(
+      visitRecordsMap: true,
+    ),
   );
 }
 
@@ -224,6 +230,9 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
 
   return state.copyWith(
     tabRespondentMap: tabRespondentMap,
+    saveParameters: state.saveParameters.copyWith(
+      tabRespondentMap: true,
+    ),
   );
 }
 

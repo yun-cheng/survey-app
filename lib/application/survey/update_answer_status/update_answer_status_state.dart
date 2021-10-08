@@ -5,6 +5,9 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
   const UpdateAnswerStatusState._();
 
   const factory UpdateAnswerStatusState({
+    // HIGHLIGHT 因為 bloc 內部會去比較 emit state 前後是否有變，因此只要每次 emit
+    //  新的 state 時產生新的 stateId，並放在 state 的最前面，就可以大幅減少比較的時間
+    required UniqueId stateId,
     // H_ 主要資料
     required Map<String, Answer> answerMap,
     required Map<String, AnswerStatus> answerStatusMap,
@@ -42,10 +45,13 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required LoadState restoreState,
     required LoadState eventState,
     required LoadState updateState,
-    required Set<UpdateSurveyPageStateType> updateType,
+    // H_ 更新/儲存參數
+    required StateParameters updateParameters,
+    required StateParameters saveParameters,
   }) = _UpdateAnswerStatusState;
 
   factory UpdateAnswerStatusState.initial() => UpdateAnswerStatusState(
+        stateId: UniqueId.v1(),
         // H_ 主要資料
         answerMap: const {},
         answerStatusMap: const {},
@@ -83,37 +89,42 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         restoreState: LoadState.initial(),
         eventState: LoadState.initial(),
         updateState: LoadState.initial(),
-        updateType: const {},
+        // H_ 標記更新/儲存參數
+        updateParameters: StateParameters.initial(),
+        saveParameters: StateParameters.initial(),
       );
-
-  Map<String, dynamic> toJson() =>
-      UpdateAnswerStatusStateDto.fromDomain(this).toJson();
-
-  UpdateAnswerStatusState send(AsyncTaskChannel channel) {
-    channel.send(this);
-    return this;
-  }
 
   UpdateAnswerStatusState sendInProgress(AsyncTaskChannel channel) {
     return copyWith(
       updateState: LoadState.inProgress(),
-      updateType: {},
+      updateParameters: StateParameters.initial(),
     ).send(channel);
   }
 
   UpdateAnswerStatusState sendSuccessWithType(
     AsyncTaskChannel channel, {
-    required Set<UpdateSurveyPageStateType> updateType,
+    required StateParameters updateParameters,
+    StateParameters? saveParameters,
   }) {
     return copyWith(
       restoreState: LoadState.success(),
       updateState: LoadState.success(),
-      updateType: updateType,
+      updateParameters: updateParameters,
+      saveParameters: saveParameters ?? this.saveParameters,
     ).send(channel);
   }
 
-  UpdateAnswerStatusState saveState(Box box, Lock lock) {
-    toJsonTask(box: box, lock: lock, state: this);
+  UpdateAnswerStatusState send(AsyncTaskChannel channel) {
+    channel.send(
+      copyWith(
+        stateId: UniqueId.v1(),
+      ),
+    );
+    return this;
+  }
+
+  UpdateAnswerStatusState saveState(ILocalStorage localStorage) {
+    UpdateAnswerStatusStateDto.fromDomain(this).saveState(localStorage);
     return this;
   }
 
@@ -125,40 +136,12 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
 
   UpdateAnswerStatusState sendEventSuccessAndSave(
     AsyncTaskChannel channel,
-    Box box,
-    Lock lock,
+    ILocalStorage localStorage,
   ) {
     return copyWith(
       eventState: LoadState.success(),
-    ).send(channel).saveState(box, lock);
+    ).send(channel).saveState(localStorage);
   }
-}
-
-UpdateAnswerStatusState _stateFromJson(Map<String, dynamic> json) =>
-    UpdateAnswerStatusStateDto.fromJson(json).toDomain();
-
-@freezed
-class UpdateSurveyPageStateType with _$UpdateSurveyPageStateType {
-  const UpdateSurveyPageStateType._();
-
-  const factory UpdateSurveyPageStateType(String value) =
-      _UpdateSurveyPageStateType;
-
-  factory UpdateSurveyPageStateType.empty() =>
-      const UpdateSurveyPageStateType('');
-  factory UpdateSurveyPageStateType.answerMap() =>
-      const UpdateSurveyPageStateType('answerMap');
-  factory UpdateSurveyPageStateType.answerStatusMap() =>
-      const UpdateSurveyPageStateType('answerStatusMap');
-  factory UpdateSurveyPageStateType.page() =>
-      const UpdateSurveyPageStateType('page');
-  factory UpdateSurveyPageStateType.contentQuestionMap() =>
-      const UpdateSurveyPageStateType('contentQuestionMap');
-  factory UpdateSurveyPageStateType.warning() =>
-      const UpdateSurveyPageStateType('warning');
-
-  bool saveResponse() =>
-      ['answerMap', 'answerStatusMap', 'page', 'warning'].contains(value);
 }
 
 enum Direction {
@@ -168,4 +151,96 @@ enum Direction {
   next,
   @JsonValue('previous')
   previous,
+}
+
+// H_ 參數狀態
+@freezed
+class StateParameters with _$StateParameters {
+  const StateParameters._();
+
+  const factory StateParameters({
+    // H_ 主要資料
+    required bool answerMap,
+    required bool answerStatusMap,
+    required bool recodeAnswerMap,
+    required bool recodeAnswerStatusMap,
+    required bool page,
+    required bool newestPage,
+    required bool isLastPage,
+    required bool warning,
+    required bool showWarning,
+    // H_ 中間資料
+    required bool pageQIdSet,
+    required bool contentQIdSet,
+    required bool showDialog,
+    required bool showLeaveButton,
+    // H_ 同 session 不變的參考資料
+    required bool respondent,
+    required bool surveyId,
+    required bool moduleType,
+    required bool isReadOnly,
+    required bool isRecodeModule,
+    required bool respondentResponseMap,
+    // H_ 同 session 會變的參考資料
+    required bool questionMap,
+    required bool recodeQuestionMap,
+  }) = _StateParameters;
+
+  bool saveResponse() => answerMap || answerStatusMap || page || warning;
+
+  factory StateParameters.initial() => const StateParameters(
+        // H_ 主要資料
+        answerMap: false,
+        answerStatusMap: false,
+        recodeAnswerMap: false,
+        recodeAnswerStatusMap: false,
+        page: false,
+        newestPage: false,
+        isLastPage: false,
+        warning: false,
+        showWarning: false,
+        // H_ 中間資料
+        pageQIdSet: false,
+        contentQIdSet: false,
+        showDialog: false,
+        showLeaveButton: true,
+        // H_ 同 session 不變的參考資料
+        respondent: false,
+        surveyId: false,
+        moduleType: false,
+        isReadOnly: false,
+        isRecodeModule: false,
+        respondentResponseMap: false,
+        // H_ 同 session 會變的參考資料
+        questionMap: false,
+        recodeQuestionMap: false,
+      );
+
+  factory StateParameters.clear() => const StateParameters(
+        // H_ 主要資料
+        answerMap: true,
+        answerStatusMap: true,
+        recodeAnswerMap: true,
+        recodeAnswerStatusMap: true,
+        page: true,
+        newestPage: true,
+        isLastPage: true,
+        warning: true,
+        showWarning: true,
+        // H_ 中間資料
+        pageQIdSet: true,
+        contentQIdSet: true,
+        showDialog: true,
+        showLeaveButton: true,
+        // H_ 同 session 不變的參考資料
+        respondent: true,
+        surveyId: true,
+        moduleType: true,
+        isReadOnly: true,
+        isRecodeModule: true,
+        respondentResponseMap: true,
+        // H_ 同 session 會變的參考資料
+        questionMap: true,
+        recodeQuestionMap: true,
+      );
 }

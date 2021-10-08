@@ -7,9 +7,10 @@ ResponseState responseMapMerged(ResponseState state) {
   final responseMap = {...state.responseMap};
   bool updateVisitReportsMap = false;
   bool updateTabRespondentMap = false;
+  final saveKeys = <UniqueId>{};
 
   // S_ 合併剛下載的 responseMap 與當前的 responseMap，
-  //  各個 responseId 保留 lastChanngedTimeStamp 最晚的
+  //  各個 responseId 保留 lastChangedTimeStamp 最晚的
   // NOTE 不會有同 responseId 的情形，因為
   //  1. 每次 responseRestored 都會創新的
   //  2. Firestore 上的 documentId 就是 responseId
@@ -19,6 +20,8 @@ ResponseState responseMapMerged(ResponseState state) {
         response.lastChangedTimeStamp.toInt() >
             (responseMap[responseId]?.lastChangedTimeStamp.toInt() ?? -1)) {
       responseMap[responseId] = response;
+
+      saveKeys.add(responseId);
 
       // S_ 新下載的 responseMap 包含查址模組
       if (!updateVisitReportsMap &&
@@ -36,21 +39,19 @@ ResponseState responseMapMerged(ResponseState state) {
     }
   }
 
-  // S_ updateType
-  final updateType = <UpdateResponseStateType>{};
-  if (updateVisitReportsMap) {
-    updateType.add(UpdateResponseStateType.visitReportsMap());
-  }
-  if (updateTabRespondentMap) {
-    updateType.add(UpdateResponseStateType.tabRespondentMap());
-  }
-
   // TODO 如果在其他 device 剛好更新當前 respondent 的不同模組新 response，
   //  則要更新 respondentResponseMap
 
   return state.copyWith(
     responseMap: responseMap,
-    updateType: updateType,
+    updateParameters: state.updateParameters.copyWith(
+      visitReportsMap: updateVisitReportsMap,
+      tabRespondentMap: updateTabRespondentMap,
+    ),
+    saveParameters: state.saveParameters.copyWith(
+      responseMap: true,
+      responseMapKeys: saveKeys,
+    ),
   );
 }
 
@@ -221,24 +222,22 @@ ResponseState editFinished(
     final responseMap = {...state.responseMap};
     responseMap[newResponse.responseId] = newResponse;
 
-    // S_ updateType
-    final updateType = <UpdateResponseStateType>{};
-    if (newResponse.moduleType == ModuleType.visitReport()) {
-      updateType.add(UpdateResponseStateType.visitReportsMap());
-    }
-    if (e.responseFinished && newResponse.moduleType.needUpdateTab) {
-      updateType.add(UpdateResponseStateType.tabRespondentMap());
-    }
-
     return state.copyWith(
       response: newResponse,
       responseMap: responseMap,
-      updateType: updateType,
+      updateParameters: state.updateParameters.copyWith(
+        visitReportsMap: newResponse.moduleType == ModuleType.visitReport(),
+        tabRespondentMap:
+            e.responseFinished && newResponse.moduleType.needUpdateTab,
+      ),
+      saveParameters: state.saveParameters.copyWith(
+        response: true,
+        responseMap: true,
+        responseMapKeys: {newResponse.responseId},
+      ),
     );
   } else {
-    return state.copyWith(
-      updateType: {},
-    );
+    return state;
   }
 }
 

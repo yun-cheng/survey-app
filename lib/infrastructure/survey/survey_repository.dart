@@ -18,7 +18,6 @@ import 'reference_dtos.dart';
 import 'response_list_dtos.dart';
 import 'survey_dtos.dart';
 
-
 @LazySingleton(as: ISurveyRepository)
 class SurveyRepository implements ISurveyRepository {
   final FirebaseFirestore _firestore;
@@ -43,7 +42,7 @@ class SurveyRepository implements ISurveyRepository {
   }
 
   @override
-  Stream<Either<SurveyFailure, List<Survey>>> watchSurveyList({
+  Stream<Either<SurveyFailure, Map<String, Survey>>> watchSurveyMap({
     required String teamId,
     required String interviewerId,
   }) async* {
@@ -60,7 +59,11 @@ class SurveyRepository implements ISurveyRepository {
         return downloadSurvey(surveyId: surveyId);
       }));
 
-      return right<SurveyFailure, List<Survey>>(list);
+      final map = Map.fromEntries(
+        list.map((survey) => MapEntry(survey.id, survey)),
+      );
+
+      return right<SurveyFailure, Map<String, Survey>>(map);
     }).onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(SurveyFailure.insufficientPermission());

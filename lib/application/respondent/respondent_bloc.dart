@@ -3,16 +3,12 @@ import 'dart:math';
 
 import 'package:async_task/async_task.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hive/hive.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
-import 'package:synchronized/synchronized.dart';
 import 'package:tuple/tuple.dart';
 
+import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/overview/survey.dart';
@@ -31,6 +27,7 @@ import '../../domain/survey/typedefs.dart';
 import '../../domain/survey/value_objects.dart';
 import '../../infrastructure/core/event_task.dart';
 import '../../infrastructure/core/extensions.dart';
+import '../../infrastructure/core/isolate_bloc.dart';
 import '../../infrastructure/respondent/respondent_state_dtos.dart';
 
 part 'respondent_bloc.freezed.dart';
@@ -39,17 +36,15 @@ part 'respondent_event.dart';
 part 'respondent_event_worker.dart';
 part 'respondent_state.dart';
 
-class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
+class RespondentBloc extends IsolateBloc<RespondentEvent, RespondentState> {
   final IRespondentRepository _respondentRepository;
   StreamSubscription<Either<RespondentFailure, SurveyRespondentMap>>?
       _surveyRespondentMapSubscription;
-  AsyncExecutor? _eventExecutor;
-  AsyncTaskChannel? _eventChannel;
 
   RespondentBloc(
     this._respondentRepository,
   ) : super(RespondentState.initial()) {
-    add(const RespondentEvent.taskInitialized());
+    add(const RespondentEvent.initialized());
   }
 
   @override
@@ -57,13 +52,16 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
     RespondentEvent event,
   ) async* {
     yield* event.maybeMap(
-      taskInitialized: (e) async* {
-        yield await taskInitialized();
+      initialized: (e) async* {
+        await initialize(
+          boxName: 'RespondentState',
+          stateFromStorage: stateFromStorage,
+          eventWorker: _eventWorker,
+          taskTypeRegister: _taskTypeRegister,
+        );
       },
       watchSurveyRespondentMapStarted: (e) async* {
-        logger('Watch').i('RespondentEvent: watchSurveyRespondentMapStarted');
-
-        yield* eventTaskSent(event);
+        yield* execute(event);
 
         await _surveyRespondentMapSubscription?.cancel();
         _surveyRespondentMapSubscription = _respondentRepository
@@ -79,70 +77,21 @@ class RespondentBloc extends Bloc<RespondentEvent, RespondentState> {
       },
       loggedOut: (e) async* {
         _surveyRespondentMapSubscription?.cancel();
-        yield* eventTaskSent(event);
+        yield* execute(event);
       },
       orElse: () async* {
-        yield* eventTaskSent(event);
+        yield* execute(event);
       },
     );
   }
 
-  Future<RespondentState> taskInitialized() async {
-    logger('Task').e('RespondentBloc: taskInitialized');
-
-    // S_ event task
-    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
-    final path = dir?.path ?? '';
-
-    final eventTask = EventTask(
-      path: path,
-      boxName: 'RespondentState',
-      stateFromJson: _stateFromJson,
-      eventWorker: _respondentEventWorker,
-    );
-
-    _eventExecutor = AsyncExecutor(
-      parallelism: 1,
-      taskTypeRegister: _eventTaskTypeRegister,
-    );
-
-    _eventExecutor!.execute(eventTask);
-    _eventChannel = await eventTask.channel();
-
-    // S_ initState
-    final initState = await _eventChannel!.sendAndWaitResponse('initState');
-    if (initState is RespondentState) {
-      logger('State').i('RespondentState: initState');
-
-      return initState;
-    }
-    return RespondentState.initial();
-  }
-
-  Stream<RespondentState> eventTaskSent(
-    RespondentEvent event,
-  ) async* {
-    final tuple = Tuple2(event, state);
-    _eventChannel!.send(tuple);
-
-    dynamic msg;
-    while (true) {
-      msg = await _eventChannel!.waitMessage();
-
-      if (msg is RespondentState) {
-        yield msg;
-      } else if (msg is RespondentEvent) {
-        add(msg);
-      } else if (msg is bool) {
-        break;
-      }
-    }
-  }
+  @override
+  bool executionFinished(RespondentState newState) =>
+      newState.eventState == LoadState.success();
 
   @override
   Future<void> close() {
     _surveyRespondentMapSubscription?.cancel();
-    _eventExecutor?.close();
 
     return super.close();
   }

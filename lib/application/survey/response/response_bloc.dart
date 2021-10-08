@@ -2,15 +2,11 @@ import 'dart:async';
 
 import 'package:async_task/async_task.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hive/hive.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:synchronized/synchronized.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../../domain/auth/interviewer.dart';
+import '../../../domain/core/i_local_storage.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/overview/survey.dart';
@@ -27,6 +23,7 @@ import '../../../domain/survey/typedefs.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/event_task.dart';
 import '../../../infrastructure/core/extensions.dart';
+import '../../../infrastructure/core/isolate_bloc.dart';
 import '../../../infrastructure/survey/response_state_dtos.dart';
 
 part 'response_bloc.freezed.dart';
@@ -35,14 +32,12 @@ part 'response_event.dart';
 part 'response_event_worker.dart';
 part 'response_state.dart';
 
-class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
+class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
   final ISurveyRepository _surveyRepository;
   StreamSubscription<Either<SurveyFailure, ResponseMap>>?
       _responseMapSubscription;
   StreamSubscription<Either<SurveyFailure, List<Reference>>>?
       _referenceListSubscription;
-  AsyncExecutor? _eventExecutor;
-  AsyncTaskChannel? _eventChannel;
 
   Timer? _activeTimer;
   Timer? _inactiveTimer;
@@ -50,7 +45,7 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
   ResponseBloc(
     this._surveyRepository,
   ) : super(ResponseState.initial()) {
-    add(const ResponseEvent.taskInitialized());
+    add(const ResponseEvent.initialized());
   }
 
   @override
@@ -58,15 +53,20 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
     ResponseEvent event,
   ) async* {
     yield* event.maybeMap(
-      taskInitialized: (e) async* {
-        await taskInitialized(restoreState: true);
+      initialized: (e) async* {
+        await initialize(
+          boxName: 'ResponseState',
+          stateFromStorage: stateFromStorage,
+          eventWorker: _eventWorker,
+          taskTypeRegister: _taskTypeRegister,
+        );
       },
       // H_ 監聽 responseMap
       watchResponseMapAndReferenceListStarted: (e) async* {
         logger('Watch')
             .i('ResponseBloc: watchResponseMapAndReferenceListStarted');
 
-        yield* eventTaskSent(event);
+        yield* execute(event);
 
         await _responseMapSubscription?.cancel();
         _responseMapSubscription = _surveyRepository
@@ -128,7 +128,7 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
         }
       },
       responseMapUploaded: (e) async* {
-        logger('Test').e('ResponseEvent: responseMapUploaded');
+        logger('Upload').e('ResponseEvent: responseMapUploaded');
 
         // TODO
       },
@@ -137,21 +137,21 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
         logger('Event').i('ResponseEvent: responseUpdated');
 
         add(const ResponseEvent.uploadTimerUpdated());
-        yield* eventTaskSent(event);
+        yield* execute(event);
       },
       // H_ 使用者結束編輯這次問卷模組的回覆
       editFinished: (e) async* {
         logger('User Event').i('ResponseEvent: editFinished');
 
         add(const ResponseEvent.uploadTimerUpdated());
-        yield* eventTaskSent(event);
+        yield* execute(event);
       },
       // H_ 使用者在閒置後，選擇繼續訪問
       responseResumed: (e) async* {
         logger('User Event').i('ResponseEvent: responseResumed');
 
         add(const ResponseEvent.uploadTimerUpdated());
-        yield* eventTaskSent(event);
+        yield* execute(event);
       },
       loggedOut: (e) async* {
         _responseMapSubscription?.cancel();
@@ -161,68 +161,17 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
         );
         _inactiveTimer?.cancel();
         _activeTimer?.cancel();
-        yield* eventTaskSent(event);
+        yield* execute(event);
       },
       orElse: () async* {
-        yield* eventTaskSent(event);
+        yield* execute(event);
       },
     );
   }
 
-  Future<void> taskInitialized({
-    bool restoreState = false,
-  }) async {
-    logger('Task').e('ResponseBloc: taskInitialized');
-
-    // S_ event task
-    final dir = kIsWeb ? null : await getApplicationDocumentsDirectory();
-    final path = dir?.path ?? '';
-
-    final eventTask = EventTask(
-      path: path,
-      boxName: 'ResponseState',
-      stateFromJson: _stateFromJson,
-      eventWorker: _responseEventWorker,
-    );
-
-    _eventExecutor = AsyncExecutor(
-      parallelism: 1,
-      taskTypeRegister: _eventTaskTypeRegister,
-    );
-
-    _eventExecutor!.execute(eventTask);
-    _eventChannel = await eventTask.channel();
-
-    // S_ initState
-    if (restoreState) {
-      final initState = await _eventChannel!.sendAndWaitResponse('initState');
-      if (initState is ResponseState) {
-        logger('State').i('ResponseState: initState');
-
-        emit(initState);
-      }
-    }
-  }
-
-  Stream<ResponseState> eventTaskSent(
-    ResponseEvent event,
-  ) async* {
-    final tuple = Tuple2(event, state);
-    _eventChannel!.send(tuple);
-
-    dynamic msg;
-    while (true) {
-      msg = await _eventChannel!.waitMessage();
-
-      if (msg is ResponseState) {
-        yield msg;
-      } else if (msg is ResponseEvent) {
-        add(msg);
-      } else if (msg is bool) {
-        break;
-      }
-    }
-  }
+  @override
+  bool executionFinished(ResponseState newState) =>
+      newState.eventState == LoadState.success();
 
   @override
   Future<void> close() {
@@ -230,7 +179,6 @@ class ResponseBloc extends Bloc<ResponseEvent, ResponseState> {
     _referenceListSubscription?.cancel();
     _inactiveTimer?.cancel();
     _activeTimer?.cancel();
-    _eventExecutor?.close();
 
     return super.close();
   }

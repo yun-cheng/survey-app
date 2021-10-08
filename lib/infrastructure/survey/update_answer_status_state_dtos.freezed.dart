@@ -23,33 +23,30 @@ class _$UpdateAnswerStatusStateDtoTearOff {
   const _$UpdateAnswerStatusStateDtoTearOff();
 
   _UpdateAnswerStatusStateDto call(
-      {required Map<String, AnswerDto> answerMap,
-      required Map<String, AnswerStatusDto> answerStatusMap,
-      required Map<String, AnswerDto> recodeAnswerMap,
-      required Map<String, AnswerStatusDto> recodeAnswerStatusMap,
-      required int page,
-      required int newestPage,
-      required bool isLastPage,
-      required WarningDto warning,
-      required bool showWarning,
-      required List<String> pageQIdSet,
-      required List<String> contentQIdSet,
-      required bool finishResponse,
-      required bool showDialog,
-      required bool showLeaveButton,
-      required bool leavePage,
-      required bool appIsPaused,
-      required RespondentDto respondent,
-      required String surveyId,
-      required String moduleType,
-      required bool isReadOnly,
-      required bool isRecodeModule,
-      required List<ReferenceDto> referenceList,
-      required Map<String, ResponseDto> respondentResponseMap,
-      required Map<String, QuestionDto> questionMap,
-      required Map<String, QuestionDto> recodeQuestionMap,
-      required String restoreState,
-      required String updateState}) {
+      {Map<String, AnswerDto>? answerMap,
+      Map<String, AnswerStatusDto>? answerStatusMap,
+      Map<String, AnswerDto>? recodeAnswerMap,
+      Map<String, AnswerStatusDto>? recodeAnswerStatusMap,
+      int? page,
+      int? newestPage,
+      bool? isLastPage,
+      WarningDto? warning,
+      bool? showWarning,
+      List<String>? pageQIdSet,
+      List<String>? contentQIdSet,
+      bool? showDialog,
+      bool? showLeaveButton,
+      RespondentDto? respondent,
+      String? surveyId,
+      String? moduleType,
+      bool? isReadOnly,
+      bool? isRecodeModule,
+      List<ReferenceDto>? referenceList,
+      Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, QuestionDto>? questionMap,
+      Map<String, QuestionDto>? recodeQuestionMap,
+      String? restoreState,
+      String? updateState}) {
     return _UpdateAnswerStatusStateDto(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -62,11 +59,8 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       showWarning: showWarning,
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
-      finishResponse: finishResponse,
       showDialog: showDialog,
       showLeaveButton: showLeaveButton,
-      leavePage: leavePage,
-      appIsPaused: appIsPaused,
       respondent: respondent,
       surveyId: surveyId,
       moduleType: moduleType,
@@ -92,40 +86,37 @@ const $UpdateAnswerStatusStateDto = _$UpdateAnswerStatusStateDtoTearOff();
 /// @nodoc
 mixin _$UpdateAnswerStatusStateDto {
 // H_ 主要資料
-  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
-  Map<String, AnswerStatusDto> get answerStatusMap =>
+  Map<String, AnswerDto>? get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto>? get answerStatusMap =>
       throw _privateConstructorUsedError;
-  Map<String, AnswerDto> get recodeAnswerMap =>
+  Map<String, AnswerDto>? get recodeAnswerMap =>
       throw _privateConstructorUsedError;
-  Map<String, AnswerStatusDto> get recodeAnswerStatusMap =>
+  Map<String, AnswerStatusDto>? get recodeAnswerStatusMap =>
       throw _privateConstructorUsedError;
-  int get page => throw _privateConstructorUsedError;
-  int get newestPage => throw _privateConstructorUsedError;
-  bool get isLastPage => throw _privateConstructorUsedError;
-  WarningDto get warning => throw _privateConstructorUsedError;
-  bool get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
-  List<String> get pageQIdSet => throw _privateConstructorUsedError;
-  List<String> get contentQIdSet => throw _privateConstructorUsedError;
-  bool get finishResponse => throw _privateConstructorUsedError;
-  bool get showDialog => throw _privateConstructorUsedError;
-  bool get showLeaveButton => throw _privateConstructorUsedError;
-  bool get leavePage => throw _privateConstructorUsedError;
-  bool get appIsPaused =>
+  int? get page => throw _privateConstructorUsedError;
+  int? get newestPage => throw _privateConstructorUsedError;
+  bool? get isLastPage => throw _privateConstructorUsedError;
+  WarningDto? get warning => throw _privateConstructorUsedError;
+  bool? get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
+  List<String>? get pageQIdSet => throw _privateConstructorUsedError;
+  List<String>? get contentQIdSet => throw _privateConstructorUsedError;
+  bool? get showDialog => throw _privateConstructorUsedError;
+  bool? get showLeaveButton =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
-  RespondentDto get respondent => throw _privateConstructorUsedError;
-  String get surveyId => throw _privateConstructorUsedError;
-  String get moduleType => throw _privateConstructorUsedError;
-  bool get isReadOnly => throw _privateConstructorUsedError;
-  bool get isRecodeModule => throw _privateConstructorUsedError;
-  List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
-  Map<String, ResponseDto> get respondentResponseMap =>
+  RespondentDto? get respondent => throw _privateConstructorUsedError;
+  String? get surveyId => throw _privateConstructorUsedError;
+  String? get moduleType => throw _privateConstructorUsedError;
+  bool? get isReadOnly => throw _privateConstructorUsedError;
+  bool? get isRecodeModule => throw _privateConstructorUsedError;
+  List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
+  Map<String, ResponseDto>? get respondentResponseMap =>
       throw _privateConstructorUsedError; // H_ 同 session 會變的參考資料
-  Map<String, QuestionDto> get questionMap =>
+  Map<String, QuestionDto>? get questionMap =>
       throw _privateConstructorUsedError;
-  Map<String, QuestionDto> get recodeQuestionMap =>
+  Map<String, QuestionDto>? get recodeQuestionMap =>
       throw _privateConstructorUsedError; // H_ 狀態更新進度
-  String get restoreState => throw _privateConstructorUsedError;
-  String get updateState => throw _privateConstructorUsedError;
+  String? get restoreState => throw _privateConstructorUsedError;
+  String? get updateState => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -139,36 +130,33 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
           $Res Function(UpdateAnswerStatusStateDto) then) =
       _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, AnswerDto> answerMap,
-      Map<String, AnswerStatusDto> answerStatusMap,
-      Map<String, AnswerDto> recodeAnswerMap,
-      Map<String, AnswerStatusDto> recodeAnswerStatusMap,
-      int page,
-      int newestPage,
-      bool isLastPage,
-      WarningDto warning,
-      bool showWarning,
-      List<String> pageQIdSet,
-      List<String> contentQIdSet,
-      bool finishResponse,
-      bool showDialog,
-      bool showLeaveButton,
-      bool leavePage,
-      bool appIsPaused,
-      RespondentDto respondent,
-      String surveyId,
-      String moduleType,
-      bool isReadOnly,
-      bool isRecodeModule,
-      List<ReferenceDto> referenceList,
-      Map<String, ResponseDto> respondentResponseMap,
-      Map<String, QuestionDto> questionMap,
-      Map<String, QuestionDto> recodeQuestionMap,
-      String restoreState,
-      String updateState});
+      {Map<String, AnswerDto>? answerMap,
+      Map<String, AnswerStatusDto>? answerStatusMap,
+      Map<String, AnswerDto>? recodeAnswerMap,
+      Map<String, AnswerStatusDto>? recodeAnswerStatusMap,
+      int? page,
+      int? newestPage,
+      bool? isLastPage,
+      WarningDto? warning,
+      bool? showWarning,
+      List<String>? pageQIdSet,
+      List<String>? contentQIdSet,
+      bool? showDialog,
+      bool? showLeaveButton,
+      RespondentDto? respondent,
+      String? surveyId,
+      String? moduleType,
+      bool? isReadOnly,
+      bool? isRecodeModule,
+      List<ReferenceDto>? referenceList,
+      Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, QuestionDto>? questionMap,
+      Map<String, QuestionDto>? recodeQuestionMap,
+      String? restoreState,
+      String? updateState});
 
-  $WarningDtoCopyWith<$Res> get warning;
-  $RespondentDtoCopyWith<$Res> get respondent;
+  $WarningDtoCopyWith<$Res>? get warning;
+  $RespondentDtoCopyWith<$Res>? get respondent;
 }
 
 /// @nodoc
@@ -193,11 +181,8 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? finishResponse = freezed,
     Object? showDialog = freezed,
     Object? showLeaveButton = freezed,
-    Object? leavePage = freezed,
-    Object? appIsPaused = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -214,124 +199,120 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerDto>,
+              as Map<String, AnswerDto>?,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerStatusDto>,
+              as Map<String, AnswerStatusDto>?,
       recodeAnswerMap: recodeAnswerMap == freezed
           ? _value.recodeAnswerMap
           : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerDto>,
+              as Map<String, AnswerDto>?,
       recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
           ? _value.recodeAnswerStatusMap
           : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerStatusDto>,
+              as Map<String, AnswerStatusDto>?,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       newestPage: newestPage == freezed
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       warning: warning == freezed
           ? _value.warning
           : warning // ignore: cast_nullable_to_non_nullable
-              as WarningDto,
+              as WarningDto?,
       showWarning: showWarning == freezed
           ? _value.showWarning
           : showWarning // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       pageQIdSet: pageQIdSet == freezed
           ? _value.pageQIdSet
           : pageQIdSet // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      finishResponse: finishResponse == freezed
-          ? _value.finishResponse
-          : finishResponse // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as List<String>?,
       showDialog: showDialog == freezed
           ? _value.showDialog
           : showDialog // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leavePage: leavePage == freezed
-          ? _value.leavePage
-          : leavePage // ignore: cast_nullable_to_non_nullable
-              as bool,
-      appIsPaused: appIsPaused == freezed
-          ? _value.appIsPaused
-          : appIsPaused // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
-              as RespondentDto,
+              as RespondentDto?,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<ReferenceDto>,
+              as List<ReferenceDto>?,
       respondentResponseMap: respondentResponseMap == freezed
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, ResponseDto>,
+              as Map<String, ResponseDto>?,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
+              as Map<String, QuestionDto>?,
       recodeQuestionMap: recodeQuestionMap == freezed
           ? _value.recodeQuestionMap
           : recodeQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
+              as Map<String, QuestionDto>?,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 
   @override
-  $WarningDtoCopyWith<$Res> get warning {
-    return $WarningDtoCopyWith<$Res>(_value.warning, (value) {
+  $WarningDtoCopyWith<$Res>? get warning {
+    if (_value.warning == null) {
+      return null;
+    }
+
+    return $WarningDtoCopyWith<$Res>(_value.warning!, (value) {
       return _then(_value.copyWith(warning: value));
     });
   }
 
   @override
-  $RespondentDtoCopyWith<$Res> get respondent {
-    return $RespondentDtoCopyWith<$Res>(_value.respondent, (value) {
+  $RespondentDtoCopyWith<$Res>? get respondent {
+    if (_value.respondent == null) {
+      return null;
+    }
+
+    return $RespondentDtoCopyWith<$Res>(_value.respondent!, (value) {
       return _then(_value.copyWith(respondent: value));
     });
   }
@@ -346,38 +327,35 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, AnswerDto> answerMap,
-      Map<String, AnswerStatusDto> answerStatusMap,
-      Map<String, AnswerDto> recodeAnswerMap,
-      Map<String, AnswerStatusDto> recodeAnswerStatusMap,
-      int page,
-      int newestPage,
-      bool isLastPage,
-      WarningDto warning,
-      bool showWarning,
-      List<String> pageQIdSet,
-      List<String> contentQIdSet,
-      bool finishResponse,
-      bool showDialog,
-      bool showLeaveButton,
-      bool leavePage,
-      bool appIsPaused,
-      RespondentDto respondent,
-      String surveyId,
-      String moduleType,
-      bool isReadOnly,
-      bool isRecodeModule,
-      List<ReferenceDto> referenceList,
-      Map<String, ResponseDto> respondentResponseMap,
-      Map<String, QuestionDto> questionMap,
-      Map<String, QuestionDto> recodeQuestionMap,
-      String restoreState,
-      String updateState});
+      {Map<String, AnswerDto>? answerMap,
+      Map<String, AnswerStatusDto>? answerStatusMap,
+      Map<String, AnswerDto>? recodeAnswerMap,
+      Map<String, AnswerStatusDto>? recodeAnswerStatusMap,
+      int? page,
+      int? newestPage,
+      bool? isLastPage,
+      WarningDto? warning,
+      bool? showWarning,
+      List<String>? pageQIdSet,
+      List<String>? contentQIdSet,
+      bool? showDialog,
+      bool? showLeaveButton,
+      RespondentDto? respondent,
+      String? surveyId,
+      String? moduleType,
+      bool? isReadOnly,
+      bool? isRecodeModule,
+      List<ReferenceDto>? referenceList,
+      Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, QuestionDto>? questionMap,
+      Map<String, QuestionDto>? recodeQuestionMap,
+      String? restoreState,
+      String? updateState});
 
   @override
-  $WarningDtoCopyWith<$Res> get warning;
+  $WarningDtoCopyWith<$Res>? get warning;
   @override
-  $RespondentDtoCopyWith<$Res> get respondent;
+  $RespondentDtoCopyWith<$Res>? get respondent;
 }
 
 /// @nodoc
@@ -405,11 +383,8 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? finishResponse = freezed,
     Object? showDialog = freezed,
     Object? showLeaveButton = freezed,
-    Object? leavePage = freezed,
-    Object? appIsPaused = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -426,209 +401,189 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerDto>,
+              as Map<String, AnswerDto>?,
       answerStatusMap: answerStatusMap == freezed
           ? _value.answerStatusMap
           : answerStatusMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerStatusDto>,
+              as Map<String, AnswerStatusDto>?,
       recodeAnswerMap: recodeAnswerMap == freezed
           ? _value.recodeAnswerMap
           : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerDto>,
+              as Map<String, AnswerDto>?,
       recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
           ? _value.recodeAnswerStatusMap
           : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, AnswerStatusDto>,
+              as Map<String, AnswerStatusDto>?,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       newestPage: newestPage == freezed
           ? _value.newestPage
           : newestPage // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       isLastPage: isLastPage == freezed
           ? _value.isLastPage
           : isLastPage // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       warning: warning == freezed
           ? _value.warning
           : warning // ignore: cast_nullable_to_non_nullable
-              as WarningDto,
+              as WarningDto?,
       showWarning: showWarning == freezed
           ? _value.showWarning
           : showWarning // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       pageQIdSet: pageQIdSet == freezed
           ? _value.pageQIdSet
           : pageQIdSet // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      finishResponse: finishResponse == freezed
-          ? _value.finishResponse
-          : finishResponse // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as List<String>?,
       showDialog: showDialog == freezed
           ? _value.showDialog
           : showDialog // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
-              as bool,
-      leavePage: leavePage == freezed
-          ? _value.leavePage
-          : leavePage // ignore: cast_nullable_to_non_nullable
-              as bool,
-      appIsPaused: appIsPaused == freezed
-          ? _value.appIsPaused
-          : appIsPaused // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
-              as RespondentDto,
+              as RespondentDto?,
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       moduleType: moduleType == freezed
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       isReadOnly: isReadOnly == freezed
           ? _value.isReadOnly
           : isReadOnly // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       isRecodeModule: isRecodeModule == freezed
           ? _value.isRecodeModule
           : isRecodeModule // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<ReferenceDto>,
+              as List<ReferenceDto>?,
       respondentResponseMap: respondentResponseMap == freezed
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, ResponseDto>,
+              as Map<String, ResponseDto>?,
       questionMap: questionMap == freezed
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
+              as Map<String, QuestionDto>?,
       recodeQuestionMap: recodeQuestionMap == freezed
           ? _value.recodeQuestionMap
           : recodeQuestionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, QuestionDto>,
+              as Map<String, QuestionDto>?,
       restoreState: restoreState == freezed
           ? _value.restoreState
           : restoreState // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       updateState: updateState == freezed
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   const _$_UpdateAnswerStatusStateDto(
-      {required this.answerMap,
-      required this.answerStatusMap,
-      required this.recodeAnswerMap,
-      required this.recodeAnswerStatusMap,
-      required this.page,
-      required this.newestPage,
-      required this.isLastPage,
-      required this.warning,
-      required this.showWarning,
-      required this.pageQIdSet,
-      required this.contentQIdSet,
-      required this.finishResponse,
-      required this.showDialog,
-      required this.showLeaveButton,
-      required this.leavePage,
-      required this.appIsPaused,
-      required this.respondent,
-      required this.surveyId,
-      required this.moduleType,
-      required this.isReadOnly,
-      required this.isRecodeModule,
-      required this.referenceList,
-      required this.respondentResponseMap,
-      required this.questionMap,
-      required this.recodeQuestionMap,
-      required this.restoreState,
-      required this.updateState})
+      {this.answerMap,
+      this.answerStatusMap,
+      this.recodeAnswerMap,
+      this.recodeAnswerStatusMap,
+      this.page,
+      this.newestPage,
+      this.isLastPage,
+      this.warning,
+      this.showWarning,
+      this.pageQIdSet,
+      this.contentQIdSet,
+      this.showDialog,
+      this.showLeaveButton,
+      this.respondent,
+      this.surveyId,
+      this.moduleType,
+      this.isReadOnly,
+      this.isRecodeModule,
+      this.referenceList,
+      this.respondentResponseMap,
+      this.questionMap,
+      this.recodeQuestionMap,
+      this.restoreState,
+      this.updateState})
       : super._();
 
   factory _$_UpdateAnswerStatusStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateAnswerStatusStateDtoFromJson(json);
 
   @override // H_ 主要資料
-  final Map<String, AnswerDto> answerMap;
+  final Map<String, AnswerDto>? answerMap;
   @override
-  final Map<String, AnswerStatusDto> answerStatusMap;
+  final Map<String, AnswerStatusDto>? answerStatusMap;
   @override
-  final Map<String, AnswerDto> recodeAnswerMap;
+  final Map<String, AnswerDto>? recodeAnswerMap;
   @override
-  final Map<String, AnswerStatusDto> recodeAnswerStatusMap;
+  final Map<String, AnswerStatusDto>? recodeAnswerStatusMap;
   @override
-  final int page;
+  final int? page;
   @override
-  final int newestPage;
+  final int? newestPage;
   @override
-  final bool isLastPage;
+  final bool? isLastPage;
   @override
-  final WarningDto warning;
+  final WarningDto? warning;
   @override
-  final bool showWarning;
+  final bool? showWarning;
   @override // H_ 中間資料
-  final List<String> pageQIdSet;
+  final List<String>? pageQIdSet;
   @override
-  final List<String> contentQIdSet;
+  final List<String>? contentQIdSet;
   @override
-  final bool finishResponse;
+  final bool? showDialog;
   @override
-  final bool showDialog;
-  @override
-  final bool showLeaveButton;
-  @override
-  final bool leavePage;
-  @override
-  final bool appIsPaused;
+  final bool? showLeaveButton;
   @override // H_ 同 session 不變的參考資料
-  final RespondentDto respondent;
+  final RespondentDto? respondent;
   @override
-  final String surveyId;
+  final String? surveyId;
   @override
-  final String moduleType;
+  final String? moduleType;
   @override
-  final bool isReadOnly;
+  final bool? isReadOnly;
   @override
-  final bool isRecodeModule;
+  final bool? isRecodeModule;
   @override
-  final List<ReferenceDto> referenceList;
+  final List<ReferenceDto>? referenceList;
   @override
-  final Map<String, ResponseDto> respondentResponseMap;
+  final Map<String, ResponseDto>? respondentResponseMap;
   @override // H_ 同 session 會變的參考資料
-  final Map<String, QuestionDto> questionMap;
+  final Map<String, QuestionDto>? questionMap;
   @override
-  final Map<String, QuestionDto> recodeQuestionMap;
+  final Map<String, QuestionDto>? recodeQuestionMap;
   @override // H_ 狀態更新進度
-  final String restoreState;
+  final String? restoreState;
   @override
-  final String updateState;
+  final String? updateState;
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, finishResponse: $finishResponse, showDialog: $showDialog, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
+    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showDialog: $showDialog, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
   }
 
   @override
@@ -667,21 +622,12 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
             (identical(other.contentQIdSet, contentQIdSet) ||
                 const DeepCollectionEquality()
                     .equals(other.contentQIdSet, contentQIdSet)) &&
-            (identical(other.finishResponse, finishResponse) ||
-                const DeepCollectionEquality()
-                    .equals(other.finishResponse, finishResponse)) &&
             (identical(other.showDialog, showDialog) ||
                 const DeepCollectionEquality()
                     .equals(other.showDialog, showDialog)) &&
             (identical(other.showLeaveButton, showLeaveButton) ||
                 const DeepCollectionEquality()
                     .equals(other.showLeaveButton, showLeaveButton)) &&
-            (identical(other.leavePage, leavePage) ||
-                const DeepCollectionEquality()
-                    .equals(other.leavePage, leavePage)) &&
-            (identical(other.appIsPaused, appIsPaused) ||
-                const DeepCollectionEquality()
-                    .equals(other.appIsPaused, appIsPaused)) &&
             (identical(other.respondent, respondent) ||
                 const DeepCollectionEquality()
                     .equals(other.respondent, respondent)) &&
@@ -700,9 +646,14 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
             (identical(other.referenceList, referenceList) ||
                 const DeepCollectionEquality()
                     .equals(other.referenceList, referenceList)) &&
-            (identical(other.respondentResponseMap, respondentResponseMap) || const DeepCollectionEquality().equals(other.respondentResponseMap, respondentResponseMap)) &&
-            (identical(other.questionMap, questionMap) || const DeepCollectionEquality().equals(other.questionMap, questionMap)) &&
-            (identical(other.recodeQuestionMap, recodeQuestionMap) || const DeepCollectionEquality().equals(other.recodeQuestionMap, recodeQuestionMap)) &&
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
+                const DeepCollectionEquality().equals(
+                    other.respondentResponseMap, respondentResponseMap)) &&
+            (identical(other.questionMap, questionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionMap, questionMap)) &&
+            (identical(other.recodeQuestionMap, recodeQuestionMap) ||
+                const DeepCollectionEquality().equals(other.recodeQuestionMap, recodeQuestionMap)) &&
             (identical(other.restoreState, restoreState) || const DeepCollectionEquality().equals(other.restoreState, restoreState)) &&
             (identical(other.updateState, updateState) || const DeepCollectionEquality().equals(other.updateState, updateState)));
   }
@@ -721,11 +672,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(pageQIdSet) ^
       const DeepCollectionEquality().hash(contentQIdSet) ^
-      const DeepCollectionEquality().hash(finishResponse) ^
       const DeepCollectionEquality().hash(showDialog) ^
       const DeepCollectionEquality().hash(showLeaveButton) ^
-      const DeepCollectionEquality().hash(leavePage) ^
-      const DeepCollectionEquality().hash(appIsPaused) ^
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(moduleType) ^
@@ -752,98 +700,89 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
 abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   const factory _UpdateAnswerStatusStateDto(
-      {required Map<String, AnswerDto> answerMap,
-      required Map<String, AnswerStatusDto> answerStatusMap,
-      required Map<String, AnswerDto> recodeAnswerMap,
-      required Map<String, AnswerStatusDto> recodeAnswerStatusMap,
-      required int page,
-      required int newestPage,
-      required bool isLastPage,
-      required WarningDto warning,
-      required bool showWarning,
-      required List<String> pageQIdSet,
-      required List<String> contentQIdSet,
-      required bool finishResponse,
-      required bool showDialog,
-      required bool showLeaveButton,
-      required bool leavePage,
-      required bool appIsPaused,
-      required RespondentDto respondent,
-      required String surveyId,
-      required String moduleType,
-      required bool isReadOnly,
-      required bool isRecodeModule,
-      required List<ReferenceDto> referenceList,
-      required Map<String, ResponseDto> respondentResponseMap,
-      required Map<String, QuestionDto> questionMap,
-      required Map<String, QuestionDto> recodeQuestionMap,
-      required String restoreState,
-      required String updateState}) = _$_UpdateAnswerStatusStateDto;
+      {Map<String, AnswerDto>? answerMap,
+      Map<String, AnswerStatusDto>? answerStatusMap,
+      Map<String, AnswerDto>? recodeAnswerMap,
+      Map<String, AnswerStatusDto>? recodeAnswerStatusMap,
+      int? page,
+      int? newestPage,
+      bool? isLastPage,
+      WarningDto? warning,
+      bool? showWarning,
+      List<String>? pageQIdSet,
+      List<String>? contentQIdSet,
+      bool? showDialog,
+      bool? showLeaveButton,
+      RespondentDto? respondent,
+      String? surveyId,
+      String? moduleType,
+      bool? isReadOnly,
+      bool? isRecodeModule,
+      List<ReferenceDto>? referenceList,
+      Map<String, ResponseDto>? respondentResponseMap,
+      Map<String, QuestionDto>? questionMap,
+      Map<String, QuestionDto>? recodeQuestionMap,
+      String? restoreState,
+      String? updateState}) = _$_UpdateAnswerStatusStateDto;
   const _UpdateAnswerStatusStateDto._() : super._();
 
   factory _UpdateAnswerStatusStateDto.fromJson(Map<String, dynamic> json) =
       _$_UpdateAnswerStatusStateDto.fromJson;
 
   @override // H_ 主要資料
-  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerDto>? get answerMap => throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap =>
+  Map<String, AnswerStatusDto>? get answerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerDto> get recodeAnswerMap =>
+  Map<String, AnswerDto>? get recodeAnswerMap =>
       throw _privateConstructorUsedError;
   @override
-  Map<String, AnswerStatusDto> get recodeAnswerStatusMap =>
+  Map<String, AnswerStatusDto>? get recodeAnswerStatusMap =>
       throw _privateConstructorUsedError;
   @override
-  int get page => throw _privateConstructorUsedError;
+  int? get page => throw _privateConstructorUsedError;
   @override
-  int get newestPage => throw _privateConstructorUsedError;
+  int? get newestPage => throw _privateConstructorUsedError;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool? get isLastPage => throw _privateConstructorUsedError;
   @override
-  WarningDto get warning => throw _privateConstructorUsedError;
+  WarningDto? get warning => throw _privateConstructorUsedError;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool? get showWarning => throw _privateConstructorUsedError;
   @override // H_ 中間資料
-  List<String> get pageQIdSet => throw _privateConstructorUsedError;
+  List<String>? get pageQIdSet => throw _privateConstructorUsedError;
   @override
-  List<String> get contentQIdSet => throw _privateConstructorUsedError;
+  List<String>? get contentQIdSet => throw _privateConstructorUsedError;
   @override
-  bool get finishResponse => throw _privateConstructorUsedError;
+  bool? get showDialog => throw _privateConstructorUsedError;
   @override
-  bool get showDialog => throw _privateConstructorUsedError;
-  @override
-  bool get showLeaveButton => throw _privateConstructorUsedError;
-  @override
-  bool get leavePage => throw _privateConstructorUsedError;
-  @override
-  bool get appIsPaused => throw _privateConstructorUsedError;
+  bool? get showLeaveButton => throw _privateConstructorUsedError;
   @override // H_ 同 session 不變的參考資料
-  RespondentDto get respondent => throw _privateConstructorUsedError;
+  RespondentDto? get respondent => throw _privateConstructorUsedError;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String? get surveyId => throw _privateConstructorUsedError;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String? get moduleType => throw _privateConstructorUsedError;
   @override
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool? get isReadOnly => throw _privateConstructorUsedError;
   @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
+  bool? get isRecodeModule => throw _privateConstructorUsedError;
   @override
-  List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
+  List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
   @override
-  Map<String, ResponseDto> get respondentResponseMap =>
+  Map<String, ResponseDto>? get respondentResponseMap =>
       throw _privateConstructorUsedError;
   @override // H_ 同 session 會變的參考資料
-  Map<String, QuestionDto> get questionMap =>
+  Map<String, QuestionDto>? get questionMap =>
       throw _privateConstructorUsedError;
   @override
-  Map<String, QuestionDto> get recodeQuestionMap =>
+  Map<String, QuestionDto>? get recodeQuestionMap =>
       throw _privateConstructorUsedError;
   @override // H_ 狀態更新進度
-  String get restoreState => throw _privateConstructorUsedError;
+  String? get restoreState => throw _privateConstructorUsedError;
   @override
-  String get updateState => throw _privateConstructorUsedError;
+  String? get updateState => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpdateAnswerStatusStateDtoCopyWith<_UpdateAnswerStatusStateDto>

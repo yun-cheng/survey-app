@@ -24,6 +24,8 @@ class MyObserver extends WidgetsBindingObserver {
 }
 
 class SplashPage extends HookWidget {
+  const SplashPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     // H_ 用來監聽 app lifecycle

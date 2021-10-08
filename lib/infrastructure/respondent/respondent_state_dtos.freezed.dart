@@ -22,30 +22,24 @@ class _$RespondentStateDtoTearOff {
   const _$RespondentStateDtoTearOff();
 
   _RespondentStateDto call(
-      {required String surveyRespondentMapState,
-      required Map<String, Map<String, RespondentDto>> surveyRespondentMap,
-      required SurveyDto survey,
-      required Map<String, RespondentDto> respondentMap,
-      required TabType currentTab,
-      required Map<TabType, CardScrollPositionDto> tabScrollPosition,
-      required bool needToJump,
-      required int jumpToIndex,
-      required String selectedRespondentId,
-      String? respondentFailure,
-      required Map<String, List<VisitRecordDto>> visitRecordsMap,
-      required Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
-      required ResponseMapDto responseInfoMap}) {
+      {Map<String, Map<String, RespondentDto>>? surveyRespondentMap,
+      SurveyDto? survey,
+      String? surveyId,
+      Map<String, RespondentDto>? respondentMap,
+      TabType? currentTab,
+      Map<TabType, CardScrollPositionDto>? tabScrollPosition,
+      String? selectedRespondentId,
+      Map<String, List<VisitRecordDto>>? visitRecordsMap,
+      Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
+      ResponseMapDto? responseInfoMap}) {
     return _RespondentStateDto(
-      surveyRespondentMapState: surveyRespondentMapState,
       surveyRespondentMap: surveyRespondentMap,
       survey: survey,
+      surveyId: surveyId,
       respondentMap: respondentMap,
       currentTab: currentTab,
       tabScrollPosition: tabScrollPosition,
-      needToJump: needToJump,
-      jumpToIndex: jumpToIndex,
       selectedRespondentId: selectedRespondentId,
-      respondentFailure: respondentFailure,
       visitRecordsMap: visitRecordsMap,
       tabRespondentMap: tabRespondentMap,
       responseInfoMap: responseInfoMap,
@@ -62,24 +56,21 @@ const $RespondentStateDto = _$RespondentStateDtoTearOff();
 
 /// @nodoc
 mixin _$RespondentStateDto {
-  String get surveyRespondentMapState => throw _privateConstructorUsedError;
-  Map<String, Map<String, RespondentDto>> get surveyRespondentMap =>
+  Map<String, Map<String, RespondentDto>>? get surveyRespondentMap =>
       throw _privateConstructorUsedError;
-  SurveyDto get survey => throw _privateConstructorUsedError;
-  Map<String, RespondentDto> get respondentMap =>
+  SurveyDto? get survey => throw _privateConstructorUsedError;
+  String? get surveyId => throw _privateConstructorUsedError;
+  Map<String, RespondentDto>? get respondentMap =>
       throw _privateConstructorUsedError;
-  TabType get currentTab => throw _privateConstructorUsedError;
-  Map<TabType, CardScrollPositionDto> get tabScrollPosition =>
+  TabType? get currentTab => throw _privateConstructorUsedError;
+  Map<TabType, CardScrollPositionDto>? get tabScrollPosition =>
       throw _privateConstructorUsedError;
-  bool get needToJump => throw _privateConstructorUsedError;
-  int get jumpToIndex => throw _privateConstructorUsedError;
-  String get selectedRespondentId => throw _privateConstructorUsedError;
-  String? get respondentFailure => throw _privateConstructorUsedError;
-  Map<String, List<VisitRecordDto>> get visitRecordsMap =>
+  String? get selectedRespondentId => throw _privateConstructorUsedError;
+  Map<String, List<VisitRecordDto>>? get visitRecordsMap =>
       throw _privateConstructorUsedError;
-  Map<TabType, Map<String, RespondentDto>> get tabRespondentMap =>
+  Map<TabType, Map<String, RespondentDto>>? get tabRespondentMap =>
       throw _privateConstructorUsedError;
-  ResponseMapDto get responseInfoMap => throw _privateConstructorUsedError;
+  ResponseMapDto? get responseInfoMap => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -93,22 +84,19 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
           RespondentStateDto value, $Res Function(RespondentStateDto) then) =
       _$RespondentStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {String surveyRespondentMapState,
-      Map<String, Map<String, RespondentDto>> surveyRespondentMap,
-      SurveyDto survey,
-      Map<String, RespondentDto> respondentMap,
-      TabType currentTab,
-      Map<TabType, CardScrollPositionDto> tabScrollPosition,
-      bool needToJump,
-      int jumpToIndex,
-      String selectedRespondentId,
-      String? respondentFailure,
-      Map<String, List<VisitRecordDto>> visitRecordsMap,
-      Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
-      ResponseMapDto responseInfoMap});
+      {Map<String, Map<String, RespondentDto>>? surveyRespondentMap,
+      SurveyDto? survey,
+      String? surveyId,
+      Map<String, RespondentDto>? respondentMap,
+      TabType? currentTab,
+      Map<TabType, CardScrollPositionDto>? tabScrollPosition,
+      String? selectedRespondentId,
+      Map<String, List<VisitRecordDto>>? visitRecordsMap,
+      Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
+      ResponseMapDto? responseInfoMap});
 
-  $SurveyDtoCopyWith<$Res> get survey;
-  $ResponseMapDtoCopyWith<$Res> get responseInfoMap;
+  $SurveyDtoCopyWith<$Res>? get survey;
+  $ResponseMapDtoCopyWith<$Res>? get responseInfoMap;
 }
 
 /// @nodoc
@@ -122,86 +110,79 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? surveyRespondentMapState = freezed,
     Object? surveyRespondentMap = freezed,
     Object? survey = freezed,
+    Object? surveyId = freezed,
     Object? respondentMap = freezed,
     Object? currentTab = freezed,
     Object? tabScrollPosition = freezed,
-    Object? needToJump = freezed,
-    Object? jumpToIndex = freezed,
     Object? selectedRespondentId = freezed,
-    Object? respondentFailure = freezed,
     Object? visitRecordsMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
   }) {
     return _then(_value.copyWith(
-      surveyRespondentMapState: surveyRespondentMapState == freezed
-          ? _value.surveyRespondentMapState
-          : surveyRespondentMapState // ignore: cast_nullable_to_non_nullable
-              as String,
       surveyRespondentMap: surveyRespondentMap == freezed
           ? _value.surveyRespondentMap
           : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Map<String, RespondentDto>>,
+              as Map<String, Map<String, RespondentDto>>?,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
-              as SurveyDto,
+              as SurveyDto?,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String?,
       respondentMap: respondentMap == freezed
           ? _value.respondentMap
           : respondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, RespondentDto>,
+              as Map<String, RespondentDto>?,
       currentTab: currentTab == freezed
           ? _value.currentTab
           : currentTab // ignore: cast_nullable_to_non_nullable
-              as TabType,
+              as TabType?,
       tabScrollPosition: tabScrollPosition == freezed
           ? _value.tabScrollPosition
           : tabScrollPosition // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, CardScrollPositionDto>,
-      needToJump: needToJump == freezed
-          ? _value.needToJump
-          : needToJump // ignore: cast_nullable_to_non_nullable
-              as bool,
-      jumpToIndex: jumpToIndex == freezed
-          ? _value.jumpToIndex
-          : jumpToIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Map<TabType, CardScrollPositionDto>?,
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
           : selectedRespondentId // ignore: cast_nullable_to_non_nullable
-              as String,
-      respondentFailure: respondentFailure == freezed
-          ? _value.respondentFailure
-          : respondentFailure // ignore: cast_nullable_to_non_nullable
               as String?,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<VisitRecordDto>>,
+              as Map<String, List<VisitRecordDto>>?,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, Map<String, RespondentDto>>,
+              as Map<TabType, Map<String, RespondentDto>>?,
       responseInfoMap: responseInfoMap == freezed
           ? _value.responseInfoMap
           : responseInfoMap // ignore: cast_nullable_to_non_nullable
-              as ResponseMapDto,
+              as ResponseMapDto?,
     ));
   }
 
   @override
-  $SurveyDtoCopyWith<$Res> get survey {
-    return $SurveyDtoCopyWith<$Res>(_value.survey, (value) {
+  $SurveyDtoCopyWith<$Res>? get survey {
+    if (_value.survey == null) {
+      return null;
+    }
+
+    return $SurveyDtoCopyWith<$Res>(_value.survey!, (value) {
       return _then(_value.copyWith(survey: value));
     });
   }
 
   @override
-  $ResponseMapDtoCopyWith<$Res> get responseInfoMap {
-    return $ResponseMapDtoCopyWith<$Res>(_value.responseInfoMap, (value) {
+  $ResponseMapDtoCopyWith<$Res>? get responseInfoMap {
+    if (_value.responseInfoMap == null) {
+      return null;
+    }
+
+    return $ResponseMapDtoCopyWith<$Res>(_value.responseInfoMap!, (value) {
       return _then(_value.copyWith(responseInfoMap: value));
     });
   }
@@ -215,24 +196,21 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       __$RespondentStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String surveyRespondentMapState,
-      Map<String, Map<String, RespondentDto>> surveyRespondentMap,
-      SurveyDto survey,
-      Map<String, RespondentDto> respondentMap,
-      TabType currentTab,
-      Map<TabType, CardScrollPositionDto> tabScrollPosition,
-      bool needToJump,
-      int jumpToIndex,
-      String selectedRespondentId,
-      String? respondentFailure,
-      Map<String, List<VisitRecordDto>> visitRecordsMap,
-      Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
-      ResponseMapDto responseInfoMap});
+      {Map<String, Map<String, RespondentDto>>? surveyRespondentMap,
+      SurveyDto? survey,
+      String? surveyId,
+      Map<String, RespondentDto>? respondentMap,
+      TabType? currentTab,
+      Map<TabType, CardScrollPositionDto>? tabScrollPosition,
+      String? selectedRespondentId,
+      Map<String, List<VisitRecordDto>>? visitRecordsMap,
+      Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
+      ResponseMapDto? responseInfoMap});
 
   @override
-  $SurveyDtoCopyWith<$Res> get survey;
+  $SurveyDtoCopyWith<$Res>? get survey;
   @override
-  $ResponseMapDtoCopyWith<$Res> get responseInfoMap;
+  $ResponseMapDtoCopyWith<$Res>? get responseInfoMap;
 }
 
 /// @nodoc
@@ -248,145 +226,120 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? surveyRespondentMapState = freezed,
     Object? surveyRespondentMap = freezed,
     Object? survey = freezed,
+    Object? surveyId = freezed,
     Object? respondentMap = freezed,
     Object? currentTab = freezed,
     Object? tabScrollPosition = freezed,
-    Object? needToJump = freezed,
-    Object? jumpToIndex = freezed,
     Object? selectedRespondentId = freezed,
-    Object? respondentFailure = freezed,
     Object? visitRecordsMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
   }) {
     return _then(_RespondentStateDto(
-      surveyRespondentMapState: surveyRespondentMapState == freezed
-          ? _value.surveyRespondentMapState
-          : surveyRespondentMapState // ignore: cast_nullable_to_non_nullable
-              as String,
       surveyRespondentMap: surveyRespondentMap == freezed
           ? _value.surveyRespondentMap
           : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Map<String, RespondentDto>>,
+              as Map<String, Map<String, RespondentDto>>?,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
-              as SurveyDto,
+              as SurveyDto?,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String?,
       respondentMap: respondentMap == freezed
           ? _value.respondentMap
           : respondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, RespondentDto>,
+              as Map<String, RespondentDto>?,
       currentTab: currentTab == freezed
           ? _value.currentTab
           : currentTab // ignore: cast_nullable_to_non_nullable
-              as TabType,
+              as TabType?,
       tabScrollPosition: tabScrollPosition == freezed
           ? _value.tabScrollPosition
           : tabScrollPosition // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, CardScrollPositionDto>,
-      needToJump: needToJump == freezed
-          ? _value.needToJump
-          : needToJump // ignore: cast_nullable_to_non_nullable
-              as bool,
-      jumpToIndex: jumpToIndex == freezed
-          ? _value.jumpToIndex
-          : jumpToIndex // ignore: cast_nullable_to_non_nullable
-              as int,
+              as Map<TabType, CardScrollPositionDto>?,
       selectedRespondentId: selectedRespondentId == freezed
           ? _value.selectedRespondentId
           : selectedRespondentId // ignore: cast_nullable_to_non_nullable
-              as String,
-      respondentFailure: respondentFailure == freezed
-          ? _value.respondentFailure
-          : respondentFailure // ignore: cast_nullable_to_non_nullable
               as String?,
       visitRecordsMap: visitRecordsMap == freezed
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, List<VisitRecordDto>>,
+              as Map<String, List<VisitRecordDto>>?,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
-              as Map<TabType, Map<String, RespondentDto>>,
+              as Map<TabType, Map<String, RespondentDto>>?,
       responseInfoMap: responseInfoMap == freezed
           ? _value.responseInfoMap
           : responseInfoMap // ignore: cast_nullable_to_non_nullable
-              as ResponseMapDto,
+              as ResponseMapDto?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_RespondentStateDto extends _RespondentStateDto {
   const _$_RespondentStateDto(
-      {required this.surveyRespondentMapState,
-      required this.surveyRespondentMap,
-      required this.survey,
-      required this.respondentMap,
-      required this.currentTab,
-      required this.tabScrollPosition,
-      required this.needToJump,
-      required this.jumpToIndex,
-      required this.selectedRespondentId,
-      this.respondentFailure,
-      required this.visitRecordsMap,
-      required this.tabRespondentMap,
-      required this.responseInfoMap})
+      {this.surveyRespondentMap,
+      this.survey,
+      this.surveyId,
+      this.respondentMap,
+      this.currentTab,
+      this.tabScrollPosition,
+      this.selectedRespondentId,
+      this.visitRecordsMap,
+      this.tabRespondentMap,
+      this.responseInfoMap})
       : super._();
 
   factory _$_RespondentStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_RespondentStateDtoFromJson(json);
 
   @override
-  final String surveyRespondentMapState;
+  final Map<String, Map<String, RespondentDto>>? surveyRespondentMap;
   @override
-  final Map<String, Map<String, RespondentDto>> surveyRespondentMap;
+  final SurveyDto? survey;
   @override
-  final SurveyDto survey;
+  final String? surveyId;
   @override
-  final Map<String, RespondentDto> respondentMap;
+  final Map<String, RespondentDto>? respondentMap;
   @override
-  final TabType currentTab;
+  final TabType? currentTab;
   @override
-  final Map<TabType, CardScrollPositionDto> tabScrollPosition;
+  final Map<TabType, CardScrollPositionDto>? tabScrollPosition;
   @override
-  final bool needToJump;
+  final String? selectedRespondentId;
   @override
-  final int jumpToIndex;
+  final Map<String, List<VisitRecordDto>>? visitRecordsMap;
   @override
-  final String selectedRespondentId;
+  final Map<TabType, Map<String, RespondentDto>>? tabRespondentMap;
   @override
-  final String? respondentFailure;
-  @override
-  final Map<String, List<VisitRecordDto>> visitRecordsMap;
-  @override
-  final Map<TabType, Map<String, RespondentDto>> tabRespondentMap;
-  @override
-  final ResponseMapDto responseInfoMap;
+  final ResponseMapDto? responseInfoMap;
 
   @override
   String toString() {
-    return 'RespondentStateDto(surveyRespondentMapState: $surveyRespondentMapState, surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, needToJump: $needToJump, jumpToIndex: $jumpToIndex, selectedRespondentId: $selectedRespondentId, respondentFailure: $respondentFailure, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
+    return 'RespondentStateDto(surveyRespondentMap: $surveyRespondentMap, survey: $survey, surveyId: $surveyId, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _RespondentStateDto &&
-            (identical(
-                    other.surveyRespondentMapState, surveyRespondentMapState) ||
-                const DeepCollectionEquality().equals(
-                    other.surveyRespondentMapState,
-                    surveyRespondentMapState)) &&
             (identical(other.surveyRespondentMap, surveyRespondentMap) ||
                 const DeepCollectionEquality()
                     .equals(other.surveyRespondentMap, surveyRespondentMap)) &&
             (identical(other.survey, survey) ||
                 const DeepCollectionEquality().equals(other.survey, survey)) &&
+            (identical(other.surveyId, surveyId) ||
+                const DeepCollectionEquality()
+                    .equals(other.surveyId, surveyId)) &&
             (identical(other.respondentMap, respondentMap) ||
                 const DeepCollectionEquality()
                     .equals(other.respondentMap, respondentMap)) &&
@@ -396,18 +349,9 @@ class _$_RespondentStateDto extends _RespondentStateDto {
             (identical(other.tabScrollPosition, tabScrollPosition) ||
                 const DeepCollectionEquality()
                     .equals(other.tabScrollPosition, tabScrollPosition)) &&
-            (identical(other.needToJump, needToJump) ||
-                const DeepCollectionEquality()
-                    .equals(other.needToJump, needToJump)) &&
-            (identical(other.jumpToIndex, jumpToIndex) ||
-                const DeepCollectionEquality()
-                    .equals(other.jumpToIndex, jumpToIndex)) &&
             (identical(other.selectedRespondentId, selectedRespondentId) ||
                 const DeepCollectionEquality().equals(
                     other.selectedRespondentId, selectedRespondentId)) &&
-            (identical(other.respondentFailure, respondentFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentFailure, respondentFailure)) &&
             (identical(other.visitRecordsMap, visitRecordsMap) ||
                 const DeepCollectionEquality()
                     .equals(other.visitRecordsMap, visitRecordsMap)) &&
@@ -422,16 +366,13 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyRespondentMapState) ^
       const DeepCollectionEquality().hash(surveyRespondentMap) ^
       const DeepCollectionEquality().hash(survey) ^
+      const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(respondentMap) ^
       const DeepCollectionEquality().hash(currentTab) ^
       const DeepCollectionEquality().hash(tabScrollPosition) ^
-      const DeepCollectionEquality().hash(needToJump) ^
-      const DeepCollectionEquality().hash(jumpToIndex) ^
       const DeepCollectionEquality().hash(selectedRespondentId) ^
-      const DeepCollectionEquality().hash(respondentFailure) ^
       const DeepCollectionEquality().hash(visitRecordsMap) ^
       const DeepCollectionEquality().hash(tabRespondentMap) ^
       const DeepCollectionEquality().hash(responseInfoMap);
@@ -449,55 +390,46 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 
 abstract class _RespondentStateDto extends RespondentStateDto {
   const factory _RespondentStateDto(
-      {required String surveyRespondentMapState,
-      required Map<String, Map<String, RespondentDto>> surveyRespondentMap,
-      required SurveyDto survey,
-      required Map<String, RespondentDto> respondentMap,
-      required TabType currentTab,
-      required Map<TabType, CardScrollPositionDto> tabScrollPosition,
-      required bool needToJump,
-      required int jumpToIndex,
-      required String selectedRespondentId,
-      String? respondentFailure,
-      required Map<String, List<VisitRecordDto>> visitRecordsMap,
-      required Map<TabType, Map<String, RespondentDto>> tabRespondentMap,
-      required ResponseMapDto responseInfoMap}) = _$_RespondentStateDto;
+      {Map<String, Map<String, RespondentDto>>? surveyRespondentMap,
+      SurveyDto? survey,
+      String? surveyId,
+      Map<String, RespondentDto>? respondentMap,
+      TabType? currentTab,
+      Map<TabType, CardScrollPositionDto>? tabScrollPosition,
+      String? selectedRespondentId,
+      Map<String, List<VisitRecordDto>>? visitRecordsMap,
+      Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
+      ResponseMapDto? responseInfoMap}) = _$_RespondentStateDto;
   const _RespondentStateDto._() : super._();
 
   factory _RespondentStateDto.fromJson(Map<String, dynamic> json) =
       _$_RespondentStateDto.fromJson;
 
   @override
-  String get surveyRespondentMapState => throw _privateConstructorUsedError;
-  @override
-  Map<String, Map<String, RespondentDto>> get surveyRespondentMap =>
+  Map<String, Map<String, RespondentDto>>? get surveyRespondentMap =>
       throw _privateConstructorUsedError;
   @override
-  SurveyDto get survey => throw _privateConstructorUsedError;
+  SurveyDto? get survey => throw _privateConstructorUsedError;
   @override
-  Map<String, RespondentDto> get respondentMap =>
+  String? get surveyId => throw _privateConstructorUsedError;
+  @override
+  Map<String, RespondentDto>? get respondentMap =>
       throw _privateConstructorUsedError;
   @override
-  TabType get currentTab => throw _privateConstructorUsedError;
+  TabType? get currentTab => throw _privateConstructorUsedError;
   @override
-  Map<TabType, CardScrollPositionDto> get tabScrollPosition =>
+  Map<TabType, CardScrollPositionDto>? get tabScrollPosition =>
       throw _privateConstructorUsedError;
   @override
-  bool get needToJump => throw _privateConstructorUsedError;
+  String? get selectedRespondentId => throw _privateConstructorUsedError;
   @override
-  int get jumpToIndex => throw _privateConstructorUsedError;
-  @override
-  String get selectedRespondentId => throw _privateConstructorUsedError;
-  @override
-  String? get respondentFailure => throw _privateConstructorUsedError;
-  @override
-  Map<String, List<VisitRecordDto>> get visitRecordsMap =>
+  Map<String, List<VisitRecordDto>>? get visitRecordsMap =>
       throw _privateConstructorUsedError;
   @override
-  Map<TabType, Map<String, RespondentDto>> get tabRespondentMap =>
+  Map<TabType, Map<String, RespondentDto>>? get tabRespondentMap =>
       throw _privateConstructorUsedError;
   @override
-  ResponseMapDto get responseInfoMap => throw _privateConstructorUsedError;
+  ResponseMapDto? get responseInfoMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RespondentStateDtoCopyWith<_RespondentStateDto> get copyWith =>

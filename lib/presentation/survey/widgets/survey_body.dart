@@ -7,6 +7,8 @@ import '../../../domain/core/value_objects.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
+  const SurveyBody({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(

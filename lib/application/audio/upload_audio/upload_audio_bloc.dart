@@ -53,18 +53,21 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
       audioUploaded: (e) async* {
         logger('Event').i('UploadAudioBloc: audioUploaded');
 
-        final audioMap = Map<UniqueId, Audio>.from(state.audioMap);
-
         yield e.failureOrAudio.fold(
           (f) => state.copyWith(
             uploadState: LoadState.failure(),
             audioFailure: some(f),
           ),
-          (audio) => state.copyWith(
-            uploadState: LoadState.success(),
-            audioFailure: none(),
-            audioMap: audioMap..remove(audio.fileName),
-          ),
+          (audio) {
+            final audioMap = Map<UniqueId, Audio>.from(state.audioMap);
+            audioMap.remove(audio.fileName);
+
+            return state.copyWith(
+              uploadState: LoadState.success(),
+              audioFailure: none(),
+              audioMap: audioMap,
+            );
+          },
         );
       },
       // H_ 登出

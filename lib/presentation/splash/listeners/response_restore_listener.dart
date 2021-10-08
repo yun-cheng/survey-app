@@ -15,7 +15,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
   listener: (context, state) {
     logger('Listen').i('ResponseBloc');
 
-    if (state.updateType.contains(UpdateResponseStateType.response())) {
+    if (state.updateParameters.response) {
       logger('Listen').i('ResponseBloc: response');
 
       final isRecodeModule = state.moduleType == ModuleType.recode();
@@ -54,7 +54,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
       }
     }
 
-    if (state.updateType.contains(UpdateResponseStateType.tabRespondentMap())) {
+    if (state.updateParameters.tabRespondentMap) {
       logger('Listen').i('ResponseBloc: tabRespondentMap');
 
       context.read<RespondentBloc>().add(
@@ -64,7 +64,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
           );
     }
 
-    if (state.updateType.contains(UpdateResponseStateType.visitReportsMap())) {
+    if (state.updateParameters.visitReportsMap) {
       logger('Listen').i('ResponseBloc: visitReportsMap');
 
       context.read<RespondentBloc>().add(
@@ -74,8 +74,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
           );
     }
 
-    if (state.updateType
-        .contains(UpdateResponseStateType.respondentResponseMap())) {
+    if (state.updateParameters.respondentResponseMap) {
       logger('Listen').i('ResponseBloc: respondentResponseMap');
 
       context.read<UpdateAnswerStatusBloc>().add(
@@ -85,7 +84,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
           );
     }
 
-    if (state.updateType.contains(UpdateResponseStateType.referenceList())) {
+    if (state.updateParameters.referenceList) {
       logger('Listen').i('ResponseBloc: referenceList');
 
       context.read<UpdateAnswerStatusBloc>().add(

@@ -21,7 +21,7 @@ ResponseMapDto _$ResponseMapDtoFromJson(Map<String, dynamic> json) {
 class _$ResponseMapDtoTearOff {
   const _$ResponseMapDtoTearOff();
 
-  _ResponseMapDto call({required Map<String, ResponseDto> map}) {
+  _ResponseMapDto call({Map<String, ResponseDto>? map}) {
     return _ResponseMapDto(
       map: map,
     );
@@ -37,7 +37,7 @@ const $ResponseMapDto = _$ResponseMapDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseMapDto {
-  Map<String, ResponseDto> get map => throw _privateConstructorUsedError;
+  Map<String, ResponseDto>? get map => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,7 +50,7 @@ abstract class $ResponseMapDtoCopyWith<$Res> {
   factory $ResponseMapDtoCopyWith(
           ResponseMapDto value, $Res Function(ResponseMapDto) then) =
       _$ResponseMapDtoCopyWithImpl<$Res>;
-  $Res call({Map<String, ResponseDto> map});
+  $Res call({Map<String, ResponseDto>? map});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$ResponseMapDtoCopyWithImpl<$Res>
       map: map == freezed
           ? _value.map
           : map // ignore: cast_nullable_to_non_nullable
-              as Map<String, ResponseDto>,
+              as Map<String, ResponseDto>?,
     ));
   }
 }
@@ -82,7 +82,7 @@ abstract class _$ResponseMapDtoCopyWith<$Res>
           _ResponseMapDto value, $Res Function(_ResponseMapDto) then) =
       __$ResponseMapDtoCopyWithImpl<$Res>;
   @override
-  $Res call({Map<String, ResponseDto> map});
+  $Res call({Map<String, ResponseDto>? map});
 }
 
 /// @nodoc
@@ -104,7 +104,7 @@ class __$ResponseMapDtoCopyWithImpl<$Res>
       map: map == freezed
           ? _value.map
           : map // ignore: cast_nullable_to_non_nullable
-              as Map<String, ResponseDto>,
+              as Map<String, ResponseDto>?,
     ));
   }
 }
@@ -112,13 +112,13 @@ class __$ResponseMapDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ResponseMapDto extends _ResponseMapDto {
-  const _$_ResponseMapDto({required this.map}) : super._();
+  const _$_ResponseMapDto({this.map}) : super._();
 
   factory _$_ResponseMapDto.fromJson(Map<String, dynamic> json) =>
       _$$_ResponseMapDtoFromJson(json);
 
   @override
-  final Map<String, ResponseDto> map;
+  final Map<String, ResponseDto>? map;
 
   @override
   String toString() {
@@ -149,7 +149,7 @@ class _$_ResponseMapDto extends _ResponseMapDto {
 }
 
 abstract class _ResponseMapDto extends ResponseMapDto {
-  const factory _ResponseMapDto({required Map<String, ResponseDto> map}) =
+  const factory _ResponseMapDto({Map<String, ResponseDto>? map}) =
       _$_ResponseMapDto;
   const _ResponseMapDto._() : super._();
 
@@ -157,7 +157,7 @@ abstract class _ResponseMapDto extends ResponseMapDto {
       _$_ResponseMapDto.fromJson;
 
   @override
-  Map<String, ResponseDto> get map => throw _privateConstructorUsedError;
+  Map<String, ResponseDto>? get map => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseMapDtoCopyWith<_ResponseMapDto> get copyWith =>

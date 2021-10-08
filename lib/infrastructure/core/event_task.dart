@@ -1,35 +1,31 @@
 import 'dart:async';
 
 import 'package:async_task/async_task.dart';
-import 'package:hive/hive.dart';
-import 'package:synchronized/synchronized.dart';
 import 'package:tuple/tuple.dart';
 
+import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/logger.dart';
-import 'json_converter.dart';
+import '../../domain/core/value_objects.dart';
+import 'local_storage.dart';
 
 class EventTask extends AsyncTask<Map, bool> {
   final String boxName;
-  final void Function(
-    Map<String, dynamic> json,
-  ) stateFromJson;
+  final Future<dynamic> Function(
+    ILocalStorage localStorage,
+  ) stateFromStorage;
   final String path;
-  late final Box box;
-  late final JsonConverter jsonConverter;
   late final AsyncTaskChannel _channel;
   final void Function(
     Tuple2 tuple,
     AsyncTaskChannel channel,
-    Box box,
-    Lock lock,
+    ILocalStorage localStorage,
   ) eventWorker;
-
-  static final _lock = Lock();
+  final ILocalStorage _localStorage = LocalStorage();
 
   EventTask({
     required this.path,
     required this.boxName,
-    required this.stateFromJson,
+    required this.stateFromStorage,
     required this.eventWorker,
   });
 
@@ -41,7 +37,7 @@ class EventTask extends AsyncTask<Map, bool> {
       EventTask(
         path: parameters['path'],
         boxName: parameters['boxName'],
-        stateFromJson: stateFromJson,
+        stateFromStorage: stateFromStorage,
         eventWorker: eventWorker,
       );
 
@@ -58,18 +54,15 @@ class EventTask extends AsyncTask<Map, bool> {
   FutureOr<bool> run() async {
     _channel = channelResolved()!;
 
-    Hive.init(path);
-    box = await Hive.openBox(boxName);
-
-    jsonConverter = JsonConverter();
+    await _localStorage.init(path: path, defaultBox: boxName);
 
     while (true) {
       final msg = await _channel.waitMessage();
 
       if (msg == 'initState') {
-        fromJsonTask();
+        await fromJsonTask();
       } else if (msg is Tuple2) {
-        eventWorker(msg, _channel, box, _lock);
+        eventWorker(msg, _channel, _localStorage);
       } else if (msg is bool) {
         break;
       } else {
@@ -84,33 +77,68 @@ class EventTask extends AsyncTask<Map, bool> {
     return true;
   }
 
-  void fromJsonTask() {
-    final json = box.get('state') as Map<dynamic, dynamic>?;
-    final initState =
-        json != null ? stateFromJson(jsonConverter.fromJson(json)) : null;
+  Future<void> fromJsonTask() async {
+    final initState = await stateFromStorage(_localStorage);
+
     _channel.send(initState);
   }
 }
 
-Future<void> toJsonTask({
-  required Box box,
-  required Lock lock,
-  required dynamic state,
-}) async {
-  int count = 1;
-  Map<String, dynamic>? json;
-  while (count < 10) {
-    try {
-      json = state.toJson() as Map<String, dynamic>;
-      // json1 = JsonConverter().toJson(json);
-      break;
-    } catch (e) {
-      await Future.delayed(const Duration(milliseconds: 100));
-      logger('Task').e('toJsonTask failed, retry: $count');
-      logger('Test').e(e);
-      count++;
+void commonSaveState({
+  required Map<String, dynamic> json,
+  required ILocalStorage localStorage,
+  required Map<String, DtoInfo> infoMap,
+}) {
+  // S_ 迴圈有定義 DtoInfo 的參數
+  for (final parameter in infoMap.keys) {
+    final info = infoMap[parameter]!;
+
+    // S_ 真正需要特別儲存的參數
+    if (!info.readOnly && info.key == null) {
+      final box = info.box ?? parameter;
+      final data = json[parameter];
+
+      localStorage.write(
+        box: box,
+        isMapEntries: info.isMapEntries,
+        data: data,
+      );
+
+      json.remove(parameter);
     }
   }
 
-  lock.synchronized(() => box.put('state', json));
+  // S_ 剩下的參數一起存在 default box
+  if (json.isNotEmpty) {
+    localStorage.write(
+      isMapEntries: true,
+      data: json,
+    );
+  }
+}
+
+Future<Map<String, dynamic>?> jsonFromStorage({
+  required ILocalStorage localStorage,
+  required Map<String, DtoInfo> infoMap,
+}) async {
+  final json = await localStorage.read(all: true) as Map<String, dynamic>?;
+
+  if (json != null) {
+    // S_ 迴圈有定義 DtoInfo 的參數
+    for (final parameter in infoMap.keys) {
+      final info = infoMap[parameter]!;
+
+      final box = info.box ?? parameter;
+
+      final data = await localStorage.read(
+        box: box,
+        key: info.key != null ? json[info.key] : null,
+        all: info.isMapEntries,
+      );
+
+      json[parameter] = data;
+    }
+  }
+
+  return json;
 }

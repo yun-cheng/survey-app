@@ -70,6 +70,9 @@ UpdateAnswerStatusState pageQuestionMapUpdated(UpdateAnswerStatusState state) {
 
   return state.copyWith(
     questionMap: questionMap,
+    saveParameters: state.saveParameters.copyWith(
+      questionMap: true,
+    ),
   );
 }
 
@@ -113,6 +116,11 @@ UpdateAnswerStatusState pageUpdated(UpdateAnswerStatusState state) {
     page: newPage,
     newestPage: newestPage,
     pageQIdSet: pageQIdSet,
+    saveParameters: state.saveParameters.copyWith(
+      page: true,
+      newestPage: true,
+      pageQIdSet: true,
+    ),
   );
 }
 
@@ -134,6 +142,9 @@ UpdateAnswerStatusState checkIsLastPage(UpdateAnswerStatusState state) {
 
   return state.copyWith(
     isLastPage: isLastPage,
+    saveParameters: state.saveParameters.copyWith(
+      isLastPage: true,
+    ),
   );
 }
 
@@ -179,6 +190,10 @@ UpdateAnswerStatusState warningUpdated(UpdateAnswerStatusState state) {
   return state.copyWith(
     warning: warning,
     showWarning: showWarning,
+    saveParameters: state.saveParameters.copyWith(
+      warning: true,
+      showWarning: true,
+    ),
   );
 }
 
@@ -214,5 +229,9 @@ UpdateAnswerStatusState contentQuestionMapUpdated(
   return state.copyWith(
     contentQIdSet: contentQIdSet,
     questionMap: questionMap,
+    saveParameters: state.saveParameters.copyWith(
+      contentQIdSet: true,
+      questionMap: true,
+    ),
   );
 }

@@ -9,6 +9,8 @@ import '../../../domain/core/value_objects.dart';
 import '../../core/constants.dart';
 
 class SurveyContentBody extends StatelessWidget {
+  const SurveyContentBody({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(

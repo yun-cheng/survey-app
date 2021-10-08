@@ -26,7 +26,7 @@ final navigationListener = BlocListener<NavigationBloc, NavigationState>(
       return;
     }
 
-    context.pushRoute(const RespondentsRoute());
+    context.pushRoute(RespondentsRoute());
     if (state.page == NavigationPage.respondent()) {
       return;
     }

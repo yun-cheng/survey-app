@@ -1,8 +1,10 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../core/constants.dart';
 
@@ -54,7 +56,13 @@ class BadgedTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(
-        buildWhen: (p, c) => p.tabRespondentMap != c.tabRespondentMap,
+        buildWhen: (p, c) =>
+            (p.eventState != c.eventState &&
+                c.eventState == LoadState.success()) &&
+            (!const DeepCollectionEquality().equals(
+              p.tabRespondentMap,
+              c.tabRespondentMap,
+            )),
         builder: (context, state) {
           logger('Build').i('BadgedTabBar');
 

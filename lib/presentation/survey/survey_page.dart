@@ -17,10 +17,11 @@ class SurveyPage extends HookWidget {
   final bool showDialogOnRestart;
 
   const SurveyPage({
+    Key? key,
     // BUG https://github.com/Milad-Akarie/auto_route_library/issues/590
     required this.respondentId,
     required this.showDialogOnRestart,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +53,8 @@ class SurveyPage extends HookWidget {
                 icon: const Icon(Icons.format_list_bulleted),
                 onPressed: () {
                   context.read<UpdateAnswerStatusBloc>().add(
-                        const UpdateAnswerStatusEvent.contentQuestionMapUpdated(),
+                        const UpdateAnswerStatusEvent
+                            .contentQuestionMapUpdated(),
                       );
                   context.pushRoute(const SurveyContentRoute());
                 },
@@ -61,11 +63,11 @@ class SurveyPage extends HookWidget {
           ),
           body: SafeArea(
             child: Column(
-              children: [
+              children: const [
                 Expanded(
                   child: SurveyBody(),
                 ),
-                const PageControlBar(),
+                PageControlBar(),
               ],
             ),
           ),

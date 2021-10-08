@@ -20,7 +20,7 @@ Future<void> main() async {
         : await getApplicationDocumentsDirectory(),
   );
   configureInjection(Environment.dev);
-  Bloc.observer = SimpleBlocObserver();
+  // Bloc.observer = SimpleBlocObserver();
   await Firebase.initializeApp();
   await Hive.initFlutter();
   runApp(AppWidget());

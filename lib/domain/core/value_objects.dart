@@ -78,3 +78,15 @@ class NetworkType with _$NetworkType {
 
   bool get isConnected => ['wifi', 'mobile'].contains(value);
 }
+
+@freezed
+class DtoInfo with _$DtoInfo {
+  const DtoInfo._();
+
+  const factory DtoInfo({
+    String? box,
+    String? key,
+    @Default(false) bool readOnly,
+    @Default(false) bool isMapEntries,
+  }) = _DtoInfo;
+}

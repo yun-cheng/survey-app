@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,7 +25,12 @@ class VisitHistory extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RespondentBloc, RespondentState>(
       buildWhen: (p, c) =>
-          p.visitRecordsMap[respondent.id] != c.visitRecordsMap[respondent.id],
+          (p.eventState != c.eventState &&
+              c.eventState == LoadState.success()) &&
+          (!const DeepCollectionEquality().equals(
+            p.visitRecordsMap[respondent.id],
+            c.visitRecordsMap[respondent.id],
+          )),
       builder: (context, state) {
         logger('Build').i('VisitHistory');
 

@@ -22,17 +22,25 @@ class _$ResponseStateDtoTearOff {
   const _$ResponseStateDtoTearOff();
 
   _ResponseStateDto call(
-      {required SurveyDto survey,
-      required InterviewerDto interviewer,
-      required RespondentDto respondent,
-      required ResponseMapDto responseMap,
-      required List<ReferenceDto> referenceList}) {
+      {SurveyDto? survey,
+      String? surveyId,
+      InterviewerDto? interviewer,
+      RespondentDto? respondent,
+      ResponseMapDto? responseMap,
+      List<String>? responseMapKeys,
+      List<ReferenceDto>? referenceList,
+      ResponseDto? response,
+      String? responseId}) {
     return _ResponseStateDto(
       survey: survey,
+      surveyId: surveyId,
       interviewer: interviewer,
       respondent: respondent,
       responseMap: responseMap,
+      responseMapKeys: responseMapKeys,
       referenceList: referenceList,
+      response: response,
+      responseId: responseId,
     );
   }
 
@@ -46,12 +54,15 @@ const $ResponseStateDto = _$ResponseStateDtoTearOff();
 
 /// @nodoc
 mixin _$ResponseStateDto {
-// H_ 主要資料
-  SurveyDto get survey => throw _privateConstructorUsedError;
-  InterviewerDto get interviewer => throw _privateConstructorUsedError;
-  RespondentDto get respondent => throw _privateConstructorUsedError;
-  ResponseMapDto get responseMap => throw _privateConstructorUsedError;
-  List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
+  SurveyDto? get survey => throw _privateConstructorUsedError;
+  String? get surveyId => throw _privateConstructorUsedError;
+  InterviewerDto? get interviewer => throw _privateConstructorUsedError;
+  RespondentDto? get respondent => throw _privateConstructorUsedError;
+  ResponseMapDto? get responseMap => throw _privateConstructorUsedError;
+  List<String>? get responseMapKeys => throw _privateConstructorUsedError;
+  List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
+  ResponseDto? get response => throw _privateConstructorUsedError;
+  String? get responseId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -65,16 +76,21 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
           ResponseStateDto value, $Res Function(ResponseStateDto) then) =
       _$ResponseStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {SurveyDto survey,
-      InterviewerDto interviewer,
-      RespondentDto respondent,
-      ResponseMapDto responseMap,
-      List<ReferenceDto> referenceList});
+      {SurveyDto? survey,
+      String? surveyId,
+      InterviewerDto? interviewer,
+      RespondentDto? respondent,
+      ResponseMapDto? responseMap,
+      List<String>? responseMapKeys,
+      List<ReferenceDto>? referenceList,
+      ResponseDto? response,
+      String? responseId});
 
-  $SurveyDtoCopyWith<$Res> get survey;
-  $InterviewerDtoCopyWith<$Res> get interviewer;
-  $RespondentDtoCopyWith<$Res> get respondent;
-  $ResponseMapDtoCopyWith<$Res> get responseMap;
+  $SurveyDtoCopyWith<$Res>? get survey;
+  $InterviewerDtoCopyWith<$Res>? get interviewer;
+  $RespondentDtoCopyWith<$Res>? get respondent;
+  $ResponseMapDtoCopyWith<$Res>? get responseMap;
+  $ResponseDtoCopyWith<$Res>? get response;
 }
 
 /// @nodoc
@@ -89,60 +105,107 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? survey = freezed,
+    Object? surveyId = freezed,
     Object? interviewer = freezed,
     Object? respondent = freezed,
     Object? responseMap = freezed,
+    Object? responseMapKeys = freezed,
     Object? referenceList = freezed,
+    Object? response = freezed,
+    Object? responseId = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
-              as SurveyDto,
+              as SurveyDto?,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String?,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer // ignore: cast_nullable_to_non_nullable
-              as InterviewerDto,
+              as InterviewerDto?,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
-              as RespondentDto,
+              as RespondentDto?,
       responseMap: responseMap == freezed
           ? _value.responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
-              as ResponseMapDto,
+              as ResponseMapDto?,
+      responseMapKeys: responseMapKeys == freezed
+          ? _value.responseMapKeys
+          : responseMapKeys // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<ReferenceDto>,
+              as List<ReferenceDto>?,
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as ResponseDto?,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
   @override
-  $SurveyDtoCopyWith<$Res> get survey {
-    return $SurveyDtoCopyWith<$Res>(_value.survey, (value) {
+  $SurveyDtoCopyWith<$Res>? get survey {
+    if (_value.survey == null) {
+      return null;
+    }
+
+    return $SurveyDtoCopyWith<$Res>(_value.survey!, (value) {
       return _then(_value.copyWith(survey: value));
     });
   }
 
   @override
-  $InterviewerDtoCopyWith<$Res> get interviewer {
-    return $InterviewerDtoCopyWith<$Res>(_value.interviewer, (value) {
+  $InterviewerDtoCopyWith<$Res>? get interviewer {
+    if (_value.interviewer == null) {
+      return null;
+    }
+
+    return $InterviewerDtoCopyWith<$Res>(_value.interviewer!, (value) {
       return _then(_value.copyWith(interviewer: value));
     });
   }
 
   @override
-  $RespondentDtoCopyWith<$Res> get respondent {
-    return $RespondentDtoCopyWith<$Res>(_value.respondent, (value) {
+  $RespondentDtoCopyWith<$Res>? get respondent {
+    if (_value.respondent == null) {
+      return null;
+    }
+
+    return $RespondentDtoCopyWith<$Res>(_value.respondent!, (value) {
       return _then(_value.copyWith(respondent: value));
     });
   }
 
   @override
-  $ResponseMapDtoCopyWith<$Res> get responseMap {
-    return $ResponseMapDtoCopyWith<$Res>(_value.responseMap, (value) {
+  $ResponseMapDtoCopyWith<$Res>? get responseMap {
+    if (_value.responseMap == null) {
+      return null;
+    }
+
+    return $ResponseMapDtoCopyWith<$Res>(_value.responseMap!, (value) {
       return _then(_value.copyWith(responseMap: value));
+    });
+  }
+
+  @override
+  $ResponseDtoCopyWith<$Res>? get response {
+    if (_value.response == null) {
+      return null;
+    }
+
+    return $ResponseDtoCopyWith<$Res>(_value.response!, (value) {
+      return _then(_value.copyWith(response: value));
     });
   }
 }
@@ -155,20 +218,26 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       __$ResponseStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {SurveyDto survey,
-      InterviewerDto interviewer,
-      RespondentDto respondent,
-      ResponseMapDto responseMap,
-      List<ReferenceDto> referenceList});
+      {SurveyDto? survey,
+      String? surveyId,
+      InterviewerDto? interviewer,
+      RespondentDto? respondent,
+      ResponseMapDto? responseMap,
+      List<String>? responseMapKeys,
+      List<ReferenceDto>? referenceList,
+      ResponseDto? response,
+      String? responseId});
 
   @override
-  $SurveyDtoCopyWith<$Res> get survey;
+  $SurveyDtoCopyWith<$Res>? get survey;
   @override
-  $InterviewerDtoCopyWith<$Res> get interviewer;
+  $InterviewerDtoCopyWith<$Res>? get interviewer;
   @override
-  $RespondentDtoCopyWith<$Res> get respondent;
+  $RespondentDtoCopyWith<$Res>? get respondent;
   @override
-  $ResponseMapDtoCopyWith<$Res> get responseMap;
+  $ResponseMapDtoCopyWith<$Res>? get responseMap;
+  @override
+  $ResponseDtoCopyWith<$Res>? get response;
 }
 
 /// @nodoc
@@ -185,64 +254,97 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? survey = freezed,
+    Object? surveyId = freezed,
     Object? interviewer = freezed,
     Object? respondent = freezed,
     Object? responseMap = freezed,
+    Object? responseMapKeys = freezed,
     Object? referenceList = freezed,
+    Object? response = freezed,
+    Object? responseId = freezed,
   }) {
     return _then(_ResponseStateDto(
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
-              as SurveyDto,
+              as SurveyDto?,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as String?,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer // ignore: cast_nullable_to_non_nullable
-              as InterviewerDto,
+              as InterviewerDto?,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
-              as RespondentDto,
+              as RespondentDto?,
       responseMap: responseMap == freezed
           ? _value.responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
-              as ResponseMapDto,
+              as ResponseMapDto?,
+      responseMapKeys: responseMapKeys == freezed
+          ? _value.responseMapKeys
+          : responseMapKeys // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
-              as List<ReferenceDto>,
+              as List<ReferenceDto>?,
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as ResponseDto?,
+      responseId: responseId == freezed
+          ? _value.responseId
+          : responseId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
+
+@JsonSerializable(includeIfNull: false)
 class _$_ResponseStateDto extends _ResponseStateDto {
   const _$_ResponseStateDto(
-      {required this.survey,
-      required this.interviewer,
-      required this.respondent,
-      required this.responseMap,
-      required this.referenceList})
+      {this.survey,
+      this.surveyId,
+      this.interviewer,
+      this.respondent,
+      this.responseMap,
+      this.responseMapKeys,
+      this.referenceList,
+      this.response,
+      this.responseId})
       : super._();
 
   factory _$_ResponseStateDto.fromJson(Map<String, dynamic> json) =>
       _$$_ResponseStateDtoFromJson(json);
 
-  @override // H_ 主要資料
-  final SurveyDto survey;
   @override
-  final InterviewerDto interviewer;
+  final SurveyDto? survey;
   @override
-  final RespondentDto respondent;
+  final String? surveyId;
   @override
-  final ResponseMapDto responseMap;
+  final InterviewerDto? interviewer;
   @override
-  final List<ReferenceDto> referenceList;
+  final RespondentDto? respondent;
+  @override
+  final ResponseMapDto? responseMap;
+  @override
+  final List<String>? responseMapKeys;
+  @override
+  final List<ReferenceDto>? referenceList;
+  @override
+  final ResponseDto? response;
+  @override
+  final String? responseId;
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, referenceList: $referenceList)';
+    return 'ResponseStateDto(survey: $survey, surveyId: $surveyId, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, referenceList: $referenceList, response: $response, responseId: $responseId)';
   }
 
   @override
@@ -251,6 +353,9 @@ class _$_ResponseStateDto extends _ResponseStateDto {
         (other is _ResponseStateDto &&
             (identical(other.survey, survey) ||
                 const DeepCollectionEquality().equals(other.survey, survey)) &&
+            (identical(other.surveyId, surveyId) ||
+                const DeepCollectionEquality()
+                    .equals(other.surveyId, surveyId)) &&
             (identical(other.interviewer, interviewer) ||
                 const DeepCollectionEquality()
                     .equals(other.interviewer, interviewer)) &&
@@ -260,19 +365,32 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             (identical(other.responseMap, responseMap) ||
                 const DeepCollectionEquality()
                     .equals(other.responseMap, responseMap)) &&
+            (identical(other.responseMapKeys, responseMapKeys) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseMapKeys, responseMapKeys)) &&
             (identical(other.referenceList, referenceList) ||
                 const DeepCollectionEquality()
-                    .equals(other.referenceList, referenceList)));
+                    .equals(other.referenceList, referenceList)) &&
+            (identical(other.response, response) ||
+                const DeepCollectionEquality()
+                    .equals(other.response, response)) &&
+            (identical(other.responseId, responseId) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseId, responseId)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(survey) ^
+      const DeepCollectionEquality().hash(surveyId) ^
       const DeepCollectionEquality().hash(interviewer) ^
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(responseMap) ^
-      const DeepCollectionEquality().hash(referenceList);
+      const DeepCollectionEquality().hash(responseMapKeys) ^
+      const DeepCollectionEquality().hash(referenceList) ^
+      const DeepCollectionEquality().hash(response) ^
+      const DeepCollectionEquality().hash(responseId);
 
   @JsonKey(ignore: true)
   @override
@@ -287,26 +405,38 @@ class _$_ResponseStateDto extends _ResponseStateDto {
 
 abstract class _ResponseStateDto extends ResponseStateDto {
   const factory _ResponseStateDto(
-      {required SurveyDto survey,
-      required InterviewerDto interviewer,
-      required RespondentDto respondent,
-      required ResponseMapDto responseMap,
-      required List<ReferenceDto> referenceList}) = _$_ResponseStateDto;
+      {SurveyDto? survey,
+      String? surveyId,
+      InterviewerDto? interviewer,
+      RespondentDto? respondent,
+      ResponseMapDto? responseMap,
+      List<String>? responseMapKeys,
+      List<ReferenceDto>? referenceList,
+      ResponseDto? response,
+      String? responseId}) = _$_ResponseStateDto;
   const _ResponseStateDto._() : super._();
 
   factory _ResponseStateDto.fromJson(Map<String, dynamic> json) =
       _$_ResponseStateDto.fromJson;
 
-  @override // H_ 主要資料
-  SurveyDto get survey => throw _privateConstructorUsedError;
   @override
-  InterviewerDto get interviewer => throw _privateConstructorUsedError;
+  SurveyDto? get survey => throw _privateConstructorUsedError;
   @override
-  RespondentDto get respondent => throw _privateConstructorUsedError;
+  String? get surveyId => throw _privateConstructorUsedError;
   @override
-  ResponseMapDto get responseMap => throw _privateConstructorUsedError;
+  InterviewerDto? get interviewer => throw _privateConstructorUsedError;
   @override
-  List<ReferenceDto> get referenceList => throw _privateConstructorUsedError;
+  RespondentDto? get respondent => throw _privateConstructorUsedError;
+  @override
+  ResponseMapDto? get responseMap => throw _privateConstructorUsedError;
+  @override
+  List<String>? get responseMapKeys => throw _privateConstructorUsedError;
+  @override
+  List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
+  @override
+  ResponseDto? get response => throw _privateConstructorUsedError;
+  @override
+  String? get responseId => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith =>

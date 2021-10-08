@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -44,10 +45,12 @@ class RespondentsBody extends HookWidget {
     // });
 
     return BlocBuilder<RespondentBloc, RespondentState>(
-      buildWhen: (p, c) =>
-          (p.surveyRespondentMapState != c.surveyRespondentMapState &&
-              c.surveyRespondentMapState == LoadState.success()) ||
-          p.tabRespondentMap[tabType] != c.tabRespondentMap[tabType],
+      buildWhen: (p, c) => ((p.eventState != c.eventState &&
+              c.eventState == LoadState.success()) &&
+          (!const DeepCollectionEquality().equals(
+            p.tabRespondentMap[tabType],
+            c.tabRespondentMap[tabType],
+          ))),
       builder: (context, state) {
         logger('Build').i('RespondentsBody: list');
 

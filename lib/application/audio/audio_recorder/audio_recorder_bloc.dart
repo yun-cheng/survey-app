@@ -28,10 +28,10 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
     yield* event.map(
       // H_ 開始錄音
       recordStarted: (e) async* {
-        logger('Event').i('AudioRecorderBloc: recordStarted');
-
         // S_ 沒有在錄音
         if (!state.isRecording) {
+          logger('Event').i('AudioRecorderEvent: recordStarted');
+
           yield state.copyWith(
             recorderState: LoadState.inProgress(),
             audioFailure: none(),
@@ -55,15 +55,15 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
           yield eitherResult.fold(
             (f) => state.copyWith(
               recorderState: LoadState.failure(),
-              audio: Audio.empty(),
               audioFailure: some(f),
               isRecording: false,
+              audio: Audio.empty(),
             ),
             (_) => state.copyWith(
               recorderState: LoadState.success(),
-              audio: newAudio,
               isRecording: true,
               audioFailure: none(),
+              audio: newAudio,
             ),
           );
 
@@ -74,6 +74,8 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
       },
       // H_ 監聽分貝數
       watchDbStreamStarted: (e) async* {
+        logger('Watch').i('AudioRecorderEvent: watchDbStreamStarted');
+
         await _dbSubscription?.cancel();
         final eitherResult = _iAudioRecorder.dbStream();
 
@@ -96,27 +98,29 @@ class AudioRecorderBloc extends Bloc<AudioRecorderEvent, AudioRecorderState> {
       },
       // H_ 停止錄音
       recordStopped: (e) async* {
-        logger('Event').i('AudioRecorderBloc: recordStopped');
+        if (state.isRecording) {
+          logger('Event').i('AudioRecorderBloc: recordStopped');
 
-        yield state.copyWith(
-          recorderState: LoadState.inProgress(),
-          audioFailure: none(),
-        );
-
-        final eitherResult = await _iAudioRecorder.stopRecording();
-
-        yield eitherResult.fold(
-          (f) => state.copyWith(
-            recorderState: LoadState.failure(),
-            isRecording: false,
-            audioFailure: some(f),
-          ),
-          (_) => state.copyWith(
-            recorderState: LoadState.success(),
-            isRecording: false,
+          yield state.copyWith(
+            recorderState: LoadState.inProgress(),
             audioFailure: none(),
-          ),
-        );
+          );
+
+          final eitherResult = await _iAudioRecorder.stopRecording();
+
+          yield eitherResult.fold(
+            (f) => state.copyWith(
+              recorderState: LoadState.failure(),
+              isRecording: false,
+              audioFailure: some(f),
+            ),
+            (_) => state.copyWith(
+              recorderState: LoadState.success(),
+              isRecording: false,
+              audioFailure: none(),
+            ),
+          );
+        }
       },
     );
   }

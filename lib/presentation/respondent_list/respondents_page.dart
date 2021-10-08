@@ -14,6 +14,8 @@ import 'widgets/respondents_body.dart';
 import 'widgets/scroll_position_bundle.dart';
 
 class RespondentsPage extends HookWidget {
+  RespondentsPage({Key? key}) : super(key: key);
+
   final tabScrollPositionBundle = {
     TabType.start: ScrollPositionBundle.initial(),
     TabType.interviewReport: ScrollPositionBundle.initial(),

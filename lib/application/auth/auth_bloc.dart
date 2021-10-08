@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 import 'package:meta/meta.dart';
 
 import '../../domain/auth/auth_failure.dart';
@@ -23,6 +24,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       _interviewerListSubscription;
 
   AuthBloc(this._authFacade) : super(AuthState.initial()) {
+    add(const AuthEvent.initialized());
     add(const AuthEvent.watchTeamListStarted());
     add(const AuthEvent.watchInterviewerListStarted());
   }
@@ -32,7 +34,18 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
     AuthEvent event,
   ) async* {
     yield* event.map(
+      initialized: (e) async* {
+        // NOTE 故意改變 signInState 來觸發 listener
+        yield state.copyWith(
+          signInState: LoadState.inProgress(),
+        );
+        yield state.copyWith(
+          signInState: state.signInState,
+        );
+      },
       watchTeamListStarted: (e) async* {
+        logger('Watch').i('AuthEvent: watchTeamListStarted');
+
         yield state.copyWith(
           teamListState: LoadState.inProgress(),
           authFailure: none(),
@@ -44,6 +57,8 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
             );
       },
       teamListReceived: (e) async* {
+        logger('Receive').i('AuthEvent: teamListReceived');
+
         yield e.failureOrTeamList.fold(
           (f) => state.copyWith(
             teamListState: LoadState.failure(),
@@ -57,6 +72,8 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
         );
       },
       teamSelected: (e) async* {
+        logger('User Event').i('AuthEvent: teamSelected');
+
         yield state.copyWith(
           team: e.team,
           authFailure: none(),
@@ -64,6 +81,8 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
         add(const AuthEvent.watchInterviewerListStarted());
       },
       watchInterviewerListStarted: (e) async* {
+        logger('Watch').i('AuthEvent: watchInterviewerListStarted');
+
         if (state.team.id != '') {
           yield state.copyWith(
             interviewerListState: LoadState.inProgress(),
@@ -79,6 +98,8 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
         }
       },
       interviewerListReceived: (e) async* {
+        logger('Receive').i('AuthEvent: interviewerListReceived');
+
         yield e.failureOrInterviewerList.fold(
           (f) => state.copyWith(
             interviewerListState: LoadState.failure(),
@@ -150,7 +171,11 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   @override
   AuthState? fromJson(Map<String, dynamic> json) {
     try {
-      return AuthStateDto.fromJson(json).toDomain();
+      final newState = AuthStateDto.fromJson(json).toDomain();
+      if (newState.signInState == LoadState.success()) {
+        return newState;
+      }
+      return null;
     } catch (_) {
       return null;
     }
@@ -158,10 +183,6 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
 
   @override
   Map<String, dynamic>? toJson(AuthState state) {
-    if (state.signInState == LoadState.success()) {
-      return AuthStateDto.fromDomain(state).toJson();
-    } else {
-      return null;
-    }
+    return AuthStateDto.fromDomain(state).toJson();
   }
 }

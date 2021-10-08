@@ -1,31 +1,35 @@
 part of 'respondent_bloc.dart';
 
-List<AsyncTask> _eventTaskTypeRegister() => [
+List<AsyncTask> _taskTypeRegister() => [
       EventTask(
         path: '',
         boxName: '',
-        stateFromJson: _stateFromJson,
-        eventWorker: _respondentEventWorker,
+        stateFromStorage: stateFromStorage,
+        eventWorker: _eventWorker,
       )
     ];
 
-void _respondentEventWorker(
+void _eventWorker(
   Tuple2 tuple,
   AsyncTaskChannel channel,
-  Box box,
-  Lock lock,
+  ILocalStorage localStorage,
 ) {
   final e = tuple.item1 as RespondentEvent;
-  var state = tuple.item2 as RespondentState;
+  var state = (tuple.item2 as RespondentState).copyWith(
+    saveParameters: SaveParameters.initial(),
+  );
+
+  // S_
+  state = state.sendEventInProgress(channel);
 
   e.maybeMap(
     watchSurveyRespondentMapStarted: (e) {
-      state = state
-          .copyWith(
-            surveyRespondentMapState: LoadState.inProgress(),
-            respondentFailure: none(),
-          )
-          .send(channel);
+      logger('Watch').i('RespondentEvent: watchSurveyRespondentMapStarted');
+
+      state = state.copyWith(
+        surveyRespondentMapState: LoadState.inProgress(),
+        respondentFailure: none(),
+      );
     },
     surveyRespondentMapReceived: (e) {
       logger('Receive').i('RespondentEvent: surveyRespondentMapReceived');
@@ -39,9 +43,12 @@ void _respondentEventWorker(
           surveyRespondentMapState: LoadState.success(),
           surveyRespondentMap: surveyRespondentMap,
           respondentFailure: none(),
+          saveParameters: state.saveParameters.copyWith(
+            surveyRespondentMap: true,
+          ),
         ),
       );
-      state = respondentMapLoaded(state).send(channel).saveState(box, lock);
+      state = respondentMapLoaded(state);
     },
     // H_ 使用者選擇問卷
     surveySelected: (e) {
@@ -50,22 +57,24 @@ void _respondentEventWorker(
       state = state.copyWith(
         survey: e.survey,
         respondentFailure: none(),
+        saveParameters: state.saveParameters.copyWith(
+          survey: true,
+        ),
       );
-      state = respondentMapLoaded(state).send(channel).saveState(box, lock);
+      state = respondentMapLoaded(state);
     },
     // H_ 使用者選擇受訪者
     respondentSelected: (e) {
       logger('User Event').i('RespondentEvent: respondentSelected');
 
-      state = state
-          .copyWith(
-            selectedRespondentId: state.selectedRespondentId == e.respondentId
-                ? ''
-                : e.respondentId,
-            respondentFailure: none(),
-          )
-          .send(channel)
-          .saveState(box, lock);
+      state = state.copyWith(
+        selectedRespondentId:
+            state.selectedRespondentId == e.respondentId ? '' : e.respondentId,
+        respondentFailure: none(),
+        saveParameters: state.saveParameters.copyWith(
+          selectedRespondentId: true,
+        ),
+      );
     },
     // H_ 切換分頁時
     tabSwitched: (e) {
@@ -89,26 +98,26 @@ void _respondentEventWorker(
           );
         }
       }
-      state = state
-          .copyWith(
-            currentTab: currentTab,
-            tabScrollPosition: tabScrollPosition,
-          )
-          .send(channel)
-          .saveState(box, lock);
+      state = state.copyWith(
+        currentTab: currentTab,
+        tabScrollPosition: tabScrollPosition,
+        saveParameters: state.saveParameters.copyWith(
+          currentTab: true,
+          tabScrollPosition: true,
+        ),
+      );
     },
     // H_ 分頁受訪者名單更新時
     tabRespondentsUpdated: (e) {
       logger('Event').i('RespondentEvent: tabRespondentsUpdated');
 
-      state =
-          tabRespondentsUpdated(e, state).send(channel).saveState(box, lock);
+      state = tabRespondentsUpdated(e, state);
     },
     // H_ 查址紀錄更新時
     visitReportUpdated: (e) {
       logger('Event').i('RespondentEvent: visitReportUpdated');
 
-      state = visitReportUpdated(e, state).send(channel).saveState(box, lock);
+      state = visitReportUpdated(e, state);
     },
     // H_ 切換鄉鎮市區
     jumpedToTown: (e) {
@@ -140,10 +149,13 @@ void _respondentEventWorker(
       logger('Event').i('RespondentEvent: textSearched');
     },
     loggedOut: (e) {
-      state = RespondentState.initial().send(channel).saveState(box, lock);
+      state = RespondentState.initial().copyWith(
+        saveParameters: SaveParameters.clear(),
+      );
     },
     orElse: () {},
   );
 
-  channel.send(false);
+  // S_ 儲存資料
+  state = state.sendEventSuccessAndSave(channel, localStorage);
 }

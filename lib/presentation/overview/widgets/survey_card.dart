@@ -51,7 +51,7 @@ class SurveyCard extends StatelessWidget {
                           page: NavigationPage.respondent(),
                         ),
                       );
-                  context.pushRoute(const RespondentsRoute());
+                  context.pushRoute(RespondentsRoute());
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),

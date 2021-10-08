@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'widgets/survey_content_body.dart';
 
 class SurveyContentPage extends StatelessWidget {
+  const SurveyContentPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +17,7 @@ class SurveyContentPage extends StatelessWidget {
               context.router.pop();
             }),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: SurveyContentBody(),
       ),
     );

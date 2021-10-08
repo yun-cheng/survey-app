@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 
 class AudioRecorderIndicator extends StatelessWidget {
+  const AudioRecorderIndicator({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AudioRecorderBloc, AudioRecorderState>(

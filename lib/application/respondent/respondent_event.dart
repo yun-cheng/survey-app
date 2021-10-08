@@ -52,5 +52,5 @@ class RespondentEvent with _$RespondentEvent {
 
   const factory RespondentEvent.loggedOut() = _LoggedOut;
 
-  const factory RespondentEvent.taskInitialized() = _TaskInitialized;
+  const factory RespondentEvent.initialized() = _Initialized;
 }

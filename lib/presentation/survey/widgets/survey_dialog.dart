@@ -50,8 +50,7 @@ class SurveyLeadingButton extends StatelessWidget {
                 p.eventState != c.eventState &&
                 c.eventState == LoadState.success(),
             listener: (context, state) {
-              if (!state.isReadOnly &&
-                  state.updateType.any((type) => type.saveResponse())) {
+              if (!state.isReadOnly && state.updateParameters.saveResponse()) {
                 logger('Listen').i('UpdateAnswerStatusBloc: saveResponse');
 
                 // H_ 存回 response
@@ -198,5 +197,5 @@ void backToRespondentsPage(BuildContext context, {bool finished = false}) {
       );
 
   // NOTE 從目錄頁要跳兩層，所以直接用 navigate
-  context.router.navigate(const RespondentsRoute());
+  context.router.navigate(RespondentsRoute());
 }

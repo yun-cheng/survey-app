@@ -102,8 +102,8 @@ class _$ResponseEventTearOff {
     return const _LoggedOut();
   }
 
-  _TaskInitialized taskInitialized() {
-    return const _TaskInitialized();
+  _Initialized initialized() {
+    return const _Initialized();
   }
 }
 
@@ -138,7 +138,7 @@ mixin _$ResponseEvent {
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -168,7 +168,7 @@ mixin _$ResponseEvent {
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -198,7 +198,7 @@ mixin _$ResponseEvent {
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,7 +218,7 @@ mixin _$ResponseEvent {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -236,7 +236,7 @@ mixin _$ResponseEvent {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -254,7 +254,7 @@ mixin _$ResponseEvent {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -326,9 +326,7 @@ class __$WatchResponseMapStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchResponseMapStarted
-    with DiagnosticableTreeMixin
-    implements _WatchResponseMapStarted {
+class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
   const _$_WatchResponseMapStarted(
       {required this.teamId, required this.interviewer});
 
@@ -338,18 +336,8 @@ class _$_WatchResponseMapStarted
   final Interviewer interviewer;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.watchResponseMapAndReferenceListStarted(teamId: $teamId, interviewer: $interviewer)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'ResponseEvent.watchResponseMapAndReferenceListStarted'))
-      ..add(DiagnosticsProperty('teamId', teamId))
-      ..add(DiagnosticsProperty('interviewer', interviewer));
   }
 
   @override
@@ -402,7 +390,7 @@ class _$_WatchResponseMapStarted
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return watchResponseMapAndReferenceListStarted(teamId, interviewer);
   }
@@ -435,7 +423,7 @@ class _$_WatchResponseMapStarted
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return watchResponseMapAndReferenceListStarted?.call(teamId, interviewer);
   }
@@ -468,7 +456,7 @@ class _$_WatchResponseMapStarted
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (watchResponseMapAndReferenceListStarted != null) {
@@ -494,7 +482,7 @@ class _$_WatchResponseMapStarted
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return watchResponseMapAndReferenceListStarted(this);
   }
@@ -515,7 +503,7 @@ class _$_WatchResponseMapStarted
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return watchResponseMapAndReferenceListStarted?.call(this);
   }
@@ -536,7 +524,7 @@ class _$_WatchResponseMapStarted
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (watchResponseMapAndReferenceListStarted != null) {
@@ -593,25 +581,15 @@ class __$ResponseMapReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseMapReceived
-    with DiagnosticableTreeMixin
-    implements _ResponseMapReceived {
+class _$_ResponseMapReceived implements _ResponseMapReceived {
   const _$_ResponseMapReceived(this.failureOrResponseMap);
 
   @override
   final Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.responseMapReceived(failureOrResponseMap: $failureOrResponseMap)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseMapReceived'))
-      ..add(DiagnosticsProperty('failureOrResponseMap', failureOrResponseMap));
   }
 
   @override
@@ -661,7 +639,7 @@ class _$_ResponseMapReceived
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return responseMapReceived(failureOrResponseMap);
   }
@@ -694,7 +672,7 @@ class _$_ResponseMapReceived
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return responseMapReceived?.call(failureOrResponseMap);
   }
@@ -727,7 +705,7 @@ class _$_ResponseMapReceived
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseMapReceived != null) {
@@ -753,7 +731,7 @@ class _$_ResponseMapReceived
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return responseMapReceived(this);
   }
@@ -774,7 +752,7 @@ class _$_ResponseMapReceived
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return responseMapReceived?.call(this);
   }
@@ -795,7 +773,7 @@ class _$_ResponseMapReceived
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseMapReceived != null) {
@@ -851,26 +829,15 @@ class __$ReferenceListReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReferenceListReceived
-    with DiagnosticableTreeMixin
-    implements _ReferenceListReceived {
+class _$_ReferenceListReceived implements _ReferenceListReceived {
   const _$_ReferenceListReceived(this.failureOrReferenceList);
 
   @override
   final Either<SurveyFailure, List<Reference>> failureOrReferenceList;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.referenceListReceived(failureOrReferenceList: $failureOrReferenceList)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.referenceListReceived'))
-      ..add(DiagnosticsProperty(
-          'failureOrReferenceList', failureOrReferenceList));
   }
 
   @override
@@ -920,7 +887,7 @@ class _$_ReferenceListReceived
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return referenceListReceived(failureOrReferenceList);
   }
@@ -953,7 +920,7 @@ class _$_ReferenceListReceived
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return referenceListReceived?.call(failureOrReferenceList);
   }
@@ -986,7 +953,7 @@ class _$_ReferenceListReceived
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -1012,7 +979,7 @@ class _$_ReferenceListReceived
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return referenceListReceived(this);
   }
@@ -1033,7 +1000,7 @@ class _$_ReferenceListReceived
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return referenceListReceived?.call(this);
   }
@@ -1054,7 +1021,7 @@ class _$_ReferenceListReceived
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (referenceListReceived != null) {
@@ -1097,21 +1064,12 @@ class __$UploadTimerUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UploadTimerUpdated
-    with DiagnosticableTreeMixin
-    implements _UploadTimerUpdated {
+class _$_UploadTimerUpdated implements _UploadTimerUpdated {
   const _$_UploadTimerUpdated();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.uploadTimerUpdated()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.uploadTimerUpdated'));
   }
 
   @override
@@ -1149,7 +1107,7 @@ class _$_UploadTimerUpdated
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return uploadTimerUpdated();
   }
@@ -1182,7 +1140,7 @@ class _$_UploadTimerUpdated
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return uploadTimerUpdated?.call();
   }
@@ -1215,7 +1173,7 @@ class _$_UploadTimerUpdated
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -1241,7 +1199,7 @@ class _$_UploadTimerUpdated
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return uploadTimerUpdated(this);
   }
@@ -1262,7 +1220,7 @@ class _$_UploadTimerUpdated
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return uploadTimerUpdated?.call(this);
   }
@@ -1283,7 +1241,7 @@ class _$_UploadTimerUpdated
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (uploadTimerUpdated != null) {
@@ -1318,21 +1276,12 @@ class __$ResponseMapUploadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseMapUploading
-    with DiagnosticableTreeMixin
-    implements _ResponseMapUploading {
+class _$_ResponseMapUploading implements _ResponseMapUploading {
   const _$_ResponseMapUploading();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.responseMapUploading()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseMapUploading'));
   }
 
   @override
@@ -1370,7 +1319,7 @@ class _$_ResponseMapUploading
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return responseMapUploading();
   }
@@ -1403,7 +1352,7 @@ class _$_ResponseMapUploading
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return responseMapUploading?.call();
   }
@@ -1436,7 +1385,7 @@ class _$_ResponseMapUploading
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseMapUploading != null) {
@@ -1462,7 +1411,7 @@ class _$_ResponseMapUploading
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return responseMapUploading(this);
   }
@@ -1483,7 +1432,7 @@ class _$_ResponseMapUploading
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return responseMapUploading?.call(this);
   }
@@ -1504,7 +1453,7 @@ class _$_ResponseMapUploading
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseMapUploading != null) {
@@ -1552,25 +1501,15 @@ class __$ResponseMapUploadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseMapUploaded
-    with DiagnosticableTreeMixin
-    implements _ResponseMapUploaded {
+class _$_ResponseMapUploaded implements _ResponseMapUploaded {
   const _$_ResponseMapUploaded(this.failureOrSuccess);
 
   @override
   final Either<SurveyFailure, Unit> failureOrSuccess;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.responseMapUploaded(failureOrSuccess: $failureOrSuccess)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseMapUploaded'))
-      ..add(DiagnosticsProperty('failureOrSuccess', failureOrSuccess));
   }
 
   @override
@@ -1620,7 +1559,7 @@ class _$_ResponseMapUploaded
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return responseMapUploaded(failureOrSuccess);
   }
@@ -1653,7 +1592,7 @@ class _$_ResponseMapUploaded
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return responseMapUploaded?.call(failureOrSuccess);
   }
@@ -1686,7 +1625,7 @@ class _$_ResponseMapUploaded
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseMapUploaded != null) {
@@ -1712,7 +1651,7 @@ class _$_ResponseMapUploaded
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return responseMapUploaded(this);
   }
@@ -1733,7 +1672,7 @@ class _$_ResponseMapUploaded
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return responseMapUploaded?.call(this);
   }
@@ -1754,7 +1693,7 @@ class _$_ResponseMapUploaded
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseMapUploaded != null) {
@@ -1818,25 +1757,15 @@ class __$SurveySelectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SurveySelected
-    with DiagnosticableTreeMixin
-    implements _SurveySelected {
+class _$_SurveySelected implements _SurveySelected {
   const _$_SurveySelected({required this.survey});
 
   @override
   final Survey survey;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.surveySelected(survey: $survey)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.surveySelected'))
-      ..add(DiagnosticsProperty('survey', survey));
   }
 
   @override
@@ -1883,7 +1812,7 @@ class _$_SurveySelected
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return surveySelected(survey);
   }
@@ -1916,7 +1845,7 @@ class _$_SurveySelected
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return surveySelected?.call(survey);
   }
@@ -1949,7 +1878,7 @@ class _$_SurveySelected
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -1975,7 +1904,7 @@ class _$_SurveySelected
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return surveySelected(this);
   }
@@ -1996,7 +1925,7 @@ class _$_SurveySelected
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return surveySelected?.call(this);
   }
@@ -2017,7 +1946,7 @@ class _$_SurveySelected
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (surveySelected != null) {
@@ -2120,9 +2049,7 @@ class __$ResponseStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseStarted
-    with DiagnosticableTreeMixin
-    implements _ResponseStarted {
+class _$_ResponseStarted implements _ResponseStarted {
   const _$_ResponseStarted(
       {required this.respondent,
       required this.moduleType,
@@ -2142,20 +2069,8 @@ class _$_ResponseStarted
   final UniqueId responseId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.responseStarted(respondent: $respondent, moduleType: $moduleType, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseStarted'))
-      ..add(DiagnosticsProperty('respondent', respondent))
-      ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('withResponseId', withResponseId))
-      ..add(DiagnosticsProperty('breakInterview', breakInterview))
-      ..add(DiagnosticsProperty('responseId', responseId));
   }
 
   @override
@@ -2220,7 +2135,7 @@ class _$_ResponseStarted
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return responseStarted(
         respondent, moduleType, withResponseId, breakInterview, responseId);
@@ -2254,7 +2169,7 @@ class _$_ResponseStarted
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return responseStarted?.call(
         respondent, moduleType, withResponseId, breakInterview, responseId);
@@ -2288,7 +2203,7 @@ class _$_ResponseStarted
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -2315,7 +2230,7 @@ class _$_ResponseStarted
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return responseStarted(this);
   }
@@ -2336,7 +2251,7 @@ class _$_ResponseStarted
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return responseStarted?.call(this);
   }
@@ -2357,7 +2272,7 @@ class _$_ResponseStarted
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
@@ -2442,9 +2357,7 @@ class __$ResponseUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseUpdated
-    with DiagnosticableTreeMixin
-    implements _ResponseUpdated {
+class _$_ResponseUpdated implements _ResponseUpdated {
   const _$_ResponseUpdated(
       {required this.answerMap,
       required this.answerStatusMap,
@@ -2458,18 +2371,8 @@ class _$_ResponseUpdated
   final SimpleSurveyPageState surveyPageState;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.responseUpdated(answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseUpdated'))
-      ..add(DiagnosticsProperty('answerMap', answerMap))
-      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
-      ..add(DiagnosticsProperty('surveyPageState', surveyPageState));
   }
 
   @override
@@ -2526,7 +2429,7 @@ class _$_ResponseUpdated
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return responseUpdated(answerMap, answerStatusMap, surveyPageState);
   }
@@ -2559,7 +2462,7 @@ class _$_ResponseUpdated
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return responseUpdated?.call(answerMap, answerStatusMap, surveyPageState);
   }
@@ -2592,7 +2495,7 @@ class _$_ResponseUpdated
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -2618,7 +2521,7 @@ class _$_ResponseUpdated
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return responseUpdated(this);
   }
@@ -2639,7 +2542,7 @@ class _$_ResponseUpdated
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return responseUpdated?.call(this);
   }
@@ -2660,7 +2563,7 @@ class _$_ResponseUpdated
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseUpdated != null) {
@@ -2720,23 +2623,15 @@ class __$EditFinishedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
+class _$_EditFinished implements _EditFinished {
   const _$_EditFinished({required this.responseFinished});
 
   @override // NOTE 是否完成這份問卷
   final bool responseFinished;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.editFinished(responseFinished: $responseFinished)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.editFinished'))
-      ..add(DiagnosticsProperty('responseFinished', responseFinished));
   }
 
   @override
@@ -2785,7 +2680,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return editFinished(responseFinished);
   }
@@ -2818,7 +2713,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return editFinished?.call(responseFinished);
   }
@@ -2851,7 +2746,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -2877,7 +2772,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return editFinished(this);
   }
@@ -2898,7 +2793,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return editFinished?.call(this);
   }
@@ -2919,7 +2814,7 @@ class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (editFinished != null) {
@@ -2983,25 +2878,15 @@ class __$ResponseResumedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseResumed
-    with DiagnosticableTreeMixin
-    implements _ResponseResumed {
+class _$_ResponseResumed implements _ResponseResumed {
   const _$_ResponseResumed(this.responseId);
 
   @override
   final UniqueId responseId;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.responseResumed(responseId: $responseId)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseResumed'))
-      ..add(DiagnosticsProperty('responseId', responseId));
   }
 
   @override
@@ -3049,7 +2934,7 @@ class _$_ResponseResumed
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return responseResumed(responseId);
   }
@@ -3082,7 +2967,7 @@ class _$_ResponseResumed
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return responseResumed?.call(responseId);
   }
@@ -3115,7 +3000,7 @@ class _$_ResponseResumed
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -3141,7 +3026,7 @@ class _$_ResponseResumed
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return responseResumed(this);
   }
@@ -3162,7 +3047,7 @@ class _$_ResponseResumed
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return responseResumed?.call(this);
   }
@@ -3183,7 +3068,7 @@ class _$_ResponseResumed
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (responseResumed != null) {
@@ -3221,18 +3106,12 @@ class __$LoggedOutCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
+class _$_LoggedOut implements _LoggedOut {
   const _$_LoggedOut();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ResponseEvent.loggedOut()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'ResponseEvent.loggedOut'));
   }
 
   @override
@@ -3270,7 +3149,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
     return loggedOut();
   }
@@ -3303,7 +3182,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
     return loggedOut?.call();
   }
@@ -3336,7 +3215,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -3362,7 +3241,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return loggedOut(this);
   }
@@ -3383,7 +3262,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return loggedOut?.call(this);
   }
@@ -3404,7 +3283,7 @@ class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (loggedOut != null) {
@@ -3419,46 +3298,36 @@ abstract class _LoggedOut implements ResponseEvent {
 }
 
 /// @nodoc
-abstract class _$TaskInitializedCopyWith<$Res> {
-  factory _$TaskInitializedCopyWith(
-          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
-      __$TaskInitializedCopyWithImpl<$Res>;
+abstract class _$InitializedCopyWith<$Res> {
+  factory _$InitializedCopyWith(
+          _Initialized value, $Res Function(_Initialized) then) =
+      __$InitializedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$TaskInitializedCopyWithImpl<$Res>
-    extends _$ResponseEventCopyWithImpl<$Res>
-    implements _$TaskInitializedCopyWith<$Res> {
-  __$TaskInitializedCopyWithImpl(
-      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
-      : super(_value, (v) => _then(v as _TaskInitialized));
+class __$InitializedCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$InitializedCopyWith<$Res> {
+  __$InitializedCopyWithImpl(
+      _Initialized _value, $Res Function(_Initialized) _then)
+      : super(_value, (v) => _then(v as _Initialized));
 
   @override
-  _TaskInitialized get _value => super._value as _TaskInitialized;
+  _Initialized get _value => super._value as _Initialized;
 }
 
 /// @nodoc
 
-class _$_TaskInitialized
-    with DiagnosticableTreeMixin
-    implements _TaskInitialized {
-  const _$_TaskInitialized();
+class _$_Initialized implements _Initialized {
+  const _$_Initialized();
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ResponseEvent.taskInitialized()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseEvent.taskInitialized'));
+  String toString() {
+    return 'ResponseEvent.initialized()';
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TaskInitialized);
+    return identical(this, other) || (other is _Initialized);
   }
 
   @override
@@ -3491,9 +3360,9 @@ class _$_TaskInitialized
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
     required TResult Function() loggedOut,
-    required TResult Function() taskInitialized,
+    required TResult Function() initialized,
   }) {
-    return taskInitialized();
+    return initialized();
   }
 
   @override
@@ -3524,9 +3393,9 @@ class _$_TaskInitialized
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
   }) {
-    return taskInitialized?.call();
+    return initialized?.call();
   }
 
   @override
@@ -3557,11 +3426,11 @@ class _$_TaskInitialized
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
     TResult Function()? loggedOut,
-    TResult Function()? taskInitialized,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
-    if (taskInitialized != null) {
-      return taskInitialized();
+    if (initialized != null) {
+      return initialized();
     }
     return orElse();
   }
@@ -3583,9 +3452,9 @@ class _$_TaskInitialized
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
     required TResult Function(_LoggedOut value) loggedOut,
-    required TResult Function(_TaskInitialized value) taskInitialized,
+    required TResult Function(_Initialized value) initialized,
   }) {
-    return taskInitialized(this);
+    return initialized(this);
   }
 
   @override
@@ -3604,9 +3473,9 @@ class _$_TaskInitialized
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
   }) {
-    return taskInitialized?.call(this);
+    return initialized?.call(this);
   }
 
   @override
@@ -3625,18 +3494,18 @@ class _$_TaskInitialized
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
     TResult Function(_LoggedOut value)? loggedOut,
-    TResult Function(_TaskInitialized value)? taskInitialized,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
-    if (taskInitialized != null) {
-      return taskInitialized(this);
+    if (initialized != null) {
+      return initialized(this);
     }
     return orElse();
   }
 }
 
-abstract class _TaskInitialized implements ResponseEvent {
-  const factory _TaskInitialized() = _$_TaskInitialized;
+abstract class _Initialized implements ResponseEvent {
+  const factory _Initialized() = _$_Initialized;
 }
 
 /// @nodoc
@@ -3644,45 +3513,49 @@ class _$ResponseStateTearOff {
   const _$ResponseStateTearOff();
 
   _ResponseState call(
-      {required Survey survey,
-      required Respondent respondent,
+      {required UniqueId stateId,
+      required Survey survey,
       required Interviewer interviewer,
-      required ModuleType moduleType,
-      required Map<UniqueId, Response> responseMap,
-      required Map<UniqueId, Response> downloadedResponseMap,
+      required Respondent respondent,
       required Response response,
-      required Map<ModuleType, Response> respondentResponseMap,
+      required Map<UniqueId, Response> responseMap,
       required List<Reference> referenceList,
-      required bool breakInterview,
-      required Map<String, Question> questionMap,
+      required ModuleType moduleType,
       required bool withResponseId,
       required UniqueId responseId,
+      required bool breakInterview,
       required Response mainResponse,
+      required Map<String, Question> questionMap,
+      required Map<UniqueId, Response> downloadedResponseMap,
+      required Map<ModuleType, Response> respondentResponseMap,
       required LoadState responseMapState,
       required Option<SurveyFailure> responseFailure,
       required LoadState eventState,
       required LoadState updateState,
-      required Set<UpdateResponseStateType> updateType}) {
+      required StateParameters updateParameters,
+      required StateParameters saveParameters}) {
     return _ResponseState(
+      stateId: stateId,
       survey: survey,
-      respondent: respondent,
       interviewer: interviewer,
-      moduleType: moduleType,
-      responseMap: responseMap,
-      downloadedResponseMap: downloadedResponseMap,
+      respondent: respondent,
       response: response,
-      respondentResponseMap: respondentResponseMap,
+      responseMap: responseMap,
       referenceList: referenceList,
-      breakInterview: breakInterview,
-      questionMap: questionMap,
+      moduleType: moduleType,
       withResponseId: withResponseId,
       responseId: responseId,
+      breakInterview: breakInterview,
       mainResponse: mainResponse,
+      questionMap: questionMap,
+      downloadedResponseMap: downloadedResponseMap,
+      respondentResponseMap: respondentResponseMap,
       responseMapState: responseMapState,
       responseFailure: responseFailure,
       eventState: eventState,
       updateState: updateState,
-      updateType: updateType,
+      updateParameters: updateParameters,
+      saveParameters: saveParameters,
     );
   }
 }
@@ -3692,31 +3565,31 @@ const $ResponseState = _$ResponseStateTearOff();
 
 /// @nodoc
 mixin _$ResponseState {
-// H_ 主要資料
+  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
   Survey get survey => throw _privateConstructorUsedError;
-  Respondent get respondent => throw _privateConstructorUsedError;
   Interviewer get interviewer => throw _privateConstructorUsedError;
-  ModuleType get moduleType => throw _privateConstructorUsedError;
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
-  Map<UniqueId, Response> get downloadedResponseMap =>
-      throw _privateConstructorUsedError;
+  Respondent get respondent => throw _privateConstructorUsedError;
   Response get response => throw _privateConstructorUsedError;
-  Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   List<Reference> get referenceList =>
       throw _privateConstructorUsedError; // H_ 中間資料
-  bool get breakInterview => throw _privateConstructorUsedError;
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
   UniqueId get responseId => throw _privateConstructorUsedError;
-  Response get mainResponse => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  bool get breakInterview => throw _privateConstructorUsedError;
+  Response get mainResponse => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get downloadedResponseMap =>
+      throw _privateConstructorUsedError;
+  Map<ModuleType, Response> get respondentResponseMap =>
+      throw _privateConstructorUsedError; // H_ 狀態更新進度
   LoadState get responseMapState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get responseFailure =>
       throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
-  LoadState get updateState => throw _privateConstructorUsedError;
-  Set<UpdateResponseStateType> get updateType =>
-      throw _privateConstructorUsedError;
+  LoadState get updateState => throw _privateConstructorUsedError; // H_ 更新/儲存參數
+  StateParameters get updateParameters => throw _privateConstructorUsedError;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ResponseStateCopyWith<ResponseState> get copyWith =>
@@ -3729,36 +3602,41 @@ abstract class $ResponseStateCopyWith<$Res> {
           ResponseState value, $Res Function(ResponseState) then) =
       _$ResponseStateCopyWithImpl<$Res>;
   $Res call(
-      {Survey survey,
-      Respondent respondent,
+      {UniqueId stateId,
+      Survey survey,
       Interviewer interviewer,
-      ModuleType moduleType,
-      Map<UniqueId, Response> responseMap,
-      Map<UniqueId, Response> downloadedResponseMap,
+      Respondent respondent,
       Response response,
-      Map<ModuleType, Response> respondentResponseMap,
+      Map<UniqueId, Response> responseMap,
       List<Reference> referenceList,
-      bool breakInterview,
-      Map<String, Question> questionMap,
+      ModuleType moduleType,
       bool withResponseId,
       UniqueId responseId,
+      bool breakInterview,
       Response mainResponse,
+      Map<String, Question> questionMap,
+      Map<UniqueId, Response> downloadedResponseMap,
+      Map<ModuleType, Response> respondentResponseMap,
       LoadState responseMapState,
       Option<SurveyFailure> responseFailure,
       LoadState eventState,
       LoadState updateState,
-      Set<UpdateResponseStateType> updateType});
+      StateParameters updateParameters,
+      StateParameters saveParameters});
 
+  $UniqueIdCopyWith<$Res> get stateId;
   $SurveyCopyWith<$Res> get survey;
-  $RespondentCopyWith<$Res> get respondent;
   $InterviewerCopyWith<$Res> get interviewer;
-  $ModuleTypeCopyWith<$Res> get moduleType;
+  $RespondentCopyWith<$Res> get respondent;
   $ResponseCopyWith<$Res> get response;
+  $ModuleTypeCopyWith<$Res> get moduleType;
   $UniqueIdCopyWith<$Res> get responseId;
   $ResponseCopyWith<$Res> get mainResponse;
   $LoadStateCopyWith<$Res> get responseMapState;
   $LoadStateCopyWith<$Res> get eventState;
   $LoadStateCopyWith<$Res> get updateState;
+  $StateParametersCopyWith<$Res> get updateParameters;
+  $StateParametersCopyWith<$Res> get saveParameters;
 }
 
 /// @nodoc
@@ -3772,71 +3650,61 @@ class _$ResponseStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? stateId = freezed,
     Object? survey = freezed,
-    Object? respondent = freezed,
     Object? interviewer = freezed,
-    Object? moduleType = freezed,
-    Object? responseMap = freezed,
-    Object? downloadedResponseMap = freezed,
+    Object? respondent = freezed,
     Object? response = freezed,
-    Object? respondentResponseMap = freezed,
+    Object? responseMap = freezed,
     Object? referenceList = freezed,
-    Object? breakInterview = freezed,
-    Object? questionMap = freezed,
+    Object? moduleType = freezed,
     Object? withResponseId = freezed,
     Object? responseId = freezed,
+    Object? breakInterview = freezed,
     Object? mainResponse = freezed,
+    Object? questionMap = freezed,
+    Object? downloadedResponseMap = freezed,
+    Object? respondentResponseMap = freezed,
     Object? responseMapState = freezed,
     Object? responseFailure = freezed,
     Object? eventState = freezed,
     Object? updateState = freezed,
-    Object? updateType = freezed,
+    Object? updateParameters = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_value.copyWith(
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
-      respondent: respondent == freezed
-          ? _value.respondent
-          : respondent // ignore: cast_nullable_to_non_nullable
-              as Respondent,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer // ignore: cast_nullable_to_non_nullable
               as Interviewer,
-      moduleType: moduleType == freezed
-          ? _value.moduleType
-          : moduleType // ignore: cast_nullable_to_non_nullable
-              as ModuleType,
-      responseMap: responseMap == freezed
-          ? _value.responseMap
-          : responseMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
-      downloadedResponseMap: downloadedResponseMap == freezed
-          ? _value.downloadedResponseMap
-          : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
       response: response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as Response,
-      respondentResponseMap: respondentResponseMap == freezed
-          ? _value.respondentResponseMap
-          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<ModuleType, Response>,
+      responseMap: responseMap == freezed
+          ? _value.responseMap
+          : responseMap // ignore: cast_nullable_to_non_nullable
+              as Map<UniqueId, Response>,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
               as List<Reference>,
-      breakInterview: breakInterview == freezed
-          ? _value.breakInterview
-          : breakInterview // ignore: cast_nullable_to_non_nullable
-              as bool,
-      questionMap: questionMap == freezed
-          ? _value.questionMap
-          : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
@@ -3845,10 +3713,26 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainResponse: mainResponse == freezed
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
               as Response,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
+      downloadedResponseMap: downloadedResponseMap == freezed
+          ? _value.downloadedResponseMap
+          : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<UniqueId, Response>,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
       responseMapState: responseMapState == freezed
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
@@ -3865,24 +3749,28 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      updateType: updateType == freezed
-          ? _value.updateType
-          : updateType // ignore: cast_nullable_to_non_nullable
-              as Set<UpdateResponseStateType>,
+      updateParameters: updateParameters == freezed
+          ? _value.updateParameters
+          : updateParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
     ));
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get stateId {
+    return $UniqueIdCopyWith<$Res>(_value.stateId, (value) {
+      return _then(_value.copyWith(stateId: value));
+    });
   }
 
   @override
   $SurveyCopyWith<$Res> get survey {
     return $SurveyCopyWith<$Res>(_value.survey, (value) {
       return _then(_value.copyWith(survey: value));
-    });
-  }
-
-  @override
-  $RespondentCopyWith<$Res> get respondent {
-    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
-      return _then(_value.copyWith(respondent: value));
     });
   }
 
@@ -3894,9 +3782,9 @@ class _$ResponseStateCopyWithImpl<$Res>
   }
 
   @override
-  $ModuleTypeCopyWith<$Res> get moduleType {
-    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
-      return _then(_value.copyWith(moduleType: value));
+  $RespondentCopyWith<$Res> get respondent {
+    return $RespondentCopyWith<$Res>(_value.respondent, (value) {
+      return _then(_value.copyWith(respondent: value));
     });
   }
 
@@ -3904,6 +3792,13 @@ class _$ResponseStateCopyWithImpl<$Res>
   $ResponseCopyWith<$Res> get response {
     return $ResponseCopyWith<$Res>(_value.response, (value) {
       return _then(_value.copyWith(response: value));
+    });
+  }
+
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType {
+    return $ModuleTypeCopyWith<$Res>(_value.moduleType, (value) {
+      return _then(_value.copyWith(moduleType: value));
     });
   }
 
@@ -3941,6 +3836,20 @@ class _$ResponseStateCopyWithImpl<$Res>
       return _then(_value.copyWith(updateState: value));
     });
   }
+
+  @override
+  $StateParametersCopyWith<$Res> get updateParameters {
+    return $StateParametersCopyWith<$Res>(_value.updateParameters, (value) {
+      return _then(_value.copyWith(updateParameters: value));
+    });
+  }
+
+  @override
+  $StateParametersCopyWith<$Res> get saveParameters {
+    return $StateParametersCopyWith<$Res>(_value.saveParameters, (value) {
+      return _then(_value.copyWith(saveParameters: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -3951,36 +3860,40 @@ abstract class _$ResponseStateCopyWith<$Res>
       __$ResponseStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Survey survey,
-      Respondent respondent,
+      {UniqueId stateId,
+      Survey survey,
       Interviewer interviewer,
-      ModuleType moduleType,
-      Map<UniqueId, Response> responseMap,
-      Map<UniqueId, Response> downloadedResponseMap,
+      Respondent respondent,
       Response response,
-      Map<ModuleType, Response> respondentResponseMap,
+      Map<UniqueId, Response> responseMap,
       List<Reference> referenceList,
-      bool breakInterview,
-      Map<String, Question> questionMap,
+      ModuleType moduleType,
       bool withResponseId,
       UniqueId responseId,
+      bool breakInterview,
       Response mainResponse,
+      Map<String, Question> questionMap,
+      Map<UniqueId, Response> downloadedResponseMap,
+      Map<ModuleType, Response> respondentResponseMap,
       LoadState responseMapState,
       Option<SurveyFailure> responseFailure,
       LoadState eventState,
       LoadState updateState,
-      Set<UpdateResponseStateType> updateType});
+      StateParameters updateParameters,
+      StateParameters saveParameters});
 
+  @override
+  $UniqueIdCopyWith<$Res> get stateId;
   @override
   $SurveyCopyWith<$Res> get survey;
   @override
-  $RespondentCopyWith<$Res> get respondent;
-  @override
   $InterviewerCopyWith<$Res> get interviewer;
   @override
-  $ModuleTypeCopyWith<$Res> get moduleType;
+  $RespondentCopyWith<$Res> get respondent;
   @override
   $ResponseCopyWith<$Res> get response;
+  @override
+  $ModuleTypeCopyWith<$Res> get moduleType;
   @override
   $UniqueIdCopyWith<$Res> get responseId;
   @override
@@ -3991,6 +3904,10 @@ abstract class _$ResponseStateCopyWith<$Res>
   $LoadStateCopyWith<$Res> get eventState;
   @override
   $LoadStateCopyWith<$Res> get updateState;
+  @override
+  $StateParametersCopyWith<$Res> get updateParameters;
+  @override
+  $StateParametersCopyWith<$Res> get saveParameters;
 }
 
 /// @nodoc
@@ -4006,71 +3923,61 @@ class __$ResponseStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? stateId = freezed,
     Object? survey = freezed,
-    Object? respondent = freezed,
     Object? interviewer = freezed,
-    Object? moduleType = freezed,
-    Object? responseMap = freezed,
-    Object? downloadedResponseMap = freezed,
+    Object? respondent = freezed,
     Object? response = freezed,
-    Object? respondentResponseMap = freezed,
+    Object? responseMap = freezed,
     Object? referenceList = freezed,
-    Object? breakInterview = freezed,
-    Object? questionMap = freezed,
+    Object? moduleType = freezed,
     Object? withResponseId = freezed,
     Object? responseId = freezed,
+    Object? breakInterview = freezed,
     Object? mainResponse = freezed,
+    Object? questionMap = freezed,
+    Object? downloadedResponseMap = freezed,
+    Object? respondentResponseMap = freezed,
     Object? responseMapState = freezed,
     Object? responseFailure = freezed,
     Object? eventState = freezed,
     Object? updateState = freezed,
-    Object? updateType = freezed,
+    Object? updateParameters = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_ResponseState(
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
-      respondent: respondent == freezed
-          ? _value.respondent
-          : respondent // ignore: cast_nullable_to_non_nullable
-              as Respondent,
       interviewer: interviewer == freezed
           ? _value.interviewer
           : interviewer // ignore: cast_nullable_to_non_nullable
               as Interviewer,
-      moduleType: moduleType == freezed
-          ? _value.moduleType
-          : moduleType // ignore: cast_nullable_to_non_nullable
-              as ModuleType,
-      responseMap: responseMap == freezed
-          ? _value.responseMap
-          : responseMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
-      downloadedResponseMap: downloadedResponseMap == freezed
-          ? _value.downloadedResponseMap
-          : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<UniqueId, Response>,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as Respondent,
       response: response == freezed
           ? _value.response
           : response // ignore: cast_nullable_to_non_nullable
               as Response,
-      respondentResponseMap: respondentResponseMap == freezed
-          ? _value.respondentResponseMap
-          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
-              as Map<ModuleType, Response>,
+      responseMap: responseMap == freezed
+          ? _value.responseMap
+          : responseMap // ignore: cast_nullable_to_non_nullable
+              as Map<UniqueId, Response>,
       referenceList: referenceList == freezed
           ? _value.referenceList
           : referenceList // ignore: cast_nullable_to_non_nullable
               as List<Reference>,
-      breakInterview: breakInterview == freezed
-          ? _value.breakInterview
-          : breakInterview // ignore: cast_nullable_to_non_nullable
-              as bool,
-      questionMap: questionMap == freezed
-          ? _value.questionMap
-          : questionMap // ignore: cast_nullable_to_non_nullable
-              as Map<String, Question>,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as ModuleType,
       withResponseId: withResponseId == freezed
           ? _value.withResponseId
           : withResponseId // ignore: cast_nullable_to_non_nullable
@@ -4079,10 +3986,26 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      breakInterview: breakInterview == freezed
+          ? _value.breakInterview
+          : breakInterview // ignore: cast_nullable_to_non_nullable
+              as bool,
       mainResponse: mainResponse == freezed
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
               as Response,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Question>,
+      downloadedResponseMap: downloadedResponseMap == freezed
+          ? _value.downloadedResponseMap
+          : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<UniqueId, Response>,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as Map<ModuleType, Response>,
       responseMapState: responseMapState == freezed
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
@@ -4099,67 +4022,75 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      updateType: updateType == freezed
-          ? _value.updateType
-          : updateType // ignore: cast_nullable_to_non_nullable
-              as Set<UpdateResponseStateType>,
+      updateParameters: updateParameters == freezed
+          ? _value.updateParameters
+          : updateParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
+class _$_ResponseState extends _ResponseState {
   const _$_ResponseState(
-      {required this.survey,
-      required this.respondent,
+      {required this.stateId,
+      required this.survey,
       required this.interviewer,
-      required this.moduleType,
-      required this.responseMap,
-      required this.downloadedResponseMap,
+      required this.respondent,
       required this.response,
-      required this.respondentResponseMap,
+      required this.responseMap,
       required this.referenceList,
-      required this.breakInterview,
-      required this.questionMap,
+      required this.moduleType,
       required this.withResponseId,
       required this.responseId,
+      required this.breakInterview,
       required this.mainResponse,
+      required this.questionMap,
+      required this.downloadedResponseMap,
+      required this.respondentResponseMap,
       required this.responseMapState,
       required this.responseFailure,
       required this.eventState,
       required this.updateState,
-      required this.updateType})
+      required this.updateParameters,
+      required this.saveParameters})
       : super._();
 
+  @override
+  final UniqueId stateId;
   @override // H_ 主要資料
   final Survey survey;
   @override
-  final Respondent respondent;
-  @override
   final Interviewer interviewer;
   @override
-  final ModuleType moduleType;
-  @override
-  final Map<UniqueId, Response> responseMap;
-  @override
-  final Map<UniqueId, Response> downloadedResponseMap;
+  final Respondent respondent;
   @override
   final Response response;
   @override
-  final Map<ModuleType, Response> respondentResponseMap;
+  final Map<UniqueId, Response> responseMap;
   @override
   final List<Reference> referenceList;
   @override // H_ 中間資料
-  final bool breakInterview;
-  @override
-  final Map<String, Question> questionMap;
+  final ModuleType moduleType;
   @override
   final bool withResponseId;
   @override
   final UniqueId responseId;
   @override
+  final bool breakInterview;
+  @override
   final Response mainResponse;
+  @override
+  final Map<String, Question> questionMap;
+  @override
+  final Map<UniqueId, Response> downloadedResponseMap;
+  @override
+  final Map<ModuleType, Response> respondentResponseMap;
   @override // H_ 狀態更新進度
   final LoadState responseMapState;
   @override
@@ -4168,85 +4099,64 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   final LoadState eventState;
   @override
   final LoadState updateState;
+  @override // H_ 更新/儲存參數
+  final StateParameters updateParameters;
   @override
-  final Set<UpdateResponseStateType> updateType;
+  final StateParameters saveParameters;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ResponseState(survey: $survey, respondent: $respondent, interviewer: $interviewer, moduleType: $moduleType, responseMap: $responseMap, downloadedResponseMap: $downloadedResponseMap, response: $response, respondentResponseMap: $respondentResponseMap, referenceList: $referenceList, breakInterview: $breakInterview, questionMap: $questionMap, withResponseId: $withResponseId, responseId: $responseId, mainResponse: $mainResponse, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateType: $updateType)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ResponseState'))
-      ..add(DiagnosticsProperty('survey', survey))
-      ..add(DiagnosticsProperty('respondent', respondent))
-      ..add(DiagnosticsProperty('interviewer', interviewer))
-      ..add(DiagnosticsProperty('moduleType', moduleType))
-      ..add(DiagnosticsProperty('responseMap', responseMap))
-      ..add(DiagnosticsProperty('downloadedResponseMap', downloadedResponseMap))
-      ..add(DiagnosticsProperty('response', response))
-      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
-      ..add(DiagnosticsProperty('referenceList', referenceList))
-      ..add(DiagnosticsProperty('breakInterview', breakInterview))
-      ..add(DiagnosticsProperty('questionMap', questionMap))
-      ..add(DiagnosticsProperty('withResponseId', withResponseId))
-      ..add(DiagnosticsProperty('responseId', responseId))
-      ..add(DiagnosticsProperty('mainResponse', mainResponse))
-      ..add(DiagnosticsProperty('responseMapState', responseMapState))
-      ..add(DiagnosticsProperty('responseFailure', responseFailure))
-      ..add(DiagnosticsProperty('eventState', eventState))
-      ..add(DiagnosticsProperty('updateState', updateState))
-      ..add(DiagnosticsProperty('updateType', updateType));
+  String toString() {
+    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, withResponseId: $withResponseId, responseId: $responseId, breakInterview: $breakInterview, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _ResponseState &&
+            (identical(other.stateId, stateId) ||
+                const DeepCollectionEquality()
+                    .equals(other.stateId, stateId)) &&
             (identical(other.survey, survey) ||
                 const DeepCollectionEquality().equals(other.survey, survey)) &&
-            (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
             (identical(other.interviewer, interviewer) ||
                 const DeepCollectionEquality()
                     .equals(other.interviewer, interviewer)) &&
-            (identical(other.moduleType, moduleType) ||
+            (identical(other.respondent, respondent) ||
                 const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
-            (identical(other.responseMap, responseMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMap, responseMap)) &&
-            (identical(other.downloadedResponseMap, downloadedResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.downloadedResponseMap, downloadedResponseMap)) &&
+                    .equals(other.respondent, respondent)) &&
             (identical(other.response, response) ||
                 const DeepCollectionEquality()
                     .equals(other.response, response)) &&
-            (identical(other.respondentResponseMap, respondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.respondentResponseMap, respondentResponseMap)) &&
+            (identical(other.responseMap, responseMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseMap, responseMap)) &&
             (identical(other.referenceList, referenceList) ||
                 const DeepCollectionEquality()
                     .equals(other.referenceList, referenceList)) &&
-            (identical(other.breakInterview, breakInterview) ||
+            (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
-                    .equals(other.breakInterview, breakInterview)) &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
+                    .equals(other.moduleType, moduleType)) &&
             (identical(other.withResponseId, withResponseId) ||
                 const DeepCollectionEquality()
                     .equals(other.withResponseId, withResponseId)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
                     .equals(other.responseId, responseId)) &&
+            (identical(other.breakInterview, breakInterview) ||
+                const DeepCollectionEquality()
+                    .equals(other.breakInterview, breakInterview)) &&
             (identical(other.mainResponse, mainResponse) ||
                 const DeepCollectionEquality()
                     .equals(other.mainResponse, mainResponse)) &&
+            (identical(other.questionMap, questionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionMap, questionMap)) &&
+            (identical(other.downloadedResponseMap, downloadedResponseMap) ||
+                const DeepCollectionEquality().equals(
+                    other.downloadedResponseMap, downloadedResponseMap)) &&
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
+                const DeepCollectionEquality().equals(
+                    other.respondentResponseMap, respondentResponseMap)) &&
             (identical(other.responseMapState, responseMapState) ||
                 const DeepCollectionEquality()
                     .equals(other.responseMapState, responseMapState)) &&
@@ -4259,33 +4169,38 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
             (identical(other.updateState, updateState) ||
                 const DeepCollectionEquality()
                     .equals(other.updateState, updateState)) &&
-            (identical(other.updateType, updateType) ||
+            (identical(other.updateParameters, updateParameters) ||
                 const DeepCollectionEquality()
-                    .equals(other.updateType, updateType)));
+                    .equals(other.updateParameters, updateParameters)) &&
+            (identical(other.saveParameters, saveParameters) ||
+                const DeepCollectionEquality()
+                    .equals(other.saveParameters, saveParameters)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(stateId) ^
       const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(interviewer) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(responseMap) ^
-      const DeepCollectionEquality().hash(downloadedResponseMap) ^
+      const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(response) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
+      const DeepCollectionEquality().hash(responseMap) ^
       const DeepCollectionEquality().hash(referenceList) ^
-      const DeepCollectionEquality().hash(breakInterview) ^
-      const DeepCollectionEquality().hash(questionMap) ^
+      const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(withResponseId) ^
       const DeepCollectionEquality().hash(responseId) ^
+      const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(mainResponse) ^
+      const DeepCollectionEquality().hash(questionMap) ^
+      const DeepCollectionEquality().hash(downloadedResponseMap) ^
+      const DeepCollectionEquality().hash(respondentResponseMap) ^
       const DeepCollectionEquality().hash(responseMapState) ^
       const DeepCollectionEquality().hash(responseFailure) ^
       const DeepCollectionEquality().hash(eventState) ^
       const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(updateType);
+      const DeepCollectionEquality().hash(updateParameters) ^
+      const DeepCollectionEquality().hash(saveParameters);
 
   @JsonKey(ignore: true)
   @override
@@ -4295,57 +4210,61 @@ class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
 
 abstract class _ResponseState extends ResponseState {
   const factory _ResponseState(
-      {required Survey survey,
-      required Respondent respondent,
+      {required UniqueId stateId,
+      required Survey survey,
       required Interviewer interviewer,
-      required ModuleType moduleType,
-      required Map<UniqueId, Response> responseMap,
-      required Map<UniqueId, Response> downloadedResponseMap,
+      required Respondent respondent,
       required Response response,
-      required Map<ModuleType, Response> respondentResponseMap,
+      required Map<UniqueId, Response> responseMap,
       required List<Reference> referenceList,
-      required bool breakInterview,
-      required Map<String, Question> questionMap,
+      required ModuleType moduleType,
       required bool withResponseId,
       required UniqueId responseId,
+      required bool breakInterview,
       required Response mainResponse,
+      required Map<String, Question> questionMap,
+      required Map<UniqueId, Response> downloadedResponseMap,
+      required Map<ModuleType, Response> respondentResponseMap,
       required LoadState responseMapState,
       required Option<SurveyFailure> responseFailure,
       required LoadState eventState,
       required LoadState updateState,
-      required Set<UpdateResponseStateType> updateType}) = _$_ResponseState;
+      required StateParameters updateParameters,
+      required StateParameters saveParameters}) = _$_ResponseState;
   const _ResponseState._() : super._();
 
+  @override
+  UniqueId get stateId => throw _privateConstructorUsedError;
   @override // H_ 主要資料
   Survey get survey => throw _privateConstructorUsedError;
   @override
-  Respondent get respondent => throw _privateConstructorUsedError;
-  @override
   Interviewer get interviewer => throw _privateConstructorUsedError;
   @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
-  @override
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
-  @override
-  Map<UniqueId, Response> get downloadedResponseMap =>
-      throw _privateConstructorUsedError;
+  Respondent get respondent => throw _privateConstructorUsedError;
   @override
   Response get response => throw _privateConstructorUsedError;
   @override
-  Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   @override
   List<Reference> get referenceList => throw _privateConstructorUsedError;
   @override // H_ 中間資料
-  bool get breakInterview => throw _privateConstructorUsedError;
-  @override
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  ModuleType get moduleType => throw _privateConstructorUsedError;
   @override
   bool get withResponseId => throw _privateConstructorUsedError;
   @override
   UniqueId get responseId => throw _privateConstructorUsedError;
   @override
+  bool get breakInterview => throw _privateConstructorUsedError;
+  @override
   Response get mainResponse => throw _privateConstructorUsedError;
+  @override
+  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  @override
+  Map<UniqueId, Response> get downloadedResponseMap =>
+      throw _privateConstructorUsedError;
+  @override
+  Map<ModuleType, Response> get respondentResponseMap =>
+      throw _privateConstructorUsedError;
   @override // H_ 狀態更新進度
   LoadState get responseMapState => throw _privateConstructorUsedError;
   @override
@@ -4355,9 +4274,10 @@ abstract class _ResponseState extends ResponseState {
   LoadState get eventState => throw _privateConstructorUsedError;
   @override
   LoadState get updateState => throw _privateConstructorUsedError;
+  @override // H_ 更新/儲存參數
+  StateParameters get updateParameters => throw _privateConstructorUsedError;
   @override
-  Set<UpdateResponseStateType> get updateType =>
-      throw _privateConstructorUsedError;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateCopyWith<_ResponseState> get copyWith =>
@@ -4365,143 +4285,365 @@ abstract class _ResponseState extends ResponseState {
 }
 
 /// @nodoc
-class _$UpdateResponseStateTypeTearOff {
-  const _$UpdateResponseStateTypeTearOff();
+class _$StateParametersTearOff {
+  const _$StateParametersTearOff();
 
-  _UpdateResponseStateType call(String value) {
-    return _UpdateResponseStateType(
-      value,
+  _StateParameters call(
+      {required bool referenceList,
+      required bool response,
+      required bool survey,
+      required bool interviewer,
+      required bool respondent,
+      required bool responseMap,
+      required Set<dynamic> responseMapKeys,
+      required bool visitReportsMap,
+      required bool respondentResponseMap,
+      required bool tabRespondentMap}) {
+    return _StateParameters(
+      referenceList: referenceList,
+      response: response,
+      survey: survey,
+      interviewer: interviewer,
+      respondent: respondent,
+      responseMap: responseMap,
+      responseMapKeys: responseMapKeys,
+      visitReportsMap: visitReportsMap,
+      respondentResponseMap: respondentResponseMap,
+      tabRespondentMap: tabRespondentMap,
     );
   }
 }
 
 /// @nodoc
-const $UpdateResponseStateType = _$UpdateResponseStateTypeTearOff();
+const $StateParameters = _$StateParametersTearOff();
 
 /// @nodoc
-mixin _$UpdateResponseStateType {
-  String get value => throw _privateConstructorUsedError;
+mixin _$StateParameters {
+// H_ 共用
+  bool get referenceList => throw _privateConstructorUsedError;
+  bool get response => throw _privateConstructorUsedError; // H_ 儲存
+  bool get survey => throw _privateConstructorUsedError;
+  bool get interviewer => throw _privateConstructorUsedError;
+  bool get respondent => throw _privateConstructorUsedError;
+  bool get responseMap => throw _privateConstructorUsedError;
+  Set<dynamic> get responseMapKeys =>
+      throw _privateConstructorUsedError; // H_ 更新
+  bool get visitReportsMap => throw _privateConstructorUsedError;
+  bool get respondentResponseMap => throw _privateConstructorUsedError;
+  bool get tabRespondentMap => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UpdateResponseStateTypeCopyWith<UpdateResponseStateType> get copyWith =>
+  $StateParametersCopyWith<StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UpdateResponseStateTypeCopyWith<$Res> {
-  factory $UpdateResponseStateTypeCopyWith(UpdateResponseStateType value,
-          $Res Function(UpdateResponseStateType) then) =
-      _$UpdateResponseStateTypeCopyWithImpl<$Res>;
-  $Res call({String value});
+abstract class $StateParametersCopyWith<$Res> {
+  factory $StateParametersCopyWith(
+          StateParameters value, $Res Function(StateParameters) then) =
+      _$StateParametersCopyWithImpl<$Res>;
+  $Res call(
+      {bool referenceList,
+      bool response,
+      bool survey,
+      bool interviewer,
+      bool respondent,
+      bool responseMap,
+      Set<dynamic> responseMapKeys,
+      bool visitReportsMap,
+      bool respondentResponseMap,
+      bool tabRespondentMap});
 }
 
 /// @nodoc
-class _$UpdateResponseStateTypeCopyWithImpl<$Res>
-    implements $UpdateResponseStateTypeCopyWith<$Res> {
-  _$UpdateResponseStateTypeCopyWithImpl(this._value, this._then);
+class _$StateParametersCopyWithImpl<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  _$StateParametersCopyWithImpl(this._value, this._then);
 
-  final UpdateResponseStateType _value;
+  final StateParameters _value;
   // ignore: unused_field
-  final $Res Function(UpdateResponseStateType) _then;
+  final $Res Function(StateParameters) _then;
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? referenceList = freezed,
+    Object? response = freezed,
+    Object? survey = freezed,
+    Object? interviewer = freezed,
+    Object? respondent = freezed,
+    Object? responseMap = freezed,
+    Object? responseMapKeys = freezed,
+    Object? visitReportsMap = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? tabRespondentMap = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as bool,
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as bool,
+      survey: survey == freezed
+          ? _value.survey
+          : survey // ignore: cast_nullable_to_non_nullable
+              as bool,
+      interviewer: interviewer == freezed
+          ? _value.interviewer
+          : interviewer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      responseMap: responseMap == freezed
+          ? _value.responseMap
+          : responseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      responseMapKeys: responseMapKeys == freezed
+          ? _value.responseMapKeys
+          : responseMapKeys // ignore: cast_nullable_to_non_nullable
+              as Set<dynamic>,
+      visitReportsMap: visitReportsMap == freezed
+          ? _value.visitReportsMap
+          : visitReportsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tabRespondentMap: tabRespondentMap == freezed
+          ? _value.tabRespondentMap
+          : tabRespondentMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$UpdateResponseStateTypeCopyWith<$Res>
-    implements $UpdateResponseStateTypeCopyWith<$Res> {
-  factory _$UpdateResponseStateTypeCopyWith(_UpdateResponseStateType value,
-          $Res Function(_UpdateResponseStateType) then) =
-      __$UpdateResponseStateTypeCopyWithImpl<$Res>;
+abstract class _$StateParametersCopyWith<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  factory _$StateParametersCopyWith(
+          _StateParameters value, $Res Function(_StateParameters) then) =
+      __$StateParametersCopyWithImpl<$Res>;
   @override
-  $Res call({String value});
+  $Res call(
+      {bool referenceList,
+      bool response,
+      bool survey,
+      bool interviewer,
+      bool respondent,
+      bool responseMap,
+      Set<dynamic> responseMapKeys,
+      bool visitReportsMap,
+      bool respondentResponseMap,
+      bool tabRespondentMap});
 }
 
 /// @nodoc
-class __$UpdateResponseStateTypeCopyWithImpl<$Res>
-    extends _$UpdateResponseStateTypeCopyWithImpl<$Res>
-    implements _$UpdateResponseStateTypeCopyWith<$Res> {
-  __$UpdateResponseStateTypeCopyWithImpl(_UpdateResponseStateType _value,
-      $Res Function(_UpdateResponseStateType) _then)
-      : super(_value, (v) => _then(v as _UpdateResponseStateType));
+class __$StateParametersCopyWithImpl<$Res>
+    extends _$StateParametersCopyWithImpl<$Res>
+    implements _$StateParametersCopyWith<$Res> {
+  __$StateParametersCopyWithImpl(
+      _StateParameters _value, $Res Function(_StateParameters) _then)
+      : super(_value, (v) => _then(v as _StateParameters));
 
   @override
-  _UpdateResponseStateType get _value =>
-      super._value as _UpdateResponseStateType;
+  _StateParameters get _value => super._value as _StateParameters;
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? referenceList = freezed,
+    Object? response = freezed,
+    Object? survey = freezed,
+    Object? interviewer = freezed,
+    Object? respondent = freezed,
+    Object? responseMap = freezed,
+    Object? responseMapKeys = freezed,
+    Object? visitReportsMap = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? tabRespondentMap = freezed,
   }) {
-    return _then(_UpdateResponseStateType(
-      value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_StateParameters(
+      referenceList: referenceList == freezed
+          ? _value.referenceList
+          : referenceList // ignore: cast_nullable_to_non_nullable
+              as bool,
+      response: response == freezed
+          ? _value.response
+          : response // ignore: cast_nullable_to_non_nullable
+              as bool,
+      survey: survey == freezed
+          ? _value.survey
+          : survey // ignore: cast_nullable_to_non_nullable
+              as bool,
+      interviewer: interviewer == freezed
+          ? _value.interviewer
+          : interviewer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      responseMap: responseMap == freezed
+          ? _value.responseMap
+          : responseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      responseMapKeys: responseMapKeys == freezed
+          ? _value.responseMapKeys
+          : responseMapKeys // ignore: cast_nullable_to_non_nullable
+              as Set<dynamic>,
+      visitReportsMap: visitReportsMap == freezed
+          ? _value.visitReportsMap
+          : visitReportsMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      tabRespondentMap: tabRespondentMap == freezed
+          ? _value.tabRespondentMap
+          : tabRespondentMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_UpdateResponseStateType extends _UpdateResponseStateType
-    with DiagnosticableTreeMixin {
-  const _$_UpdateResponseStateType(this.value) : super._();
+class _$_StateParameters extends _StateParameters {
+  const _$_StateParameters(
+      {required this.referenceList,
+      required this.response,
+      required this.survey,
+      required this.interviewer,
+      required this.respondent,
+      required this.responseMap,
+      required this.responseMapKeys,
+      required this.visitReportsMap,
+      required this.respondentResponseMap,
+      required this.tabRespondentMap})
+      : super._();
+
+  @override // H_ 共用
+  final bool referenceList;
+  @override
+  final bool response;
+  @override // H_ 儲存
+  final bool survey;
+  @override
+  final bool interviewer;
+  @override
+  final bool respondent;
+  @override
+  final bool responseMap;
+  @override
+  final Set<dynamic> responseMapKeys;
+  @override // H_ 更新
+  final bool visitReportsMap;
+  @override
+  final bool respondentResponseMap;
+  @override
+  final bool tabRespondentMap;
 
   @override
-  final String value;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateResponseStateType(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UpdateResponseStateType'))
-      ..add(DiagnosticsProperty('value', value));
+  String toString() {
+    return 'StateParameters(referenceList: $referenceList, response: $response, survey: $survey, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, visitReportsMap: $visitReportsMap, respondentResponseMap: $respondentResponseMap, tabRespondentMap: $tabRespondentMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateResponseStateType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other is _StateParameters &&
+            (identical(other.referenceList, referenceList) ||
+                const DeepCollectionEquality()
+                    .equals(other.referenceList, referenceList)) &&
+            (identical(other.response, response) ||
+                const DeepCollectionEquality()
+                    .equals(other.response, response)) &&
+            (identical(other.survey, survey) ||
+                const DeepCollectionEquality().equals(other.survey, survey)) &&
+            (identical(other.interviewer, interviewer) ||
+                const DeepCollectionEquality()
+                    .equals(other.interviewer, interviewer)) &&
+            (identical(other.respondent, respondent) ||
+                const DeepCollectionEquality()
+                    .equals(other.respondent, respondent)) &&
+            (identical(other.responseMap, responseMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseMap, responseMap)) &&
+            (identical(other.responseMapKeys, responseMapKeys) ||
+                const DeepCollectionEquality()
+                    .equals(other.responseMapKeys, responseMapKeys)) &&
+            (identical(other.visitReportsMap, visitReportsMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.visitReportsMap, visitReportsMap)) &&
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
+                const DeepCollectionEquality().equals(
+                    other.respondentResponseMap, respondentResponseMap)) &&
+            (identical(other.tabRespondentMap, tabRespondentMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.tabRespondentMap, tabRespondentMap)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(referenceList) ^
+      const DeepCollectionEquality().hash(response) ^
+      const DeepCollectionEquality().hash(survey) ^
+      const DeepCollectionEquality().hash(interviewer) ^
+      const DeepCollectionEquality().hash(respondent) ^
+      const DeepCollectionEquality().hash(responseMap) ^
+      const DeepCollectionEquality().hash(responseMapKeys) ^
+      const DeepCollectionEquality().hash(visitReportsMap) ^
+      const DeepCollectionEquality().hash(respondentResponseMap) ^
+      const DeepCollectionEquality().hash(tabRespondentMap);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateResponseStateTypeCopyWith<_UpdateResponseStateType> get copyWith =>
-      __$UpdateResponseStateTypeCopyWithImpl<_UpdateResponseStateType>(
-          this, _$identity);
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+      __$StateParametersCopyWithImpl<_StateParameters>(this, _$identity);
 }
 
-abstract class _UpdateResponseStateType extends UpdateResponseStateType {
-  const factory _UpdateResponseStateType(String value) =
-      _$_UpdateResponseStateType;
-  const _UpdateResponseStateType._() : super._();
+abstract class _StateParameters extends StateParameters {
+  const factory _StateParameters(
+      {required bool referenceList,
+      required bool response,
+      required bool survey,
+      required bool interviewer,
+      required bool respondent,
+      required bool responseMap,
+      required Set<dynamic> responseMapKeys,
+      required bool visitReportsMap,
+      required bool respondentResponseMap,
+      required bool tabRespondentMap}) = _$_StateParameters;
+  const _StateParameters._() : super._();
 
+  @override // H_ 共用
+  bool get referenceList => throw _privateConstructorUsedError;
   @override
-  String get value => throw _privateConstructorUsedError;
+  bool get response => throw _privateConstructorUsedError;
+  @override // H_ 儲存
+  bool get survey => throw _privateConstructorUsedError;
+  @override
+  bool get interviewer => throw _privateConstructorUsedError;
+  @override
+  bool get respondent => throw _privateConstructorUsedError;
+  @override
+  bool get responseMap => throw _privateConstructorUsedError;
+  @override
+  Set<dynamic> get responseMapKeys => throw _privateConstructorUsedError;
+  @override // H_ 更新
+  bool get visitReportsMap => throw _privateConstructorUsedError;
+  @override
+  bool get respondentResponseMap => throw _privateConstructorUsedError;
+  @override
+  bool get tabRespondentMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UpdateResponseStateTypeCopyWith<_UpdateResponseStateType> get copyWith =>
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }

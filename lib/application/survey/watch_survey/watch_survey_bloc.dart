@@ -1,103 +1,81 @@
 import 'dart:async';
 
-import 'package:dartz/dartz.dart';
+import 'package:async_task/async_task.dart';
+import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
+import 'package:tuple/tuple.dart';
 
+import '../../../domain/core/i_local_storage.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/overview/survey.dart';
 import '../../../domain/survey/i_survey_repository.dart';
 import '../../../domain/survey/survey_failure.dart';
+import '../../../infrastructure/core/event_task.dart';
+import '../../../infrastructure/core/isolate_bloc.dart';
 import '../../../infrastructure/survey/survey_state_dtos.dart';
 
 part 'watch_survey_bloc.freezed.dart';
 part 'watch_survey_event.dart';
+part 'watch_survey_event_worker.dart';
 part 'watch_survey_state.dart';
 
-class WatchSurveyBloc extends HydratedBloc<WatchSurveyEvent, WatchSurveyState> {
+class WatchSurveyBloc extends IsolateBloc<WatchSurveyEvent, WatchSurveyState> {
   final ISurveyRepository _surveyRepository;
-  StreamSubscription<Either<SurveyFailure, List<Survey>>>?
-      _surveyListSubscription;
+  StreamSubscription<Either<SurveyFailure, Map<String, Survey>>>?
+      _surveyMapSubscription;
 
-  WatchSurveyBloc(this._surveyRepository) : super(WatchSurveyState.initial());
+  WatchSurveyBloc(
+    this._surveyRepository,
+  ) : super(WatchSurveyState.initial()) {
+    add(const WatchSurveyEvent.initialized());
+  }
 
   @override
   Stream<WatchSurveyState> mapEventToState(
     WatchSurveyEvent event,
   ) async* {
-    yield* event.map(
-      watchSurveyListStarted: (e) async* {
-        logger('Watch').i('WatchSurveyBloc: watchSurveyListStarted');
-
-        yield state.copyWith(
-          surveyListState: LoadState.inProgress(),
-          surveyFailure: none(),
+    yield* event.maybeMap(
+      initialized: (e) async* {
+        await initialize(
+          boxName: 'WatchSurveyState',
+          stateFromStorage: stateFromStorage,
+          eventWorker: _eventWorker,
+          taskTypeRegister: _taskTypeRegister,
         );
-        await _surveyListSubscription?.cancel();
-        _surveyListSubscription = _surveyRepository
-            .watchSurveyList(
+      },
+      watchSurveyMapStarted: (e) async* {
+        yield* execute(event);
+
+        await _surveyMapSubscription?.cancel();
+        _surveyMapSubscription = _surveyRepository
+            .watchSurveyMap(
               teamId: e.teamId,
               interviewerId: e.interviewerId,
             )
             .listen(
-              (failureOrSurveyList) =>
-                  add(WatchSurveyEvent.surveyListReceived(failureOrSurveyList)),
+              (failureOrSurveyMap) =>
+                  add(WatchSurveyEvent.surveyMapReceived(failureOrSurveyMap)),
             );
       },
-      surveyListReceived: (e) async* {
-        logger('Receive').i('WatchSurveyBloc: surveyListReceived');
-
-        yield e.failureOrSurveyList.fold(
-          (f) => state.copyWith(
-            surveyListState: LoadState.failure(),
-            surveyFailure: some(f),
-          ),
-          (surveyList) => state.copyWith(
-            surveyListState: LoadState.success(),
-            surveyList: surveyList,
-            surveyFailure: none(),
-          ),
-        );
-      },
-      surveySelected: (e) async* {
-        yield state.copyWith(
-          survey: e.survey,
-          surveyFailure: none(),
-        );
-      },
       loggedOut: (e) async* {
-        _surveyListSubscription?.cancel();
-        yield WatchSurveyState.initial();
+        _surveyMapSubscription?.cancel();
+        yield* execute(event);
+      },
+      orElse: () async* {
+        yield* execute(event);
       },
     );
   }
 
   @override
+  bool executionFinished(WatchSurveyState newState) =>
+      newState.eventState == LoadState.success();
+
+  @override
   Future<void> close() {
-    _surveyListSubscription?.cancel();
+    _surveyMapSubscription?.cancel();
+
     return super.close();
-  }
-
-  @override
-  WatchSurveyState? fromJson(Map<String, dynamic> json) {
-    try {
-      return WatchSurveyStateDto.fromJson(json).toDomain();
-    } catch (_) {
-      return null;
-    }
-  }
-
-  @override
-  Map<String, dynamic>? toJson(WatchSurveyState state) {
-    // try {
-    if (state.surveyListState == LoadState.success()) {
-      return WatchSurveyStateDto.fromDomain(state).toJson();
-    } else {
-      return null;
-    }
-    // } catch (_) {
-    //   return null;
-    // }
   }
 }

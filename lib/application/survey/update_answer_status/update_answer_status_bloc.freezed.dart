@@ -17,10 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$UpdateAnswerStatusEventTearOff {
   const _$UpdateAnswerStatusEventTearOff();
 
-  _TaskInitialized taskInitialized() {
-    return const _TaskInitialized();
-  }
-
   _ModuleLoaded moduleLoaded(
       {required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
@@ -126,6 +122,10 @@ class _$UpdateAnswerStatusEventTearOff {
       referenceList: referenceList,
     );
   }
+
+  _Initialized initialized() {
+    return const _Initialized();
+  }
 }
 
 /// @nodoc
@@ -135,7 +135,6 @@ const $UpdateAnswerStatusEvent = _$UpdateAnswerStatusEventTearOff();
 mixin _$UpdateAnswerStatusEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -172,11 +171,11 @@ mixin _$UpdateAnswerStatusEvent {
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -212,11 +211,11 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -252,12 +251,12 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -275,11 +274,11 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -295,11 +294,11 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -315,6 +314,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -335,267 +335,6 @@ class _$UpdateAnswerStatusEventCopyWithImpl<$Res>
   final UpdateAnswerStatusEvent _value;
   // ignore: unused_field
   final $Res Function(UpdateAnswerStatusEvent) _then;
-}
-
-/// @nodoc
-abstract class _$TaskInitializedCopyWith<$Res> {
-  factory _$TaskInitializedCopyWith(
-          _TaskInitialized value, $Res Function(_TaskInitialized) then) =
-      __$TaskInitializedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$TaskInitializedCopyWithImpl<$Res>
-    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$TaskInitializedCopyWith<$Res> {
-  __$TaskInitializedCopyWithImpl(
-      _TaskInitialized _value, $Res Function(_TaskInitialized) _then)
-      : super(_value, (v) => _then(v as _TaskInitialized));
-
-  @override
-  _TaskInitialized get _value => super._value as _TaskInitialized;
-}
-
-/// @nodoc
-
-class _$_TaskInitialized
-    with DiagnosticableTreeMixin
-    implements _TaskInitialized {
-  const _$_TaskInitialized();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.taskInitialized()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.taskInitialized'));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TaskInitialized);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
-    required TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, Answer> recodeAnswerMap,
-            Map<String, AnswerStatus> recodeAnswerStatusMap,
-            SimpleSurveyPageState surveyPageState,
-            Respondent respondent,
-            String surveyId,
-            ModuleType moduleType,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
-        moduleLoaded,
-    required TResult Function() stateCleared,
-    required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            bool isSpecialAnswer,
-            bool isNote,
-            bool toggle,
-            String? noteOf,
-            bool isRecode)
-        answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(Direction direction, int? page) pageNavigatedTo,
-    required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
-        respondentResponseMapUpdated,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
-  }) {
-    return taskInitialized();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
-    TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, Answer> recodeAnswerMap,
-            Map<String, AnswerStatus> recodeAnswerStatusMap,
-            SimpleSurveyPageState surveyPageState,
-            Respondent respondent,
-            String surveyId,
-            ModuleType moduleType,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            bool isSpecialAnswer,
-            bool isNote,
-            bool toggle,
-            String? noteOf,
-            bool isRecode)?
-        answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
-        respondentResponseMapUpdated,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
-  }) {
-    return taskInitialized?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
-    TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, Answer> recodeAnswerMap,
-            Map<String, AnswerStatus> recodeAnswerStatusMap,
-            SimpleSurveyPageState surveyPageState,
-            Respondent respondent,
-            String surveyId,
-            ModuleType moduleType,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            bool isSpecialAnswer,
-            bool isNote,
-            bool toggle,
-            String? noteOf,
-            bool isRecode)?
-        answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
-        respondentResponseMapUpdated,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
-    required TResult orElse(),
-  }) {
-    if (taskInitialized != null) {
-      return taskInitialized();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
-    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
-    required TResult Function(_ContentQuestionMapUpdated value)
-        contentQuestionMapUpdated,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseMapUpdated,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
-  }) {
-    return taskInitialized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseMapUpdated,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-  }) {
-    return taskInitialized?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseMapUpdated,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    required TResult orElse(),
-  }) {
-    if (taskInitialized != null) {
-      return taskInitialized(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TaskInitialized implements UpdateAnswerStatusEvent {
-  const factory _TaskInitialized() = _$_TaskInitialized;
 }
 
 /// @nodoc
@@ -855,7 +594,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -892,6 +630,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return moduleLoaded(
         answerMap,
@@ -911,7 +650,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -947,6 +685,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return moduleLoaded?.call(
         answerMap,
@@ -966,7 +705,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1002,6 +740,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -1025,7 +764,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -1043,6 +781,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return moduleLoaded(this);
   }
@@ -1050,7 +789,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -1066,6 +804,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return moduleLoaded?.call(this);
   }
@@ -1073,7 +812,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -1089,6 +827,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (moduleLoaded != null) {
@@ -1182,7 +921,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1219,6 +957,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return stateCleared();
   }
@@ -1226,7 +965,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1262,6 +1000,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return stateCleared?.call();
   }
@@ -1269,7 +1008,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1305,6 +1043,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1316,7 +1055,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -1334,6 +1072,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return stateCleared(this);
   }
@@ -1341,7 +1080,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -1357,6 +1095,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return stateCleared?.call(this);
   }
@@ -1364,7 +1103,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -1380,6 +1118,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (stateCleared != null) {
@@ -1556,7 +1295,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1593,6 +1331,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return answerUpdated(questionId, answerValue, isSpecialAnswer, isNote,
         toggle, noteOf, isRecode);
@@ -1601,7 +1340,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1637,6 +1375,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return answerUpdated?.call(questionId, answerValue, isSpecialAnswer, isNote,
         toggle, noteOf, isRecode);
@@ -1645,7 +1384,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1681,6 +1419,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -1693,7 +1432,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -1711,6 +1449,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return answerUpdated(this);
   }
@@ -1718,7 +1457,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -1734,6 +1472,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return answerUpdated?.call(this);
   }
@@ -1741,7 +1480,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -1757,6 +1495,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
@@ -1866,7 +1605,6 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1903,6 +1641,7 @@ class _$_SpecialAnswerSwitched
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return specialAnswerSwitched(questionId);
   }
@@ -1910,7 +1649,6 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1946,6 +1684,7 @@ class _$_SpecialAnswerSwitched
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return specialAnswerSwitched?.call(questionId);
   }
@@ -1953,7 +1692,6 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -1989,6 +1727,7 @@ class _$_SpecialAnswerSwitched
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -2000,7 +1739,6 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -2018,6 +1756,7 @@ class _$_SpecialAnswerSwitched
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return specialAnswerSwitched(this);
   }
@@ -2025,7 +1764,6 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2041,6 +1779,7 @@ class _$_SpecialAnswerSwitched
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return specialAnswerSwitched?.call(this);
   }
@@ -2048,7 +1787,6 @@ class _$_SpecialAnswerSwitched
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2064,6 +1802,7 @@ class _$_SpecialAnswerSwitched
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (specialAnswerSwitched != null) {
@@ -2173,7 +1912,6 @@ class _$_PageNavigatedTo
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2210,6 +1948,7 @@ class _$_PageNavigatedTo
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return pageNavigatedTo(direction, page);
   }
@@ -2217,7 +1956,6 @@ class _$_PageNavigatedTo
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2253,6 +1991,7 @@ class _$_PageNavigatedTo
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return pageNavigatedTo?.call(direction, page);
   }
@@ -2260,7 +1999,6 @@ class _$_PageNavigatedTo
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2296,6 +2034,7 @@ class _$_PageNavigatedTo
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (pageNavigatedTo != null) {
@@ -2307,7 +2046,6 @@ class _$_PageNavigatedTo
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -2325,6 +2063,7 @@ class _$_PageNavigatedTo
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return pageNavigatedTo(this);
   }
@@ -2332,7 +2071,6 @@ class _$_PageNavigatedTo
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2348,6 +2086,7 @@ class _$_PageNavigatedTo
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return pageNavigatedTo?.call(this);
   }
@@ -2355,7 +2094,6 @@ class _$_PageNavigatedTo
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2371,6 +2109,7 @@ class _$_PageNavigatedTo
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (pageNavigatedTo != null) {
@@ -2442,7 +2181,6 @@ class _$_ContentQuestionMapUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2479,6 +2217,7 @@ class _$_ContentQuestionMapUpdated
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return contentQuestionMapUpdated();
   }
@@ -2486,7 +2225,6 @@ class _$_ContentQuestionMapUpdated
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2522,6 +2260,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return contentQuestionMapUpdated?.call();
   }
@@ -2529,7 +2268,6 @@ class _$_ContentQuestionMapUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2565,6 +2303,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (contentQuestionMapUpdated != null) {
@@ -2576,7 +2315,6 @@ class _$_ContentQuestionMapUpdated
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -2594,6 +2332,7 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return contentQuestionMapUpdated(this);
   }
@@ -2601,7 +2340,6 @@ class _$_ContentQuestionMapUpdated
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2617,6 +2355,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return contentQuestionMapUpdated?.call(this);
   }
@@ -2624,7 +2363,6 @@ class _$_ContentQuestionMapUpdated
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2640,6 +2378,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (contentQuestionMapUpdated != null) {
@@ -2703,7 +2442,6 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2740,6 +2478,7 @@ class _$_FinishedButtonPressed
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return finishedButtonPressed();
   }
@@ -2747,7 +2486,6 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2783,6 +2521,7 @@ class _$_FinishedButtonPressed
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return finishedButtonPressed?.call();
   }
@@ -2790,7 +2529,6 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2826,6 +2564,7 @@ class _$_FinishedButtonPressed
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2837,7 +2576,6 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -2855,6 +2593,7 @@ class _$_FinishedButtonPressed
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return finishedButtonPressed(this);
   }
@@ -2862,7 +2601,6 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2878,6 +2616,7 @@ class _$_FinishedButtonPressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return finishedButtonPressed?.call(this);
   }
@@ -2885,7 +2624,6 @@ class _$_FinishedButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -2901,6 +2639,7 @@ class _$_FinishedButtonPressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (finishedButtonPressed != null) {
@@ -2962,7 +2701,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -2999,6 +2737,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return dialogClosed();
   }
@@ -3006,7 +2745,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3042,6 +2780,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return dialogClosed?.call();
   }
@@ -3049,7 +2788,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3085,6 +2823,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -3096,7 +2835,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -3114,6 +2852,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return dialogClosed(this);
   }
@@ -3121,7 +2860,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3137,6 +2875,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return dialogClosed?.call(this);
   }
@@ -3144,7 +2883,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3160,6 +2898,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (dialogClosed != null) {
@@ -3223,7 +2962,6 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3260,6 +2998,7 @@ class _$_LeaveButtonPressed
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return leaveButtonPressed();
   }
@@ -3267,7 +3006,6 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3303,6 +3041,7 @@ class _$_LeaveButtonPressed
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return leaveButtonPressed?.call();
   }
@@ -3310,7 +3049,6 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3346,6 +3084,7 @@ class _$_LeaveButtonPressed
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (leaveButtonPressed != null) {
@@ -3357,7 +3096,6 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -3375,6 +3113,7 @@ class _$_LeaveButtonPressed
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return leaveButtonPressed(this);
   }
@@ -3382,7 +3121,6 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3398,6 +3136,7 @@ class _$_LeaveButtonPressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return leaveButtonPressed?.call(this);
   }
@@ -3405,7 +3144,6 @@ class _$_LeaveButtonPressed
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3421,6 +3159,7 @@ class _$_LeaveButtonPressed
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (leaveButtonPressed != null) {
@@ -3484,7 +3223,6 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3521,6 +3259,7 @@ class _$_LeaveButtonHidden
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return leaveButtonHidden();
   }
@@ -3528,7 +3267,6 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3564,6 +3302,7 @@ class _$_LeaveButtonHidden
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return leaveButtonHidden?.call();
   }
@@ -3571,7 +3310,6 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3607,6 +3345,7 @@ class _$_LeaveButtonHidden
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (leaveButtonHidden != null) {
@@ -3618,7 +3357,6 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -3636,6 +3374,7 @@ class _$_LeaveButtonHidden
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return leaveButtonHidden(this);
   }
@@ -3643,7 +3382,6 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3659,6 +3397,7 @@ class _$_LeaveButtonHidden
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return leaveButtonHidden?.call(this);
   }
@@ -3666,7 +3405,6 @@ class _$_LeaveButtonHidden
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3682,6 +3420,7 @@ class _$_LeaveButtonHidden
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (leaveButtonHidden != null) {
@@ -3773,7 +3512,6 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3810,6 +3548,7 @@ class _$_AppLifeCycleChanged
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return appLifeCycleChanged(isPaused);
   }
@@ -3817,7 +3556,6 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3853,6 +3591,7 @@ class _$_AppLifeCycleChanged
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return appLifeCycleChanged?.call(isPaused);
   }
@@ -3860,7 +3599,6 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -3896,6 +3634,7 @@ class _$_AppLifeCycleChanged
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -3907,7 +3646,6 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -3925,6 +3663,7 @@ class _$_AppLifeCycleChanged
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return appLifeCycleChanged(this);
   }
@@ -3932,7 +3671,6 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3948,6 +3686,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return appLifeCycleChanged?.call(this);
   }
@@ -3955,7 +3694,6 @@ class _$_AppLifeCycleChanged
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -3971,6 +3709,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (appLifeCycleChanged != null) {
@@ -4073,7 +3812,6 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -4110,6 +3848,7 @@ class _$_RespondentResponseListUpdated
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return respondentResponseMapUpdated(respondentResponseMap);
   }
@@ -4117,7 +3856,6 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -4153,6 +3891,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return respondentResponseMapUpdated?.call(respondentResponseMap);
   }
@@ -4160,7 +3899,6 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -4196,6 +3934,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (respondentResponseMapUpdated != null) {
@@ -4207,7 +3946,6 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -4225,6 +3963,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return respondentResponseMapUpdated(this);
   }
@@ -4232,7 +3971,6 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -4248,6 +3986,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return respondentResponseMapUpdated?.call(this);
   }
@@ -4255,7 +3994,6 @@ class _$_RespondentResponseListUpdated
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -4271,6 +4009,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (respondentResponseMapUpdated != null) {
@@ -4371,7 +4110,6 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() taskInitialized,
     required TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -4408,6 +4146,7 @@ class _$_ReferenceListUpdated
         respondentResponseMapUpdated,
     required TResult Function(List<Reference> referenceList)
         referenceListUpdated,
+    required TResult Function() initialized,
   }) {
     return referenceListUpdated(referenceList);
   }
@@ -4415,7 +4154,6 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -4451,6 +4189,7 @@ class _$_ReferenceListUpdated
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
   }) {
     return referenceListUpdated?.call(referenceList);
   }
@@ -4458,7 +4197,6 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? taskInitialized,
     TResult Function(
             Map<String, Answer> answerMap,
             Map<String, AnswerStatus> answerStatusMap,
@@ -4494,6 +4232,7 @@ class _$_ReferenceListUpdated
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (referenceListUpdated != null) {
@@ -4505,7 +4244,6 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_TaskInitialized value) taskInitialized,
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
@@ -4523,6 +4261,7 @@ class _$_ReferenceListUpdated
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
     required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
   }) {
     return referenceListUpdated(this);
   }
@@ -4530,7 +4269,6 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -4546,6 +4284,7 @@ class _$_ReferenceListUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
   }) {
     return referenceListUpdated?.call(this);
   }
@@ -4553,7 +4292,6 @@ class _$_ReferenceListUpdated
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_TaskInitialized value)? taskInitialized,
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
@@ -4569,6 +4307,7 @@ class _$_ReferenceListUpdated
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
     TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
   }) {
     if (referenceListUpdated != null) {
@@ -4589,11 +4328,270 @@ abstract class _ReferenceListUpdated implements UpdateAnswerStatusEvent {
 }
 
 /// @nodoc
+abstract class _$InitializedCopyWith<$Res> {
+  factory _$InitializedCopyWith(
+          _Initialized value, $Res Function(_Initialized) then) =
+      __$InitializedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$InitializedCopyWithImpl<$Res>
+    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
+    implements _$InitializedCopyWith<$Res> {
+  __$InitializedCopyWithImpl(
+      _Initialized _value, $Res Function(_Initialized) _then)
+      : super(_value, (v) => _then(v as _Initialized));
+
+  @override
+  _Initialized get _value => super._value as _Initialized;
+}
+
+/// @nodoc
+
+class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
+  const _$_Initialized();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerStatusEvent.initialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.initialized'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _Initialized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap)
+        moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)
+        answerUpdated,
+    required TResult Function(String questionId) specialAnswerSwitched,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function() contentQuestionMapUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
+    required TResult Function(List<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() initialized,
+  }) {
+    return initialized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
+        answerUpdated,
+    TResult Function(String questionId)? specialAnswerSwitched,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+  }) {
+    return initialized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode)?
+        answerUpdated,
+    TResult Function(String questionId)? specialAnswerSwitched,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_SpecialAnswerSwitched value)
+        specialAnswerSwitched,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseMapUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return initialized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return initialized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (initialized != null) {
+      return initialized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initialized implements UpdateAnswerStatusEvent {
+  const factory _Initialized() = _$_Initialized;
+}
+
+/// @nodoc
 class _$UpdateAnswerStatusStateTearOff {
   const _$UpdateAnswerStatusStateTearOff();
 
   _UpdateAnswerStatusState call(
-      {required Map<String, Answer> answerMap,
+      {required UniqueId stateId,
+      required Map<String, Answer> answerMap,
       required Map<String, AnswerStatus> answerStatusMap,
       required Map<String, Answer> recodeAnswerMap,
       required Map<String, AnswerStatus> recodeAnswerStatusMap,
@@ -4625,8 +4623,10 @@ class _$UpdateAnswerStatusStateTearOff {
       required LoadState restoreState,
       required LoadState eventState,
       required LoadState updateState,
-      required Set<UpdateSurveyPageStateType> updateType}) {
+      required StateParameters updateParameters,
+      required StateParameters saveParameters}) {
     return _UpdateAnswerStatusState(
+      stateId: stateId,
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
       recodeAnswerMap: recodeAnswerMap,
@@ -4659,7 +4659,8 @@ class _$UpdateAnswerStatusStateTearOff {
       restoreState: restoreState,
       eventState: eventState,
       updateState: updateState,
-      updateType: updateType,
+      updateParameters: updateParameters,
+      saveParameters: saveParameters,
     );
   }
 }
@@ -4669,7 +4670,9 @@ const $UpdateAnswerStatusState = _$UpdateAnswerStatusStateTearOff();
 
 /// @nodoc
 mixin _$UpdateAnswerStatusState {
-// H_ 主要資料
+// HIGHLIGHT 因為 bloc 內部會去比較 emit state 前後是否有變，因此只要每次 emit
+//  新的 state 時產生新的 stateId，並放在 state 的最前面，就可以大幅減少比較的時間
+  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
       throw _privateConstructorUsedError;
@@ -4706,9 +4709,9 @@ mixin _$UpdateAnswerStatusState {
       throw _privateConstructorUsedError; // H_ 狀態更新進度
   LoadState get restoreState => throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
-  LoadState get updateState => throw _privateConstructorUsedError;
-  Set<UpdateSurveyPageStateType> get updateType =>
-      throw _privateConstructorUsedError;
+  LoadState get updateState => throw _privateConstructorUsedError; // H_ 更新/儲存參數
+  StateParameters get updateParameters => throw _privateConstructorUsedError;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $UpdateAnswerStatusStateCopyWith<UpdateAnswerStatusState> get copyWith =>
@@ -4721,7 +4724,8 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
           $Res Function(UpdateAnswerStatusState) then) =
       _$UpdateAnswerStatusStateCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, Answer> answerMap,
+      {UniqueId stateId,
+      Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
       Map<String, Answer> recodeAnswerMap,
       Map<String, AnswerStatus> recodeAnswerStatusMap,
@@ -4753,14 +4757,18 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       LoadState restoreState,
       LoadState eventState,
       LoadState updateState,
-      Set<UpdateSurveyPageStateType> updateType});
+      StateParameters updateParameters,
+      StateParameters saveParameters});
 
+  $UniqueIdCopyWith<$Res> get stateId;
   $WarningCopyWith<$Res> get warning;
   $RespondentCopyWith<$Res> get respondent;
   $ModuleTypeCopyWith<$Res> get moduleType;
   $LoadStateCopyWith<$Res> get restoreState;
   $LoadStateCopyWith<$Res> get eventState;
   $LoadStateCopyWith<$Res> get updateState;
+  $StateParametersCopyWith<$Res> get updateParameters;
+  $StateParametersCopyWith<$Res> get saveParameters;
 }
 
 /// @nodoc
@@ -4774,6 +4782,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? stateId = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? recodeAnswerMap = freezed,
@@ -4806,9 +4815,14 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? restoreState = freezed,
     Object? eventState = freezed,
     Object? updateState = freezed,
-    Object? updateType = freezed,
+    Object? updateParameters = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_value.copyWith(
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -4937,11 +4951,22 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      updateType: updateType == freezed
-          ? _value.updateType
-          : updateType // ignore: cast_nullable_to_non_nullable
-              as Set<UpdateSurveyPageStateType>,
+      updateParameters: updateParameters == freezed
+          ? _value.updateParameters
+          : updateParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
     ));
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get stateId {
+    return $UniqueIdCopyWith<$Res>(_value.stateId, (value) {
+      return _then(_value.copyWith(stateId: value));
+    });
   }
 
   @override
@@ -4985,6 +5010,20 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
       return _then(_value.copyWith(updateState: value));
     });
   }
+
+  @override
+  $StateParametersCopyWith<$Res> get updateParameters {
+    return $StateParametersCopyWith<$Res>(_value.updateParameters, (value) {
+      return _then(_value.copyWith(updateParameters: value));
+    });
+  }
+
+  @override
+  $StateParametersCopyWith<$Res> get saveParameters {
+    return $StateParametersCopyWith<$Res>(_value.saveParameters, (value) {
+      return _then(_value.copyWith(saveParameters: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -4995,7 +5034,8 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       __$UpdateAnswerStatusStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, Answer> answerMap,
+      {UniqueId stateId,
+      Map<String, Answer> answerMap,
       Map<String, AnswerStatus> answerStatusMap,
       Map<String, Answer> recodeAnswerMap,
       Map<String, AnswerStatus> recodeAnswerStatusMap,
@@ -5027,8 +5067,11 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       LoadState restoreState,
       LoadState eventState,
       LoadState updateState,
-      Set<UpdateSurveyPageStateType> updateType});
+      StateParameters updateParameters,
+      StateParameters saveParameters});
 
+  @override
+  $UniqueIdCopyWith<$Res> get stateId;
   @override
   $WarningCopyWith<$Res> get warning;
   @override
@@ -5041,6 +5084,10 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
   $LoadStateCopyWith<$Res> get eventState;
   @override
   $LoadStateCopyWith<$Res> get updateState;
+  @override
+  $StateParametersCopyWith<$Res> get updateParameters;
+  @override
+  $StateParametersCopyWith<$Res> get saveParameters;
 }
 
 /// @nodoc
@@ -5057,6 +5104,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? stateId = freezed,
     Object? answerMap = freezed,
     Object? answerStatusMap = freezed,
     Object? recodeAnswerMap = freezed,
@@ -5089,9 +5137,14 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? restoreState = freezed,
     Object? eventState = freezed,
     Object? updateState = freezed,
-    Object? updateType = freezed,
+    Object? updateParameters = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_UpdateAnswerStatusState(
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       answerMap: answerMap == freezed
           ? _value.answerMap
           : answerMap // ignore: cast_nullable_to_non_nullable
@@ -5220,10 +5273,14 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.updateState
           : updateState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      updateType: updateType == freezed
-          ? _value.updateType
-          : updateType // ignore: cast_nullable_to_non_nullable
-              as Set<UpdateSurveyPageStateType>,
+      updateParameters: updateParameters == freezed
+          ? _value.updateParameters
+          : updateParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters,
     ));
   }
 }
@@ -5233,7 +5290,8 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
 class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
     with DiagnosticableTreeMixin {
   const _$_UpdateAnswerStatusState(
-      {required this.answerMap,
+      {required this.stateId,
+      required this.answerMap,
       required this.answerStatusMap,
       required this.recodeAnswerMap,
       required this.recodeAnswerStatusMap,
@@ -5265,9 +5323,13 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.restoreState,
       required this.eventState,
       required this.updateState,
-      required this.updateType})
+      required this.updateParameters,
+      required this.saveParameters})
       : super._();
 
+  @override // HIGHLIGHT 因為 bloc 內部會去比較 emit state 前後是否有變，因此只要每次 emit
+//  新的 state 時產生新的 stateId，並放在 state 的最前面，就可以大幅減少比較的時間
+  final UniqueId stateId;
   @override // H_ 主要資料
   final Map<String, Answer> answerMap;
   @override
@@ -5332,12 +5394,14 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   final LoadState eventState;
   @override
   final LoadState updateState;
+  @override // H_ 更新/儲存參數
+  final StateParameters updateParameters;
   @override
-  final Set<UpdateSurveyPageStateType> updateType;
+  final StateParameters saveParameters;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, showDialog: $showDialog, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateType: $updateType)';
+    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, showDialog: $showDialog, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -5345,6 +5409,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusState'))
+      ..add(DiagnosticsProperty('stateId', stateId))
       ..add(DiagnosticsProperty('answerMap', answerMap))
       ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
       ..add(DiagnosticsProperty('recodeAnswerMap', recodeAnswerMap))
@@ -5377,13 +5442,17 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       ..add(DiagnosticsProperty('restoreState', restoreState))
       ..add(DiagnosticsProperty('eventState', eventState))
       ..add(DiagnosticsProperty('updateState', updateState))
-      ..add(DiagnosticsProperty('updateType', updateType));
+      ..add(DiagnosticsProperty('updateParameters', updateParameters))
+      ..add(DiagnosticsProperty('saveParameters', saveParameters));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _UpdateAnswerStatusState &&
+            (identical(other.stateId, stateId) ||
+                const DeepCollectionEquality()
+                    .equals(other.stateId, stateId)) &&
             (identical(other.answerMap, answerMap) ||
                 const DeepCollectionEquality()
                     .equals(other.answerMap, answerMap)) &&
@@ -5446,9 +5515,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             (identical(other.respondent, respondent) ||
                 const DeepCollectionEquality()
                     .equals(other.respondent, respondent)) &&
-            (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+            (identical(other.surveyId, surveyId) || const DeepCollectionEquality().equals(other.surveyId, surveyId)) &&
             (identical(other.moduleType, moduleType) || const DeepCollectionEquality().equals(other.moduleType, moduleType)) &&
             (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
             (identical(other.isRecodeModule, isRecodeModule) || const DeepCollectionEquality().equals(other.isRecodeModule, isRecodeModule)) &&
@@ -5459,12 +5526,14 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             (identical(other.restoreState, restoreState) || const DeepCollectionEquality().equals(other.restoreState, restoreState)) &&
             (identical(other.eventState, eventState) || const DeepCollectionEquality().equals(other.eventState, eventState)) &&
             (identical(other.updateState, updateState) || const DeepCollectionEquality().equals(other.updateState, updateState)) &&
-            (identical(other.updateType, updateType) || const DeepCollectionEquality().equals(other.updateType, updateType)));
+            (identical(other.updateParameters, updateParameters) || const DeepCollectionEquality().equals(other.updateParameters, updateParameters)) &&
+            (identical(other.saveParameters, saveParameters) || const DeepCollectionEquality().equals(other.saveParameters, saveParameters)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(stateId) ^
       const DeepCollectionEquality().hash(answerMap) ^
       const DeepCollectionEquality().hash(answerStatusMap) ^
       const DeepCollectionEquality().hash(recodeAnswerMap) ^
@@ -5497,7 +5566,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       const DeepCollectionEquality().hash(restoreState) ^
       const DeepCollectionEquality().hash(eventState) ^
       const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(updateType);
+      const DeepCollectionEquality().hash(updateParameters) ^
+      const DeepCollectionEquality().hash(saveParameters);
 
   @JsonKey(ignore: true)
   @override
@@ -5508,42 +5578,46 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
 abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   const factory _UpdateAnswerStatusState(
-          {required Map<String, Answer> answerMap,
-          required Map<String, AnswerStatus> answerStatusMap,
-          required Map<String, Answer> recodeAnswerMap,
-          required Map<String, AnswerStatus> recodeAnswerStatusMap,
-          required int page,
-          required int newestPage,
-          required bool isLastPage,
-          required Warning warning,
-          required bool showWarning,
-          required String questionId,
-          required Set<String> updatedQIdSet,
-          required Set<String> clearAnswerQIdSet,
-          required Set<String> pageQIdSet,
-          required Set<String> contentQIdSet,
-          required Direction direction,
-          required bool finishResponse,
-          required bool showDialog,
-          required bool showLeaveButton,
-          required bool leavePage,
-          required bool appIsPaused,
-          required Respondent respondent,
-          required String surveyId,
-          required ModuleType moduleType,
-          required bool isReadOnly,
-          required bool isRecodeModule,
-          required List<Reference> referenceList,
-          required Map<ModuleType, Response> respondentResponseMap,
-          required Map<String, Question> questionMap,
-          required Map<String, Question> recodeQuestionMap,
-          required LoadState restoreState,
-          required LoadState eventState,
-          required LoadState updateState,
-          required Set<UpdateSurveyPageStateType> updateType}) =
-      _$_UpdateAnswerStatusState;
+      {required UniqueId stateId,
+      required Map<String, Answer> answerMap,
+      required Map<String, AnswerStatus> answerStatusMap,
+      required Map<String, Answer> recodeAnswerMap,
+      required Map<String, AnswerStatus> recodeAnswerStatusMap,
+      required int page,
+      required int newestPage,
+      required bool isLastPage,
+      required Warning warning,
+      required bool showWarning,
+      required String questionId,
+      required Set<String> updatedQIdSet,
+      required Set<String> clearAnswerQIdSet,
+      required Set<String> pageQIdSet,
+      required Set<String> contentQIdSet,
+      required Direction direction,
+      required bool finishResponse,
+      required bool showDialog,
+      required bool showLeaveButton,
+      required bool leavePage,
+      required bool appIsPaused,
+      required Respondent respondent,
+      required String surveyId,
+      required ModuleType moduleType,
+      required bool isReadOnly,
+      required bool isRecodeModule,
+      required List<Reference> referenceList,
+      required Map<ModuleType, Response> respondentResponseMap,
+      required Map<String, Question> questionMap,
+      required Map<String, Question> recodeQuestionMap,
+      required LoadState restoreState,
+      required LoadState eventState,
+      required LoadState updateState,
+      required StateParameters updateParameters,
+      required StateParameters saveParameters}) = _$_UpdateAnswerStatusState;
   const _UpdateAnswerStatusState._() : super._();
 
+  @override // HIGHLIGHT 因為 bloc 內部會去比較 emit state 前後是否有變，因此只要每次 emit
+//  新的 state 時產生新的 stateId，並放在 state 的最前面，就可以大幅減少比較的時間
+  UniqueId get stateId => throw _privateConstructorUsedError;
   @override // H_ 主要資料
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   @override
@@ -5612,9 +5686,10 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   LoadState get eventState => throw _privateConstructorUsedError;
   @override
   LoadState get updateState => throw _privateConstructorUsedError;
+  @override // H_ 更新/儲存參數
+  StateParameters get updateParameters => throw _privateConstructorUsedError;
   @override
-  Set<UpdateSurveyPageStateType> get updateType =>
-      throw _privateConstructorUsedError;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$UpdateAnswerStatusStateCopyWith<_UpdateAnswerStatusState> get copyWith =>
@@ -5622,144 +5697,669 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
 }
 
 /// @nodoc
-class _$UpdateSurveyPageStateTypeTearOff {
-  const _$UpdateSurveyPageStateTypeTearOff();
+class _$StateParametersTearOff {
+  const _$StateParametersTearOff();
 
-  _UpdateSurveyPageStateType call(String value) {
-    return _UpdateSurveyPageStateType(
-      value,
+  _StateParameters call(
+      {required bool answerMap,
+      required bool answerStatusMap,
+      required bool recodeAnswerMap,
+      required bool recodeAnswerStatusMap,
+      required bool page,
+      required bool newestPage,
+      required bool isLastPage,
+      required bool warning,
+      required bool showWarning,
+      required bool pageQIdSet,
+      required bool contentQIdSet,
+      required bool showDialog,
+      required bool showLeaveButton,
+      required bool respondent,
+      required bool surveyId,
+      required bool moduleType,
+      required bool isReadOnly,
+      required bool isRecodeModule,
+      required bool respondentResponseMap,
+      required bool questionMap,
+      required bool recodeQuestionMap}) {
+    return _StateParameters(
+      answerMap: answerMap,
+      answerStatusMap: answerStatusMap,
+      recodeAnswerMap: recodeAnswerMap,
+      recodeAnswerStatusMap: recodeAnswerStatusMap,
+      page: page,
+      newestPage: newestPage,
+      isLastPage: isLastPage,
+      warning: warning,
+      showWarning: showWarning,
+      pageQIdSet: pageQIdSet,
+      contentQIdSet: contentQIdSet,
+      showDialog: showDialog,
+      showLeaveButton: showLeaveButton,
+      respondent: respondent,
+      surveyId: surveyId,
+      moduleType: moduleType,
+      isReadOnly: isReadOnly,
+      isRecodeModule: isRecodeModule,
+      respondentResponseMap: respondentResponseMap,
+      questionMap: questionMap,
+      recodeQuestionMap: recodeQuestionMap,
     );
   }
 }
 
 /// @nodoc
-const $UpdateSurveyPageStateType = _$UpdateSurveyPageStateTypeTearOff();
+const $StateParameters = _$StateParametersTearOff();
 
 /// @nodoc
-mixin _$UpdateSurveyPageStateType {
-  String get value => throw _privateConstructorUsedError;
+mixin _$StateParameters {
+// H_ 主要資料
+  bool get answerMap => throw _privateConstructorUsedError;
+  bool get answerStatusMap => throw _privateConstructorUsedError;
+  bool get recodeAnswerMap => throw _privateConstructorUsedError;
+  bool get recodeAnswerStatusMap => throw _privateConstructorUsedError;
+  bool get page => throw _privateConstructorUsedError;
+  bool get newestPage => throw _privateConstructorUsedError;
+  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get warning => throw _privateConstructorUsedError;
+  bool get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
+  bool get pageQIdSet => throw _privateConstructorUsedError;
+  bool get contentQIdSet => throw _privateConstructorUsedError;
+  bool get showDialog => throw _privateConstructorUsedError;
+  bool get showLeaveButton =>
+      throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
+  bool get respondent => throw _privateConstructorUsedError;
+  bool get surveyId => throw _privateConstructorUsedError;
+  bool get moduleType => throw _privateConstructorUsedError;
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  bool get respondentResponseMap =>
+      throw _privateConstructorUsedError; // H_ 同 session 會變的參考資料
+  bool get questionMap => throw _privateConstructorUsedError;
+  bool get recodeQuestionMap => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UpdateSurveyPageStateTypeCopyWith<UpdateSurveyPageStateType> get copyWith =>
+  $StateParametersCopyWith<StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UpdateSurveyPageStateTypeCopyWith<$Res> {
-  factory $UpdateSurveyPageStateTypeCopyWith(UpdateSurveyPageStateType value,
-          $Res Function(UpdateSurveyPageStateType) then) =
-      _$UpdateSurveyPageStateTypeCopyWithImpl<$Res>;
-  $Res call({String value});
+abstract class $StateParametersCopyWith<$Res> {
+  factory $StateParametersCopyWith(
+          StateParameters value, $Res Function(StateParameters) then) =
+      _$StateParametersCopyWithImpl<$Res>;
+  $Res call(
+      {bool answerMap,
+      bool answerStatusMap,
+      bool recodeAnswerMap,
+      bool recodeAnswerStatusMap,
+      bool page,
+      bool newestPage,
+      bool isLastPage,
+      bool warning,
+      bool showWarning,
+      bool pageQIdSet,
+      bool contentQIdSet,
+      bool showDialog,
+      bool showLeaveButton,
+      bool respondent,
+      bool surveyId,
+      bool moduleType,
+      bool isReadOnly,
+      bool isRecodeModule,
+      bool respondentResponseMap,
+      bool questionMap,
+      bool recodeQuestionMap});
 }
 
 /// @nodoc
-class _$UpdateSurveyPageStateTypeCopyWithImpl<$Res>
-    implements $UpdateSurveyPageStateTypeCopyWith<$Res> {
-  _$UpdateSurveyPageStateTypeCopyWithImpl(this._value, this._then);
+class _$StateParametersCopyWithImpl<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  _$StateParametersCopyWithImpl(this._value, this._then);
 
-  final UpdateSurveyPageStateType _value;
+  final StateParameters _value;
   // ignore: unused_field
-  final $Res Function(UpdateSurveyPageStateType) _then;
+  final $Res Function(StateParameters) _then;
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? recodeAnswerMap = freezed,
+    Object? recodeAnswerStatusMap = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
+    Object? showDialog = freezed,
+    Object? showLeaveButton = freezed,
+    Object? respondent = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? questionMap = freezed,
+    Object? recodeQuestionMap = freezed,
   }) {
     return _then(_value.copyWith(
-      value: value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      recodeAnswerMap: recodeAnswerMap == freezed
+          ? _value.recodeAnswerMap
+          : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
+          ? _value.recodeAnswerStatusMap
+          : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as bool,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showDialog: showDialog == freezed
+          ? _value.showDialog
+          : showDialog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showLeaveButton: showLeaveButton == freezed
+          ? _value.showLeaveButton
+          : showLeaveButton // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      recodeQuestionMap: recodeQuestionMap == freezed
+          ? _value.recodeQuestionMap
+          : recodeQuestionMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
-abstract class _$UpdateSurveyPageStateTypeCopyWith<$Res>
-    implements $UpdateSurveyPageStateTypeCopyWith<$Res> {
-  factory _$UpdateSurveyPageStateTypeCopyWith(_UpdateSurveyPageStateType value,
-          $Res Function(_UpdateSurveyPageStateType) then) =
-      __$UpdateSurveyPageStateTypeCopyWithImpl<$Res>;
+abstract class _$StateParametersCopyWith<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  factory _$StateParametersCopyWith(
+          _StateParameters value, $Res Function(_StateParameters) then) =
+      __$StateParametersCopyWithImpl<$Res>;
   @override
-  $Res call({String value});
+  $Res call(
+      {bool answerMap,
+      bool answerStatusMap,
+      bool recodeAnswerMap,
+      bool recodeAnswerStatusMap,
+      bool page,
+      bool newestPage,
+      bool isLastPage,
+      bool warning,
+      bool showWarning,
+      bool pageQIdSet,
+      bool contentQIdSet,
+      bool showDialog,
+      bool showLeaveButton,
+      bool respondent,
+      bool surveyId,
+      bool moduleType,
+      bool isReadOnly,
+      bool isRecodeModule,
+      bool respondentResponseMap,
+      bool questionMap,
+      bool recodeQuestionMap});
 }
 
 /// @nodoc
-class __$UpdateSurveyPageStateTypeCopyWithImpl<$Res>
-    extends _$UpdateSurveyPageStateTypeCopyWithImpl<$Res>
-    implements _$UpdateSurveyPageStateTypeCopyWith<$Res> {
-  __$UpdateSurveyPageStateTypeCopyWithImpl(_UpdateSurveyPageStateType _value,
-      $Res Function(_UpdateSurveyPageStateType) _then)
-      : super(_value, (v) => _then(v as _UpdateSurveyPageStateType));
+class __$StateParametersCopyWithImpl<$Res>
+    extends _$StateParametersCopyWithImpl<$Res>
+    implements _$StateParametersCopyWith<$Res> {
+  __$StateParametersCopyWithImpl(
+      _StateParameters _value, $Res Function(_StateParameters) _then)
+      : super(_value, (v) => _then(v as _StateParameters));
 
   @override
-  _UpdateSurveyPageStateType get _value =>
-      super._value as _UpdateSurveyPageStateType;
+  _StateParameters get _value => super._value as _StateParameters;
 
   @override
   $Res call({
-    Object? value = freezed,
+    Object? answerMap = freezed,
+    Object? answerStatusMap = freezed,
+    Object? recodeAnswerMap = freezed,
+    Object? recodeAnswerStatusMap = freezed,
+    Object? page = freezed,
+    Object? newestPage = freezed,
+    Object? isLastPage = freezed,
+    Object? warning = freezed,
+    Object? showWarning = freezed,
+    Object? pageQIdSet = freezed,
+    Object? contentQIdSet = freezed,
+    Object? showDialog = freezed,
+    Object? showLeaveButton = freezed,
+    Object? respondent = freezed,
+    Object? surveyId = freezed,
+    Object? moduleType = freezed,
+    Object? isReadOnly = freezed,
+    Object? isRecodeModule = freezed,
+    Object? respondentResponseMap = freezed,
+    Object? questionMap = freezed,
+    Object? recodeQuestionMap = freezed,
   }) {
-    return _then(_UpdateSurveyPageStateType(
-      value == freezed
-          ? _value.value
-          : value // ignore: cast_nullable_to_non_nullable
-              as String,
+    return _then(_StateParameters(
+      answerMap: answerMap == freezed
+          ? _value.answerMap
+          : answerMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      answerStatusMap: answerStatusMap == freezed
+          ? _value.answerStatusMap
+          : answerStatusMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      recodeAnswerMap: recodeAnswerMap == freezed
+          ? _value.recodeAnswerMap
+          : recodeAnswerMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      recodeAnswerStatusMap: recodeAnswerStatusMap == freezed
+          ? _value.recodeAnswerStatusMap
+          : recodeAnswerStatusMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as bool,
+      newestPage: newestPage == freezed
+          ? _value.newestPage
+          : newestPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isLastPage: isLastPage == freezed
+          ? _value.isLastPage
+          : isLastPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      warning: warning == freezed
+          ? _value.warning
+          : warning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showWarning: showWarning == freezed
+          ? _value.showWarning
+          : showWarning // ignore: cast_nullable_to_non_nullable
+              as bool,
+      pageQIdSet: pageQIdSet == freezed
+          ? _value.pageQIdSet
+          : pageQIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      contentQIdSet: contentQIdSet == freezed
+          ? _value.contentQIdSet
+          : contentQIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showDialog: showDialog == freezed
+          ? _value.showDialog
+          : showDialog // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showLeaveButton: showLeaveButton == freezed
+          ? _value.showLeaveButton
+          : showLeaveButton // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondent: respondent == freezed
+          ? _value.respondent
+          : respondent // ignore: cast_nullable_to_non_nullable
+              as bool,
+      surveyId: surveyId == freezed
+          ? _value.surveyId
+          : surveyId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      moduleType: moduleType == freezed
+          ? _value.moduleType
+          : moduleType // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isReadOnly: isReadOnly == freezed
+          ? _value.isReadOnly
+          : isReadOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isRecodeModule: isRecodeModule == freezed
+          ? _value.isRecodeModule
+          : isRecodeModule // ignore: cast_nullable_to_non_nullable
+              as bool,
+      respondentResponseMap: respondentResponseMap == freezed
+          ? _value.respondentResponseMap
+          : respondentResponseMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      questionMap: questionMap == freezed
+          ? _value.questionMap
+          : questionMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      recodeQuestionMap: recodeQuestionMap == freezed
+          ? _value.recodeQuestionMap
+          : recodeQuestionMap // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_UpdateSurveyPageStateType extends _UpdateSurveyPageStateType
-    with DiagnosticableTreeMixin {
-  const _$_UpdateSurveyPageStateType(this.value) : super._();
+class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
+  const _$_StateParameters(
+      {required this.answerMap,
+      required this.answerStatusMap,
+      required this.recodeAnswerMap,
+      required this.recodeAnswerStatusMap,
+      required this.page,
+      required this.newestPage,
+      required this.isLastPage,
+      required this.warning,
+      required this.showWarning,
+      required this.pageQIdSet,
+      required this.contentQIdSet,
+      required this.showDialog,
+      required this.showLeaveButton,
+      required this.respondent,
+      required this.surveyId,
+      required this.moduleType,
+      required this.isReadOnly,
+      required this.isRecodeModule,
+      required this.respondentResponseMap,
+      required this.questionMap,
+      required this.recodeQuestionMap})
+      : super._();
 
+  @override // H_ 主要資料
+  final bool answerMap;
   @override
-  final String value;
+  final bool answerStatusMap;
+  @override
+  final bool recodeAnswerMap;
+  @override
+  final bool recodeAnswerStatusMap;
+  @override
+  final bool page;
+  @override
+  final bool newestPage;
+  @override
+  final bool isLastPage;
+  @override
+  final bool warning;
+  @override
+  final bool showWarning;
+  @override // H_ 中間資料
+  final bool pageQIdSet;
+  @override
+  final bool contentQIdSet;
+  @override
+  final bool showDialog;
+  @override
+  final bool showLeaveButton;
+  @override // H_ 同 session 不變的參考資料
+  final bool respondent;
+  @override
+  final bool surveyId;
+  @override
+  final bool moduleType;
+  @override
+  final bool isReadOnly;
+  @override
+  final bool isRecodeModule;
+  @override
+  final bool respondentResponseMap;
+  @override // H_ 同 session 會變的參考資料
+  final bool questionMap;
+  @override
+  final bool recodeQuestionMap;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateSurveyPageStateType(value: $value)';
+    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showDialog: $showDialog, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'UpdateSurveyPageStateType'))
-      ..add(DiagnosticsProperty('value', value));
+      ..add(DiagnosticsProperty('type', 'StateParameters'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('recodeAnswerMap', recodeAnswerMap))
+      ..add(DiagnosticsProperty('recodeAnswerStatusMap', recodeAnswerStatusMap))
+      ..add(DiagnosticsProperty('page', page))
+      ..add(DiagnosticsProperty('newestPage', newestPage))
+      ..add(DiagnosticsProperty('isLastPage', isLastPage))
+      ..add(DiagnosticsProperty('warning', warning))
+      ..add(DiagnosticsProperty('showWarning', showWarning))
+      ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
+      ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
+      ..add(DiagnosticsProperty('showDialog', showDialog))
+      ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('surveyId', surveyId))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
+      ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
+      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
+      ..add(DiagnosticsProperty('recodeQuestionMap', recodeQuestionMap));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateSurveyPageStateType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other is _StateParameters &&
+            (identical(other.answerMap, answerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerMap, answerMap)) &&
+            (identical(other.answerStatusMap, answerStatusMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.answerStatusMap, answerStatusMap)) &&
+            (identical(other.recodeAnswerMap, recodeAnswerMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.recodeAnswerMap, recodeAnswerMap)) &&
+            (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
+                const DeepCollectionEquality().equals(
+                    other.recodeAnswerStatusMap, recodeAnswerStatusMap)) &&
+            (identical(other.page, page) ||
+                const DeepCollectionEquality().equals(other.page, page)) &&
+            (identical(other.newestPage, newestPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.newestPage, newestPage)) &&
+            (identical(other.isLastPage, isLastPage) ||
+                const DeepCollectionEquality()
+                    .equals(other.isLastPage, isLastPage)) &&
+            (identical(other.warning, warning) ||
+                const DeepCollectionEquality()
+                    .equals(other.warning, warning)) &&
+            (identical(other.showWarning, showWarning) ||
+                const DeepCollectionEquality()
+                    .equals(other.showWarning, showWarning)) &&
+            (identical(other.pageQIdSet, pageQIdSet) ||
+                const DeepCollectionEquality()
+                    .equals(other.pageQIdSet, pageQIdSet)) &&
+            (identical(other.contentQIdSet, contentQIdSet) ||
+                const DeepCollectionEquality()
+                    .equals(other.contentQIdSet, contentQIdSet)) &&
+            (identical(other.showDialog, showDialog) ||
+                const DeepCollectionEquality()
+                    .equals(other.showDialog, showDialog)) &&
+            (identical(other.showLeaveButton, showLeaveButton) ||
+                const DeepCollectionEquality()
+                    .equals(other.showLeaveButton, showLeaveButton)) &&
+            (identical(other.respondent, respondent) ||
+                const DeepCollectionEquality()
+                    .equals(other.respondent, respondent)) &&
+            (identical(other.surveyId, surveyId) ||
+                const DeepCollectionEquality()
+                    .equals(other.surveyId, surveyId)) &&
+            (identical(other.moduleType, moduleType) ||
+                const DeepCollectionEquality()
+                    .equals(other.moduleType, moduleType)) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.isReadOnly, isReadOnly)) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                const DeepCollectionEquality()
+                    .equals(other.isRecodeModule, isRecodeModule)) &&
+            (identical(other.respondentResponseMap, respondentResponseMap) ||
+                const DeepCollectionEquality().equals(
+                    other.respondentResponseMap, respondentResponseMap)) &&
+            (identical(other.questionMap, questionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.questionMap, questionMap)) &&
+            (identical(other.recodeQuestionMap, recodeQuestionMap) ||
+                const DeepCollectionEquality()
+                    .equals(other.recodeQuestionMap, recodeQuestionMap)));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(answerMap) ^
+      const DeepCollectionEquality().hash(answerStatusMap) ^
+      const DeepCollectionEquality().hash(recodeAnswerMap) ^
+      const DeepCollectionEquality().hash(recodeAnswerStatusMap) ^
+      const DeepCollectionEquality().hash(page) ^
+      const DeepCollectionEquality().hash(newestPage) ^
+      const DeepCollectionEquality().hash(isLastPage) ^
+      const DeepCollectionEquality().hash(warning) ^
+      const DeepCollectionEquality().hash(showWarning) ^
+      const DeepCollectionEquality().hash(pageQIdSet) ^
+      const DeepCollectionEquality().hash(contentQIdSet) ^
+      const DeepCollectionEquality().hash(showDialog) ^
+      const DeepCollectionEquality().hash(showLeaveButton) ^
+      const DeepCollectionEquality().hash(respondent) ^
+      const DeepCollectionEquality().hash(surveyId) ^
+      const DeepCollectionEquality().hash(moduleType) ^
+      const DeepCollectionEquality().hash(isReadOnly) ^
+      const DeepCollectionEquality().hash(isRecodeModule) ^
+      const DeepCollectionEquality().hash(respondentResponseMap) ^
+      const DeepCollectionEquality().hash(questionMap) ^
+      const DeepCollectionEquality().hash(recodeQuestionMap);
 
   @JsonKey(ignore: true)
   @override
-  _$UpdateSurveyPageStateTypeCopyWith<_UpdateSurveyPageStateType>
-      get copyWith =>
-          __$UpdateSurveyPageStateTypeCopyWithImpl<_UpdateSurveyPageStateType>(
-              this, _$identity);
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+      __$StateParametersCopyWithImpl<_StateParameters>(this, _$identity);
 }
 
-abstract class _UpdateSurveyPageStateType extends UpdateSurveyPageStateType {
-  const factory _UpdateSurveyPageStateType(String value) =
-      _$_UpdateSurveyPageStateType;
-  const _UpdateSurveyPageStateType._() : super._();
+abstract class _StateParameters extends StateParameters {
+  const factory _StateParameters(
+      {required bool answerMap,
+      required bool answerStatusMap,
+      required bool recodeAnswerMap,
+      required bool recodeAnswerStatusMap,
+      required bool page,
+      required bool newestPage,
+      required bool isLastPage,
+      required bool warning,
+      required bool showWarning,
+      required bool pageQIdSet,
+      required bool contentQIdSet,
+      required bool showDialog,
+      required bool showLeaveButton,
+      required bool respondent,
+      required bool surveyId,
+      required bool moduleType,
+      required bool isReadOnly,
+      required bool isRecodeModule,
+      required bool respondentResponseMap,
+      required bool questionMap,
+      required bool recodeQuestionMap}) = _$_StateParameters;
+  const _StateParameters._() : super._();
 
+  @override // H_ 主要資料
+  bool get answerMap => throw _privateConstructorUsedError;
   @override
-  String get value => throw _privateConstructorUsedError;
+  bool get answerStatusMap => throw _privateConstructorUsedError;
+  @override
+  bool get recodeAnswerMap => throw _privateConstructorUsedError;
+  @override
+  bool get recodeAnswerStatusMap => throw _privateConstructorUsedError;
+  @override
+  bool get page => throw _privateConstructorUsedError;
+  @override
+  bool get newestPage => throw _privateConstructorUsedError;
+  @override
+  bool get isLastPage => throw _privateConstructorUsedError;
+  @override
+  bool get warning => throw _privateConstructorUsedError;
+  @override
+  bool get showWarning => throw _privateConstructorUsedError;
+  @override // H_ 中間資料
+  bool get pageQIdSet => throw _privateConstructorUsedError;
+  @override
+  bool get contentQIdSet => throw _privateConstructorUsedError;
+  @override
+  bool get showDialog => throw _privateConstructorUsedError;
+  @override
+  bool get showLeaveButton => throw _privateConstructorUsedError;
+  @override // H_ 同 session 不變的參考資料
+  bool get respondent => throw _privateConstructorUsedError;
+  @override
+  bool get surveyId => throw _privateConstructorUsedError;
+  @override
+  bool get moduleType => throw _privateConstructorUsedError;
+  @override
+  bool get isReadOnly => throw _privateConstructorUsedError;
+  @override
+  bool get isRecodeModule => throw _privateConstructorUsedError;
+  @override
+  bool get respondentResponseMap => throw _privateConstructorUsedError;
+  @override // H_ 同 session 會變的參考資料
+  bool get questionMap => throw _privateConstructorUsedError;
+  @override
+  bool get recodeQuestionMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UpdateSurveyPageStateTypeCopyWith<_UpdateSurveyPageStateType>
-      get copyWith => throw _privateConstructorUsedError;
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+      throw _privateConstructorUsedError;
 }

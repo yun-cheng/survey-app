@@ -22,10 +22,13 @@ import '../routes/router.gr.dart';
 import 'themes.dart';
 
 class AppWidget extends StatelessWidget {
+  AppWidget({Key? key}) : super(key: key);
+
+  // HIGHLIGHT 必須要放在 build 外，才不會讓 hot reload 失敗
+  final _rootRouter = RootRouter();
+
   @override
   Widget build(BuildContext context) {
-    final _rootRouter = RootRouter();
-
     // HIGHLIGHT 如果會需要在多個頁面共用的資料都要在這邊 provide
     return MultiBlocProvider(
       providers: [
@@ -45,16 +48,19 @@ class AppWidget extends StatelessWidget {
           create: (_) => WatchSurveyBloc(
             getIt<ISurveyRepository>(),
           ),
+          lazy: false,
         ),
         BlocProvider(
           create: (_) => RespondentBloc(
             getIt<IRespondentRepository>(),
           ),
+          lazy: false,
         ),
         BlocProvider(
           create: (_) => ResponseBloc(
             getIt<ISurveyRepository>(),
           ),
+          lazy: false,
         ),
         BlocProvider(
           create: (context) => UpdateAnswerStatusBloc(),

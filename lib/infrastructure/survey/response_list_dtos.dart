@@ -17,7 +17,7 @@ class ResponseMapDto with _$ResponseMapDto {
   const ResponseMapDto._();
 
   const factory ResponseMapDto({
-    required Map<String, ResponseDto> map,
+    Map<String, ResponseDto>? map,
   }) = _ResponseMapDto;
 
   factory ResponseMapDto.fromDomain(ResponseMap domain) {
@@ -28,7 +28,9 @@ class ResponseMapDto with _$ResponseMapDto {
   }
 
   ResponseMap toDomain() {
-    return map.map((key, value) => MapEntry(UniqueId(key), value.toDomain()));
+    return map
+            ?.map((key, value) => MapEntry(UniqueId(key), value.toDomain())) ??
+        ResponseMap.from({});
   }
 
   factory ResponseMapDto.fromJson(Map<String, dynamic> json) =>

@@ -2,7 +2,8 @@ import 'dart:async';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
+
+import '../../domain/core/value_objects.dart';
 
 part 'navigation_bloc.freezed.dart';
 part 'navigation_event.dart';
@@ -11,7 +12,7 @@ part 'navigation_state.dart';
 class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   NavigationBloc() : super(NavigationState.initial()) {
     // HIGHLIGHT 剛開始一定要先有一個 event 才會觸發 listener
-    add(const NavigationEvent.pageInitialized());
+    add(const NavigationEvent.initialized());
   }
 
   @override
@@ -19,6 +20,11 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
     NavigationEvent event,
   ) async* {
     yield* event.map(
+      initialized: (e) async* {
+        yield state.copyWith(
+          pageState: PageState.initial(),
+        );
+      },
       pageChanged: (e) async* {
         yield state.copyWith(
           page: e.page,
@@ -27,12 +33,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
       },
       pagePushed: (e) async* {
         yield state.copyWith(
-          pageState:  PageState.push(),
-        );
-      },
-      pageInitialized: (e) async* {
-        yield state.copyWith(
-          pageState:  PageState.initial(),
+          pageState: PageState.push(),
         );
       },
     );
@@ -44,7 +45,7 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
       return NavigationState(
         page: NavigationPage(json['page']),
         respondentId: json['respondentId'],
-        pageState:  PageState.initial(),
+        pageState: PageState.initial(),
       );
     } catch (_) {
       return null;

@@ -684,3 +684,209 @@ abstract class _NetworkType extends NetworkType {
   _$NetworkTypeCopyWith<_NetworkType> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$DtoInfoTearOff {
+  const _$DtoInfoTearOff();
+
+  _DtoInfo call(
+      {String? box,
+      String? key,
+      bool readOnly = false,
+      bool isMapEntries = false}) {
+    return _DtoInfo(
+      box: box,
+      key: key,
+      readOnly: readOnly,
+      isMapEntries: isMapEntries,
+    );
+  }
+}
+
+/// @nodoc
+const $DtoInfo = _$DtoInfoTearOff();
+
+/// @nodoc
+mixin _$DtoInfo {
+  String? get box => throw _privateConstructorUsedError;
+  String? get key => throw _privateConstructorUsedError;
+  bool get readOnly => throw _privateConstructorUsedError;
+  bool get isMapEntries => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DtoInfoCopyWith<DtoInfo> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DtoInfoCopyWith<$Res> {
+  factory $DtoInfoCopyWith(DtoInfo value, $Res Function(DtoInfo) then) =
+      _$DtoInfoCopyWithImpl<$Res>;
+  $Res call({String? box, String? key, bool readOnly, bool isMapEntries});
+}
+
+/// @nodoc
+class _$DtoInfoCopyWithImpl<$Res> implements $DtoInfoCopyWith<$Res> {
+  _$DtoInfoCopyWithImpl(this._value, this._then);
+
+  final DtoInfo _value;
+  // ignore: unused_field
+  final $Res Function(DtoInfo) _then;
+
+  @override
+  $Res call({
+    Object? box = freezed,
+    Object? key = freezed,
+    Object? readOnly = freezed,
+    Object? isMapEntries = freezed,
+  }) {
+    return _then(_value.copyWith(
+      box: box == freezed
+          ? _value.box
+          : box // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String?,
+      readOnly: readOnly == freezed
+          ? _value.readOnly
+          : readOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isMapEntries: isMapEntries == freezed
+          ? _value.isMapEntries
+          : isMapEntries // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$DtoInfoCopyWith<$Res> implements $DtoInfoCopyWith<$Res> {
+  factory _$DtoInfoCopyWith(_DtoInfo value, $Res Function(_DtoInfo) then) =
+      __$DtoInfoCopyWithImpl<$Res>;
+  @override
+  $Res call({String? box, String? key, bool readOnly, bool isMapEntries});
+}
+
+/// @nodoc
+class __$DtoInfoCopyWithImpl<$Res> extends _$DtoInfoCopyWithImpl<$Res>
+    implements _$DtoInfoCopyWith<$Res> {
+  __$DtoInfoCopyWithImpl(_DtoInfo _value, $Res Function(_DtoInfo) _then)
+      : super(_value, (v) => _then(v as _DtoInfo));
+
+  @override
+  _DtoInfo get _value => super._value as _DtoInfo;
+
+  @override
+  $Res call({
+    Object? box = freezed,
+    Object? key = freezed,
+    Object? readOnly = freezed,
+    Object? isMapEntries = freezed,
+  }) {
+    return _then(_DtoInfo(
+      box: box == freezed
+          ? _value.box
+          : box // ignore: cast_nullable_to_non_nullable
+              as String?,
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String?,
+      readOnly: readOnly == freezed
+          ? _value.readOnly
+          : readOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isMapEntries: isMapEntries == freezed
+          ? _value.isMapEntries
+          : isMapEntries // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DtoInfo extends _DtoInfo with DiagnosticableTreeMixin {
+  const _$_DtoInfo(
+      {this.box, this.key, this.readOnly = false, this.isMapEntries = false})
+      : super._();
+
+  @override
+  final String? box;
+  @override
+  final String? key;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool readOnly;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool isMapEntries;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DtoInfo(box: $box, key: $key, readOnly: $readOnly, isMapEntries: $isMapEntries)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DtoInfo'))
+      ..add(DiagnosticsProperty('box', box))
+      ..add(DiagnosticsProperty('key', key))
+      ..add(DiagnosticsProperty('readOnly', readOnly))
+      ..add(DiagnosticsProperty('isMapEntries', isMapEntries));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DtoInfo &&
+            (identical(other.box, box) ||
+                const DeepCollectionEquality().equals(other.box, box)) &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
+            (identical(other.readOnly, readOnly) ||
+                const DeepCollectionEquality()
+                    .equals(other.readOnly, readOnly)) &&
+            (identical(other.isMapEntries, isMapEntries) ||
+                const DeepCollectionEquality()
+                    .equals(other.isMapEntries, isMapEntries)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(box) ^
+      const DeepCollectionEquality().hash(key) ^
+      const DeepCollectionEquality().hash(readOnly) ^
+      const DeepCollectionEquality().hash(isMapEntries);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DtoInfoCopyWith<_DtoInfo> get copyWith =>
+      __$DtoInfoCopyWithImpl<_DtoInfo>(this, _$identity);
+}
+
+abstract class _DtoInfo extends DtoInfo {
+  const factory _DtoInfo(
+      {String? box,
+      String? key,
+      bool readOnly,
+      bool isMapEntries}) = _$_DtoInfo;
+  const _DtoInfo._() : super._();
+
+  @override
+  String? get box => throw _privateConstructorUsedError;
+  @override
+  String? get key => throw _privateConstructorUsedError;
+  @override
+  bool get readOnly => throw _privateConstructorUsedError;
+  @override
+  bool get isMapEntries => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$DtoInfoCopyWith<_DtoInfo> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -36,6 +36,10 @@ UpdateAnswerStatusState answerUpdated(
     answerMap: state.isRecodeModule ? state.answerMap : answerMap,
     recodeAnswerMap: state.isRecodeModule ? answerMap : state.recodeAnswerMap,
     updatedQIdSet: {e.questionId},
+    saveParameters: state.saveParameters.copyWith(
+      answerMap: !state.isRecodeModule,
+      recodeAnswerMap: state.isRecodeModule,
+    ),
   );
 }
 
@@ -56,6 +60,9 @@ UpdateAnswerStatusState answerQIdListCleared(
       answerMap: answerMap,
       clearAnswerQIdSet: const {},
       updatedQIdSet: state.clearAnswerQIdSet,
+      saveParameters: state.saveParameters.copyWith(
+        answerMap: true,
+      ),
     );
   }
 

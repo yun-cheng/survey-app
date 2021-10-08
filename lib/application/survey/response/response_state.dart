@@ -5,108 +5,148 @@ class ResponseState with _$ResponseState {
   const ResponseState._();
 
   const factory ResponseState({
+    required UniqueId stateId,
     // H_ 主要資料
     required Survey survey,
-    required Respondent respondent,
     required Interviewer interviewer,
-    required ModuleType moduleType,
-    required ResponseMap responseMap,
-    required ResponseMap downloadedResponseMap,
+    required Respondent respondent,
     required Response response,
-    required Map<ModuleType, Response> respondentResponseMap,
+    required ResponseMap responseMap,
     required List<Reference> referenceList,
     // H_ 中間資料
-    required bool breakInterview,
-    required Map<String, Question> questionMap,
+    required ModuleType moduleType,
     required bool withResponseId,
     required UniqueId responseId,
+    required bool breakInterview,
     required Response mainResponse,
+    required Map<String, Question> questionMap,
+    required ResponseMap downloadedResponseMap,
+    required Map<ModuleType, Response> respondentResponseMap,
     // H_ 狀態更新進度
     required LoadState responseMapState,
     required Option<SurveyFailure> responseFailure,
     required LoadState eventState,
     required LoadState updateState,
-    required Set<UpdateResponseStateType> updateType,
+    // H_ 更新/儲存參數
+    required StateParameters updateParameters,
+    required StateParameters saveParameters,
   }) = _ResponseState;
 
   factory ResponseState.initial() => ResponseState(
+        stateId: UniqueId.v1(),
+        // H_ 主要資料
         survey: Survey.empty(),
-        respondent: Respondent.empty(),
         interviewer: Interviewer.empty(),
-        moduleType: ModuleType.empty(),
-        responseMapState: LoadState.initial(),
-        responseMap: const {},
-        downloadedResponseMap: const {},
-        responseFailure: none(),
+        respondent: Respondent.empty(),
         response: Response.empty(),
-        questionMap: const {},
-        withResponseId: false,
-        breakInterview: false,
-        responseId: UniqueId.empty(),
-        mainResponse: Response.empty(),
-        respondentResponseMap: const {},
+        responseMap: const {},
         referenceList: const [],
+        // H_ 中間資料
+        moduleType: ModuleType.empty(),
+        withResponseId: false,
+        responseId: UniqueId.empty(),
+        breakInterview: false,
+        mainResponse: Response.empty(),
+        questionMap: const {},
+        downloadedResponseMap: const {},
+        respondentResponseMap: const {},
         // H_ 狀態更新進度
+        responseMapState: LoadState.initial(),
+        responseFailure: none(),
         eventState: LoadState.initial(),
         updateState: LoadState.initial(),
-        updateType: const {},
+        // H_ 標記更新/儲存參數
+        updateParameters: StateParameters.initial(),
+        saveParameters: StateParameters.initial(),
       );
-
-  Map<String, dynamic> toJson() => ResponseStateDto.fromDomain(this).toJson();
-
-  ResponseState send(AsyncTaskChannel channel) {
-    channel.send(this);
-    return this;
-  }
 
   ResponseState sendInProgress(AsyncTaskChannel channel) {
     return copyWith(
       updateState: LoadState.inProgress(),
-      updateType: {},
+      updateParameters: StateParameters.initial(),
     ).send(channel);
   }
 
-  ResponseState sendSuccess(AsyncTaskChannel channel) {
+  ResponseState updateSuccess() {
     return copyWith(
       updateState: LoadState.success(),
-    ).send(channel);
+    );
   }
 
-  ResponseState sendSuccessWithType(
-    AsyncTaskChannel channel, {
-    required Set<UpdateResponseStateType> updateType,
-  }) {
-    return copyWith(
-      updateState: LoadState.success(),
-      updateType: updateType,
-    ).send(channel);
-  }
-
-  ResponseState saveState(Box box, Lock lock) {
-    toJsonTask(box: box, lock: lock, state: this);
+  ResponseState send(AsyncTaskChannel channel) {
+    channel.send(
+      copyWith(
+        stateId: UniqueId.v1(),
+      ),
+    );
     return this;
+  }
+
+  ResponseState saveState(ILocalStorage localStorage) {
+    ResponseStateDto.fromDomain(this).saveState(localStorage);
+    return this;
+  }
+
+  ResponseState sendEventInProgress(AsyncTaskChannel channel) {
+    return copyWith(
+      eventState: LoadState.inProgress(),
+    ).send(channel);
+  }
+
+  ResponseState sendEventSuccessAndSave(
+    AsyncTaskChannel channel,
+    ILocalStorage localStorage,
+  ) {
+    return copyWith(
+      eventState: LoadState.success(),
+    ).send(channel).saveState(localStorage);
   }
 }
 
-ResponseState _stateFromJson(Map<String, dynamic> json) =>
-    ResponseStateDto.fromJson(json).toDomain();
-
+// H_ 參數狀態
 @freezed
-class UpdateResponseStateType with _$UpdateResponseStateType {
-  const UpdateResponseStateType._();
+class StateParameters with _$StateParameters {
+  const StateParameters._();
 
-  const factory UpdateResponseStateType(String value) =
-      _UpdateResponseStateType;
+  const factory StateParameters({
+    // H_ 共用
+    required bool referenceList,
+    required bool response,
+    // H_ 儲存
+    required bool survey,
+    required bool interviewer,
+    required bool respondent,
+    required bool responseMap,
+    required Set responseMapKeys,
+    // H_ 更新
+    required bool visitReportsMap,
+    required bool respondentResponseMap,
+    required bool tabRespondentMap,
+  }) = _StateParameters;
 
-  factory UpdateResponseStateType.empty() => const UpdateResponseStateType('');
-  factory UpdateResponseStateType.response() =>
-      const UpdateResponseStateType('response');
-  factory UpdateResponseStateType.visitReportsMap() =>
-      const UpdateResponseStateType('visitReportsMap');
-  factory UpdateResponseStateType.respondentResponseMap() =>
-      const UpdateResponseStateType('respondentResponseMap');
-  factory UpdateResponseStateType.tabRespondentMap() =>
-      const UpdateResponseStateType('tabRespondentMap');
-  factory UpdateResponseStateType.referenceList() =>
-      const UpdateResponseStateType('referenceList');
+  factory StateParameters.initial() => const StateParameters(
+        referenceList: false,
+        response: false,
+        survey: false,
+        interviewer: false,
+        respondent: false,
+        responseMap: false,
+        responseMapKeys: {},
+        visitReportsMap: false,
+        respondentResponseMap: false,
+        tabRespondentMap: false,
+      );
+
+  factory StateParameters.clear() => const StateParameters(
+        referenceList: true,
+        response: true,
+        survey: true,
+        interviewer: true,
+        respondent: true,
+        responseMap: true,
+        responseMapKeys: {},
+        visitReportsMap: true,
+        respondentResponseMap: true,
+        tabRespondentMap: true,
+      );
 }
