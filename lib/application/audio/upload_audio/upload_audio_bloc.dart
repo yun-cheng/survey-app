@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -19,26 +20,30 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
   final IAudioRepository _iAudioRepository;
   StreamSubscription<Either<AudioFailure, Audio>>? _uploadProgressWatcher;
 
-  UploadAudioBloc(this._iAudioRepository) : super(UploadAudioState.initial());
+  UploadAudioBloc(this._iAudioRepository) : super(UploadAudioState.initial()) {
+    on<UploadAudioEvent>(_onEvent, transformer: sequential());
+  }
 
-  @override
-  Stream<UploadAudioState> mapEventToState(
+  FutureOr<void> _onEvent(
     UploadAudioEvent event,
-  ) async* {
-    yield* event.map(
-      audioAdded: (e) async* {
+    Emitter<UploadAudioState> emit,
+  ) async {
+    await event.map(
+      audioAdded: (e) async {
         logger('Event').i('UploadAudioBloc: audioAdded');
 
         final audioMap = Map<UniqueId, Audio>.from(state.audioMap);
         audioMap[e.audio.fileName] = e.audio;
 
-        yield state.copyWith(
-          audioMap: audioMap,
-        );
+        state
+            .copyWith(
+              audioMap: audioMap,
+            )
+            .emit(emit);
 
         add(const UploadAudioEvent.audioUploading());
       },
-      audioUploading: (e) async* {
+      audioUploading: (e) async {
         logger('Upload').i('UploadAudioBloc: audioUploading');
 
         await _uploadProgressWatcher?.cancel();
@@ -50,10 +55,10 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
                   );
         }
       },
-      audioUploaded: (e) async* {
+      audioUploaded: (e) async {
         logger('Event').i('UploadAudioBloc: audioUploaded');
 
-        yield e.failureOrAudio.fold(
+        e.failureOrAudio.fold(
           (f) => state.copyWith(
             uploadState: LoadState.failure(),
             audioFailure: some(f),
@@ -68,12 +73,12 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
               audioMap: audioMap,
             );
           },
-        );
+        ).emit(emit);
       },
       // H_ 登出
-      loggedOut: (e) async* {
+      loggedOut: (e) async {
         _uploadProgressWatcher?.cancel();
-        yield UploadAudioState.initial();
+        UploadAudioState.initial();
       },
     );
   }

@@ -2297,7 +2297,7 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AuthState implements _AuthState {
+class _$_AuthState extends _AuthState {
   const _$_AuthState(
       {required this.teamListState,
       required this.teamList,
@@ -2309,7 +2309,8 @@ class _$_AuthState implements _AuthState {
       required this.signInState,
       required this.interviewer,
       required this.authFailure,
-      required this.showErrorMessages});
+      required this.showErrorMessages})
+      : super._();
 
   @override
   final LoadState teamListState;
@@ -2397,7 +2398,7 @@ class _$_AuthState implements _AuthState {
       __$AuthStateCopyWithImpl<_AuthState>(this, _$identity);
 }
 
-abstract class _AuthState implements AuthState {
+abstract class _AuthState extends AuthState {
   const factory _AuthState(
       {required LoadState teamListState,
       required List<Team> teamList,
@@ -2410,6 +2411,7 @@ abstract class _AuthState implements AuthState {
       required Interviewer interviewer,
       required Option<AuthFailure> authFailure,
       required bool showErrorMessages}) = _$_AuthState;
+  const _AuthState._() : super._();
 
   @override
   LoadState get teamListState => throw _privateConstructorUsedError;

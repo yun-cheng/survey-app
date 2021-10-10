@@ -2,6 +2,8 @@ part of 'device_bloc.dart';
 
 @freezed
 class DeviceState with _$DeviceState {
+  const DeviceState._();
+
   const factory DeviceState({
     required NetworkType networkType,
     required bool appIsPaused,
@@ -12,4 +14,8 @@ class DeviceState with _$DeviceState {
         networkType: NetworkType.empty(),
         appIsPaused: false,
       );
+
+  void emit(Emitter<DeviceState> emit) {
+    emit(this);
+  }
 }

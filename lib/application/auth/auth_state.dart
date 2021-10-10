@@ -2,6 +2,8 @@ part of 'auth_bloc.dart';
 
 @freezed
 class AuthState with _$AuthState {
+  const AuthState._();
+
   const factory AuthState({
     required LoadState teamListState,
     required List<Team> teamList,
@@ -29,4 +31,8 @@ class AuthState with _$AuthState {
         authFailure: none(),
         showErrorMessages: false,
       );
+
+  void emit(Emitter<AuthState> emit) {
+    emit(this);
+  }
 }

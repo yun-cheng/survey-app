@@ -787,11 +787,12 @@ class __$UploadAudioStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UploadAudioState implements _UploadAudioState {
+class _$_UploadAudioState extends _UploadAudioState {
   const _$_UploadAudioState(
       {required this.audioMap,
       required this.uploadState,
-      required this.audioFailure});
+      required this.audioFailure})
+      : super._();
 
   @override
   final Map<UniqueId, Audio> audioMap;
@@ -833,11 +834,12 @@ class _$_UploadAudioState implements _UploadAudioState {
       __$UploadAudioStateCopyWithImpl<_UploadAudioState>(this, _$identity);
 }
 
-abstract class _UploadAudioState implements UploadAudioState {
+abstract class _UploadAudioState extends UploadAudioState {
   const factory _UploadAudioState(
       {required Map<UniqueId, Audio> audioMap,
       required LoadState uploadState,
       required Option<AudioFailure> audioFailure}) = _$_UploadAudioState;
+  const _UploadAudioState._() : super._();
 
   @override
   Map<UniqueId, Audio> get audioMap => throw _privateConstructorUsedError;

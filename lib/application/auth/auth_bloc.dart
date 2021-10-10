@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
@@ -24,70 +25,84 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
       _interviewerListSubscription;
 
   AuthBloc(this._authFacade) : super(AuthState.initial()) {
+    on<AuthEvent>(_onEvent, transformer: sequential());
     add(const AuthEvent.initialized());
     add(const AuthEvent.watchTeamListStarted());
     add(const AuthEvent.watchInterviewerListStarted());
   }
 
-  @override
-  Stream<AuthState> mapEventToState(
+  FutureOr<void> _onEvent(
     AuthEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
+    Emitter<AuthState> emit,
+  ) async {
+    await event.map(
+      initialized: (e) async {
         // NOTE 故意改變 signInState 來觸發 listener
-        yield state.copyWith(
-          signInState: LoadState.inProgress(),
-        );
-        yield state.copyWith(
-          signInState: state.signInState,
-        );
+        state
+            .copyWith(
+              signInState: LoadState.inProgress(),
+            )
+            .emit(emit);
+
+        state
+            .copyWith(
+              signInState: state.signInState,
+            )
+            .emit(emit);
       },
-      watchTeamListStarted: (e) async* {
+      watchTeamListStarted: (e) async {
         logger('Watch').i('AuthEvent: watchTeamListStarted');
 
-        yield state.copyWith(
-          teamListState: LoadState.inProgress(),
-          authFailure: none(),
-        );
+        state
+            .copyWith(
+              teamListState: LoadState.inProgress(),
+              authFailure: none(),
+            )
+            .emit(emit);
         await _teamListSubscription?.cancel();
         _teamListSubscription = _authFacade.watchTeamList().listen(
               (failureOrTeamList) =>
                   add(AuthEvent.teamListReceived(failureOrTeamList)),
             );
       },
-      teamListReceived: (e) async* {
+      teamListReceived: (e) async {
         logger('Receive').i('AuthEvent: teamListReceived');
 
-        yield e.failureOrTeamList.fold(
-          (f) => state.copyWith(
-            teamListState: LoadState.failure(),
-            authFailure: some(f),
-          ),
-          (teamList) => state.copyWith(
-            teamListState: LoadState.success(),
-            teamList: teamList,
-            authFailure: none(),
-          ),
-        );
+        e.failureOrTeamList
+            .fold(
+              (f) => state.copyWith(
+                teamListState: LoadState.failure(),
+                authFailure: some(f),
+              ),
+              (teamList) => state.copyWith(
+                teamListState: LoadState.success(),
+                teamList: teamList,
+                authFailure: none(),
+              ),
+            )
+            .emit(emit);
       },
-      teamSelected: (e) async* {
+      teamSelected: (e) async {
         logger('User Event').i('AuthEvent: teamSelected');
 
-        yield state.copyWith(
-          team: e.team,
-          authFailure: none(),
-        );
+        state
+            .copyWith(
+              team: e.team,
+              authFailure: none(),
+            )
+            .emit(emit);
         add(const AuthEvent.watchInterviewerListStarted());
       },
-      watchInterviewerListStarted: (e) async* {
+      watchInterviewerListStarted: (e) async {
         logger('Watch').i('AuthEvent: watchInterviewerListStarted');
 
         if (state.team.id != '') {
-          yield state.copyWith(
-            interviewerListState: LoadState.inProgress(),
-            authFailure: none(),
-          );
+          state
+              .copyWith(
+                interviewerListState: LoadState.inProgress(),
+                authFailure: none(),
+              )
+              .emit(emit);
           await _interviewerListSubscription?.cancel();
           _interviewerListSubscription =
               _authFacade.watchInterviewerList(teamId: state.team.id).listen(
@@ -97,40 +112,48 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
                   );
         }
       },
-      interviewerListReceived: (e) async* {
+      interviewerListReceived: (e) async {
         logger('Receive').i('AuthEvent: interviewerListReceived');
 
-        yield e.failureOrInterviewerList.fold(
-          (f) => state.copyWith(
-            interviewerListState: LoadState.failure(),
-            authFailure: some(f),
-          ),
-          (interviewerList) => state.copyWith(
-            interviewerListState: LoadState.success(),
-            interviewerList: interviewerList,
-            authFailure: none(),
-          ),
-        );
+        e.failureOrInterviewerList
+            .fold(
+              (f) => state.copyWith(
+                interviewerListState: LoadState.failure(),
+                authFailure: some(f),
+              ),
+              (interviewerList) => state.copyWith(
+                interviewerListState: LoadState.success(),
+                interviewerList: interviewerList,
+                authFailure: none(),
+              ),
+            )
+            .emit(emit);
       },
-      idChanged: (e) async* {
-        yield state.copyWith(
-          id: e.id,
-          signInState: LoadState.initial(),
-          authFailure: none(),
-        );
+      idChanged: (e) async {
+        state
+            .copyWith(
+              id: e.id,
+              signInState: LoadState.initial(),
+              authFailure: none(),
+            )
+            .emit(emit);
       },
-      passwordChanged: (e) async* {
-        yield state.copyWith(
-          password: e.password,
-          signInState: LoadState.initial(),
-          authFailure: none(),
-        );
+      passwordChanged: (e) async {
+        state
+            .copyWith(
+              password: e.password,
+              signInState: LoadState.initial(),
+              authFailure: none(),
+            )
+            .emit(emit);
       },
-      signInPressed: (e) async* {
-        yield state.copyWith(
-          signInState: LoadState.inProgress(),
-          authFailure: none(),
-        );
+      signInPressed: (e) async {
+        state
+            .copyWith(
+              signInState: LoadState.inProgress(),
+              authFailure: none(),
+            )
+            .emit(emit);
 
         if (state.id != '' && state.password != '') {
           final failureOrInterviewer = _authFacade.signIn(
@@ -139,24 +162,26 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
             interviewerList: state.interviewerList,
           );
 
-          yield failureOrInterviewer.fold(
-            (f) => state.copyWith(
-              signInState: LoadState.failure(),
-              authFailure: some(f),
-              showErrorMessages: true,
-            ),
-            (interviewer) => state.copyWith(
-              signInState: LoadState.success(),
-              authFailure: none(),
-              interviewer: interviewer,
-            ),
-          );
+          failureOrInterviewer
+              .fold(
+                (f) => state.copyWith(
+                  signInState: LoadState.failure(),
+                  authFailure: some(f),
+                  showErrorMessages: true,
+                ),
+                (interviewer) => state.copyWith(
+                  signInState: LoadState.success(),
+                  authFailure: none(),
+                  interviewer: interviewer,
+                ),
+              )
+              .emit(emit);
         }
       },
-      loggedOut: (e) async* {
+      loggedOut: (e) async {
         _teamListSubscription?.cancel();
         _interviewerListSubscription?.cancel();
-        yield AuthState.initial();
+        AuthState.initial().emit(emit);
       },
     );
   }

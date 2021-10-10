@@ -25,6 +25,7 @@ abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
     )
         eventWorker,
     required AsyncTaskRegister taskTypeRegister,
+    required Emitter<State> emit,
   }) async {
     executor = AsyncExecutor(
       parallelism: 1,
@@ -55,9 +56,10 @@ abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
 
   bool executionFinished(State newState);
 
-  Stream<State> execute(
+  Future<void> execute(
     Event event,
-  ) async* {
+    Emitter<State> emit,
+  ) async {
     final tuple = Tuple2(event, state);
     channel!.send(tuple);
 
@@ -66,7 +68,7 @@ abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
       msg = await channel!.waitMessage();
 
       if (msg is State) {
-        yield msg;
+        emit(msg);
 
         if (executionFinished(msg)) {
           break;

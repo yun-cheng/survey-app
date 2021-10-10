@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
@@ -11,29 +12,36 @@ part 'navigation_state.dart';
 
 class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
   NavigationBloc() : super(NavigationState.initial()) {
+    on<NavigationEvent>(_onEvent, transformer: sequential());
     // HIGHLIGHT 剛開始一定要先有一個 event 才會觸發 listener
     add(const NavigationEvent.initialized());
   }
 
-  @override
-  Stream<NavigationState> mapEventToState(
+  FutureOr<void> _onEvent(
     NavigationEvent event,
-  ) async* {
-    yield* event.map(
-      initialized: (e) async* {
-        yield state.copyWith(
-          pageState: PageState.initial(),
+    Emitter<NavigationState> emit,
+  ) async {
+    await event.map(
+      initialized: (e) async {
+        emit(
+          state.copyWith(
+            pageState: PageState.initial(),
+          ),
         );
       },
-      pageChanged: (e) async* {
-        yield state.copyWith(
-          page: e.page,
-          respondentId: e.respondentId ?? '',
+      pageChanged: (e) async {
+        emit(
+          state.copyWith(
+            page: e.page,
+            respondentId: e.respondentId ?? '',
+          ),
         );
       },
-      pagePushed: (e) async* {
-        yield state.copyWith(
-          pageState: PageState.push(),
+      pagePushed: (e) async {
+        emit(
+          state.copyWith(
+            pageState: PageState.push(),
+          ),
         );
       },
     );

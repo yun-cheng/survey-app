@@ -2,7 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:async_task/async_task.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
@@ -44,24 +46,26 @@ class RespondentBloc extends IsolateBloc<RespondentEvent, RespondentState> {
   RespondentBloc(
     this._respondentRepository,
   ) : super(RespondentState.initial()) {
+    on<RespondentEvent>(_onEvent, transformer: sequential());
     add(const RespondentEvent.initialized());
   }
 
-  @override
-  Stream<RespondentState> mapEventToState(
+  FutureOr<void> _onEvent(
     RespondentEvent event,
-  ) async* {
-    yield* event.maybeMap(
-      initialized: (e) async* {
+    Emitter<RespondentState> emit,
+  ) async {
+    await event.maybeMap(
+      initialized: (e) async {
         await initialize(
           boxName: 'RespondentState',
           stateFromStorage: stateFromStorage,
           eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          emit: emit,
         );
       },
-      watchSurveyRespondentMapStarted: (e) async* {
-        yield* execute(event);
+      watchSurveyRespondentMapStarted: (e) async {
+        await execute(event, emit);
 
         await _surveyRespondentMapSubscription?.cancel();
         _surveyRespondentMapSubscription = _respondentRepository
@@ -75,12 +79,12 @@ class RespondentBloc extends IsolateBloc<RespondentEvent, RespondentState> {
                       failureOrSurveyRespondentMap)),
             );
       },
-      loggedOut: (e) async* {
+      loggedOut: (e) async {
         _surveyRespondentMapSubscription?.cancel();
-        yield* execute(event);
+        await execute(event, emit);
       },
-      orElse: () async* {
-        yield* execute(event);
+      orElse: () async {
+        await execute(event, emit);
       },
     );
   }

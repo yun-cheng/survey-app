@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:async_task/async_task.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tuple/tuple.dart';
 
@@ -45,28 +47,30 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
   ResponseBloc(
     this._surveyRepository,
   ) : super(ResponseState.initial()) {
+    on<ResponseEvent>(_onEvent, transformer: sequential());
     add(const ResponseEvent.initialized());
   }
 
-  @override
-  Stream<ResponseState> mapEventToState(
+  FutureOr<void> _onEvent(
     ResponseEvent event,
-  ) async* {
-    yield* event.maybeMap(
-      initialized: (e) async* {
+    Emitter<ResponseState> emit,
+  ) async {
+    await event.maybeMap(
+      initialized: (e) async {
         await initialize(
           boxName: 'ResponseState',
           stateFromStorage: stateFromStorage,
           eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          emit: emit,
         );
       },
       // H_ 監聽 responseMap
-      watchResponseMapAndReferenceListStarted: (e) async* {
+      watchResponseMapAndReferenceListStarted: (e) async {
         logger('Watch')
             .i('ResponseBloc: watchResponseMapAndReferenceListStarted');
 
-        yield* execute(event);
+        await execute(event, emit);
 
         await _responseMapSubscription?.cancel();
         _responseMapSubscription = _surveyRepository
@@ -93,7 +97,7 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
             );
       },
       // H_ 上傳倒數計時
-      uploadTimerUpdated: (e) async* {
+      uploadTimerUpdated: (e) async {
         _inactiveTimer?.cancel();
 
         // S_1 若閒置 10 秒未更新則上傳，
@@ -111,7 +115,7 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
         }
       },
       // H_ 上傳 responseMap
-      responseMapUploading: (e) async* {
+      responseMapUploading: (e) async {
         _activeTimer?.cancel();
         _inactiveTimer?.cancel();
 
@@ -127,33 +131,33 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
               );
         }
       },
-      responseMapUploaded: (e) async* {
+      responseMapUploaded: (e) async {
         logger('Upload').e('ResponseEvent: responseMapUploaded');
 
         // TODO
       },
       // H_ 作答或切換頁數時更新 response
-      responseUpdated: (e) async* {
+      responseUpdated: (e) async {
         logger('Event').i('ResponseEvent: responseUpdated');
 
         add(const ResponseEvent.uploadTimerUpdated());
-        yield* execute(event);
+        await execute(event, emit);
       },
       // H_ 使用者結束編輯這次問卷模組的回覆
-      editFinished: (e) async* {
+      editFinished: (e) async {
         logger('User Event').i('ResponseEvent: editFinished');
 
         add(const ResponseEvent.uploadTimerUpdated());
-        yield* execute(event);
+        await execute(event, emit);
       },
       // H_ 使用者在閒置後，選擇繼續訪問
-      responseResumed: (e) async* {
+      responseResumed: (e) async {
         logger('User Event').i('ResponseEvent: responseResumed');
 
         add(const ResponseEvent.uploadTimerUpdated());
-        yield* execute(event);
+        await execute(event, emit);
       },
-      loggedOut: (e) async* {
+      loggedOut: (e) async {
         _responseMapSubscription?.cancel();
         _surveyRepository.cleanResponseMap(
           teamId: state.survey.teamId,
@@ -161,10 +165,10 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
         );
         _inactiveTimer?.cancel();
         _activeTimer?.cancel();
-        yield* execute(event);
+        await execute(event, emit);
       },
-      orElse: () async* {
-        yield* execute(event);
+      orElse: () async {
+        await execute(event, emit);
       },
     );
   }

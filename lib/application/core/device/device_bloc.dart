@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -16,16 +17,17 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
   StreamSubscription<ConnectivityResult>? _networkMonitor;
 
   DeviceBloc() : super(DeviceState.initial()) {
+    on<DeviceEvent>(_onEvent, transformer: sequential());
     add(const DeviceEvent.watchNetworkStarted());
   }
 
-  @override
-  Stream<DeviceState> mapEventToState(
+  FutureOr<void> _onEvent(
     DeviceEvent event,
-  ) async* {
-    yield* event.map(
+    Emitter<DeviceState> emit,
+  ) async {
+    await event.map(
       // H_ 監聽網路狀態
-      watchNetworkStarted: (e) async* {
+      watchNetworkStarted: (e) async {
         logger('Watch').i('DeviceEvent: watchNetworkStarted');
 
         final result = await Connectivity().checkConnectivity();
@@ -37,15 +39,17 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
             );
       },
       // H_ 網路狀態改變時
-      networkChanged: (e) async* {
+      networkChanged: (e) async {
         logger('Event').i('DeviceEvent: networkChanged');
 
-        yield state.copyWith(
-          networkType: NetworkType.fromIndex(e.result.index),
-        );
+        state
+            .copyWith(
+              networkType: NetworkType.fromIndex(e.result.index),
+            )
+            .emit(emit);
       },
       // H_ lifeCycle 變更時
-      appLifeCycleChanged: (e) async* {
+      appLifeCycleChanged: (e) async {
         logger('Event').i('DeviceEvent: appLifeCycleChanged');
 
         bool appIsPaused = state.appIsPaused;
@@ -56,9 +60,11 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
           appIsPaused = false;
         }
 
-        yield state.copyWith(
-          appIsPaused: appIsPaused,
-        );
+        state
+            .copyWith(
+              appIsPaused: appIsPaused,
+            )
+            .emit(emit);
 
         // S_ 如果 app 從閒置中回復，則重新監聽網路狀態
         if (state.appIsPaused != appIsPaused && !appIsPaused) {

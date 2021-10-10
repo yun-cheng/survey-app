@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:async_task/async_task.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tuple/tuple.dart';
 
@@ -28,24 +30,26 @@ class WatchSurveyBloc extends IsolateBloc<WatchSurveyEvent, WatchSurveyState> {
   WatchSurveyBloc(
     this._surveyRepository,
   ) : super(WatchSurveyState.initial()) {
+    on<WatchSurveyEvent>(_onEvent, transformer: sequential());
     add(const WatchSurveyEvent.initialized());
   }
 
-  @override
-  Stream<WatchSurveyState> mapEventToState(
+  FutureOr<void> _onEvent(
     WatchSurveyEvent event,
-  ) async* {
-    yield* event.maybeMap(
-      initialized: (e) async* {
+    Emitter<WatchSurveyState> emit,
+  ) async {
+    await event.maybeMap(
+      initialized: (e) async {
         await initialize(
           boxName: 'WatchSurveyState',
           stateFromStorage: stateFromStorage,
           eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          emit: emit,
         );
       },
-      watchSurveyMapStarted: (e) async* {
-        yield* execute(event);
+      watchSurveyMapStarted: (e) async {
+        await execute(event, emit);
 
         await _surveyMapSubscription?.cancel();
         _surveyMapSubscription = _surveyRepository
@@ -58,12 +62,12 @@ class WatchSurveyBloc extends IsolateBloc<WatchSurveyEvent, WatchSurveyState> {
                   add(WatchSurveyEvent.surveyMapReceived(failureOrSurveyMap)),
             );
       },
-      loggedOut: (e) async* {
+      loggedOut: (e) async {
         _surveyMapSubscription?.cancel();
-        yield* execute(event);
+        await execute(event, emit);
       },
-      orElse: () async* {
-        yield* execute(event);
+      orElse: () async {
+        await execute(event, emit);
       },
     );
   }

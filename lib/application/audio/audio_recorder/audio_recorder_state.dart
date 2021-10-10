@@ -2,6 +2,8 @@ part of 'audio_recorder_bloc.dart';
 
 @freezed
 class AudioRecorderState with _$AudioRecorderState {
+  const AudioRecorderState._();
+
   const factory AudioRecorderState({
     required double db,
     required bool isRecording,
@@ -17,4 +19,8 @@ class AudioRecorderState with _$AudioRecorderState {
         recorderState: LoadState.initial(),
         audioFailure: none(),
       );
+
+  void emit(Emitter<AudioRecorderState> emit) {
+    emit(this);
+  }
 }

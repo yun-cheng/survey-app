@@ -27,10 +27,10 @@ Logger logger([String? tag, int? methodShow]) {
     // 'splash/listeners',
     // H_ respondent
     // 'presentation/respondent_list',
-    // 'application/respondent',
+    'application/respondent',
     // H_ survey
     // 'application/survey',
-    'presentation/survey',
+    // 'presentation/survey',
     // 'presentation/overview',
     // H_
     // 'presentation',

@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:async_task/async_task.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:supercharged/supercharged.dart';
 import 'package:tuple/tuple.dart';
@@ -38,23 +40,25 @@ class UpdateAnswerStatusBloc
   bool _stateIsYielding = false;
 
   UpdateAnswerStatusBloc() : super(UpdateAnswerStatusState.initial()) {
+    on<UpdateAnswerStatusEvent>(_onEvent, transformer: sequential());
     add(const UpdateAnswerStatusEvent.initialized());
   }
 
-  @override
-  Stream<UpdateAnswerStatusState> mapEventToState(
+  FutureOr<void> _onEvent(
     UpdateAnswerStatusEvent event,
-  ) async* {
-    yield* event.maybeMap(
-      initialized: (e) async* {
+    Emitter<UpdateAnswerStatusState> emit,
+  ) async {
+    await event.maybeMap(
+      initialized: (e) async {
         await initialize(
           boxName: 'UpdateAnswerStatusState',
           stateFromStorage: stateFromStorage,
           eventWorker: _eventWorker,
           taskTypeRegister: _taskTypeRegister,
+          emit: emit,
         );
       },
-      answerUpdated: (e) async* {
+      answerUpdated: (e) async {
         // NOTE 若短時間內快速輸入，同一題只保留最後一個輸入結果進去運算，除了多選題
         if (_answerUpdatedList.isNotEmpty && !e.toggle) {
           _answerUpdatedList.removeWhere((x) => x.questionId == e.questionId);
@@ -63,20 +67,22 @@ class UpdateAnswerStatusBloc
 
         if (!_stateIsYielding) {
           _stateIsYielding = true;
-          yield* answerUpdatedStream();
+          await answerUpdatedStream(emit);
         }
       },
-      orElse: () async* {
-        yield* execute(event);
+      orElse: () async {
+        await execute(event, emit);
       },
     );
   }
 
-  Stream<UpdateAnswerStatusState> answerUpdatedStream() async* {
+  Future<void> answerUpdatedStream(
+    Emitter<UpdateAnswerStatusState> emit,
+  ) async {
     while (true) {
       if (_answerUpdatedList.isNotEmpty) {
         final event = _answerUpdatedList.removeAt(0);
-        yield* execute(event);
+        await execute(event, emit);
       } else {
         _stateIsYielding = false;
         break;

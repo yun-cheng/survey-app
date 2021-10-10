@@ -15,41 +15,42 @@ dependencies:
     sdk: flutter
   # H_ essential
   json_annotation: ^4.1.0
-  path_provider: ^2.0.2
+  path_provider: ^2.0.5
   freezed_annotation: ^0.14.3
-  uuid: ^3.0.4
+  uuid: ^3.0.5
   collection: ^1.15.0
-  supercharged: ^2.0.0
+  supercharged: ^2.1.1
   # H_ log
-  logger: ^1.0.0
+  logger: ^1.1.0
   stack_trace: ^1.10.0
   path: ^1.8.0
   # H_ get_it
   get_it: ^7.1.3
   injectable: ^1.5.0
   # H_ bloc
-  flutter_bloc: ^7.1.0
-  hydrated_bloc: ^7.0.1
+  flutter_bloc: ^7.3.0
+  hydrated_bloc: ^7.1.0
+  bloc_concurrency: ^0.1.0
   flutter_hooks_bloc: ^0.15.0+1
   # H_ database
   hive: ^2.0.4
   hive_flutter: ^1.1.0
   synchronized: ^3.0.0
   # H_ firebase
-  firebase_core: ^1.6.0
-  cloud_firestore: ^2.5.1
-  firebase_storage: ^10.0.3
+  firebase_core: ^1.7.0
+  cloud_firestore: ^2.5.3
+  firebase_storage: ^10.0.5
   # H_ network
-  connectivity_plus: ^1.0.6
+  connectivity_plus: ^2.0.2
   # H_ recorder
-  flutter_sound_lite: ^8.3.9
-  permission_handler: ^8.1.4+2
+  flutter_sound_lite: ^8.3.12
+  permission_handler: ^8.2.2
   # H_ route
   # FIXME 有問題，先直接改 package local 程式碼
   #  https://github.com/Milad-Akarie/auto_route_library/issues/659#issuecomment-906828351
   auto_route: ^2.3.0
   # H_ widget/presentation
-  sizer: ^2.0.13
+  sizer: ^2.0.15
   responsive_framework: ^0.1.4
   flutter_hooks: ^0.18.0
   # flutter_staggered_grid_view: ^0.4.0
@@ -65,7 +66,7 @@ dependencies:
   # FIXME 從 git 匯入會出現奇怪的問題，先用 local 解決
   scrollable_positioned_list:
     path: C://Users/z/AndroidStudioProjects/flutter.widgets/packages/scrollable_positioned_list
-  flash: ^2.0.1
+  flash: ^2.0.3
   # H_ others
   dartz: ^0.10.0
   # kt_dart: ^0.9.1
@@ -80,7 +81,7 @@ dev_dependencies:
     sdk: flutter
   build_runner:
   # H_ essential
-  json_serializable: ^5.0.0
+  json_serializable: ^5.0.2
   freezed: ^0.14.5
   # H_ get_it
   injectable_generator: ^1.4.1

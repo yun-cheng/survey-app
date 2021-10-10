@@ -852,15 +852,15 @@ class __$AudioRecorderStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AudioRecorderState
-    with DiagnosticableTreeMixin
-    implements _AudioRecorderState {
+class _$_AudioRecorderState extends _AudioRecorderState
+    with DiagnosticableTreeMixin {
   const _$_AudioRecorderState(
       {required this.db,
       required this.isRecording,
       required this.audio,
       required this.recorderState,
-      required this.audioFailure});
+      required this.audioFailure})
+      : super._();
 
   @override
   final double db;
@@ -924,13 +924,14 @@ class _$_AudioRecorderState
       __$AudioRecorderStateCopyWithImpl<_AudioRecorderState>(this, _$identity);
 }
 
-abstract class _AudioRecorderState implements AudioRecorderState {
+abstract class _AudioRecorderState extends AudioRecorderState {
   const factory _AudioRecorderState(
       {required double db,
       required bool isRecording,
       required Audio audio,
       required LoadState recorderState,
       required Option<AudioFailure> audioFailure}) = _$_AudioRecorderState;
+  const _AudioRecorderState._() : super._();
 
   @override
   double get db => throw _privateConstructorUsedError;

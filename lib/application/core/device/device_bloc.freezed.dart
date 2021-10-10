@@ -610,8 +610,9 @@ class __$NetworkStateCopyWithImpl<$Res> extends _$DeviceStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NetworkState implements _NetworkState {
-  const _$_NetworkState({required this.networkType, required this.appIsPaused});
+class _$_NetworkState extends _NetworkState {
+  const _$_NetworkState({required this.networkType, required this.appIsPaused})
+      : super._();
 
   @override
   final NetworkType networkType;
@@ -647,10 +648,11 @@ class _$_NetworkState implements _NetworkState {
       __$NetworkStateCopyWithImpl<_NetworkState>(this, _$identity);
 }
 
-abstract class _NetworkState implements DeviceState {
+abstract class _NetworkState extends DeviceState {
   const factory _NetworkState(
       {required NetworkType networkType,
       required bool appIsPaused}) = _$_NetworkState;
+  const _NetworkState._() : super._();
 
   @override
   NetworkType get networkType => throw _privateConstructorUsedError;
