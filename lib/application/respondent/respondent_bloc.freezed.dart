@@ -2878,7 +2878,7 @@ class _$RespondentStateTearOff {
       required LoadState surveyRespondentMapState,
       required Option<RespondentFailure> respondentFailure,
       required LoadState eventState,
-      required SaveParameters saveParameters}) {
+      required StateParameters saveParameters}) {
     return _RespondentState(
       stateId: stateId,
       surveyRespondentMap: surveyRespondentMap,
@@ -2927,7 +2927,7 @@ mixin _$RespondentState {
   Option<RespondentFailure> get respondentFailure =>
       throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError; // H_ 標記儲存參數
-  SaveParameters get saveParameters => throw _privateConstructorUsedError;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RespondentStateCopyWith<RespondentState> get copyWith =>
@@ -2955,13 +2955,13 @@ abstract class $RespondentStateCopyWith<$Res> {
       LoadState surveyRespondentMapState,
       Option<RespondentFailure> respondentFailure,
       LoadState eventState,
-      SaveParameters saveParameters});
+      StateParameters saveParameters});
 
   $UniqueIdCopyWith<$Res> get stateId;
   $SurveyCopyWith<$Res> get survey;
   $LoadStateCopyWith<$Res> get surveyRespondentMapState;
   $LoadStateCopyWith<$Res> get eventState;
-  $SaveParametersCopyWith<$Res> get saveParameters;
+  $StateParametersCopyWith<$Res> get saveParameters;
 }
 
 /// @nodoc
@@ -3056,7 +3056,7 @@ class _$RespondentStateCopyWithImpl<$Res>
       saveParameters: saveParameters == freezed
           ? _value.saveParameters
           : saveParameters // ignore: cast_nullable_to_non_nullable
-              as SaveParameters,
+              as StateParameters,
     ));
   }
 
@@ -3089,8 +3089,8 @@ class _$RespondentStateCopyWithImpl<$Res>
   }
 
   @override
-  $SaveParametersCopyWith<$Res> get saveParameters {
-    return $SaveParametersCopyWith<$Res>(_value.saveParameters, (value) {
+  $StateParametersCopyWith<$Res> get saveParameters {
+    return $StateParametersCopyWith<$Res>(_value.saveParameters, (value) {
       return _then(_value.copyWith(saveParameters: value));
     });
   }
@@ -3119,7 +3119,7 @@ abstract class _$RespondentStateCopyWith<$Res>
       LoadState surveyRespondentMapState,
       Option<RespondentFailure> respondentFailure,
       LoadState eventState,
-      SaveParameters saveParameters});
+      StateParameters saveParameters});
 
   @override
   $UniqueIdCopyWith<$Res> get stateId;
@@ -3130,7 +3130,7 @@ abstract class _$RespondentStateCopyWith<$Res>
   @override
   $LoadStateCopyWith<$Res> get eventState;
   @override
-  $SaveParametersCopyWith<$Res> get saveParameters;
+  $StateParametersCopyWith<$Res> get saveParameters;
 }
 
 /// @nodoc
@@ -3227,7 +3227,7 @@ class __$RespondentStateCopyWithImpl<$Res>
       saveParameters: saveParameters == freezed
           ? _value.saveParameters
           : saveParameters // ignore: cast_nullable_to_non_nullable
-              as SaveParameters,
+              as StateParameters,
     ));
   }
 }
@@ -3285,7 +3285,7 @@ class _$_RespondentState extends _RespondentState {
   @override
   final LoadState eventState;
   @override // H_ 標記儲存參數
-  final SaveParameters saveParameters;
+  final StateParameters saveParameters;
 
   @override
   String toString() {
@@ -3390,7 +3390,7 @@ abstract class _RespondentState extends RespondentState {
       required LoadState surveyRespondentMapState,
       required Option<RespondentFailure> respondentFailure,
       required LoadState eventState,
-      required SaveParameters saveParameters}) = _$_RespondentState;
+      required StateParameters saveParameters}) = _$_RespondentState;
   const _RespondentState._() : super._();
 
   @override
@@ -3431,7 +3431,7 @@ abstract class _RespondentState extends RespondentState {
   @override
   LoadState get eventState => throw _privateConstructorUsedError;
   @override // H_ 標記儲存參數
-  SaveParameters get saveParameters => throw _privateConstructorUsedError;
+  StateParameters get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RespondentStateCopyWith<_RespondentState> get copyWith =>
@@ -3439,10 +3439,10 @@ abstract class _RespondentState extends RespondentState {
 }
 
 /// @nodoc
-class _$SaveParametersTearOff {
-  const _$SaveParametersTearOff();
+class _$StateParametersTearOff {
+  const _$StateParametersTearOff();
 
-  _SaveParameters call(
+  _StateParameters call(
       {required bool surveyRespondentMap,
       required bool survey,
       required bool respondentMap,
@@ -3452,7 +3452,7 @@ class _$SaveParametersTearOff {
       required bool visitRecordsMap,
       required bool tabRespondentMap,
       required bool responseInfoMap}) {
-    return _SaveParameters(
+    return _StateParameters(
       surveyRespondentMap: surveyRespondentMap,
       survey: survey,
       respondentMap: respondentMap,
@@ -3467,10 +3467,10 @@ class _$SaveParametersTearOff {
 }
 
 /// @nodoc
-const $SaveParameters = _$SaveParametersTearOff();
+const $StateParameters = _$StateParametersTearOff();
 
 /// @nodoc
-mixin _$SaveParameters {
+mixin _$StateParameters {
   bool get surveyRespondentMap => throw _privateConstructorUsedError;
   bool get survey => throw _privateConstructorUsedError;
   bool get respondentMap => throw _privateConstructorUsedError;
@@ -3482,15 +3482,15 @@ mixin _$SaveParameters {
   bool get responseInfoMap => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SaveParametersCopyWith<SaveParameters> get copyWith =>
+  $StateParametersCopyWith<StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SaveParametersCopyWith<$Res> {
-  factory $SaveParametersCopyWith(
-          SaveParameters value, $Res Function(SaveParameters) then) =
-      _$SaveParametersCopyWithImpl<$Res>;
+abstract class $StateParametersCopyWith<$Res> {
+  factory $StateParametersCopyWith(
+          StateParameters value, $Res Function(StateParameters) then) =
+      _$StateParametersCopyWithImpl<$Res>;
   $Res call(
       {bool surveyRespondentMap,
       bool survey,
@@ -3504,13 +3504,13 @@ abstract class $SaveParametersCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SaveParametersCopyWithImpl<$Res>
-    implements $SaveParametersCopyWith<$Res> {
-  _$SaveParametersCopyWithImpl(this._value, this._then);
+class _$StateParametersCopyWithImpl<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  _$StateParametersCopyWithImpl(this._value, this._then);
 
-  final SaveParameters _value;
+  final StateParameters _value;
   // ignore: unused_field
-  final $Res Function(SaveParameters) _then;
+  final $Res Function(StateParameters) _then;
 
   @override
   $Res call({
@@ -3566,11 +3566,11 @@ class _$SaveParametersCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SaveParametersCopyWith<$Res>
-    implements $SaveParametersCopyWith<$Res> {
-  factory _$SaveParametersCopyWith(
-          _SaveParameters value, $Res Function(_SaveParameters) then) =
-      __$SaveParametersCopyWithImpl<$Res>;
+abstract class _$StateParametersCopyWith<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  factory _$StateParametersCopyWith(
+          _StateParameters value, $Res Function(_StateParameters) then) =
+      __$StateParametersCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool surveyRespondentMap,
@@ -3585,15 +3585,15 @@ abstract class _$SaveParametersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SaveParametersCopyWithImpl<$Res>
-    extends _$SaveParametersCopyWithImpl<$Res>
-    implements _$SaveParametersCopyWith<$Res> {
-  __$SaveParametersCopyWithImpl(
-      _SaveParameters _value, $Res Function(_SaveParameters) _then)
-      : super(_value, (v) => _then(v as _SaveParameters));
+class __$StateParametersCopyWithImpl<$Res>
+    extends _$StateParametersCopyWithImpl<$Res>
+    implements _$StateParametersCopyWith<$Res> {
+  __$StateParametersCopyWithImpl(
+      _StateParameters _value, $Res Function(_StateParameters) _then)
+      : super(_value, (v) => _then(v as _StateParameters));
 
   @override
-  _SaveParameters get _value => super._value as _SaveParameters;
+  _StateParameters get _value => super._value as _StateParameters;
 
   @override
   $Res call({
@@ -3607,7 +3607,7 @@ class __$SaveParametersCopyWithImpl<$Res>
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
   }) {
-    return _then(_SaveParameters(
+    return _then(_StateParameters(
       surveyRespondentMap: surveyRespondentMap == freezed
           ? _value.surveyRespondentMap
           : surveyRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -3650,8 +3650,8 @@ class __$SaveParametersCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SaveParameters extends _SaveParameters {
-  const _$_SaveParameters(
+class _$_StateParameters extends _StateParameters {
+  const _$_StateParameters(
       {required this.surveyRespondentMap,
       required this.survey,
       required this.respondentMap,
@@ -3684,13 +3684,13 @@ class _$_SaveParameters extends _SaveParameters {
 
   @override
   String toString() {
-    return 'SaveParameters(surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
+    return 'StateParameters(surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SaveParameters &&
+        (other is _StateParameters &&
             (identical(other.surveyRespondentMap, surveyRespondentMap) ||
                 const DeepCollectionEquality()
                     .equals(other.surveyRespondentMap, surveyRespondentMap)) &&
@@ -3734,12 +3734,12 @@ class _$_SaveParameters extends _SaveParameters {
 
   @JsonKey(ignore: true)
   @override
-  _$SaveParametersCopyWith<_SaveParameters> get copyWith =>
-      __$SaveParametersCopyWithImpl<_SaveParameters>(this, _$identity);
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+      __$StateParametersCopyWithImpl<_StateParameters>(this, _$identity);
 }
 
-abstract class _SaveParameters extends SaveParameters {
-  const factory _SaveParameters(
+abstract class _StateParameters extends StateParameters {
+  const factory _StateParameters(
       {required bool surveyRespondentMap,
       required bool survey,
       required bool respondentMap,
@@ -3748,8 +3748,8 @@ abstract class _SaveParameters extends SaveParameters {
       required bool selectedRespondentId,
       required bool visitRecordsMap,
       required bool tabRespondentMap,
-      required bool responseInfoMap}) = _$_SaveParameters;
-  const _SaveParameters._() : super._();
+      required bool responseInfoMap}) = _$_StateParameters;
+  const _StateParameters._() : super._();
 
   @override
   bool get surveyRespondentMap => throw _privateConstructorUsedError;
@@ -3771,6 +3771,6 @@ abstract class _SaveParameters extends SaveParameters {
   bool get responseInfoMap => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SaveParametersCopyWith<_SaveParameters> get copyWith =>
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -7,7 +7,7 @@ import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 import '../../../application/auth/auth_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import '../../core/widgets/rounded_button.dart';
 import '../../routes/router.gr.dart';
 import 'account_box.dart';

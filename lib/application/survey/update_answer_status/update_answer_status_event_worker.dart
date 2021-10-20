@@ -58,6 +58,9 @@ void _eventWorker(
       state = showQuestionChecked(state, all: true);
       state = pageUpdatedFlow(channel, state);
       state = warningUpdatedFlow(channel, state);
+      state = state.copyWith(
+        restoreState: LoadState.success(),
+      );
     },
     // H_ 離開問卷時清空 state
     stateCleared: (e) {

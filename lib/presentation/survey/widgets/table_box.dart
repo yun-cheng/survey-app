@@ -8,7 +8,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/extensions.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import 'choices_row.dart';
 import 'complex_cell_box.dart';
 

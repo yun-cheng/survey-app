@@ -205,27 +205,39 @@ RespondentState tabRespondentsUpdatedJob(RespondentState state) {
     ),
   );
 
-  tabRespondentMap[TabType.interviewReport] = pRespondentMap.item1;
+  tabRespondentMap[TabType.interviewReport] =
+      SplayTreeMap.from(pRespondentMap.item1);
 
   // S_4-1 剩下的就在訪問分頁
   tabRespondentMap[TabType.start] = pRespondentMap.item2;
 
+  // S_ 排序
   tabRespondentMap.updateValues(
-    (e) => e.values
-        .groupListsBy((r) => r.countyTown)
-        .mapValues((e1) => e1.mapIndexed(
-              (i, r1) => i == 0 ? r1.copyWith(isCountyTownFirst: true) : r1,
-            ))
-        .values
-        .flattened
-        .groupListsBy((r) => Tuple2(r.countyTown, r.village))
-        .mapValues((e1) => e1.mapIndexed(
-              (i, r1) => i == 0 ? r1.copyWith(isVillageFirst: true) : r1,
-            ))
-        .values
-        .flattened
-        .map((r2) => MapEntry(r2.id, r2))
-        .toMap(),
+    (e) {
+      final list = e.values.toList().sortedByX((r) => r.id);
+
+      list.forEachIndexed((i, r) {
+        if (i > 0) {
+          if (r.village != list[i - 1].village) {
+            list[i] = r.copyWith(isVillageFirst: true);
+          }
+
+          if (r.countyTown != list[i - 1].countyTown) {
+            list[i] = r.copyWith(
+              isCountyTownFirst: true,
+              isVillageFirst: true,
+            );
+          }
+        } else {
+          list[i] = r.copyWith(
+            isCountyTownFirst: true,
+            isVillageFirst: true,
+          );
+        }
+      });
+
+      return list.map((r) => MapEntry(r.id, r)).toMap();
+    },
   );
 
   return state.copyWith(

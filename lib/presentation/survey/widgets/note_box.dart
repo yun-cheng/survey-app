@@ -5,7 +5,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/choice.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 
 class NoteBox extends HookWidget {
   final String questionId;
@@ -28,7 +28,8 @@ class NoteBox extends HookWidget {
     // final textFieldKey = useMemoized(() => GlobalKey());
     final controller = useTextEditingController(text: note);
 
-    return Padding(
+    return Container(
+      width: kAnswerElementWidth,
       padding: const EdgeInsets.all(10),
       child: TextField(
         // key: textFieldKey,
@@ -38,8 +39,14 @@ class NoteBox extends HookWidget {
         decoration: InputDecoration(
           labelText: '',
           counterText: '',
-          filled: !canEdit,
-          fillColor: kCannotEditColor,
+          filled: true,
+          fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
+          border: const UnderlineInputBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+          ),
         ),
         // maxLines: null,
         onChanged: (value) {

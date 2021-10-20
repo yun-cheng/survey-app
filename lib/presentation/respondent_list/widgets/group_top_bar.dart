@@ -7,7 +7,7 @@ import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import 'scroll_position_bundle.dart';
 
 class GroupTopBar extends StatelessWidget {
@@ -58,7 +58,7 @@ class GroupTopBar extends StatelessWidget {
           );
         }
 
-        return Container();
+        return const SizedBox();
       },
     );
   }
@@ -109,7 +109,9 @@ class TownDropDown extends HookWidget {
         DropdownButton<String?>(
           value: selectedCountyTown.value,
           selectedItemBuilder: (_) => selectedItemList,
+          underline: const SizedBox(),
           iconSize: 40.0,
+          itemHeight: null,
           items: choiceItemList,
           onChanged: (String? countyTown) {
             selectedCountyTown.value = countyTown;

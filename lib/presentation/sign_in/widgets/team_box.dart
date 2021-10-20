@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/auth_bloc.dart';
 import '../../../domain/auth/team.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 
 class Teambox extends StatelessWidget {
   const Teambox({
@@ -31,6 +31,7 @@ class Teambox extends StatelessWidget {
             color: Colors.black,
           ),
           iconSize: 40.0,
+          itemHeight: null,
           isExpanded: true,
         );
       },

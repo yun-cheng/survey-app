@@ -19,16 +19,17 @@ class SurveyBody extends StatelessWidget {
       // HIGHLIGHT 初次進頁面可能這些條件都不變（如第一題是說明題），
       //  會導致沒有 rebuild，故加上最後一個判斷條件
       buildWhen: (p, c) =>
-          (p.updateState != c.updateState &&
-              c.updateState == LoadState.success()) &&
-          (p.page != c.page || p.page == -99),
+          (p.restoreState != c.restoreState) ||
+          ((c.restoreState == LoadState.success() &&
+                  p.updateState != c.updateState &&
+                  c.updateState == LoadState.success()) &&
+              p.page != c.page),
       builder: (context, state) {
-        logger('Build').i('SurveyBody: List of QaCard');
-
         if (state.restoreState == LoadState.success()) {
+          logger('Build').i('SurveyBody: List of QaCard');
+
           // TODO 用 ScrollablePositionedList 在 keyboard 出現/隱藏時會導致
           //  rebuild，因此先使用 ListView
-
           // return ScrollablePositionedList.builder(
           return ListView.builder(
             shrinkWrap: true,

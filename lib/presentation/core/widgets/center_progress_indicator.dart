@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+
+import '../style/main.dart';
 
 class CenterProgressIndicator extends StatelessWidget {
   const CenterProgressIndicator({Key? key}) : super(key: key);
@@ -9,8 +10,8 @@ class CenterProgressIndicator extends StatelessWidget {
     return Stack(
       children: [
         SizedBox(
-          width: SizerUtil.orientation == Orientation.portrait ? 100.w : 100.h,
-          height: SizerUtil.orientation == Orientation.portrait ? 100.h : 100.w,
+          width: screenWidth,
+          height: screenHeight,
           child: const Center(
             child: CircularProgressIndicator(),
           ),

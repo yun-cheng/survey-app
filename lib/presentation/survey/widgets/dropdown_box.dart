@@ -7,7 +7,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import 'note_box.dart';
 
 class DropdownBox extends StatelessWidget {
@@ -79,10 +79,10 @@ class DropdownBox extends StatelessWidget {
                     enabled: false,
                     value: 'G_${choice.id}',
                     child: Container(
-                      color: Colors.lightBlue[400],
+                      color: kChoiceGroupBackgroundColor,
                       width: double.infinity,
                       alignment: Alignment.centerLeft,
-                      height: 32.0,
+                      padding: const EdgeInsets.all(10),
                       child: Text(
                         choice.group,
                         style: kChoiceGroupTextStyle,
@@ -108,28 +108,25 @@ class DropdownBox extends StatelessWidget {
           // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
+              width: kAnswerElementWidth,
               decoration: BoxDecoration(
-                color: canEdit ? null : kCannotEditColor,
+                color: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
               ),
-              child: DropdownButton<String>(
+              child: DropdownButton<String>(  
                 value: thisAnswer.value?.id,
                 style: kPTextStyle.copyWith(
                   color: Colors.black,
                 ),
-                // elevation: 16,
+                underline: const SizedBox(),
                 focusColor: Colors.red,
                 iconSize: 40.0,
                 isExpanded: true,
-                // NOTE 選擇到的選項，要呈現什麼文字
-                // selectedItemBuilder: (BuildContext context) {
-                //   return question.choiceList
-                //       .map(
-                //         (choice) => Text(
-                //           choice.body,
-                //         ),
-                //       )
-                //       .asList();
-                // },
+                borderRadius: BorderRadius.circular(10),
+                itemHeight: null,
+                icon: Visibility(
+                  visible: canEdit,
+                  child: const Icon(Icons.arrow_drop_down),
+                ),
                 items: choiceItemList,
                 onChanged: (String? value) {
                   context.read<UpdateAnswerStatusBloc>().add(

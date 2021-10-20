@@ -5,7 +5,7 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/question.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 
 class WarningBox extends StatelessWidget {
   final Question question;
@@ -40,17 +40,20 @@ class WarningBox extends StatelessWidget {
 
           return Visibility(
             visible: state.showWarning && !warning.isEmpty,
-            child: Text(
-              warning.type.value,
-              style: kH4TextStyle.copyWith(
-                color: kCardRedTextColor,
-                fontWeight: FontWeight.bold,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10.0),
+              child: Text(
+                warning.type.value,
+                style: kH4TextStyle.copyWith(
+                  color: Colors.red,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
           );
         }
 
-        return Container();
+        return const SizedBox();
       },
     );
   }

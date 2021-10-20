@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 
 import '../../application/respondent/respondent_bloc.dart';
 import '../../domain/core/i_local_storage.dart';
@@ -32,6 +31,7 @@ class RespondentStateDto with _$RespondentStateDto {
     Map<String, List<VisitRecordDto>>? visitRecordsMap,
     Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
     ResponseMapDto? responseInfoMap,
+    @JsonKey(ignore: true) StateParameters? saveParameters,
   }) = _RespondentStateDto;
 
   static Map<String, DtoInfo> infoMap() => const {
@@ -47,6 +47,16 @@ class RespondentStateDto with _$RespondentStateDto {
           key: 'surveyId',
         ),
       };
+
+  Map<String, DtoInfo> subsetInfoMap() {
+    final infoMap = {...RespondentStateDto.infoMap()};
+
+    if (!saveParameters!.surveyRespondentMap) {
+      infoMap.remove('surveyRespondentMap');
+    }
+    
+    return infoMap;
+  }
 
   factory RespondentStateDto.fromDomain(RespondentState domain) {
     return RespondentStateDto(
@@ -77,6 +87,7 @@ class RespondentStateDto with _$RespondentStateDto {
       responseInfoMap: domain.saveParameters.responseInfoMap
           ? ResponseMapDto.fromDomain(domain.responseInfoMap)
           : null,
+      saveParameters: domain.saveParameters,
     );
   }
 
@@ -115,7 +126,7 @@ class RespondentStateDto with _$RespondentStateDto {
   void saveState(ILocalStorage localStorage) => commonSaveState(
         json: toJson(),
         localStorage: localStorage,
-        infoMap: RespondentStateDto.infoMap(),
+        infoMap: subsetInfoMap(),
       );
 
   factory RespondentStateDto.fromJson(Map<String, dynamic> json) =>

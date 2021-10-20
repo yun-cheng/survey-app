@@ -1,14 +1,14 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/constants.dart';
+import '../../../infrastructure/core/use_bloc.dart';
+import '../../core/style/main.dart';
 import 'choice_item.dart';
 
 class ChoicesBox extends HookWidget {
@@ -30,7 +30,7 @@ class ChoicesBox extends HookWidget {
     final answer = useValueNotifier(Answer.empty());
 
     final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      onEmitted: (_, p, c) {
+      buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
             c.updateState == LoadState.success()) {
           // S_ 該題作答清空時，更新 answer
@@ -53,7 +53,7 @@ class ChoicesBox extends HookWidget {
         }
         return false;
       },
-    ).state;
+    );
 
     final choiceList = state.questionMap[questionId]?.choiceList ?? [];
     final size = choiceList.length;
@@ -82,9 +82,7 @@ class ChoicesBox extends HookWidget {
           final choice = choiceList[index + append];
 
           return Container(
-            decoration: BoxDecoration(
-              color: canEdit ? null : kCannotEditColor,
-            ),
+            constraints: kAnswerElementMaxWith,
             child: ChoiceItem(
               questionId: questionId,
               questionType: questionType,

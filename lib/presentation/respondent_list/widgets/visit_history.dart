@@ -10,7 +10,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import '../../routes/router.gr.dart';
 
 class VisitHistory extends StatelessWidget {

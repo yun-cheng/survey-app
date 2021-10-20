@@ -6,7 +6,7 @@ import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/value_objects.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 
 class BadgedTabBar extends StatelessWidget {
   final TabController tabController;
@@ -69,6 +69,7 @@ class BadgedTabBar extends StatelessWidget {
           return TabBar(
             controller: tabController,
             labelStyle: kH3TextStyle,
+            isScrollable: screenWidth < 600.0,
             tabs: <Widget>[
               tabTitle(
                   '訪問', state.tabRespondentMap[TabType.start]?.length ?? 0),

@@ -48,5 +48,5 @@ Widget getAnswerBox({
       );
     }
   }
-  return Container();
+  return const SizedBox();
 }

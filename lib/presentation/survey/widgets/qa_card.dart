@@ -6,7 +6,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import 'get_answer_box.dart';
 import 'question_box.dart';
 import 'recode_box.dart';
@@ -63,56 +63,75 @@ class QaCard extends StatelessWidget {
             (thisQuestion.tableId == '' ||
                 (thisQuestion.tableId != '' && thisQuestion.type.isTable));
 
+        final canEdit = !state.isReadOnly && !state.isRecodeModule;
+
         return Column(
           children: [
-            if (index == 0) const SizedBox(height: 10.0),
+            if (index == 0) const SizedBox(height: 25.0),
             Visibility(
               visible: visible,
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: ConstrainedBox(
-                  constraints: kCardMaxWith,
-                  child: Card(
-                    // NOTE 避免 widget 沒有刷新的問題
-                    key: Key(questionId),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15.0),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      constraints: kCardMaxWith,
+                      child: QuestionBox(questionId: questionId),
                     ),
-                    margin: const EdgeInsets.only(bottom: 10.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          QuestionBox(questionId: questionId),
-                          WarningBox(
-                            question: thisQuestion,
-                            questionId: thisQuestion.id,
-                          ),
-                          if (thisQuestion.hasSpecialAnswer) ...[
-                            SpecialAnswerSwitch(
-                              questionId: thisQuestion.id,
-                              isSpecialAnswer: isSpecialAnswer,
-                            ),
-                          ],
-                          getAnswerBox(
-                            questionId: thisQuestion.id,
-                            questionType: thisQuestion.type,
-                            isSpecialAnswer: isSpecialAnswer,
-                            tableId: thisQuestion.tableId,
-                          ),
-                          // H_ 只在 recode module 呈現
-                          if (state.isRecodeModule &&
-                              thisQuestion.recodeNeeded) ...[
-                            RecodeBox(questionId: thisQuestion.id),
-                          ]
-                        ],
+                    Container(
+                      width: double.infinity,
+                      constraints: kCardMaxWith,
+                      child: WarningBox(
+                        question: thisQuestion,
+                        questionId: thisQuestion.id,
                       ),
                     ),
-                  ),
+                    if (thisQuestion.hasSpecialAnswer && canEdit) ...[
+                      Container(
+                        width: double.infinity,
+                        constraints: kCardMaxWith,
+                        child: SpecialAnswerSwitch(
+                          questionId: thisQuestion.id,
+                          isSpecialAnswer: isSpecialAnswer,
+                        ),
+                      ),
+                    ],
+                    Container(
+                      width: double.infinity,
+                      constraints:
+                          thisQuestion.type.isTable ? null : kCardMaxWith,
+                      alignment: thisQuestion.type.isTable
+                          ? Alignment.topCenter
+                          : Alignment.topLeft,
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: getAnswerBox(
+                        questionId: thisQuestion.id,
+                        questionType: thisQuestion.type,
+                        isSpecialAnswer: isSpecialAnswer,
+                        tableId: thisQuestion.tableId,
+                      ),
+                    ),
+                    // H_ 只在 recode module 呈現
+                    if (state.isRecodeModule && thisQuestion.recodeNeeded) ...[
+                      RecodeBox(questionId: thisQuestion.id),
+                    ]
+                  ],
                 ),
               ),
             ),
+            if (visible)
+              ConstrainedBox(
+                constraints: kCardMaxWith,
+                child: const Divider(
+                  thickness: 1.5,
+                  height: 50.0,
+                  color: Colors.black26,
+                  indent: 10.0,
+                  endIndent: 10.0,
+                ),
+              ),
           ],
         );
       },

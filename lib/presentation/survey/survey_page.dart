@@ -27,17 +27,14 @@ class SurveyPage extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('SurveyPage');
 
-    final firstBuild = useValueNotifier(true);
-
     useEffect(() {
-      if (showDialogOnRestart && firstBuild.value) {
+      if (showDialogOnRestart) {
         // NOTE https://stackoverflow.com/a/61137589
         WidgetsBinding.instance!.addPostFrameCallback((_) {
           showSurveyDialog(context);
         });
-        firstBuild.value = false;
       }
-    });
+    }, []);
 
     final respondent = context.read<ResponseBloc>().state.respondent;
 

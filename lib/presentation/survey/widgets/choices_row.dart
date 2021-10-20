@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -10,7 +9,8 @@ import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/constants.dart';
+import '../../../infrastructure/core/use_bloc.dart';
+import '../../core/style/main.dart';
 import 'choice_item.dart';
 import 'get_answer_box.dart';
 import 'question_box.dart';
@@ -40,7 +40,7 @@ class ChoicesRow extends HookWidget {
     final answer = useValueNotifier(Answer.empty());
 
     final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      onEmitted: (_, p, c) {
+      buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
             c.updateState == LoadState.success()) {
           // S_ 該題作答清空時，更新 answer
@@ -64,7 +64,7 @@ class ChoicesRow extends HookWidget {
         }
         return false;
       },
-    ).state;
+    );
 
     answer.value = state.answerMap[questionId] ?? Answer.empty();
     final answerStatus =

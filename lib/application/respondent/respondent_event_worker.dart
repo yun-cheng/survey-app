@@ -16,7 +16,7 @@ void _eventWorker(
 ) {
   final e = tuple.item1 as RespondentEvent;
   var state = (tuple.item2 as RespondentState).copyWith(
-    saveParameters: SaveParameters.initial(),
+    saveParameters: StateParameters.initial(),
   );
 
   // S_
@@ -129,16 +129,17 @@ void _eventWorker(
           )
           .send(channel);
 
-      final jumpToIndex = state.respondentMap.values
-          .indexOfFirst((r) => r.countyTown == e.countyTown);
+      final jumpToIndex =
+          state.tabRespondentMap[state.currentTab]!.values.indexOfFirst(
+        (r) => r.countyTown == e.countyTown,
+      );
 
-      // FIXME
-      // state = state
-      //     .copyWith(
-      //       needToJump: true,
-      //       jumpToIndex: jumpToIndex,
-      //     )
-      //     .send(channel);
+      state = state
+          .copyWith(
+            needToJump: true,
+            jumpToIndex: jumpToIndex,
+          )
+          .send(channel);
     },
     // H_ 滾動頁面時
     pageScrolled: (e) {
@@ -150,7 +151,7 @@ void _eventWorker(
     },
     loggedOut: (e) {
       state = RespondentState.initial().copyWith(
-        saveParameters: SaveParameters.clear(),
+        saveParameters: StateParameters.clear(),
       );
     },
     orElse: () {},

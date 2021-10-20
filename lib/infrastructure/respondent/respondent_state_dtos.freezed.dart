@@ -31,7 +31,8 @@ class _$RespondentStateDtoTearOff {
       String? selectedRespondentId,
       Map<String, List<VisitRecordDto>>? visitRecordsMap,
       Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
-      ResponseMapDto? responseInfoMap}) {
+      ResponseMapDto? responseInfoMap,
+      @JsonKey(ignore: true) StateParameters? saveParameters}) {
     return _RespondentStateDto(
       surveyRespondentMap: surveyRespondentMap,
       survey: survey,
@@ -43,6 +44,7 @@ class _$RespondentStateDtoTearOff {
       visitRecordsMap: visitRecordsMap,
       tabRespondentMap: tabRespondentMap,
       responseInfoMap: responseInfoMap,
+      saveParameters: saveParameters,
     );
   }
 
@@ -71,6 +73,8 @@ mixin _$RespondentStateDto {
   Map<TabType, Map<String, RespondentDto>>? get tabRespondentMap =>
       throw _privateConstructorUsedError;
   ResponseMapDto? get responseInfoMap => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  StateParameters? get saveParameters => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -93,10 +97,12 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
       String? selectedRespondentId,
       Map<String, List<VisitRecordDto>>? visitRecordsMap,
       Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
-      ResponseMapDto? responseInfoMap});
+      ResponseMapDto? responseInfoMap,
+      @JsonKey(ignore: true) StateParameters? saveParameters});
 
   $SurveyDtoCopyWith<$Res>? get survey;
   $ResponseMapDtoCopyWith<$Res>? get responseInfoMap;
+  $StateParametersCopyWith<$Res>? get saveParameters;
 }
 
 /// @nodoc
@@ -120,6 +126,7 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
     Object? visitRecordsMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_value.copyWith(
       surveyRespondentMap: surveyRespondentMap == freezed
@@ -162,6 +169,10 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.responseInfoMap
           : responseInfoMap // ignore: cast_nullable_to_non_nullable
               as ResponseMapDto?,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters?,
     ));
   }
 
@@ -186,6 +197,17 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
       return _then(_value.copyWith(responseInfoMap: value));
     });
   }
+
+  @override
+  $StateParametersCopyWith<$Res>? get saveParameters {
+    if (_value.saveParameters == null) {
+      return null;
+    }
+
+    return $StateParametersCopyWith<$Res>(_value.saveParameters!, (value) {
+      return _then(_value.copyWith(saveParameters: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -205,12 +227,15 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       String? selectedRespondentId,
       Map<String, List<VisitRecordDto>>? visitRecordsMap,
       Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
-      ResponseMapDto? responseInfoMap});
+      ResponseMapDto? responseInfoMap,
+      @JsonKey(ignore: true) StateParameters? saveParameters});
 
   @override
   $SurveyDtoCopyWith<$Res>? get survey;
   @override
   $ResponseMapDtoCopyWith<$Res>? get responseInfoMap;
+  @override
+  $StateParametersCopyWith<$Res>? get saveParameters;
 }
 
 /// @nodoc
@@ -236,6 +261,7 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
     Object? visitRecordsMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_RespondentStateDto(
       surveyRespondentMap: surveyRespondentMap == freezed
@@ -278,6 +304,10 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.responseInfoMap
           : responseInfoMap // ignore: cast_nullable_to_non_nullable
               as ResponseMapDto?,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters?,
     ));
   }
 }
@@ -296,7 +326,8 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       this.selectedRespondentId,
       this.visitRecordsMap,
       this.tabRespondentMap,
-      this.responseInfoMap})
+      this.responseInfoMap,
+      @JsonKey(ignore: true) this.saveParameters})
       : super._();
 
   factory _$_RespondentStateDto.fromJson(Map<String, dynamic> json) =>
@@ -322,10 +353,13 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   final Map<TabType, Map<String, RespondentDto>>? tabRespondentMap;
   @override
   final ResponseMapDto? responseInfoMap;
+  @override
+  @JsonKey(ignore: true)
+  final StateParameters? saveParameters;
 
   @override
   String toString() {
-    return 'RespondentStateDto(surveyRespondentMap: $surveyRespondentMap, survey: $survey, surveyId: $surveyId, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
+    return 'RespondentStateDto(surveyRespondentMap: $surveyRespondentMap, survey: $survey, surveyId: $surveyId, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap, saveParameters: $saveParameters)';
   }
 
   @override
@@ -360,7 +394,10 @@ class _$_RespondentStateDto extends _RespondentStateDto {
                     .equals(other.tabRespondentMap, tabRespondentMap)) &&
             (identical(other.responseInfoMap, responseInfoMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.responseInfoMap, responseInfoMap)));
+                    .equals(other.responseInfoMap, responseInfoMap)) &&
+            (identical(other.saveParameters, saveParameters) ||
+                const DeepCollectionEquality()
+                    .equals(other.saveParameters, saveParameters)));
   }
 
   @override
@@ -375,7 +412,8 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       const DeepCollectionEquality().hash(selectedRespondentId) ^
       const DeepCollectionEquality().hash(visitRecordsMap) ^
       const DeepCollectionEquality().hash(tabRespondentMap) ^
-      const DeepCollectionEquality().hash(responseInfoMap);
+      const DeepCollectionEquality().hash(responseInfoMap) ^
+      const DeepCollectionEquality().hash(saveParameters);
 
   @JsonKey(ignore: true)
   @override
@@ -390,16 +428,18 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 
 abstract class _RespondentStateDto extends RespondentStateDto {
   const factory _RespondentStateDto(
-      {Map<String, Map<String, RespondentDto>>? surveyRespondentMap,
-      SurveyDto? survey,
-      String? surveyId,
-      Map<String, RespondentDto>? respondentMap,
-      TabType? currentTab,
-      Map<TabType, CardScrollPositionDto>? tabScrollPosition,
-      String? selectedRespondentId,
-      Map<String, List<VisitRecordDto>>? visitRecordsMap,
-      Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
-      ResponseMapDto? responseInfoMap}) = _$_RespondentStateDto;
+          {Map<String, Map<String, RespondentDto>>? surveyRespondentMap,
+          SurveyDto? survey,
+          String? surveyId,
+          Map<String, RespondentDto>? respondentMap,
+          TabType? currentTab,
+          Map<TabType, CardScrollPositionDto>? tabScrollPosition,
+          String? selectedRespondentId,
+          Map<String, List<VisitRecordDto>>? visitRecordsMap,
+          Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
+          ResponseMapDto? responseInfoMap,
+          @JsonKey(ignore: true) StateParameters? saveParameters}) =
+      _$_RespondentStateDto;
   const _RespondentStateDto._() : super._();
 
   factory _RespondentStateDto.fromJson(Map<String, dynamic> json) =
@@ -430,6 +470,9 @@ abstract class _RespondentStateDto extends RespondentStateDto {
       throw _privateConstructorUsedError;
   @override
   ResponseMapDto? get responseInfoMap => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  StateParameters? get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RespondentStateDtoCopyWith<_RespondentStateDto> get copyWith =>

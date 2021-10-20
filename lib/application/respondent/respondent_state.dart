@@ -24,7 +24,7 @@ class RespondentState with _$RespondentState {
     required Option<RespondentFailure> respondentFailure,
     required LoadState eventState,
     // H_ 標記儲存參數
-    required SaveParameters saveParameters,
+    required StateParameters saveParameters,
   }) = _RespondentState;
 
   factory RespondentState.initial() => RespondentState(
@@ -48,7 +48,7 @@ class RespondentState with _$RespondentState {
         respondentFailure: none(),
         eventState: LoadState.initial(),
         // H_ 標記儲存參數
-        saveParameters: SaveParameters.initial(),
+        saveParameters: StateParameters.initial(),
       );
 
   RespondentState send(AsyncTaskChannel channel) {
@@ -82,10 +82,10 @@ class RespondentState with _$RespondentState {
 }
 
 @freezed
-class SaveParameters with _$SaveParameters {
-  const SaveParameters._();
+class StateParameters with _$StateParameters {
+  const StateParameters._();
 
-  const factory SaveParameters({
+  const factory StateParameters({
     required bool surveyRespondentMap,
     required bool survey,
     required bool respondentMap,
@@ -95,9 +95,9 @@ class SaveParameters with _$SaveParameters {
     required bool visitRecordsMap,
     required bool tabRespondentMap,
     required bool responseInfoMap,
-  }) = _SaveParameters;
+  }) = _StateParameters;
 
-  factory SaveParameters.initial() => const SaveParameters(
+  factory StateParameters.initial() => const StateParameters(
         surveyRespondentMap: false,
         survey: false,
         respondentMap: false,
@@ -109,7 +109,7 @@ class SaveParameters with _$SaveParameters {
         responseInfoMap: false,
       );
 
-  factory SaveParameters.clear() => const SaveParameters(
+  factory StateParameters.clear() => const StateParameters(
         surveyRespondentMap: true,
         survey: true,
         respondentMap: true,

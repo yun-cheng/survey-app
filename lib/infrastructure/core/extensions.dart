@@ -7,4 +7,5 @@ part 'iterable_extensions.dart';
 part 'list_extensions.dart';
 part 'map_extensions.dart';
 
+// NOTE 方便 import
 class MyExtensions {}

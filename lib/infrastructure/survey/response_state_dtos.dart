@@ -31,9 +31,8 @@ class ResponseStateDto with _$ResponseStateDto {
     List<ReferenceDto>? referenceList,
     ResponseDto? response,
     String? responseId,
+    @JsonKey(ignore: true) StateParameters? saveParameters,
   }) = _ResponseStateDto;
-
-  bool get useSeparateBox => true;
 
   // NOTE 設定不同參數怎麼儲存/提取
   //  box 用在需要獨立儲存的資料
@@ -53,6 +52,15 @@ class ResponseStateDto with _$ResponseStateDto {
           key: 'responseId',
         ),
       };
+
+  Map<String, DtoInfo> subsetInfoMap() {
+    final infoMap = {...ResponseStateDto.infoMap()};
+
+    if (!saveParameters!.responseMap) infoMap.remove('responseMap');
+    if (!saveParameters!.referenceList) infoMap.remove('referenceList');
+
+    return infoMap;
+  }
 
   factory ResponseStateDto.fromDomain(ResponseState domain) {
     // NOTE 先看有哪些參數需要儲存，若是 Map 則還要提取 keys
@@ -79,6 +87,7 @@ class ResponseStateDto with _$ResponseStateDto {
       responseId: domain.saveParameters.response
           ? domain.response.responseId.value
           : null,
+      saveParameters: domain.saveParameters,
     );
   }
 
@@ -92,7 +101,7 @@ class ResponseStateDto with _$ResponseStateDto {
       referenceList: referenceList?.map((dto) => dto.toDomain()).toList() ??
           initial.referenceList,
       response: response?.toDomain() ?? initial.response,
-    // H_ 狀態更新進度
+      // H_ 狀態更新進度
       eventState: LoadState.success(),
       // NOTE updateState 維持 initial，避免觸發 listener
     );
@@ -101,7 +110,7 @@ class ResponseStateDto with _$ResponseStateDto {
   void saveState(ILocalStorage localStorage) => commonSaveState(
         json: toJson(),
         localStorage: localStorage,
-        infoMap: ResponseStateDto.infoMap(),
+        infoMap: subsetInfoMap(),
       );
 
   factory ResponseStateDto.fromJson(Map<String, dynamic> json) =>

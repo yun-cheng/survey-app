@@ -33,7 +33,7 @@ class SplashPage extends HookWidget {
     useEffect(() {
       WidgetsBinding.instance!.addObserver(myObserver);
       return () => WidgetsBinding.instance!.removeObserver(myObserver);
-    });
+    }, []);
 
     return MultiBlocListener(
       listeners: [

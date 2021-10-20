@@ -8,7 +8,7 @@ import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/overview/survey.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import '../../routes/router.gr.dart';
 
 class SurveyCard extends StatelessWidget {

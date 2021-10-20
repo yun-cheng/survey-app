@@ -376,7 +376,7 @@ packages:
       name: flutter_bloc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.3.0"
+    version: "7.3.1"
   flutter_hooks:
     dependency: "direct main"
     description:
@@ -384,13 +384,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.18.0"
-  flutter_hooks_bloc:
-    dependency: "direct main"
-    description:
-      name: flutter_hooks_bloc
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.15.0+1"
   flutter_keyboard_visibility:
     dependency: "direct main"
     description:

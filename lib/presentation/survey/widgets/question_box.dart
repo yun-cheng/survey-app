@@ -5,7 +5,7 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/question.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 
 class QuestionBox extends StatelessWidget {
   final String questionId;
@@ -44,24 +44,34 @@ class QuestionBox extends StatelessWidget {
           withId: !question.hideId || state.isRecodeModule,
         );
 
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              questionText,
-              style: isinCell ? kH4TextStyle : kH3TextStyle,
-            ),
-            if (question.note != '') ...[
+        return Container(
+          padding: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            color: isinCell ? null : kQuestionBackgroundColor,
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
               Text(
-                question.note,
-                style: kH4TextStyle.copyWith(
-                  fontStyle: FontStyle.italic,
-                  color: Colors.grey[700],
+                questionText,
+                style: (isinCell ? kH4TextStyle : kH3TextStyle).copyWith(
+                  fontWeight: FontWeight.w500,
                 ),
               ),
+              if (question.note != '') ...[
+                const SizedBox(height: 10.0),
+                Text(
+                  question.note,
+                  style: kH4TextStyle.copyWith(
+                    fontStyle: FontStyle.italic,
+                    color: Colors.blue[800],
+                  ),
+                ),
+              ],
             ],
-          ],
+          ),
         );
       },
     );

@@ -2,13 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_hooks_bloc/flutter_hooks_bloc.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 
 class TextBox extends HookWidget {
   final String questionId;
@@ -38,7 +37,8 @@ class TextBox extends HookWidget {
 
     final controller = useTextEditingController(text: note);
 
-    return Padding(
+    return Container(
+      width: kAnswerElementWidth,
       padding: const EdgeInsets.all(10),
       child: TextField(
         // key: textFieldKey,
@@ -47,8 +47,14 @@ class TextBox extends HookWidget {
         decoration: InputDecoration(
           labelText: '',
           counterText: '',
-          filled: !canEdit,
-          fillColor: kCannotEditColor,
+          filled: true,
+          fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
+          border: const UnderlineInputBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+          ),
         ),
         // maxLines: null,
         keyboardType:

@@ -7,7 +7,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import 'note_box.dart';
 
 class ChoiceItem extends HookWidget {
@@ -45,9 +45,6 @@ class ChoiceItem extends HookWidget {
         if (wait.value) {
           wait.value = false;
 
-          // S_ 讓點擊動畫跑完
-          // await Future.delayed(const Duration(milliseconds: 500));
-
           context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(
                   questionId: questionId,
@@ -61,7 +58,7 @@ class ChoiceItem extends HookWidget {
 
       answer.addListener(listener);
       return () => answer.removeListener(listener);
-    });
+    }, []);
 
     final isReadOnly = context.read<UpdateAnswerStatusBloc>().state.isReadOnly;
     final isRecodeModule =
@@ -81,7 +78,7 @@ class ChoiceItem extends HookWidget {
                 NoteBox(
                   questionId: questionId,
                   choice: choice,
-                  note: answer.value.noteMap?[choice] ?? '',
+                  note: answer.value.noteMap?[choice.id] ?? '',
                   canEdit: canEdit,
                 ),
               ]
@@ -112,6 +109,8 @@ class ChoiceItem extends HookWidget {
     final isSingleAnswer =
         questionType.isSingle || choice.asSingle || isSpecialAnswer;
 
+    final activeColor = canEdit ? Colors.teal : Colors.grey[600];
+
     if (isinCell) {
       return Ink(
         width: 100,
@@ -123,27 +122,42 @@ class ChoiceItem extends HookWidget {
                   value: choice.id,
                   groupValue: answer.value.groupValue,
                   onChanged: (_) => clickAction(),
+                  activeColor: activeColor,
                 )
               : Checkbox(
                   value: isSelected.value,
                   onChanged: (_) => clickAction(toggle: true),
+                  activeColor: activeColor,
                 ),
         ),
       );
     } else {
-      return isSingleAnswer
+      final tileColor = isSelected.value
+          ? canEdit
+              ? kAnswerBackgroundColor
+              : kCannotEditColor
+          : null;
+      final item = isSingleAnswer
           ? RadioListTile(
               title: itemTitle,
               value: choice.id,
               groupValue: answer.value.groupValue,
               onChanged: (_) => clickAction(),
+              tileColor: tileColor,
+              activeColor: activeColor,
+              dense: true,
             )
           : CheckboxListTile(
               controlAffinity: ListTileControlAffinity.leading,
               title: itemTitle,
               value: isSelected.value,
               onChanged: (_) => clickAction(toggle: true),
+              tileColor: tileColor,
+              activeColor: activeColor,
+              dense: true,
             );
+
+      return item;
     }
   }
 }

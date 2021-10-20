@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../application/audio/audio_recorder/audio_recorder_bloc.dart';
@@ -19,7 +20,7 @@ import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../injection.dart';
 import '../routes/router.gr.dart';
-import 'themes.dart';
+import 'style/main.dart';
 
 class AppWidget extends StatelessWidget {
   AppWidget({Key? key}) : super(key: key);
@@ -86,6 +87,14 @@ class AppWidget extends StatelessWidget {
           return MaterialApp.router(
             // showPerformanceOverlay: true,
             // checkerboardOffscreenLayers: true,
+            builder: (context, widget) => ResponsiveWrapper.builder(
+              ClampingScrollWrapper.builder(context, widget!),
+              breakpoints: const [
+                ResponsiveBreakpoint.resize(600, name: MOBILE),
+                ResponsiveBreakpoint.resize(800, name: TABLET),
+                ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+              ],
+            ),
             title: '問卷',
             debugShowCheckedModeBanner: false,
             theme: kLightTheme,

@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 
 class SurveyContentBody extends StatelessWidget {
   const SurveyContentBody({Key? key}) : super(key: key);

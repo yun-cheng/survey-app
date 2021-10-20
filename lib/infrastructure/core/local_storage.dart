@@ -56,6 +56,9 @@ class LocalStorage implements ILocalStorage {
       data = await lazyBox.get(key ?? 'state');
     }
 
+    if (data is List) {
+      return jsonConverter.fromJson({'list': data})['list'];
+    }
     return jsonConverter.fromJson(data);
   }
 

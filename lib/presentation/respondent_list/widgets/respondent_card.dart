@@ -11,7 +11,7 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/constants.dart';
+import '../../core/style/main.dart';
 import '../../routes/router.gr.dart';
 import 'visit_history.dart';
 
@@ -86,7 +86,7 @@ class RespondentCard extends StatelessWidget {
             visible: enabled,
             maintainAnimation: true,
             maintainState: true,
-            maintainSize: true,
+            maintainSize: false,
             child: TextButton(
               style: buttonStyle,
               onPressed: () {
@@ -139,8 +139,9 @@ class RespondentCard extends StatelessWidget {
           enabled: tabType.index >= 2,
         );
 
-        return Align(
+        return Container(
           alignment: Alignment.topCenter,
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: ConstrainedBox(
             constraints: kCardMaxWith,
             child: Column(
@@ -148,25 +149,33 @@ class RespondentCard extends StatelessWidget {
               children: [
                 Visibility(
                   visible: isFirst,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        respondent.countyTown,
-                        style: kCardH2TextStyle,
-                      ),
-                      Text(
-                        respondent.village,
-                        style: kCardH2TextStyle,
-                      ),
-                    ],
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: kRespondentGroupBackgroundColor,
+                    ),
+                    margin: const EdgeInsets.only(top: 10),
+                    padding: const EdgeInsets.symmetric(vertical: 18),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          respondent.countyTown,
+                          style: kCardH2TextStyle,
+                        ),
+                        Text(
+                          respondent.village,
+                          style: kCardH2TextStyle,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Card(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  margin: const EdgeInsets.only(top: 10.0),
+                  margin: const EdgeInsets.only(top: 10),
                   child: InkWell(
                     onTap: () {
                       context.read<RespondentBloc>().add(
@@ -213,23 +222,19 @@ class RespondentCard extends StatelessWidget {
                           Visibility(
                             visible: isSelected,
                             child: Column(
-                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: <Widget>[
                                 const SizedBox(height: kPFontSize),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                Wrap(
+                                  alignment: WrapAlignment.start,
+                                  spacing: kPFontSize,
+                                  runSpacing: kPFontSize,
                                   children: <Widget>[
                                     samplingWithinHouseholdModuleButton,
-                                    const SizedBox(width: kH4FontSize),
                                     mainModuleButton,
-                                    const SizedBox(width: kH4FontSize),
                                     visitReportModuleButton,
-                                    const SizedBox(width: kH4FontSize),
                                     housingTypeModuleButton,
-                                    const SizedBox(width: kH4FontSize),
                                     interviewReportModuleButton,
-                                    const SizedBox(width: kH4FontSize),
                                     recodeModuleButton,
                                   ],
                                 ),

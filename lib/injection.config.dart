@@ -17,8 +17,7 @@ import 'domain/survey/i_survey_repository.dart' as _i13;
 import 'infrastructure/audio/audio_recorder/audio_recorder.dart' as _i6;
 import 'infrastructure/audio/audio_repository.dart' as _i8;
 import 'infrastructure/auth/manual_auth_facade.dart' as _i10;
-import 'infrastructure/core/firebase_injectable_module.dart' as _i16;
-import 'infrastructure/core/isolate.dart' as _i15;
+import 'infrastructure/core/firebase_injectable_module.dart' as _i15;
 import 'infrastructure/respondent/respondent_repository.dart' as _i12;
 import 'infrastructure/survey/survey_repository.dart'
     as _i14; // ignore_for_file: unnecessary_lambdas
@@ -41,8 +40,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () => _i12.RespondentRepository(get<_i3.FirebaseFirestore>()));
   gh.lazySingleton<_i13.ISurveyRepository>(() => _i14.SurveyRepository(
       get<_i3.FirebaseFirestore>(), get<_i4.FirebaseStorage>()));
-  gh.factory<_i15.JsonIsolate>(() => _i15.JsonIsolate());
   return get;
 }
 
-class _$FirebaseInjectableModule extends _i16.FirebaseInjectableModule {}
+class _$FirebaseInjectableModule extends _i15.FirebaseInjectableModule {}

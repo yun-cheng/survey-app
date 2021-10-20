@@ -30,7 +30,8 @@ class _$ResponseStateDtoTearOff {
       List<String>? responseMapKeys,
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
-      String? responseId}) {
+      String? responseId,
+      @JsonKey(ignore: true) StateParameters? saveParameters}) {
     return _ResponseStateDto(
       survey: survey,
       surveyId: surveyId,
@@ -41,6 +42,7 @@ class _$ResponseStateDtoTearOff {
       referenceList: referenceList,
       response: response,
       responseId: responseId,
+      saveParameters: saveParameters,
     );
   }
 
@@ -63,6 +65,8 @@ mixin _$ResponseStateDto {
   List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
   ResponseDto? get response => throw _privateConstructorUsedError;
   String? get responseId => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  StateParameters? get saveParameters => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -84,13 +88,15 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       List<String>? responseMapKeys,
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
-      String? responseId});
+      String? responseId,
+      @JsonKey(ignore: true) StateParameters? saveParameters});
 
   $SurveyDtoCopyWith<$Res>? get survey;
   $InterviewerDtoCopyWith<$Res>? get interviewer;
   $RespondentDtoCopyWith<$Res>? get respondent;
   $ResponseMapDtoCopyWith<$Res>? get responseMap;
   $ResponseDtoCopyWith<$Res>? get response;
+  $StateParametersCopyWith<$Res>? get saveParameters;
 }
 
 /// @nodoc
@@ -113,6 +119,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object? referenceList = freezed,
     Object? response = freezed,
     Object? responseId = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_value.copyWith(
       survey: survey == freezed
@@ -151,6 +158,10 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as String?,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters?,
     ));
   }
 
@@ -208,6 +219,17 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       return _then(_value.copyWith(response: value));
     });
   }
+
+  @override
+  $StateParametersCopyWith<$Res>? get saveParameters {
+    if (_value.saveParameters == null) {
+      return null;
+    }
+
+    return $StateParametersCopyWith<$Res>(_value.saveParameters!, (value) {
+      return _then(_value.copyWith(saveParameters: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -226,7 +248,8 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       List<String>? responseMapKeys,
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
-      String? responseId});
+      String? responseId,
+      @JsonKey(ignore: true) StateParameters? saveParameters});
 
   @override
   $SurveyDtoCopyWith<$Res>? get survey;
@@ -238,6 +261,8 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
   $ResponseMapDtoCopyWith<$Res>? get responseMap;
   @override
   $ResponseDtoCopyWith<$Res>? get response;
+  @override
+  $StateParametersCopyWith<$Res>? get saveParameters;
 }
 
 /// @nodoc
@@ -262,6 +287,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? referenceList = freezed,
     Object? response = freezed,
     Object? responseId = freezed,
+    Object? saveParameters = freezed,
   }) {
     return _then(_ResponseStateDto(
       survey: survey == freezed
@@ -300,6 +326,10 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as String?,
+      saveParameters: saveParameters == freezed
+          ? _value.saveParameters
+          : saveParameters // ignore: cast_nullable_to_non_nullable
+              as StateParameters?,
     ));
   }
 }
@@ -317,7 +347,8 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       this.responseMapKeys,
       this.referenceList,
       this.response,
-      this.responseId})
+      this.responseId,
+      @JsonKey(ignore: true) this.saveParameters})
       : super._();
 
   factory _$_ResponseStateDto.fromJson(Map<String, dynamic> json) =>
@@ -341,10 +372,13 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   final ResponseDto? response;
   @override
   final String? responseId;
+  @override
+  @JsonKey(ignore: true)
+  final StateParameters? saveParameters;
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, surveyId: $surveyId, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, referenceList: $referenceList, response: $response, responseId: $responseId)';
+    return 'ResponseStateDto(survey: $survey, surveyId: $surveyId, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, referenceList: $referenceList, response: $response, responseId: $responseId, saveParameters: $saveParameters)';
   }
 
   @override
@@ -376,7 +410,10 @@ class _$_ResponseStateDto extends _ResponseStateDto {
                     .equals(other.response, response)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)));
+                    .equals(other.responseId, responseId)) &&
+            (identical(other.saveParameters, saveParameters) ||
+                const DeepCollectionEquality()
+                    .equals(other.saveParameters, saveParameters)));
   }
 
   @override
@@ -390,7 +427,8 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(responseMapKeys) ^
       const DeepCollectionEquality().hash(referenceList) ^
       const DeepCollectionEquality().hash(response) ^
-      const DeepCollectionEquality().hash(responseId);
+      const DeepCollectionEquality().hash(responseId) ^
+      const DeepCollectionEquality().hash(saveParameters);
 
   @JsonKey(ignore: true)
   @override
@@ -405,15 +443,17 @@ class _$_ResponseStateDto extends _ResponseStateDto {
 
 abstract class _ResponseStateDto extends ResponseStateDto {
   const factory _ResponseStateDto(
-      {SurveyDto? survey,
-      String? surveyId,
-      InterviewerDto? interviewer,
-      RespondentDto? respondent,
-      ResponseMapDto? responseMap,
-      List<String>? responseMapKeys,
-      List<ReferenceDto>? referenceList,
-      ResponseDto? response,
-      String? responseId}) = _$_ResponseStateDto;
+          {SurveyDto? survey,
+          String? surveyId,
+          InterviewerDto? interviewer,
+          RespondentDto? respondent,
+          ResponseMapDto? responseMap,
+          List<String>? responseMapKeys,
+          List<ReferenceDto>? referenceList,
+          ResponseDto? response,
+          String? responseId,
+          @JsonKey(ignore: true) StateParameters? saveParameters}) =
+      _$_ResponseStateDto;
   const _ResponseStateDto._() : super._();
 
   factory _ResponseStateDto.fromJson(Map<String, dynamic> json) =
@@ -437,6 +477,9 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   ResponseDto? get response => throw _privateConstructorUsedError;
   @override
   String? get responseId => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  StateParameters? get saveParameters => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith =>

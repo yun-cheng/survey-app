@@ -107,7 +107,6 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     StateParameters? saveParameters,
   }) {
     return copyWith(
-      restoreState: LoadState.success(),
       updateState: LoadState.success(),
       updateParameters: updateParameters,
       saveParameters: saveParameters ?? this.saveParameters,
