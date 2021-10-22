@@ -95,7 +95,7 @@ void _eventWorker(
           questionId: e.questionId,
         ).sendInProgress(channel);
 
-        state = answerStatusMapUpdated(state).sendSuccessWithType(
+        state = answerStatusMapUpdated(e, state).sendSuccessWithType(
           channel,
           updateParameters: state.updateParameters.copyWith(
             answerMap: true,
@@ -118,40 +118,6 @@ void _eventWorker(
 
         // S_ 更新 warning
         state = warningUpdatedFlow(channel, state);
-      }
-    },
-    // H_ 切換該題特殊作答時
-    specialAnswerSwitched: (e) {
-      if (!state.isReadOnly && !state.isRecodeModule) {
-        logger('User Event')
-            .i('UpdateAnswerStatusEvent: specialAnswerSwitched');
-
-        final answerMap = {...state.answerMap};
-        final answerStatusMap = {...state.answerStatusMap};
-
-        answerMap[e.questionId] = Answer.empty();
-
-        answerStatusMap[e.questionId] =
-            answerStatusMap[e.questionId]!.switchSpecialAnswer();
-
-        state = state.sendInProgress(channel);
-        state = state.copyWith(
-          answerMap: answerMap,
-          answerStatusMap: answerStatusMap,
-          clearAnswerQIdSet: {e.questionId},
-        );
-
-        state = showQuestionChecked(state).sendSuccessWithType(
-          channel,
-          updateParameters: state.updateParameters.copyWith(
-            answerMap: true,
-            answerStatusMap: true,
-          ),
-          saveParameters: state.saveParameters.copyWith(
-            answerMap: true,
-            answerStatusMap: true,
-          ),
-        );
       }
     },
     // H_ 切換頁面

@@ -25,8 +25,10 @@ class SpecialAnswerSwitch extends StatelessWidget {
           Switch(
             value: isSpecialAnswer,
             onChanged: (_) => context.read<UpdateAnswerStatusBloc>().add(
-                  UpdateAnswerStatusEvent.specialAnswerSwitched(
+                  UpdateAnswerStatusEvent.answerUpdated(
                     questionId: questionId,
+                    answerValue: null,
+                    toggleSpecialAnswer: true,
                   ),
                 ),
           ),

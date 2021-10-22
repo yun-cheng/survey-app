@@ -7,7 +7,7 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
 import '../../core/style/main.dart';
-import 'get_answer_box.dart';
+import 'answer_box.dart';
 import 'question_box.dart';
 import 'special_answer_switch.dart';
 import 'warning_box.dart';
@@ -99,7 +99,7 @@ class ComplexCellBox extends StatelessWidget {
                     ),
                   ],
                 ),
-                getAnswerBox(
+                AnswerBox(
                   questionId: question.id,
                   questionType: question.type,
                   isSpecialAnswer: isSpecialAnswer,

@@ -37,6 +37,7 @@ class ChoicesBox extends HookWidget {
           if (c.updatedQIdSet.contains(questionId) &&
               c.answerMap[questionId]! == Answer.empty()) {
             answer.value = Answer.empty();
+            return true;
           }
 
           // S_ 若 question 前或後不存在，交由上層 widget 處理
@@ -84,6 +85,7 @@ class ChoicesBox extends HookWidget {
           return Container(
             constraints: kAnswerElementMaxWith,
             child: ChoiceItem(
+              key: Key(choice.id),
               questionId: questionId,
               questionType: questionType,
               choice: choice,

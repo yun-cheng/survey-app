@@ -1,11 +1,29 @@
 part of 'update_answer_status_bloc.dart';
 
-// H_ answerMap 有變更時
+// H_ answerStatusMap 有變更時
 UpdateAnswerStatusState answerStatusMapUpdated(
-    UpdateAnswerStatusState previousState) {
+  _AnswerUpdated e,
+  UpdateAnswerStatusState previousState,
+) {
   logger('Compute').i('AnswerMapUpdated');
 
-  var state = answerStatusTypeUpdated(previousState);
+  var state = previousState;
+
+  if (e.toggleSpecialAnswer) {
+    final answerStatusMap = {...state.answerStatusMap};
+
+    answerStatusMap[e.questionId] =
+        answerStatusMap[e.questionId]!.switchSpecialAnswer();
+
+    state = state.copyWith(
+      answerStatusMap: answerStatusMap,
+      saveParameters: state.saveParameters.copyWith(
+        answerStatusMap: true,
+      ),
+    );
+  } else {
+    state = answerStatusTypeUpdated(previousState);
+  }
 
   if (!state.isRecodeModule) {
     state = chainQuestionChecked(state);

@@ -57,7 +57,8 @@ class _$UpdateAnswerStatusEventTearOff {
       bool isNote = false,
       bool toggle = false,
       String? noteOf,
-      bool isRecode = false}) {
+      bool isRecode = false,
+      bool toggleSpecialAnswer = false}) {
     return _AnswerUpdated(
       questionId: questionId,
       answerValue: answerValue,
@@ -66,12 +67,7 @@ class _$UpdateAnswerStatusEventTearOff {
       toggle: toggle,
       noteOf: noteOf,
       isRecode: isRecode,
-    );
-  }
-
-  _SpecialAnswerSwitched specialAnswerSwitched({required String questionId}) {
-    return _SpecialAnswerSwitched(
-      questionId: questionId,
+      toggleSpecialAnswer: toggleSpecialAnswer,
     );
   }
 
@@ -157,9 +153,9 @@ mixin _$UpdateAnswerStatusEvent {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -198,9 +194,9 @@ mixin _$UpdateAnswerStatusEvent {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -238,9 +234,9 @@ mixin _$UpdateAnswerStatusEvent {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -260,8 +256,6 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -282,7 +276,6 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -302,7 +295,6 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -616,9 +608,9 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -672,9 +664,9 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -727,9 +719,9 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -767,8 +759,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -792,7 +782,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -815,7 +804,6 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -943,9 +931,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -987,9 +975,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -1030,9 +1018,9 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -1058,8 +1046,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -1083,7 +1069,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -1106,7 +1091,6 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -1144,7 +1128,8 @@ abstract class _$AnswerUpdatedCopyWith<$Res> {
       bool isNote,
       bool toggle,
       String? noteOf,
-      bool isRecode});
+      bool isRecode,
+      bool toggleSpecialAnswer});
 }
 
 /// @nodoc
@@ -1167,6 +1152,7 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
     Object? toggle = freezed,
     Object? noteOf = freezed,
     Object? isRecode = freezed,
+    Object? toggleSpecialAnswer = freezed,
   }) {
     return _then(_AnswerUpdated(
       questionId: questionId == freezed
@@ -1197,6 +1183,10 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
           ? _value.isRecode
           : isRecode // ignore: cast_nullable_to_non_nullable
               as bool,
+      toggleSpecialAnswer: toggleSpecialAnswer == freezed
+          ? _value.toggleSpecialAnswer
+          : toggleSpecialAnswer // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -1211,7 +1201,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
       this.isNote = false,
       this.toggle = false,
       this.noteOf,
-      this.isRecode = false});
+      this.isRecode = false,
+      this.toggleSpecialAnswer = false});
 
   @override
   final String questionId;
@@ -1231,10 +1222,13 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @JsonKey(defaultValue: false)
   @override
   final bool isRecode;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool toggleSpecialAnswer;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, toggle: $toggle, noteOf: $noteOf, isRecode: $isRecode)';
+    return 'UpdateAnswerStatusEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, toggle: $toggle, noteOf: $noteOf, isRecode: $isRecode, toggleSpecialAnswer: $toggleSpecialAnswer)';
   }
 
   @override
@@ -1249,7 +1243,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
       ..add(DiagnosticsProperty('isNote', isNote))
       ..add(DiagnosticsProperty('toggle', toggle))
       ..add(DiagnosticsProperty('noteOf', noteOf))
-      ..add(DiagnosticsProperty('isRecode', isRecode));
+      ..add(DiagnosticsProperty('isRecode', isRecode))
+      ..add(DiagnosticsProperty('toggleSpecialAnswer', toggleSpecialAnswer));
   }
 
   @override
@@ -1273,7 +1268,10 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
                 const DeepCollectionEquality().equals(other.noteOf, noteOf)) &&
             (identical(other.isRecode, isRecode) ||
                 const DeepCollectionEquality()
-                    .equals(other.isRecode, isRecode)));
+                    .equals(other.isRecode, isRecode)) &&
+            (identical(other.toggleSpecialAnswer, toggleSpecialAnswer) ||
+                const DeepCollectionEquality()
+                    .equals(other.toggleSpecialAnswer, toggleSpecialAnswer)));
   }
 
   @override
@@ -1285,7 +1283,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
       const DeepCollectionEquality().hash(isNote) ^
       const DeepCollectionEquality().hash(toggle) ^
       const DeepCollectionEquality().hash(noteOf) ^
-      const DeepCollectionEquality().hash(isRecode);
+      const DeepCollectionEquality().hash(isRecode) ^
+      const DeepCollectionEquality().hash(toggleSpecialAnswer);
 
   @JsonKey(ignore: true)
   @override
@@ -1317,9 +1316,9 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -1334,7 +1333,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function() initialized,
   }) {
     return answerUpdated(questionId, answerValue, isSpecialAnswer, isNote,
-        toggle, noteOf, isRecode);
+        toggle, noteOf, isRecode, toggleSpecialAnswer);
   }
 
   @override
@@ -1362,9 +1361,9 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -1378,7 +1377,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function()? initialized,
   }) {
     return answerUpdated?.call(questionId, answerValue, isSpecialAnswer, isNote,
-        toggle, noteOf, isRecode);
+        toggle, noteOf, isRecode, toggleSpecialAnswer);
   }
 
   @override
@@ -1406,9 +1405,9 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -1424,7 +1423,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   }) {
     if (answerUpdated != null) {
       return answerUpdated(questionId, answerValue, isSpecialAnswer, isNote,
-          toggle, noteOf, isRecode);
+          toggle, noteOf, isRecode, toggleSpecialAnswer);
     }
     return orElse();
   }
@@ -1435,8 +1434,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -1460,7 +1457,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -1483,7 +1479,6 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -1513,7 +1508,8 @@ abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
       bool isNote,
       bool toggle,
       String? noteOf,
-      bool isRecode}) = _$_AnswerUpdated;
+      bool isRecode,
+      bool toggleSpecialAnswer}) = _$_AnswerUpdated;
 
   String get questionId => throw _privateConstructorUsedError;
   dynamic get answerValue => throw _privateConstructorUsedError;
@@ -1522,303 +1518,9 @@ abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
   bool get toggle => throw _privateConstructorUsedError;
   String? get noteOf => throw _privateConstructorUsedError;
   bool get isRecode => throw _privateConstructorUsedError;
+  bool get toggleSpecialAnswer => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$AnswerUpdatedCopyWith<_AnswerUpdated> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$SpecialAnswerSwitchedCopyWith<$Res> {
-  factory _$SpecialAnswerSwitchedCopyWith(_SpecialAnswerSwitched value,
-          $Res Function(_SpecialAnswerSwitched) then) =
-      __$SpecialAnswerSwitchedCopyWithImpl<$Res>;
-  $Res call({String questionId});
-}
-
-/// @nodoc
-class __$SpecialAnswerSwitchedCopyWithImpl<$Res>
-    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
-    implements _$SpecialAnswerSwitchedCopyWith<$Res> {
-  __$SpecialAnswerSwitchedCopyWithImpl(_SpecialAnswerSwitched _value,
-      $Res Function(_SpecialAnswerSwitched) _then)
-      : super(_value, (v) => _then(v as _SpecialAnswerSwitched));
-
-  @override
-  _SpecialAnswerSwitched get _value => super._value as _SpecialAnswerSwitched;
-
-  @override
-  $Res call({
-    Object? questionId = freezed,
-  }) {
-    return _then(_SpecialAnswerSwitched(
-      questionId: questionId == freezed
-          ? _value.questionId
-          : questionId // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$_SpecialAnswerSwitched
-    with DiagnosticableTreeMixin
-    implements _SpecialAnswerSwitched {
-  const _$_SpecialAnswerSwitched({required this.questionId});
-
-  @override
-  final String questionId;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.specialAnswerSwitched(questionId: $questionId)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty(
-          'type', 'UpdateAnswerStatusEvent.specialAnswerSwitched'))
-      ..add(DiagnosticsProperty('questionId', questionId));
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other is _SpecialAnswerSwitched &&
-            (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)));
-  }
-
-  @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(questionId);
-
-  @JsonKey(ignore: true)
-  @override
-  _$SpecialAnswerSwitchedCopyWith<_SpecialAnswerSwitched> get copyWith =>
-      __$SpecialAnswerSwitchedCopyWithImpl<_SpecialAnswerSwitched>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, Answer> recodeAnswerMap,
-            Map<String, AnswerStatus> recodeAnswerStatusMap,
-            SimpleSurveyPageState surveyPageState,
-            Respondent respondent,
-            String surveyId,
-            ModuleType moduleType,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
-        moduleLoaded,
-    required TResult Function() stateCleared,
-    required TResult Function(
-            String questionId,
-            dynamic answerValue,
-            bool isSpecialAnswer,
-            bool isNote,
-            bool toggle,
-            String? noteOf,
-            bool isRecode)
-        answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
-    required TResult Function(Direction direction, int? page) pageNavigatedTo,
-    required TResult Function() contentQuestionMapUpdated,
-    required TResult Function() finishedButtonPressed,
-    required TResult Function() dialogClosed,
-    required TResult Function() leaveButtonPressed,
-    required TResult Function() leaveButtonHidden,
-    required TResult Function(bool isPaused) appLifeCycleChanged,
-    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
-        respondentResponseMapUpdated,
-    required TResult Function(List<Reference> referenceList)
-        referenceListUpdated,
-    required TResult Function() initialized,
-  }) {
-    return specialAnswerSwitched(questionId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, Answer> recodeAnswerMap,
-            Map<String, AnswerStatus> recodeAnswerStatusMap,
-            SimpleSurveyPageState surveyPageState,
-            Respondent respondent,
-            String surveyId,
-            ModuleType moduleType,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            bool isSpecialAnswer,
-            bool isNote,
-            bool toggle,
-            String? noteOf,
-            bool isRecode)?
-        answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
-        respondentResponseMapUpdated,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
-    TResult Function()? initialized,
-  }) {
-    return specialAnswerSwitched?.call(questionId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            Map<String, Answer> answerMap,
-            Map<String, AnswerStatus> answerStatusMap,
-            Map<String, Answer> recodeAnswerMap,
-            Map<String, AnswerStatus> recodeAnswerStatusMap,
-            SimpleSurveyPageState surveyPageState,
-            Respondent respondent,
-            String surveyId,
-            ModuleType moduleType,
-            bool isReadOnly,
-            bool isRecodeModule,
-            Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
-        moduleLoaded,
-    TResult Function()? stateCleared,
-    TResult Function(
-            String questionId,
-            dynamic answerValue,
-            bool isSpecialAnswer,
-            bool isNote,
-            bool toggle,
-            String? noteOf,
-            bool isRecode)?
-        answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
-    TResult Function(Direction direction, int? page)? pageNavigatedTo,
-    TResult Function()? contentQuestionMapUpdated,
-    TResult Function()? finishedButtonPressed,
-    TResult Function()? dialogClosed,
-    TResult Function()? leaveButtonPressed,
-    TResult Function()? leaveButtonHidden,
-    TResult Function(bool isPaused)? appLifeCycleChanged,
-    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
-        respondentResponseMapUpdated,
-    TResult Function(List<Reference> referenceList)? referenceListUpdated,
-    TResult Function()? initialized,
-    required TResult orElse(),
-  }) {
-    if (specialAnswerSwitched != null) {
-      return specialAnswerSwitched(questionId);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_ModuleLoaded value) moduleLoaded,
-    required TResult Function(_StateCleared value) stateCleared,
-    required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
-    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
-    required TResult Function(_ContentQuestionMapUpdated value)
-        contentQuestionMapUpdated,
-    required TResult Function(_FinishedButtonPressed value)
-        finishedButtonPressed,
-    required TResult Function(_DialogClosed value) dialogClosed,
-    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
-    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
-    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
-    required TResult Function(_RespondentResponseListUpdated value)
-        respondentResponseMapUpdated,
-    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
-    required TResult Function(_Initialized value) initialized,
-  }) {
-    return specialAnswerSwitched(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseMapUpdated,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    TResult Function(_Initialized value)? initialized,
-  }) {
-    return specialAnswerSwitched?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_ModuleLoaded value)? moduleLoaded,
-    TResult Function(_StateCleared value)? stateCleared,
-    TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
-    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
-    TResult Function(_ContentQuestionMapUpdated value)?
-        contentQuestionMapUpdated,
-    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
-    TResult Function(_DialogClosed value)? dialogClosed,
-    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
-    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
-    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
-    TResult Function(_RespondentResponseListUpdated value)?
-        respondentResponseMapUpdated,
-    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
-    TResult Function(_Initialized value)? initialized,
-    required TResult orElse(),
-  }) {
-    if (specialAnswerSwitched != null) {
-      return specialAnswerSwitched(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _SpecialAnswerSwitched implements UpdateAnswerStatusEvent {
-  const factory _SpecialAnswerSwitched({required String questionId}) =
-      _$_SpecialAnswerSwitched;
-
-  String get questionId => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  _$SpecialAnswerSwitchedCopyWith<_SpecialAnswerSwitched> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1934,9 +1636,9 @@ class _$_PageNavigatedTo
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -1978,9 +1680,9 @@ class _$_PageNavigatedTo
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2021,9 +1723,9 @@ class _$_PageNavigatedTo
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2049,8 +1751,6 @@ class _$_PageNavigatedTo
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2074,7 +1774,6 @@ class _$_PageNavigatedTo
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2097,7 +1796,6 @@ class _$_PageNavigatedTo
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2203,9 +1901,9 @@ class _$_ContentQuestionMapUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -2247,9 +1945,9 @@ class _$_ContentQuestionMapUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2290,9 +1988,9 @@ class _$_ContentQuestionMapUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2318,8 +2016,6 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2343,7 +2039,6 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2366,7 +2061,6 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2464,9 +2158,9 @@ class _$_FinishedButtonPressed
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -2508,9 +2202,9 @@ class _$_FinishedButtonPressed
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2551,9 +2245,9 @@ class _$_FinishedButtonPressed
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2579,8 +2273,6 @@ class _$_FinishedButtonPressed
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2604,7 +2296,6 @@ class _$_FinishedButtonPressed
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2627,7 +2318,6 @@ class _$_FinishedButtonPressed
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2723,9 +2413,9 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -2767,9 +2457,9 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2810,9 +2500,9 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -2838,8 +2528,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -2863,7 +2551,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2886,7 +2573,6 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -2984,9 +2670,9 @@ class _$_LeaveButtonPressed
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -3028,9 +2714,9 @@ class _$_LeaveButtonPressed
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3071,9 +2757,9 @@ class _$_LeaveButtonPressed
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3099,8 +2785,6 @@ class _$_LeaveButtonPressed
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3124,7 +2808,6 @@ class _$_LeaveButtonPressed
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3147,7 +2830,6 @@ class _$_LeaveButtonPressed
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3245,9 +2927,9 @@ class _$_LeaveButtonHidden
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -3289,9 +2971,9 @@ class _$_LeaveButtonHidden
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3332,9 +3014,9 @@ class _$_LeaveButtonHidden
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3360,8 +3042,6 @@ class _$_LeaveButtonHidden
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3385,7 +3065,6 @@ class _$_LeaveButtonHidden
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3408,7 +3087,6 @@ class _$_LeaveButtonHidden
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3534,9 +3212,9 @@ class _$_AppLifeCycleChanged
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -3578,9 +3256,9 @@ class _$_AppLifeCycleChanged
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3621,9 +3299,9 @@ class _$_AppLifeCycleChanged
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3649,8 +3327,6 @@ class _$_AppLifeCycleChanged
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3674,7 +3350,6 @@ class _$_AppLifeCycleChanged
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3697,7 +3372,6 @@ class _$_AppLifeCycleChanged
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3834,9 +3508,9 @@ class _$_RespondentResponseListUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -3878,9 +3552,9 @@ class _$_RespondentResponseListUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3921,9 +3595,9 @@ class _$_RespondentResponseListUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -3949,8 +3623,6 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -3974,7 +3646,6 @@ class _$_RespondentResponseListUpdated
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -3997,7 +3668,6 @@ class _$_RespondentResponseListUpdated
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -4132,9 +3802,9 @@ class _$_ReferenceListUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -4176,9 +3846,9 @@ class _$_ReferenceListUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -4219,9 +3889,9 @@ class _$_ReferenceListUpdated
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -4247,8 +3917,6 @@ class _$_ReferenceListUpdated
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -4272,7 +3940,6 @@ class _$_ReferenceListUpdated
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -4295,7 +3962,6 @@ class _$_ReferenceListUpdated
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -4396,9 +4062,9 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)
+            bool isRecode,
+            bool toggleSpecialAnswer)
         answerUpdated,
-    required TResult Function(String questionId) specialAnswerSwitched,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
@@ -4440,9 +4106,9 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -4483,9 +4149,9 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isNote,
             bool toggle,
             String? noteOf,
-            bool isRecode)?
+            bool isRecode,
+            bool toggleSpecialAnswer)?
         answerUpdated,
-    TResult Function(String questionId)? specialAnswerSwitched,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
@@ -4511,8 +4177,6 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function(_ModuleLoaded value) moduleLoaded,
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
-    required TResult Function(_SpecialAnswerSwitched value)
-        specialAnswerSwitched,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
@@ -4536,7 +4200,6 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
@@ -4559,7 +4222,6 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_ModuleLoaded value)? moduleLoaded,
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
-    TResult Function(_SpecialAnswerSwitched value)? specialAnswerSwitched,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,

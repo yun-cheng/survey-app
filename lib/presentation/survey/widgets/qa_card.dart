@@ -7,7 +7,7 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
 import '../../core/style/main.dart';
-import 'get_answer_box.dart';
+import 'answer_box.dart';
 import 'question_box.dart';
 import 'recode_box.dart';
 import 'special_answer_switch.dart';
@@ -42,10 +42,8 @@ class QaCard extends StatelessWidget {
           }
 
           // S_ 在該題變換顯示/隱藏、切換特殊作答時才需要 rebuild
-          if (pAnswerStatus?.isHidden != cAnswerStatus.isHidden ||
-              pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
-            return true;
-          }
+          return (pAnswerStatus?.isHidden != cAnswerStatus.isHidden) ||
+              (pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer);
         }
         return false;
       },
@@ -75,11 +73,13 @@ class QaCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    // H_ question
                     Container(
                       width: double.infinity,
                       constraints: kCardMaxWith,
                       child: QuestionBox(questionId: questionId),
                     ),
+                    // H_ warning
                     Container(
                       width: double.infinity,
                       constraints: kCardMaxWith,
@@ -88,6 +88,7 @@ class QaCard extends StatelessWidget {
                         questionId: thisQuestion.id,
                       ),
                     ),
+                    // H_ special answer switch
                     if (thisQuestion.hasSpecialAnswer && canEdit) ...[
                       Container(
                         width: double.infinity,
@@ -98,6 +99,7 @@ class QaCard extends StatelessWidget {
                         ),
                       ),
                     ],
+                    // H_ answer
                     Container(
                       width: double.infinity,
                       constraints:
@@ -106,14 +108,14 @@ class QaCard extends StatelessWidget {
                           ? Alignment.topCenter
                           : Alignment.topLeft,
                       padding: const EdgeInsets.only(top: 10.0),
-                      child: getAnswerBox(
+                      child: AnswerBox(
                         questionId: thisQuestion.id,
                         questionType: thisQuestion.type,
                         isSpecialAnswer: isSpecialAnswer,
                         tableId: thisQuestion.tableId,
                       ),
                     ),
-                    // H_ 只在 recode module 呈現
+                    // H_ recode
                     if (state.isRecodeModule && thisQuestion.recodeNeeded) ...[
                       RecodeBox(questionId: thisQuestion.id),
                     ]

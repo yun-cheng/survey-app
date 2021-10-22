@@ -30,12 +30,8 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     @Default(false) bool toggle,
     String? noteOf,
     @Default(false) bool isRecode,
+    @Default(false) bool toggleSpecialAnswer,
   }) = _AnswerUpdated;
-
-  // H_ 切換該題特殊作答時
-  const factory UpdateAnswerStatusEvent.specialAnswerSwitched({
-    required String questionId,
-  }) = _SpecialAnswerSwitched;
 
   // H_ 切換頁面
   const factory UpdateAnswerStatusEvent.pageNavigatedTo({

@@ -14,7 +14,9 @@ UpdateAnswerStatusState answerUpdated(
   final oldAnswer = answerMap[e.questionId] ?? Answer.empty();
   late final Answer newAnswer;
 
-  if (e.isNote) {
+  if (e.toggleSpecialAnswer) {
+    newAnswer = Answer.empty();
+  } else if (e.isNote) {
     newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
   } else if (!question.type.isChoice & !e.isSpecialAnswer) {
     newAnswer = oldAnswer.setString(e.answerValue);

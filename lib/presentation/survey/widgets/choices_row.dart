@@ -12,7 +12,7 @@ import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
 import 'choice_item.dart';
-import 'get_answer_box.dart';
+import 'answer_box.dart';
 import 'question_box.dart';
 import 'special_answer_switch.dart';
 import 'warning_box.dart';
@@ -84,6 +84,7 @@ class ChoicesRow extends HookWidget {
                 color: canEdit ? null : kCannotEditColor,
               ),
               child: ChoiceItem(
+                key: Key(choice.id),
                 questionId: questionId,
                 questionType: questionType,
                 choice: choice,
@@ -103,7 +104,7 @@ class ChoicesRow extends HookWidget {
         decoration: BoxDecoration(
           color: canEdit ? null : kCannotEditColor,
         ),
-        child: getAnswerBox(
+        child: AnswerBox(
           questionId: question.id,
           questionType: question.type,
           isSpecialAnswer: true,
