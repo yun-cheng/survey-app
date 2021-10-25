@@ -7,7 +7,12 @@ import '../../../domain/core/value_objects.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
-  const SurveyBody({Key? key}) : super(key: key);
+  final ScrollController scrollController;
+
+  const SurveyBody({
+    Key? key,
+    required this.scrollController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +33,11 @@ class SurveyBody extends StatelessWidget {
         if (state.restoreState == LoadState.success()) {
           logger('Build').i('SurveyBody: List of QaCard');
 
+          // S_ 每次換頁時移至頂部
+          Future.delayed(Duration.zero, () async {
+            scrollController.jumpTo(0);
+          });
+
           // TODO 用 ScrollablePositionedList 在 keyboard 出現/隱藏時會導致
           //  rebuild，因此先使用 ListView
           // return ScrollablePositionedList.builder(
@@ -35,6 +45,7 @@ class SurveyBody extends StatelessWidget {
             shrinkWrap: true,
             itemCount: state.pageQIdSet.length,
             // TODO
+            controller: scrollController,
             // itemScrollController: controller,
             // itemPositionsListener: listener,
             itemBuilder: (context, index) {

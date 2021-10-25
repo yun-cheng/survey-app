@@ -32,20 +32,26 @@ class RecodeBox extends HookWidget {
         '';
     final controller = useTextEditingController(text: note);
 
-    return Padding(
+    return Container(
+      width: kAnswerElementWidth,
       padding: const EdgeInsets.all(10),
       child: TextField(
         // key: textFieldKey,
         controller: controller,
         enabled: canEdit,
-        // TODO 改變外框顏色即可
         decoration: InputDecoration(
           labelText: '',
           counterText: '',
-          filled: !canEdit,
-          fillColor: kCannotEditColor,
+          filled: true,
+          fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
+          border: const UnderlineInputBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+          ),
         ),
-        maxLines: null,
+        // maxLines: null,
         keyboardType: TextInputType.number,
         inputFormatters: <TextInputFormatter>[
           FilteringTextInputFormatter.digitsOnly,

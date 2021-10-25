@@ -87,7 +87,7 @@ ResponseState responseRestored(ResponseState state) {
 
   if (response == null) {
     // S_ 填入預設答案
-    final initAnswerMap = Map<String, Answer>.from(module.answerMap);
+    final initAnswerMap = {...module.answerMap};
 
     // S_ 如果是查址模組且 breakInterview
     if (state.moduleType == ModuleType.visitReport() && state.breakInterview) {

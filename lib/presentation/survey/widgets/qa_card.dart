@@ -89,7 +89,9 @@ class QaCard extends StatelessWidget {
                       ),
                     ),
                     // H_ special answer switch
-                    if (thisQuestion.hasSpecialAnswer && canEdit) ...[
+                    if (thisQuestion.hasSpecialAnswer &&
+                        canEdit &&
+                        !thisQuestion.type.isTable) ...[
                       Container(
                         width: double.infinity,
                         constraints: kCardMaxWith,
@@ -117,7 +119,12 @@ class QaCard extends StatelessWidget {
                     ),
                     // H_ recode
                     if (state.isRecodeModule && thisQuestion.recodeNeeded) ...[
-                      RecodeBox(questionId: thisQuestion.id),
+                      Container(
+                        width: double.infinity,
+                        constraints: kCardMaxWith,
+                        alignment: Alignment.topLeft,
+                        child: RecodeBox(questionId: thisQuestion.id),
+                      ),
                     ]
                   ],
                 ),

@@ -36,6 +36,8 @@ class SurveyPage extends HookWidget {
       }
     }, []);
 
+    final _scrollController = useScrollController();
+
     final respondent = context.read<ResponseBloc>().state.respondent;
 
     return WillPopScope(
@@ -60,11 +62,11 @@ class SurveyPage extends HookWidget {
           ),
           body: SafeArea(
             child: Column(
-              children: const [
+              children: [
                 Expanded(
-                  child: SurveyBody(),
+                  child: SurveyBody(scrollController: _scrollController),
                 ),
-                PageControlBar(),
+                const PageControlBar(),
               ],
             ),
           ),
