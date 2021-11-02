@@ -24,10 +24,12 @@ class _$AnswerStatusDtoTearOff {
   _AnswerStatusDto call(
       {required String answerStatusType,
       bool isSpecialAnswer = false,
+      int lastChangedTimeStamp = -2209017600000000,
       Map<String, String> noteMap = const {}}) {
     return _AnswerStatusDto(
       answerStatusType: answerStatusType,
       isSpecialAnswer: isSpecialAnswer,
+      lastChangedTimeStamp: lastChangedTimeStamp,
       noteMap: noteMap,
     );
   }
@@ -44,6 +46,7 @@ const $AnswerStatusDto = _$AnswerStatusDtoTearOff();
 mixin _$AnswerStatusDto {
   String get answerStatusType => throw _privateConstructorUsedError;
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
   Map<String, String> get noteMap => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -60,6 +63,7 @@ abstract class $AnswerStatusDtoCopyWith<$Res> {
   $Res call(
       {String answerStatusType,
       bool isSpecialAnswer,
+      int lastChangedTimeStamp,
       Map<String, String> noteMap});
 }
 
@@ -76,6 +80,7 @@ class _$AnswerStatusDtoCopyWithImpl<$Res>
   $Res call({
     Object? answerStatusType = freezed,
     Object? isSpecialAnswer = freezed,
+    Object? lastChangedTimeStamp = freezed,
     Object? noteMap = freezed,
   }) {
     return _then(_value.copyWith(
@@ -87,6 +92,10 @@ class _$AnswerStatusDtoCopyWithImpl<$Res>
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
+      lastChangedTimeStamp: lastChangedTimeStamp == freezed
+          ? _value.lastChangedTimeStamp
+          : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
@@ -105,6 +114,7 @@ abstract class _$AnswerStatusDtoCopyWith<$Res>
   $Res call(
       {String answerStatusType,
       bool isSpecialAnswer,
+      int lastChangedTimeStamp,
       Map<String, String> noteMap});
 }
 
@@ -123,6 +133,7 @@ class __$AnswerStatusDtoCopyWithImpl<$Res>
   $Res call({
     Object? answerStatusType = freezed,
     Object? isSpecialAnswer = freezed,
+    Object? lastChangedTimeStamp = freezed,
     Object? noteMap = freezed,
   }) {
     return _then(_AnswerStatusDto(
@@ -134,6 +145,10 @@ class __$AnswerStatusDtoCopyWithImpl<$Res>
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
               as bool,
+      lastChangedTimeStamp: lastChangedTimeStamp == freezed
+          ? _value.lastChangedTimeStamp
+          : lastChangedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as int,
       noteMap: noteMap == freezed
           ? _value.noteMap
           : noteMap // ignore: cast_nullable_to_non_nullable
@@ -148,6 +163,7 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
   const _$_AnswerStatusDto(
       {required this.answerStatusType,
       this.isSpecialAnswer = false,
+      this.lastChangedTimeStamp = -2209017600000000,
       this.noteMap = const {}})
       : super._();
 
@@ -159,13 +175,16 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
   @JsonKey(defaultValue: false)
   @override
   final bool isSpecialAnswer;
+  @JsonKey(defaultValue: -2209017600000000)
+  @override
+  final int lastChangedTimeStamp;
   @JsonKey(defaultValue: const {})
   @override
   final Map<String, String> noteMap;
 
   @override
   String toString() {
-    return 'AnswerStatusDto(answerStatusType: $answerStatusType, isSpecialAnswer: $isSpecialAnswer, noteMap: $noteMap)';
+    return 'AnswerStatusDto(answerStatusType: $answerStatusType, isSpecialAnswer: $isSpecialAnswer, lastChangedTimeStamp: $lastChangedTimeStamp, noteMap: $noteMap)';
   }
 
   @override
@@ -178,6 +197,9 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
                 const DeepCollectionEquality()
                     .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
+            (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
+                const DeepCollectionEquality().equals(
+                    other.lastChangedTimeStamp, lastChangedTimeStamp)) &&
             (identical(other.noteMap, noteMap) ||
                 const DeepCollectionEquality().equals(other.noteMap, noteMap)));
   }
@@ -187,6 +209,7 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(answerStatusType) ^
       const DeepCollectionEquality().hash(isSpecialAnswer) ^
+      const DeepCollectionEquality().hash(lastChangedTimeStamp) ^
       const DeepCollectionEquality().hash(noteMap);
 
   @JsonKey(ignore: true)
@@ -204,6 +227,7 @@ abstract class _AnswerStatusDto extends AnswerStatusDto {
   const factory _AnswerStatusDto(
       {required String answerStatusType,
       bool isSpecialAnswer,
+      int lastChangedTimeStamp,
       Map<String, String> noteMap}) = _$_AnswerStatusDto;
   const _AnswerStatusDto._() : super._();
 
@@ -214,6 +238,8 @@ abstract class _AnswerStatusDto extends AnswerStatusDto {
   String get answerStatusType => throw _privateConstructorUsedError;
   @override
   bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  @override
+  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
   @override
   Map<String, String> get noteMap => throw _privateConstructorUsedError;
   @override

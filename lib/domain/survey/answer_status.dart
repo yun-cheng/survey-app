@@ -15,35 +15,40 @@ class AnswerStatus with _$AnswerStatus {
   const factory AnswerStatus({
     required AnswerStatusType type,
     required bool isSpecialAnswer,
+    required DeviceTimeStamp lastChangedTimeStamp,
     required Map<String, AnswerStatusType> noteMap,
   }) = _AnswerStatus;
 
   factory AnswerStatus.empty() => AnswerStatus(
         type: AnswerStatusType.empty(),
         isSpecialAnswer: false,
+        lastChangedTimeStamp: DeviceTimeStamp.initial(),
         noteMap: const <String, AnswerStatusType>{},
       );
 
   // H_ 直接改變狀態
   AnswerStatus setAnswered() => copyWith(
         type: AnswerStatusType.answered(),
+        lastChangedTimeStamp: DeviceTimeStamp.now(),
       );
 
   AnswerStatus setUnanswered() => copyWith(
         type: AnswerStatusType.unanswered(),
+        lastChangedTimeStamp: DeviceTimeStamp.initial(),
       );
 
   AnswerStatus setHidden() => AnswerStatus.empty().copyWith(
         type: AnswerStatusType.hidden(),
+        lastChangedTimeStamp: DeviceTimeStamp.initial(),
       );
 
-  AnswerStatus reset() => AnswerStatus(
-        type: AnswerStatusType.unanswered(),
-        isSpecialAnswer: false,
-        noteMap: const <String, AnswerStatusType>{},
-      );
+  AnswerStatus reset() => AnswerStatus.empty().setUnanswered();
 
   // H_ 更新狀態
+  AnswerStatus updateTimeStamp() => copyWith(
+        lastChangedTimeStamp: DeviceTimeStamp.now(),
+      );
+
   AnswerStatus update({
     required Answer answer,
     required FullExpression expression,
@@ -51,7 +56,7 @@ class AnswerStatus with _$AnswerStatus {
     return updateType(
       answer: answer,
       expression: expression,
-    ).updateNoteMap(answer);
+    ).updateNoteMap(answer).updateTimeStamp();
   }
 
   AnswerStatus updateType({
@@ -95,6 +100,11 @@ class AnswerStatus with _$AnswerStatus {
     );
   }
 
+  AnswerStatus switchSpecialAnswer() => reset().copyWith(
+        isSpecialAnswer: !isSpecialAnswer,
+      );
+
+  // H_
   Warning toWarning(Question question) {
     WarningType warningType;
     if (type.isUnanswered) {
@@ -114,12 +124,6 @@ class AnswerStatus with _$AnswerStatus {
       pageNumber: question.pageNumber,
     );
   }
-
-  AnswerStatus switchSpecialAnswer() => AnswerStatus(
-        type: AnswerStatusType.unanswered(),
-        isSpecialAnswer: !isSpecialAnswer,
-        noteMap: const <String, AnswerStatusType>{},
-      );
 
   // H_ 取得狀態
   bool get noteIsAnswered => noteMap.entries.every((e) => e.value.isCompleted);

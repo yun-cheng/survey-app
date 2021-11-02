@@ -13,6 +13,7 @@ class AnswerStatusDto with _$AnswerStatusDto {
   const factory AnswerStatusDto({
     required String answerStatusType,
     @Default(false) bool isSpecialAnswer,
+    @Default(-2209017600000000) int lastChangedTimeStamp,
     @Default({}) Map<String, String> noteMap,
   }) = _AnswerStatusDto;
 
@@ -20,6 +21,8 @@ class AnswerStatusDto with _$AnswerStatusDto {
     return AnswerStatusDto(
       answerStatusType: domain.type.value,
       isSpecialAnswer: domain.isSpecialAnswer,
+      lastChangedTimeStamp:
+          domain.lastChangedTimeStamp.value.microsecondsSinceEpoch,
       noteMap: domain.noteMap.map((key, value) => MapEntry(key, value.value)),
     );
   }
@@ -28,6 +31,7 @@ class AnswerStatusDto with _$AnswerStatusDto {
     return AnswerStatus(
       type: AnswerStatusType(answerStatusType),
       isSpecialAnswer: isSpecialAnswer,
+      lastChangedTimeStamp: DeviceTimeStamp.fromInt(lastChangedTimeStamp),
       noteMap:
           noteMap.map((key, value) => MapEntry(key, AnswerStatusType(value))),
     );
