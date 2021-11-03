@@ -79,10 +79,14 @@ class AudioRepository implements IAudioRepository {
           );
 
       if (result.items.isEmpty) {
+        final metadata = SettableMetadata(
+          contentType: 'audio/m4a',
+        );
+
         // TODO 調整 timeout
         final task = audioRef
             .child(audio.toStoragePath())
-            .putFile(File(filePath))
+            .putFile(File(filePath), metadata)
             .timeout(const Duration(minutes: 5));
 
         await task;
