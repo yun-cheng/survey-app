@@ -18,7 +18,7 @@ UpdateAnswerStatusState answerUpdated(
     newAnswer = Answer.empty();
   } else if (e.isNote) {
     newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
-  } else if (!question.type.isChoice & !e.isSpecialAnswer) {
+  } else if ((!question.type.isChoice & !e.isSpecialAnswer) || e.isRecode) {
     newAnswer = oldAnswer.setString(e.answerValue);
   } else if ((e.answerValue as Choice).asSingle || !e.toggle) {
     newAnswer = oldAnswer.setChoice(

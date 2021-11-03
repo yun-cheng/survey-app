@@ -56,8 +56,12 @@ class SurveyLeadingButton extends StatelessWidget {
                 // H_ 存回 response
                 context.read<ResponseBloc>().add(
                       ResponseEvent.responseUpdated(
-                        answerMap: state.answerMap,
-                        answerStatusMap: state.answerStatusMap,
+                        answerMap: state.isRecodeModule
+                            ? state.recodeAnswerMap
+                            : state.answerMap,
+                        answerStatusMap: state.isRecodeModule
+                            ? state.recodeAnswerStatusMap
+                            : state.answerStatusMap,
                         surveyPageState: SimpleSurveyPageState(
                           page: state.page,
                           newestPage: state.newestPage,
