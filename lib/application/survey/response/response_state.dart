@@ -15,9 +15,7 @@ class ResponseState with _$ResponseState {
     required List<Reference> referenceList,
     // H_ 中間資料
     required ModuleType moduleType,
-    required bool withResponseId,
     required UniqueId responseId,
-    required bool breakInterview,
     required Response mainResponse,
     required Map<String, Question> questionMap,
     required ResponseMap downloadedResponseMap,
@@ -43,9 +41,7 @@ class ResponseState with _$ResponseState {
         referenceList: const [],
         // H_ 中間資料
         moduleType: ModuleType.empty(),
-        withResponseId: false,
         responseId: UniqueId.empty(),
-        breakInterview: false,
         mainResponse: Response.empty(),
         questionMap: const {},
         downloadedResponseMap: const {},

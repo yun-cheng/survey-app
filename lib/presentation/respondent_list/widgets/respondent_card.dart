@@ -29,7 +29,7 @@ class RespondentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     void moduleButtonPressed(ModuleType moduleType) {
       context.read<ResponseBloc>().add(
-            ResponseEvent.responseStartedWith(
+            ResponseEvent.responseStarted(
               respondent: respondent,
               moduleType: moduleType,
             ),

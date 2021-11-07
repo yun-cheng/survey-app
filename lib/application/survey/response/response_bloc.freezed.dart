@@ -63,14 +63,16 @@ class _$ResponseEventTearOff {
   _ResponseStarted responseStarted(
       {required Respondent respondent,
       required ModuleType moduleType,
-      required bool withResponseId,
-      required bool breakInterview,
-      required UniqueId responseId}) {
+      bool withResponseId = false,
+      bool breakInterview = false,
+      bool isNewResponse = false,
+      UniqueId? responseId}) {
     return _ResponseStarted(
       respondent: respondent,
       moduleType: moduleType,
       withResponseId: withResponseId,
       breakInterview: breakInterview,
+      isNewResponse: isNewResponse,
       responseId: responseId,
     );
   }
@@ -127,8 +129,13 @@ mixin _$ResponseEvent {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -157,8 +164,13 @@ mixin _$ResponseEvent {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -187,8 +199,13 @@ mixin _$ResponseEvent {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -379,8 +396,13 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -412,8 +434,13 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -445,8 +472,13 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -628,8 +660,13 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -661,8 +698,13 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -694,8 +736,13 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -876,8 +923,13 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -909,8 +961,13 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -942,8 +999,13 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1096,8 +1158,13 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -1129,8 +1196,13 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1162,8 +1234,13 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1308,8 +1385,13 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -1341,8 +1423,13 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1374,8 +1461,13 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1548,8 +1640,13 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -1581,8 +1678,13 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1614,8 +1716,13 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1801,8 +1908,13 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -1834,8 +1946,13 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1867,8 +1984,13 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -1975,11 +2097,12 @@ abstract class _$ResponseStartedCopyWith<$Res> {
       ModuleType moduleType,
       bool withResponseId,
       bool breakInterview,
-      UniqueId responseId});
+      bool isNewResponse,
+      UniqueId? responseId});
 
   $RespondentCopyWith<$Res> get respondent;
   $ModuleTypeCopyWith<$Res> get moduleType;
-  $UniqueIdCopyWith<$Res> get responseId;
+  $UniqueIdCopyWith<$Res>? get responseId;
 }
 
 /// @nodoc
@@ -1999,6 +2122,7 @@ class __$ResponseStartedCopyWithImpl<$Res>
     Object? moduleType = freezed,
     Object? withResponseId = freezed,
     Object? breakInterview = freezed,
+    Object? isNewResponse = freezed,
     Object? responseId = freezed,
   }) {
     return _then(_ResponseStarted(
@@ -2018,10 +2142,14 @@ class __$ResponseStartedCopyWithImpl<$Res>
           ? _value.breakInterview
           : breakInterview // ignore: cast_nullable_to_non_nullable
               as bool,
+      isNewResponse: isNewResponse == freezed
+          ? _value.isNewResponse
+          : isNewResponse // ignore: cast_nullable_to_non_nullable
+              as bool,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
-              as UniqueId,
+              as UniqueId?,
     ));
   }
 
@@ -2040,8 +2168,12 @@ class __$ResponseStartedCopyWithImpl<$Res>
   }
 
   @override
-  $UniqueIdCopyWith<$Res> get responseId {
-    return $UniqueIdCopyWith<$Res>(_value.responseId, (value) {
+  $UniqueIdCopyWith<$Res>? get responseId {
+    if (_value.responseId == null) {
+      return null;
+    }
+
+    return $UniqueIdCopyWith<$Res>(_value.responseId!, (value) {
       return _then(_value.copyWith(responseId: value));
     });
   }
@@ -2053,24 +2185,30 @@ class _$_ResponseStarted implements _ResponseStarted {
   const _$_ResponseStarted(
       {required this.respondent,
       required this.moduleType,
-      required this.withResponseId,
-      required this.breakInterview,
-      required this.responseId});
+      this.withResponseId = false,
+      this.breakInterview = false,
+      this.isNewResponse = false,
+      this.responseId});
 
   @override
   final Respondent respondent;
   @override
   final ModuleType moduleType;
+  @JsonKey(defaultValue: false)
   @override
   final bool withResponseId;
+  @JsonKey(defaultValue: false)
   @override
   final bool breakInterview;
+  @JsonKey(defaultValue: false)
   @override
-  final UniqueId responseId;
+  final bool isNewResponse;
+  @override
+  final UniqueId? responseId;
 
   @override
   String toString() {
-    return 'ResponseEvent.responseStarted(respondent: $respondent, moduleType: $moduleType, withResponseId: $withResponseId, breakInterview: $breakInterview, responseId: $responseId)';
+    return 'ResponseEvent.responseStarted(respondent: $respondent, moduleType: $moduleType, withResponseId: $withResponseId, breakInterview: $breakInterview, isNewResponse: $isNewResponse, responseId: $responseId)';
   }
 
   @override
@@ -2089,6 +2227,9 @@ class _$_ResponseStarted implements _ResponseStarted {
             (identical(other.breakInterview, breakInterview) ||
                 const DeepCollectionEquality()
                     .equals(other.breakInterview, breakInterview)) &&
+            (identical(other.isNewResponse, isNewResponse) ||
+                const DeepCollectionEquality()
+                    .equals(other.isNewResponse, isNewResponse)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
                     .equals(other.responseId, responseId)));
@@ -2101,6 +2242,7 @@ class _$_ResponseStarted implements _ResponseStarted {
       const DeepCollectionEquality().hash(moduleType) ^
       const DeepCollectionEquality().hash(withResponseId) ^
       const DeepCollectionEquality().hash(breakInterview) ^
+      const DeepCollectionEquality().hash(isNewResponse) ^
       const DeepCollectionEquality().hash(responseId);
 
   @JsonKey(ignore: true)
@@ -2124,8 +2266,13 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -2137,8 +2284,8 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return responseStarted(
-        respondent, moduleType, withResponseId, breakInterview, responseId);
+    return responseStarted(respondent, moduleType, withResponseId,
+        breakInterview, isNewResponse, responseId);
   }
 
   @override
@@ -2158,8 +2305,13 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -2171,8 +2323,8 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return responseStarted?.call(
-        respondent, moduleType, withResponseId, breakInterview, responseId);
+    return responseStarted?.call(respondent, moduleType, withResponseId,
+        breakInterview, isNewResponse, responseId);
   }
 
   @override
@@ -2192,8 +2344,13 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -2207,8 +2364,8 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult orElse(),
   }) {
     if (responseStarted != null) {
-      return responseStarted(
-          respondent, moduleType, withResponseId, breakInterview, responseId);
+      return responseStarted(respondent, moduleType, withResponseId,
+          breakInterview, isNewResponse, responseId);
     }
     return orElse();
   }
@@ -2286,15 +2443,17 @@ abstract class _ResponseStarted implements ResponseEvent {
   const factory _ResponseStarted(
       {required Respondent respondent,
       required ModuleType moduleType,
-      required bool withResponseId,
-      required bool breakInterview,
-      required UniqueId responseId}) = _$_ResponseStarted;
+      bool withResponseId,
+      bool breakInterview,
+      bool isNewResponse,
+      UniqueId? responseId}) = _$_ResponseStarted;
 
   Respondent get respondent => throw _privateConstructorUsedError;
   ModuleType get moduleType => throw _privateConstructorUsedError;
   bool get withResponseId => throw _privateConstructorUsedError;
   bool get breakInterview => throw _privateConstructorUsedError;
-  UniqueId get responseId => throw _privateConstructorUsedError;
+  bool get isNewResponse => throw _privateConstructorUsedError;
+  UniqueId? get responseId => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ResponseStartedCopyWith<_ResponseStarted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2418,8 +2577,13 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -2451,8 +2615,13 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -2484,8 +2653,13 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -2669,8 +2843,13 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -2702,8 +2881,13 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -2735,8 +2919,13 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -2923,8 +3112,13 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -2956,8 +3150,13 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -2989,8 +3188,13 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -3138,8 +3342,13 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -3171,8 +3380,13 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -3204,8 +3418,13 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -3349,8 +3568,13 @@ class _$_Initialized implements _Initialized {
     required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
         responseStarted,
     required TResult Function(
             Map<String, Answer> answerMap,
@@ -3382,8 +3606,13 @@ class _$_Initialized implements _Initialized {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -3415,8 +3644,13 @@ class _$_Initialized implements _Initialized {
     TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function(Respondent respondent, ModuleType moduleType,
-            bool withResponseId, bool breakInterview, UniqueId responseId)?
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
         responseStarted,
     TResult Function(
             Map<String, Answer> answerMap,
@@ -3521,9 +3755,7 @@ class _$ResponseStateTearOff {
       required Map<UniqueId, Response> responseMap,
       required List<Reference> referenceList,
       required ModuleType moduleType,
-      required bool withResponseId,
       required UniqueId responseId,
-      required bool breakInterview,
       required Response mainResponse,
       required Map<String, Question> questionMap,
       required Map<UniqueId, Response> downloadedResponseMap,
@@ -3543,9 +3775,7 @@ class _$ResponseStateTearOff {
       responseMap: responseMap,
       referenceList: referenceList,
       moduleType: moduleType,
-      withResponseId: withResponseId,
       responseId: responseId,
-      breakInterview: breakInterview,
       mainResponse: mainResponse,
       questionMap: questionMap,
       downloadedResponseMap: downloadedResponseMap,
@@ -3573,10 +3803,10 @@ mixin _$ResponseState {
   Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   List<Reference> get referenceList =>
       throw _privateConstructorUsedError; // H_ 中間資料
-  ModuleType get moduleType => throw _privateConstructorUsedError;
-  bool get withResponseId => throw _privateConstructorUsedError;
-  UniqueId get responseId => throw _privateConstructorUsedError;
-  bool get breakInterview => throw _privateConstructorUsedError;
+  ModuleType get moduleType =>
+      throw _privateConstructorUsedError; // required bool withResponseId,
+  UniqueId get responseId =>
+      throw _privateConstructorUsedError; // required bool breakInterview,
   Response get mainResponse => throw _privateConstructorUsedError;
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   Map<UniqueId, Response> get downloadedResponseMap =>
@@ -3610,9 +3840,7 @@ abstract class $ResponseStateCopyWith<$Res> {
       Map<UniqueId, Response> responseMap,
       List<Reference> referenceList,
       ModuleType moduleType,
-      bool withResponseId,
       UniqueId responseId,
-      bool breakInterview,
       Response mainResponse,
       Map<String, Question> questionMap,
       Map<UniqueId, Response> downloadedResponseMap,
@@ -3658,9 +3886,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? responseMap = freezed,
     Object? referenceList = freezed,
     Object? moduleType = freezed,
-    Object? withResponseId = freezed,
     Object? responseId = freezed,
-    Object? breakInterview = freezed,
     Object? mainResponse = freezed,
     Object? questionMap = freezed,
     Object? downloadedResponseMap = freezed,
@@ -3705,18 +3931,10 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as ModuleType,
-      withResponseId: withResponseId == freezed
-          ? _value.withResponseId
-          : withResponseId // ignore: cast_nullable_to_non_nullable
-              as bool,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      breakInterview: breakInterview == freezed
-          ? _value.breakInterview
-          : breakInterview // ignore: cast_nullable_to_non_nullable
-              as bool,
       mainResponse: mainResponse == freezed
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
@@ -3868,9 +4086,7 @@ abstract class _$ResponseStateCopyWith<$Res>
       Map<UniqueId, Response> responseMap,
       List<Reference> referenceList,
       ModuleType moduleType,
-      bool withResponseId,
       UniqueId responseId,
-      bool breakInterview,
       Response mainResponse,
       Map<String, Question> questionMap,
       Map<UniqueId, Response> downloadedResponseMap,
@@ -3931,9 +4147,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? responseMap = freezed,
     Object? referenceList = freezed,
     Object? moduleType = freezed,
-    Object? withResponseId = freezed,
     Object? responseId = freezed,
-    Object? breakInterview = freezed,
     Object? mainResponse = freezed,
     Object? questionMap = freezed,
     Object? downloadedResponseMap = freezed,
@@ -3978,18 +4192,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.moduleType
           : moduleType // ignore: cast_nullable_to_non_nullable
               as ModuleType,
-      withResponseId: withResponseId == freezed
-          ? _value.withResponseId
-          : withResponseId // ignore: cast_nullable_to_non_nullable
-              as bool,
       responseId: responseId == freezed
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as UniqueId,
-      breakInterview: breakInterview == freezed
-          ? _value.breakInterview
-          : breakInterview // ignore: cast_nullable_to_non_nullable
-              as bool,
       mainResponse: mainResponse == freezed
           ? _value.mainResponse
           : mainResponse // ignore: cast_nullable_to_non_nullable
@@ -4046,9 +4252,7 @@ class _$_ResponseState extends _ResponseState {
       required this.responseMap,
       required this.referenceList,
       required this.moduleType,
-      required this.withResponseId,
       required this.responseId,
-      required this.breakInterview,
       required this.mainResponse,
       required this.questionMap,
       required this.downloadedResponseMap,
@@ -4077,13 +4281,9 @@ class _$_ResponseState extends _ResponseState {
   final List<Reference> referenceList;
   @override // H_ 中間資料
   final ModuleType moduleType;
-  @override
-  final bool withResponseId;
-  @override
+  @override // required bool withResponseId,
   final UniqueId responseId;
-  @override
-  final bool breakInterview;
-  @override
+  @override // required bool breakInterview,
   final Response mainResponse;
   @override
   final Map<String, Question> questionMap;
@@ -4106,7 +4306,7 @@ class _$_ResponseState extends _ResponseState {
 
   @override
   String toString() {
-    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, withResponseId: $withResponseId, responseId: $responseId, breakInterview: $breakInterview, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -4136,15 +4336,9 @@ class _$_ResponseState extends _ResponseState {
             (identical(other.moduleType, moduleType) ||
                 const DeepCollectionEquality()
                     .equals(other.moduleType, moduleType)) &&
-            (identical(other.withResponseId, withResponseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.withResponseId, withResponseId)) &&
             (identical(other.responseId, responseId) ||
                 const DeepCollectionEquality()
                     .equals(other.responseId, responseId)) &&
-            (identical(other.breakInterview, breakInterview) ||
-                const DeepCollectionEquality()
-                    .equals(other.breakInterview, breakInterview)) &&
             (identical(other.mainResponse, mainResponse) ||
                 const DeepCollectionEquality()
                     .equals(other.mainResponse, mainResponse)) &&
@@ -4188,9 +4382,7 @@ class _$_ResponseState extends _ResponseState {
       const DeepCollectionEquality().hash(responseMap) ^
       const DeepCollectionEquality().hash(referenceList) ^
       const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(withResponseId) ^
       const DeepCollectionEquality().hash(responseId) ^
-      const DeepCollectionEquality().hash(breakInterview) ^
       const DeepCollectionEquality().hash(mainResponse) ^
       const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(downloadedResponseMap) ^
@@ -4218,9 +4410,7 @@ abstract class _ResponseState extends ResponseState {
       required Map<UniqueId, Response> responseMap,
       required List<Reference> referenceList,
       required ModuleType moduleType,
-      required bool withResponseId,
       required UniqueId responseId,
-      required bool breakInterview,
       required Response mainResponse,
       required Map<String, Question> questionMap,
       required Map<UniqueId, Response> downloadedResponseMap,
@@ -4249,13 +4439,9 @@ abstract class _ResponseState extends ResponseState {
   List<Reference> get referenceList => throw _privateConstructorUsedError;
   @override // H_ 中間資料
   ModuleType get moduleType => throw _privateConstructorUsedError;
-  @override
-  bool get withResponseId => throw _privateConstructorUsedError;
-  @override
+  @override // required bool withResponseId,
   UniqueId get responseId => throw _privateConstructorUsedError;
-  @override
-  bool get breakInterview => throw _privateConstructorUsedError;
-  @override
+  @override // required bool breakInterview,
   Response get mainResponse => throw _privateConstructorUsedError;
   @override
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;

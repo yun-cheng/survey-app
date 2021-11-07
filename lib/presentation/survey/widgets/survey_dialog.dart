@@ -174,7 +174,7 @@ void switchToVisitReportModule(BuildContext context) {
       );
   final respondent = context.read<ResponseBloc>().state.respondent;
   context.read<ResponseBloc>().add(
-        ResponseEvent.responseStartedWith(
+        ResponseEvent.responseStarted(
           respondent: respondent,
           moduleType: ModuleType.visitReport(),
           breakInterview: true,

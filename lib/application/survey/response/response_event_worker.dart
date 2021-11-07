@@ -101,11 +101,9 @@ void _eventWorker(
       state = state.copyWith(
         respondent: e.respondent,
         moduleType: e.moduleType,
-        responseId: e.responseId,
-        withResponseId: e.withResponseId,
-        breakInterview: e.breakInterview,
+        responseId: e.responseId ?? state.responseId,
       );
-      state = responseRestored(state);
+      state = responseRestored(e, state);
       state = respondentResponseMapUpdated(state)
           .copyWith(
             updateParameters: state.updateParameters.copyWith(

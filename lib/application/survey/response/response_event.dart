@@ -35,25 +35,11 @@ class ResponseEvent with _$ResponseEvent {
   const factory ResponseEvent.responseStarted({
     required Respondent respondent,
     required ModuleType moduleType,
-    required bool withResponseId,
-    required bool breakInterview,
-    required UniqueId responseId,
-  }) = _ResponseStarted;
-
-  factory ResponseEvent.responseStartedWith({
-    required Respondent respondent,
-    required ModuleType moduleType,
+    @Default(false) bool withResponseId,
+    @Default(false) bool breakInterview,
+    @Default(false) bool isNewResponse,
     UniqueId? responseId,
-    bool withResponseId = false,
-    bool breakInterview = false,
-  }) =>
-      _ResponseStarted(
-        respondent: respondent,
-        moduleType: moduleType,
-        withResponseId: withResponseId,
-        breakInterview: breakInterview,
-        responseId: responseId ?? UniqueId.v1(),
-      );
+  }) = _ResponseStarted;
 
   // H_ 作答或切換頁數時更新 response
   const factory ResponseEvent.responseUpdated({

@@ -9,6 +9,7 @@ import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
 import '../routes/router.gr.dart';
 import 'widgets/page_control_bar.dart';
+import 'widgets/re_answer_button.dart';
 import 'widgets/survey_body.dart';
 import 'widgets/survey_dialog.dart';
 
@@ -48,6 +49,7 @@ class SurveyPage extends HookWidget {
             title: Text(respondent.remainAddress),
             leading: const SurveyLeadingButton(),
             actions: [
+              const ReAnswerButton(),
               IconButton(
                 icon: const Icon(Icons.format_list_bulleted),
                 onPressed: () {

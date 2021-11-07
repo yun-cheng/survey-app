@@ -24,3 +24,12 @@ final kWarningButtonStyle = ButtonStyle(
   backgroundColor: MaterialStateProperty.all<Color>(kWarningButtonColor),
   shape: MaterialStateProperty.all<OutlinedBorder>(kButtonShape),
 );
+
+final kReAnswerButtonStyle = ButtonStyle(
+  side: MaterialStateProperty.all<BorderSide>(
+    const BorderSide(
+      color: Colors.white,
+      width: 1.5,
+    ),
+  ),
+);

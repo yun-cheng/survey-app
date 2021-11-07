@@ -56,15 +56,18 @@ ResponseState responseMapMerged(ResponseState state) {
 }
 
 // H_ 從 responseMap 回復要進行的 response
-ResponseState responseRestored(ResponseState state) {
+ResponseState responseRestored(
+  _ResponseStarted e,
+  ResponseState state,
+) {
   logger('Compute').i('ResponseRestored');
 
   // S_1 篩出 response
   Response? response;
   // S_1-c1 如果有 responseId 則直接篩出來
-  if (state.withResponseId) {
+  if (e.withResponseId) {
     response = state.responseMap[state.responseId];
-  } else if (state.moduleType != ModuleType.visitReport()) {
+  } else if (state.moduleType != ModuleType.visitReport() && !e.isNewResponse) {
     // S_1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
     // FIXME 可能要再加上篩同 deviceId
     response = state.responseMap.values
@@ -84,13 +87,12 @@ ResponseState responseRestored(ResponseState state) {
   final module = state.survey.module[state.moduleType]!;
 
   // S_2 若無篩出，則新創一個 response
-
   if (response == null) {
     // S_ 填入預設答案
     final initAnswerMap = {...module.answerMap};
 
     // S_ 如果是查址模組且 breakInterview
-    if (state.moduleType == ModuleType.visitReport() && state.breakInterview) {
+    if (state.moduleType == ModuleType.visitReport() && e.breakInterview) {
       initAnswerMap['break_interview'] = Answer.empty().setString('1');
     }
 
@@ -159,7 +161,6 @@ ResponseState responseRestored(ResponseState state) {
     response: response,
     responseMap: responseMap,
     questionMap: module.questionMap,
-    withResponseId: false,
     mainResponse: mainResponse,
   );
 }

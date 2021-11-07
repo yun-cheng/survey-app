@@ -157,6 +157,8 @@ class ModuleType with _$ModuleType {
   bool get isInterviewReportTab =>
       ['housingType', 'interviewReport'].contains(value);
   bool get needUpdateTab => value != 'visitReport';
+  bool get ableToReAnswer =>
+      ['samplingWithinHousehold', 'housingType'].contains(value);
 }
 
 @freezed

@@ -46,7 +46,7 @@ class VisitHistory extends StatelessWidget {
               style: kVisitHistoryStyle,
               onPressed: () {
                 context.read<ResponseBloc>().add(
-                      ResponseEvent.responseStartedWith(
+                      ResponseEvent.responseStarted(
                         respondent: respondent,
                         moduleType: ModuleType.visitReport(),
                         withResponseId: true,
