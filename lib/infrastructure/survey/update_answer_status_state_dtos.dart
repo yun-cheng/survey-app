@@ -35,7 +35,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     // H_ 中間資料
     List<String>? pageQIdSet,
     List<String>? contentQIdSet,
-    bool? showDialog,
+    String? dialogType,
     bool? showLeaveButton,
     // H_ 同 session 不變的參考資料
     RespondentDto? respondent,
@@ -94,7 +94,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       contentQIdSet: domain.saveParameters.contentQIdSet
           ? domain.contentQIdSet.toList()
           : null,
-      showDialog: domain.saveParameters.showDialog ? domain.showDialog : null,
+      dialogType:
+          domain.saveParameters.dialogType ? domain.dialogType.value : null,
       showLeaveButton:
           domain.saveParameters.showLeaveButton ? domain.showLeaveButton : null,
       // H_ 同 session 不變的參考資料
@@ -147,7 +148,8 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       // H_ 中間資料
       pageQIdSet: pageQIdSet?.toSet() ?? initial.pageQIdSet,
       contentQIdSet: contentQIdSet?.toSet() ?? initial.contentQIdSet,
-      showDialog: showDialog ?? initial.showDialog,
+      dialogType:
+          dialogType != null ? DialogType(dialogType!) : initial.dialogType,
       showLeaveButton: showLeaveButton ?? initial.showLeaveButton,
       // H_ 同 session 不變的參考資料
       respondent: respondent?.toDomain() ?? initial.respondent,
@@ -175,7 +177,9 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     );
     return state.copyWith(
       // NOTE 確保真的有出現 dialog
-      showDialog: state.moduleType == ModuleType.main() && !state.isReadOnly,
+      dialogType: state.moduleType == ModuleType.main() && !state.isReadOnly
+          ? DialogType.breakInterview()
+          : state.dialogType,
     );
   }
 

@@ -29,7 +29,8 @@ class _$UpdateAnswerStatusEventTearOff {
       required bool isReadOnly,
       required bool isRecodeModule,
       required Map<String, Question> questionMap,
-      required Map<String, Question> recodeQuestionMap}) {
+      required Map<String, Question> recodeQuestionMap,
+      required DialogType dialogType}) {
     return _ModuleLoaded(
       answerMap: answerMap,
       answerStatusMap: answerStatusMap,
@@ -43,6 +44,7 @@ class _$UpdateAnswerStatusEventTearOff {
       isRecodeModule: isRecodeModule,
       questionMap: questionMap,
       recodeQuestionMap: recodeQuestionMap,
+      dialogType: dialogType,
     );
   }
 
@@ -99,6 +101,11 @@ class _$UpdateAnswerStatusEventTearOff {
     return const _LeaveButtonHidden();
   }
 
+  _SwitchedToSamplingWithinHouseholdModule
+      switchedToSamplingWithinHouseholdModule() {
+    return const _SwitchedToSamplingWithinHouseholdModule();
+  }
+
   _AppLifeCycleChanged appLifeCycleChanged({required bool isPaused}) {
     return _AppLifeCycleChanged(
       isPaused: isPaused,
@@ -143,7 +150,8 @@ mixin _$UpdateAnswerStatusEvent {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -162,6 +170,7 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -184,7 +193,8 @@ mixin _$UpdateAnswerStatusEvent {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -203,6 +213,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -224,7 +235,8 @@ mixin _$UpdateAnswerStatusEvent {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -243,6 +255,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -264,6 +277,8 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -283,6 +298,8 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -302,6 +319,8 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -346,11 +365,13 @@ abstract class _$ModuleLoadedCopyWith<$Res> {
       bool isReadOnly,
       bool isRecodeModule,
       Map<String, Question> questionMap,
-      Map<String, Question> recodeQuestionMap});
+      Map<String, Question> recodeQuestionMap,
+      DialogType dialogType});
 
   $SimpleSurveyPageStateCopyWith<$Res> get surveyPageState;
   $RespondentCopyWith<$Res> get respondent;
   $ModuleTypeCopyWith<$Res> get moduleType;
+  $DialogTypeCopyWith<$Res> get dialogType;
 }
 
 /// @nodoc
@@ -378,6 +399,7 @@ class __$ModuleLoadedCopyWithImpl<$Res>
     Object? isRecodeModule = freezed,
     Object? questionMap = freezed,
     Object? recodeQuestionMap = freezed,
+    Object? dialogType = freezed,
   }) {
     return _then(_ModuleLoaded(
       answerMap: answerMap == freezed
@@ -428,6 +450,10 @@ class __$ModuleLoadedCopyWithImpl<$Res>
           ? _value.recodeQuestionMap
           : recodeQuestionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
+              as DialogType,
     ));
   }
 
@@ -452,6 +478,13 @@ class __$ModuleLoadedCopyWithImpl<$Res>
       return _then(_value.copyWith(moduleType: value));
     });
   }
+
+  @override
+  $DialogTypeCopyWith<$Res> get dialogType {
+    return $DialogTypeCopyWith<$Res>(_value.dialogType, (value) {
+      return _then(_value.copyWith(dialogType: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -469,7 +502,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
       required this.isReadOnly,
       required this.isRecodeModule,
       required this.questionMap,
-      required this.recodeQuestionMap});
+      required this.recodeQuestionMap,
+      required this.dialogType});
 
   @override
   final Map<String, Answer> answerMap;
@@ -495,10 +529,12 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   final Map<String, Question> questionMap;
   @override
   final Map<String, Question> recodeQuestionMap;
+  @override
+  final DialogType dialogType;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.moduleLoaded(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, surveyPageState: $surveyPageState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
+    return 'UpdateAnswerStatusEvent.moduleLoaded(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, surveyPageState: $surveyPageState, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, dialogType: $dialogType)';
   }
 
   @override
@@ -517,7 +553,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
       ..add(DiagnosticsProperty('isReadOnly', isReadOnly))
       ..add(DiagnosticsProperty('isRecodeModule', isRecodeModule))
       ..add(DiagnosticsProperty('questionMap', questionMap))
-      ..add(DiagnosticsProperty('recodeQuestionMap', recodeQuestionMap));
+      ..add(DiagnosticsProperty('recodeQuestionMap', recodeQuestionMap))
+      ..add(DiagnosticsProperty('dialogType', dialogType));
   }
 
   @override
@@ -559,7 +596,10 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
                     .equals(other.questionMap, questionMap)) &&
             (identical(other.recodeQuestionMap, recodeQuestionMap) ||
                 const DeepCollectionEquality()
-                    .equals(other.recodeQuestionMap, recodeQuestionMap)));
+                    .equals(other.recodeQuestionMap, recodeQuestionMap)) &&
+            (identical(other.dialogType, dialogType) ||
+                const DeepCollectionEquality()
+                    .equals(other.dialogType, dialogType)));
   }
 
   @override
@@ -576,7 +616,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
       const DeepCollectionEquality().hash(isReadOnly) ^
       const DeepCollectionEquality().hash(isRecodeModule) ^
       const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(recodeQuestionMap);
+      const DeepCollectionEquality().hash(recodeQuestionMap) ^
+      const DeepCollectionEquality().hash(dialogType);
 
   @JsonKey(ignore: true)
   @override
@@ -598,7 +639,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -617,6 +659,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -636,7 +679,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         isReadOnly,
         isRecodeModule,
         questionMap,
-        recodeQuestionMap);
+        recodeQuestionMap,
+        dialogType);
   }
 
   @override
@@ -654,7 +698,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -673,6 +718,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -691,7 +737,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         isReadOnly,
         isRecodeModule,
         questionMap,
-        recodeQuestionMap);
+        recodeQuestionMap,
+        dialogType);
   }
 
   @override
@@ -709,7 +756,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -728,6 +776,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -748,7 +797,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
           isReadOnly,
           isRecodeModule,
           questionMap,
-          recodeQuestionMap);
+          recodeQuestionMap,
+          dialogType);
     }
     return orElse();
   }
@@ -767,6 +817,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -789,6 +841,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -811,6 +865,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -838,7 +894,8 @@ abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
       required bool isReadOnly,
       required bool isRecodeModule,
       required Map<String, Question> questionMap,
-      required Map<String, Question> recodeQuestionMap}) = _$_ModuleLoaded;
+      required Map<String, Question> recodeQuestionMap,
+      required DialogType dialogType}) = _$_ModuleLoaded;
 
   Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
   Map<String, AnswerStatus> get answerStatusMap =>
@@ -856,6 +913,7 @@ abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   Map<String, Question> get recodeQuestionMap =>
       throw _privateConstructorUsedError;
+  DialogType get dialogType => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$ModuleLoadedCopyWith<_ModuleLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -921,7 +979,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -940,6 +999,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -965,7 +1025,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -984,6 +1045,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -1008,7 +1070,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1027,6 +1090,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -1054,6 +1118,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -1076,6 +1142,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -1098,6 +1166,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -1306,7 +1376,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -1325,6 +1396,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -1351,7 +1423,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1370,6 +1443,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -1395,7 +1469,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1414,6 +1489,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -1442,6 +1518,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -1464,6 +1542,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -1486,6 +1566,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -1626,7 +1708,8 @@ class _$_PageNavigatedTo
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -1645,6 +1728,7 @@ class _$_PageNavigatedTo
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -1670,7 +1754,8 @@ class _$_PageNavigatedTo
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1689,6 +1774,7 @@ class _$_PageNavigatedTo
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -1713,7 +1799,8 @@ class _$_PageNavigatedTo
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1732,6 +1819,7 @@ class _$_PageNavigatedTo
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -1759,6 +1847,8 @@ class _$_PageNavigatedTo
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -1781,6 +1871,8 @@ class _$_PageNavigatedTo
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -1803,6 +1895,8 @@ class _$_PageNavigatedTo
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -1891,7 +1985,8 @@ class _$_ContentQuestionMapUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -1910,6 +2005,7 @@ class _$_ContentQuestionMapUpdated
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -1935,7 +2031,8 @@ class _$_ContentQuestionMapUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1954,6 +2051,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -1978,7 +2076,8 @@ class _$_ContentQuestionMapUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -1997,6 +2096,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -2024,6 +2124,8 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -2046,6 +2148,8 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2068,6 +2172,8 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2148,7 +2254,8 @@ class _$_FinishedButtonPressed
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -2167,6 +2274,7 @@ class _$_FinishedButtonPressed
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -2192,7 +2300,8 @@ class _$_FinishedButtonPressed
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2211,6 +2320,7 @@ class _$_FinishedButtonPressed
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -2235,7 +2345,8 @@ class _$_FinishedButtonPressed
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2254,6 +2365,7 @@ class _$_FinishedButtonPressed
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -2281,6 +2393,8 @@ class _$_FinishedButtonPressed
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -2303,6 +2417,8 @@ class _$_FinishedButtonPressed
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2325,6 +2441,8 @@ class _$_FinishedButtonPressed
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2403,7 +2521,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -2422,6 +2541,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -2447,7 +2567,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2466,6 +2587,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -2490,7 +2612,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2509,6 +2632,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -2536,6 +2660,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -2558,6 +2684,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2580,6 +2708,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2660,7 +2790,8 @@ class _$_LeaveButtonPressed
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -2679,6 +2810,7 @@ class _$_LeaveButtonPressed
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -2704,7 +2836,8 @@ class _$_LeaveButtonPressed
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2723,6 +2856,7 @@ class _$_LeaveButtonPressed
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -2747,7 +2881,8 @@ class _$_LeaveButtonPressed
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2766,6 +2901,7 @@ class _$_LeaveButtonPressed
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -2793,6 +2929,8 @@ class _$_LeaveButtonPressed
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -2815,6 +2953,8 @@ class _$_LeaveButtonPressed
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2837,6 +2977,8 @@ class _$_LeaveButtonPressed
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -2917,7 +3059,8 @@ class _$_LeaveButtonHidden
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -2936,6 +3079,7 @@ class _$_LeaveButtonHidden
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -2961,7 +3105,8 @@ class _$_LeaveButtonHidden
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -2980,6 +3125,7 @@ class _$_LeaveButtonHidden
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3004,7 +3150,8 @@ class _$_LeaveButtonHidden
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3023,6 +3170,7 @@ class _$_LeaveButtonHidden
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3050,6 +3198,8 @@ class _$_LeaveButtonHidden
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -3072,6 +3222,8 @@ class _$_LeaveButtonHidden
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -3094,6 +3246,8 @@ class _$_LeaveButtonHidden
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -3110,6 +3264,282 @@ class _$_LeaveButtonHidden
 
 abstract class _LeaveButtonHidden implements UpdateAnswerStatusEvent {
   const factory _LeaveButtonHidden() = _$_LeaveButtonHidden;
+}
+
+/// @nodoc
+abstract class _$SwitchedToSamplingWithinHouseholdModuleCopyWith<$Res> {
+  factory _$SwitchedToSamplingWithinHouseholdModuleCopyWith(
+          _SwitchedToSamplingWithinHouseholdModule value,
+          $Res Function(_SwitchedToSamplingWithinHouseholdModule) then) =
+      __$SwitchedToSamplingWithinHouseholdModuleCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$SwitchedToSamplingWithinHouseholdModuleCopyWithImpl<$Res>
+    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
+    implements _$SwitchedToSamplingWithinHouseholdModuleCopyWith<$Res> {
+  __$SwitchedToSamplingWithinHouseholdModuleCopyWithImpl(
+      _SwitchedToSamplingWithinHouseholdModule _value,
+      $Res Function(_SwitchedToSamplingWithinHouseholdModule) _then)
+      : super(_value,
+            (v) => _then(v as _SwitchedToSamplingWithinHouseholdModule));
+
+  @override
+  _SwitchedToSamplingWithinHouseholdModule get _value =>
+      super._value as _SwitchedToSamplingWithinHouseholdModule;
+}
+
+/// @nodoc
+
+class _$_SwitchedToSamplingWithinHouseholdModule
+    with DiagnosticableTreeMixin
+    implements _SwitchedToSamplingWithinHouseholdModule {
+  const _$_SwitchedToSamplingWithinHouseholdModule();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerStatusEvent.switchedToSamplingWithinHouseholdModule()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type',
+          'UpdateAnswerStatusEvent.switchedToSamplingWithinHouseholdModule'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _SwitchedToSamplingWithinHouseholdModule);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
+        moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)
+        answerUpdated,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function() contentQuestionMapUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
+    required TResult Function(List<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() initialized,
+  }) {
+    return switchedToSamplingWithinHouseholdModule();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+  }) {
+    return switchedToSamplingWithinHouseholdModule?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (switchedToSamplingWithinHouseholdModule != null) {
+      return switchedToSamplingWithinHouseholdModule();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseMapUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return switchedToSamplingWithinHouseholdModule(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return switchedToSamplingWithinHouseholdModule?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (switchedToSamplingWithinHouseholdModule != null) {
+      return switchedToSamplingWithinHouseholdModule(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SwitchedToSamplingWithinHouseholdModule
+    implements UpdateAnswerStatusEvent {
+  const factory _SwitchedToSamplingWithinHouseholdModule() =
+      _$_SwitchedToSamplingWithinHouseholdModule;
 }
 
 /// @nodoc
@@ -3202,7 +3632,8 @@ class _$_AppLifeCycleChanged
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -3221,6 +3652,7 @@ class _$_AppLifeCycleChanged
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -3246,7 +3678,8 @@ class _$_AppLifeCycleChanged
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3265,6 +3698,7 @@ class _$_AppLifeCycleChanged
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3289,7 +3723,8 @@ class _$_AppLifeCycleChanged
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3308,6 +3743,7 @@ class _$_AppLifeCycleChanged
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3335,6 +3771,8 @@ class _$_AppLifeCycleChanged
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -3357,6 +3795,8 @@ class _$_AppLifeCycleChanged
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -3379,6 +3819,8 @@ class _$_AppLifeCycleChanged
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -3498,7 +3940,8 @@ class _$_RespondentResponseListUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -3517,6 +3960,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -3542,7 +3986,8 @@ class _$_RespondentResponseListUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3561,6 +4006,7 @@ class _$_RespondentResponseListUpdated
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3585,7 +4031,8 @@ class _$_RespondentResponseListUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3604,6 +4051,7 @@ class _$_RespondentResponseListUpdated
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3631,6 +4079,8 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -3653,6 +4103,8 @@ class _$_RespondentResponseListUpdated
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -3675,6 +4127,8 @@ class _$_RespondentResponseListUpdated
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -3792,7 +4246,8 @@ class _$_ReferenceListUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -3811,6 +4266,7 @@ class _$_ReferenceListUpdated
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -3836,7 +4292,8 @@ class _$_ReferenceListUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3855,6 +4312,7 @@ class _$_ReferenceListUpdated
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3879,7 +4337,8 @@ class _$_ReferenceListUpdated
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -3898,6 +4357,7 @@ class _$_ReferenceListUpdated
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -3925,6 +4385,8 @@ class _$_ReferenceListUpdated
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -3947,6 +4409,8 @@ class _$_ReferenceListUpdated
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -3969,6 +4433,8 @@ class _$_ReferenceListUpdated
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -4052,7 +4518,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
         moduleLoaded,
     required TResult Function() stateCleared,
     required TResult Function(
@@ -4071,6 +4538,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
     required TResult Function(bool isPaused) appLifeCycleChanged,
     required TResult Function(Map<ModuleType, Response> respondentResponseMap)
         respondentResponseMapUpdated,
@@ -4096,7 +4564,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4115,6 +4584,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -4139,7 +4609,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool isReadOnly,
             bool isRecodeModule,
             Map<String, Question> questionMap,
-            Map<String, Question> recodeQuestionMap)?
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
         moduleLoaded,
     TResult Function()? stateCleared,
     TResult Function(
@@ -4158,6 +4629,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
     TResult Function(bool isPaused)? appLifeCycleChanged,
     TResult Function(Map<ModuleType, Response> respondentResponseMap)?
         respondentResponseMapUpdated,
@@ -4185,6 +4657,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
     required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
     required TResult Function(_RespondentResponseListUpdated value)
         respondentResponseMapUpdated,
@@ -4207,6 +4681,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -4229,6 +4705,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
     TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
     TResult Function(_RespondentResponseListUpdated value)?
         respondentResponseMapUpdated,
@@ -4269,7 +4747,7 @@ class _$UpdateAnswerStatusStateTearOff {
       required Set<String> contentQIdSet,
       required Direction direction,
       required bool finishResponse,
-      required bool showDialog,
+      required DialogType dialogType,
       required bool showLeaveButton,
       required bool leavePage,
       required bool appIsPaused,
@@ -4305,7 +4783,7 @@ class _$UpdateAnswerStatusStateTearOff {
       contentQIdSet: contentQIdSet,
       direction: direction,
       finishResponse: finishResponse,
-      showDialog: showDialog,
+      dialogType: dialogType,
       showLeaveButton: showLeaveButton,
       leavePage: leavePage,
       appIsPaused: appIsPaused,
@@ -4353,7 +4831,7 @@ mixin _$UpdateAnswerStatusState {
   Set<String> get contentQIdSet => throw _privateConstructorUsedError;
   Direction get direction => throw _privateConstructorUsedError;
   bool get finishResponse => throw _privateConstructorUsedError;
-  bool get showDialog => throw _privateConstructorUsedError;
+  DialogType get dialogType => throw _privateConstructorUsedError;
   bool get showLeaveButton => throw _privateConstructorUsedError;
   bool get leavePage => throw _privateConstructorUsedError;
   bool get appIsPaused =>
@@ -4403,7 +4881,7 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       Set<String> contentQIdSet,
       Direction direction,
       bool finishResponse,
-      bool showDialog,
+      DialogType dialogType,
       bool showLeaveButton,
       bool leavePage,
       bool appIsPaused,
@@ -4424,6 +4902,7 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
 
   $UniqueIdCopyWith<$Res> get stateId;
   $WarningCopyWith<$Res> get warning;
+  $DialogTypeCopyWith<$Res> get dialogType;
   $RespondentCopyWith<$Res> get respondent;
   $ModuleTypeCopyWith<$Res> get moduleType;
   $LoadStateCopyWith<$Res> get restoreState;
@@ -4461,7 +4940,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? contentQIdSet = freezed,
     Object? direction = freezed,
     Object? finishResponse = freezed,
-    Object? showDialog = freezed,
+    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
@@ -4549,10 +5028,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.finishResponse
           : finishResponse // ignore: cast_nullable_to_non_nullable
               as bool,
-      showDialog: showDialog == freezed
-          ? _value.showDialog
-          : showDialog // ignore: cast_nullable_to_non_nullable
-              as bool,
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
+              as DialogType,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
@@ -4639,6 +5118,13 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
   }
 
   @override
+  $DialogTypeCopyWith<$Res> get dialogType {
+    return $DialogTypeCopyWith<$Res>(_value.dialogType, (value) {
+      return _then(_value.copyWith(dialogType: value));
+    });
+  }
+
+  @override
   $RespondentCopyWith<$Res> get respondent {
     return $RespondentCopyWith<$Res>(_value.respondent, (value) {
       return _then(_value.copyWith(respondent: value));
@@ -4713,7 +5199,7 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       Set<String> contentQIdSet,
       Direction direction,
       bool finishResponse,
-      bool showDialog,
+      DialogType dialogType,
       bool showLeaveButton,
       bool leavePage,
       bool appIsPaused,
@@ -4736,6 +5222,8 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
   $UniqueIdCopyWith<$Res> get stateId;
   @override
   $WarningCopyWith<$Res> get warning;
+  @override
+  $DialogTypeCopyWith<$Res> get dialogType;
   @override
   $RespondentCopyWith<$Res> get respondent;
   @override
@@ -4783,7 +5271,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? contentQIdSet = freezed,
     Object? direction = freezed,
     Object? finishResponse = freezed,
-    Object? showDialog = freezed,
+    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
@@ -4871,10 +5359,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.finishResponse
           : finishResponse // ignore: cast_nullable_to_non_nullable
               as bool,
-      showDialog: showDialog == freezed
-          ? _value.showDialog
-          : showDialog // ignore: cast_nullable_to_non_nullable
-              as bool,
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
+              as DialogType,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
@@ -4969,7 +5457,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.contentQIdSet,
       required this.direction,
       required this.finishResponse,
-      required this.showDialog,
+      required this.dialogType,
       required this.showLeaveButton,
       required this.leavePage,
       required this.appIsPaused,
@@ -5025,7 +5513,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   final bool finishResponse;
   @override
-  final bool showDialog;
+  final DialogType dialogType;
   @override
   final bool showLeaveButton;
   @override
@@ -5063,7 +5551,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, showDialog: $showDialog, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -5088,7 +5576,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
       ..add(DiagnosticsProperty('direction', direction))
       ..add(DiagnosticsProperty('finishResponse', finishResponse))
-      ..add(DiagnosticsProperty('showDialog', showDialog))
+      ..add(DiagnosticsProperty('dialogType', dialogType))
       ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
       ..add(DiagnosticsProperty('leavePage', leavePage))
       ..add(DiagnosticsProperty('appIsPaused', appIsPaused))
@@ -5162,9 +5650,9 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             (identical(other.finishResponse, finishResponse) ||
                 const DeepCollectionEquality()
                     .equals(other.finishResponse, finishResponse)) &&
-            (identical(other.showDialog, showDialog) ||
+            (identical(other.dialogType, dialogType) ||
                 const DeepCollectionEquality()
-                    .equals(other.showDialog, showDialog)) &&
+                    .equals(other.dialogType, dialogType)) &&
             (identical(other.showLeaveButton, showLeaveButton) ||
                 const DeepCollectionEquality()
                     .equals(other.showLeaveButton, showLeaveButton)) &&
@@ -5212,7 +5700,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       const DeepCollectionEquality().hash(contentQIdSet) ^
       const DeepCollectionEquality().hash(direction) ^
       const DeepCollectionEquality().hash(finishResponse) ^
-      const DeepCollectionEquality().hash(showDialog) ^
+      const DeepCollectionEquality().hash(dialogType) ^
       const DeepCollectionEquality().hash(showLeaveButton) ^
       const DeepCollectionEquality().hash(leavePage) ^
       const DeepCollectionEquality().hash(appIsPaused) ^
@@ -5257,7 +5745,7 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
       required Set<String> contentQIdSet,
       required Direction direction,
       required bool finishResponse,
-      required bool showDialog,
+      required DialogType dialogType,
       required bool showLeaveButton,
       required bool leavePage,
       required bool appIsPaused,
@@ -5315,7 +5803,7 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   @override
   bool get finishResponse => throw _privateConstructorUsedError;
   @override
-  bool get showDialog => throw _privateConstructorUsedError;
+  DialogType get dialogType => throw _privateConstructorUsedError;
   @override
   bool get showLeaveButton => throw _privateConstructorUsedError;
   @override
@@ -5374,7 +5862,7 @@ class _$StateParametersTearOff {
       required bool showWarning,
       required bool pageQIdSet,
       required bool contentQIdSet,
-      required bool showDialog,
+      required bool dialogType,
       required bool showLeaveButton,
       required bool respondent,
       required bool surveyId,
@@ -5396,7 +5884,7 @@ class _$StateParametersTearOff {
       showWarning: showWarning,
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
-      showDialog: showDialog,
+      dialogType: dialogType,
       showLeaveButton: showLeaveButton,
       respondent: respondent,
       surveyId: surveyId,
@@ -5427,7 +5915,7 @@ mixin _$StateParameters {
   bool get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
   bool get pageQIdSet => throw _privateConstructorUsedError;
   bool get contentQIdSet => throw _privateConstructorUsedError;
-  bool get showDialog => throw _privateConstructorUsedError;
+  bool get dialogType => throw _privateConstructorUsedError;
   bool get showLeaveButton =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
   bool get respondent => throw _privateConstructorUsedError;
@@ -5462,7 +5950,7 @@ abstract class $StateParametersCopyWith<$Res> {
       bool showWarning,
       bool pageQIdSet,
       bool contentQIdSet,
-      bool showDialog,
+      bool dialogType,
       bool showLeaveButton,
       bool respondent,
       bool surveyId,
@@ -5496,7 +5984,7 @@ class _$StateParametersCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? showDialog = freezed,
+    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -5552,9 +6040,9 @@ class _$StateParametersCopyWithImpl<$Res>
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
               as bool,
-      showDialog: showDialog == freezed
-          ? _value.showDialog
-          : showDialog // ignore: cast_nullable_to_non_nullable
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
               as bool,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -5615,7 +6103,7 @@ abstract class _$StateParametersCopyWith<$Res>
       bool showWarning,
       bool pageQIdSet,
       bool contentQIdSet,
-      bool showDialog,
+      bool dialogType,
       bool showLeaveButton,
       bool respondent,
       bool surveyId,
@@ -5651,7 +6139,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? showDialog = freezed,
+    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -5707,9 +6195,9 @@ class __$StateParametersCopyWithImpl<$Res>
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
               as bool,
-      showDialog: showDialog == freezed
-          ? _value.showDialog
-          : showDialog // ignore: cast_nullable_to_non_nullable
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
               as bool,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -5766,7 +6254,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       required this.showWarning,
       required this.pageQIdSet,
       required this.contentQIdSet,
-      required this.showDialog,
+      required this.dialogType,
       required this.showLeaveButton,
       required this.respondent,
       required this.surveyId,
@@ -5801,7 +6289,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   @override
   final bool contentQIdSet;
   @override
-  final bool showDialog;
+  final bool dialogType;
   @override
   final bool showLeaveButton;
   @override // H_ 同 session 不變的參考資料
@@ -5823,7 +6311,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showDialog: $showDialog, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
+    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, dialogType: $dialogType, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
   }
 
   @override
@@ -5842,7 +6330,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('showWarning', showWarning))
       ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
       ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
-      ..add(DiagnosticsProperty('showDialog', showDialog))
+      ..add(DiagnosticsProperty('dialogType', dialogType))
       ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
       ..add(DiagnosticsProperty('respondent', respondent))
       ..add(DiagnosticsProperty('surveyId', surveyId))
@@ -5890,9 +6378,9 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
             (identical(other.contentQIdSet, contentQIdSet) ||
                 const DeepCollectionEquality()
                     .equals(other.contentQIdSet, contentQIdSet)) &&
-            (identical(other.showDialog, showDialog) ||
+            (identical(other.dialogType, dialogType) ||
                 const DeepCollectionEquality()
-                    .equals(other.showDialog, showDialog)) &&
+                    .equals(other.dialogType, dialogType)) &&
             (identical(other.showLeaveButton, showLeaveButton) ||
                 const DeepCollectionEquality()
                     .equals(other.showLeaveButton, showLeaveButton)) &&
@@ -5936,7 +6424,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(showWarning) ^
       const DeepCollectionEquality().hash(pageQIdSet) ^
       const DeepCollectionEquality().hash(contentQIdSet) ^
-      const DeepCollectionEquality().hash(showDialog) ^
+      const DeepCollectionEquality().hash(dialogType) ^
       const DeepCollectionEquality().hash(showLeaveButton) ^
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(surveyId) ^
@@ -5966,7 +6454,7 @@ abstract class _StateParameters extends StateParameters {
       required bool showWarning,
       required bool pageQIdSet,
       required bool contentQIdSet,
-      required bool showDialog,
+      required bool dialogType,
       required bool showLeaveButton,
       required bool respondent,
       required bool surveyId,
@@ -6001,7 +6489,7 @@ abstract class _StateParameters extends StateParameters {
   @override
   bool get contentQIdSet => throw _privateConstructorUsedError;
   @override
-  bool get showDialog => throw _privateConstructorUsedError;
+  bool get dialogType => throw _privateConstructorUsedError;
   @override
   bool get showLeaveButton => throw _privateConstructorUsedError;
   @override // H_ 同 session 不變的參考資料

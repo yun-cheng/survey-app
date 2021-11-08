@@ -62,12 +62,36 @@ ResponseState responseRestored(
 ) {
   logger('Compute').i('ResponseRestored');
 
+  ModuleType moduleType = state.moduleType;
+  DialogType dialogType = DialogType.none();
+
   // S_1 篩出 response
   Response? response;
   // S_1-c1 如果有 responseId 則直接篩出來
   if (e.withResponseId) {
     response = state.responseMap[state.responseId];
-  } else if (state.moduleType != ModuleType.visitReport() && !e.isNewResponse) {
+  } else if (moduleType != ModuleType.visitReport() && !e.isNewResponse) {
+    bool switchToSampling = false;
+
+    // TODO 如果是 main module，先確認戶抽是否已完成，未完成則轉跳過去
+    if (moduleType == ModuleType.main()) {
+      switchToSampling = state.responseMap.values
+          .where(
+            (r) =>
+                r.respondentId == state.respondent.id &&
+                r.surveyId == state.survey.id &&
+                r.moduleType == ModuleType.samplingWithinHousehold() &&
+                r.responseStatus == ResponseStatus.finished(),
+          )
+          .toList()
+          .isEmpty;
+    }
+
+    if (switchToSampling) {
+      moduleType = ModuleType.samplingWithinHousehold();
+      dialogType = DialogType.switchToSamplingWithinHouseholdModule();
+    }
+
     // S_1-c2-1 篩出同受訪者、問卷、問卷模組的最近一筆 response
     // FIXME 可能要再加上篩同 deviceId
     response = state.responseMap.values
@@ -75,7 +99,7 @@ ResponseState responseRestored(
           (r) =>
               r.respondentId == state.respondent.id &&
               r.surveyId == state.survey.id &&
-              r.moduleType == state.moduleType,
+              r.moduleType == moduleType,
         )
         .toList()
         .sortedByDescendingX(
@@ -84,7 +108,7 @@ ResponseState responseRestored(
         .firstOrNull;
   }
 
-  final module = state.survey.module[state.moduleType]!;
+  final module = state.survey.module[moduleType]!;
 
   // S_2 若無篩出，則新創一個 response
   if (response == null) {
@@ -92,7 +116,7 @@ ResponseState responseRestored(
     final initAnswerMap = {...module.answerMap};
 
     // S_ 如果是查址模組且 breakInterview
-    if (state.moduleType == ModuleType.visitReport() && e.breakInterview) {
+    if (moduleType == ModuleType.visitReport() && e.breakInterview) {
       initAnswerMap['break_interview'] = Answer.empty().setString('1');
     }
 
@@ -101,7 +125,7 @@ ResponseState responseRestored(
       (r) =>
           r.respondentId == state.respondent.id &&
           r.surveyId == state.survey.id &&
-          r.moduleType == state.moduleType,
+          r.moduleType == moduleType,
     );
 
     for (final reference in initAnswerList) {
@@ -112,7 +136,7 @@ ResponseState responseRestored(
       teamId: state.survey.teamId,
       projectId: state.survey.projectId,
       surveyId: state.survey.id,
-      moduleType: state.moduleType,
+      moduleType: moduleType,
       respondentId: state.respondent.id,
       interviewerId: state.interviewer.id,
       // TODO deviceId
@@ -136,7 +160,7 @@ ResponseState responseRestored(
 
   // S_4 如果是預過錄，則需要參考 mainResponse
   Response? mainResponse;
-  if (state.moduleType == ModuleType.recode()) {
+  if (moduleType == ModuleType.recode()) {
     mainResponse = state.responseMap.values
         .where(
           (r) =>
@@ -162,6 +186,8 @@ ResponseState responseRestored(
     responseMap: responseMap,
     questionMap: module.questionMap,
     mainResponse: mainResponse,
+    moduleType: moduleType,
+    dialogType: dialogType,
   );
 }
 

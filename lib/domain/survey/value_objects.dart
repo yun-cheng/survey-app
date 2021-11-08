@@ -207,3 +207,17 @@ enum SurveyPageUpdateType {
   @JsonValue('warning')
   warning,
 }
+
+@freezed
+class DialogType with _$DialogType {
+  const DialogType._();
+
+  const factory DialogType(String value) = _DialogType;
+
+  factory DialogType.none() => const DialogType('');
+  factory DialogType.breakInterview() => const DialogType('breakInterview');
+  factory DialogType.switchToSamplingWithinHouseholdModule() =>
+      const DialogType('switchToSamplingWithinHouseholdModule');
+
+  bool get notNone => value != '';
+}

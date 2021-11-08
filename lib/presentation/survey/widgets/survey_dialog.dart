@@ -38,7 +38,8 @@ class SurveyLeadingButton extends StatelessWidget {
           },
         ),
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-          listenWhen: (p, c) => p.showDialog != c.showDialog && c.showDialog,
+          listenWhen: (p, c) =>
+              p.dialogType != c.dialogType && c.dialogType.notNone,
           listener: (context, state) {
             logger('Build').i('SurveyDialog');
 
@@ -100,14 +101,71 @@ class SurveyLeadingButton extends StatelessWidget {
 
 // NOTE 即使在目錄頁面也會顯示
 void showSurveyDialog(BuildContext context) {
-  final show = context.read<UpdateAnswerStatusBloc>().state.showDialog;
+  // NOTE 因為 app 重啟會觸發一次，因此要在裡面取資料
+  final dialogType = context.read<UpdateAnswerStatusBloc>().state.dialogType;
 
-  // NOTE 只有在 main module 才會 show
-  if (show) {
+  if (dialogType.notNone) {
     showFlash(
       onWillPop: () => Future.value(false),
       context: context,
       builder: (context, controller) {
+        late final FlashBar dialog;
+
+        if (dialogType == DialogType.breakInterview()) {
+          dialog = FlashBar(
+            content: const Text(
+              '繼續或中止訪問',
+              style: kH4TextStyle,
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('中止訪問'),
+                onPressed: () async {
+                  controller.dismiss(true);
+
+                  // S_ 進入中止訪問後的查址模組
+                  switchToVisitReportModule(context);
+                },
+              ),
+              TextButton(
+                child: const Text('繼續訪問'),
+                onPressed: () {
+                  controller.dismiss();
+                  context.read<UpdateAnswerStatusBloc>().add(
+                        const UpdateAnswerStatusEvent.dialogClosed(),
+                      );
+
+                  // S_ 如果已閒置，則要開新的 response，並開始錄音
+                  final fileName = UniqueId.v1();
+                  context.read<ResponseBloc>().add(
+                        ResponseEvent.responseResumed(fileName),
+                      );
+
+                  context
+                      .read<AudioRecorderBloc>()
+                      .add(AudioRecorderEvent.recordStarted(fileName));
+                },
+              ),
+            ],
+          );
+        } else if (dialogType ==
+            DialogType.switchToSamplingWithinHouseholdModule()) {
+          dialog = FlashBar(
+            content: const Text(
+              '戶抽未完成，切換至戶抽問卷。',
+              style: kH4TextStyle,
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('確定'),
+                onPressed: () async {
+                  controller.dismiss(true);
+                },
+              ),
+            ],
+          );
+        }
+
         return Flash.dialog(
           barrierDismissible: false,
           controller: controller,
@@ -115,42 +173,7 @@ void showSurveyDialog(BuildContext context) {
           margin: const EdgeInsets.symmetric(horizontal: 40.0),
           child: ConstrainedBox(
             constraints: kDialogMaxWith,
-            child: FlashBar(
-              content: const Text(
-                '繼續或中止訪問',
-                style: kH4TextStyle,
-              ),
-              actions: <Widget>[
-                TextButton(
-                  child: const Text('中止訪問'),
-                  onPressed: () async {
-                    controller.dismiss(true);
-
-                    // S_ 進入中止訪問後的查址模組
-                    switchToVisitReportModule(context);
-                  },
-                ),
-                TextButton(
-                  child: const Text('繼續訪問'),
-                  onPressed: () {
-                    controller.dismiss();
-                    context.read<UpdateAnswerStatusBloc>().add(
-                          const UpdateAnswerStatusEvent.dialogClosed(),
-                        );
-
-                    // S_ 如果已閒置，則要開新的 response，並開始錄音
-                    final fileName = UniqueId.v1();
-                    context.read<ResponseBloc>().add(
-                          ResponseEvent.responseResumed(fileName),
-                        );
-
-                    context
-                        .read<AudioRecorderBloc>()
-                        .add(AudioRecorderEvent.recordStarted(fileName));
-                  },
-                ),
-              ],
-            ),
+            child: dialog,
           ),
         );
       },

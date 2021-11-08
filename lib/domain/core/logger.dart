@@ -15,7 +15,7 @@ Logger logger([String? tag, int? methodShow]) {
     'Debug',
     // 'Event',
     'User Event',
-    'State',
+    // 'State',
     // 'InProgress',
     'Success',
     'Task',

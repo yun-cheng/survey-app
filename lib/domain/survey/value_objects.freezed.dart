@@ -1163,3 +1163,130 @@ abstract class _DeviceTimeStamp extends DeviceTimeStamp {
   _$DeviceTimeStampCopyWith<_DeviceTimeStamp> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+/// @nodoc
+class _$DialogTypeTearOff {
+  const _$DialogTypeTearOff();
+
+  _DialogType call(String value) {
+    return _DialogType(
+      value,
+    );
+  }
+}
+
+/// @nodoc
+const $DialogType = _$DialogTypeTearOff();
+
+/// @nodoc
+mixin _$DialogType {
+  String get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $DialogTypeCopyWith<DialogType> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $DialogTypeCopyWith<$Res> {
+  factory $DialogTypeCopyWith(
+          DialogType value, $Res Function(DialogType) then) =
+      _$DialogTypeCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$DialogTypeCopyWithImpl<$Res> implements $DialogTypeCopyWith<$Res> {
+  _$DialogTypeCopyWithImpl(this._value, this._then);
+
+  final DialogType _value;
+  // ignore: unused_field
+  final $Res Function(DialogType) _then;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$DialogTypeCopyWith<$Res> implements $DialogTypeCopyWith<$Res> {
+  factory _$DialogTypeCopyWith(
+          _DialogType value, $Res Function(_DialogType) then) =
+      __$DialogTypeCopyWithImpl<$Res>;
+  @override
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$DialogTypeCopyWithImpl<$Res> extends _$DialogTypeCopyWithImpl<$Res>
+    implements _$DialogTypeCopyWith<$Res> {
+  __$DialogTypeCopyWithImpl(
+      _DialogType _value, $Res Function(_DialogType) _then)
+      : super(_value, (v) => _then(v as _DialogType));
+
+  @override
+  _DialogType get _value => super._value as _DialogType;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_DialogType(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_DialogType extends _DialogType {
+  const _$_DialogType(this.value) : super._();
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'DialogType(value: $value)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _DialogType &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+
+  @JsonKey(ignore: true)
+  @override
+  _$DialogTypeCopyWith<_DialogType> get copyWith =>
+      __$DialogTypeCopyWithImpl<_DialogType>(this, _$identity);
+}
+
+abstract class _DialogType extends DialogType {
+  const factory _DialogType(String value) = _$_DialogType;
+  const _DialogType._() : super._();
+
+  @override
+  String get value => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$DialogTypeCopyWith<_DialogType> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -53,6 +53,7 @@ void _eventWorker(
         recodeQuestionMap: e.recodeQuestionMap,
         updatedQIdSet: const {},
         direction: Direction.current,
+        dialogType: e.dialogType,
         saveParameters: StateParameters.clear(),
       );
       state = showQuestionChecked(state, all: true);
@@ -205,9 +206,9 @@ void _eventWorker(
       logger('User Event').i('UpdateAnswerStatusEvent: dialogClosed');
 
       state = state.copyWith(
-        showDialog: false,
+        dialogType: DialogType.none(),
         saveParameters: state.saveParameters.copyWith(
-          showDialog: true,
+          dialogType: true,
         ),
       );
     },
@@ -215,11 +216,14 @@ void _eventWorker(
     leaveButtonPressed: (e) {
       logger('User Event').i('UpdateAnswerStatusEvent: leaveButtonPressed');
 
+      final leavePage =
+          state.moduleType != ModuleType.main() || state.isReadOnly;
+
       state = state.copyWith(
-        showDialog: state.moduleType == ModuleType.main() && !state.isReadOnly,
-        leavePage: state.moduleType != ModuleType.main() || state.isReadOnly,
+        leavePage: leavePage,
+        dialogType: leavePage ? DialogType.none() : DialogType.breakInterview(),
         saveParameters: state.saveParameters.copyWith(
-          showDialog: true,
+          dialogType: true,
         ),
       );
     },
@@ -232,23 +236,32 @@ void _eventWorker(
         ),
       );
     },
+    // H_ 切換到戶抽模組
+    switchedToSamplingWithinHouseholdModule: (e) {
+      state = state.copyWith(
+        dialogType: DialogType.switchToSamplingWithinHouseholdModule(),
+        saveParameters: state.saveParameters.copyWith(
+          dialogType: true,
+        ),
+      );
+    },
     // H_ lifeCycle 變更時
     appLifeCycleChanged: (e) {
       logger('Event').i('UpdateAnswerStatusEvent: appLifeCycleChanged');
 
-      bool showDialog = state.showDialog;
+      DialogType dialogType = state.dialogType;
 
       if (e.isPaused &&
           state.moduleType == ModuleType.main() &&
           !state.isReadOnly) {
-        showDialog = true;
+        dialogType = DialogType.breakInterview();
       }
 
       state = state.copyWith(
         appIsPaused: e.isPaused,
-        showDialog: showDialog,
+        dialogType: dialogType,
         saveParameters: state.saveParameters.copyWith(
-          showDialog: true,
+          dialogType: true,
         ),
       );
     },

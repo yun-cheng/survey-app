@@ -16,6 +16,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     required bool isRecodeModule,
     required Map<String, Question> questionMap,
     required Map<String, Question> recodeQuestionMap,
+    required DialogType dialogType,
   }) = _ModuleLoaded;
 
   // H_ 離開問卷時清空 state
@@ -57,6 +58,10 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   // H_ 隱藏離開按鈕
   const factory UpdateAnswerStatusEvent.leaveButtonHidden() =
       _LeaveButtonHidden;
+
+  // H_ 切換到戶抽模組
+  const factory UpdateAnswerStatusEvent.switchedToSamplingWithinHouseholdModule() =
+      _SwitchedToSamplingWithinHouseholdModule;
 
   // H_ lifeCycle 變更時
   const factory UpdateAnswerStatusEvent.appLifeCycleChanged({

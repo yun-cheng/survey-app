@@ -3760,6 +3760,7 @@ class _$ResponseStateTearOff {
       required Map<String, Question> questionMap,
       required Map<UniqueId, Response> downloadedResponseMap,
       required Map<ModuleType, Response> respondentResponseMap,
+      required DialogType dialogType,
       required LoadState responseMapState,
       required Option<SurveyFailure> responseFailure,
       required LoadState eventState,
@@ -3780,6 +3781,7 @@ class _$ResponseStateTearOff {
       questionMap: questionMap,
       downloadedResponseMap: downloadedResponseMap,
       respondentResponseMap: respondentResponseMap,
+      dialogType: dialogType,
       responseMapState: responseMapState,
       responseFailure: responseFailure,
       eventState: eventState,
@@ -3803,16 +3805,15 @@ mixin _$ResponseState {
   Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
   List<Reference> get referenceList =>
       throw _privateConstructorUsedError; // H_ 中間資料
-  ModuleType get moduleType =>
-      throw _privateConstructorUsedError; // required bool withResponseId,
-  UniqueId get responseId =>
-      throw _privateConstructorUsedError; // required bool breakInterview,
+  ModuleType get moduleType => throw _privateConstructorUsedError;
+  UniqueId get responseId => throw _privateConstructorUsedError;
   Response get mainResponse => throw _privateConstructorUsedError;
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
   Map<UniqueId, Response> get downloadedResponseMap =>
       throw _privateConstructorUsedError;
   Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError; // H_ 狀態更新進度
+      throw _privateConstructorUsedError;
+  DialogType get dialogType => throw _privateConstructorUsedError; // H_ 狀態更新進度
   LoadState get responseMapState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get responseFailure =>
       throw _privateConstructorUsedError;
@@ -3845,6 +3846,7 @@ abstract class $ResponseStateCopyWith<$Res> {
       Map<String, Question> questionMap,
       Map<UniqueId, Response> downloadedResponseMap,
       Map<ModuleType, Response> respondentResponseMap,
+      DialogType dialogType,
       LoadState responseMapState,
       Option<SurveyFailure> responseFailure,
       LoadState eventState,
@@ -3860,6 +3862,7 @@ abstract class $ResponseStateCopyWith<$Res> {
   $ModuleTypeCopyWith<$Res> get moduleType;
   $UniqueIdCopyWith<$Res> get responseId;
   $ResponseCopyWith<$Res> get mainResponse;
+  $DialogTypeCopyWith<$Res> get dialogType;
   $LoadStateCopyWith<$Res> get responseMapState;
   $LoadStateCopyWith<$Res> get eventState;
   $LoadStateCopyWith<$Res> get updateState;
@@ -3891,6 +3894,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? questionMap = freezed,
     Object? downloadedResponseMap = freezed,
     Object? respondentResponseMap = freezed,
+    Object? dialogType = freezed,
     Object? responseMapState = freezed,
     Object? responseFailure = freezed,
     Object? eventState = freezed,
@@ -3951,6 +3955,10 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<ModuleType, Response>,
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
+              as DialogType,
       responseMapState: responseMapState == freezed
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
@@ -4035,6 +4043,13 @@ class _$ResponseStateCopyWithImpl<$Res>
   }
 
   @override
+  $DialogTypeCopyWith<$Res> get dialogType {
+    return $DialogTypeCopyWith<$Res>(_value.dialogType, (value) {
+      return _then(_value.copyWith(dialogType: value));
+    });
+  }
+
+  @override
   $LoadStateCopyWith<$Res> get responseMapState {
     return $LoadStateCopyWith<$Res>(_value.responseMapState, (value) {
       return _then(_value.copyWith(responseMapState: value));
@@ -4091,6 +4106,7 @@ abstract class _$ResponseStateCopyWith<$Res>
       Map<String, Question> questionMap,
       Map<UniqueId, Response> downloadedResponseMap,
       Map<ModuleType, Response> respondentResponseMap,
+      DialogType dialogType,
       LoadState responseMapState,
       Option<SurveyFailure> responseFailure,
       LoadState eventState,
@@ -4114,6 +4130,8 @@ abstract class _$ResponseStateCopyWith<$Res>
   $UniqueIdCopyWith<$Res> get responseId;
   @override
   $ResponseCopyWith<$Res> get mainResponse;
+  @override
+  $DialogTypeCopyWith<$Res> get dialogType;
   @override
   $LoadStateCopyWith<$Res> get responseMapState;
   @override
@@ -4152,6 +4170,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? questionMap = freezed,
     Object? downloadedResponseMap = freezed,
     Object? respondentResponseMap = freezed,
+    Object? dialogType = freezed,
     Object? responseMapState = freezed,
     Object? responseFailure = freezed,
     Object? eventState = freezed,
@@ -4212,6 +4231,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
               as Map<ModuleType, Response>,
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
+              as DialogType,
       responseMapState: responseMapState == freezed
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
@@ -4257,6 +4280,7 @@ class _$_ResponseState extends _ResponseState {
       required this.questionMap,
       required this.downloadedResponseMap,
       required this.respondentResponseMap,
+      required this.dialogType,
       required this.responseMapState,
       required this.responseFailure,
       required this.eventState,
@@ -4281,9 +4305,9 @@ class _$_ResponseState extends _ResponseState {
   final List<Reference> referenceList;
   @override // H_ 中間資料
   final ModuleType moduleType;
-  @override // required bool withResponseId,
+  @override
   final UniqueId responseId;
-  @override // required bool breakInterview,
+  @override
   final Response mainResponse;
   @override
   final Map<String, Question> questionMap;
@@ -4291,6 +4315,8 @@ class _$_ResponseState extends _ResponseState {
   final Map<UniqueId, Response> downloadedResponseMap;
   @override
   final Map<ModuleType, Response> respondentResponseMap;
+  @override
+  final DialogType dialogType;
   @override // H_ 狀態更新進度
   final LoadState responseMapState;
   @override
@@ -4306,7 +4332,7 @@ class _$_ResponseState extends _ResponseState {
 
   @override
   String toString() {
-    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, dialogType: $dialogType, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -4351,6 +4377,9 @@ class _$_ResponseState extends _ResponseState {
             (identical(other.respondentResponseMap, respondentResponseMap) ||
                 const DeepCollectionEquality().equals(
                     other.respondentResponseMap, respondentResponseMap)) &&
+            (identical(other.dialogType, dialogType) ||
+                const DeepCollectionEquality()
+                    .equals(other.dialogType, dialogType)) &&
             (identical(other.responseMapState, responseMapState) ||
                 const DeepCollectionEquality()
                     .equals(other.responseMapState, responseMapState)) &&
@@ -4387,6 +4416,7 @@ class _$_ResponseState extends _ResponseState {
       const DeepCollectionEquality().hash(questionMap) ^
       const DeepCollectionEquality().hash(downloadedResponseMap) ^
       const DeepCollectionEquality().hash(respondentResponseMap) ^
+      const DeepCollectionEquality().hash(dialogType) ^
       const DeepCollectionEquality().hash(responseMapState) ^
       const DeepCollectionEquality().hash(responseFailure) ^
       const DeepCollectionEquality().hash(eventState) ^
@@ -4415,6 +4445,7 @@ abstract class _ResponseState extends ResponseState {
       required Map<String, Question> questionMap,
       required Map<UniqueId, Response> downloadedResponseMap,
       required Map<ModuleType, Response> respondentResponseMap,
+      required DialogType dialogType,
       required LoadState responseMapState,
       required Option<SurveyFailure> responseFailure,
       required LoadState eventState,
@@ -4439,9 +4470,9 @@ abstract class _ResponseState extends ResponseState {
   List<Reference> get referenceList => throw _privateConstructorUsedError;
   @override // H_ 中間資料
   ModuleType get moduleType => throw _privateConstructorUsedError;
-  @override // required bool withResponseId,
+  @override
   UniqueId get responseId => throw _privateConstructorUsedError;
-  @override // required bool breakInterview,
+  @override
   Response get mainResponse => throw _privateConstructorUsedError;
   @override
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
@@ -4451,6 +4482,8 @@ abstract class _ResponseState extends ResponseState {
   @override
   Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
+  @override
+  DialogType get dialogType => throw _privateConstructorUsedError;
   @override // H_ 狀態更新進度
   LoadState get responseMapState => throw _privateConstructorUsedError;
   @override

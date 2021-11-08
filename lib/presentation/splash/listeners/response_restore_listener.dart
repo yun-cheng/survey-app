@@ -43,6 +43,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
                   : state.questionMap,
               recodeQuestionMap:
                   state.survey.module[ModuleType.recode()]!.questionMap,
+              dialogType: state.dialogType,
             ),
           );
 

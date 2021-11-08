@@ -35,6 +35,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
       bool? showDialog,
+      String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -60,6 +61,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
       showDialog: showDialog,
+      dialogType: dialogType,
       showLeaveButton: showLeaveButton,
       respondent: respondent,
       surveyId: surveyId,
@@ -101,6 +103,7 @@ mixin _$UpdateAnswerStatusStateDto {
   List<String>? get pageQIdSet => throw _privateConstructorUsedError;
   List<String>? get contentQIdSet => throw _privateConstructorUsedError;
   bool? get showDialog => throw _privateConstructorUsedError;
+  String? get dialogType => throw _privateConstructorUsedError;
   bool? get showLeaveButton =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
   RespondentDto? get respondent => throw _privateConstructorUsedError;
@@ -142,6 +145,7 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
       bool? showDialog,
+      String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -182,6 +186,7 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
     Object? showDialog = freezed,
+    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -244,6 +249,10 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.showDialog
           : showDialog // ignore: cast_nullable_to_non_nullable
               as bool?,
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
+              as String?,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
@@ -339,6 +348,7 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
       bool? showDialog,
+      String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -384,6 +394,7 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
     Object? showDialog = freezed,
+    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -446,6 +457,10 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.showDialog
           : showDialog // ignore: cast_nullable_to_non_nullable
               as bool?,
+      dialogType: dialogType == freezed
+          ? _value.dialogType
+          : dialogType // ignore: cast_nullable_to_non_nullable
+              as String?,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
           : showLeaveButton // ignore: cast_nullable_to_non_nullable
@@ -515,6 +530,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       this.pageQIdSet,
       this.contentQIdSet,
       this.showDialog,
+      this.dialogType,
       this.showLeaveButton,
       this.respondent,
       this.surveyId,
@@ -557,6 +573,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   @override
   final bool? showDialog;
   @override
+  final String? dialogType;
+  @override
   final bool? showLeaveButton;
   @override // H_ 同 session 不變的參考資料
   final RespondentDto? respondent;
@@ -583,7 +601,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showDialog: $showDialog, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
+    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showDialog: $showDialog, dialogType: $dialogType, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
   }
 
   @override
@@ -625,6 +643,9 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
             (identical(other.showDialog, showDialog) ||
                 const DeepCollectionEquality()
                     .equals(other.showDialog, showDialog)) &&
+            (identical(other.dialogType, dialogType) ||
+                const DeepCollectionEquality()
+                    .equals(other.dialogType, dialogType)) &&
             (identical(other.showLeaveButton, showLeaveButton) ||
                 const DeepCollectionEquality()
                     .equals(other.showLeaveButton, showLeaveButton)) &&
@@ -650,10 +671,8 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
                 const DeepCollectionEquality().equals(
                     other.respondentResponseMap, respondentResponseMap)) &&
             (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
-            (identical(other.recodeQuestionMap, recodeQuestionMap) ||
-                const DeepCollectionEquality().equals(other.recodeQuestionMap, recodeQuestionMap)) &&
+                const DeepCollectionEquality().equals(other.questionMap, questionMap)) &&
+            (identical(other.recodeQuestionMap, recodeQuestionMap) || const DeepCollectionEquality().equals(other.recodeQuestionMap, recodeQuestionMap)) &&
             (identical(other.restoreState, restoreState) || const DeepCollectionEquality().equals(other.restoreState, restoreState)) &&
             (identical(other.updateState, updateState) || const DeepCollectionEquality().equals(other.updateState, updateState)));
   }
@@ -673,6 +692,7 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       const DeepCollectionEquality().hash(pageQIdSet) ^
       const DeepCollectionEquality().hash(contentQIdSet) ^
       const DeepCollectionEquality().hash(showDialog) ^
+      const DeepCollectionEquality().hash(dialogType) ^
       const DeepCollectionEquality().hash(showLeaveButton) ^
       const DeepCollectionEquality().hash(respondent) ^
       const DeepCollectionEquality().hash(surveyId) ^
@@ -712,6 +732,7 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
       bool? showDialog,
+      String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
       String? surveyId,
@@ -756,6 +777,8 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
   List<String>? get contentQIdSet => throw _privateConstructorUsedError;
   @override
   bool? get showDialog => throw _privateConstructorUsedError;
+  @override
+  String? get dialogType => throw _privateConstructorUsedError;
   @override
   bool? get showLeaveButton => throw _privateConstructorUsedError;
   @override // H_ 同 session 不變的參考資料

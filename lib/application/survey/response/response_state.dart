@@ -20,6 +20,7 @@ class ResponseState with _$ResponseState {
     required Map<String, Question> questionMap,
     required ResponseMap downloadedResponseMap,
     required Map<ModuleType, Response> respondentResponseMap,
+    required DialogType dialogType,
     // H_ 狀態更新進度
     required LoadState responseMapState,
     required Option<SurveyFailure> responseFailure,
@@ -46,6 +47,7 @@ class ResponseState with _$ResponseState {
         questionMap: const {},
         downloadedResponseMap: const {},
         respondentResponseMap: const {},
+        dialogType: DialogType.none(),
         // H_ 狀態更新進度
         responseMapState: LoadState.initial(),
         responseFailure: none(),

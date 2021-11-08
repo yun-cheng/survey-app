@@ -26,7 +26,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required Set<String> contentQIdSet,
     required Direction direction,
     required bool finishResponse,
-    required bool showDialog,
+    required DialogType dialogType,
     required bool showLeaveButton,
     required bool leavePage,
     required bool appIsPaused,
@@ -70,7 +70,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         contentQIdSet: const {},
         direction: Direction.current,
         finishResponse: false,
-        showDialog: false,
+        dialogType: DialogType.none(),
         showLeaveButton: true,
         leavePage: false,
         appIsPaused: false,
@@ -171,7 +171,7 @@ class StateParameters with _$StateParameters {
     // H_ 中間資料
     required bool pageQIdSet,
     required bool contentQIdSet,
-    required bool showDialog,
+    required bool dialogType,
     required bool showLeaveButton,
     // H_ 同 session 不變的參考資料
     required bool respondent,
@@ -201,7 +201,7 @@ class StateParameters with _$StateParameters {
         // H_ 中間資料
         pageQIdSet: false,
         contentQIdSet: false,
-        showDialog: false,
+        dialogType: false,
         showLeaveButton: true,
         // H_ 同 session 不變的參考資料
         respondent: false,
@@ -229,7 +229,7 @@ class StateParameters with _$StateParameters {
         // H_ 中間資料
         pageQIdSet: true,
         contentQIdSet: true,
-        showDialog: true,
+        dialogType: true,
         showLeaveButton: true,
         // H_ 同 session 不變的參考資料
         respondent: true,
