@@ -100,7 +100,7 @@ class ChoicesRow extends HookWidget {
     final dropDownSpecialAnswer = Visibility(
       visible: isSpecialAnswer,
       child: Container(
-        width: kSimpleTableCellWidth * 1.5,
+        width: kComplexTableCellWidth,
         decoration: BoxDecoration(
           color: canEdit ? null : kCannotEditColor,
         ),
