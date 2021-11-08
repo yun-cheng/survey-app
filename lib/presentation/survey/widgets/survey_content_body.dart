@@ -56,6 +56,13 @@ class SurveyContentBody extends StatelessWidget {
 
             final contentText = question.toPlainTextBody(withId: true);
 
+            int page;
+            if (!state.isRecodeModule) {
+              page = question.pageNumber;
+            } else {
+              page = state.recodeQuestionMap[questionId]!.pageNumber;
+            }
+
             return Align(
               alignment: Alignment.topCenter,
               child: ConstrainedBox(
@@ -73,7 +80,7 @@ class SurveyContentBody extends StatelessWidget {
                     onTap: () {
                       context.read<UpdateAnswerStatusBloc>().add(
                             UpdateAnswerStatusEvent.pageNavigatedTo(
-                              page: question.pageNumber,
+                              page: page,
                             ),
                           );
                       context.router.pop();
