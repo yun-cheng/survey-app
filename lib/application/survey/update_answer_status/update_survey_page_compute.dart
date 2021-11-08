@@ -108,9 +108,14 @@ UpdateAnswerStatusState pageUpdated(UpdateAnswerStatusState state) {
   // FIXME newestPage 有可能變小，而影響判斷?
   final newestPage = newPage > state.newestPage ? newPage : state.newestPage;
 
-  // S_ 篩出該頁面的題目id
-  final pageQIdSet =
-      questionMap.filterByValues((q) => q.pageNumber == newPage).keys.toSet();
+  // S_ 篩出該頁面的題目id，如果是唯讀模式，則呈現所有題目
+  Set<String> pageQIdSet;
+  if (!state.isReadOnly) {
+    pageQIdSet =
+        questionMap.filterByValues((q) => q.pageNumber == newPage).keys.toSet();
+  } else {
+    pageQIdSet = questionMap.keys.toSet();
+  }
 
   return state.copyWith(
     page: newPage,
@@ -134,11 +139,16 @@ UpdateAnswerStatusState checkIsLastPage(UpdateAnswerStatusState state) {
       ? state.recodeAnswerStatusMap
       : state.answerStatusMap;
 
-  // NOTE 篩出後面頁數第一筆不是隱藏的題目
-  final isLastPage = questionMap.entries.lastWhereOrNull((e) =>
-          e.value.pageNumber > state.page &&
-          !answerStatusMap[e.key]!.isHidden) ==
-      null;
+  // S_ 篩出後面頁數第一筆不是隱藏的題目，如果是唯讀模式，因呈現所有題目，所以一定是最後一頁
+  bool isLastPage;
+  if (!state.isReadOnly) {
+    isLastPage = questionMap.entries.lastWhereOrNull((e) =>
+            e.value.pageNumber > state.page &&
+            !answerStatusMap[e.key]!.isHidden) ==
+        null;
+  } else {
+    isLastPage = true;
+  }
 
   return state.copyWith(
     isLastPage: isLastPage,
