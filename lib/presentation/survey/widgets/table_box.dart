@@ -113,6 +113,7 @@ class TableBox extends StatelessWidget {
                 questionId: e.value.id,
                 question: e.value,
                 isFirstColumn: e.key == 0,
+                colQuestionId: e.key == 0 ? '' : colQuestionList[e.key - 1].id,
               ),
             )
             .toList();

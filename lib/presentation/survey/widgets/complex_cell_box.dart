@@ -17,6 +17,7 @@ class ComplexCellBox extends StatelessWidget {
   final Question question;
   final bool isTitle;
   final bool isFirstColumn;
+  final String colQuestionId;
 
   const ComplexCellBox({
     Key? key,
@@ -24,6 +25,7 @@ class ComplexCellBox extends StatelessWidget {
     required this.question,
     this.isTitle = false,
     this.isFirstColumn = false,
+    this.colQuestionId = '',
   }) : super(key: key);
 
   @override
@@ -56,6 +58,15 @@ class ComplexCellBox extends StatelessWidget {
         final isSpecialAnswer = answerStatus.isSpecialAnswer;
 
         final visible = !answerStatus.isHidden;
+
+        bool colVisible = true;
+        if (!isTitle && !isFirstColumn) {
+          colVisible =
+              !(state.answerStatusMap[colQuestionId] ?? AnswerStatus.empty())
+                  .isHidden;
+        } else {
+          colVisible = visible;
+        }
 
         late final Widget cellBox;
 
@@ -113,6 +124,9 @@ class ComplexCellBox extends StatelessWidget {
 
         return Visibility(
           visible: visible,
+          maintainSize: colVisible,
+          maintainAnimation: colVisible,
+          maintainState: colVisible,
           child: cellBox,
         );
       },
