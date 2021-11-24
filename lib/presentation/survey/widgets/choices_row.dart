@@ -11,8 +11,8 @@ import '../../../domain/survey/question.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
-import 'choice_item.dart';
 import 'answer_box.dart';
+import 'choice_item.dart';
 import 'question_box.dart';
 import 'special_answer_switch.dart';
 import 'warning_box.dart';
@@ -23,6 +23,7 @@ class ChoicesRow extends HookWidget {
   final List<Choice> choiceList;
   final bool hasSpecialAnswer;
   final Question question;
+  final ScrollController scrollController;
 
   const ChoicesRow({
     Key? key,
@@ -31,6 +32,7 @@ class ChoicesRow extends HookWidget {
     required this.choiceList,
     required this.hasSpecialAnswer,
     required this.question,
+    required this.scrollController,
   }) : super(key: key);
 
   @override
@@ -73,50 +75,11 @@ class ChoicesRow extends HookWidget {
     final visible = !answerStatus.isHidden;
     final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-    final choiceCellList = choiceList
-        .map(
-          (choice) => Visibility(
-            visible: !isSpecialAnswer,
-            child: Container(
-              width: kSimpleTableCellWidth,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: canEdit ? null : kCannotEditColor,
-              ),
-              child: ChoiceItem(
-                key: Key(choice.id),
-                questionId: questionId,
-                questionType: questionType,
-                choice: choice,
-                isSpecialAnswer: isSpecialAnswer,
-                answer: answer,
-                isinCell: true,
-              ),
-            ),
-          ),
-        )
-        .toList();
-
-    final dropDownSpecialAnswer = Visibility(
-      visible: isSpecialAnswer,
-      child: Container(
-        width: kComplexTableCellWidth,
-        decoration: BoxDecoration(
-          color: canEdit ? null : kCannotEditColor,
-        ),
-        child: AnswerBox(
-          questionId: question.id,
-          questionType: question.type,
-          isSpecialAnswer: true,
-          isinCell: true,
-          forceDropdown: true,
-        ),
-      ),
-    );
-
     return Visibility(
       visible: visible,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
             width: kFirstColumnWidth,
@@ -142,8 +105,58 @@ class ChoicesRow extends HookWidget {
               ],
             ),
           ),
-          dropDownSpecialAnswer,
-          ...choiceCellList,
+          if (isSpecialAnswer) ...[
+            // H_ dropdown special answer
+            Flexible(
+              child: Container(
+                width: kSimpleTableCellWidth * choiceList.length,
+                alignment: Alignment.centerLeft,
+                child: Container(
+                  width: kComplexTableCellWidth,
+                  decoration: BoxDecoration(
+                    color: canEdit ? null : kCannotEditColor,
+                  ),
+                  child: AnswerBox(
+                    questionId: question.id,
+                    questionType: question.type,
+                    isSpecialAnswer: true,
+                    isinCell: true,
+                    forceDropdown: true,
+                  ),
+                ),
+              ),
+            )
+          ] else ...[
+            Flexible(
+              // NOTE 因為 children 一定不會超過 100，所以可以用 ListView，否則就要用
+              //  SingleChildScrollView
+              child: SizedBox(
+                height: 100,
+                child: ListView.builder(
+                  // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                  key: Key(UniqueId.v1().value),
+                  controller: scrollController,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: choiceList.length,
+                  itemExtent: kSimpleTableCellWidth,
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    final choice = choiceList[index];
+
+                    return ChoiceItem(
+                      key: Key(choice.id),
+                      questionId: questionId,
+                      questionType: questionType,
+                      choice: choice,
+                      isSpecialAnswer: isSpecialAnswer,
+                      answer: answer,
+                      isinCell: true,
+                    );
+                  },
+                ),
+              ),
+            ),
+          ],
         ],
       ),
     );

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/question.dart';
+import 'package:interviewer_quiz_flutter_app/domain/survey/value_objects.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
-import '../../../domain/survey/question.dart';
 import '../../core/style/main.dart';
 import 'answer_box.dart';
 import 'question_box.dart';
@@ -15,6 +16,8 @@ import 'warning_box.dart';
 class ComplexCellBox extends StatelessWidget {
   final String questionId;
   final Question question;
+  final QuestionType questionType;
+  final bool hasSpecialAnswer;
   final bool isTitle;
   final bool isFirstColumn;
   final String colQuestionId;
@@ -23,6 +26,8 @@ class ComplexCellBox extends StatelessWidget {
     Key? key,
     required this.questionId,
     required this.question,
+    this.questionType = const QuestionType(''),
+    this.hasSpecialAnswer = false,
     this.isTitle = false,
     this.isFirstColumn = false,
     this.colQuestionId = '',
@@ -46,6 +51,19 @@ class ComplexCellBox extends StatelessWidget {
               pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
             return true;
           }
+
+          if (colQuestionId.isNotEmpty) {
+            final pColAnswerStatus = p.answerStatusMap[colQuestionId];
+            final cColAnswerStatus = c.answerStatusMap[colQuestionId];
+
+            if (cColAnswerStatus == null) {
+              return false;
+            }
+
+            if (pColAnswerStatus?.isHidden != cColAnswerStatus.isHidden) {
+              return true;
+            }
+          }
         }
         return false;
       },
@@ -59,7 +77,7 @@ class ComplexCellBox extends StatelessWidget {
 
         final visible = !answerStatus.isHidden;
 
-        bool colVisible = true;
+        bool colVisible = false;
         if (!isTitle && !isFirstColumn) {
           colVisible =
               !(state.answerStatusMap[colQuestionId] ?? AnswerStatus.empty())
@@ -75,7 +93,7 @@ class ComplexCellBox extends StatelessWidget {
             alignment: Alignment.topCenter,
             width: kComplexTableCellWidth,
             child: QuestionBox(
-              questionId: question.id,
+              questionId: questionId,
               isinCell: true,
             ),
           );
@@ -83,7 +101,7 @@ class ComplexCellBox extends StatelessWidget {
           cellBox = SizedBox(
             width: kFirstColumnWidth,
             child: QuestionBox(
-              questionId: question.id,
+              questionId: questionId,
               isinCell: true,
             ),
           );
@@ -97,7 +115,7 @@ class ComplexCellBox extends StatelessWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    if (question.hasSpecialAnswer) ...[
+                    if (hasSpecialAnswer) ...[
                       SpecialAnswerSwitch(
                         questionId: questionId,
                         isSpecialAnswer: isSpecialAnswer,
@@ -111,8 +129,8 @@ class ComplexCellBox extends StatelessWidget {
                   ],
                 ),
                 AnswerBox(
-                  questionId: question.id,
-                  questionType: question.type,
+                  questionId: questionId,
+                  questionType: questionType,
                   isSpecialAnswer: isSpecialAnswer,
                   forceDropdown: isSpecialAnswer,
                   isinCell: true,

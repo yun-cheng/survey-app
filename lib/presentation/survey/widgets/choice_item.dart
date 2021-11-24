@@ -143,7 +143,6 @@ class ChoiceItem extends HookWidget {
               value: choice.id,
               groupValue: answer.value.groupValue,
               onChanged: (_) => clickAction(),
-              tileColor: tileColor,
               activeColor: activeColor,
               dense: true,
             )
@@ -152,12 +151,14 @@ class ChoiceItem extends HookWidget {
               title: itemTitle,
               value: isSelected.value,
               onChanged: (_) => clickAction(toggle: true),
-              tileColor: tileColor,
               activeColor: activeColor,
               dense: true,
             );
 
-      return item;
+      return Container(
+        color: tileColor,
+        child: item,
+      );
     }
   }
 }

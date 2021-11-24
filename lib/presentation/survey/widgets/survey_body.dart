@@ -39,26 +39,25 @@ class SurveyBody extends StatelessWidget {
           });
 
           // TODO 用 ScrollablePositionedList 在 keyboard 出現/隱藏時會導致
-          //  rebuild，因此先使用 ListView
+          //  rebuild，因此先使用 CustomScrollView
           // return ScrollablePositionedList.builder(
-          return ListView.builder(
-            shrinkWrap: true,
-            itemCount: state.pageQIdSet.length,
-            // TODO
+          return CustomScrollView(
             controller: scrollController,
-            // itemScrollController: controller,
-            // itemPositionsListener: listener,
-            itemBuilder: (context, index) {
-              // logger('Test').e('itemBuilder: QaCard');
-
-              final questionId = state.pageQIdSet.elementAt(index);
-
-              return QaCard(
-                key: Key(questionId),
-                index: index,
-                questionId: questionId,
-              );
-            },
+            slivers: <Widget>[
+              // NOTE 必須要加在這邊，而不是 SurveyPage，才不會在頂端佔據一段空白
+              const SliverToBoxAdapter(
+                child: SizedBox(height: 25.0),
+              ),
+              ...state.pageQIdSet
+                  .map(
+                    (questionId) => QaCard(
+                      key: Key(questionId),
+                      questionId: questionId,
+                      scrollController: scrollController,
+                    ),
+                  )
+                  .toList(),
+            ],
           );
         }
         return const Center(

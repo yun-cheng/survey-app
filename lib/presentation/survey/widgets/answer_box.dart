@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 
+import '../../../domain/core/logger.dart';
 import '../../../domain/survey/value_objects.dart';
 import 'choices_box.dart';
+import 'complex_table_box.dart';
 import 'date_time_box.dart';
 import 'dropdown_box.dart';
 import 'phone_box.dart';
-import 'table_box.dart';
+import 'simple_table_box.dart';
 import 'text_box.dart';
 
 class AnswerBox extends StatelessWidget {
@@ -16,6 +17,7 @@ class AnswerBox extends StatelessWidget {
   final bool isinCell;
   final String tableId;
   final bool forceDropdown;
+  final ScrollController? scrollController;
 
   const AnswerBox({
     Key? key,
@@ -25,6 +27,7 @@ class AnswerBox extends StatelessWidget {
     this.isinCell = false,
     this.tableId = '',
     this.forceDropdown = false,
+    this.scrollController,
   }) : super(key: key);
 
   @override
@@ -56,8 +59,13 @@ class AnswerBox extends StatelessWidget {
           questionId: questionId,
           questionType: questionType,
         );
+      } else if (questionType == QuestionType.simpleTable()) {
+        return SimpleTableBox(
+          tableId: tableId,
+          scrollController: scrollController!,
+        );
       } else if (questionType.isTable) {
-        return TableBox(
+        return ComplexTableBox(
           tableId: tableId,
           questionType: questionType,
         );

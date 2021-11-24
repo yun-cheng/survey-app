@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -14,14 +15,14 @@ import 'special_answer_switch.dart';
 import 'warning_box.dart';
 
 class QaCard extends StatelessWidget {
-  final int index;
   final String questionId;
+  final ScrollController scrollController;
 
   // HIGHLIGHT 即便沒有 field 需要 input 也該使用 key
   const QaCard({
     Key? key,
-    required this.index,
     required this.questionId,
+    required this.scrollController,
   }) : super(key: key);
 
   // NOTE 作答區 rebuild 共同標準：
@@ -63,84 +64,84 @@ class QaCard extends StatelessWidget {
 
         final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-        return Column(
+        return MultiSliver(
           children: [
-            if (index == 0) const SizedBox(height: 25.0),
-            Visibility(
-              visible: visible,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // H_ question
-                    Container(
-                      width: double.infinity,
-                      constraints: kCardMaxWith,
-                      child: QuestionBox(questionId: questionId),
-                    ),
-                    // H_ warning
-                    Container(
-                      width: double.infinity,
-                      constraints: kCardMaxWith,
-                      child: WarningBox(
+            if (visible) ...[
+              Align(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  width: double.infinity,
+                  constraints: kCardMaxWith,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // H_ QuestionBox
+                      QuestionBox(questionId: questionId),
+                      // H_ WarningBox
+                      WarningBox(
                         question: thisQuestion,
                         questionId: thisQuestion.id,
                       ),
-                    ),
-                    // H_ special answer switch
-                    if (thisQuestion.hasSpecialAnswer &&
-                        canEdit &&
-                        !thisQuestion.type.isTable) ...[
-                      Container(
-                        width: double.infinity,
-                        constraints: kCardMaxWith,
-                        child: SpecialAnswerSwitch(
+                      // H_ SpecialAnswerSwitch
+                      if (thisQuestion.hasSpecialAnswer &&
+                          canEdit &&
+                          !thisQuestion.type.isTable) ...[
+                        SpecialAnswerSwitch(
                           questionId: thisQuestion.id,
                           isSpecialAnswer: isSpecialAnswer,
                         ),
+                      ],
+                      const SizedBox(height: 10),
+                      if (!thisQuestion.type.isTable) ...[
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: AnswerBox(
+                            questionId: thisQuestion.id,
+                            questionType: thisQuestion.type,
+                            isSpecialAnswer: isSpecialAnswer,
+                            tableId: thisQuestion.tableId,
+                            scrollController: scrollController,
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ),
+              // H_ AnswerBox
+              if (thisQuestion.type.isTable) ...[
+                AnswerBox(
+                  questionId: thisQuestion.id,
+                  questionType: thisQuestion.type,
+                  isSpecialAnswer: isSpecialAnswer,
+                  tableId: thisQuestion.tableId,
+                  scrollController: scrollController,
+                ),
+              ],
+              Align(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                  width: double.infinity,
+                  constraints: kCardMaxWith,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      // H_ RecodeBox
+                      if (state.isRecodeModule &&
+                          thisQuestion.recodeNeeded) ...[
+                        RecodeBox(questionId: thisQuestion.id),
+                      ],
+                      // H_ Divider
+                      const Divider(
+                        thickness: 1.5,
+                        height: 50.0,
+                        color: Colors.black26,
                       ),
                     ],
-                    // H_ answer
-                    Container(
-                      width: double.infinity,
-                      constraints:
-                          thisQuestion.type.isTable ? null : kCardMaxWith,
-                      alignment: thisQuestion.type.isTable
-                          ? Alignment.topCenter
-                          : Alignment.topLeft,
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: AnswerBox(
-                        questionId: thisQuestion.id,
-                        questionType: thisQuestion.type,
-                        isSpecialAnswer: isSpecialAnswer,
-                        tableId: thisQuestion.tableId,
-                      ),
-                    ),
-                    // H_ recode
-                    if (state.isRecodeModule && thisQuestion.recodeNeeded) ...[
-                      Container(
-                        width: double.infinity,
-                        constraints: kCardMaxWith,
-                        alignment: Alignment.topLeft,
-                        child: RecodeBox(questionId: thisQuestion.id),
-                      ),
-                    ]
-                  ],
+                  ),
                 ),
               ),
-            ),
-            if (visible)
-              ConstrainedBox(
-                constraints: kCardMaxWith,
-                child: const Divider(
-                  thickness: 1.5,
-                  height: 50.0,
-                  color: Colors.black26,
-                  indent: 10.0,
-                  endIndent: 10.0,
-                ),
-              ),
+            ]
           ],
         );
       },

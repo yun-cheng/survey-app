@@ -29,6 +29,7 @@ class SplashPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // H_ 用來監聽 app lifecycle
+    // TODO 改成 useOnAppLifecycleStateChange
     final myObserver = useMemoized(() => MyObserver(context));
     useEffect(() {
       WidgetsBinding.instance!.addObserver(myObserver);
