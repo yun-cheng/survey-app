@@ -116,14 +116,13 @@ class _$_SurveyFailure extends _SurveyFailure {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyFailure &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _SurveyFailure &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -136,7 +135,7 @@ abstract class _SurveyFailure extends SurveyFailure {
   const _SurveyFailure._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$SurveyFailureCopyWith<_SurveyFailure> get copyWith =>

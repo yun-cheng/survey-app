@@ -27,7 +27,7 @@ class _$TeamListDtoTearOff {
     );
   }
 
-  TeamListDto fromJson(Map<String, Object> json) {
+  TeamListDto fromJson(Map<String, Object?> json) {
     return TeamListDto.fromJson(json);
   }
 }
@@ -126,14 +126,14 @@ class _$_TeamListDto extends _TeamListDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TeamListDto &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+        (other.runtimeType == runtimeType &&
+            other is _TeamListDto &&
+            const DeepCollectionEquality().equals(other.list, list));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(list));
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +154,7 @@ abstract class _TeamListDto extends TeamListDto {
       _$_TeamListDto.fromJson;
 
   @override
-  List<TeamDto> get list => throw _privateConstructorUsedError;
+  List<TeamDto> get list;
   @override
   @JsonKey(ignore: true)
   _$TeamListDtoCopyWith<_TeamListDto> get copyWith =>
@@ -176,7 +176,7 @@ class _$TeamDtoTearOff {
     );
   }
 
-  TeamDto fromJson(Map<String, Object> json) {
+  TeamDto fromJson(Map<String, Object?> json) {
     return TeamDto.fromJson(json);
   }
 }
@@ -283,19 +283,15 @@ class _$_TeamDto extends _TeamDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TeamDto &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _TeamDto &&
+            (identical(other.teamId, teamId) || other.teamId == teamId) &&
             (identical(other.teamName, teamName) ||
-                const DeepCollectionEquality()
-                    .equals(other.teamName, teamName)));
+                other.teamName == teamName));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(teamId) ^
-      const DeepCollectionEquality().hash(teamName);
+  int get hashCode => Object.hash(runtimeType, teamId, teamName);
 
   @JsonKey(ignore: true)
   @override
@@ -316,9 +312,9 @@ abstract class _TeamDto extends TeamDto {
   factory _TeamDto.fromJson(Map<String, dynamic> json) = _$_TeamDto.fromJson;
 
   @override
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get teamName => throw _privateConstructorUsedError;
+  String get teamName;
   @override
   @JsonKey(ignore: true)
   _$TeamDtoCopyWith<_TeamDto> get copyWith =>

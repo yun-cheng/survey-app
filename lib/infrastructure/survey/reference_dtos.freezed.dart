@@ -36,7 +36,7 @@ class _$ReferenceDtoTearOff {
     );
   }
 
-  ReferenceDto fromJson(Map<String, Object> json) {
+  ReferenceDto fromJson(Map<String, Object?> json) {
     return ReferenceDto.fromJson(json);
   }
 }
@@ -215,31 +215,22 @@ class _$_ReferenceDto extends _ReferenceDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReferenceDto &&
+        (other.runtimeType == runtimeType &&
+            other is _ReferenceDto &&
             (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)) &&
+                other.respondentId == respondentId) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
-            (identical(other.answer, answer) ||
-                const DeepCollectionEquality().equals(other.answer, answer)));
+                other.questionId == questionId) &&
+            (identical(other.answer, answer) || other.answer == answer));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentId) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(answer);
+  int get hashCode => Object.hash(
+      runtimeType, respondentId, surveyId, moduleType, questionId, answer);
 
   @JsonKey(ignore: true)
   @override
@@ -265,15 +256,15 @@ abstract class _ReferenceDto extends ReferenceDto {
       _$_ReferenceDto.fromJson;
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  AnswerDto get answer => throw _privateConstructorUsedError;
+  AnswerDto get answer;
   @override
   @JsonKey(ignore: true)
   _$ReferenceDtoCopyWith<_ReferenceDto> get copyWith =>
@@ -294,7 +285,7 @@ class _$ReferenceListDtoTearOff {
     );
   }
 
-  ReferenceListDto fromJson(Map<String, Object> json) {
+  ReferenceListDto fromJson(Map<String, Object?> json) {
     return ReferenceListDto.fromJson(json);
   }
 }
@@ -395,14 +386,14 @@ class _$_ReferenceListDto extends _ReferenceListDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReferenceListDto &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+        (other.runtimeType == runtimeType &&
+            other is _ReferenceListDto &&
+            const DeepCollectionEquality().equals(other.list, list));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(list));
 
   @JsonKey(ignore: true)
   @override
@@ -424,7 +415,7 @@ abstract class _ReferenceListDto extends ReferenceListDto {
       _$_ReferenceListDto.fromJson;
 
   @override
-  List<ReferenceDto> get list => throw _privateConstructorUsedError;
+  List<ReferenceDto> get list;
   @override
   @JsonKey(ignore: true)
   _$ReferenceListDtoCopyWith<_ReferenceListDto> get copyWith =>

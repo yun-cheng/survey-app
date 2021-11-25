@@ -32,7 +32,7 @@ class _$WatchSurveyStateDtoTearOff {
     );
   }
 
-  WatchSurveyStateDto fromJson(Map<String, Object> json) {
+  WatchSurveyStateDto fromJson(Map<String, Object?> json) {
     return WatchSurveyStateDto.fromJson(json);
   }
 }
@@ -179,23 +179,17 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WatchSurveyStateDto &&
-            (identical(other.surveyMap, surveyMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyMap, surveyMap)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
+        (other.runtimeType == runtimeType &&
+            other is _WatchSurveyStateDto &&
+            const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
+            (identical(other.survey, survey) || other.survey == survey) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)));
+                other.surveyId == surveyId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyMap) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(surveyId);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(surveyMap), survey, surveyId);
 
   @JsonKey(ignore: true)
   @override
@@ -220,11 +214,11 @@ abstract class _WatchSurveyStateDto extends WatchSurveyStateDto {
       _$_WatchSurveyStateDto.fromJson;
 
   @override
-  Map<String, SurveyDto>? get surveyMap => throw _privateConstructorUsedError;
+  Map<String, SurveyDto>? get surveyMap;
   @override
-  SurveyDto? get survey => throw _privateConstructorUsedError;
+  SurveyDto? get survey;
   @override
-  String? get surveyId => throw _privateConstructorUsedError;
+  String? get surveyId;
   @override
   @JsonKey(ignore: true)
   _$WatchSurveyStateDtoCopyWith<_WatchSurveyStateDto> get copyWith =>

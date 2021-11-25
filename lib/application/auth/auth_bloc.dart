@@ -182,6 +182,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
         _teamListSubscription?.cancel();
         _interviewerListSubscription?.cancel();
         AuthState.initial().emit(emit);
+        await clear();
       },
     );
   }

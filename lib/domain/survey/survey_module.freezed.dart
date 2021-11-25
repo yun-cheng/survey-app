@@ -156,24 +156,21 @@ class _$_SurveyModule extends _SurveyModule {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyModule &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)));
+        (other.runtimeType == runtimeType &&
+            other is _SurveyModule &&
+            const DeepCollectionEquality()
+                .equals(other.questionMap, questionMap) &&
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(questionMap),
+      const DeepCollectionEquality().hash(answerMap),
+      const DeepCollectionEquality().hash(answerStatusMap));
 
   @JsonKey(ignore: true)
   @override
@@ -189,12 +186,11 @@ abstract class _SurveyModule extends SurveyModule {
   const _SurveyModule._() : super._();
 
   @override
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap;
   @override
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap;
   @override
-  Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap;
   @override
   @JsonKey(ignore: true)
   _$SurveyModuleCopyWith<_SurveyModule> get copyWith =>

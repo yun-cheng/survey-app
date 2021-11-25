@@ -133,7 +133,8 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WatchNetworkStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WatchNetworkStarted);
   }
 
   @override
@@ -261,14 +262,13 @@ class _$_NetworkChanged implements _NetworkChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NetworkChanged &&
-            (identical(other.result, result) ||
-                const DeepCollectionEquality().equals(other.result, result)));
+        (other.runtimeType == runtimeType &&
+            other is _NetworkChanged &&
+            (identical(other.result, result) || other.result == result));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(result);
+  int get hashCode => Object.hash(runtimeType, result);
 
   @JsonKey(ignore: true)
   @override
@@ -348,7 +348,7 @@ class _$_NetworkChanged implements _NetworkChanged {
 abstract class _NetworkChanged implements DeviceEvent {
   const factory _NetworkChanged(ConnectivityResult result) = _$_NetworkChanged;
 
-  ConnectivityResult get result => throw _privateConstructorUsedError;
+  ConnectivityResult get result;
   @JsonKey(ignore: true)
   _$NetworkChangedCopyWith<_NetworkChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -402,15 +402,14 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppLifeCycleChanged &&
+        (other.runtimeType == runtimeType &&
+            other is _AppLifeCycleChanged &&
             (identical(other.appLifeCycle, appLifeCycle) ||
-                const DeepCollectionEquality()
-                    .equals(other.appLifeCycle, appLifeCycle)));
+                other.appLifeCycle == appLifeCycle));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(appLifeCycle);
+  int get hashCode => Object.hash(runtimeType, appLifeCycle);
 
   @JsonKey(ignore: true)
   @override
@@ -492,7 +491,7 @@ abstract class _AppLifeCycleChanged implements DeviceEvent {
   const factory _AppLifeCycleChanged(AppLifecycleState appLifeCycle) =
       _$_AppLifeCycleChanged;
 
-  AppLifecycleState get appLifeCycle => throw _privateConstructorUsedError;
+  AppLifecycleState get appLifeCycle;
   @JsonKey(ignore: true)
   _$AppLifeCycleChangedCopyWith<_AppLifeCycleChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -627,20 +626,16 @@ class _$_NetworkState extends _NetworkState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NetworkState &&
+        (other.runtimeType == runtimeType &&
+            other is _NetworkState &&
             (identical(other.networkType, networkType) ||
-                const DeepCollectionEquality()
-                    .equals(other.networkType, networkType)) &&
+                other.networkType == networkType) &&
             (identical(other.appIsPaused, appIsPaused) ||
-                const DeepCollectionEquality()
-                    .equals(other.appIsPaused, appIsPaused)));
+                other.appIsPaused == appIsPaused));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(networkType) ^
-      const DeepCollectionEquality().hash(appIsPaused);
+  int get hashCode => Object.hash(runtimeType, networkType, appIsPaused);
 
   @JsonKey(ignore: true)
   @override
@@ -655,9 +650,9 @@ abstract class _NetworkState extends DeviceState {
   const _NetworkState._() : super._();
 
   @override
-  NetworkType get networkType => throw _privateConstructorUsedError;
+  NetworkType get networkType;
   @override
-  bool get appIsPaused => throw _privateConstructorUsedError;
+  bool get appIsPaused;
   @override
   @JsonKey(ignore: true)
   _$NetworkStateCopyWith<_NetworkState> get copyWith =>

@@ -118,14 +118,13 @@ class _$_UniqueId extends _UniqueId with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UniqueId &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _UniqueId &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -138,7 +137,7 @@ abstract class _UniqueId extends UniqueId {
   const _UniqueId._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$UniqueIdCopyWith<_UniqueId> get copyWith =>
@@ -251,14 +250,13 @@ class _$_LoadState extends _LoadState with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _LoadState &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _LoadState &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -271,7 +269,7 @@ abstract class _LoadState extends LoadState {
   const _LoadState._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$LoadStateCopyWith<_LoadState> get copyWith =>
@@ -384,14 +382,13 @@ class _$_PageState extends _PageState with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PageState &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _PageState &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -404,7 +401,7 @@ abstract class _PageState extends PageState {
   const _PageState._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$PageStateCopyWith<_PageState> get copyWith =>
@@ -522,14 +519,13 @@ class _$_NavigationPage extends _NavigationPage with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NavigationPage &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _NavigationPage &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -542,7 +538,7 @@ abstract class _NavigationPage extends NavigationPage {
   const _NavigationPage._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$NavigationPageCopyWith<_NavigationPage> get copyWith =>
@@ -658,14 +654,13 @@ class _$_NetworkType extends _NetworkType with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NetworkType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _NetworkType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -678,7 +673,7 @@ abstract class _NetworkType extends NetworkType {
   const _NetworkType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$NetworkTypeCopyWith<_NetworkType> get copyWith =>
@@ -842,26 +837,19 @@ class _$_DtoInfo extends _DtoInfo with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DtoInfo &&
-            (identical(other.box, box) ||
-                const DeepCollectionEquality().equals(other.box, box)) &&
-            (identical(other.key, key) ||
-                const DeepCollectionEquality().equals(other.key, key)) &&
+        (other.runtimeType == runtimeType &&
+            other is _DtoInfo &&
+            (identical(other.box, box) || other.box == box) &&
+            (identical(other.key, key) || other.key == key) &&
             (identical(other.readOnly, readOnly) ||
-                const DeepCollectionEquality()
-                    .equals(other.readOnly, readOnly)) &&
+                other.readOnly == readOnly) &&
             (identical(other.isMapEntries, isMapEntries) ||
-                const DeepCollectionEquality()
-                    .equals(other.isMapEntries, isMapEntries)));
+                other.isMapEntries == isMapEntries));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(box) ^
-      const DeepCollectionEquality().hash(key) ^
-      const DeepCollectionEquality().hash(readOnly) ^
-      const DeepCollectionEquality().hash(isMapEntries);
+      Object.hash(runtimeType, box, key, readOnly, isMapEntries);
 
   @JsonKey(ignore: true)
   @override
@@ -878,13 +866,13 @@ abstract class _DtoInfo extends DtoInfo {
   const _DtoInfo._() : super._();
 
   @override
-  String? get box => throw _privateConstructorUsedError;
+  String? get box;
   @override
-  String? get key => throw _privateConstructorUsedError;
+  String? get key;
   @override
-  bool get readOnly => throw _privateConstructorUsedError;
+  bool get readOnly;
   @override
-  bool get isMapEntries => throw _privateConstructorUsedError;
+  bool get isMapEntries;
   @override
   @JsonKey(ignore: true)
   _$DtoInfoCopyWith<_DtoInfo> get copyWith =>

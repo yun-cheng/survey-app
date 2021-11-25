@@ -210,31 +210,22 @@ class _$_Reference extends _Reference {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Reference &&
+        (other.runtimeType == runtimeType &&
+            other is _Reference &&
             (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)) &&
+                other.respondentId == respondentId) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
-            (identical(other.answer, answer) ||
-                const DeepCollectionEquality().equals(other.answer, answer)));
+                other.questionId == questionId) &&
+            (identical(other.answer, answer) || other.answer == answer));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentId) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(answer);
+  int get hashCode => Object.hash(
+      runtimeType, respondentId, surveyId, moduleType, questionId, answer);
 
   @JsonKey(ignore: true)
   @override
@@ -252,15 +243,15 @@ abstract class _Reference extends Reference {
   const _Reference._() : super._();
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  Answer get answer => throw _privateConstructorUsedError;
+  Answer get answer;
   @override
   @JsonKey(ignore: true)
   _$ReferenceCopyWith<_Reference> get copyWith =>

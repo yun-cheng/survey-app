@@ -207,26 +207,19 @@ class _$_FormattedText extends _FormattedText {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FormattedText &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
+        (other.runtimeType == runtimeType &&
+            other is _FormattedText &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.stringBody, stringBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.stringBody, stringBody)) &&
+                other.stringBody == stringBody) &&
             (identical(other.referenceKey, referenceKey) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceKey, referenceKey)) &&
-            (identical(other.answer, answer) ||
-                const DeepCollectionEquality().equals(other.answer, answer)));
+                other.referenceKey == referenceKey) &&
+            (identical(other.answer, answer) || other.answer == answer));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(stringBody) ^
-      const DeepCollectionEquality().hash(referenceKey) ^
-      const DeepCollectionEquality().hash(answer);
+      Object.hash(runtimeType, type, stringBody, referenceKey, answer);
 
   @JsonKey(ignore: true)
   @override
@@ -243,13 +236,13 @@ abstract class _FormattedText extends FormattedText {
   const _FormattedText._() : super._();
 
   @override
-  FormatType get type => throw _privateConstructorUsedError;
+  FormatType get type;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  ReferenceKey get referenceKey => throw _privateConstructorUsedError;
+  ReferenceKey get referenceKey;
   @override
-  Answer get answer => throw _privateConstructorUsedError;
+  Answer get answer;
   @override
   @JsonKey(ignore: true)
   _$FormattedTextCopyWith<_FormattedText> get copyWith =>

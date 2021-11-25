@@ -37,7 +37,7 @@ class _$SimpleSurveyPageStateDtoTearOff {
     );
   }
 
-  SimpleSurveyPageStateDto fromJson(Map<String, Object> json) {
+  SimpleSurveyPageStateDto fromJson(Map<String, Object?> json) {
     return SimpleSurveyPageStateDto.fromJson(json);
   }
 }
@@ -219,31 +219,21 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SimpleSurveyPageStateDto &&
-            (identical(other.page, page) ||
-                const DeepCollectionEquality().equals(other.page, page)) &&
+        (other.runtimeType == runtimeType &&
+            other is _SimpleSurveyPageStateDto &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.newestPage, newestPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.newestPage, newestPage)) &&
+                other.newestPage == newestPage) &&
             (identical(other.isLastPage, isLastPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLastPage, isLastPage)) &&
-            (identical(other.warning, warning) ||
-                const DeepCollectionEquality()
-                    .equals(other.warning, warning)) &&
+                other.isLastPage == isLastPage) &&
+            (identical(other.warning, warning) || other.warning == warning) &&
             (identical(other.showWarning, showWarning) ||
-                const DeepCollectionEquality()
-                    .equals(other.showWarning, showWarning)));
+                other.showWarning == showWarning));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(newestPage) ^
-      const DeepCollectionEquality().hash(isLastPage) ^
-      const DeepCollectionEquality().hash(warning) ^
-      const DeepCollectionEquality().hash(showWarning);
+  int get hashCode => Object.hash(
+      runtimeType, page, newestPage, isLastPage, warning, showWarning);
 
   @JsonKey(ignore: true)
   @override
@@ -270,15 +260,15 @@ abstract class _SimpleSurveyPageStateDto extends SimpleSurveyPageStateDto {
       _$_SimpleSurveyPageStateDto.fromJson;
 
   @override
-  int get page => throw _privateConstructorUsedError;
+  int get page;
   @override
-  int get newestPage => throw _privateConstructorUsedError;
+  int get newestPage;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get isLastPage;
   @override
-  WarningDto get warning => throw _privateConstructorUsedError;
+  WarningDto get warning;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool get showWarning;
   @override
   @JsonKey(ignore: true)
   _$SimpleSurveyPageStateDtoCopyWith<_SimpleSurveyPageStateDto> get copyWith =>

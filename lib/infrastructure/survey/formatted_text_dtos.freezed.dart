@@ -34,7 +34,7 @@ class _$FormattedTextDtoTearOff {
     );
   }
 
-  FormattedTextDto fromJson(Map<String, Object> json) {
+  FormattedTextDto fromJson(Map<String, Object?> json) {
     return FormattedTextDto.fromJson(json);
   }
 }
@@ -218,26 +218,19 @@ class _$_FormattedTextDto extends _FormattedTextDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FormattedTextDto &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
+        (other.runtimeType == runtimeType &&
+            other is _FormattedTextDto &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.stringBody, stringBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.stringBody, stringBody)) &&
+                other.stringBody == stringBody) &&
             (identical(other.referenceKey, referenceKey) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceKey, referenceKey)) &&
-            (identical(other.answer, answer) ||
-                const DeepCollectionEquality().equals(other.answer, answer)));
+                other.referenceKey == referenceKey) &&
+            (identical(other.answer, answer) || other.answer == answer));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(stringBody) ^
-      const DeepCollectionEquality().hash(referenceKey) ^
-      const DeepCollectionEquality().hash(answer);
+      Object.hash(runtimeType, type, stringBody, referenceKey, answer);
 
   @JsonKey(ignore: true)
   @override
@@ -262,13 +255,13 @@ abstract class _FormattedTextDto extends FormattedTextDto {
       _$_FormattedTextDto.fromJson;
 
   @override
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  ReferenceKeyDto? get referenceKey => throw _privateConstructorUsedError;
+  ReferenceKeyDto? get referenceKey;
   @override
-  AnswerDto? get answer => throw _privateConstructorUsedError;
+  AnswerDto? get answer;
   @override
   @JsonKey(ignore: true)
   _$FormattedTextDtoCopyWith<_FormattedTextDto> get copyWith =>

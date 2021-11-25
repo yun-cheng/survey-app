@@ -36,7 +36,7 @@ class _$SurveyDtoTearOff {
     );
   }
 
-  SurveyDto fromJson(Map<String, Object> json) {
+  SurveyDto fromJson(Map<String, Object?> json) {
     return SurveyDto.fromJson(json);
   }
 }
@@ -200,30 +200,21 @@ class _$_SurveyDto extends _SurveyDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyDto &&
+        (other.runtimeType == runtimeType &&
+            other is _SurveyDto &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.surveyName, surveyName) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyName, surveyName)) &&
+                other.surveyName == surveyName) &&
             (identical(other.projectId, projectId) ||
-                const DeepCollectionEquality()
-                    .equals(other.projectId, projectId)) &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
-            (identical(other.module, module) ||
-                const DeepCollectionEquality().equals(other.module, module)));
+                other.projectId == projectId) &&
+            (identical(other.teamId, teamId) || other.teamId == teamId) &&
+            const DeepCollectionEquality().equals(other.module, module));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(surveyName) ^
-      const DeepCollectionEquality().hash(projectId) ^
-      const DeepCollectionEquality().hash(teamId) ^
-      const DeepCollectionEquality().hash(module);
+  int get hashCode => Object.hash(runtimeType, surveyId, surveyName, projectId,
+      teamId, const DeepCollectionEquality().hash(module));
 
   @JsonKey(ignore: true)
   @override
@@ -249,15 +240,15 @@ abstract class _SurveyDto extends SurveyDto {
       _$_SurveyDto.fromJson;
 
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get surveyName => throw _privateConstructorUsedError;
+  String get surveyName;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  Map<String, SurveyModuleDto> get module => throw _privateConstructorUsedError;
+  Map<String, SurveyModuleDto> get module;
   @override
   @JsonKey(ignore: true)
   _$SurveyDtoCopyWith<_SurveyDto> get copyWith =>

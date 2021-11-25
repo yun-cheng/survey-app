@@ -360,19 +360,15 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WatchResponseMapStarted &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _WatchResponseMapStarted &&
+            (identical(other.teamId, teamId) || other.teamId == teamId) &&
             (identical(other.interviewer, interviewer) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewer, interviewer)));
+                other.interviewer == interviewer));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(teamId) ^
-      const DeepCollectionEquality().hash(interviewer);
+  int get hashCode => Object.hash(runtimeType, teamId, interviewer);
 
   @JsonKey(ignore: true)
   @override
@@ -571,8 +567,8 @@ abstract class _WatchResponseMapStarted implements ResponseEvent {
       {required String teamId,
       required Interviewer interviewer}) = _$_WatchResponseMapStarted;
 
-  String get teamId => throw _privateConstructorUsedError;
-  Interviewer get interviewer => throw _privateConstructorUsedError;
+  String get teamId;
+  Interviewer get interviewer;
   @JsonKey(ignore: true)
   _$WatchResponseMapStartedCopyWith<_WatchResponseMapStarted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -627,16 +623,14 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseMapReceived &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseMapReceived &&
             (identical(other.failureOrResponseMap, failureOrResponseMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrResponseMap, failureOrResponseMap)));
+                other.failureOrResponseMap == failureOrResponseMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrResponseMap);
+  int get hashCode => Object.hash(runtimeType, failureOrResponseMap);
 
   @JsonKey(ignore: true)
   @override
@@ -835,8 +829,7 @@ abstract class _ResponseMapReceived implements ResponseEvent {
           Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap) =
       _$_ResponseMapReceived;
 
-  Either<SurveyFailure, Map<UniqueId, Response>> get failureOrResponseMap =>
-      throw _privateConstructorUsedError;
+  Either<SurveyFailure, Map<UniqueId, Response>> get failureOrResponseMap;
   @JsonKey(ignore: true)
   _$ResponseMapReceivedCopyWith<_ResponseMapReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -890,16 +883,14 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReferenceListReceived &&
+        (other.runtimeType == runtimeType &&
+            other is _ReferenceListReceived &&
             (identical(other.failureOrReferenceList, failureOrReferenceList) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrReferenceList, failureOrReferenceList)));
+                other.failureOrReferenceList == failureOrReferenceList));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrReferenceList);
+  int get hashCode => Object.hash(runtimeType, failureOrReferenceList);
 
   @JsonKey(ignore: true)
   @override
@@ -1098,8 +1089,7 @@ abstract class _ReferenceListReceived implements ResponseEvent {
           Either<SurveyFailure, List<Reference>> failureOrReferenceList) =
       _$_ReferenceListReceived;
 
-  Either<SurveyFailure, List<Reference>> get failureOrReferenceList =>
-      throw _privateConstructorUsedError;
+  Either<SurveyFailure, List<Reference>> get failureOrReferenceList;
   @JsonKey(ignore: true)
   _$ReferenceListReceivedCopyWith<_ReferenceListReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1136,7 +1126,8 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _UploadTimerUpdated);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _UploadTimerUpdated);
   }
 
   @override
@@ -1363,7 +1354,8 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ResponseMapUploading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _ResponseMapUploading);
   }
 
   @override
@@ -1607,16 +1599,14 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseMapUploaded &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseMapUploaded &&
             (identical(other.failureOrSuccess, failureOrSuccess) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrSuccess, failureOrSuccess)));
+                other.failureOrSuccess == failureOrSuccess));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrSuccess);
+  int get hashCode => Object.hash(runtimeType, failureOrSuccess);
 
   @JsonKey(ignore: true)
   @override
@@ -1814,8 +1804,7 @@ abstract class _ResponseMapUploaded implements ResponseEvent {
   const factory _ResponseMapUploaded(
       Either<SurveyFailure, Unit> failureOrSuccess) = _$_ResponseMapUploaded;
 
-  Either<SurveyFailure, Unit> get failureOrSuccess =>
-      throw _privateConstructorUsedError;
+  Either<SurveyFailure, Unit> get failureOrSuccess;
   @JsonKey(ignore: true)
   _$ResponseMapUploadedCopyWith<_ResponseMapUploaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1878,14 +1867,13 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveySelected &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)));
+        (other.runtimeType == runtimeType &&
+            other is _SurveySelected &&
+            (identical(other.survey, survey) || other.survey == survey));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(survey);
+  int get hashCode => Object.hash(runtimeType, survey);
 
   @JsonKey(ignore: true)
   @override
@@ -2081,7 +2069,7 @@ class _$_SurveySelected implements _SurveySelected {
 abstract class _SurveySelected implements ResponseEvent {
   const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
 
-  Survey get survey => throw _privateConstructorUsedError;
+  Survey get survey;
   @JsonKey(ignore: true)
   _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2214,36 +2202,25 @@ class _$_ResponseStarted implements _ResponseStarted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseStarted &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseStarted &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+                other.respondent == respondent) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.withResponseId, withResponseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.withResponseId, withResponseId)) &&
+                other.withResponseId == withResponseId) &&
             (identical(other.breakInterview, breakInterview) ||
-                const DeepCollectionEquality()
-                    .equals(other.breakInterview, breakInterview)) &&
+                other.breakInterview == breakInterview) &&
             (identical(other.isNewResponse, isNewResponse) ||
-                const DeepCollectionEquality()
-                    .equals(other.isNewResponse, isNewResponse)) &&
+                other.isNewResponse == isNewResponse) &&
             (identical(other.responseId, responseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)));
+                other.responseId == responseId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(withResponseId) ^
-      const DeepCollectionEquality().hash(breakInterview) ^
-      const DeepCollectionEquality().hash(isNewResponse) ^
-      const DeepCollectionEquality().hash(responseId);
+  int get hashCode => Object.hash(runtimeType, respondent, moduleType,
+      withResponseId, breakInterview, isNewResponse, responseId);
 
   @JsonKey(ignore: true)
   @override
@@ -2448,12 +2425,12 @@ abstract class _ResponseStarted implements ResponseEvent {
       bool isNewResponse,
       UniqueId? responseId}) = _$_ResponseStarted;
 
-  Respondent get respondent => throw _privateConstructorUsedError;
-  ModuleType get moduleType => throw _privateConstructorUsedError;
-  bool get withResponseId => throw _privateConstructorUsedError;
-  bool get breakInterview => throw _privateConstructorUsedError;
-  bool get isNewResponse => throw _privateConstructorUsedError;
-  UniqueId? get responseId => throw _privateConstructorUsedError;
+  Respondent get respondent;
+  ModuleType get moduleType;
+  bool get withResponseId;
+  bool get breakInterview;
+  bool get isNewResponse;
+  UniqueId? get responseId;
   @JsonKey(ignore: true)
   _$ResponseStartedCopyWith<_ResponseStarted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2537,24 +2514,21 @@ class _$_ResponseUpdated implements _ResponseUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseUpdated &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseUpdated &&
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap) &&
             (identical(other.surveyPageState, surveyPageState) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyPageState, surveyPageState)));
+                other.surveyPageState == surveyPageState));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(surveyPageState);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(answerMap),
+      const DeepCollectionEquality().hash(answerStatusMap),
+      surveyPageState);
 
   @JsonKey(ignore: true)
   @override
@@ -2753,11 +2727,9 @@ abstract class _ResponseUpdated implements ResponseEvent {
       required Map<String, AnswerStatus> answerStatusMap,
       required SimpleSurveyPageState surveyPageState}) = _$_ResponseUpdated;
 
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
-  SimpleSurveyPageState get surveyPageState =>
-      throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap;
+  Map<String, AnswerStatus> get answerStatusMap;
+  SimpleSurveyPageState get surveyPageState;
   @JsonKey(ignore: true)
   _$ResponseUpdatedCopyWith<_ResponseUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2811,16 +2783,14 @@ class _$_EditFinished implements _EditFinished {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _EditFinished &&
+        (other.runtimeType == runtimeType &&
+            other is _EditFinished &&
             (identical(other.responseFinished, responseFinished) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseFinished, responseFinished)));
+                other.responseFinished == responseFinished));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(responseFinished);
+  int get hashCode => Object.hash(runtimeType, responseFinished);
 
   @JsonKey(ignore: true)
   @override
@@ -3018,7 +2988,7 @@ abstract class _EditFinished implements ResponseEvent {
       _$_EditFinished;
 
 // NOTE 是否完成這份問卷
-  bool get responseFinished => throw _privateConstructorUsedError;
+  bool get responseFinished;
   @JsonKey(ignore: true)
   _$EditFinishedCopyWith<_EditFinished> get copyWith =>
       throw _privateConstructorUsedError;
@@ -3081,15 +3051,14 @@ class _$_ResponseResumed implements _ResponseResumed {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseResumed &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseResumed &&
             (identical(other.responseId, responseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)));
+                other.responseId == responseId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(responseId);
+  int get hashCode => Object.hash(runtimeType, responseId);
 
   @JsonKey(ignore: true)
   @override
@@ -3285,7 +3254,7 @@ class _$_ResponseResumed implements _ResponseResumed {
 abstract class _ResponseResumed implements ResponseEvent {
   const factory _ResponseResumed(UniqueId responseId) = _$_ResponseResumed;
 
-  UniqueId get responseId => throw _privateConstructorUsedError;
+  UniqueId get responseId;
   @JsonKey(ignore: true)
   _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
       throw _privateConstructorUsedError;
@@ -3320,7 +3289,8 @@ class _$_LoggedOut implements _LoggedOut {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoggedOut);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoggedOut);
   }
 
   @override
@@ -3546,7 +3516,8 @@ class _$_Initialized implements _Initialized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initialized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initialized);
   }
 
   @override
@@ -4338,91 +4309,72 @@ class _$_ResponseState extends _ResponseState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseState &&
-            (identical(other.stateId, stateId) ||
-                const DeepCollectionEquality()
-                    .equals(other.stateId, stateId)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseState &&
+            (identical(other.stateId, stateId) || other.stateId == stateId) &&
+            (identical(other.survey, survey) || other.survey == survey) &&
             (identical(other.interviewer, interviewer) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewer, interviewer)) &&
+                other.interviewer == interviewer) &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+                other.respondent == respondent) &&
             (identical(other.response, response) ||
-                const DeepCollectionEquality()
-                    .equals(other.response, response)) &&
-            (identical(other.responseMap, responseMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMap, responseMap)) &&
-            (identical(other.referenceList, referenceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceList, referenceList)) &&
+                other.response == response) &&
+            const DeepCollectionEquality()
+                .equals(other.responseMap, responseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.referenceList, referenceList) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.responseId, responseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)) &&
+                other.responseId == responseId) &&
             (identical(other.mainResponse, mainResponse) ||
-                const DeepCollectionEquality()
-                    .equals(other.mainResponse, mainResponse)) &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
-            (identical(other.downloadedResponseMap, downloadedResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.downloadedResponseMap, downloadedResponseMap)) &&
-            (identical(other.respondentResponseMap, respondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.respondentResponseMap, respondentResponseMap)) &&
+                other.mainResponse == mainResponse) &&
+            const DeepCollectionEquality()
+                .equals(other.questionMap, questionMap) &&
+            const DeepCollectionEquality()
+                .equals(other.downloadedResponseMap, downloadedResponseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentResponseMap, respondentResponseMap) &&
             (identical(other.dialogType, dialogType) ||
-                const DeepCollectionEquality()
-                    .equals(other.dialogType, dialogType)) &&
+                other.dialogType == dialogType) &&
             (identical(other.responseMapState, responseMapState) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMapState, responseMapState)) &&
+                other.responseMapState == responseMapState) &&
             (identical(other.responseFailure, responseFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseFailure, responseFailure)) &&
+                other.responseFailure == responseFailure) &&
             (identical(other.eventState, eventState) ||
-                const DeepCollectionEquality()
-                    .equals(other.eventState, eventState)) &&
+                other.eventState == eventState) &&
             (identical(other.updateState, updateState) ||
-                const DeepCollectionEquality()
-                    .equals(other.updateState, updateState)) &&
+                other.updateState == updateState) &&
             (identical(other.updateParameters, updateParameters) ||
-                const DeepCollectionEquality()
-                    .equals(other.updateParameters, updateParameters)) &&
+                other.updateParameters == updateParameters) &&
             (identical(other.saveParameters, saveParameters) ||
-                const DeepCollectionEquality()
-                    .equals(other.saveParameters, saveParameters)));
+                other.saveParameters == saveParameters));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(stateId) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(interviewer) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(response) ^
-      const DeepCollectionEquality().hash(responseMap) ^
-      const DeepCollectionEquality().hash(referenceList) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(responseId) ^
-      const DeepCollectionEquality().hash(mainResponse) ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(downloadedResponseMap) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
-      const DeepCollectionEquality().hash(dialogType) ^
-      const DeepCollectionEquality().hash(responseMapState) ^
-      const DeepCollectionEquality().hash(responseFailure) ^
-      const DeepCollectionEquality().hash(eventState) ^
-      const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(updateParameters) ^
-      const DeepCollectionEquality().hash(saveParameters);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        stateId,
+        survey,
+        interviewer,
+        respondent,
+        response,
+        const DeepCollectionEquality().hash(responseMap),
+        const DeepCollectionEquality().hash(referenceList),
+        moduleType,
+        responseId,
+        mainResponse,
+        const DeepCollectionEquality().hash(questionMap),
+        const DeepCollectionEquality().hash(downloadedResponseMap),
+        const DeepCollectionEquality().hash(respondentResponseMap),
+        dialogType,
+        responseMapState,
+        responseFailure,
+        eventState,
+        updateState,
+        updateParameters,
+        saveParameters
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -4455,48 +4407,45 @@ abstract class _ResponseState extends ResponseState {
   const _ResponseState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // H_ 主要資料
-  Survey get survey => throw _privateConstructorUsedError;
+  Survey get survey;
   @override
-  Interviewer get interviewer => throw _privateConstructorUsedError;
+  Interviewer get interviewer;
   @override
-  Respondent get respondent => throw _privateConstructorUsedError;
+  Respondent get respondent;
   @override
-  Response get response => throw _privateConstructorUsedError;
+  Response get response;
   @override
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get responseMap;
   @override
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  List<Reference> get referenceList;
   @override // H_ 中間資料
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  UniqueId get responseId => throw _privateConstructorUsedError;
+  UniqueId get responseId;
   @override
-  Response get mainResponse => throw _privateConstructorUsedError;
+  Response get mainResponse;
   @override
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap;
   @override
-  Map<UniqueId, Response> get downloadedResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get downloadedResponseMap;
   @override
-  Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<ModuleType, Response> get respondentResponseMap;
   @override
-  DialogType get dialogType => throw _privateConstructorUsedError;
+  DialogType get dialogType;
   @override // H_ 狀態更新進度
-  LoadState get responseMapState => throw _privateConstructorUsedError;
+  LoadState get responseMapState;
   @override
-  Option<SurveyFailure> get responseFailure =>
-      throw _privateConstructorUsedError;
+  Option<SurveyFailure> get responseFailure;
   @override
-  LoadState get eventState => throw _privateConstructorUsedError;
+  LoadState get eventState;
   @override
-  LoadState get updateState => throw _privateConstructorUsedError;
+  LoadState get updateState;
   @override // H_ 更新/儲存參數
-  StateParameters get updateParameters => throw _privateConstructorUsedError;
+  StateParameters get updateParameters;
   @override
-  StateParameters get saveParameters => throw _privateConstructorUsedError;
+  StateParameters get saveParameters;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateCopyWith<_ResponseState> get copyWith =>
@@ -4775,51 +4724,42 @@ class _$_StateParameters extends _StateParameters {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StateParameters &&
+        (other.runtimeType == runtimeType &&
+            other is _StateParameters &&
             (identical(other.referenceList, referenceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceList, referenceList)) &&
+                other.referenceList == referenceList) &&
             (identical(other.response, response) ||
-                const DeepCollectionEquality()
-                    .equals(other.response, response)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
+                other.response == response) &&
+            (identical(other.survey, survey) || other.survey == survey) &&
             (identical(other.interviewer, interviewer) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewer, interviewer)) &&
+                other.interviewer == interviewer) &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+                other.respondent == respondent) &&
             (identical(other.responseMap, responseMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMap, responseMap)) &&
-            (identical(other.responseMapKeys, responseMapKeys) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMapKeys, responseMapKeys)) &&
+                other.responseMap == responseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.responseMapKeys, responseMapKeys) &&
             (identical(other.visitReportsMap, visitReportsMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.visitReportsMap, visitReportsMap)) &&
+                other.visitReportsMap == visitReportsMap) &&
             (identical(other.respondentResponseMap, respondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.respondentResponseMap, respondentResponseMap)) &&
+                other.respondentResponseMap == respondentResponseMap) &&
             (identical(other.tabRespondentMap, tabRespondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabRespondentMap, tabRespondentMap)));
+                other.tabRespondentMap == tabRespondentMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(referenceList) ^
-      const DeepCollectionEquality().hash(response) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(interviewer) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(responseMap) ^
-      const DeepCollectionEquality().hash(responseMapKeys) ^
-      const DeepCollectionEquality().hash(visitReportsMap) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
-      const DeepCollectionEquality().hash(tabRespondentMap);
+  int get hashCode => Object.hash(
+      runtimeType,
+      referenceList,
+      response,
+      survey,
+      interviewer,
+      respondent,
+      responseMap,
+      const DeepCollectionEquality().hash(responseMapKeys),
+      visitReportsMap,
+      respondentResponseMap,
+      tabRespondentMap);
 
   @JsonKey(ignore: true)
   @override
@@ -4842,25 +4782,25 @@ abstract class _StateParameters extends StateParameters {
   const _StateParameters._() : super._();
 
   @override // H_ 共用
-  bool get referenceList => throw _privateConstructorUsedError;
+  bool get referenceList;
   @override
-  bool get response => throw _privateConstructorUsedError;
+  bool get response;
   @override // H_ 儲存
-  bool get survey => throw _privateConstructorUsedError;
+  bool get survey;
   @override
-  bool get interviewer => throw _privateConstructorUsedError;
+  bool get interviewer;
   @override
-  bool get respondent => throw _privateConstructorUsedError;
+  bool get respondent;
   @override
-  bool get responseMap => throw _privateConstructorUsedError;
+  bool get responseMap;
   @override
-  Set<dynamic> get responseMapKeys => throw _privateConstructorUsedError;
+  Set<dynamic> get responseMapKeys;
   @override // H_ 更新
-  bool get visitReportsMap => throw _privateConstructorUsedError;
+  bool get visitReportsMap;
   @override
-  bool get respondentResponseMap => throw _privateConstructorUsedError;
+  bool get respondentResponseMap;
   @override
-  bool get tabRespondentMap => throw _privateConstructorUsedError;
+  bool get tabRespondentMap;
   @override
   @JsonKey(ignore: true)
   _$StateParametersCopyWith<_StateParameters> get copyWith =>

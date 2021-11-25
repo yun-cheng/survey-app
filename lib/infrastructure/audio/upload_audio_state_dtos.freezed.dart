@@ -32,7 +32,7 @@ class _$UploadAudioStateDtoTearOff {
     );
   }
 
-  UploadAudioStateDto fromJson(Map<String, Object> json) {
+  UploadAudioStateDto fromJson(Map<String, Object?> json) {
     return UploadAudioStateDto.fromJson(json);
   }
 }
@@ -167,24 +167,18 @@ class _$_UploadAudioStateDto extends _UploadAudioStateDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UploadAudioStateDto &&
-            (identical(other.audioMap, audioMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.audioMap, audioMap)) &&
+        (other.runtimeType == runtimeType &&
+            other is _UploadAudioStateDto &&
+            const DeepCollectionEquality().equals(other.audioMap, audioMap) &&
             (identical(other.uploadState, uploadState) ||
-                const DeepCollectionEquality()
-                    .equals(other.uploadState, uploadState)) &&
+                other.uploadState == uploadState) &&
             (identical(other.audioFailure, audioFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.audioFailure, audioFailure)));
+                other.audioFailure == audioFailure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(audioMap) ^
-      const DeepCollectionEquality().hash(uploadState) ^
-      const DeepCollectionEquality().hash(audioFailure);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(audioMap), uploadState, audioFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -209,11 +203,11 @@ abstract class _UploadAudioStateDto extends UploadAudioStateDto {
       _$_UploadAudioStateDto.fromJson;
 
   @override
-  Map<String, AudioDto> get audioMap => throw _privateConstructorUsedError;
+  Map<String, AudioDto> get audioMap;
   @override
-  String get uploadState => throw _privateConstructorUsedError;
+  String get uploadState;
   @override
-  String? get audioFailure => throw _privateConstructorUsedError;
+  String? get audioFailure;
   @override
   @JsonKey(ignore: true)
   _$UploadAudioStateDtoCopyWith<_UploadAudioStateDto> get copyWith =>

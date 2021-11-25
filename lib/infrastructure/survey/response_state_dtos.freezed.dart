@@ -46,7 +46,7 @@ class _$ResponseStateDtoTearOff {
     );
   }
 
-  ResponseStateDto fromJson(Map<String, Object> json) {
+  ResponseStateDto fromJson(Map<String, Object?> json) {
     return ResponseStateDto.fromJson(json);
   }
 }
@@ -384,51 +384,42 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseStateDto &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseStateDto &&
+            (identical(other.survey, survey) || other.survey == survey) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.interviewer, interviewer) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewer, interviewer)) &&
+                other.interviewer == interviewer) &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+                other.respondent == respondent) &&
             (identical(other.responseMap, responseMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMap, responseMap)) &&
-            (identical(other.responseMapKeys, responseMapKeys) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMapKeys, responseMapKeys)) &&
-            (identical(other.referenceList, referenceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceList, referenceList)) &&
+                other.responseMap == responseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.responseMapKeys, responseMapKeys) &&
+            const DeepCollectionEquality()
+                .equals(other.referenceList, referenceList) &&
             (identical(other.response, response) ||
-                const DeepCollectionEquality()
-                    .equals(other.response, response)) &&
+                other.response == response) &&
             (identical(other.responseId, responseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)) &&
+                other.responseId == responseId) &&
             (identical(other.saveParameters, saveParameters) ||
-                const DeepCollectionEquality()
-                    .equals(other.saveParameters, saveParameters)));
+                other.saveParameters == saveParameters));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(interviewer) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(responseMap) ^
-      const DeepCollectionEquality().hash(responseMapKeys) ^
-      const DeepCollectionEquality().hash(referenceList) ^
-      const DeepCollectionEquality().hash(response) ^
-      const DeepCollectionEquality().hash(responseId) ^
-      const DeepCollectionEquality().hash(saveParameters);
+  int get hashCode => Object.hash(
+      runtimeType,
+      survey,
+      surveyId,
+      interviewer,
+      respondent,
+      responseMap,
+      const DeepCollectionEquality().hash(responseMapKeys),
+      const DeepCollectionEquality().hash(referenceList),
+      response,
+      responseId,
+      saveParameters);
 
   @JsonKey(ignore: true)
   @override
@@ -460,26 +451,26 @@ abstract class _ResponseStateDto extends ResponseStateDto {
       _$_ResponseStateDto.fromJson;
 
   @override
-  SurveyDto? get survey => throw _privateConstructorUsedError;
+  SurveyDto? get survey;
   @override
-  String? get surveyId => throw _privateConstructorUsedError;
+  String? get surveyId;
   @override
-  InterviewerDto? get interviewer => throw _privateConstructorUsedError;
+  InterviewerDto? get interviewer;
   @override
-  RespondentDto? get respondent => throw _privateConstructorUsedError;
+  RespondentDto? get respondent;
   @override
-  ResponseMapDto? get responseMap => throw _privateConstructorUsedError;
+  ResponseMapDto? get responseMap;
   @override
-  List<String>? get responseMapKeys => throw _privateConstructorUsedError;
+  List<String>? get responseMapKeys;
   @override
-  List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
+  List<ReferenceDto>? get referenceList;
   @override
-  ResponseDto? get response => throw _privateConstructorUsedError;
+  ResponseDto? get response;
   @override
-  String? get responseId => throw _privateConstructorUsedError;
+  String? get responseId;
   @override
   @JsonKey(ignore: true)
-  StateParameters? get saveParameters => throw _privateConstructorUsedError;
+  StateParameters? get saveParameters;
   @override
   @JsonKey(ignore: true)
   _$ResponseStateDtoCopyWith<_ResponseStateDto> get copyWith =>

@@ -38,7 +38,7 @@ class _$RespondentDtoTearOff {
     );
   }
 
-  RespondentDto fromJson(Map<String, Object> json) {
+  RespondentDto fromJson(Map<String, Object?> json) {
     return RespondentDto.fromJson(json);
   }
 }
@@ -223,36 +223,24 @@ class _$_RespondentDto extends _RespondentDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RespondentDto &&
+        (other.runtimeType == runtimeType &&
+            other is _RespondentDto &&
             (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)) &&
+                other.respondentId == respondentId) &&
             (identical(other.countyTown, countyTown) ||
-                const DeepCollectionEquality()
-                    .equals(other.countyTown, countyTown)) &&
-            (identical(other.village, village) ||
-                const DeepCollectionEquality()
-                    .equals(other.village, village)) &&
+                other.countyTown == countyTown) &&
+            (identical(other.village, village) || other.village == village) &&
             (identical(other.remainAddress, remainAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.remainAddress, remainAddress)) &&
+                other.remainAddress == remainAddress) &&
             (identical(other.isCountyTownFirst, isCountyTownFirst) ||
-                const DeepCollectionEquality()
-                    .equals(other.isCountyTownFirst, isCountyTownFirst)) &&
+                other.isCountyTownFirst == isCountyTownFirst) &&
             (identical(other.isVillageFirst, isVillageFirst) ||
-                const DeepCollectionEquality()
-                    .equals(other.isVillageFirst, isVillageFirst)));
+                other.isVillageFirst == isVillageFirst));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentId) ^
-      const DeepCollectionEquality().hash(countyTown) ^
-      const DeepCollectionEquality().hash(village) ^
-      const DeepCollectionEquality().hash(remainAddress) ^
-      const DeepCollectionEquality().hash(isCountyTownFirst) ^
-      const DeepCollectionEquality().hash(isVillageFirst);
+  int get hashCode => Object.hash(runtimeType, respondentId, countyTown,
+      village, remainAddress, isCountyTownFirst, isVillageFirst);
 
   @JsonKey(ignore: true)
   @override
@@ -279,17 +267,17 @@ abstract class _RespondentDto extends RespondentDto {
       _$_RespondentDto.fromJson;
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get countyTown => throw _privateConstructorUsedError;
+  String get countyTown;
   @override
-  String get village => throw _privateConstructorUsedError;
+  String get village;
   @override
-  String get remainAddress => throw _privateConstructorUsedError;
+  String get remainAddress;
   @override
-  bool? get isCountyTownFirst => throw _privateConstructorUsedError;
+  bool? get isCountyTownFirst;
   @override
-  bool? get isVillageFirst => throw _privateConstructorUsedError;
+  bool? get isVillageFirst;
   @override
   @JsonKey(ignore: true)
   _$RespondentDtoCopyWith<_RespondentDto> get copyWith =>
@@ -313,7 +301,7 @@ class _$SurveyRespondentMapDocDtoTearOff {
     );
   }
 
-  SurveyRespondentMapDocDto fromJson(Map<String, Object> json) {
+  SurveyRespondentMapDocDto fromJson(Map<String, Object?> json) {
     return SurveyRespondentMapDocDto.fromJson(json);
   }
 }
@@ -430,19 +418,16 @@ class _$_SurveyRespondentMapDocDto extends _SurveyRespondentMapDocDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyRespondentMapDocDto &&
+        (other.runtimeType == runtimeType &&
+            other is _SurveyRespondentMapDocDto &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
-            (identical(other.map, map) ||
-                const DeepCollectionEquality().equals(other.map, map)));
+                other.surveyId == surveyId) &&
+            const DeepCollectionEquality().equals(other.map, map));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(map);
+  int get hashCode => Object.hash(
+      runtimeType, surveyId, const DeepCollectionEquality().hash(map));
 
   @JsonKey(ignore: true)
   @override
@@ -467,9 +452,9 @@ abstract class _SurveyRespondentMapDocDto extends SurveyRespondentMapDocDto {
       _$_SurveyRespondentMapDocDto.fromJson;
 
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  Map<String, RespondentDto> get map => throw _privateConstructorUsedError;
+  Map<String, RespondentDto> get map;
   @override
   @JsonKey(ignore: true)
   _$SurveyRespondentMapDocDtoCopyWith<_SurveyRespondentMapDocDto>

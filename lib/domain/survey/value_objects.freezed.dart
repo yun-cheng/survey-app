@@ -113,14 +113,13 @@ class _$_FormatType extends _FormatType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FormatType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _FormatType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -133,7 +132,7 @@ abstract class _FormatType extends FormatType {
   const _FormatType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$FormatTypeCopyWith<_FormatType> get copyWith =>
@@ -241,14 +240,13 @@ class _$_QuestionType extends _QuestionType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuestionType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _QuestionType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -261,7 +259,7 @@ abstract class _QuestionType extends QuestionType {
   const _QuestionType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$QuestionTypeCopyWith<_QuestionType> get copyWith =>
@@ -368,14 +366,13 @@ class _$_AnswerType extends _AnswerType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AnswerType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _AnswerType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -388,7 +385,7 @@ abstract class _AnswerType extends AnswerType {
   const _AnswerType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$AnswerTypeCopyWith<_AnswerType> get copyWith =>
@@ -498,14 +495,13 @@ class _$_AnswerStatusType extends _AnswerStatusType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AnswerStatusType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _AnswerStatusType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -518,7 +514,7 @@ abstract class _AnswerStatusType extends AnswerStatusType {
   const _AnswerStatusType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$AnswerStatusTypeCopyWith<_AnswerStatusType> get copyWith =>
@@ -626,14 +622,13 @@ class _$_WarningType extends _WarningType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WarningType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _WarningType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -646,7 +641,7 @@ abstract class _WarningType extends WarningType {
   const _WarningType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$WarningTypeCopyWith<_WarningType> get copyWith =>
@@ -750,14 +745,13 @@ class _$_Operator extends _Operator {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Operator &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _Operator &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -770,7 +764,7 @@ abstract class _Operator extends Operator {
   const _Operator._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$OperatorCopyWith<_Operator> get copyWith =>
@@ -877,14 +871,13 @@ class _$_ModuleType extends _ModuleType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ModuleType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _ModuleType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -897,7 +890,7 @@ abstract class _ModuleType extends ModuleType {
   const _ModuleType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$ModuleTypeCopyWith<_ModuleType> get copyWith =>
@@ -1007,14 +1000,13 @@ class _$_ResponseStatus extends _ResponseStatus {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseStatus &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _ResponseStatus &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -1027,7 +1019,7 @@ abstract class _ResponseStatus extends ResponseStatus {
   const _ResponseStatus._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$ResponseStatusCopyWith<_ResponseStatus> get copyWith =>
@@ -1137,14 +1129,13 @@ class _$_DeviceTimeStamp extends _DeviceTimeStamp {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DeviceTimeStamp &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _DeviceTimeStamp &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -1157,7 +1148,7 @@ abstract class _DeviceTimeStamp extends DeviceTimeStamp {
   const _DeviceTimeStamp._() : super._();
 
   @override
-  DateTime get value => throw _privateConstructorUsedError;
+  DateTime get value;
   @override
   @JsonKey(ignore: true)
   _$DeviceTimeStampCopyWith<_DeviceTimeStamp> get copyWith =>
@@ -1264,14 +1255,13 @@ class _$_DialogType extends _DialogType {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DialogType &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is _DialogType &&
+            (identical(other.value, value) || other.value == value));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+  int get hashCode => Object.hash(runtimeType, value);
 
   @JsonKey(ignore: true)
   @override
@@ -1284,7 +1274,7 @@ abstract class _DialogType extends DialogType {
   const _DialogType._() : super._();
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$DialogTypeCopyWith<_DialogType> get copyWith =>

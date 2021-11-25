@@ -27,7 +27,7 @@ class _$InterviewerListDtoTearOff {
     );
   }
 
-  InterviewerListDto fromJson(Map<String, Object> json) {
+  InterviewerListDto fromJson(Map<String, Object?> json) {
     return InterviewerListDto.fromJson(json);
   }
 }
@@ -128,14 +128,14 @@ class _$_InterviewerListDto extends _InterviewerListDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _InterviewerListDto &&
-            (identical(other.list, list) ||
-                const DeepCollectionEquality().equals(other.list, list)));
+        (other.runtimeType == runtimeType &&
+            other is _InterviewerListDto &&
+            const DeepCollectionEquality().equals(other.list, list));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(list);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(list));
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +157,7 @@ abstract class _InterviewerListDto extends InterviewerListDto {
       _$_InterviewerListDto.fromJson;
 
   @override
-  List<InterviewerDto> get list => throw _privateConstructorUsedError;
+  List<InterviewerDto> get list;
   @override
   @JsonKey(ignore: true)
   _$InterviewerListDtoCopyWith<_InterviewerListDto> get copyWith =>
@@ -183,7 +183,7 @@ class _$InterviewerDtoTearOff {
     );
   }
 
-  InterviewerDto fromJson(Map<String, Object> json) {
+  InterviewerDto fromJson(Map<String, Object?> json) {
     return InterviewerDto.fromJson(json);
   }
 }
@@ -320,24 +320,19 @@ class _$_InterviewerDto extends _InterviewerDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _InterviewerDto &&
+        (other.runtimeType == runtimeType &&
+            other is _InterviewerDto &&
             (identical(other.interviewerId, interviewerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerId, interviewerId)) &&
+                other.interviewerId == interviewerId) &&
             (identical(other.interviewerName, interviewerName) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerName, interviewerName)) &&
+                other.interviewerName == interviewerName) &&
             (identical(other.interviewerPassword, interviewerPassword) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerPassword, interviewerPassword)));
+                other.interviewerPassword == interviewerPassword));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(interviewerId) ^
-      const DeepCollectionEquality().hash(interviewerName) ^
-      const DeepCollectionEquality().hash(interviewerPassword);
+  int get hashCode => Object.hash(
+      runtimeType, interviewerId, interviewerName, interviewerPassword);
 
   @JsonKey(ignore: true)
   @override
@@ -361,11 +356,11 @@ abstract class _InterviewerDto extends InterviewerDto {
       _$_InterviewerDto.fromJson;
 
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  String get interviewerName => throw _privateConstructorUsedError;
+  String get interviewerName;
   @override
-  String get interviewerPassword => throw _privateConstructorUsedError;
+  String get interviewerPassword;
   @override
   @JsonKey(ignore: true)
   _$InterviewerDtoCopyWith<_InterviewerDto> get copyWith =>

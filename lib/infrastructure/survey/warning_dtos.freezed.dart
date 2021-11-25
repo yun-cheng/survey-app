@@ -34,7 +34,7 @@ class _$WarningDtoTearOff {
     );
   }
 
-  WarningDto fromJson(Map<String, Object> json) {
+  WarningDto fromJson(Map<String, Object?> json) {
     return WarningDto.fromJson(json);
   }
 }
@@ -184,28 +184,21 @@ class _$_WarningDto extends _WarningDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WarningDto &&
+        (other.runtimeType == runtimeType &&
+            other is _WarningDto &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
+                other.questionId == questionId) &&
             (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
+                other.serialNumber == serialNumber) &&
             (identical(other.pageNumber, pageNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageNumber, pageNumber)) &&
+                other.pageNumber == pageNumber) &&
             (identical(other.warningType, warningType) ||
-                const DeepCollectionEquality()
-                    .equals(other.warningType, warningType)));
+                other.warningType == warningType));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(pageNumber) ^
-      const DeepCollectionEquality().hash(warningType);
+  int get hashCode => Object.hash(
+      runtimeType, questionId, serialNumber, pageNumber, warningType);
 
   @JsonKey(ignore: true)
   @override
@@ -230,13 +223,13 @@ abstract class _WarningDto extends WarningDto {
       _$_WarningDto.fromJson;
 
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  String get warningType => throw _privateConstructorUsedError;
+  String get warningType;
   @override
   @JsonKey(ignore: true)
   _$WarningDtoCopyWith<_WarningDto> get copyWith =>

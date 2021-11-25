@@ -26,10 +26,10 @@ _$_RespondentStateDto _$$_RespondentStateDtoFromJson(
         (k, e) =>
             MapEntry(k, RespondentDto.fromJson(e as Map<String, dynamic>)),
       ),
-      currentTab: _$enumDecodeNullable(_$TabTypeEnumMap, json['currentTab']),
+      currentTab: $enumDecodeNullable(_$TabTypeEnumMap, json['currentTab']),
       tabScrollPosition:
           (json['tabScrollPosition'] as Map<String, dynamic>?)?.map(
-        (k, e) => MapEntry(_$enumDecode(_$TabTypeEnumMap, k),
+        (k, e) => MapEntry($enumDecode(_$TabTypeEnumMap, k),
             CardScrollPositionDto.fromJson(e as Map<String, dynamic>)),
       ),
       selectedRespondentId: json['selectedRespondentId'] as String?,
@@ -43,7 +43,7 @@ _$_RespondentStateDto _$$_RespondentStateDtoFromJson(
       tabRespondentMap:
           (json['tabRespondentMap'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(
-            _$enumDecode(_$TabTypeEnumMap, k),
+            $enumDecode(_$TabTypeEnumMap, k),
             (e as Map<String, dynamic>).map(
               (k, e) => MapEntry(
                   k, RespondentDto.fromJson(e as Map<String, dynamic>)),
@@ -89,43 +89,6 @@ Map<String, dynamic> _$$_RespondentStateDtoToJson(
           _$TabTypeEnumMap[k], e.map((k, e) => MapEntry(k, e.toJson())))));
   writeNotNull('responseInfoMap', instance.responseInfoMap?.toJson());
   return val;
-}
-
-K _$enumDecode<K, V>(
-  Map<K, V> enumValues,
-  Object? source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    throw ArgumentError(
-      'A value must be provided. Supported values: '
-      '${enumValues.values.join(', ')}',
-    );
-  }
-
-  return enumValues.entries.singleWhere(
-    (e) => e.value == source,
-    orElse: () {
-      if (unknownValue == null) {
-        throw ArgumentError(
-          '`$source` is not one of the supported values: '
-          '${enumValues.values.join(', ')}',
-        );
-      }
-      return MapEntry(unknownValue, enumValues.values.first);
-    },
-  ).key;
-}
-
-K? _$enumDecodeNullable<K, V>(
-  Map<K, V> enumValues,
-  dynamic source, {
-  K? unknownValue,
-}) {
-  if (source == null) {
-    return null;
-  }
-  return _$enumDecode<K, V>(enumValues, source, unknownValue: unknownValue);
 }
 
 const _$TabTypeEnumMap = {

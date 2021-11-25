@@ -560,64 +560,51 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ModuleLoaded &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.recodeAnswerMap, recodeAnswerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeAnswerMap, recodeAnswerMap)) &&
-            (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
-                const DeepCollectionEquality().equals(
-                    other.recodeAnswerStatusMap, recodeAnswerStatusMap)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ModuleLoaded &&
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerMap, recodeAnswerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerStatusMap, recodeAnswerStatusMap) &&
             (identical(other.surveyPageState, surveyPageState) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyPageState, surveyPageState)) &&
+                other.surveyPageState == surveyPageState) &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+                other.respondent == respondent) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.isReadOnly, isReadOnly) ||
-                const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)) &&
+                other.isReadOnly == isReadOnly) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRecodeModule, isRecodeModule)) &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
-            (identical(other.recodeQuestionMap, recodeQuestionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeQuestionMap, recodeQuestionMap)) &&
+                other.isRecodeModule == isRecodeModule) &&
+            const DeepCollectionEquality()
+                .equals(other.questionMap, questionMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeQuestionMap, recodeQuestionMap) &&
             (identical(other.dialogType, dialogType) ||
-                const DeepCollectionEquality()
-                    .equals(other.dialogType, dialogType)));
+                other.dialogType == dialogType));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerStatusMap) ^
-      const DeepCollectionEquality().hash(surveyPageState) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(isReadOnly) ^
-      const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(recodeQuestionMap) ^
-      const DeepCollectionEquality().hash(dialogType);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(answerMap),
+      const DeepCollectionEquality().hash(answerStatusMap),
+      const DeepCollectionEquality().hash(recodeAnswerMap),
+      const DeepCollectionEquality().hash(recodeAnswerStatusMap),
+      surveyPageState,
+      respondent,
+      surveyId,
+      moduleType,
+      isReadOnly,
+      isRecodeModule,
+      const DeepCollectionEquality().hash(questionMap),
+      const DeepCollectionEquality().hash(recodeQuestionMap),
+      dialogType);
 
   @JsonKey(ignore: true)
   @override
@@ -897,23 +884,19 @@ abstract class _ModuleLoaded implements UpdateAnswerStatusEvent {
       required Map<String, Question> recodeQuestionMap,
       required DialogType dialogType}) = _$_ModuleLoaded;
 
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
-  Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
-  Map<String, Answer> get recodeAnswerMap => throw _privateConstructorUsedError;
-  Map<String, AnswerStatus> get recodeAnswerStatusMap =>
-      throw _privateConstructorUsedError;
-  SimpleSurveyPageState get surveyPageState =>
-      throw _privateConstructorUsedError;
-  Respondent get respondent => throw _privateConstructorUsedError;
-  String get surveyId => throw _privateConstructorUsedError;
-  ModuleType get moduleType => throw _privateConstructorUsedError;
-  bool get isReadOnly => throw _privateConstructorUsedError;
-  bool get isRecodeModule => throw _privateConstructorUsedError;
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
-  Map<String, Question> get recodeQuestionMap =>
-      throw _privateConstructorUsedError;
-  DialogType get dialogType => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap;
+  Map<String, AnswerStatus> get answerStatusMap;
+  Map<String, Answer> get recodeAnswerMap;
+  Map<String, AnswerStatus> get recodeAnswerStatusMap;
+  SimpleSurveyPageState get surveyPageState;
+  Respondent get respondent;
+  String get surveyId;
+  ModuleType get moduleType;
+  bool get isReadOnly;
+  bool get isRecodeModule;
+  Map<String, Question> get questionMap;
+  Map<String, Question> get recodeQuestionMap;
+  DialogType get dialogType;
   @JsonKey(ignore: true)
   _$ModuleLoadedCopyWith<_ModuleLoaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -958,7 +941,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _StateCleared);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _StateCleared);
   }
 
   @override
@@ -1320,41 +1304,34 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AnswerUpdated &&
+        (other.runtimeType == runtimeType &&
+            other is _AnswerUpdated &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
-            (identical(other.answerValue, answerValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerValue, answerValue)) &&
+                other.questionId == questionId) &&
+            const DeepCollectionEquality()
+                .equals(other.answerValue, answerValue) &&
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
-            (identical(other.isNote, isNote) ||
-                const DeepCollectionEquality().equals(other.isNote, isNote)) &&
-            (identical(other.toggle, toggle) ||
-                const DeepCollectionEquality().equals(other.toggle, toggle)) &&
-            (identical(other.noteOf, noteOf) ||
-                const DeepCollectionEquality().equals(other.noteOf, noteOf)) &&
+                other.isSpecialAnswer == isSpecialAnswer) &&
+            (identical(other.isNote, isNote) || other.isNote == isNote) &&
+            (identical(other.toggle, toggle) || other.toggle == toggle) &&
+            (identical(other.noteOf, noteOf) || other.noteOf == noteOf) &&
             (identical(other.isRecode, isRecode) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRecode, isRecode)) &&
+                other.isRecode == isRecode) &&
             (identical(other.toggleSpecialAnswer, toggleSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.toggleSpecialAnswer, toggleSpecialAnswer)));
+                other.toggleSpecialAnswer == toggleSpecialAnswer));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(answerValue) ^
-      const DeepCollectionEquality().hash(isSpecialAnswer) ^
-      const DeepCollectionEquality().hash(isNote) ^
-      const DeepCollectionEquality().hash(toggle) ^
-      const DeepCollectionEquality().hash(noteOf) ^
-      const DeepCollectionEquality().hash(isRecode) ^
-      const DeepCollectionEquality().hash(toggleSpecialAnswer);
+  int get hashCode => Object.hash(
+      runtimeType,
+      questionId,
+      const DeepCollectionEquality().hash(answerValue),
+      isSpecialAnswer,
+      isNote,
+      toggle,
+      noteOf,
+      isRecode,
+      toggleSpecialAnswer);
 
   @JsonKey(ignore: true)
   @override
@@ -1593,14 +1570,14 @@ abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
       bool isRecode,
       bool toggleSpecialAnswer}) = _$_AnswerUpdated;
 
-  String get questionId => throw _privateConstructorUsedError;
-  dynamic get answerValue => throw _privateConstructorUsedError;
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
-  bool get isNote => throw _privateConstructorUsedError;
-  bool get toggle => throw _privateConstructorUsedError;
-  String? get noteOf => throw _privateConstructorUsedError;
-  bool get isRecode => throw _privateConstructorUsedError;
-  bool get toggleSpecialAnswer => throw _privateConstructorUsedError;
+  String get questionId;
+  dynamic get answerValue;
+  bool get isSpecialAnswer;
+  bool get isNote;
+  bool get toggle;
+  String? get noteOf;
+  bool get isRecode;
+  bool get toggleSpecialAnswer;
   @JsonKey(ignore: true)
   _$AnswerUpdatedCopyWith<_AnswerUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1674,19 +1651,15 @@ class _$_PageNavigatedTo
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PageNavigatedTo &&
+        (other.runtimeType == runtimeType &&
+            other is _PageNavigatedTo &&
             (identical(other.direction, direction) ||
-                const DeepCollectionEquality()
-                    .equals(other.direction, direction)) &&
-            (identical(other.page, page) ||
-                const DeepCollectionEquality().equals(other.page, page)));
+                other.direction == direction) &&
+            (identical(other.page, page) || other.page == page));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(direction) ^
-      const DeepCollectionEquality().hash(page);
+  int get hashCode => Object.hash(runtimeType, direction, page);
 
   @JsonKey(ignore: true)
   @override
@@ -1915,8 +1888,8 @@ abstract class _PageNavigatedTo implements UpdateAnswerStatusEvent {
   const factory _PageNavigatedTo({Direction direction, int? page}) =
       _$_PageNavigatedTo;
 
-  Direction get direction => throw _privateConstructorUsedError;
-  int? get page => throw _privateConstructorUsedError;
+  Direction get direction;
+  int? get page;
   @JsonKey(ignore: true)
   _$PageNavigatedToCopyWith<_PageNavigatedTo> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1964,7 +1937,9 @@ class _$_ContentQuestionMapUpdated
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _ContentQuestionMapUpdated);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ContentQuestionMapUpdated);
   }
 
   @override
@@ -2233,7 +2208,8 @@ class _$_FinishedButtonPressed
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _FinishedButtonPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _FinishedButtonPressed);
   }
 
   @override
@@ -2500,7 +2476,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _DialogClosed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _DialogClosed);
   }
 
   @override
@@ -2769,7 +2746,8 @@ class _$_LeaveButtonPressed
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LeaveButtonPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LeaveButtonPressed);
   }
 
   @override
@@ -3038,7 +3016,8 @@ class _$_LeaveButtonHidden
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LeaveButtonHidden);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LeaveButtonHidden);
   }
 
   @override
@@ -3312,7 +3291,8 @@ class _$_SwitchedToSamplingWithinHouseholdModule
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SwitchedToSamplingWithinHouseholdModule);
+        (other.runtimeType == runtimeType &&
+            other is _SwitchedToSamplingWithinHouseholdModule);
   }
 
   @override
@@ -3601,15 +3581,14 @@ class _$_AppLifeCycleChanged
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppLifeCycleChanged &&
+        (other.runtimeType == runtimeType &&
+            other is _AppLifeCycleChanged &&
             (identical(other.isPaused, isPaused) ||
-                const DeepCollectionEquality()
-                    .equals(other.isPaused, isPaused)));
+                other.isPaused == isPaused));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(isPaused);
+  int get hashCode => Object.hash(runtimeType, isPaused);
 
   @JsonKey(ignore: true)
   @override
@@ -3839,7 +3818,7 @@ abstract class _AppLifeCycleChanged implements UpdateAnswerStatusEvent {
   const factory _AppLifeCycleChanged({required bool isPaused}) =
       _$_AppLifeCycleChanged;
 
-  bool get isPaused => throw _privateConstructorUsedError;
+  bool get isPaused;
   @JsonKey(ignore: true)
   _$AppLifeCycleChangedCopyWith<_AppLifeCycleChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -3908,16 +3887,15 @@ class _$_RespondentResponseListUpdated
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RespondentResponseListUpdated &&
-            (identical(other.respondentResponseMap, respondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.respondentResponseMap, respondentResponseMap)));
+        (other.runtimeType == runtimeType &&
+            other is _RespondentResponseListUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.respondentResponseMap, respondentResponseMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentResponseMap);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(respondentResponseMap));
 
   @JsonKey(ignore: true)
   @override
@@ -4149,8 +4127,7 @@ abstract class _RespondentResponseListUpdated
           {required Map<ModuleType, Response> respondentResponseMap}) =
       _$_RespondentResponseListUpdated;
 
-  Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<ModuleType, Response> get respondentResponseMap;
   @JsonKey(ignore: true)
   _$RespondentResponseListUpdatedCopyWith<_RespondentResponseListUpdated>
       get copyWith => throw _privateConstructorUsedError;
@@ -4215,15 +4192,15 @@ class _$_ReferenceListUpdated
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReferenceListUpdated &&
-            (identical(other.referenceList, referenceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceList, referenceList)));
+        (other.runtimeType == runtimeType &&
+            other is _ReferenceListUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.referenceList, referenceList));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(referenceList);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(referenceList));
 
   @JsonKey(ignore: true)
   @override
@@ -4453,7 +4430,7 @@ abstract class _ReferenceListUpdated implements UpdateAnswerStatusEvent {
   const factory _ReferenceListUpdated(
       {required List<Reference> referenceList}) = _$_ReferenceListUpdated;
 
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  List<Reference> get referenceList;
   @JsonKey(ignore: true)
   _$ReferenceListUpdatedCopyWith<_ReferenceListUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -4497,7 +4474,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initialized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initialized);
   }
 
   @override
@@ -5599,125 +5577,115 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateAnswerStatusState &&
-            (identical(other.stateId, stateId) ||
-                const DeepCollectionEquality()
-                    .equals(other.stateId, stateId)) &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.recodeAnswerMap, recodeAnswerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeAnswerMap, recodeAnswerMap)) &&
-            (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
-                const DeepCollectionEquality().equals(
-                    other.recodeAnswerStatusMap, recodeAnswerStatusMap)) &&
-            (identical(other.page, page) ||
-                const DeepCollectionEquality().equals(other.page, page)) &&
+        (other.runtimeType == runtimeType &&
+            other is _UpdateAnswerStatusState &&
+            (identical(other.stateId, stateId) || other.stateId == stateId) &&
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerMap, recodeAnswerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerStatusMap, recodeAnswerStatusMap) &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.newestPage, newestPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.newestPage, newestPage)) &&
+                other.newestPage == newestPage) &&
             (identical(other.isLastPage, isLastPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLastPage, isLastPage)) &&
-            (identical(other.warning, warning) ||
-                const DeepCollectionEquality()
-                    .equals(other.warning, warning)) &&
+                other.isLastPage == isLastPage) &&
+            (identical(other.warning, warning) || other.warning == warning) &&
             (identical(other.showWarning, showWarning) ||
-                const DeepCollectionEquality()
-                    .equals(other.showWarning, showWarning)) &&
+                other.showWarning == showWarning) &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
-            (identical(other.updatedQIdSet, updatedQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedQIdSet, updatedQIdSet)) &&
-            (identical(other.clearAnswerQIdSet, clearAnswerQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.clearAnswerQIdSet, clearAnswerQIdSet)) &&
-            (identical(other.pageQIdSet, pageQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageQIdSet, pageQIdSet)) &&
-            (identical(other.contentQIdSet, contentQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.contentQIdSet, contentQIdSet)) &&
+                other.questionId == questionId) &&
+            const DeepCollectionEquality()
+                .equals(other.updatedQIdSet, updatedQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.clearAnswerQIdSet, clearAnswerQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.pageQIdSet, pageQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.contentQIdSet, contentQIdSet) &&
             (identical(other.direction, direction) ||
-                const DeepCollectionEquality()
-                    .equals(other.direction, direction)) &&
+                other.direction == direction) &&
             (identical(other.finishResponse, finishResponse) ||
-                const DeepCollectionEquality()
-                    .equals(other.finishResponse, finishResponse)) &&
+                other.finishResponse == finishResponse) &&
             (identical(other.dialogType, dialogType) ||
-                const DeepCollectionEquality()
-                    .equals(other.dialogType, dialogType)) &&
+                other.dialogType == dialogType) &&
             (identical(other.showLeaveButton, showLeaveButton) ||
-                const DeepCollectionEquality()
-                    .equals(other.showLeaveButton, showLeaveButton)) &&
+                other.showLeaveButton == showLeaveButton) &&
             (identical(other.leavePage, leavePage) ||
-                const DeepCollectionEquality()
-                    .equals(other.leavePage, leavePage)) &&
+                other.leavePage == leavePage) &&
             (identical(other.appIsPaused, appIsPaused) ||
-                const DeepCollectionEquality()
-                    .equals(other.appIsPaused, appIsPaused)) &&
+                other.appIsPaused == appIsPaused) &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
-            (identical(other.surveyId, surveyId) || const DeepCollectionEquality().equals(other.surveyId, surveyId)) &&
-            (identical(other.moduleType, moduleType) || const DeepCollectionEquality().equals(other.moduleType, moduleType)) &&
-            (identical(other.isReadOnly, isReadOnly) || const DeepCollectionEquality().equals(other.isReadOnly, isReadOnly)) &&
-            (identical(other.isRecodeModule, isRecodeModule) || const DeepCollectionEquality().equals(other.isRecodeModule, isRecodeModule)) &&
-            (identical(other.referenceList, referenceList) || const DeepCollectionEquality().equals(other.referenceList, referenceList)) &&
-            (identical(other.respondentResponseMap, respondentResponseMap) || const DeepCollectionEquality().equals(other.respondentResponseMap, respondentResponseMap)) &&
-            (identical(other.questionMap, questionMap) || const DeepCollectionEquality().equals(other.questionMap, questionMap)) &&
-            (identical(other.recodeQuestionMap, recodeQuestionMap) || const DeepCollectionEquality().equals(other.recodeQuestionMap, recodeQuestionMap)) &&
-            (identical(other.restoreState, restoreState) || const DeepCollectionEquality().equals(other.restoreState, restoreState)) &&
-            (identical(other.eventState, eventState) || const DeepCollectionEquality().equals(other.eventState, eventState)) &&
-            (identical(other.updateState, updateState) || const DeepCollectionEquality().equals(other.updateState, updateState)) &&
-            (identical(other.updateParameters, updateParameters) || const DeepCollectionEquality().equals(other.updateParameters, updateParameters)) &&
-            (identical(other.saveParameters, saveParameters) || const DeepCollectionEquality().equals(other.saveParameters, saveParameters)));
+                other.respondent == respondent) &&
+            (identical(other.surveyId, surveyId) ||
+                other.surveyId == surveyId) &&
+            (identical(other.moduleType, moduleType) ||
+                other.moduleType == moduleType) &&
+            (identical(other.isReadOnly, isReadOnly) ||
+                other.isReadOnly == isReadOnly) &&
+            (identical(other.isRecodeModule, isRecodeModule) ||
+                other.isRecodeModule == isRecodeModule) &&
+            const DeepCollectionEquality()
+                .equals(other.referenceList, referenceList) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentResponseMap, respondentResponseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.questionMap, questionMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeQuestionMap, recodeQuestionMap) &&
+            (identical(other.restoreState, restoreState) ||
+                other.restoreState == restoreState) &&
+            (identical(other.eventState, eventState) ||
+                other.eventState == eventState) &&
+            (identical(other.updateState, updateState) ||
+                other.updateState == updateState) &&
+            (identical(other.updateParameters, updateParameters) ||
+                other.updateParameters == updateParameters) &&
+            (identical(other.saveParameters, saveParameters) ||
+                other.saveParameters == saveParameters));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(stateId) ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerStatusMap) ^
-      const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(newestPage) ^
-      const DeepCollectionEquality().hash(isLastPage) ^
-      const DeepCollectionEquality().hash(warning) ^
-      const DeepCollectionEquality().hash(showWarning) ^
-      const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(updatedQIdSet) ^
-      const DeepCollectionEquality().hash(clearAnswerQIdSet) ^
-      const DeepCollectionEquality().hash(pageQIdSet) ^
-      const DeepCollectionEquality().hash(contentQIdSet) ^
-      const DeepCollectionEquality().hash(direction) ^
-      const DeepCollectionEquality().hash(finishResponse) ^
-      const DeepCollectionEquality().hash(dialogType) ^
-      const DeepCollectionEquality().hash(showLeaveButton) ^
-      const DeepCollectionEquality().hash(leavePage) ^
-      const DeepCollectionEquality().hash(appIsPaused) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(isReadOnly) ^
-      const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(referenceList) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(recodeQuestionMap) ^
-      const DeepCollectionEquality().hash(restoreState) ^
-      const DeepCollectionEquality().hash(eventState) ^
-      const DeepCollectionEquality().hash(updateState) ^
-      const DeepCollectionEquality().hash(updateParameters) ^
-      const DeepCollectionEquality().hash(saveParameters);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        stateId,
+        const DeepCollectionEquality().hash(answerMap),
+        const DeepCollectionEquality().hash(answerStatusMap),
+        const DeepCollectionEquality().hash(recodeAnswerMap),
+        const DeepCollectionEquality().hash(recodeAnswerStatusMap),
+        page,
+        newestPage,
+        isLastPage,
+        warning,
+        showWarning,
+        questionId,
+        const DeepCollectionEquality().hash(updatedQIdSet),
+        const DeepCollectionEquality().hash(clearAnswerQIdSet),
+        const DeepCollectionEquality().hash(pageQIdSet),
+        const DeepCollectionEquality().hash(contentQIdSet),
+        direction,
+        finishResponse,
+        dialogType,
+        showLeaveButton,
+        leavePage,
+        appIsPaused,
+        respondent,
+        surveyId,
+        moduleType,
+        isReadOnly,
+        isRecodeModule,
+        const DeepCollectionEquality().hash(referenceList),
+        const DeepCollectionEquality().hash(respondentResponseMap),
+        const DeepCollectionEquality().hash(questionMap),
+        const DeepCollectionEquality().hash(recodeQuestionMap),
+        restoreState,
+        eventState,
+        updateState,
+        updateParameters,
+        saveParameters
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -5767,79 +5735,75 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
 
   @override // HIGHLIGHT 因為 bloc 內部會去比較 emit state 前後是否有變，因此只要每次 emit
 //  新的 state 時產生新的 stateId，並放在 state 的最前面，就可以大幅減少比較的時間
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // H_ 主要資料
-  Map<String, Answer> get answerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get answerMap;
   @override
-  Map<String, AnswerStatus> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get answerStatusMap;
   @override
-  Map<String, Answer> get recodeAnswerMap => throw _privateConstructorUsedError;
+  Map<String, Answer> get recodeAnswerMap;
   @override
-  Map<String, AnswerStatus> get recodeAnswerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatus> get recodeAnswerStatusMap;
   @override
-  int get page => throw _privateConstructorUsedError;
+  int get page;
   @override
-  int get newestPage => throw _privateConstructorUsedError;
+  int get newestPage;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get isLastPage;
   @override
-  Warning get warning => throw _privateConstructorUsedError;
+  Warning get warning;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool get showWarning;
   @override // H_ 中間資料
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  Set<String> get updatedQIdSet => throw _privateConstructorUsedError;
+  Set<String> get updatedQIdSet;
   @override
-  Set<String> get clearAnswerQIdSet => throw _privateConstructorUsedError;
+  Set<String> get clearAnswerQIdSet;
   @override
-  Set<String> get pageQIdSet => throw _privateConstructorUsedError;
+  Set<String> get pageQIdSet;
   @override
-  Set<String> get contentQIdSet => throw _privateConstructorUsedError;
+  Set<String> get contentQIdSet;
   @override
-  Direction get direction => throw _privateConstructorUsedError;
+  Direction get direction;
   @override
-  bool get finishResponse => throw _privateConstructorUsedError;
+  bool get finishResponse;
   @override
-  DialogType get dialogType => throw _privateConstructorUsedError;
+  DialogType get dialogType;
   @override
-  bool get showLeaveButton => throw _privateConstructorUsedError;
+  bool get showLeaveButton;
   @override
-  bool get leavePage => throw _privateConstructorUsedError;
+  bool get leavePage;
   @override
-  bool get appIsPaused => throw _privateConstructorUsedError;
+  bool get appIsPaused;
   @override // H_ 同 session 不變的參考資料
-  Respondent get respondent => throw _privateConstructorUsedError;
+  Respondent get respondent;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isReadOnly;
   @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
+  bool get isRecodeModule;
   @override
-  List<Reference> get referenceList => throw _privateConstructorUsedError;
+  List<Reference> get referenceList;
   @override
-  Map<ModuleType, Response> get respondentResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<ModuleType, Response> get respondentResponseMap;
   @override // H_ 同 session 會變的參考資料
-  Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Map<String, Question> get questionMap;
   @override
-  Map<String, Question> get recodeQuestionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Question> get recodeQuestionMap;
   @override // H_ 狀態更新進度
-  LoadState get restoreState => throw _privateConstructorUsedError;
+  LoadState get restoreState;
   @override
-  LoadState get eventState => throw _privateConstructorUsedError;
+  LoadState get eventState;
   @override
-  LoadState get updateState => throw _privateConstructorUsedError;
+  LoadState get updateState;
   @override // H_ 更新/儲存參數
-  StateParameters get updateParameters => throw _privateConstructorUsedError;
+  StateParameters get updateParameters;
   @override
-  StateParameters get saveParameters => throw _privateConstructorUsedError;
+  StateParameters get saveParameters;
   @override
   @JsonKey(ignore: true)
   _$UpdateAnswerStatusStateCopyWith<_UpdateAnswerStatusState> get copyWith =>
@@ -6345,95 +6309,75 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StateParameters &&
+        (other.runtimeType == runtimeType &&
+            other is _StateParameters &&
             (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
+                other.answerMap == answerMap) &&
             (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)) &&
+                other.answerStatusMap == answerStatusMap) &&
             (identical(other.recodeAnswerMap, recodeAnswerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeAnswerMap, recodeAnswerMap)) &&
+                other.recodeAnswerMap == recodeAnswerMap) &&
             (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
-                const DeepCollectionEquality().equals(
-                    other.recodeAnswerStatusMap, recodeAnswerStatusMap)) &&
-            (identical(other.page, page) ||
-                const DeepCollectionEquality().equals(other.page, page)) &&
+                other.recodeAnswerStatusMap == recodeAnswerStatusMap) &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.newestPage, newestPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.newestPage, newestPage)) &&
+                other.newestPage == newestPage) &&
             (identical(other.isLastPage, isLastPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLastPage, isLastPage)) &&
-            (identical(other.warning, warning) ||
-                const DeepCollectionEquality()
-                    .equals(other.warning, warning)) &&
+                other.isLastPage == isLastPage) &&
+            (identical(other.warning, warning) || other.warning == warning) &&
             (identical(other.showWarning, showWarning) ||
-                const DeepCollectionEquality()
-                    .equals(other.showWarning, showWarning)) &&
+                other.showWarning == showWarning) &&
             (identical(other.pageQIdSet, pageQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageQIdSet, pageQIdSet)) &&
+                other.pageQIdSet == pageQIdSet) &&
             (identical(other.contentQIdSet, contentQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.contentQIdSet, contentQIdSet)) &&
+                other.contentQIdSet == contentQIdSet) &&
             (identical(other.dialogType, dialogType) ||
-                const DeepCollectionEquality()
-                    .equals(other.dialogType, dialogType)) &&
+                other.dialogType == dialogType) &&
             (identical(other.showLeaveButton, showLeaveButton) ||
-                const DeepCollectionEquality()
-                    .equals(other.showLeaveButton, showLeaveButton)) &&
+                other.showLeaveButton == showLeaveButton) &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+                other.respondent == respondent) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.isReadOnly, isReadOnly) ||
-                const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)) &&
+                other.isReadOnly == isReadOnly) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRecodeModule, isRecodeModule)) &&
+                other.isRecodeModule == isRecodeModule) &&
             (identical(other.respondentResponseMap, respondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.respondentResponseMap, respondentResponseMap)) &&
+                other.respondentResponseMap == respondentResponseMap) &&
             (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
+                other.questionMap == questionMap) &&
             (identical(other.recodeQuestionMap, recodeQuestionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeQuestionMap, recodeQuestionMap)));
+                other.recodeQuestionMap == recodeQuestionMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerStatusMap) ^
-      const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(newestPage) ^
-      const DeepCollectionEquality().hash(isLastPage) ^
-      const DeepCollectionEquality().hash(warning) ^
-      const DeepCollectionEquality().hash(showWarning) ^
-      const DeepCollectionEquality().hash(pageQIdSet) ^
-      const DeepCollectionEquality().hash(contentQIdSet) ^
-      const DeepCollectionEquality().hash(dialogType) ^
-      const DeepCollectionEquality().hash(showLeaveButton) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(isReadOnly) ^
-      const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(recodeQuestionMap);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        answerMap,
+        answerStatusMap,
+        recodeAnswerMap,
+        recodeAnswerStatusMap,
+        page,
+        newestPage,
+        isLastPage,
+        warning,
+        showWarning,
+        pageQIdSet,
+        contentQIdSet,
+        dialogType,
+        showLeaveButton,
+        respondent,
+        surveyId,
+        moduleType,
+        isReadOnly,
+        isRecodeModule,
+        respondentResponseMap,
+        questionMap,
+        recodeQuestionMap
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -6467,47 +6411,47 @@ abstract class _StateParameters extends StateParameters {
   const _StateParameters._() : super._();
 
   @override // H_ 主要資料
-  bool get answerMap => throw _privateConstructorUsedError;
+  bool get answerMap;
   @override
-  bool get answerStatusMap => throw _privateConstructorUsedError;
+  bool get answerStatusMap;
   @override
-  bool get recodeAnswerMap => throw _privateConstructorUsedError;
+  bool get recodeAnswerMap;
   @override
-  bool get recodeAnswerStatusMap => throw _privateConstructorUsedError;
+  bool get recodeAnswerStatusMap;
   @override
-  bool get page => throw _privateConstructorUsedError;
+  bool get page;
   @override
-  bool get newestPage => throw _privateConstructorUsedError;
+  bool get newestPage;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get isLastPage;
   @override
-  bool get warning => throw _privateConstructorUsedError;
+  bool get warning;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool get showWarning;
   @override // H_ 中間資料
-  bool get pageQIdSet => throw _privateConstructorUsedError;
+  bool get pageQIdSet;
   @override
-  bool get contentQIdSet => throw _privateConstructorUsedError;
+  bool get contentQIdSet;
   @override
-  bool get dialogType => throw _privateConstructorUsedError;
+  bool get dialogType;
   @override
-  bool get showLeaveButton => throw _privateConstructorUsedError;
+  bool get showLeaveButton;
   @override // H_ 同 session 不變的參考資料
-  bool get respondent => throw _privateConstructorUsedError;
+  bool get respondent;
   @override
-  bool get surveyId => throw _privateConstructorUsedError;
+  bool get surveyId;
   @override
-  bool get moduleType => throw _privateConstructorUsedError;
+  bool get moduleType;
   @override
-  bool get isReadOnly => throw _privateConstructorUsedError;
+  bool get isReadOnly;
   @override
-  bool get isRecodeModule => throw _privateConstructorUsedError;
+  bool get isRecodeModule;
   @override
-  bool get respondentResponseMap => throw _privateConstructorUsedError;
+  bool get respondentResponseMap;
   @override // H_ 同 session 會變的參考資料
-  bool get questionMap => throw _privateConstructorUsedError;
+  bool get questionMap;
   @override
-  bool get recodeQuestionMap => throw _privateConstructorUsedError;
+  bool get recodeQuestionMap;
   @override
   @JsonKey(ignore: true)
   _$StateParametersCopyWith<_StateParameters> get copyWith =>

@@ -32,7 +32,7 @@ class _$ReferenceKeyDtoTearOff {
     );
   }
 
-  ReferenceKeyDto fromJson(Map<String, Object> json) {
+  ReferenceKeyDto fromJson(Map<String, Object?> json) {
     return ReferenceKeyDto.fromJson(json);
   }
 }
@@ -163,24 +163,19 @@ class _$_ReferenceKeyDto extends _ReferenceKeyDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReferenceKeyDto &&
+        (other.runtimeType == runtimeType &&
+            other is _ReferenceKeyDto &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)));
+                other.questionId == questionId));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(questionId);
+      Object.hash(runtimeType, surveyId, moduleType, questionId);
 
   @JsonKey(ignore: true)
   @override
@@ -204,11 +199,11 @@ abstract class _ReferenceKeyDto extends ReferenceKeyDto {
       _$_ReferenceKeyDto.fromJson;
 
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
   @JsonKey(ignore: true)
   _$ReferenceKeyDtoCopyWith<_ReferenceKeyDto> get copyWith =>

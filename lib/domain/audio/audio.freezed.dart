@@ -145,19 +145,15 @@ class _$_Audio extends _Audio {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Audio &&
+        (other.runtimeType == runtimeType &&
+            other is _Audio &&
             (identical(other.fileName, fileName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fileName, fileName)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
+                other.fileName == fileName) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fileName) ^
-      const DeepCollectionEquality().hash(type);
+  int get hashCode => Object.hash(runtimeType, fileName, type);
 
   @JsonKey(ignore: true)
   @override
@@ -171,9 +167,9 @@ abstract class _Audio extends Audio {
   const _Audio._() : super._();
 
   @override
-  UniqueId get fileName => throw _privateConstructorUsedError;
+  UniqueId get fileName;
   @override
-  AudioType get type => throw _privateConstructorUsedError;
+  AudioType get type;
   @override
   @JsonKey(ignore: true)
   _$AudioCopyWith<_Audio> get copyWith => throw _privateConstructorUsedError;

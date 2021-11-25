@@ -40,12 +40,7 @@ class RespondentCard extends StatelessWidget {
               respondentId: respondent.id,
             ),
           );
-      context.router.push(
-        SurveyRoute(
-          respondentId: respondent.id,
-          showDialogOnRestart: false,
-        ),
-      );
+      context.router.push(const SurveyRoute());
     }
 
     return BlocBuilder<RespondentBloc, RespondentState>(

@@ -28,7 +28,7 @@ class _$SimpleChoiceDtoTearOff {
     );
   }
 
-  SimpleChoiceDto fromJson(Map<String, Object> json) {
+  SimpleChoiceDto fromJson(Map<String, Object?> json) {
     return SimpleChoiceDto.fromJson(json);
   }
 }
@@ -142,18 +142,14 @@ class _$_SimpleChoiceDto extends _SimpleChoiceDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SimpleChoiceDto &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)));
+        (other.runtimeType == runtimeType &&
+            other is _SimpleChoiceDto &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.body, body) || other.body == body));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(body);
+  int get hashCode => Object.hash(runtimeType, id, body);
 
   @JsonKey(ignore: true)
   @override
@@ -175,9 +171,9 @@ abstract class _SimpleChoiceDto extends SimpleChoiceDto {
       _$_SimpleChoiceDto.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get body => throw _privateConstructorUsedError;
+  String get body;
   @override
   @JsonKey(ignore: true)
   _$SimpleChoiceDtoCopyWith<_SimpleChoiceDto> get copyWith =>

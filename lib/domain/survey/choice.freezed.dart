@@ -258,44 +258,27 @@ class _$_Choice extends _Choice {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Choice &&
+        (other.runtimeType == runtimeType &&
+            other is _Choice &&
             (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)) &&
-            (identical(other.asNote, asNote) ||
-                const DeepCollectionEquality().equals(other.asNote, asNote)) &&
+                other.serialNumber == serialNumber) &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.body, body) || other.body == body) &&
+            (identical(other.asNote, asNote) || other.asNote == asNote) &&
             (identical(other.asSingle, asSingle) ||
-                const DeepCollectionEquality()
-                    .equals(other.asSingle, asSingle)) &&
+                other.asSingle == asSingle) &&
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
-            (identical(other.group, group) ||
-                const DeepCollectionEquality().equals(other.group, group)) &&
+                other.isSpecialAnswer == isSpecialAnswer) &&
+            (identical(other.group, group) || other.group == group) &&
             (identical(other.isGroupFirst, isGroupFirst) ||
-                const DeepCollectionEquality()
-                    .equals(other.isGroupFirst, isGroupFirst)) &&
+                other.isGroupFirst == isGroupFirst) &&
             (identical(other.upperChoiceId, upperChoiceId) ||
-                const DeepCollectionEquality()
-                    .equals(other.upperChoiceId, upperChoiceId)));
+                other.upperChoiceId == upperChoiceId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(body) ^
-      const DeepCollectionEquality().hash(asNote) ^
-      const DeepCollectionEquality().hash(asSingle) ^
-      const DeepCollectionEquality().hash(isSpecialAnswer) ^
-      const DeepCollectionEquality().hash(group) ^
-      const DeepCollectionEquality().hash(isGroupFirst) ^
-      const DeepCollectionEquality().hash(upperChoiceId);
+  int get hashCode => Object.hash(runtimeType, serialNumber, id, body, asNote,
+      asSingle, isSpecialAnswer, group, isGroupFirst, upperChoiceId);
 
   @JsonKey(ignore: true)
   @override
@@ -317,23 +300,23 @@ abstract class _Choice extends Choice {
   const _Choice._() : super._();
 
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get body => throw _privateConstructorUsedError;
+  String get body;
   @override
-  bool get asNote => throw _privateConstructorUsedError;
+  bool get asNote;
   @override
-  bool get asSingle => throw _privateConstructorUsedError;
+  bool get asSingle;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  String get group => throw _privateConstructorUsedError;
+  String get group;
   @override
-  bool get isGroupFirst => throw _privateConstructorUsedError;
+  bool get isGroupFirst;
   @override
-  String get upperChoiceId => throw _privateConstructorUsedError;
+  String get upperChoiceId;
   @override
   @JsonKey(ignore: true)
   _$ChoiceCopyWith<_Choice> get copyWith => throw _privateConstructorUsedError;

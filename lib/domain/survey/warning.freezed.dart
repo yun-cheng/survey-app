@@ -172,26 +172,19 @@ class _$_Warning extends _Warning {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Warning &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Warning &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
+                other.serialNumber == serialNumber) &&
             (identical(other.pageNumber, pageNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageNumber, pageNumber)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
+                other.pageNumber == pageNumber) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(pageNumber) ^
-      const DeepCollectionEquality().hash(type);
+      Object.hash(runtimeType, id, serialNumber, pageNumber, type);
 
   @JsonKey(ignore: true)
   @override
@@ -208,13 +201,13 @@ abstract class _Warning extends Warning {
   const _Warning._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  WarningType get type => throw _privateConstructorUsedError;
+  WarningType get type;
   @override
   @JsonKey(ignore: true)
   _$WarningCopyWith<_Warning> get copyWith =>

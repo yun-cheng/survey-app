@@ -133,19 +133,16 @@ class _$_FullExpression extends _FullExpression {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FullExpression &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)) &&
-            (identical(other.expressionMap, expressionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.expressionMap, expressionMap)));
+        (other.runtimeType == runtimeType &&
+            other is _FullExpression &&
+            (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality()
+                .equals(other.expressionMap, expressionMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(body) ^
-      const DeepCollectionEquality().hash(expressionMap);
+  int get hashCode => Object.hash(
+      runtimeType, body, const DeepCollectionEquality().hash(expressionMap));
 
   @JsonKey(ignore: true)
   @override
@@ -160,10 +157,9 @@ abstract class _FullExpression extends FullExpression {
   const _FullExpression._() : super._();
 
   @override
-  String get body => throw _privateConstructorUsedError;
+  String get body;
   @override
-  Map<String, Expression> get expressionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Expression> get expressionMap;
   @override
   @JsonKey(ignore: true)
   _$FullExpressionCopyWith<_FullExpression> get copyWith =>

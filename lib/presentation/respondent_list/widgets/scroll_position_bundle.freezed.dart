@@ -134,20 +134,16 @@ class _$_ScrollPositionBundle extends _ScrollPositionBundle {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ScrollPositionBundle &&
+        (other.runtimeType == runtimeType &&
+            other is _ScrollPositionBundle &&
             (identical(other.controller, controller) ||
-                const DeepCollectionEquality()
-                    .equals(other.controller, controller)) &&
+                other.controller == controller) &&
             (identical(other.listener, listener) ||
-                const DeepCollectionEquality()
-                    .equals(other.listener, listener)));
+                other.listener == listener));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(controller) ^
-      const DeepCollectionEquality().hash(listener);
+  int get hashCode => Object.hash(runtimeType, controller, listener);
 
   @JsonKey(ignore: true)
   @override
@@ -163,9 +159,9 @@ abstract class _ScrollPositionBundle extends ScrollPositionBundle {
   const _ScrollPositionBundle._() : super._();
 
   @override
-  ItemScrollController get controller => throw _privateConstructorUsedError;
+  ItemScrollController get controller;
   @override
-  ItemPositionsListener get listener => throw _privateConstructorUsedError;
+  ItemPositionsListener get listener;
   @override
   @JsonKey(ignore: true)
   _$ScrollPositionBundleCopyWith<_ScrollPositionBundle> get copyWith =>

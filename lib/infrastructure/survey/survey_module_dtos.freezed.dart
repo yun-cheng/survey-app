@@ -32,7 +32,7 @@ class _$SurveyModuleDtoTearOff {
     );
   }
 
-  SurveyModuleDto fromJson(Map<String, Object> json) {
+  SurveyModuleDto fromJson(Map<String, Object?> json) {
     return SurveyModuleDto.fromJson(json);
   }
 }
@@ -171,24 +171,21 @@ class _$_SurveyModuleDto extends _SurveyModuleDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyModuleDto &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionMap, questionMap)) &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)));
+        (other.runtimeType == runtimeType &&
+            other is _SurveyModuleDto &&
+            const DeepCollectionEquality()
+                .equals(other.questionMap, questionMap) &&
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(questionMap),
+      const DeepCollectionEquality().hash(answerMap),
+      const DeepCollectionEquality().hash(answerStatusMap));
 
   @JsonKey(ignore: true)
   @override
@@ -213,13 +210,11 @@ abstract class _SurveyModuleDto extends SurveyModuleDto {
       _$_SurveyModuleDto.fromJson;
 
   @override
-  Map<String, QuestionDto> get questionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, QuestionDto> get questionMap;
   @override
-  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerDto> get answerMap;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get answerStatusMap;
   @override
   @JsonKey(ignore: true)
   _$SurveyModuleDtoCopyWith<_SurveyModuleDto> get copyWith =>

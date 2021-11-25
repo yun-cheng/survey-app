@@ -435,73 +435,56 @@ class _$_Question extends _Question {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Question &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.hideId, hideId) ||
-                const DeepCollectionEquality().equals(other.hideId, hideId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Question &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.hideId, hideId) || other.hideId == hideId) &&
             (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
-            (identical(other.body, body) ||
-                const DeepCollectionEquality().equals(other.body, body)) &&
+                other.serialNumber == serialNumber) &&
+            const DeepCollectionEquality().equals(other.body, body) &&
             (identical(other.stringBody, stringBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.stringBody, stringBody)) &&
-            (identical(other.note, note) ||
-                const DeepCollectionEquality().equals(other.note, note)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
-            (identical(other.show, show) ||
-                const DeepCollectionEquality().equals(other.show, show)) &&
-            (identical(other.choiceList, choiceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.choiceList, choiceList)) &&
-            (identical(other.initChoiceList, initChoiceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.initChoiceList, initChoiceList)) &&
+                other.stringBody == stringBody) &&
+            (identical(other.note, note) || other.note == note) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.show, show) || other.show == show) &&
+            const DeepCollectionEquality()
+                .equals(other.choiceList, choiceList) &&
+            const DeepCollectionEquality()
+                .equals(other.initChoiceList, initChoiceList) &&
             (identical(other.hasSpecialAnswer, hasSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSpecialAnswer, hasSpecialAnswer)) &&
+                other.hasSpecialAnswer == hasSpecialAnswer) &&
             (identical(other.validateAnswer, validateAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.validateAnswer, validateAnswer)) &&
+                other.validateAnswer == validateAnswer) &&
             (identical(other.upperQuestionId, upperQuestionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.upperQuestionId, upperQuestionId)) &&
+                other.upperQuestionId == upperQuestionId) &&
             (identical(other.pageNumber, pageNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageNumber, pageNumber)) &&
+                other.pageNumber == pageNumber) &&
             (identical(other.recodeNeeded, recodeNeeded) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeNeeded, recodeNeeded)) &&
-            (identical(other.tableId, tableId) ||
-                const DeepCollectionEquality()
-                    .equals(other.tableId, tableId)) &&
-            (identical(other.rowId, rowId) ||
-                const DeepCollectionEquality().equals(other.rowId, rowId)));
+                other.recodeNeeded == recodeNeeded) &&
+            (identical(other.tableId, tableId) || other.tableId == tableId) &&
+            (identical(other.rowId, rowId) || other.rowId == rowId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(hideId) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(body) ^
-      const DeepCollectionEquality().hash(stringBody) ^
-      const DeepCollectionEquality().hash(note) ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(show) ^
-      const DeepCollectionEquality().hash(choiceList) ^
-      const DeepCollectionEquality().hash(initChoiceList) ^
-      const DeepCollectionEquality().hash(hasSpecialAnswer) ^
-      const DeepCollectionEquality().hash(validateAnswer) ^
-      const DeepCollectionEquality().hash(upperQuestionId) ^
-      const DeepCollectionEquality().hash(pageNumber) ^
-      const DeepCollectionEquality().hash(recodeNeeded) ^
-      const DeepCollectionEquality().hash(tableId) ^
-      const DeepCollectionEquality().hash(rowId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      hideId,
+      serialNumber,
+      const DeepCollectionEquality().hash(body),
+      stringBody,
+      note,
+      type,
+      show,
+      const DeepCollectionEquality().hash(choiceList),
+      const DeepCollectionEquality().hash(initChoiceList),
+      hasSpecialAnswer,
+      validateAnswer,
+      upperQuestionId,
+      pageNumber,
+      recodeNeeded,
+      tableId,
+      rowId);
 
   @JsonKey(ignore: true)
   @override
@@ -531,39 +514,39 @@ abstract class _Question extends Question {
   const _Question._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  bool get hideId => throw _privateConstructorUsedError;
+  bool get hideId;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  List<FormattedText> get body => throw _privateConstructorUsedError;
+  List<FormattedText> get body;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  String get note => throw _privateConstructorUsedError;
+  String get note;
   @override
-  QuestionType get type => throw _privateConstructorUsedError;
+  QuestionType get type;
   @override
-  FullExpression get show => throw _privateConstructorUsedError;
+  FullExpression get show;
   @override
-  List<Choice> get choiceList => throw _privateConstructorUsedError;
+  List<Choice> get choiceList;
   @override
-  List<Choice> get initChoiceList => throw _privateConstructorUsedError;
+  List<Choice> get initChoiceList;
   @override
-  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
+  bool get hasSpecialAnswer;
   @override
-  FullExpression get validateAnswer => throw _privateConstructorUsedError;
+  FullExpression get validateAnswer;
   @override
-  String get upperQuestionId => throw _privateConstructorUsedError;
+  String get upperQuestionId;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  bool get recodeNeeded => throw _privateConstructorUsedError;
+  bool get recodeNeeded;
   @override // H_ table
-  String get tableId => throw _privateConstructorUsedError;
+  String get tableId;
   @override
-  int get rowId => throw _privateConstructorUsedError;
+  int get rowId;
   @override
   @JsonKey(ignore: true)
   _$QuestionCopyWith<_Question> get copyWith =>

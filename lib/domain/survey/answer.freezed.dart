@@ -248,38 +248,32 @@ class _$_Answer extends _Answer {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Answer &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Answer &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.withNote, withNote) ||
-                const DeepCollectionEquality()
-                    .equals(other.withNote, withNote)) &&
+                other.withNote == withNote) &&
             (identical(other.stringValue, stringValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.stringValue, stringValue)) &&
+                other.stringValue == stringValue) &&
             (identical(other.intValue, intValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.intValue, intValue)) &&
+                other.intValue == intValue) &&
             (identical(other.choiceValue, choiceValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.choiceValue, choiceValue)) &&
-            (identical(other.choiceListValue, choiceListValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.choiceListValue, choiceListValue)) &&
-            (identical(other.noteMap, noteMap) ||
-                const DeepCollectionEquality().equals(other.noteMap, noteMap)));
+                other.choiceValue == choiceValue) &&
+            const DeepCollectionEquality()
+                .equals(other.choiceListValue, choiceListValue) &&
+            const DeepCollectionEquality().equals(other.noteMap, noteMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(withNote) ^
-      const DeepCollectionEquality().hash(stringValue) ^
-      const DeepCollectionEquality().hash(intValue) ^
-      const DeepCollectionEquality().hash(choiceValue) ^
-      const DeepCollectionEquality().hash(choiceListValue) ^
-      const DeepCollectionEquality().hash(noteMap);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      withNote,
+      stringValue,
+      intValue,
+      choiceValue,
+      const DeepCollectionEquality().hash(choiceListValue),
+      const DeepCollectionEquality().hash(noteMap));
 
   @JsonKey(ignore: true)
   @override
@@ -299,19 +293,19 @@ abstract class _Answer extends Answer {
   const _Answer._() : super._();
 
   @override
-  AnswerType get type => throw _privateConstructorUsedError;
+  AnswerType get type;
   @override
-  bool get withNote => throw _privateConstructorUsedError;
+  bool get withNote;
   @override
-  String? get stringValue => throw _privateConstructorUsedError;
+  String? get stringValue;
   @override
-  int? get intValue => throw _privateConstructorUsedError;
+  int? get intValue;
   @override
-  SimpleChoice? get choiceValue => throw _privateConstructorUsedError;
+  SimpleChoice? get choiceValue;
   @override
-  List<SimpleChoice>? get choiceListValue => throw _privateConstructorUsedError;
+  List<SimpleChoice>? get choiceListValue;
   @override
-  Map<String, String>? get noteMap => throw _privateConstructorUsedError;
+  Map<String, String>? get noteMap;
   @override
   @JsonKey(ignore: true)
   _$AnswerCopyWith<_Answer> get copyWith => throw _privateConstructorUsedError;

@@ -44,7 +44,7 @@ class _$ChoiceDtoTearOff {
     );
   }
 
-  ChoiceDto fromJson(Map<String, Object> json) {
+  ChoiceDto fromJson(Map<String, Object?> json) {
     return ChoiceDto.fromJson(json);
   }
 }
@@ -272,47 +272,39 @@ class _$_ChoiceDto extends _ChoiceDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ChoiceDto &&
+        (other.runtimeType == runtimeType &&
+            other is _ChoiceDto &&
             (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
+                other.serialNumber == serialNumber) &&
             (identical(other.choiceId, choiceId) ||
-                const DeepCollectionEquality()
-                    .equals(other.choiceId, choiceId)) &&
+                other.choiceId == choiceId) &&
             (identical(other.choiceBody, choiceBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.choiceBody, choiceBody)) &&
-            (identical(other.asNote, asNote) ||
-                const DeepCollectionEquality().equals(other.asNote, asNote)) &&
+                other.choiceBody == choiceBody) &&
+            (identical(other.asNote, asNote) || other.asNote == asNote) &&
             (identical(other.asSingle, asSingle) ||
-                const DeepCollectionEquality()
-                    .equals(other.asSingle, asSingle)) &&
+                other.asSingle == asSingle) &&
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
+                other.isSpecialAnswer == isSpecialAnswer) &&
             (identical(other.choiceGroup, choiceGroup) ||
-                const DeepCollectionEquality()
-                    .equals(other.choiceGroup, choiceGroup)) &&
+                other.choiceGroup == choiceGroup) &&
             (identical(other.isGroupFirst, isGroupFirst) ||
-                const DeepCollectionEquality()
-                    .equals(other.isGroupFirst, isGroupFirst)) &&
+                other.isGroupFirst == isGroupFirst) &&
             (identical(other.upperChoiceId, upperChoiceId) ||
-                const DeepCollectionEquality()
-                    .equals(other.upperChoiceId, upperChoiceId)));
+                other.upperChoiceId == upperChoiceId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(choiceId) ^
-      const DeepCollectionEquality().hash(choiceBody) ^
-      const DeepCollectionEquality().hash(asNote) ^
-      const DeepCollectionEquality().hash(asSingle) ^
-      const DeepCollectionEquality().hash(isSpecialAnswer) ^
-      const DeepCollectionEquality().hash(choiceGroup) ^
-      const DeepCollectionEquality().hash(isGroupFirst) ^
-      const DeepCollectionEquality().hash(upperChoiceId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      serialNumber,
+      choiceId,
+      choiceBody,
+      asNote,
+      asSingle,
+      isSpecialAnswer,
+      choiceGroup,
+      isGroupFirst,
+      upperChoiceId);
 
   @JsonKey(ignore: true)
   @override
@@ -342,23 +334,23 @@ abstract class _ChoiceDto extends ChoiceDto {
       _$_ChoiceDto.fromJson;
 
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  String get choiceId => throw _privateConstructorUsedError;
+  String get choiceId;
   @override
-  String get choiceBody => throw _privateConstructorUsedError;
+  String get choiceBody;
   @override
-  bool get asNote => throw _privateConstructorUsedError;
+  bool get asNote;
   @override
-  bool get asSingle => throw _privateConstructorUsedError;
+  bool get asSingle;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  String get choiceGroup => throw _privateConstructorUsedError;
+  String get choiceGroup;
   @override
-  bool get isGroupFirst => throw _privateConstructorUsedError;
+  bool get isGroupFirst;
   @override
-  String get upperChoiceId => throw _privateConstructorUsedError;
+  String get upperChoiceId;
   @override
   @JsonKey(ignore: true)
   _$ChoiceDtoCopyWith<_ChoiceDto> get copyWith =>

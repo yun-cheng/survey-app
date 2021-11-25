@@ -28,7 +28,7 @@ class _$AudioDtoTearOff {
     );
   }
 
-  AudioDto fromJson(Map<String, Object> json) {
+  AudioDto fromJson(Map<String, Object?> json) {
     return AudioDto.fromJson(json);
   }
 }
@@ -136,19 +136,15 @@ class _$_AudioDto extends _AudioDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AudioDto &&
+        (other.runtimeType == runtimeType &&
+            other is _AudioDto &&
             (identical(other.fileName, fileName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fileName, fileName)) &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)));
+                other.fileName == fileName) &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fileName) ^
-      const DeepCollectionEquality().hash(type);
+  int get hashCode => Object.hash(runtimeType, fileName, type);
 
   @JsonKey(ignore: true)
   @override
@@ -169,9 +165,9 @@ abstract class _AudioDto extends AudioDto {
   factory _AudioDto.fromJson(Map<String, dynamic> json) = _$_AudioDto.fromJson;
 
   @override
-  String get fileName => throw _privateConstructorUsedError;
+  String get fileName;
   @override
-  String get type => throw _privateConstructorUsedError;
+  String get type;
   @override
   @JsonKey(ignore: true)
   _$AudioDtoCopyWith<_AudioDto> get copyWith =>

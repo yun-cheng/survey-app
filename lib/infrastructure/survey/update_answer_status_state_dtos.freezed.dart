@@ -34,7 +34,6 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
-      bool? showDialog,
       String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
@@ -60,7 +59,6 @@ class _$UpdateAnswerStatusStateDtoTearOff {
       showWarning: showWarning,
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
-      showDialog: showDialog,
       dialogType: dialogType,
       showLeaveButton: showLeaveButton,
       respondent: respondent,
@@ -77,7 +75,7 @@ class _$UpdateAnswerStatusStateDtoTearOff {
     );
   }
 
-  UpdateAnswerStatusStateDto fromJson(Map<String, Object> json) {
+  UpdateAnswerStatusStateDto fromJson(Map<String, Object?> json) {
     return UpdateAnswerStatusStateDto.fromJson(json);
   }
 }
@@ -102,7 +100,6 @@ mixin _$UpdateAnswerStatusStateDto {
   bool? get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
   List<String>? get pageQIdSet => throw _privateConstructorUsedError;
   List<String>? get contentQIdSet => throw _privateConstructorUsedError;
-  bool? get showDialog => throw _privateConstructorUsedError;
   String? get dialogType => throw _privateConstructorUsedError;
   bool? get showLeaveButton =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
@@ -144,7 +141,6 @@ abstract class $UpdateAnswerStatusStateDtoCopyWith<$Res> {
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
-      bool? showDialog,
       String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
@@ -185,7 +181,6 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? showDialog = freezed,
     Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
@@ -245,10 +240,6 @@ class _$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      showDialog: showDialog == freezed
-          ? _value.showDialog
-          : showDialog // ignore: cast_nullable_to_non_nullable
-              as bool?,
       dialogType: dialogType == freezed
           ? _value.dialogType
           : dialogType // ignore: cast_nullable_to_non_nullable
@@ -347,7 +338,6 @@ abstract class _$UpdateAnswerStatusStateDtoCopyWith<$Res>
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
-      bool? showDialog,
       String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
@@ -393,7 +383,6 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? showDialog = freezed,
     Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
@@ -453,10 +442,6 @@ class __$UpdateAnswerStatusStateDtoCopyWithImpl<$Res>
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      showDialog: showDialog == freezed
-          ? _value.showDialog
-          : showDialog // ignore: cast_nullable_to_non_nullable
-              as bool?,
       dialogType: dialogType == freezed
           ? _value.dialogType
           : dialogType // ignore: cast_nullable_to_non_nullable
@@ -529,7 +514,6 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
       this.showWarning,
       this.pageQIdSet,
       this.contentQIdSet,
-      this.showDialog,
       this.dialogType,
       this.showLeaveButton,
       this.respondent,
@@ -571,8 +555,6 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
   @override
   final List<String>? contentQIdSet;
   @override
-  final bool? showDialog;
-  @override
   final String? dialogType;
   @override
   final bool? showLeaveButton;
@@ -601,110 +583,89 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
 
   @override
   String toString() {
-    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showDialog: $showDialog, dialogType: $dialogType, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
+    return 'UpdateAnswerStatusStateDto(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, dialogType: $dialogType, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, updateState: $updateState)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UpdateAnswerStatusStateDto &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)) &&
-            (identical(other.recodeAnswerMap, recodeAnswerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeAnswerMap, recodeAnswerMap)) &&
-            (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
-                const DeepCollectionEquality().equals(
-                    other.recodeAnswerStatusMap, recodeAnswerStatusMap)) &&
-            (identical(other.page, page) ||
-                const DeepCollectionEquality().equals(other.page, page)) &&
+        (other.runtimeType == runtimeType &&
+            other is _UpdateAnswerStatusStateDto &&
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerMap, recodeAnswerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerStatusMap, recodeAnswerStatusMap) &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.newestPage, newestPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.newestPage, newestPage)) &&
+                other.newestPage == newestPage) &&
             (identical(other.isLastPage, isLastPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLastPage, isLastPage)) &&
-            (identical(other.warning, warning) ||
-                const DeepCollectionEquality()
-                    .equals(other.warning, warning)) &&
+                other.isLastPage == isLastPage) &&
+            (identical(other.warning, warning) || other.warning == warning) &&
             (identical(other.showWarning, showWarning) ||
-                const DeepCollectionEquality()
-                    .equals(other.showWarning, showWarning)) &&
-            (identical(other.pageQIdSet, pageQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageQIdSet, pageQIdSet)) &&
-            (identical(other.contentQIdSet, contentQIdSet) ||
-                const DeepCollectionEquality()
-                    .equals(other.contentQIdSet, contentQIdSet)) &&
-            (identical(other.showDialog, showDialog) ||
-                const DeepCollectionEquality()
-                    .equals(other.showDialog, showDialog)) &&
+                other.showWarning == showWarning) &&
+            const DeepCollectionEquality()
+                .equals(other.pageQIdSet, pageQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.contentQIdSet, contentQIdSet) &&
             (identical(other.dialogType, dialogType) ||
-                const DeepCollectionEquality()
-                    .equals(other.dialogType, dialogType)) &&
+                other.dialogType == dialogType) &&
             (identical(other.showLeaveButton, showLeaveButton) ||
-                const DeepCollectionEquality()
-                    .equals(other.showLeaveButton, showLeaveButton)) &&
+                other.showLeaveButton == showLeaveButton) &&
             (identical(other.respondent, respondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondent, respondent)) &&
+                other.respondent == respondent) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.isReadOnly, isReadOnly) ||
-                const DeepCollectionEquality()
-                    .equals(other.isReadOnly, isReadOnly)) &&
+                other.isReadOnly == isReadOnly) &&
             (identical(other.isRecodeModule, isRecodeModule) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRecodeModule, isRecodeModule)) &&
-            (identical(other.referenceList, referenceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.referenceList, referenceList)) &&
-            (identical(other.respondentResponseMap, respondentResponseMap) ||
-                const DeepCollectionEquality().equals(
-                    other.respondentResponseMap, respondentResponseMap)) &&
-            (identical(other.questionMap, questionMap) ||
-                const DeepCollectionEquality().equals(other.questionMap, questionMap)) &&
-            (identical(other.recodeQuestionMap, recodeQuestionMap) || const DeepCollectionEquality().equals(other.recodeQuestionMap, recodeQuestionMap)) &&
-            (identical(other.restoreState, restoreState) || const DeepCollectionEquality().equals(other.restoreState, restoreState)) &&
-            (identical(other.updateState, updateState) || const DeepCollectionEquality().equals(other.updateState, updateState)));
+                other.isRecodeModule == isRecodeModule) &&
+            const DeepCollectionEquality()
+                .equals(other.referenceList, referenceList) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentResponseMap, respondentResponseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.questionMap, questionMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeQuestionMap, recodeQuestionMap) &&
+            (identical(other.restoreState, restoreState) ||
+                other.restoreState == restoreState) &&
+            (identical(other.updateState, updateState) ||
+                other.updateState == updateState));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerMap) ^
-      const DeepCollectionEquality().hash(recodeAnswerStatusMap) ^
-      const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(newestPage) ^
-      const DeepCollectionEquality().hash(isLastPage) ^
-      const DeepCollectionEquality().hash(warning) ^
-      const DeepCollectionEquality().hash(showWarning) ^
-      const DeepCollectionEquality().hash(pageQIdSet) ^
-      const DeepCollectionEquality().hash(contentQIdSet) ^
-      const DeepCollectionEquality().hash(showDialog) ^
-      const DeepCollectionEquality().hash(dialogType) ^
-      const DeepCollectionEquality().hash(showLeaveButton) ^
-      const DeepCollectionEquality().hash(respondent) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(isReadOnly) ^
-      const DeepCollectionEquality().hash(isRecodeModule) ^
-      const DeepCollectionEquality().hash(referenceList) ^
-      const DeepCollectionEquality().hash(respondentResponseMap) ^
-      const DeepCollectionEquality().hash(questionMap) ^
-      const DeepCollectionEquality().hash(recodeQuestionMap) ^
-      const DeepCollectionEquality().hash(restoreState) ^
-      const DeepCollectionEquality().hash(updateState);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(answerMap),
+        const DeepCollectionEquality().hash(answerStatusMap),
+        const DeepCollectionEquality().hash(recodeAnswerMap),
+        const DeepCollectionEquality().hash(recodeAnswerStatusMap),
+        page,
+        newestPage,
+        isLastPage,
+        warning,
+        showWarning,
+        const DeepCollectionEquality().hash(pageQIdSet),
+        const DeepCollectionEquality().hash(contentQIdSet),
+        dialogType,
+        showLeaveButton,
+        respondent,
+        surveyId,
+        moduleType,
+        isReadOnly,
+        isRecodeModule,
+        const DeepCollectionEquality().hash(referenceList),
+        const DeepCollectionEquality().hash(respondentResponseMap),
+        const DeepCollectionEquality().hash(questionMap),
+        const DeepCollectionEquality().hash(recodeQuestionMap),
+        restoreState,
+        updateState
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -731,7 +692,6 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
       bool? showWarning,
       List<String>? pageQIdSet,
       List<String>? contentQIdSet,
-      bool? showDialog,
       String? dialogType,
       bool? showLeaveButton,
       RespondentDto? respondent,
@@ -751,61 +711,53 @@ abstract class _UpdateAnswerStatusStateDto extends UpdateAnswerStatusStateDto {
       _$_UpdateAnswerStatusStateDto.fromJson;
 
   @override // H_ 主要資料
-  Map<String, AnswerDto>? get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerDto>? get answerMap;
   @override
-  Map<String, AnswerStatusDto>? get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto>? get answerStatusMap;
   @override
-  Map<String, AnswerDto>? get recodeAnswerMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerDto>? get recodeAnswerMap;
   @override
-  Map<String, AnswerStatusDto>? get recodeAnswerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto>? get recodeAnswerStatusMap;
   @override
-  int? get page => throw _privateConstructorUsedError;
+  int? get page;
   @override
-  int? get newestPage => throw _privateConstructorUsedError;
+  int? get newestPage;
   @override
-  bool? get isLastPage => throw _privateConstructorUsedError;
+  bool? get isLastPage;
   @override
-  WarningDto? get warning => throw _privateConstructorUsedError;
+  WarningDto? get warning;
   @override
-  bool? get showWarning => throw _privateConstructorUsedError;
+  bool? get showWarning;
   @override // H_ 中間資料
-  List<String>? get pageQIdSet => throw _privateConstructorUsedError;
+  List<String>? get pageQIdSet;
   @override
-  List<String>? get contentQIdSet => throw _privateConstructorUsedError;
+  List<String>? get contentQIdSet;
   @override
-  bool? get showDialog => throw _privateConstructorUsedError;
+  String? get dialogType;
   @override
-  String? get dialogType => throw _privateConstructorUsedError;
-  @override
-  bool? get showLeaveButton => throw _privateConstructorUsedError;
+  bool? get showLeaveButton;
   @override // H_ 同 session 不變的參考資料
-  RespondentDto? get respondent => throw _privateConstructorUsedError;
+  RespondentDto? get respondent;
   @override
-  String? get surveyId => throw _privateConstructorUsedError;
+  String? get surveyId;
   @override
-  String? get moduleType => throw _privateConstructorUsedError;
+  String? get moduleType;
   @override
-  bool? get isReadOnly => throw _privateConstructorUsedError;
+  bool? get isReadOnly;
   @override
-  bool? get isRecodeModule => throw _privateConstructorUsedError;
+  bool? get isRecodeModule;
   @override
-  List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
+  List<ReferenceDto>? get referenceList;
   @override
-  Map<String, ResponseDto>? get respondentResponseMap =>
-      throw _privateConstructorUsedError;
+  Map<String, ResponseDto>? get respondentResponseMap;
   @override // H_ 同 session 會變的參考資料
-  Map<String, QuestionDto>? get questionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, QuestionDto>? get questionMap;
   @override
-  Map<String, QuestionDto>? get recodeQuestionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, QuestionDto>? get recodeQuestionMap;
   @override // H_ 狀態更新進度
-  String? get restoreState => throw _privateConstructorUsedError;
+  String? get restoreState;
   @override
-  String? get updateState => throw _privateConstructorUsedError;
+  String? get updateState;
   @override
   @JsonKey(ignore: true)
   _$UpdateAnswerStatusStateDtoCopyWith<_UpdateAnswerStatusStateDto>

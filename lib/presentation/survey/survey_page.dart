@@ -14,26 +14,21 @@ import 'widgets/survey_body.dart';
 import 'widgets/survey_dialog.dart';
 
 class SurveyPage extends HookWidget {
-  final String respondentId;
-  final bool showDialogOnRestart;
-
-  const SurveyPage({
-    Key? key,
-    // BUG https://github.com/Milad-Akarie/auto_route_library/issues/590
-    required this.respondentId,
-    required this.showDialogOnRestart,
-  }) : super(key: key);
+  const SurveyPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     logger('Build').i('SurveyPage');
 
+    final showDialog = useValueNotifier(true);
+
     useEffect(() {
-      if (showDialogOnRestart) {
+      if (showDialog.value) {
         // NOTE https://stackoverflow.com/a/61137589
         WidgetsBinding.instance!.addPostFrameCallback((_) {
           showSurveyDialog(context);
         });
+        showDialog.value = false;
       }
     }, []);
 

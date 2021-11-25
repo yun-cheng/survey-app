@@ -177,15 +177,14 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RecordStarted &&
+        (other.runtimeType == runtimeType &&
+            other is _RecordStarted &&
             (identical(other.fileName, fileName) ||
-                const DeepCollectionEquality()
-                    .equals(other.fileName, fileName)));
+                other.fileName == fileName));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(fileName);
+  int get hashCode => Object.hash(runtimeType, fileName);
 
   @JsonKey(ignore: true)
   @override
@@ -270,7 +269,7 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
 abstract class _RecordStarted implements AudioRecorderEvent {
   const factory _RecordStarted(UniqueId fileName) = _$_RecordStarted;
 
-  UniqueId get fileName => throw _privateConstructorUsedError;
+  UniqueId get fileName;
   @JsonKey(ignore: true)
   _$RecordStartedCopyWith<_RecordStarted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -314,7 +313,8 @@ class _$_RecordStopped with DiagnosticableTreeMixin implements _RecordStopped {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _RecordStopped);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _RecordStopped);
   }
 
   @override
@@ -440,7 +440,8 @@ class _$_WatchDbStreamStarted
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WatchDbStreamStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WatchDbStreamStarted);
   }
 
   @override
@@ -580,14 +581,13 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _DbUpdated &&
-            (identical(other.db, db) ||
-                const DeepCollectionEquality().equals(other.db, db)));
+        (other.runtimeType == runtimeType &&
+            other is _DbUpdated &&
+            (identical(other.db, db) || other.db == db));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(db);
+  int get hashCode => Object.hash(runtimeType, db);
 
   @JsonKey(ignore: true)
   @override
@@ -672,7 +672,7 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
 abstract class _DbUpdated implements AudioRecorderEvent {
   const factory _DbUpdated(double db) = _$_DbUpdated;
 
-  double get db => throw _privateConstructorUsedError;
+  double get db;
   @JsonKey(ignore: true)
   _$DbUpdatedCopyWith<_DbUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -893,30 +893,21 @@ class _$_AudioRecorderState extends _AudioRecorderState
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AudioRecorderState &&
-            (identical(other.db, db) ||
-                const DeepCollectionEquality().equals(other.db, db)) &&
+        (other.runtimeType == runtimeType &&
+            other is _AudioRecorderState &&
+            (identical(other.db, db) || other.db == db) &&
             (identical(other.isRecording, isRecording) ||
-                const DeepCollectionEquality()
-                    .equals(other.isRecording, isRecording)) &&
-            (identical(other.audio, audio) ||
-                const DeepCollectionEquality().equals(other.audio, audio)) &&
+                other.isRecording == isRecording) &&
+            (identical(other.audio, audio) || other.audio == audio) &&
             (identical(other.recorderState, recorderState) ||
-                const DeepCollectionEquality()
-                    .equals(other.recorderState, recorderState)) &&
+                other.recorderState == recorderState) &&
             (identical(other.audioFailure, audioFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.audioFailure, audioFailure)));
+                other.audioFailure == audioFailure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(db) ^
-      const DeepCollectionEquality().hash(isRecording) ^
-      const DeepCollectionEquality().hash(audio) ^
-      const DeepCollectionEquality().hash(recorderState) ^
-      const DeepCollectionEquality().hash(audioFailure);
+  int get hashCode => Object.hash(
+      runtimeType, db, isRecording, audio, recorderState, audioFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -934,15 +925,15 @@ abstract class _AudioRecorderState extends AudioRecorderState {
   const _AudioRecorderState._() : super._();
 
   @override
-  double get db => throw _privateConstructorUsedError;
+  double get db;
   @override
-  bool get isRecording => throw _privateConstructorUsedError;
+  bool get isRecording;
   @override
-  Audio get audio => throw _privateConstructorUsedError;
+  Audio get audio;
   @override
-  LoadState get recorderState => throw _privateConstructorUsedError;
+  LoadState get recorderState;
   @override
-  Option<AudioFailure> get audioFailure => throw _privateConstructorUsedError;
+  Option<AudioFailure> get audioFailure;
   @override
   @JsonKey(ignore: true)
   _$AudioRecorderStateCopyWith<_AudioRecorderState> get copyWith =>

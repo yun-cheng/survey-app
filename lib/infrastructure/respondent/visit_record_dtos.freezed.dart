@@ -36,7 +36,7 @@ class _$VisitRecordDtoTearOff {
     );
   }
 
-  VisitRecordDto fromJson(Map<String, Object> json) {
+  VisitRecordDto fromJson(Map<String, Object?> json) {
     return VisitRecordDto.fromJson(json);
   }
 }
@@ -217,31 +217,22 @@ class _$_VisitRecordDto extends _VisitRecordDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _VisitRecordDto &&
+        (other.runtimeType == runtimeType &&
+            other is _VisitRecordDto &&
             (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)) &&
+                other.respondentId == respondentId) &&
             (identical(other.responseId, responseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)) &&
+                other.responseId == responseId) &&
             (identical(other.visitTime, visitTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.visitTime, visitTime)) &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
+                other.visitTime == visitTime) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)));
+                other.description == description));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentId) ^
-      const DeepCollectionEquality().hash(responseId) ^
-      const DeepCollectionEquality().hash(visitTime) ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(description);
+  int get hashCode => Object.hash(
+      runtimeType, respondentId, responseId, visitTime, status, description);
 
   @JsonKey(ignore: true)
   @override
@@ -267,15 +258,15 @@ abstract class _VisitRecordDto extends VisitRecordDto {
       _$_VisitRecordDto.fromJson;
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  String get responseId => throw _privateConstructorUsedError;
+  String get responseId;
   @override
-  VisitTimeDto get visitTime => throw _privateConstructorUsedError;
+  VisitTimeDto get visitTime;
   @override
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$VisitRecordDtoCopyWith<_VisitRecordDto> get copyWith =>

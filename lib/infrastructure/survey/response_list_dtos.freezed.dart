@@ -27,7 +27,7 @@ class _$ResponseMapDtoTearOff {
     );
   }
 
-  ResponseMapDto fromJson(Map<String, Object> json) {
+  ResponseMapDto fromJson(Map<String, Object?> json) {
     return ResponseMapDto.fromJson(json);
   }
 }
@@ -128,14 +128,14 @@ class _$_ResponseMapDto extends _ResponseMapDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseMapDto &&
-            (identical(other.map, map) ||
-                const DeepCollectionEquality().equals(other.map, map)));
+        (other.runtimeType == runtimeType &&
+            other is _ResponseMapDto &&
+            const DeepCollectionEquality().equals(other.map, map));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(map);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(map));
 
   @JsonKey(ignore: true)
   @override
@@ -157,7 +157,7 @@ abstract class _ResponseMapDto extends ResponseMapDto {
       _$_ResponseMapDto.fromJson;
 
   @override
-  Map<String, ResponseDto>? get map => throw _privateConstructorUsedError;
+  Map<String, ResponseDto>? get map;
   @override
   @JsonKey(ignore: true)
   _$ResponseMapDtoCopyWith<_ResponseMapDto> get copyWith =>
@@ -217,7 +217,7 @@ class _$ResponseDtoTearOff {
     );
   }
 
-  ResponseDto fromJson(Map<String, Object> json) {
+  ResponseDto fromJson(Map<String, Object?> json) {
     return ResponseDto.fromJson(json);
   }
 }
@@ -641,91 +641,72 @@ class _$_ResponseDto extends _ResponseDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ResponseDto &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ResponseDto &&
+            (identical(other.teamId, teamId) || other.teamId == teamId) &&
             (identical(other.projectId, projectId) ||
-                const DeepCollectionEquality()
-                    .equals(other.projectId, projectId)) &&
+                other.projectId == projectId) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)) &&
+                other.respondentId == respondentId) &&
             (identical(other.responseId, responseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)) &&
+                other.responseId == responseId) &&
             (identical(other.tempResponseId, tempResponseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.tempResponseId, tempResponseId)) &&
+                other.tempResponseId == tempResponseId) &&
             (identical(other.ticketId, ticketId) ||
-                const DeepCollectionEquality()
-                    .equals(other.ticketId, ticketId)) &&
+                other.ticketId == ticketId) &&
             (identical(other.editFinished, editFinished) ||
-                const DeepCollectionEquality()
-                    .equals(other.editFinished, editFinished)) &&
+                other.editFinished == editFinished) &&
             (identical(other.interviewerId, interviewerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerId, interviewerId)) &&
+                other.interviewerId == interviewerId) &&
             (identical(other.deviceId, deviceId) ||
-                const DeepCollectionEquality()
-                    .equals(other.deviceId, deviceId)) &&
+                other.deviceId == deviceId) &&
             (identical(other.createdTimeStamp, createdTimeStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdTimeStamp, createdTimeStamp)) &&
+                other.createdTimeStamp == createdTimeStamp) &&
             (identical(other.sessionStartTimeStamp, sessionStartTimeStamp) ||
-                const DeepCollectionEquality().equals(
-                    other.sessionStartTimeStamp, sessionStartTimeStamp)) &&
+                other.sessionStartTimeStamp == sessionStartTimeStamp) &&
             (identical(other.sessionEndTimeStamp, sessionEndTimeStamp) ||
-                const DeepCollectionEquality()
-                    .equals(other.sessionEndTimeStamp, sessionEndTimeStamp)) &&
+                other.sessionEndTimeStamp == sessionEndTimeStamp) &&
             (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
-                const DeepCollectionEquality().equals(
-                    other.lastChangedTimeStamp, lastChangedTimeStamp)) &&
+                other.lastChangedTimeStamp == lastChangedTimeStamp) &&
             (identical(other.responseStatus, responseStatus) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseStatus, responseStatus)) &&
+                other.responseStatus == responseStatus) &&
             (identical(other.isDeleted, isDeleted) ||
-                const DeepCollectionEquality()
-                    .equals(other.isDeleted, isDeleted)) &&
-            (identical(other.answerMap, answerMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerMap, answerMap)) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusMap, answerStatusMap)) &&
+                other.isDeleted == isDeleted) &&
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap) &&
             (identical(other.surveyPageState, surveyPageState) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyPageState, surveyPageState)));
+                other.surveyPageState == surveyPageState));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(teamId) ^
-      const DeepCollectionEquality().hash(projectId) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(respondentId) ^
-      const DeepCollectionEquality().hash(responseId) ^
-      const DeepCollectionEquality().hash(tempResponseId) ^
-      const DeepCollectionEquality().hash(ticketId) ^
-      const DeepCollectionEquality().hash(editFinished) ^
-      const DeepCollectionEquality().hash(interviewerId) ^
-      const DeepCollectionEquality().hash(deviceId) ^
-      const DeepCollectionEquality().hash(createdTimeStamp) ^
-      const DeepCollectionEquality().hash(sessionStartTimeStamp) ^
-      const DeepCollectionEquality().hash(sessionEndTimeStamp) ^
-      const DeepCollectionEquality().hash(lastChangedTimeStamp) ^
-      const DeepCollectionEquality().hash(responseStatus) ^
-      const DeepCollectionEquality().hash(isDeleted) ^
-      const DeepCollectionEquality().hash(answerMap) ^
-      const DeepCollectionEquality().hash(answerStatusMap) ^
-      const DeepCollectionEquality().hash(surveyPageState);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        teamId,
+        projectId,
+        surveyId,
+        moduleType,
+        respondentId,
+        responseId,
+        tempResponseId,
+        ticketId,
+        editFinished,
+        interviewerId,
+        deviceId,
+        createdTimeStamp,
+        sessionStartTimeStamp,
+        sessionEndTimeStamp,
+        lastChangedTimeStamp,
+        responseStatus,
+        isDeleted,
+        const DeepCollectionEquality().hash(answerMap),
+        const DeepCollectionEquality().hash(answerStatusMap),
+        surveyPageState
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -766,47 +747,45 @@ abstract class _ResponseDto extends ResponseDto {
       _$_ResponseDto.fromJson;
 
   @override // H_ 區分不同 response
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  String get moduleType => throw _privateConstructorUsedError;
+  String get moduleType;
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override // H_ 區分 response 版本
-  String get responseId => throw _privateConstructorUsedError;
+  String get responseId;
   @override
-  String get tempResponseId => throw _privateConstructorUsedError;
+  String get tempResponseId;
   @override
-  String get ticketId => throw _privateConstructorUsedError;
+  String get ticketId;
   @override
-  bool get editFinished => throw _privateConstructorUsedError;
+  bool get editFinished;
   @override
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get interviewerId;
   @override
-  String get deviceId => throw _privateConstructorUsedError;
+  String get deviceId;
   @override // H_ 狀態
-  int get createdTimeStamp => throw _privateConstructorUsedError;
+  int get createdTimeStamp;
   @override
-  int get sessionStartTimeStamp => throw _privateConstructorUsedError;
+  int get sessionStartTimeStamp;
   @override
-  int get sessionEndTimeStamp => throw _privateConstructorUsedError;
+  int get sessionEndTimeStamp;
   @override
-  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
+  int get lastChangedTimeStamp;
   @override
-  String get responseStatus => throw _privateConstructorUsedError;
+  String get responseStatus;
   @override
-  bool get isDeleted => throw _privateConstructorUsedError;
+  bool get isDeleted;
   @override // H_ 內容
-  Map<String, AnswerDto> get answerMap => throw _privateConstructorUsedError;
+  Map<String, AnswerDto> get answerMap;
   @override
-  Map<String, AnswerStatusDto> get answerStatusMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusDto> get answerStatusMap;
   @override
-  SimpleSurveyPageStateDto get surveyPageState =>
-      throw _privateConstructorUsedError;
+  SimpleSurveyPageStateDto get surveyPageState;
   @override
   @JsonKey(ignore: true)
   _$ResponseDtoCopyWith<_ResponseDto> get copyWith =>

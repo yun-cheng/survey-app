@@ -31,11 +31,6 @@ final navigationListener = BlocListener<NavigationBloc, NavigationState>(
       return;
     }
 
-    context.router.push(
-      SurveyRoute(
-        respondentId: state.respondentId,
-        showDialogOnRestart: true,
-      ),
-    );
+    context.router.push(const SurveyRoute());
   },
 );

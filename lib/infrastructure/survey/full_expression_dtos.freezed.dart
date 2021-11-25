@@ -30,7 +30,7 @@ class _$FullExpressionDtoTearOff {
     );
   }
 
-  FullExpressionDto fromJson(Map<String, Object> json) {
+  FullExpressionDto fromJson(Map<String, Object?> json) {
     return FullExpressionDto.fromJson(json);
   }
 }
@@ -149,20 +149,17 @@ class _$_FullExpressionDto extends _FullExpressionDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FullExpressionDto &&
+        (other.runtimeType == runtimeType &&
+            other is _FullExpressionDto &&
             (identical(other.fullExpressionBody, fullExpressionBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.fullExpressionBody, fullExpressionBody)) &&
-            (identical(other.expressionMap, expressionMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.expressionMap, expressionMap)));
+                other.fullExpressionBody == fullExpressionBody) &&
+            const DeepCollectionEquality()
+                .equals(other.expressionMap, expressionMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fullExpressionBody) ^
-      const DeepCollectionEquality().hash(expressionMap);
+  int get hashCode => Object.hash(runtimeType, fullExpressionBody,
+      const DeepCollectionEquality().hash(expressionMap));
 
   @JsonKey(ignore: true)
   @override
@@ -186,10 +183,9 @@ abstract class _FullExpressionDto extends FullExpressionDto {
       _$_FullExpressionDto.fromJson;
 
   @override
-  String get fullExpressionBody => throw _privateConstructorUsedError;
+  String get fullExpressionBody;
   @override
-  Map<String, ExpressionDto> get expressionMap =>
-      throw _privateConstructorUsedError;
+  Map<String, ExpressionDto> get expressionMap;
   @override
   @JsonKey(ignore: true)
   _$FullExpressionDtoCopyWith<_FullExpressionDto> get copyWith =>
@@ -215,7 +211,7 @@ class _$ExpressionDtoTearOff {
     );
   }
 
-  ExpressionDto fromJson(Map<String, Object> json) {
+  ExpressionDto fromJson(Map<String, Object?> json) {
     return ExpressionDto.fromJson(json);
   }
 }
@@ -358,23 +354,18 @@ class _$_ExpressionDto extends _ExpressionDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ExpressionDto &&
-            (identical(other.field, field) ||
-                const DeepCollectionEquality().equals(other.field, field)) &&
+        (other.runtimeType == runtimeType &&
+            other is _ExpressionDto &&
+            (identical(other.field, field) || other.field == field) &&
             (identical(other.operator, operator) ||
-                const DeepCollectionEquality()
-                    .equals(other.operator, operator)) &&
+                other.operator == operator) &&
             (identical(other.comparisonValue, comparisonValue) ||
-                const DeepCollectionEquality()
-                    .equals(other.comparisonValue, comparisonValue)));
+                other.comparisonValue == comparisonValue));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(field) ^
-      const DeepCollectionEquality().hash(operator) ^
-      const DeepCollectionEquality().hash(comparisonValue);
+      Object.hash(runtimeType, field, operator, comparisonValue);
 
   @JsonKey(ignore: true)
   @override
@@ -398,11 +389,11 @@ abstract class _ExpressionDto extends ExpressionDto {
       _$_ExpressionDto.fromJson;
 
   @override
-  String get field => throw _privateConstructorUsedError;
+  String get field;
   @override
-  String get operator => throw _privateConstructorUsedError;
+  String get operator;
   @override
-  AnswerDto get comparisonValue => throw _privateConstructorUsedError;
+  AnswerDto get comparisonValue;
   @override
   @JsonKey(ignore: true)
   _$ExpressionDtoCopyWith<_ExpressionDto> get copyWith =>

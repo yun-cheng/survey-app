@@ -44,6 +44,15 @@ class NavigationBloc extends HydratedBloc<NavigationEvent, NavigationState> {
           ),
         );
       },
+      loggedOut: (e) async {
+        emit(
+          state.copyWith(
+            page: NavigationPage.signIn(),
+            respondentId: '',
+          ),
+        );
+        await clear();
+      },
     );
   }
 

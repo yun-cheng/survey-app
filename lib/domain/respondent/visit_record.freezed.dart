@@ -213,31 +213,22 @@ class _$_VisitRecord extends _VisitRecord {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _VisitRecord &&
+        (other.runtimeType == runtimeType &&
+            other is _VisitRecord &&
             (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)) &&
+                other.respondentId == respondentId) &&
             (identical(other.responseId, responseId) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseId, responseId)) &&
+                other.responseId == responseId) &&
             (identical(other.visitTime, visitTime) ||
-                const DeepCollectionEquality()
-                    .equals(other.visitTime, visitTime)) &&
-            (identical(other.status, status) ||
-                const DeepCollectionEquality().equals(other.status, status)) &&
+                other.visitTime == visitTime) &&
+            (identical(other.status, status) || other.status == status) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)));
+                other.description == description));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(respondentId) ^
-      const DeepCollectionEquality().hash(responseId) ^
-      const DeepCollectionEquality().hash(visitTime) ^
-      const DeepCollectionEquality().hash(status) ^
-      const DeepCollectionEquality().hash(description);
+  int get hashCode => Object.hash(
+      runtimeType, respondentId, responseId, visitTime, status, description);
 
   @JsonKey(ignore: true)
   @override
@@ -255,15 +246,15 @@ abstract class _VisitRecord extends VisitRecord {
   const _VisitRecord._() : super._();
 
   @override
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @override
-  UniqueId get responseId => throw _privateConstructorUsedError;
+  UniqueId get responseId;
   @override
-  VisitTime get visitTime => throw _privateConstructorUsedError;
+  VisitTime get visitTime;
   @override
-  String get status => throw _privateConstructorUsedError;
+  String get status;
   @override
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
   @JsonKey(ignore: true)
   _$VisitRecordCopyWith<_VisitRecord> get copyWith =>

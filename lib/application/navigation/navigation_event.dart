@@ -7,5 +7,6 @@ class NavigationEvent with _$NavigationEvent {
     String? respondentId,
   }) = _PageChanged;
   const factory NavigationEvent.pagePushed() = _PagePushed;
+  const factory NavigationEvent.loggedOut() = _LoggedOut;
   const factory NavigationEvent.initialized() = _Initialized;
 }

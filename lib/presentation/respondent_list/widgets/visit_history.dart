@@ -60,12 +60,7 @@ class VisitHistory extends StatelessWidget {
                         respondentId: respondent.id,
                       ),
                     );
-                context.router.push(
-                  SurveyRoute(
-                    respondentId: respondent.id,
-                    showDialogOnRestart: false,
-                  ),
-                );
+                context.router.push(const SurveyRoute());
               },
               child: Align(
                 alignment: Alignment.centerLeft,

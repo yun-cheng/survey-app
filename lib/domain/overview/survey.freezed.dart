@@ -182,28 +182,19 @@ class _$_Survey extends _Survey {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Survey &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Survey &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.teamId, teamId) || other.teamId == teamId) &&
             (identical(other.projectId, projectId) ||
-                const DeepCollectionEquality()
-                    .equals(other.projectId, projectId)) &&
-            (identical(other.module, module) ||
-                const DeepCollectionEquality().equals(other.module, module)));
+                other.projectId == projectId) &&
+            const DeepCollectionEquality().equals(other.module, module));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(teamId) ^
-      const DeepCollectionEquality().hash(projectId) ^
-      const DeepCollectionEquality().hash(module);
+  int get hashCode => Object.hash(runtimeType, id, name, teamId, projectId,
+      const DeepCollectionEquality().hash(module));
 
   @JsonKey(ignore: true)
   @override
@@ -221,16 +212,15 @@ abstract class _Survey extends Survey {
   const _Survey._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get teamId => throw _privateConstructorUsedError;
+  String get teamId;
   @override
-  String get projectId => throw _privateConstructorUsedError;
+  String get projectId;
   @override
-  Map<ModuleType, SurveyModule> get module =>
-      throw _privateConstructorUsedError;
+  Map<ModuleType, SurveyModule> get module;
   @override
   @JsonKey(ignore: true)
   _$SurveyCopyWith<_Survey> get copyWith => throw _privateConstructorUsedError;

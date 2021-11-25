@@ -161,24 +161,19 @@ class _$_ReferenceKey extends _ReferenceKey {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ReferenceKey &&
+        (other.runtimeType == runtimeType &&
+            other is _ReferenceKey &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
+                other.surveyId == surveyId) &&
             (identical(other.moduleType, moduleType) ||
-                const DeepCollectionEquality()
-                    .equals(other.moduleType, moduleType)) &&
+                other.moduleType == moduleType) &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)));
+                other.questionId == questionId));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(moduleType) ^
-      const DeepCollectionEquality().hash(questionId);
+      Object.hash(runtimeType, surveyId, moduleType, questionId);
 
   @JsonKey(ignore: true)
   @override
@@ -194,11 +189,11 @@ abstract class _ReferenceKey extends ReferenceKey {
   const _ReferenceKey._() : super._();
 
   @override
-  String get surveyId => throw _privateConstructorUsedError;
+  String get surveyId;
   @override
-  ModuleType get moduleType => throw _privateConstructorUsedError;
+  ModuleType get moduleType;
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
   @JsonKey(ignore: true)
   _$ReferenceKeyCopyWith<_ReferenceKey> get copyWith =>

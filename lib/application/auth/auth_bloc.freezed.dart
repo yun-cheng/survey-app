@@ -222,7 +222,8 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WatchTeamListStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _WatchTeamListStarted);
   }
 
   @override
@@ -404,16 +405,14 @@ class _$_TeamListReceived implements _TeamListReceived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TeamListReceived &&
+        (other.runtimeType == runtimeType &&
+            other is _TeamListReceived &&
             (identical(other.failureOrTeamList, failureOrTeamList) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrTeamList, failureOrTeamList)));
+                other.failureOrTeamList == failureOrTeamList));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrTeamList);
+  int get hashCode => Object.hash(runtimeType, failureOrTeamList);
 
   @JsonKey(ignore: true)
   @override
@@ -548,8 +547,7 @@ abstract class _TeamListReceived implements AuthEvent {
   const factory _TeamListReceived(
       Either<AuthFailure, List<Team>> failureOrTeamList) = _$_TeamListReceived;
 
-  Either<AuthFailure, List<Team>> get failureOrTeamList =>
-      throw _privateConstructorUsedError;
+  Either<AuthFailure, List<Team>> get failureOrTeamList;
   @JsonKey(ignore: true)
   _$TeamListReceivedCopyWith<_TeamListReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -611,14 +609,13 @@ class _$_TeamSelected implements _TeamSelected {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TeamSelected &&
-            (identical(other.team, team) ||
-                const DeepCollectionEquality().equals(other.team, team)));
+        (other.runtimeType == runtimeType &&
+            other is _TeamSelected &&
+            (identical(other.team, team) || other.team == team));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(team);
+  int get hashCode => Object.hash(runtimeType, team);
 
   @JsonKey(ignore: true)
   @override
@@ -752,7 +749,7 @@ class _$_TeamSelected implements _TeamSelected {
 abstract class _TeamSelected implements AuthEvent {
   const factory _TeamSelected(Team team) = _$_TeamSelected;
 
-  Team get team => throw _privateConstructorUsedError;
+  Team get team;
   @JsonKey(ignore: true)
   _$TeamSelectedCopyWith<_TeamSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -792,7 +789,9 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _WatchInterviewerListStarted);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _WatchInterviewerListStarted);
   }
 
   @override
@@ -975,17 +974,15 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _InterviewerListReceived &&
+        (other.runtimeType == runtimeType &&
+            other is _InterviewerListReceived &&
             (identical(
                     other.failureOrInterviewerList, failureOrInterviewerList) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrInterviewerList, failureOrInterviewerList)));
+                other.failureOrInterviewerList == failureOrInterviewerList));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrInterviewerList);
+  int get hashCode => Object.hash(runtimeType, failureOrInterviewerList);
 
   @JsonKey(ignore: true)
   @override
@@ -1122,8 +1119,7 @@ abstract class _InterviewerListReceived implements AuthEvent {
           Either<AuthFailure, List<Interviewer>> failureOrInterviewerList) =
       _$_InterviewerListReceived;
 
-  Either<AuthFailure, List<Interviewer>> get failureOrInterviewerList =>
-      throw _privateConstructorUsedError;
+  Either<AuthFailure, List<Interviewer>> get failureOrInterviewerList;
   @JsonKey(ignore: true)
   _$InterviewerListReceivedCopyWith<_InterviewerListReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1175,14 +1171,13 @@ class _$_IdChanged implements _IdChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _IdChanged &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)));
+        (other.runtimeType == runtimeType &&
+            other is _IdChanged &&
+            (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(id);
+  int get hashCode => Object.hash(runtimeType, id);
 
   @JsonKey(ignore: true)
   @override
@@ -1316,7 +1311,7 @@ class _$_IdChanged implements _IdChanged {
 abstract class _IdChanged implements AuthEvent {
   const factory _IdChanged(String id) = _$_IdChanged;
 
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @JsonKey(ignore: true)
   _$IdChangedCopyWith<_IdChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1369,15 +1364,14 @@ class _$_PasswordChanged implements _PasswordChanged {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PasswordChanged &&
+        (other.runtimeType == runtimeType &&
+            other is _PasswordChanged &&
             (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)));
+                other.password == password));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(password);
+  int get hashCode => Object.hash(runtimeType, password);
 
   @JsonKey(ignore: true)
   @override
@@ -1511,7 +1505,7 @@ class _$_PasswordChanged implements _PasswordChanged {
 abstract class _PasswordChanged implements AuthEvent {
   const factory _PasswordChanged(String password) = _$_PasswordChanged;
 
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @JsonKey(ignore: true)
   _$PasswordChangedCopyWith<_PasswordChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1547,7 +1541,8 @@ class _$_SignInPressed implements _SignInPressed {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _SignInPressed);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _SignInPressed);
   }
 
   @override
@@ -1710,7 +1705,8 @@ class _$_LoggedOut implements _LoggedOut {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoggedOut);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoggedOut);
   }
 
   @override
@@ -1874,7 +1870,8 @@ class _$_Initialized implements _Initialized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initialized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initialized);
   }
 
   @override
@@ -2343,54 +2340,43 @@ class _$_AuthState extends _AuthState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AuthState &&
+        (other.runtimeType == runtimeType &&
+            other is _AuthState &&
             (identical(other.teamListState, teamListState) ||
-                const DeepCollectionEquality()
-                    .equals(other.teamListState, teamListState)) &&
-            (identical(other.teamList, teamList) ||
-                const DeepCollectionEquality()
-                    .equals(other.teamList, teamList)) &&
-            (identical(other.team, team) ||
-                const DeepCollectionEquality().equals(other.team, team)) &&
+                other.teamListState == teamListState) &&
+            const DeepCollectionEquality().equals(other.teamList, teamList) &&
+            (identical(other.team, team) || other.team == team) &&
             (identical(other.interviewerListState, interviewerListState) ||
-                const DeepCollectionEquality().equals(
-                    other.interviewerListState, interviewerListState)) &&
-            (identical(other.interviewerList, interviewerList) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerList, interviewerList)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+                other.interviewerListState == interviewerListState) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerList, interviewerList) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)) &&
+                other.password == password) &&
             (identical(other.signInState, signInState) ||
-                const DeepCollectionEquality()
-                    .equals(other.signInState, signInState)) &&
+                other.signInState == signInState) &&
             (identical(other.interviewer, interviewer) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewer, interviewer)) &&
+                other.interviewer == interviewer) &&
             (identical(other.authFailure, authFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.authFailure, authFailure)) &&
+                other.authFailure == authFailure) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)));
+                other.showErrorMessages == showErrorMessages));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(teamListState) ^
-      const DeepCollectionEquality().hash(teamList) ^
-      const DeepCollectionEquality().hash(team) ^
-      const DeepCollectionEquality().hash(interviewerListState) ^
-      const DeepCollectionEquality().hash(interviewerList) ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(password) ^
-      const DeepCollectionEquality().hash(signInState) ^
-      const DeepCollectionEquality().hash(interviewer) ^
-      const DeepCollectionEquality().hash(authFailure) ^
-      const DeepCollectionEquality().hash(showErrorMessages);
+  int get hashCode => Object.hash(
+      runtimeType,
+      teamListState,
+      const DeepCollectionEquality().hash(teamList),
+      team,
+      interviewerListState,
+      const DeepCollectionEquality().hash(interviewerList),
+      id,
+      password,
+      signInState,
+      interviewer,
+      authFailure,
+      showErrorMessages);
 
   @JsonKey(ignore: true)
   @override
@@ -2414,27 +2400,27 @@ abstract class _AuthState extends AuthState {
   const _AuthState._() : super._();
 
   @override
-  LoadState get teamListState => throw _privateConstructorUsedError;
+  LoadState get teamListState;
   @override
-  List<Team> get teamList => throw _privateConstructorUsedError;
+  List<Team> get teamList;
   @override
-  Team get team => throw _privateConstructorUsedError;
+  Team get team;
   @override
-  LoadState get interviewerListState => throw _privateConstructorUsedError;
+  LoadState get interviewerListState;
   @override
-  List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
+  List<Interviewer> get interviewerList;
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
-  LoadState get signInState => throw _privateConstructorUsedError;
+  LoadState get signInState;
   @override
-  Interviewer get interviewer => throw _privateConstructorUsedError;
+  Interviewer get interviewer;
   @override
-  Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
+  Option<AuthFailure> get authFailure;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
   @JsonKey(ignore: true)
   _$AuthStateCopyWith<_AuthState> get copyWith =>

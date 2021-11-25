@@ -59,7 +59,7 @@ class RespondentsBody extends HookWidget {
               state.tabRespondentMap[tabType]?.values.toList() ?? [];
 
           return ScrollablePositionedList.builder(
-            // shrinkWrap: true,
+            shrinkWrap: true,
             itemCount: respondentList.length,
             itemScrollController: controller,
             itemPositionsListener: listener,

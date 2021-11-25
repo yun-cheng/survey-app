@@ -197,26 +197,19 @@ class _$_AnswerStatus extends _AnswerStatus {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AnswerStatus &&
-            (identical(other.type, type) ||
-                const DeepCollectionEquality().equals(other.type, type)) &&
+        (other.runtimeType == runtimeType &&
+            other is _AnswerStatus &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
+                other.isSpecialAnswer == isSpecialAnswer) &&
             (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
-                const DeepCollectionEquality().equals(
-                    other.lastChangedTimeStamp, lastChangedTimeStamp)) &&
-            (identical(other.noteMap, noteMap) ||
-                const DeepCollectionEquality().equals(other.noteMap, noteMap)));
+                other.lastChangedTimeStamp == lastChangedTimeStamp) &&
+            const DeepCollectionEquality().equals(other.noteMap, noteMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(type) ^
-      const DeepCollectionEquality().hash(isSpecialAnswer) ^
-      const DeepCollectionEquality().hash(lastChangedTimeStamp) ^
-      const DeepCollectionEquality().hash(noteMap);
+  int get hashCode => Object.hash(runtimeType, type, isSpecialAnswer,
+      lastChangedTimeStamp, const DeepCollectionEquality().hash(noteMap));
 
   @JsonKey(ignore: true)
   @override
@@ -233,15 +226,13 @@ abstract class _AnswerStatus extends AnswerStatus {
   const _AnswerStatus._() : super._();
 
   @override
-  AnswerStatusType get type => throw _privateConstructorUsedError;
+  AnswerStatusType get type;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  DeviceTimeStamp get lastChangedTimeStamp =>
-      throw _privateConstructorUsedError;
+  DeviceTimeStamp get lastChangedTimeStamp;
   @override
-  Map<String, AnswerStatusType> get noteMap =>
-      throw _privateConstructorUsedError;
+  Map<String, AnswerStatusType> get noteMap;
   @override
   @JsonKey(ignore: true)
   _$AnswerStatusCopyWith<_AnswerStatus> get copyWith =>

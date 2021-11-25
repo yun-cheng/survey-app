@@ -60,7 +60,7 @@ class _$QuestionDtoTearOff {
     );
   }
 
-  QuestionDto fromJson(Map<String, Object> json) {
+  QuestionDto fromJson(Map<String, Object?> json) {
     return QuestionDto.fromJson(json);
   }
 }
@@ -441,79 +441,62 @@ class _$_QuestionDto extends _QuestionDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _QuestionDto &&
+        (other.runtimeType == runtimeType &&
+            other is _QuestionDto &&
             (identical(other.questionId, questionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionId, questionId)) &&
+                other.questionId == questionId) &&
             (identical(other.hideQuestionId, hideQuestionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.hideQuestionId, hideQuestionId)) &&
+                other.hideQuestionId == hideQuestionId) &&
             (identical(other.serialNumber, serialNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.serialNumber, serialNumber)) &&
-            (identical(other.questionBody, questionBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionBody, questionBody)) &&
+                other.serialNumber == serialNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.questionBody, questionBody) &&
             (identical(other.stringBody, stringBody) ||
-                const DeepCollectionEquality()
-                    .equals(other.stringBody, stringBody)) &&
+                other.stringBody == stringBody) &&
             (identical(other.questionNote, questionNote) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionNote, questionNote)) &&
+                other.questionNote == questionNote) &&
             (identical(other.questionType, questionType) ||
-                const DeepCollectionEquality()
-                    .equals(other.questionType, questionType)) &&
+                other.questionType == questionType) &&
             (identical(other.showQuestion, showQuestion) ||
-                const DeepCollectionEquality()
-                    .equals(other.showQuestion, showQuestion)) &&
-            (identical(other.choiceList, choiceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.choiceList, choiceList)) &&
-            (identical(other.initChoiceList, initChoiceList) ||
-                const DeepCollectionEquality()
-                    .equals(other.initChoiceList, initChoiceList)) &&
+                other.showQuestion == showQuestion) &&
+            const DeepCollectionEquality()
+                .equals(other.choiceList, choiceList) &&
+            const DeepCollectionEquality()
+                .equals(other.initChoiceList, initChoiceList) &&
             (identical(other.hasSpecialAnswer, hasSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasSpecialAnswer, hasSpecialAnswer)) &&
+                other.hasSpecialAnswer == hasSpecialAnswer) &&
             (identical(other.validateAnswer, validateAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.validateAnswer, validateAnswer)) &&
+                other.validateAnswer == validateAnswer) &&
             (identical(other.upperQuestionId, upperQuestionId) ||
-                const DeepCollectionEquality()
-                    .equals(other.upperQuestionId, upperQuestionId)) &&
+                other.upperQuestionId == upperQuestionId) &&
             (identical(other.pageNumber, pageNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.pageNumber, pageNumber)) &&
+                other.pageNumber == pageNumber) &&
             (identical(other.recodeNeeded, recodeNeeded) ||
-                const DeepCollectionEquality()
-                    .equals(other.recodeNeeded, recodeNeeded)) &&
-            (identical(other.tableId, tableId) ||
-                const DeepCollectionEquality()
-                    .equals(other.tableId, tableId)) &&
-            (identical(other.rowId, rowId) ||
-                const DeepCollectionEquality().equals(other.rowId, rowId)));
+                other.recodeNeeded == recodeNeeded) &&
+            (identical(other.tableId, tableId) || other.tableId == tableId) &&
+            (identical(other.rowId, rowId) || other.rowId == rowId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(questionId) ^
-      const DeepCollectionEquality().hash(hideQuestionId) ^
-      const DeepCollectionEquality().hash(serialNumber) ^
-      const DeepCollectionEquality().hash(questionBody) ^
-      const DeepCollectionEquality().hash(stringBody) ^
-      const DeepCollectionEquality().hash(questionNote) ^
-      const DeepCollectionEquality().hash(questionType) ^
-      const DeepCollectionEquality().hash(showQuestion) ^
-      const DeepCollectionEquality().hash(choiceList) ^
-      const DeepCollectionEquality().hash(initChoiceList) ^
-      const DeepCollectionEquality().hash(hasSpecialAnswer) ^
-      const DeepCollectionEquality().hash(validateAnswer) ^
-      const DeepCollectionEquality().hash(upperQuestionId) ^
-      const DeepCollectionEquality().hash(pageNumber) ^
-      const DeepCollectionEquality().hash(recodeNeeded) ^
-      const DeepCollectionEquality().hash(tableId) ^
-      const DeepCollectionEquality().hash(rowId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      questionId,
+      hideQuestionId,
+      serialNumber,
+      const DeepCollectionEquality().hash(questionBody),
+      stringBody,
+      questionNote,
+      questionType,
+      showQuestion,
+      const DeepCollectionEquality().hash(choiceList),
+      const DeepCollectionEquality().hash(initChoiceList),
+      hasSpecialAnswer,
+      validateAnswer,
+      upperQuestionId,
+      pageNumber,
+      recodeNeeded,
+      tableId,
+      rowId);
 
   @JsonKey(ignore: true)
   @override
@@ -551,39 +534,39 @@ abstract class _QuestionDto extends QuestionDto {
       _$_QuestionDto.fromJson;
 
   @override
-  String get questionId => throw _privateConstructorUsedError;
+  String get questionId;
   @override
-  bool get hideQuestionId => throw _privateConstructorUsedError;
+  bool get hideQuestionId;
   @override
-  int get serialNumber => throw _privateConstructorUsedError;
+  int get serialNumber;
   @override
-  List<FormattedTextDto> get questionBody => throw _privateConstructorUsedError;
+  List<FormattedTextDto> get questionBody;
   @override
-  String get stringBody => throw _privateConstructorUsedError;
+  String get stringBody;
   @override
-  String get questionNote => throw _privateConstructorUsedError;
+  String get questionNote;
   @override
-  String get questionType => throw _privateConstructorUsedError;
+  String get questionType;
   @override
-  FullExpressionDto get showQuestion => throw _privateConstructorUsedError;
+  FullExpressionDto get showQuestion;
   @override
-  List<ChoiceDto> get choiceList => throw _privateConstructorUsedError;
+  List<ChoiceDto> get choiceList;
   @override
-  List<ChoiceDto>? get initChoiceList => throw _privateConstructorUsedError;
+  List<ChoiceDto>? get initChoiceList;
   @override
-  bool get hasSpecialAnswer => throw _privateConstructorUsedError;
+  bool get hasSpecialAnswer;
   @override
-  FullExpressionDto get validateAnswer => throw _privateConstructorUsedError;
+  FullExpressionDto get validateAnswer;
   @override
-  String get upperQuestionId => throw _privateConstructorUsedError;
+  String get upperQuestionId;
   @override
-  int get pageNumber => throw _privateConstructorUsedError;
+  int get pageNumber;
   @override
-  bool get recodeNeeded => throw _privateConstructorUsedError;
+  bool get recodeNeeded;
   @override
-  String get tableId => throw _privateConstructorUsedError;
+  String get tableId;
   @override
-  int get rowId => throw _privateConstructorUsedError;
+  int get rowId;
   @override
   @JsonKey(ignore: true)
   _$QuestionDtoCopyWith<_QuestionDto> get copyWith =>

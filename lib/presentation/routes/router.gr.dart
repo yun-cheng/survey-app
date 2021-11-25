@@ -1,94 +1,92 @@
+// **************************************************************************
+// AutoRouteGenerator
+// **************************************************************************
+
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
 // AutoRouteGenerator
 // **************************************************************************
 
-import 'package:auto_route/auto_route.dart' as _i1;
-import 'package:flutter/material.dart' as _i2;
+import 'package:auto_route/auto_route.dart' as _i7;
+import 'package:flutter/material.dart' as _i8;
 
-import '../overview/overview_page.dart' as _i5;
-import '../respondent_list/respondents_page.dart' as _i6;
-import '../sign_in/sign_in_page.dart' as _i4;
-import '../splash/splash_page.dart' as _i3;
-import '../survey/survey_content_page.dart' as _i8;
-import '../survey/survey_page.dart' as _i7;
+import '../overview/overview_page.dart' as _i3;
+import '../respondent_list/respondents_page.dart' as _i4;
+import '../sign_in/sign_in_page.dart' as _i2;
+import '../splash/splash_page.dart' as _i1;
+import '../survey/survey_content_page.dart' as _i6;
+import '../survey/survey_page.dart' as _i5;
 
-class RootRouter extends _i1.RootStackRouter {
-  RootRouter([_i2.GlobalKey<_i2.NavigatorState>? navigatorKey])
+class RootRouter extends _i7.RootStackRouter {
+  RootRouter([_i8.GlobalKey<_i8.NavigatorState>? navigatorKey])
       : super(navigatorKey);
 
   @override
-  final Map<String, _i1.PageFactory> pagesMap = {
-    SplashRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i3.SplashPage();
-        }),
-    SignInRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i4.SignInPage();
-        }),
-    OverviewRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i5.OverviewPage();
-        }),
-    RespondentsRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<RespondentsRouteArgs>(
-              orElse: () => const RespondentsRouteArgs());
-          return _i6.RespondentsPage(key: args.key);
-        }),
-    SurveyRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (data) {
-          final args = data.argsAs<SurveyRouteArgs>();
-          return _i7.SurveyPage(
-              key: args.key,
-              respondentId: args.respondentId,
-              showDialogOnRestart: args.showDialogOnRestart);
-        }),
-    SurveyContentRoute.name: (routeData) => _i1.MaterialPageX<dynamic>(
-        routeData: routeData,
-        builder: (_) {
-          return const _i8.SurveyContentPage();
-        })
+  final Map<String, _i7.PageFactory> pagesMap = {
+    SplashRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i1.SplashPage());
+    },
+    SignInRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i2.SignInPage());
+    },
+    OverviewRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i3.OverviewPage());
+    },
+    RespondentsRoute.name: (routeData) {
+      final args = routeData.argsAs<RespondentsRouteArgs>(
+          orElse: () => const RespondentsRouteArgs());
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: _i4.RespondentsPage(key: args.key));
+    },
+    SurveyRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i5.SurveyPage());
+    },
+    SurveyContentRoute.name: (routeData) {
+      return _i7.MaterialPageX<dynamic>(
+          routeData: routeData, child: const _i6.SurveyContentPage());
+    }
   };
 
   @override
-  List<_i1.RouteConfig> get routes => [
-        _i1.RouteConfig(SplashRoute.name, path: '/'),
-        _i1.RouteConfig(SignInRoute.name, path: '/sign-in'),
-        _i1.RouteConfig(OverviewRoute.name, path: '/overview'),
-        _i1.RouteConfig(RespondentsRoute.name, path: '/respondents'),
-        _i1.RouteConfig(SurveyRoute.name, path: '/survey'),
-        _i1.RouteConfig(SurveyContentRoute.name, path: '/survey-content')
+  List<_i7.RouteConfig> get routes => [
+        _i7.RouteConfig(SplashRoute.name, path: '/'),
+        _i7.RouteConfig(SignInRoute.name, path: '/sign-in'),
+        _i7.RouteConfig(OverviewRoute.name, path: '/overview'),
+        _i7.RouteConfig(RespondentsRoute.name, path: '/respondents'),
+        _i7.RouteConfig(SurveyRoute.name, path: '/survey'),
+        _i7.RouteConfig(SurveyContentRoute.name, path: '/survey-content')
       ];
 }
 
-class SplashRoute extends _i1.PageRouteInfo {
+/// generated route for [_i1.SplashPage]
+class SplashRoute extends _i7.PageRouteInfo<void> {
   const SplashRoute() : super(name, path: '/');
 
   static const String name = 'SplashRoute';
 }
 
-class SignInRoute extends _i1.PageRouteInfo {
+/// generated route for [_i2.SignInPage]
+class SignInRoute extends _i7.PageRouteInfo<void> {
   const SignInRoute() : super(name, path: '/sign-in');
 
   static const String name = 'SignInRoute';
 }
 
-class OverviewRoute extends _i1.PageRouteInfo {
+/// generated route for [_i3.OverviewPage]
+class OverviewRoute extends _i7.PageRouteInfo<void> {
   const OverviewRoute() : super(name, path: '/overview');
 
   static const String name = 'OverviewRoute';
 }
 
-class RespondentsRoute extends _i1.PageRouteInfo<RespondentsRouteArgs> {
-  RespondentsRoute({_i2.Key? key})
+/// generated route for [_i4.RespondentsPage]
+class RespondentsRoute extends _i7.PageRouteInfo<RespondentsRouteArgs> {
+  RespondentsRoute({_i8.Key? key})
       : super(name, path: '/respondents', args: RespondentsRouteArgs(key: key));
 
   static const String name = 'RespondentsRoute';
@@ -97,38 +95,23 @@ class RespondentsRoute extends _i1.PageRouteInfo<RespondentsRouteArgs> {
 class RespondentsRouteArgs {
   const RespondentsRouteArgs({this.key});
 
-  final _i2.Key? key;
+  final _i8.Key? key;
+
+  @override
+  String toString() {
+    return 'RespondentsRouteArgs{key: $key}';
+  }
 }
 
-class SurveyRoute extends _i1.PageRouteInfo<SurveyRouteArgs> {
-  SurveyRoute(
-      {_i2.Key? key,
-      required String respondentId,
-      required bool showDialogOnRestart})
-      : super(name,
-            path: '/survey',
-            args: SurveyRouteArgs(
-                key: key,
-                respondentId: respondentId,
-                showDialogOnRestart: showDialogOnRestart));
+/// generated route for [_i5.SurveyPage]
+class SurveyRoute extends _i7.PageRouteInfo<void> {
+  const SurveyRoute() : super(name, path: '/survey');
 
   static const String name = 'SurveyRoute';
 }
 
-class SurveyRouteArgs {
-  const SurveyRouteArgs(
-      {this.key,
-      required this.respondentId,
-      required this.showDialogOnRestart});
-
-  final _i2.Key? key;
-
-  final String respondentId;
-
-  final bool showDialogOnRestart;
-}
-
-class SurveyContentRoute extends _i1.PageRouteInfo {
+/// generated route for [_i6.SurveyContentPage]
+class SurveyContentRoute extends _i7.PageRouteInfo<void> {
   const SurveyContentRoute() : super(name, path: '/survey-content');
 
   static const String name = 'SurveyContentRoute';

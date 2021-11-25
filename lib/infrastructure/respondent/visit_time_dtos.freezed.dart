@@ -28,7 +28,7 @@ class _$VisitTimeDtoTearOff {
     );
   }
 
-  VisitTimeDto fromJson(Map<String, Object> json) {
+  VisitTimeDto fromJson(Map<String, Object?> json) {
     return VisitTimeDto.fromJson(json);
   }
 }
@@ -141,19 +141,15 @@ class _$_VisitTimeDto extends _VisitTimeDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _VisitTimeDto &&
-            (identical(other.date, date) ||
-                const DeepCollectionEquality().equals(other.date, date)) &&
+        (other.runtimeType == runtimeType &&
+            other is _VisitTimeDto &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.timeSession, timeSession) ||
-                const DeepCollectionEquality()
-                    .equals(other.timeSession, timeSession)));
+                other.timeSession == timeSession));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(date) ^
-      const DeepCollectionEquality().hash(timeSession);
+  int get hashCode => Object.hash(runtimeType, date, timeSession);
 
   @JsonKey(ignore: true)
   @override
@@ -175,9 +171,9 @@ abstract class _VisitTimeDto extends VisitTimeDto {
       _$_VisitTimeDto.fromJson;
 
   @override
-  int get date => throw _privateConstructorUsedError;
+  int get date;
   @override
-  String get timeSession => throw _privateConstructorUsedError;
+  String get timeSession;
   @override
   @JsonKey(ignore: true)
   _$VisitTimeDtoCopyWith<_VisitTimeDto> get copyWith =>

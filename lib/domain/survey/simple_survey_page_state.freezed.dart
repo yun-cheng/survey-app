@@ -205,31 +205,21 @@ class _$_SimpleSurveyPageState extends _SimpleSurveyPageState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SimpleSurveyPageState &&
-            (identical(other.page, page) ||
-                const DeepCollectionEquality().equals(other.page, page)) &&
+        (other.runtimeType == runtimeType &&
+            other is _SimpleSurveyPageState &&
+            (identical(other.page, page) || other.page == page) &&
             (identical(other.newestPage, newestPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.newestPage, newestPage)) &&
+                other.newestPage == newestPage) &&
             (identical(other.isLastPage, isLastPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLastPage, isLastPage)) &&
-            (identical(other.warning, warning) ||
-                const DeepCollectionEquality()
-                    .equals(other.warning, warning)) &&
+                other.isLastPage == isLastPage) &&
+            (identical(other.warning, warning) || other.warning == warning) &&
             (identical(other.showWarning, showWarning) ||
-                const DeepCollectionEquality()
-                    .equals(other.showWarning, showWarning)));
+                other.showWarning == showWarning));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(page) ^
-      const DeepCollectionEquality().hash(newestPage) ^
-      const DeepCollectionEquality().hash(isLastPage) ^
-      const DeepCollectionEquality().hash(warning) ^
-      const DeepCollectionEquality().hash(showWarning);
+  int get hashCode => Object.hash(
+      runtimeType, page, newestPage, isLastPage, warning, showWarning);
 
   @JsonKey(ignore: true)
   @override
@@ -248,15 +238,15 @@ abstract class _SimpleSurveyPageState extends SimpleSurveyPageState {
   const _SimpleSurveyPageState._() : super._();
 
   @override
-  int get page => throw _privateConstructorUsedError;
+  int get page;
   @override
-  int get newestPage => throw _privateConstructorUsedError;
+  int get newestPage;
   @override
-  bool get isLastPage => throw _privateConstructorUsedError;
+  bool get isLastPage;
   @override
-  Warning get warning => throw _privateConstructorUsedError;
+  Warning get warning;
   @override
-  bool get showWarning => throw _privateConstructorUsedError;
+  bool get showWarning;
   @override
   @JsonKey(ignore: true)
   _$SimpleSurveyPageStateCopyWith<_SimpleSurveyPageState> get copyWith =>

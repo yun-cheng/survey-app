@@ -170,14 +170,13 @@ class _$_AudioAdded implements _AudioAdded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AudioAdded &&
-            (identical(other.audio, audio) ||
-                const DeepCollectionEquality().equals(other.audio, audio)));
+        (other.runtimeType == runtimeType &&
+            other is _AudioAdded &&
+            (identical(other.audio, audio) || other.audio == audio));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(audio);
+  int get hashCode => Object.hash(runtimeType, audio);
 
   @JsonKey(ignore: true)
   @override
@@ -263,7 +262,7 @@ class _$_AudioAdded implements _AudioAdded {
 abstract class _AudioAdded implements UploadAudioEvent {
   const factory _AudioAdded({required Audio audio}) = _$_AudioAdded;
 
-  Audio get audio => throw _privateConstructorUsedError;
+  Audio get audio;
   @JsonKey(ignore: true)
   _$AudioAddedCopyWith<_AudioAdded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -300,7 +299,8 @@ class _$_AudioUploading implements _AudioUploading {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _AudioUploading);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _AudioUploading);
   }
 
   @override
@@ -434,16 +434,14 @@ class _$_AudioUploaded implements _AudioUploaded {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AudioUploaded &&
+        (other.runtimeType == runtimeType &&
+            other is _AudioUploaded &&
             (identical(other.failureOrAudio, failureOrAudio) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrAudio, failureOrAudio)));
+                other.failureOrAudio == failureOrAudio));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrAudio);
+  int get hashCode => Object.hash(runtimeType, failureOrAudio);
 
   @JsonKey(ignore: true)
   @override
@@ -530,8 +528,7 @@ abstract class _AudioUploaded implements UploadAudioEvent {
   const factory _AudioUploaded(Either<AudioFailure, Audio> failureOrAudio) =
       _$_AudioUploaded;
 
-  Either<AudioFailure, Audio> get failureOrAudio =>
-      throw _privateConstructorUsedError;
+  Either<AudioFailure, Audio> get failureOrAudio;
   @JsonKey(ignore: true)
   _$AudioUploadedCopyWith<_AudioUploaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -567,7 +564,8 @@ class _$_LoggedOut implements _LoggedOut {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoggedOut);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoggedOut);
   }
 
   @override
@@ -809,24 +807,18 @@ class _$_UploadAudioState extends _UploadAudioState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UploadAudioState &&
-            (identical(other.audioMap, audioMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.audioMap, audioMap)) &&
+        (other.runtimeType == runtimeType &&
+            other is _UploadAudioState &&
+            const DeepCollectionEquality().equals(other.audioMap, audioMap) &&
             (identical(other.uploadState, uploadState) ||
-                const DeepCollectionEquality()
-                    .equals(other.uploadState, uploadState)) &&
+                other.uploadState == uploadState) &&
             (identical(other.audioFailure, audioFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.audioFailure, audioFailure)));
+                other.audioFailure == audioFailure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(audioMap) ^
-      const DeepCollectionEquality().hash(uploadState) ^
-      const DeepCollectionEquality().hash(audioFailure);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(audioMap), uploadState, audioFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -842,11 +834,11 @@ abstract class _UploadAudioState extends UploadAudioState {
   const _UploadAudioState._() : super._();
 
   @override
-  Map<UniqueId, Audio> get audioMap => throw _privateConstructorUsedError;
+  Map<UniqueId, Audio> get audioMap;
   @override
-  LoadState get uploadState => throw _privateConstructorUsedError;
+  LoadState get uploadState;
   @override
-  Option<AudioFailure> get audioFailure => throw _privateConstructorUsedError;
+  Option<AudioFailure> get audioFailure;
   @override
   @JsonKey(ignore: true)
   _$UploadAudioStateCopyWith<_UploadAudioState> get copyWith =>

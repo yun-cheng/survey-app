@@ -48,7 +48,7 @@ class _$RespondentStateDtoTearOff {
     );
   }
 
-  RespondentStateDto fromJson(Map<String, Object> json) {
+  RespondentStateDto fromJson(Map<String, Object?> json) {
     return RespondentStateDto.fromJson(json);
   }
 }
@@ -365,55 +365,45 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RespondentStateDto &&
-            (identical(other.surveyRespondentMap, surveyRespondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyRespondentMap, surveyRespondentMap)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
+        (other.runtimeType == runtimeType &&
+            other is _RespondentStateDto &&
+            const DeepCollectionEquality()
+                .equals(other.surveyRespondentMap, surveyRespondentMap) &&
+            (identical(other.survey, survey) || other.survey == survey) &&
             (identical(other.surveyId, surveyId) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyId, surveyId)) &&
-            (identical(other.respondentMap, respondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentMap, respondentMap)) &&
+                other.surveyId == surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentMap, respondentMap) &&
             (identical(other.currentTab, currentTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.currentTab, currentTab)) &&
-            (identical(other.tabScrollPosition, tabScrollPosition) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabScrollPosition, tabScrollPosition)) &&
+                other.currentTab == currentTab) &&
+            const DeepCollectionEquality()
+                .equals(other.tabScrollPosition, tabScrollPosition) &&
             (identical(other.selectedRespondentId, selectedRespondentId) ||
-                const DeepCollectionEquality().equals(
-                    other.selectedRespondentId, selectedRespondentId)) &&
-            (identical(other.visitRecordsMap, visitRecordsMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.visitRecordsMap, visitRecordsMap)) &&
-            (identical(other.tabRespondentMap, tabRespondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabRespondentMap, tabRespondentMap)) &&
+                other.selectedRespondentId == selectedRespondentId) &&
+            const DeepCollectionEquality()
+                .equals(other.visitRecordsMap, visitRecordsMap) &&
+            const DeepCollectionEquality()
+                .equals(other.tabRespondentMap, tabRespondentMap) &&
             (identical(other.responseInfoMap, responseInfoMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseInfoMap, responseInfoMap)) &&
+                other.responseInfoMap == responseInfoMap) &&
             (identical(other.saveParameters, saveParameters) ||
-                const DeepCollectionEquality()
-                    .equals(other.saveParameters, saveParameters)));
+                other.saveParameters == saveParameters));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyRespondentMap) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(surveyId) ^
-      const DeepCollectionEquality().hash(respondentMap) ^
-      const DeepCollectionEquality().hash(currentTab) ^
-      const DeepCollectionEquality().hash(tabScrollPosition) ^
-      const DeepCollectionEquality().hash(selectedRespondentId) ^
-      const DeepCollectionEquality().hash(visitRecordsMap) ^
-      const DeepCollectionEquality().hash(tabRespondentMap) ^
-      const DeepCollectionEquality().hash(responseInfoMap) ^
-      const DeepCollectionEquality().hash(saveParameters);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(surveyRespondentMap),
+      survey,
+      surveyId,
+      const DeepCollectionEquality().hash(respondentMap),
+      currentTab,
+      const DeepCollectionEquality().hash(tabScrollPosition),
+      selectedRespondentId,
+      const DeepCollectionEquality().hash(visitRecordsMap),
+      const DeepCollectionEquality().hash(tabRespondentMap),
+      responseInfoMap,
+      saveParameters);
 
   @JsonKey(ignore: true)
   @override
@@ -446,33 +436,28 @@ abstract class _RespondentStateDto extends RespondentStateDto {
       _$_RespondentStateDto.fromJson;
 
   @override
-  Map<String, Map<String, RespondentDto>>? get surveyRespondentMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Map<String, RespondentDto>>? get surveyRespondentMap;
   @override
-  SurveyDto? get survey => throw _privateConstructorUsedError;
+  SurveyDto? get survey;
   @override
-  String? get surveyId => throw _privateConstructorUsedError;
+  String? get surveyId;
   @override
-  Map<String, RespondentDto>? get respondentMap =>
-      throw _privateConstructorUsedError;
+  Map<String, RespondentDto>? get respondentMap;
   @override
-  TabType? get currentTab => throw _privateConstructorUsedError;
+  TabType? get currentTab;
   @override
-  Map<TabType, CardScrollPositionDto>? get tabScrollPosition =>
-      throw _privateConstructorUsedError;
+  Map<TabType, CardScrollPositionDto>? get tabScrollPosition;
   @override
-  String? get selectedRespondentId => throw _privateConstructorUsedError;
+  String? get selectedRespondentId;
   @override
-  Map<String, List<VisitRecordDto>>? get visitRecordsMap =>
-      throw _privateConstructorUsedError;
+  Map<String, List<VisitRecordDto>>? get visitRecordsMap;
   @override
-  Map<TabType, Map<String, RespondentDto>>? get tabRespondentMap =>
-      throw _privateConstructorUsedError;
+  Map<TabType, Map<String, RespondentDto>>? get tabRespondentMap;
   @override
-  ResponseMapDto? get responseInfoMap => throw _privateConstructorUsedError;
+  ResponseMapDto? get responseInfoMap;
   @override
   @JsonKey(ignore: true)
-  StateParameters? get saveParameters => throw _privateConstructorUsedError;
+  StateParameters? get saveParameters;
   @override
   @JsonKey(ignore: true)
   _$RespondentStateDtoCopyWith<_RespondentStateDto> get copyWith =>

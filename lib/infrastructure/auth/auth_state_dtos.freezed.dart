@@ -48,7 +48,7 @@ class _$AuthStateDtoTearOff {
     );
   }
 
-  AuthStateDto fromJson(Map<String, Object> json) {
+  AuthStateDto fromJson(Map<String, Object?> json) {
     return AuthStateDto.fromJson(json);
   }
 }
@@ -334,54 +334,43 @@ class _$_AuthStateDto extends _AuthStateDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AuthStateDto &&
+        (other.runtimeType == runtimeType &&
+            other is _AuthStateDto &&
             (identical(other.teamListState, teamListState) ||
-                const DeepCollectionEquality()
-                    .equals(other.teamListState, teamListState)) &&
-            (identical(other.teamList, teamList) ||
-                const DeepCollectionEquality()
-                    .equals(other.teamList, teamList)) &&
-            (identical(other.team, team) ||
-                const DeepCollectionEquality().equals(other.team, team)) &&
+                other.teamListState == teamListState) &&
+            const DeepCollectionEquality().equals(other.teamList, teamList) &&
+            (identical(other.team, team) || other.team == team) &&
             (identical(other.interviewerListState, interviewerListState) ||
-                const DeepCollectionEquality().equals(
-                    other.interviewerListState, interviewerListState)) &&
-            (identical(other.interviewerList, interviewerList) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerList, interviewerList)) &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+                other.interviewerListState == interviewerListState) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerList, interviewerList) &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.password, password) ||
-                const DeepCollectionEquality()
-                    .equals(other.password, password)) &&
+                other.password == password) &&
             (identical(other.signInState, signInState) ||
-                const DeepCollectionEquality()
-                    .equals(other.signInState, signInState)) &&
+                other.signInState == signInState) &&
             (identical(other.interviewer, interviewer) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewer, interviewer)) &&
+                other.interviewer == interviewer) &&
             (identical(other.authFailure, authFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.authFailure, authFailure)) &&
+                other.authFailure == authFailure) &&
             (identical(other.showErrorMessages, showErrorMessages) ||
-                const DeepCollectionEquality()
-                    .equals(other.showErrorMessages, showErrorMessages)));
+                other.showErrorMessages == showErrorMessages));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(teamListState) ^
-      const DeepCollectionEquality().hash(teamList) ^
-      const DeepCollectionEquality().hash(team) ^
-      const DeepCollectionEquality().hash(interviewerListState) ^
-      const DeepCollectionEquality().hash(interviewerList) ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(password) ^
-      const DeepCollectionEquality().hash(signInState) ^
-      const DeepCollectionEquality().hash(interviewer) ^
-      const DeepCollectionEquality().hash(authFailure) ^
-      const DeepCollectionEquality().hash(showErrorMessages);
+  int get hashCode => Object.hash(
+      runtimeType,
+      teamListState,
+      const DeepCollectionEquality().hash(teamList),
+      team,
+      interviewerListState,
+      const DeepCollectionEquality().hash(interviewerList),
+      id,
+      password,
+      signInState,
+      interviewer,
+      authFailure,
+      showErrorMessages);
 
   @JsonKey(ignore: true)
   @override
@@ -413,28 +402,27 @@ abstract class _AuthStateDto extends AuthStateDto {
       _$_AuthStateDto.fromJson;
 
   @override
-  String get teamListState => throw _privateConstructorUsedError;
+  String get teamListState;
   @override
-  List<TeamDto> get teamList => throw _privateConstructorUsedError;
+  List<TeamDto> get teamList;
   @override
-  TeamDto get team => throw _privateConstructorUsedError;
+  TeamDto get team;
   @override
-  String get interviewerListState => throw _privateConstructorUsedError;
+  String get interviewerListState;
   @override
-  List<InterviewerDto> get interviewerList =>
-      throw _privateConstructorUsedError;
+  List<InterviewerDto> get interviewerList;
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get password => throw _privateConstructorUsedError;
+  String get password;
   @override
-  String get signInState => throw _privateConstructorUsedError;
+  String get signInState;
   @override
-  InterviewerDto get interviewer => throw _privateConstructorUsedError;
+  InterviewerDto get interviewer;
   @override
-  String? get authFailure => throw _privateConstructorUsedError;
+  String? get authFailure;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  bool get showErrorMessages;
   @override
   @JsonKey(ignore: true)
   _$AuthStateDtoCopyWith<_AuthStateDto> get copyWith =>

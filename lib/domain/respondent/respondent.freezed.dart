@@ -208,35 +208,23 @@ class _$_Respondent extends _Respondent {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Respondent &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Respondent &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.countyTown, countyTown) ||
-                const DeepCollectionEquality()
-                    .equals(other.countyTown, countyTown)) &&
-            (identical(other.village, village) ||
-                const DeepCollectionEquality()
-                    .equals(other.village, village)) &&
+                other.countyTown == countyTown) &&
+            (identical(other.village, village) || other.village == village) &&
             (identical(other.remainAddress, remainAddress) ||
-                const DeepCollectionEquality()
-                    .equals(other.remainAddress, remainAddress)) &&
+                other.remainAddress == remainAddress) &&
             (identical(other.isCountyTownFirst, isCountyTownFirst) ||
-                const DeepCollectionEquality()
-                    .equals(other.isCountyTownFirst, isCountyTownFirst)) &&
+                other.isCountyTownFirst == isCountyTownFirst) &&
             (identical(other.isVillageFirst, isVillageFirst) ||
-                const DeepCollectionEquality()
-                    .equals(other.isVillageFirst, isVillageFirst)));
+                other.isVillageFirst == isVillageFirst));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(countyTown) ^
-      const DeepCollectionEquality().hash(village) ^
-      const DeepCollectionEquality().hash(remainAddress) ^
-      const DeepCollectionEquality().hash(isCountyTownFirst) ^
-      const DeepCollectionEquality().hash(isVillageFirst);
+  int get hashCode => Object.hash(runtimeType, id, countyTown, village,
+      remainAddress, isCountyTownFirst, isVillageFirst);
 
   @JsonKey(ignore: true)
   @override
@@ -255,17 +243,17 @@ abstract class _Respondent extends Respondent {
   const _Respondent._() : super._();
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get countyTown => throw _privateConstructorUsedError;
+  String get countyTown;
   @override
-  String get village => throw _privateConstructorUsedError;
+  String get village;
   @override
-  String get remainAddress => throw _privateConstructorUsedError;
+  String get remainAddress;
   @override
-  bool get isCountyTownFirst => throw _privateConstructorUsedError;
+  bool get isCountyTownFirst;
   @override
-  bool get isVillageFirst => throw _privateConstructorUsedError;
+  bool get isVillageFirst;
   @override
   @JsonKey(ignore: true)
   _$RespondentCopyWith<_Respondent> get copyWith =>

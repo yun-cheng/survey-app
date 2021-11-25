@@ -169,24 +169,19 @@ class _$_CardScrollPosition extends _CardScrollPosition {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CardScrollPosition &&
+        (other.runtimeType == runtimeType &&
+            other is _CardScrollPosition &&
             (identical(other.firstCardIndex, firstCardIndex) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstCardIndex, firstCardIndex)) &&
+                other.firstCardIndex == firstCardIndex) &&
             (identical(other.firstCardAlignment, firstCardAlignment) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstCardAlignment, firstCardAlignment)) &&
+                other.firstCardAlignment == firstCardAlignment) &&
             (identical(other.firstRespondent, firstRespondent) ||
-                const DeepCollectionEquality()
-                    .equals(other.firstRespondent, firstRespondent)));
+                other.firstRespondent == firstRespondent));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(firstCardIndex) ^
-      const DeepCollectionEquality().hash(firstCardAlignment) ^
-      const DeepCollectionEquality().hash(firstRespondent);
+  int get hashCode => Object.hash(
+      runtimeType, firstCardIndex, firstCardAlignment, firstRespondent);
 
   @JsonKey(ignore: true)
   @override
@@ -202,11 +197,11 @@ abstract class _CardScrollPosition extends CardScrollPosition {
   const _CardScrollPosition._() : super._();
 
   @override
-  int get firstCardIndex => throw _privateConstructorUsedError;
+  int get firstCardIndex;
   @override
-  double get firstCardAlignment => throw _privateConstructorUsedError;
+  double get firstCardAlignment;
   @override
-  Respondent get firstRespondent => throw _privateConstructorUsedError;
+  Respondent get firstRespondent;
   @override
   @JsonKey(ignore: true)
   _$CardScrollPositionCopyWith<_CardScrollPosition> get copyWith =>

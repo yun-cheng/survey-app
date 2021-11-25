@@ -34,7 +34,7 @@ class _$AnswerStatusDtoTearOff {
     );
   }
 
-  AnswerStatusDto fromJson(Map<String, Object> json) {
+  AnswerStatusDto fromJson(Map<String, Object?> json) {
     return AnswerStatusDto.fromJson(json);
   }
 }
@@ -190,27 +190,24 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AnswerStatusDto &&
+        (other.runtimeType == runtimeType &&
+            other is _AnswerStatusDto &&
             (identical(other.answerStatusType, answerStatusType) ||
-                const DeepCollectionEquality()
-                    .equals(other.answerStatusType, answerStatusType)) &&
+                other.answerStatusType == answerStatusType) &&
             (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSpecialAnswer, isSpecialAnswer)) &&
+                other.isSpecialAnswer == isSpecialAnswer) &&
             (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
-                const DeepCollectionEquality().equals(
-                    other.lastChangedTimeStamp, lastChangedTimeStamp)) &&
-            (identical(other.noteMap, noteMap) ||
-                const DeepCollectionEquality().equals(other.noteMap, noteMap)));
+                other.lastChangedTimeStamp == lastChangedTimeStamp) &&
+            const DeepCollectionEquality().equals(other.noteMap, noteMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(answerStatusType) ^
-      const DeepCollectionEquality().hash(isSpecialAnswer) ^
-      const DeepCollectionEquality().hash(lastChangedTimeStamp) ^
-      const DeepCollectionEquality().hash(noteMap);
+  int get hashCode => Object.hash(
+      runtimeType,
+      answerStatusType,
+      isSpecialAnswer,
+      lastChangedTimeStamp,
+      const DeepCollectionEquality().hash(noteMap));
 
   @JsonKey(ignore: true)
   @override
@@ -235,13 +232,13 @@ abstract class _AnswerStatusDto extends AnswerStatusDto {
       _$_AnswerStatusDto.fromJson;
 
   @override
-  String get answerStatusType => throw _privateConstructorUsedError;
+  String get answerStatusType;
   @override
-  bool get isSpecialAnswer => throw _privateConstructorUsedError;
+  bool get isSpecialAnswer;
   @override
-  int get lastChangedTimeStamp => throw _privateConstructorUsedError;
+  int get lastChangedTimeStamp;
   @override
-  Map<String, String> get noteMap => throw _privateConstructorUsedError;
+  Map<String, String> get noteMap;
   @override
   @JsonKey(ignore: true)
   _$AnswerStatusDtoCopyWith<_AnswerStatusDto> get copyWith =>

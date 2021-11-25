@@ -300,19 +300,15 @@ class _$_WatchSurveyRespondentMapStarted
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WatchSurveyRespondentMapStarted &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _WatchSurveyRespondentMapStarted &&
+            (identical(other.teamId, teamId) || other.teamId == teamId) &&
             (identical(other.interviewerId, interviewerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerId, interviewerId)));
+                other.interviewerId == interviewerId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(teamId) ^
-      const DeepCollectionEquality().hash(interviewerId);
+  int get hashCode => Object.hash(runtimeType, teamId, interviewerId);
 
   @JsonKey(ignore: true)
   @override
@@ -474,8 +470,8 @@ abstract class _WatchSurveyRespondentMapStarted implements RespondentEvent {
       {required String teamId,
       required String interviewerId}) = _$_WatchSurveyRespondentMapStarted;
 
-  String get teamId => throw _privateConstructorUsedError;
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get teamId;
+  String get interviewerId;
   @JsonKey(ignore: true)
   _$WatchSurveyRespondentMapStartedCopyWith<_WatchSurveyRespondentMapStarted>
       get copyWith => throw _privateConstructorUsedError;
@@ -536,18 +532,16 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyRespondentMapReceived &&
+        (other.runtimeType == runtimeType &&
+            other is _SurveyRespondentMapReceived &&
             (identical(other.failureOrSurveyRespondentMap,
                     failureOrSurveyRespondentMap) ||
-                const DeepCollectionEquality().equals(
-                    other.failureOrSurveyRespondentMap,
-                    failureOrSurveyRespondentMap)));
+                other.failureOrSurveyRespondentMap ==
+                    failureOrSurveyRespondentMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrSurveyRespondentMap);
+  int get hashCode => Object.hash(runtimeType, failureOrSurveyRespondentMap);
 
   @JsonKey(ignore: true)
   @override
@@ -710,7 +704,7 @@ abstract class _SurveyRespondentMapReceived implements RespondentEvent {
           failureOrSurveyRespondentMap) = _$_SurveyRespondentMapReceived;
 
   Either<RespondentFailure, Map<String, Map<String, Respondent>>>
-      get failureOrSurveyRespondentMap => throw _privateConstructorUsedError;
+      get failureOrSurveyRespondentMap;
   @JsonKey(ignore: true)
   _$SurveyRespondentMapReceivedCopyWith<_SurveyRespondentMapReceived>
       get copyWith => throw _privateConstructorUsedError;
@@ -773,14 +767,13 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveySelected &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)));
+        (other.runtimeType == runtimeType &&
+            other is _SurveySelected &&
+            (identical(other.survey, survey) || other.survey == survey));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(survey);
+  int get hashCode => Object.hash(runtimeType, survey);
 
   @JsonKey(ignore: true)
   @override
@@ -939,7 +932,7 @@ class _$_SurveySelected implements _SurveySelected {
 abstract class _SurveySelected implements RespondentEvent {
   const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
 
-  Survey get survey => throw _privateConstructorUsedError;
+  Survey get survey;
   @JsonKey(ignore: true)
   _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -976,7 +969,8 @@ class _$_TextSearched implements _TextSearched {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _TextSearched);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _TextSearched);
   }
 
   @override
@@ -1183,15 +1177,14 @@ class _$_RespondentSelected implements _RespondentSelected {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RespondentSelected &&
+        (other.runtimeType == runtimeType &&
+            other is _RespondentSelected &&
             (identical(other.respondentId, respondentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentId, respondentId)));
+                other.respondentId == respondentId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(respondentId);
+  int get hashCode => Object.hash(runtimeType, respondentId);
 
   @JsonKey(ignore: true)
   @override
@@ -1351,7 +1344,7 @@ abstract class _RespondentSelected implements RespondentEvent {
   const factory _RespondentSelected({required String respondentId}) =
       _$_RespondentSelected;
 
-  String get respondentId => throw _privateConstructorUsedError;
+  String get respondentId;
   @JsonKey(ignore: true)
   _$RespondentSelectedCopyWith<_RespondentSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1405,14 +1398,13 @@ class _$_TabSwitched implements _TabSwitched {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TabSwitched &&
-            (identical(other.index, index) ||
-                const DeepCollectionEquality().equals(other.index, index)));
+        (other.runtimeType == runtimeType &&
+            other is _TabSwitched &&
+            (identical(other.index, index) || other.index == index));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(index);
+  int get hashCode => Object.hash(runtimeType, index);
 
   @JsonKey(ignore: true)
   @override
@@ -1571,7 +1563,7 @@ class _$_TabSwitched implements _TabSwitched {
 abstract class _TabSwitched implements RespondentEvent {
   const factory _TabSwitched({required int index}) = _$_TabSwitched;
 
-  int get index => throw _privateConstructorUsedError;
+  int get index;
   @JsonKey(ignore: true)
   _$TabSwitchedCopyWith<_TabSwitched> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1632,20 +1624,15 @@ class _$_PageScrolled implements _PageScrolled {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PageScrolled &&
-            (identical(other.tabType, tabType) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabType, tabType)) &&
-            (identical(other.positions, positions) ||
-                const DeepCollectionEquality()
-                    .equals(other.positions, positions)));
+        (other.runtimeType == runtimeType &&
+            other is _PageScrolled &&
+            (identical(other.tabType, tabType) || other.tabType == tabType) &&
+            const DeepCollectionEquality().equals(other.positions, positions));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(tabType) ^
-      const DeepCollectionEquality().hash(positions);
+  int get hashCode => Object.hash(
+      runtimeType, tabType, const DeepCollectionEquality().hash(positions));
 
   @JsonKey(ignore: true)
   @override
@@ -1806,8 +1793,8 @@ abstract class _PageScrolled implements RespondentEvent {
       {required TabType tabType,
       required List<ItemPosition> positions}) = _$_PageScrolled;
 
-  TabType get tabType => throw _privateConstructorUsedError;
-  List<ItemPosition> get positions => throw _privateConstructorUsedError;
+  TabType get tabType;
+  List<ItemPosition> get positions;
   @JsonKey(ignore: true)
   _$PageScrolledCopyWith<_PageScrolled> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1861,15 +1848,14 @@ class _$_JumpedToTown implements _JumpedToTown {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _JumpedToTown &&
+        (other.runtimeType == runtimeType &&
+            other is _JumpedToTown &&
             (identical(other.countyTown, countyTown) ||
-                const DeepCollectionEquality()
-                    .equals(other.countyTown, countyTown)));
+                other.countyTown == countyTown));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(countyTown);
+  int get hashCode => Object.hash(runtimeType, countyTown);
 
   @JsonKey(ignore: true)
   @override
@@ -2028,7 +2014,7 @@ class _$_JumpedToTown implements _JumpedToTown {
 abstract class _JumpedToTown implements RespondentEvent {
   const factory _JumpedToTown({required String countyTown}) = _$_JumpedToTown;
 
-  String get countyTown => throw _privateConstructorUsedError;
+  String get countyTown;
   @JsonKey(ignore: true)
   _$JumpedToTownCopyWith<_JumpedToTown> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2082,15 +2068,15 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _VisitReportUpdated &&
-            (identical(other.responseMap, responseMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMap, responseMap)));
+        (other.runtimeType == runtimeType &&
+            other is _VisitReportUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.responseMap, responseMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(responseMap);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(responseMap));
 
   @JsonKey(ignore: true)
   @override
@@ -2250,7 +2236,7 @@ abstract class _VisitReportUpdated implements RespondentEvent {
   const factory _VisitReportUpdated(
       {required Map<UniqueId, Response> responseMap}) = _$_VisitReportUpdated;
 
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get responseMap;
   @JsonKey(ignore: true)
   _$VisitReportUpdatedCopyWith<_VisitReportUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2304,15 +2290,15 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TabRespondentsUpdated &&
-            (identical(other.responseMap, responseMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseMap, responseMap)));
+        (other.runtimeType == runtimeType &&
+            other is _TabRespondentsUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.responseMap, responseMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(responseMap);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(responseMap));
 
   @JsonKey(ignore: true)
   @override
@@ -2474,7 +2460,7 @@ abstract class _TabRespondentsUpdated implements RespondentEvent {
           {required Map<UniqueId, Response> responseMap}) =
       _$_TabRespondentsUpdated;
 
-  Map<UniqueId, Response> get responseMap => throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get responseMap;
   @JsonKey(ignore: true)
   _$TabRespondentsUpdatedCopyWith<_TabRespondentsUpdated> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2509,7 +2495,8 @@ class _$_LoggedOut implements _LoggedOut {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoggedOut);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoggedOut);
   }
 
   @override
@@ -2699,7 +2686,8 @@ class _$_Initialized implements _Initialized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initialized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initialized);
   }
 
   @override
@@ -3295,77 +3283,60 @@ class _$_RespondentState extends _RespondentState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RespondentState &&
-            (identical(other.stateId, stateId) ||
-                const DeepCollectionEquality()
-                    .equals(other.stateId, stateId)) &&
-            (identical(other.surveyRespondentMap, surveyRespondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyRespondentMap, surveyRespondentMap)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
-            (identical(other.respondentMap, respondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentMap, respondentMap)) &&
+        (other.runtimeType == runtimeType &&
+            other is _RespondentState &&
+            (identical(other.stateId, stateId) || other.stateId == stateId) &&
+            const DeepCollectionEquality()
+                .equals(other.surveyRespondentMap, surveyRespondentMap) &&
+            (identical(other.survey, survey) || other.survey == survey) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentMap, respondentMap) &&
             (identical(other.currentTab, currentTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.currentTab, currentTab)) &&
-            (identical(other.tabScrollPosition, tabScrollPosition) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabScrollPosition, tabScrollPosition)) &&
+                other.currentTab == currentTab) &&
+            const DeepCollectionEquality()
+                .equals(other.tabScrollPosition, tabScrollPosition) &&
             (identical(other.selectedRespondentId, selectedRespondentId) ||
-                const DeepCollectionEquality().equals(
-                    other.selectedRespondentId, selectedRespondentId)) &&
-            (identical(other.visitRecordsMap, visitRecordsMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.visitRecordsMap, visitRecordsMap)) &&
-            (identical(other.tabRespondentMap, tabRespondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabRespondentMap, tabRespondentMap)) &&
-            (identical(other.responseInfoMap, responseInfoMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseInfoMap, responseInfoMap)) &&
+                other.selectedRespondentId == selectedRespondentId) &&
+            const DeepCollectionEquality()
+                .equals(other.visitRecordsMap, visitRecordsMap) &&
+            const DeepCollectionEquality()
+                .equals(other.tabRespondentMap, tabRespondentMap) &&
+            const DeepCollectionEquality()
+                .equals(other.responseInfoMap, responseInfoMap) &&
             (identical(other.needToJump, needToJump) ||
-                const DeepCollectionEquality()
-                    .equals(other.needToJump, needToJump)) &&
+                other.needToJump == needToJump) &&
             (identical(other.jumpToIndex, jumpToIndex) ||
-                const DeepCollectionEquality()
-                    .equals(other.jumpToIndex, jumpToIndex)) &&
+                other.jumpToIndex == jumpToIndex) &&
             (identical(
                     other.surveyRespondentMapState, surveyRespondentMapState) ||
-                const DeepCollectionEquality().equals(
-                    other.surveyRespondentMapState,
-                    surveyRespondentMapState)) &&
+                other.surveyRespondentMapState == surveyRespondentMapState) &&
             (identical(other.respondentFailure, respondentFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentFailure, respondentFailure)) &&
+                other.respondentFailure == respondentFailure) &&
             (identical(other.eventState, eventState) ||
-                const DeepCollectionEquality()
-                    .equals(other.eventState, eventState)) &&
+                other.eventState == eventState) &&
             (identical(other.saveParameters, saveParameters) ||
-                const DeepCollectionEquality()
-                    .equals(other.saveParameters, saveParameters)));
+                other.saveParameters == saveParameters));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(stateId) ^
-      const DeepCollectionEquality().hash(surveyRespondentMap) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(respondentMap) ^
-      const DeepCollectionEquality().hash(currentTab) ^
-      const DeepCollectionEquality().hash(tabScrollPosition) ^
-      const DeepCollectionEquality().hash(selectedRespondentId) ^
-      const DeepCollectionEquality().hash(visitRecordsMap) ^
-      const DeepCollectionEquality().hash(tabRespondentMap) ^
-      const DeepCollectionEquality().hash(responseInfoMap) ^
-      const DeepCollectionEquality().hash(needToJump) ^
-      const DeepCollectionEquality().hash(jumpToIndex) ^
-      const DeepCollectionEquality().hash(surveyRespondentMapState) ^
-      const DeepCollectionEquality().hash(respondentFailure) ^
-      const DeepCollectionEquality().hash(eventState) ^
-      const DeepCollectionEquality().hash(saveParameters);
+  int get hashCode => Object.hash(
+      runtimeType,
+      stateId,
+      const DeepCollectionEquality().hash(surveyRespondentMap),
+      survey,
+      const DeepCollectionEquality().hash(respondentMap),
+      currentTab,
+      const DeepCollectionEquality().hash(tabScrollPosition),
+      selectedRespondentId,
+      const DeepCollectionEquality().hash(visitRecordsMap),
+      const DeepCollectionEquality().hash(tabRespondentMap),
+      const DeepCollectionEquality().hash(responseInfoMap),
+      needToJump,
+      jumpToIndex,
+      surveyRespondentMapState,
+      respondentFailure,
+      eventState,
+      saveParameters);
 
   @JsonKey(ignore: true)
   @override
@@ -3394,44 +3365,37 @@ abstract class _RespondentState extends RespondentState {
   const _RespondentState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // H_ 主要資料
-  Map<String, Map<String, Respondent>> get surveyRespondentMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Map<String, Respondent>> get surveyRespondentMap;
   @override
-  Survey get survey => throw _privateConstructorUsedError;
+  Survey get survey;
   @override
-  Map<String, Respondent> get respondentMap =>
-      throw _privateConstructorUsedError;
+  Map<String, Respondent> get respondentMap;
   @override
-  TabType get currentTab => throw _privateConstructorUsedError;
+  TabType get currentTab;
   @override
-  Map<TabType, CardScrollPosition> get tabScrollPosition =>
-      throw _privateConstructorUsedError;
+  Map<TabType, CardScrollPosition> get tabScrollPosition;
   @override
-  String get selectedRespondentId => throw _privateConstructorUsedError;
+  String get selectedRespondentId;
   @override
-  Map<String, List<VisitRecord>> get visitRecordsMap =>
-      throw _privateConstructorUsedError;
+  Map<String, List<VisitRecord>> get visitRecordsMap;
   @override
-  Map<TabType, Map<String, Respondent>> get tabRespondentMap =>
-      throw _privateConstructorUsedError;
+  Map<TabType, Map<String, Respondent>> get tabRespondentMap;
   @override
-  Map<UniqueId, Response> get responseInfoMap =>
-      throw _privateConstructorUsedError;
+  Map<UniqueId, Response> get responseInfoMap;
   @override // H_ 中間資料
-  bool get needToJump => throw _privateConstructorUsedError;
+  bool get needToJump;
   @override
-  int get jumpToIndex => throw _privateConstructorUsedError;
+  int get jumpToIndex;
   @override // H_ 狀態更新進度
-  LoadState get surveyRespondentMapState => throw _privateConstructorUsedError;
+  LoadState get surveyRespondentMapState;
   @override
-  Option<RespondentFailure> get respondentFailure =>
-      throw _privateConstructorUsedError;
+  Option<RespondentFailure> get respondentFailure;
   @override
-  LoadState get eventState => throw _privateConstructorUsedError;
+  LoadState get eventState;
   @override // H_ 標記儲存參數
-  StateParameters get saveParameters => throw _privateConstructorUsedError;
+  StateParameters get saveParameters;
   @override
   @JsonKey(ignore: true)
   _$RespondentStateCopyWith<_RespondentState> get copyWith =>
@@ -3690,47 +3654,39 @@ class _$_StateParameters extends _StateParameters {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StateParameters &&
+        (other.runtimeType == runtimeType &&
+            other is _StateParameters &&
             (identical(other.surveyRespondentMap, surveyRespondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyRespondentMap, surveyRespondentMap)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
+                other.surveyRespondentMap == surveyRespondentMap) &&
+            (identical(other.survey, survey) || other.survey == survey) &&
             (identical(other.respondentMap, respondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.respondentMap, respondentMap)) &&
+                other.respondentMap == respondentMap) &&
             (identical(other.currentTab, currentTab) ||
-                const DeepCollectionEquality()
-                    .equals(other.currentTab, currentTab)) &&
+                other.currentTab == currentTab) &&
             (identical(other.tabScrollPosition, tabScrollPosition) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabScrollPosition, tabScrollPosition)) &&
+                other.tabScrollPosition == tabScrollPosition) &&
             (identical(other.selectedRespondentId, selectedRespondentId) ||
-                const DeepCollectionEquality().equals(
-                    other.selectedRespondentId, selectedRespondentId)) &&
+                other.selectedRespondentId == selectedRespondentId) &&
             (identical(other.visitRecordsMap, visitRecordsMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.visitRecordsMap, visitRecordsMap)) &&
+                other.visitRecordsMap == visitRecordsMap) &&
             (identical(other.tabRespondentMap, tabRespondentMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.tabRespondentMap, tabRespondentMap)) &&
+                other.tabRespondentMap == tabRespondentMap) &&
             (identical(other.responseInfoMap, responseInfoMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.responseInfoMap, responseInfoMap)));
+                other.responseInfoMap == responseInfoMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(surveyRespondentMap) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(respondentMap) ^
-      const DeepCollectionEquality().hash(currentTab) ^
-      const DeepCollectionEquality().hash(tabScrollPosition) ^
-      const DeepCollectionEquality().hash(selectedRespondentId) ^
-      const DeepCollectionEquality().hash(visitRecordsMap) ^
-      const DeepCollectionEquality().hash(tabRespondentMap) ^
-      const DeepCollectionEquality().hash(responseInfoMap);
+  int get hashCode => Object.hash(
+      runtimeType,
+      surveyRespondentMap,
+      survey,
+      respondentMap,
+      currentTab,
+      tabScrollPosition,
+      selectedRespondentId,
+      visitRecordsMap,
+      tabRespondentMap,
+      responseInfoMap);
 
   @JsonKey(ignore: true)
   @override
@@ -3752,23 +3708,23 @@ abstract class _StateParameters extends StateParameters {
   const _StateParameters._() : super._();
 
   @override
-  bool get surveyRespondentMap => throw _privateConstructorUsedError;
+  bool get surveyRespondentMap;
   @override
-  bool get survey => throw _privateConstructorUsedError;
+  bool get survey;
   @override
-  bool get respondentMap => throw _privateConstructorUsedError;
+  bool get respondentMap;
   @override
-  bool get currentTab => throw _privateConstructorUsedError;
+  bool get currentTab;
   @override
-  bool get tabScrollPosition => throw _privateConstructorUsedError;
+  bool get tabScrollPosition;
   @override
-  bool get selectedRespondentId => throw _privateConstructorUsedError;
+  bool get selectedRespondentId;
   @override
-  bool get visitRecordsMap => throw _privateConstructorUsedError;
+  bool get visitRecordsMap;
   @override
-  bool get tabRespondentMap => throw _privateConstructorUsedError;
+  bool get tabRespondentMap;
   @override
-  bool get responseInfoMap => throw _privateConstructorUsedError;
+  bool get responseInfoMap;
   @override
   @JsonKey(ignore: true)
   _$StateParametersCopyWith<_StateParameters> get copyWith =>

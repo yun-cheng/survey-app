@@ -193,19 +193,15 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WatchSurveyMapStarted &&
-            (identical(other.teamId, teamId) ||
-                const DeepCollectionEquality().equals(other.teamId, teamId)) &&
+        (other.runtimeType == runtimeType &&
+            other is _WatchSurveyMapStarted &&
+            (identical(other.teamId, teamId) || other.teamId == teamId) &&
             (identical(other.interviewerId, interviewerId) ||
-                const DeepCollectionEquality()
-                    .equals(other.interviewerId, interviewerId)));
+                other.interviewerId == interviewerId));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(teamId) ^
-      const DeepCollectionEquality().hash(interviewerId);
+  int get hashCode => Object.hash(runtimeType, teamId, interviewerId);
 
   @JsonKey(ignore: true)
   @override
@@ -309,8 +305,8 @@ abstract class _WatchSurveyMapStarted implements WatchSurveyEvent {
       {required String teamId,
       required String interviewerId}) = _$_WatchSurveyMapStarted;
 
-  String get teamId => throw _privateConstructorUsedError;
-  String get interviewerId => throw _privateConstructorUsedError;
+  String get teamId;
+  String get interviewerId;
   @JsonKey(ignore: true)
   _$WatchSurveyMapStartedCopyWith<_WatchSurveyMapStarted> get copyWith =>
       throw _privateConstructorUsedError;
@@ -364,16 +360,14 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveyMapReceived &&
+        (other.runtimeType == runtimeType &&
+            other is _SurveyMapReceived &&
             (identical(other.failureOrSurveyMap, failureOrSurveyMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.failureOrSurveyMap, failureOrSurveyMap)));
+                other.failureOrSurveyMap == failureOrSurveyMap));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(failureOrSurveyMap);
+  int get hashCode => Object.hash(runtimeType, failureOrSurveyMap);
 
   @JsonKey(ignore: true)
   @override
@@ -476,8 +470,7 @@ abstract class _SurveyMapReceived implements WatchSurveyEvent {
           Either<SurveyFailure, Map<String, Survey>> failureOrSurveyMap) =
       _$_SurveyMapReceived;
 
-  Either<SurveyFailure, Map<String, Survey>> get failureOrSurveyMap =>
-      throw _privateConstructorUsedError;
+  Either<SurveyFailure, Map<String, Survey>> get failureOrSurveyMap;
   @JsonKey(ignore: true)
   _$SurveyMapReceivedCopyWith<_SurveyMapReceived> get copyWith =>
       throw _privateConstructorUsedError;
@@ -540,14 +533,13 @@ class _$_SurveySelected implements _SurveySelected {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SurveySelected &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)));
+        (other.runtimeType == runtimeType &&
+            other is _SurveySelected &&
+            (identical(other.survey, survey) || other.survey == survey));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(survey);
+  int get hashCode => Object.hash(runtimeType, survey);
 
   @JsonKey(ignore: true)
   @override
@@ -648,7 +640,7 @@ class _$_SurveySelected implements _SurveySelected {
 abstract class _SurveySelected implements WatchSurveyEvent {
   const factory _SurveySelected({required Survey survey}) = _$_SurveySelected;
 
-  Survey get survey => throw _privateConstructorUsedError;
+  Survey get survey;
   @JsonKey(ignore: true)
   _$SurveySelectedCopyWith<_SurveySelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -684,7 +676,8 @@ class _$_LoggedOut implements _LoggedOut {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _LoggedOut);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _LoggedOut);
   }
 
   @override
@@ -816,7 +809,8 @@ class _$_Initialized implements _Initialized {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Initialized);
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _Initialized);
   }
 
   @override
@@ -1157,35 +1151,28 @@ class _$_WatchSurveyState extends _WatchSurveyState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _WatchSurveyState &&
-            (identical(other.stateId, stateId) ||
-                const DeepCollectionEquality()
-                    .equals(other.stateId, stateId)) &&
-            (identical(other.surveyMap, surveyMap) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyMap, surveyMap)) &&
-            (identical(other.survey, survey) ||
-                const DeepCollectionEquality().equals(other.survey, survey)) &&
+        (other.runtimeType == runtimeType &&
+            other is _WatchSurveyState &&
+            (identical(other.stateId, stateId) || other.stateId == stateId) &&
+            const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
+            (identical(other.survey, survey) || other.survey == survey) &&
             (identical(other.eventState, eventState) ||
-                const DeepCollectionEquality()
-                    .equals(other.eventState, eventState)) &&
+                other.eventState == eventState) &&
             (identical(other.surveyMapState, surveyMapState) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyMapState, surveyMapState)) &&
+                other.surveyMapState == surveyMapState) &&
             (identical(other.surveyFailure, surveyFailure) ||
-                const DeepCollectionEquality()
-                    .equals(other.surveyFailure, surveyFailure)));
+                other.surveyFailure == surveyFailure));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(stateId) ^
-      const DeepCollectionEquality().hash(surveyMap) ^
-      const DeepCollectionEquality().hash(survey) ^
-      const DeepCollectionEquality().hash(eventState) ^
-      const DeepCollectionEquality().hash(surveyMapState) ^
-      const DeepCollectionEquality().hash(surveyFailure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      stateId,
+      const DeepCollectionEquality().hash(surveyMap),
+      survey,
+      eventState,
+      surveyMapState,
+      surveyFailure);
 
   @JsonKey(ignore: true)
   @override
@@ -1204,17 +1191,17 @@ abstract class _WatchSurveyState extends WatchSurveyState {
   const _WatchSurveyState._() : super._();
 
   @override
-  UniqueId get stateId => throw _privateConstructorUsedError;
+  UniqueId get stateId;
   @override // H_ 主要資料
-  Map<String, Survey> get surveyMap => throw _privateConstructorUsedError;
+  Map<String, Survey> get surveyMap;
   @override
-  Survey get survey => throw _privateConstructorUsedError;
+  Survey get survey;
   @override // H_ 狀態更新進度
-  LoadState get eventState => throw _privateConstructorUsedError;
+  LoadState get eventState;
   @override
-  LoadState get surveyMapState => throw _privateConstructorUsedError;
+  LoadState get surveyMapState;
   @override
-  Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
+  Option<SurveyFailure> get surveyFailure;
   @override
   @JsonKey(ignore: true)
   _$WatchSurveyStateCopyWith<_WatchSurveyState> get copyWith =>

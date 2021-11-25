@@ -78,7 +78,8 @@ class UploadAudioBloc extends HydratedBloc<UploadAudioEvent, UploadAudioState> {
       // H_ 登出
       loggedOut: (e) async {
         _uploadProgressWatcher?.cancel();
-        UploadAudioState.initial();
+        UploadAudioState.initial().emit(emit);
+        await clear();
       },
     );
   }
