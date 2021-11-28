@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
+import 'package:supercharged_dart/supercharged_dart.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -7,7 +9,7 @@ import '../../../domain/core/value_objects.dart';
 import 'qa_card.dart';
 
 class SurveyBody extends StatelessWidget {
-  final ScrollController scrollController;
+  final AutoScrollController scrollController;
 
   const SurveyBody({
     Key? key,
@@ -38,9 +40,14 @@ class SurveyBody extends StatelessWidget {
             scrollController.jumpTo(0);
           });
 
-          // TODO 用 ScrollablePositionedList 在 keyboard 出現/隱藏時會導致
-          //  rebuild，因此先使用 CustomScrollView
-          // return ScrollablePositionedList.builder(
+          final pageQIdList = state.pageQIdSet
+              .map((questionId) => state.questionMap[questionId]!)
+              .filter((question) =>
+                  question.tableId == '' ||
+                  (question.tableId != '' && question.type.isTable))
+              .map((question) => question.id)
+              .toList();
+
           return CustomScrollView(
             controller: scrollController,
             slivers: <Widget>[
@@ -48,11 +55,14 @@ class SurveyBody extends StatelessWidget {
               const SliverToBoxAdapter(
                 child: SizedBox(height: 25.0),
               ),
-              ...state.pageQIdSet
+              ...pageQIdList
+                  .asMap()
+                  .entries
                   .map(
-                    (questionId) => QaCard(
-                      key: Key(questionId),
-                      questionId: questionId,
+                    (e) => QaCard(
+                      key: Key(e.value),
+                      questionId: e.value,
+                      questionIndex: e.key,
                       scrollController: scrollController,
                     ),
                   )

@@ -61,7 +61,7 @@ dependencies:
   flutter_sticky_header: ^0.6.0
   sliver_tools: ^0.2.5
   # material_floating_search_bar: ^0.3.4
-  scrollable_positioned_list: ^0.2.3
+  scroll_to_index: ^2.1.0
   flash: ^2.0.3
   # H_ others
   dartz: ^0.10.0

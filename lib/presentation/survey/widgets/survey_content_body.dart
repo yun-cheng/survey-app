@@ -79,8 +79,9 @@ class SurveyContentBody extends StatelessWidget {
                     ),
                     onTap: () {
                       context.read<UpdateAnswerStatusBloc>().add(
-                            UpdateAnswerStatusEvent.pageNavigatedTo(
+                            UpdateAnswerStatusEvent.navigatedToQuestionId(
                               page: page,
+                              questionId: questionId,
                             ),
                           );
                       context.router.pop();

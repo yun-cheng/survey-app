@@ -254,29 +254,31 @@ RespondentState pageScrolled(
 ) {
   // logger('Compute').i('pageScrolled');
 
-  final firstCardIndex =
-      e.positions.isEmpty ? 0 : e.positions.map((p) => p.index).reduce(min);
-  final firstCardAlignment = e.positions.isEmpty
-      ? 0.0
-      : e.positions
-          .firstWhere((e) => e.index == firstCardIndex)
-          .itemLeadingEdge;
-  final firstRespondent =
-      state.tabRespondentMap[state.currentTab]!.values.firstOrNull;
+  // final firstCardIndex =
+  //     e.positions.isEmpty ? 0 : e.positions.map((p) => p.index).reduce(min);
+  // final firstCardAlignment = e.positions.isEmpty
+  //     ? 0.0
+  //     : e.positions
+  //         .firstWhere((e) => e.index == firstCardIndex)
+  //         .itemLeadingEdge;
+  // final firstRespondent =
+  //     state.tabRespondentMap[state.currentTab]!.values.firstOrNull;
 
-  if (firstRespondent != null) {
-    final TabScrollPosition tabScrollPosition =
-        Map.from(state.tabScrollPosition);
-    tabScrollPosition[e.tabType] = CardScrollPosition(
-      firstCardIndex: firstCardIndex,
-      firstCardAlignment: firstCardAlignment,
-      firstRespondent: firstRespondent,
-    );
+  // if (firstRespondent != null) {
+  //   final TabScrollPosition tabScrollPosition =
+  //       Map.from(state.tabScrollPosition);
+  //   tabScrollPosition[e.tabType] = CardScrollPosition(
+  //     firstCardIndex: firstCardIndex,
+  //     firstCardAlignment: firstCardAlignment,
+  //     firstRespondent: firstRespondent,
+  //   );
 
-    return state.copyWith(
-      tabScrollPosition: tabScrollPosition,
-    );
-  } else {
-    return state;
-  }
+  //   return state.copyWith(
+  //     tabScrollPosition: tabScrollPosition,
+  //   );
+  // } else {
+  //   return state;
+  // }
+
+  return state;
 }

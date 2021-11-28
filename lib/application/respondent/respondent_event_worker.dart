@@ -67,9 +67,23 @@ void _eventWorker(
     respondentSelected: (e) {
       logger('User Event').i('RespondentEvent: respondentSelected');
 
+      state = state
+          .copyWith(
+            needToJump: false,
+          )
+          .send(channel);
+
+      final cardIsOpen = state.selectedRespondentId == e.respondentId;
+
+      // final jumpToIndex =
+      //     state.tabRespondentMap[state.currentTab]!.values.indexOfFirst(
+      //   (r) => r.id == e.respondentId,
+      // );
+
       state = state.copyWith(
-        selectedRespondentId:
-            state.selectedRespondentId == e.respondentId ? '' : e.respondentId,
+        // needToJump: !cardIsOpen,
+        // jumpToIndex: jumpToIndex,
+        selectedRespondentId: cardIsOpen ? '' : e.respondentId,
         respondentFailure: none(),
         saveParameters: state.saveParameters.copyWith(
           selectedRespondentId: true,

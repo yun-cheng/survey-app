@@ -32,7 +32,7 @@ class RespondentEvent with _$RespondentEvent {
   // H_ 滾動頁面時
   const factory RespondentEvent.pageScrolled({
     required TabType tabType,
-    required List<ItemPosition> positions,
+    // required List<ItemPosition> positions,
   }) = _PageScrolled;
 
   // H_ 切換鄉鎮市區

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
@@ -32,7 +33,17 @@ class SurveyPage extends HookWidget {
       }
     }, []);
 
-    final _scrollController = useScrollController();
+    final scrollController = useMemoized(
+      () => AutoScrollController(
+        suggestedRowHeight: 600,
+        axis: Axis.vertical,
+        viewportBoundaryGetter: () => const Rect.fromLTRB(0, 25, 0, 0),
+      ),
+    );
+
+    useEffect(() {
+      return () => scrollController.dispose();
+    }, []);
 
     final respondent = context.read<ResponseBloc>().state.respondent;
 
@@ -42,7 +53,7 @@ class SurveyPage extends HookWidget {
         child: Scaffold(
           appBar: AppBar(
             title: Text(respondent.remainAddress),
-            leading: const SurveyLeadingButton(),
+            leading: SurveyLeadingButton(scrollController: scrollController),
             actions: [
               const ReAnswerButton(),
               IconButton(
@@ -61,7 +72,7 @@ class SurveyPage extends HookWidget {
             child: Column(
               children: [
                 Expanded(
-                  child: SurveyBody(scrollController: _scrollController),
+                  child: SurveyBody(scrollController: scrollController),
                 ),
                 const PageControlBar(),
               ],

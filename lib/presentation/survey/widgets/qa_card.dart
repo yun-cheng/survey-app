@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:sliver_tools/sliver_tools.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
@@ -16,12 +17,14 @@ import 'warning_box.dart';
 
 class QaCard extends StatelessWidget {
   final String questionId;
-  final ScrollController scrollController;
+  final int questionIndex;
+  final AutoScrollController scrollController;
 
   // HIGHLIGHT 即便沒有 field 需要 input 也該使用 key
   const QaCard({
     Key? key,
     required this.questionId,
+    required this.questionIndex,
     required this.scrollController,
   }) : super(key: key);
 
@@ -58,53 +61,54 @@ class QaCard extends StatelessWidget {
 
         final thisQuestion = state.questionMap[questionId] ?? Question.empty();
 
-        final visible = !answerStatus.isHidden &&
-            (thisQuestion.tableId == '' ||
-                (thisQuestion.tableId != '' && thisQuestion.type.isTable));
-
         final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
         return MultiSliver(
           children: [
-            if (visible) ...[
-              Align(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  width: double.infinity,
-                  constraints: kCardMaxWith,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      // H_ QuestionBox
-                      QuestionBox(questionId: questionId),
-                      // H_ WarningBox
-                      WarningBox(
-                        question: thisQuestion,
-                        questionId: thisQuestion.id,
-                      ),
-                      // H_ SpecialAnswerSwitch
-                      if (thisQuestion.hasSpecialAnswer &&
-                          canEdit &&
-                          !thisQuestion.type.isTable) ...[
-                        SpecialAnswerSwitch(
+            if (!answerStatus.isHidden) ...[
+              AutoScrollTag(
+                key: ValueKey(questionIndex),
+                controller: scrollController,
+                index: questionIndex,
+                child: Align(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                    width: double.infinity,
+                    constraints: kCardMaxWith,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        // H_ QuestionBox
+                        QuestionBox(questionId: questionId),
+                        // H_ WarningBox
+                        WarningBox(
+                          question: thisQuestion,
                           questionId: thisQuestion.id,
-                          isSpecialAnswer: isSpecialAnswer,
                         ),
-                      ],
-                      const SizedBox(height: 10),
-                      if (!thisQuestion.type.isTable) ...[
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: AnswerBox(
+                        // H_ SpecialAnswerSwitch
+                        if (thisQuestion.hasSpecialAnswer &&
+                            canEdit &&
+                            !thisQuestion.type.isTable) ...[
+                          SpecialAnswerSwitch(
                             questionId: thisQuestion.id,
-                            questionType: thisQuestion.type,
                             isSpecialAnswer: isSpecialAnswer,
-                            tableId: thisQuestion.tableId,
-                            scrollController: scrollController,
                           ),
-                        ),
+                        ],
+                        const SizedBox(height: 10),
+                        if (!thisQuestion.type.isTable) ...[
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: AnswerBox(
+                              questionId: thisQuestion.id,
+                              questionType: thisQuestion.type,
+                              isSpecialAnswer: isSpecialAnswer,
+                              tableId: thisQuestion.tableId,
+                              scrollController: scrollController,
+                            ),
+                          ),
+                        ],
                       ],
-                    ],
+                    ),
                   ),
                 ),
               ),

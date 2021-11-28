@@ -2,20 +2,21 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../../application/respondent/respondent_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
+import '../../../domain/respondent/value_objects.dart';
 import '../../core/style/main.dart';
-import 'scroll_position_bundle.dart';
 
 class GroupTopBar extends StatelessWidget {
-  final TabScrollPositionBundle tabScrollPositionBundle;
+  final Map<TabType, AutoScrollController> tabScrollControllerMap;
 
   const GroupTopBar({
     Key? key,
-    required this.tabScrollPositionBundle,
+    required this.tabScrollControllerMap,
   }) : super(key: key);
 
   @override
@@ -25,10 +26,13 @@ class GroupTopBar extends StatelessWidget {
       listener: (context, state) {
         logger('Listen').i('needToJump');
 
-        final controller =
-            tabScrollPositionBundle[state.currentTab]!.controller;
+        final controller = tabScrollControllerMap[state.currentTab]!;
 
-        controller.jumpTo(index: state.jumpToIndex);
+        controller.scrollToIndex(
+          state.jumpToIndex,
+          duration: const Duration(milliseconds: 1),
+          preferPosition: AutoScrollPosition.begin,
+        );
       },
       buildWhen: (p, c) {
         if (p.surveyRespondentMapState != c.surveyRespondentMapState ||

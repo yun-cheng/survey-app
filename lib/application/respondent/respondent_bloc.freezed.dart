@@ -55,11 +55,9 @@ class _$RespondentEventTearOff {
     );
   }
 
-  _PageScrolled pageScrolled(
-      {required TabType tabType, required List<ItemPosition> positions}) {
+  _PageScrolled pageScrolled({required TabType tabType}) {
     return _PageScrolled(
       tabType: tabType,
-      positions: positions,
     );
   }
 
@@ -109,8 +107,7 @@ mixin _$RespondentEvent {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -132,8 +129,7 @@ mixin _$RespondentEvent {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -154,8 +150,7 @@ mixin _$RespondentEvent {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -329,8 +324,7 @@ class _$_WatchSurveyRespondentMapStarted
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -355,8 +349,7 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -380,8 +373,7 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -562,8 +554,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -588,8 +579,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -613,8 +603,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -793,8 +782,7 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -819,8 +807,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -844,8 +831,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -989,8 +975,7 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -1015,8 +1000,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1040,8 +1024,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1204,8 +1187,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -1230,8 +1212,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1255,8 +1236,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1424,8 +1404,7 @@ class _$_TabSwitched implements _TabSwitched {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -1450,8 +1429,7 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1475,8 +1453,7 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1574,7 +1551,7 @@ abstract class _$PageScrolledCopyWith<$Res> {
   factory _$PageScrolledCopyWith(
           _PageScrolled value, $Res Function(_PageScrolled) then) =
       __$PageScrolledCopyWithImpl<$Res>;
-  $Res call({TabType tabType, List<ItemPosition> positions});
+  $Res call({TabType tabType});
 }
 
 /// @nodoc
@@ -1591,17 +1568,12 @@ class __$PageScrolledCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tabType = freezed,
-    Object? positions = freezed,
   }) {
     return _then(_PageScrolled(
       tabType: tabType == freezed
           ? _value.tabType
           : tabType // ignore: cast_nullable_to_non_nullable
               as TabType,
-      positions: positions == freezed
-          ? _value.positions
-          : positions // ignore: cast_nullable_to_non_nullable
-              as List<ItemPosition>,
     ));
   }
 }
@@ -1609,16 +1581,14 @@ class __$PageScrolledCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PageScrolled implements _PageScrolled {
-  const _$_PageScrolled({required this.tabType, required this.positions});
+  const _$_PageScrolled({required this.tabType});
 
   @override
   final TabType tabType;
-  @override
-  final List<ItemPosition> positions;
 
   @override
   String toString() {
-    return 'RespondentEvent.pageScrolled(tabType: $tabType, positions: $positions)';
+    return 'RespondentEvent.pageScrolled(tabType: $tabType)';
   }
 
   @override
@@ -1626,13 +1596,11 @@ class _$_PageScrolled implements _PageScrolled {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PageScrolled &&
-            (identical(other.tabType, tabType) || other.tabType == tabType) &&
-            const DeepCollectionEquality().equals(other.positions, positions));
+            (identical(other.tabType, tabType) || other.tabType == tabType));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, tabType, const DeepCollectionEquality().hash(positions));
+  int get hashCode => Object.hash(runtimeType, tabType);
 
   @JsonKey(ignore: true)
   @override
@@ -1652,8 +1620,7 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -1662,7 +1629,7 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return pageScrolled(tabType, positions);
+    return pageScrolled(tabType);
   }
 
   @override
@@ -1678,8 +1645,7 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1687,7 +1653,7 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return pageScrolled?.call(tabType, positions);
+    return pageScrolled?.call(tabType);
   }
 
   @override
@@ -1703,8 +1669,7 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1714,7 +1679,7 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult orElse(),
   }) {
     if (pageScrolled != null) {
-      return pageScrolled(tabType, positions);
+      return pageScrolled(tabType);
     }
     return orElse();
   }
@@ -1789,12 +1754,9 @@ class _$_PageScrolled implements _PageScrolled {
 }
 
 abstract class _PageScrolled implements RespondentEvent {
-  const factory _PageScrolled(
-      {required TabType tabType,
-      required List<ItemPosition> positions}) = _$_PageScrolled;
+  const factory _PageScrolled({required TabType tabType}) = _$_PageScrolled;
 
   TabType get tabType;
-  List<ItemPosition> get positions;
   @JsonKey(ignore: true)
   _$PageScrolledCopyWith<_PageScrolled> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1875,8 +1837,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -1901,8 +1862,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -1926,8 +1886,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2096,8 +2055,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -2122,8 +2080,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2147,8 +2104,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2319,8 +2275,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -2345,8 +2300,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2370,8 +2324,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2515,8 +2468,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -2541,8 +2493,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2566,8 +2517,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2706,8 +2656,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function() textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
-    required TResult Function(TabType tabType, List<ItemPosition> positions)
-        pageScrolled,
+    required TResult Function(TabType tabType) pageScrolled,
     required TResult Function(String countyTown) jumpedToTown,
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
@@ -2732,8 +2681,7 @@ class _$_Initialized implements _Initialized {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
@@ -2757,8 +2705,7 @@ class _$_Initialized implements _Initialized {
     TResult Function()? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
-    TResult Function(TabType tabType, List<ItemPosition> positions)?
-        pageScrolled,
+    TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?

@@ -41,8 +41,9 @@ class WarningButton extends StatelessWidget {
               style: kWarningButtonStyle,
               onPressed: () {
                 context.read<UpdateAnswerStatusBloc>().add(
-                      UpdateAnswerStatusEvent.pageNavigatedTo(
+                      UpdateAnswerStatusEvent.navigatedToQuestionId(
                         page: warning.pageNumber,
+                        questionId: warning.id,
                       ),
                     );
               },

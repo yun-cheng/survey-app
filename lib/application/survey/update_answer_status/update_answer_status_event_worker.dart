@@ -163,6 +163,40 @@ void _eventWorker(
             );
       }
     },
+    navigatedToQuestionId: (e) {
+      logger('User Event').i('UpdateAnswerStatusEvent: navigatedToQuestionId');
+
+      state = state.sendInProgress(channel);
+
+      state = state.copyWith(
+        direction: Direction.current,
+        page: state.isReadOnly ? 0 : e.page,
+        scrollToQuestionIndex: -99,
+        saveParameters: state.saveParameters.copyWith(
+          page: true,
+        ),
+      );
+      if (!state.isReadOnly) {
+        state = pageUpdatedFlow(channel, state);
+      }
+
+      final pageQIdList = state.pageQIdSet
+          .map((questionId) => state.questionMap[questionId]!)
+          .filter((question) =>
+              question.tableId == '' ||
+              (question.tableId != '' && question.type.isTable))
+          .map((question) => question.id)
+          .toList();
+
+      final questionIndex =
+          pageQIdList.indexOfFirst((questionId) => questionId == e.questionId);
+
+      state = state
+          .copyWith(
+            scrollToQuestionIndex: questionIndex,
+          )
+          .send(channel);
+    },
     // H_ 更新目錄題目
     contentQuestionMapUpdated: (e) {
       logger('User Event')

@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flash/flash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
@@ -15,7 +16,12 @@ import '../../core/style/main.dart';
 import '../../routes/router.dart';
 
 class SurveyLeadingButton extends StatelessWidget {
-  const SurveyLeadingButton({Key? key}) : super(key: key);
+  final AutoScrollController scrollController;
+
+  const SurveyLeadingButton({
+    Key? key,
+    required this.scrollController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +50,27 @@ class SurveyLeadingButton extends StatelessWidget {
             logger('Build').i('SurveyDialog');
 
             showSurveyDialog(context);
+          },
+        ),
+        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+          listenWhen: (p, c) =>
+              p.scrollToQuestionIndex != c.scrollToQuestionIndex &&
+              c.scrollToQuestionIndex != -99,
+          listener: (context, state) async {
+            // NOTE 因為 table box 會有 sticky header，沒辦法直接 scrollToIndex，
+            //  會出錯，所以就先跳到底再往回滾，
+            //  實測是沒問題，但題目一多可能要調整 delay 的時間
+            scrollController.jumpTo(
+              scrollController.position.maxScrollExtent,
+            );
+
+            await Future.delayed(const Duration(milliseconds: 50));
+
+            await scrollController.scrollToIndex(
+              state.scrollToQuestionIndex,
+              duration: const Duration(milliseconds: 1),
+              preferPosition: AutoScrollPosition.begin,
+            );
           },
         ),
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(

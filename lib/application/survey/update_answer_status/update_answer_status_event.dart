@@ -40,6 +40,11 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     int? page,
   }) = _PageNavigatedTo;
 
+  const factory UpdateAnswerStatusEvent.navigatedToQuestionId({
+    required int page,
+    required String questionId,
+  }) = _ScrolledToQuestionId;
+
   // H_ 更新目錄題目
   const factory UpdateAnswerStatusEvent.contentQuestionMapUpdated() =
       _ContentQuestionMapUpdated;

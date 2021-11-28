@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
 import '../../application/respondent/respondent_bloc.dart';
@@ -11,16 +12,27 @@ import '../../domain/respondent/value_objects.dart';
 import 'widgets/badged_tab_bar.dart';
 import 'widgets/group_top_bar.dart';
 import 'widgets/respondents_body.dart';
-import 'widgets/scroll_position_bundle.dart';
 
 class RespondentsPage extends HookWidget {
   RespondentsPage({Key? key}) : super(key: key);
 
-  final tabScrollPositionBundle = {
-    TabType.start: ScrollPositionBundle.initial(),
-    TabType.interviewReport: ScrollPositionBundle.initial(),
-    TabType.recode: ScrollPositionBundle.initial(),
-    TabType.finished: ScrollPositionBundle.initial(),
+  final tabScrollControllerMap = {
+    TabType.start: AutoScrollController(
+      suggestedRowHeight: 106,
+      axis: Axis.vertical,
+    ),
+    TabType.interviewReport: AutoScrollController(
+      suggestedRowHeight: 106,
+      axis: Axis.vertical,
+    ),
+    TabType.recode: AutoScrollController(
+      suggestedRowHeight: 106,
+      axis: Axis.vertical,
+    ),
+    TabType.finished: AutoScrollController(
+      suggestedRowHeight: 106,
+      axis: Axis.vertical,
+    ),
   };
 
   @override
@@ -45,19 +57,19 @@ class RespondentsPage extends HookWidget {
       children: [
         RespondentsBody(
           tabType: TabType.start,
-          tabScrollPositionBundle: tabScrollPositionBundle,
+          tabScrollControllerMap: tabScrollControllerMap,
         ),
         RespondentsBody(
           tabType: TabType.interviewReport,
-          tabScrollPositionBundle: tabScrollPositionBundle,
+          tabScrollControllerMap: tabScrollControllerMap,
         ),
         RespondentsBody(
           tabType: TabType.recode,
-          tabScrollPositionBundle: tabScrollPositionBundle,
+          tabScrollControllerMap: tabScrollControllerMap,
         ),
         RespondentsBody(
           tabType: TabType.finished,
-          tabScrollPositionBundle: tabScrollPositionBundle,
+          tabScrollControllerMap: tabScrollControllerMap,
         ),
       ],
     );
@@ -86,7 +98,7 @@ class RespondentsPage extends HookWidget {
         child: Column(
           children: [
             GroupTopBar(
-              tabScrollPositionBundle: tabScrollPositionBundle,
+              tabScrollControllerMap: tabScrollControllerMap,
             ),
             Expanded(child: tabBarView),
           ],

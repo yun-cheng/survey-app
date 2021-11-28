@@ -81,6 +81,14 @@ class _$UpdateAnswerStatusEventTearOff {
     );
   }
 
+  _ScrolledToQuestionId navigatedToQuestionId(
+      {required int page, required String questionId}) {
+    return _ScrolledToQuestionId(
+      page: page,
+      questionId: questionId,
+    );
+  }
+
   _ContentQuestionMapUpdated contentQuestionMapUpdated() {
     return const _ContentQuestionMapUpdated();
   }
@@ -165,6 +173,8 @@ mixin _$UpdateAnswerStatusEvent {
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -208,6 +218,7 @@ mixin _$UpdateAnswerStatusEvent {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -250,6 +261,7 @@ mixin _$UpdateAnswerStatusEvent {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -270,6 +282,8 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -292,6 +306,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -313,6 +328,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -641,6 +657,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -700,6 +718,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -758,6 +777,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -797,6 +817,8 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -822,6 +844,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -846,6 +869,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -978,6 +1002,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -1024,6 +1050,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -1069,6 +1096,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -1095,6 +1123,8 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -1120,6 +1150,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -1144,6 +1175,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -1368,6 +1400,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -1415,6 +1449,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -1461,6 +1496,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -1488,6 +1524,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -1513,6 +1551,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -1537,6 +1576,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -1696,6 +1736,8 @@ class _$_PageNavigatedTo
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -1742,6 +1784,7 @@ class _$_PageNavigatedTo
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -1787,6 +1830,7 @@ class _$_PageNavigatedTo
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -1813,6 +1857,8 @@ class _$_PageNavigatedTo
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -1838,6 +1884,7 @@ class _$_PageNavigatedTo
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -1862,6 +1909,7 @@ class _$_PageNavigatedTo
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -1892,6 +1940,327 @@ abstract class _PageNavigatedTo implements UpdateAnswerStatusEvent {
   int? get page;
   @JsonKey(ignore: true)
   _$PageNavigatedToCopyWith<_PageNavigatedTo> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$ScrolledToQuestionIdCopyWith<$Res> {
+  factory _$ScrolledToQuestionIdCopyWith(_ScrolledToQuestionId value,
+          $Res Function(_ScrolledToQuestionId) then) =
+      __$ScrolledToQuestionIdCopyWithImpl<$Res>;
+  $Res call({int page, String questionId});
+}
+
+/// @nodoc
+class __$ScrolledToQuestionIdCopyWithImpl<$Res>
+    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
+    implements _$ScrolledToQuestionIdCopyWith<$Res> {
+  __$ScrolledToQuestionIdCopyWithImpl(
+      _ScrolledToQuestionId _value, $Res Function(_ScrolledToQuestionId) _then)
+      : super(_value, (v) => _then(v as _ScrolledToQuestionId));
+
+  @override
+  _ScrolledToQuestionId get _value => super._value as _ScrolledToQuestionId;
+
+  @override
+  $Res call({
+    Object? page = freezed,
+    Object? questionId = freezed,
+  }) {
+    return _then(_ScrolledToQuestionId(
+      page: page == freezed
+          ? _value.page
+          : page // ignore: cast_nullable_to_non_nullable
+              as int,
+      questionId: questionId == freezed
+          ? _value.questionId
+          : questionId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_ScrolledToQuestionId
+    with DiagnosticableTreeMixin
+    implements _ScrolledToQuestionId {
+  const _$_ScrolledToQuestionId({required this.page, required this.questionId});
+
+  @override
+  final int page;
+  @override
+  final String questionId;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerStatusEvent.navigatedToQuestionId(page: $page, questionId: $questionId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'UpdateAnswerStatusEvent.navigatedToQuestionId'))
+      ..add(DiagnosticsProperty('page', page))
+      ..add(DiagnosticsProperty('questionId', questionId));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ScrolledToQuestionId &&
+            (identical(other.page, page) || other.page == page) &&
+            (identical(other.questionId, questionId) ||
+                other.questionId == questionId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, page, questionId);
+
+  @JsonKey(ignore: true)
+  @override
+  _$ScrolledToQuestionIdCopyWith<_ScrolledToQuestionId> get copyWith =>
+      __$ScrolledToQuestionIdCopyWithImpl<_ScrolledToQuestionId>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
+        moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)
+        answerUpdated,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
+    required TResult Function() contentQuestionMapUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
+    required TResult Function(List<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() initialized,
+  }) {
+    return navigatedToQuestionId(page, questionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+  }) {
+    return navigatedToQuestionId?.call(page, questionId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (navigatedToQuestionId != null) {
+      return navigatedToQuestionId(page, questionId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseMapUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return navigatedToQuestionId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return navigatedToQuestionId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (navigatedToQuestionId != null) {
+      return navigatedToQuestionId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ScrolledToQuestionId implements UpdateAnswerStatusEvent {
+  const factory _ScrolledToQuestionId(
+      {required int page,
+      required String questionId}) = _$_ScrolledToQuestionId;
+
+  int get page;
+  String get questionId;
+  @JsonKey(ignore: true)
+  _$ScrolledToQuestionIdCopyWith<_ScrolledToQuestionId> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1975,6 +2344,8 @@ class _$_ContentQuestionMapUpdated
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -2021,6 +2392,7 @@ class _$_ContentQuestionMapUpdated
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2066,6 +2438,7 @@ class _$_ContentQuestionMapUpdated
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2092,6 +2465,8 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -2117,6 +2492,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -2141,6 +2517,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -2245,6 +2622,8 @@ class _$_FinishedButtonPressed
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -2291,6 +2670,7 @@ class _$_FinishedButtonPressed
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2336,6 +2716,7 @@ class _$_FinishedButtonPressed
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2362,6 +2743,8 @@ class _$_FinishedButtonPressed
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -2387,6 +2770,7 @@ class _$_FinishedButtonPressed
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -2411,6 +2795,7 @@ class _$_FinishedButtonPressed
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -2513,6 +2898,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -2559,6 +2946,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2604,6 +2992,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2630,6 +3019,8 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -2655,6 +3046,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -2679,6 +3071,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -2783,6 +3176,8 @@ class _$_LeaveButtonPressed
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -2829,6 +3224,7 @@ class _$_LeaveButtonPressed
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2874,6 +3270,7 @@ class _$_LeaveButtonPressed
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -2900,6 +3297,8 @@ class _$_LeaveButtonPressed
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -2925,6 +3324,7 @@ class _$_LeaveButtonPressed
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -2949,6 +3349,7 @@ class _$_LeaveButtonPressed
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -3053,6 +3454,8 @@ class _$_LeaveButtonHidden
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -3099,6 +3502,7 @@ class _$_LeaveButtonHidden
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -3144,6 +3548,7 @@ class _$_LeaveButtonHidden
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -3170,6 +3575,8 @@ class _$_LeaveButtonHidden
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -3195,6 +3602,7 @@ class _$_LeaveButtonHidden
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -3219,6 +3627,7 @@ class _$_LeaveButtonHidden
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -3328,6 +3737,8 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -3374,6 +3785,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -3419,6 +3831,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -3445,6 +3858,8 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -3470,6 +3885,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -3494,6 +3910,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -3626,6 +4043,8 @@ class _$_AppLifeCycleChanged
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -3672,6 +4091,7 @@ class _$_AppLifeCycleChanged
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -3717,6 +4137,7 @@ class _$_AppLifeCycleChanged
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -3743,6 +4164,8 @@ class _$_AppLifeCycleChanged
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -3768,6 +4191,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -3792,6 +4216,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -3933,6 +4358,8 @@ class _$_RespondentResponseListUpdated
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -3979,6 +4406,7 @@ class _$_RespondentResponseListUpdated
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -4024,6 +4452,7 @@ class _$_RespondentResponseListUpdated
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -4050,6 +4479,8 @@ class _$_RespondentResponseListUpdated
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -4075,6 +4506,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -4099,6 +4531,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -4238,6 +4671,8 @@ class _$_ReferenceListUpdated
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -4284,6 +4719,7 @@ class _$_ReferenceListUpdated
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -4329,6 +4765,7 @@ class _$_ReferenceListUpdated
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -4355,6 +4792,8 @@ class _$_ReferenceListUpdated
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -4380,6 +4819,7 @@ class _$_ReferenceListUpdated
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -4404,6 +4844,7 @@ class _$_ReferenceListUpdated
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -4511,6 +4952,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool toggleSpecialAnswer)
         answerUpdated,
     required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
     required TResult Function() dialogClosed,
@@ -4557,6 +5000,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -4602,6 +5046,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
             bool toggleSpecialAnswer)?
         answerUpdated,
     TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
     TResult Function()? dialogClosed,
@@ -4628,6 +5073,8 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function(_StateCleared value) stateCleared,
     required TResult Function(_AnswerUpdated value) answerUpdated,
     required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
     required TResult Function(_ContentQuestionMapUpdated value)
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
@@ -4653,6 +5100,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -4677,6 +5125,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_StateCleared value)? stateCleared,
     TResult Function(_AnswerUpdated value)? answerUpdated,
     TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
@@ -4729,6 +5178,7 @@ class _$UpdateAnswerStatusStateTearOff {
       required bool showLeaveButton,
       required bool leavePage,
       required bool appIsPaused,
+      required int scrollToQuestionIndex,
       required Respondent respondent,
       required String surveyId,
       required ModuleType moduleType,
@@ -4765,6 +5215,7 @@ class _$UpdateAnswerStatusStateTearOff {
       showLeaveButton: showLeaveButton,
       leavePage: leavePage,
       appIsPaused: appIsPaused,
+      scrollToQuestionIndex: scrollToQuestionIndex,
       respondent: respondent,
       surveyId: surveyId,
       moduleType: moduleType,
@@ -4812,7 +5263,8 @@ mixin _$UpdateAnswerStatusState {
   DialogType get dialogType => throw _privateConstructorUsedError;
   bool get showLeaveButton => throw _privateConstructorUsedError;
   bool get leavePage => throw _privateConstructorUsedError;
-  bool get appIsPaused =>
+  bool get appIsPaused => throw _privateConstructorUsedError;
+  int get scrollToQuestionIndex =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
   Respondent get respondent => throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
@@ -4863,6 +5315,7 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       bool showLeaveButton,
       bool leavePage,
       bool appIsPaused,
+      int scrollToQuestionIndex,
       Respondent respondent,
       String surveyId,
       ModuleType moduleType,
@@ -4922,6 +5375,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? showLeaveButton = freezed,
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
+    Object? scrollToQuestionIndex = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -5022,6 +5476,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
               as bool,
+      scrollToQuestionIndex: scrollToQuestionIndex == freezed
+          ? _value.scrollToQuestionIndex
+          : scrollToQuestionIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
@@ -5181,6 +5639,7 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       bool showLeaveButton,
       bool leavePage,
       bool appIsPaused,
+      int scrollToQuestionIndex,
       Respondent respondent,
       String surveyId,
       ModuleType moduleType,
@@ -5253,6 +5712,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? showLeaveButton = freezed,
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
+    Object? scrollToQuestionIndex = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -5353,6 +5813,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.appIsPaused
           : appIsPaused // ignore: cast_nullable_to_non_nullable
               as bool,
+      scrollToQuestionIndex: scrollToQuestionIndex == freezed
+          ? _value.scrollToQuestionIndex
+          : scrollToQuestionIndex // ignore: cast_nullable_to_non_nullable
+              as int,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
@@ -5439,6 +5903,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.showLeaveButton,
       required this.leavePage,
       required this.appIsPaused,
+      required this.scrollToQuestionIndex,
       required this.respondent,
       required this.surveyId,
       required this.moduleType,
@@ -5498,6 +5963,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   final bool leavePage;
   @override
   final bool appIsPaused;
+  @override
+  final int scrollToQuestionIndex;
   @override // H_ 同 session 不變的參考資料
   final Respondent respondent;
   @override
@@ -5529,7 +5996,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -5558,6 +6025,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
       ..add(DiagnosticsProperty('leavePage', leavePage))
       ..add(DiagnosticsProperty('appIsPaused', appIsPaused))
+      ..add(DiagnosticsProperty('scrollToQuestionIndex', scrollToQuestionIndex))
       ..add(DiagnosticsProperty('respondent', respondent))
       ..add(DiagnosticsProperty('surveyId', surveyId))
       ..add(DiagnosticsProperty('moduleType', moduleType))
@@ -5617,6 +6085,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
                 other.leavePage == leavePage) &&
             (identical(other.appIsPaused, appIsPaused) ||
                 other.appIsPaused == appIsPaused) &&
+            (identical(other.scrollToQuestionIndex, scrollToQuestionIndex) ||
+                other.scrollToQuestionIndex == scrollToQuestionIndex) &&
             (identical(other.respondent, respondent) ||
                 other.respondent == respondent) &&
             (identical(other.surveyId, surveyId) ||
@@ -5671,6 +6141,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
         showLeaveButton,
         leavePage,
         appIsPaused,
+        scrollToQuestionIndex,
         respondent,
         surveyId,
         moduleType,
@@ -5717,6 +6188,7 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
       required bool showLeaveButton,
       required bool leavePage,
       required bool appIsPaused,
+      required int scrollToQuestionIndex,
       required Respondent respondent,
       required String surveyId,
       required ModuleType moduleType,
@@ -5776,6 +6248,8 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   bool get leavePage;
   @override
   bool get appIsPaused;
+  @override
+  int get scrollToQuestionIndex;
   @override // H_ 同 session 不變的參考資料
   Respondent get respondent;
   @override

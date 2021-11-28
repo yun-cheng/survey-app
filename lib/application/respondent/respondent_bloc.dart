@@ -7,7 +7,6 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
 import 'package:tuple/tuple.dart';
 

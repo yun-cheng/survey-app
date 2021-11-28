@@ -217,13 +217,14 @@ UpdateAnswerStatusState contentQuestionMapUpdated(
       ? state.recodeAnswerStatusMap
       : state.answerStatusMap;
 
-  final contentQIdSet = (state.isRecodeModule
-          ? state.recodeQuestionMap
-          : state.questionMap)
-      .filterByValues((q) =>
-          !answerStatusMap[q.id]!.isHidden && q.pageNumber <= state.newestPage)
-      .keys
-      .toSet();
+  final contentQIdSet =
+      (state.isRecodeModule ? state.recodeQuestionMap : state.questionMap)
+          .filterByValues((q) =>
+              !answerStatusMap[q.id]!.isHidden &&
+              (q.tableId == '' || q.tableId != '' && q.type.isTable) &&
+              q.pageNumber <= state.newestPage)
+          .keys
+          .toSet();
 
   for (final questionId in contentQIdSet) {
     questionMap[questionId] = questionMap[questionId]!.updateBody(

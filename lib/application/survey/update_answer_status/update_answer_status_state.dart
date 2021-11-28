@@ -30,6 +30,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required bool showLeaveButton,
     required bool leavePage,
     required bool appIsPaused,
+    required int scrollToQuestionIndex,
     // H_ 同 session 不變的參考資料
     required Respondent respondent,
     required String surveyId,
@@ -74,6 +75,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         showLeaveButton: true,
         leavePage: false,
         appIsPaused: false,
+        scrollToQuestionIndex: -99,
         // H_ 同 session 不變的參考資料
         respondent: Respondent.empty(),
         surveyId: '',
