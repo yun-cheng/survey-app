@@ -87,11 +87,15 @@ class RespondentsPage extends HookWidget {
             context.router.pop();
           },
         ),
-        flexibleSpace: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            BadgedTabBar(tabController: _tabController),
-          ],
+        flexibleSpace: Align(
+          alignment: Alignment.bottomCenter,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(width: 60),
+              Flexible(child: BadgedTabBar(tabController: _tabController)),
+            ],
+          ),
         ),
       ),
       body: SafeArea(

@@ -10,6 +10,7 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/respondent.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../core/style/main.dart';
+import 'search_box.dart';
 
 class GroupTopBar extends StatelessWidget {
   final Map<TabType, AutoScrollController> tabScrollControllerMap;
@@ -114,7 +115,7 @@ class TownDropDown extends HookWidget {
           value: selectedCountyTown.value,
           selectedItemBuilder: (_) => selectedItemList,
           underline: const SizedBox(),
-          iconSize: 40.0,
+          iconSize: 40,
           itemHeight: null,
           items: choiceItemList,
           onChanged: (String? countyTown) {
@@ -128,6 +129,7 @@ class TownDropDown extends HookWidget {
         //   firstRespondent.village,
         //   style: kCardH2TextStyle,
         // ),
+        const SearchBox(),
       ],
     );
   }

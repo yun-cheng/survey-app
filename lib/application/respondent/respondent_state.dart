@@ -16,6 +16,8 @@ class RespondentState with _$RespondentState {
     required VisitRecordsMap visitRecordsMap,
     required TabRespondentMap tabRespondentMap,
     required ResponseMap responseInfoMap,
+    required String searchText,
+    required Map<String, bool> searchRespondentMap,
     // H_ 中間資料
     required bool needToJump,
     required int jumpToIndex,
@@ -40,6 +42,8 @@ class RespondentState with _$RespondentState {
         visitRecordsMap: const {},
         tabRespondentMap: const {},
         responseInfoMap: const {},
+        searchText: '',
+        searchRespondentMap: const {},
         // H_ 中間資料
         needToJump: false,
         jumpToIndex: 0,

@@ -37,8 +37,6 @@ class NoteBox extends HookWidget {
         enabled: canEdit,
         // autofocus: true,
         decoration: InputDecoration(
-          labelText: '',
-          counterText: '',
           filled: true,
           fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
           border: const UnderlineInputBorder(

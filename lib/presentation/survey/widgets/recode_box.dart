@@ -40,8 +40,6 @@ class RecodeBox extends HookWidget {
         controller: controller,
         enabled: canEdit,
         decoration: InputDecoration(
-          labelText: '',
-          counterText: '',
           filled: true,
           fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
           border: const UnderlineInputBorder(

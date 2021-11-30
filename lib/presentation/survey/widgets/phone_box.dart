@@ -42,8 +42,6 @@ class PhoneBox extends StatelessWidget {
               initialValue: note,
               enabled: !isReadOnly && !isRecodeModule,
               decoration: const InputDecoration(
-                labelText: '',
-                counterText: '',
               ),
               maxLines: null,
               keyboardType: TextInputType.phone,

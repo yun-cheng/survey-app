@@ -25,31 +25,32 @@ class BadgedTabBar extends StatelessWidget {
       width = 38.0;
     }
     return Container(
+      alignment: Alignment.center,
       width: width,
-      height: 22.0,
+      height: 22,
       decoration: const BoxDecoration(
         color: Colors.deepPurple,
         borderRadius: BorderRadius.all(Radius.circular(100.0)),
       ),
-      child: Center(
-        child: Text(
-          countStr,
-          style: const TextStyle(
-            fontSize: 14.0,
-          ),
-        ),
+      child: Text(
+        countStr,
+        style: const TextStyle(fontSize: 14),
       ),
     );
   }
 
   Widget tabTitle(String title, int count) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(title),
-        const SizedBox(width: 4.0),
-        tabClip(count),
-      ],
+    return Container(
+      padding: const EdgeInsets.only(bottom: 4),
+      alignment: Alignment.bottomCenter,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(title),
+          const SizedBox(width: 4),
+          tabClip(count),
+        ],
+      ),
     );
   }
 

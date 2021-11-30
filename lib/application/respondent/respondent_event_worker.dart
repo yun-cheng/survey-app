@@ -162,6 +162,16 @@ void _eventWorker(
     // H_ 使用者搜尋文字
     textSearched: (e) {
       logger('Event').i('RespondentEvent: textSearched');
+
+      final searchRespondentMap = state.respondentMap.mapValues((respondent) =>
+          respondent.id.contains(e.text) ||
+          '${respondent.countyTown}${respondent.village}${respondent.remainAddress}'
+              .contains(e.text));
+
+      state = state.copyWith(
+        searchText: e.text,
+        searchRespondentMap: searchRespondentMap,
+      );
     },
     loggedOut: (e) {
       state = RespondentState.initial().copyWith(

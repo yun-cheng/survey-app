@@ -17,7 +17,9 @@ class RespondentEvent with _$RespondentEvent {
   }) = _SurveySelected;
 
   // H_ 使用者搜尋文字
-  const factory RespondentEvent.textSearched() = _TextSearched;
+  const factory RespondentEvent.textSearched({
+    required String text,
+  }) = _TextSearched;
 
   // H_ 使用者選擇受訪者
   const factory RespondentEvent.respondentSelected({

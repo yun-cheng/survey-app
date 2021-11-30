@@ -39,8 +39,10 @@ class _$RespondentEventTearOff {
     );
   }
 
-  _TextSearched textSearched() {
-    return const _TextSearched();
+  _TextSearched textSearched({required String text}) {
+    return _TextSearched(
+      text: text,
+    );
   }
 
   _RespondentSelected respondentSelected({required String respondentId}) {
@@ -104,7 +106,7 @@ mixin _$RespondentEvent {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -126,7 +128,7 @@ mixin _$RespondentEvent {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -147,7 +149,7 @@ mixin _$RespondentEvent {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -321,7 +323,7 @@ class _$_WatchSurveyRespondentMapStarted
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -346,7 +348,7 @@ class _$_WatchSurveyRespondentMapStarted
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -370,7 +372,7 @@ class _$_WatchSurveyRespondentMapStarted
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -551,7 +553,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -576,7 +578,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -600,7 +602,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -779,7 +781,7 @@ class _$_SurveySelected implements _SurveySelected {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -804,7 +806,7 @@ class _$_SurveySelected implements _SurveySelected {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -828,7 +830,7 @@ class _$_SurveySelected implements _SurveySelected {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -929,6 +931,7 @@ abstract class _$TextSearchedCopyWith<$Res> {
   factory _$TextSearchedCopyWith(
           _TextSearched value, $Res Function(_TextSearched) then) =
       __$TextSearchedCopyWithImpl<$Res>;
+  $Res call({String text});
 }
 
 /// @nodoc
@@ -941,26 +944,48 @@ class __$TextSearchedCopyWithImpl<$Res>
 
   @override
   _TextSearched get _value => super._value as _TextSearched;
+
+  @override
+  $Res call({
+    Object? text = freezed,
+  }) {
+    return _then(_TextSearched(
+      text: text == freezed
+          ? _value.text
+          : text // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_TextSearched implements _TextSearched {
-  const _$_TextSearched();
+  const _$_TextSearched({required this.text});
+
+  @override
+  final String text;
 
   @override
   String toString() {
-    return 'RespondentEvent.textSearched()';
+    return 'RespondentEvent.textSearched(text: $text)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _TextSearched);
+        (other.runtimeType == runtimeType &&
+            other is _TextSearched &&
+            (identical(other.text, text) || other.text == text));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, text);
+
+  @JsonKey(ignore: true)
+  @override
+  _$TextSearchedCopyWith<_TextSearched> get copyWith =>
+      __$TextSearchedCopyWithImpl<_TextSearched>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -972,7 +997,7 @@ class _$_TextSearched implements _TextSearched {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -984,7 +1009,7 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return textSearched();
+    return textSearched(text);
   }
 
   @override
@@ -997,7 +1022,7 @@ class _$_TextSearched implements _TextSearched {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1008,7 +1033,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return textSearched?.call();
+    return textSearched?.call(text);
   }
 
   @override
@@ -1021,7 +1046,7 @@ class _$_TextSearched implements _TextSearched {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1034,7 +1059,7 @@ class _$_TextSearched implements _TextSearched {
     required TResult orElse(),
   }) {
     if (textSearched != null) {
-      return textSearched();
+      return textSearched(text);
     }
     return orElse();
   }
@@ -1109,7 +1134,12 @@ class _$_TextSearched implements _TextSearched {
 }
 
 abstract class _TextSearched implements RespondentEvent {
-  const factory _TextSearched() = _$_TextSearched;
+  const factory _TextSearched({required String text}) = _$_TextSearched;
+
+  String get text;
+  @JsonKey(ignore: true)
+  _$TextSearchedCopyWith<_TextSearched> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -1184,7 +1214,7 @@ class _$_RespondentSelected implements _RespondentSelected {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -1209,7 +1239,7 @@ class _$_RespondentSelected implements _RespondentSelected {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1233,7 +1263,7 @@ class _$_RespondentSelected implements _RespondentSelected {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1401,7 +1431,7 @@ class _$_TabSwitched implements _TabSwitched {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -1426,7 +1456,7 @@ class _$_TabSwitched implements _TabSwitched {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1450,7 +1480,7 @@ class _$_TabSwitched implements _TabSwitched {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1617,7 +1647,7 @@ class _$_PageScrolled implements _PageScrolled {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -1642,7 +1672,7 @@ class _$_PageScrolled implements _PageScrolled {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1666,7 +1696,7 @@ class _$_PageScrolled implements _PageScrolled {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1834,7 +1864,7 @@ class _$_JumpedToTown implements _JumpedToTown {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -1859,7 +1889,7 @@ class _$_JumpedToTown implements _JumpedToTown {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -1883,7 +1913,7 @@ class _$_JumpedToTown implements _JumpedToTown {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2052,7 +2082,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -2077,7 +2107,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2101,7 +2131,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2272,7 +2302,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -2297,7 +2327,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2321,7 +2351,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2465,7 +2495,7 @@ class _$_LoggedOut implements _LoggedOut {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -2490,7 +2520,7 @@ class _$_LoggedOut implements _LoggedOut {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2514,7 +2544,7 @@ class _$_LoggedOut implements _LoggedOut {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2653,7 +2683,7 @@ class _$_Initialized implements _Initialized {
                 failureOrSurveyRespondentMap)
         surveyRespondentMapReceived,
     required TResult Function(Survey survey) surveySelected,
-    required TResult Function() textSearched,
+    required TResult Function(String text) textSearched,
     required TResult Function(String respondentId) respondentSelected,
     required TResult Function(int index) tabSwitched,
     required TResult Function(TabType tabType) pageScrolled,
@@ -2678,7 +2708,7 @@ class _$_Initialized implements _Initialized {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2702,7 +2732,7 @@ class _$_Initialized implements _Initialized {
                 failureOrSurveyRespondentMap)?
         surveyRespondentMapReceived,
     TResult Function(Survey survey)? surveySelected,
-    TResult Function()? textSearched,
+    TResult Function(String text)? textSearched,
     TResult Function(String respondentId)? respondentSelected,
     TResult Function(int index)? tabSwitched,
     TResult Function(TabType tabType)? pageScrolled,
@@ -2808,6 +2838,8 @@ class _$RespondentStateTearOff {
       required Map<String, List<VisitRecord>> visitRecordsMap,
       required Map<TabType, Map<String, Respondent>> tabRespondentMap,
       required Map<UniqueId, Response> responseInfoMap,
+      required String searchText,
+      required Map<String, bool> searchRespondentMap,
       required bool needToJump,
       required int jumpToIndex,
       required LoadState surveyRespondentMapState,
@@ -2825,6 +2857,8 @@ class _$RespondentStateTearOff {
       visitRecordsMap: visitRecordsMap,
       tabRespondentMap: tabRespondentMap,
       responseInfoMap: responseInfoMap,
+      searchText: searchText,
+      searchRespondentMap: searchRespondentMap,
       needToJump: needToJump,
       jumpToIndex: jumpToIndex,
       surveyRespondentMapState: surveyRespondentMapState,
@@ -2855,6 +2889,9 @@ mixin _$RespondentState {
   Map<TabType, Map<String, Respondent>> get tabRespondentMap =>
       throw _privateConstructorUsedError;
   Map<UniqueId, Response> get responseInfoMap =>
+      throw _privateConstructorUsedError;
+  String get searchText => throw _privateConstructorUsedError;
+  Map<String, bool> get searchRespondentMap =>
       throw _privateConstructorUsedError; // H_ 中間資料
   bool get needToJump => throw _privateConstructorUsedError;
   int get jumpToIndex => throw _privateConstructorUsedError; // H_ 狀態更新進度
@@ -2885,6 +2922,8 @@ abstract class $RespondentStateCopyWith<$Res> {
       Map<String, List<VisitRecord>> visitRecordsMap,
       Map<TabType, Map<String, Respondent>> tabRespondentMap,
       Map<UniqueId, Response> responseInfoMap,
+      String searchText,
+      Map<String, bool> searchRespondentMap,
       bool needToJump,
       int jumpToIndex,
       LoadState surveyRespondentMapState,
@@ -2920,6 +2959,8 @@ class _$RespondentStateCopyWithImpl<$Res>
     Object? visitRecordsMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
+    Object? searchText = freezed,
+    Object? searchRespondentMap = freezed,
     Object? needToJump = freezed,
     Object? jumpToIndex = freezed,
     Object? surveyRespondentMapState = freezed,
@@ -2968,6 +3009,14 @@ class _$RespondentStateCopyWithImpl<$Res>
           ? _value.responseInfoMap
           : responseInfoMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
+      searchText: searchText == freezed
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
+      searchRespondentMap: searchRespondentMap == freezed
+          ? _value.searchRespondentMap
+          : searchRespondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>,
       needToJump: needToJump == freezed
           ? _value.needToJump
           : needToJump // ignore: cast_nullable_to_non_nullable
@@ -3049,6 +3098,8 @@ abstract class _$RespondentStateCopyWith<$Res>
       Map<String, List<VisitRecord>> visitRecordsMap,
       Map<TabType, Map<String, Respondent>> tabRespondentMap,
       Map<UniqueId, Response> responseInfoMap,
+      String searchText,
+      Map<String, bool> searchRespondentMap,
       bool needToJump,
       int jumpToIndex,
       LoadState surveyRespondentMapState,
@@ -3091,6 +3142,8 @@ class __$RespondentStateCopyWithImpl<$Res>
     Object? visitRecordsMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
+    Object? searchText = freezed,
+    Object? searchRespondentMap = freezed,
     Object? needToJump = freezed,
     Object? jumpToIndex = freezed,
     Object? surveyRespondentMapState = freezed,
@@ -3139,6 +3192,14 @@ class __$RespondentStateCopyWithImpl<$Res>
           ? _value.responseInfoMap
           : responseInfoMap // ignore: cast_nullable_to_non_nullable
               as Map<UniqueId, Response>,
+      searchText: searchText == freezed
+          ? _value.searchText
+          : searchText // ignore: cast_nullable_to_non_nullable
+              as String,
+      searchRespondentMap: searchRespondentMap == freezed
+          ? _value.searchRespondentMap
+          : searchRespondentMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, bool>,
       needToJump: needToJump == freezed
           ? _value.needToJump
           : needToJump // ignore: cast_nullable_to_non_nullable
@@ -3181,6 +3242,8 @@ class _$_RespondentState extends _RespondentState {
       required this.visitRecordsMap,
       required this.tabRespondentMap,
       required this.responseInfoMap,
+      required this.searchText,
+      required this.searchRespondentMap,
       required this.needToJump,
       required this.jumpToIndex,
       required this.surveyRespondentMapState,
@@ -3209,6 +3272,10 @@ class _$_RespondentState extends _RespondentState {
   final Map<TabType, Map<String, Respondent>> tabRespondentMap;
   @override
   final Map<UniqueId, Response> responseInfoMap;
+  @override
+  final String searchText;
+  @override
+  final Map<String, bool> searchRespondentMap;
   @override // H_ 中間資料
   final bool needToJump;
   @override
@@ -3224,7 +3291,7 @@ class _$_RespondentState extends _RespondentState {
 
   @override
   String toString() {
-    return 'RespondentState(stateId: $stateId, surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap, needToJump: $needToJump, jumpToIndex: $jumpToIndex, surveyRespondentMapState: $surveyRespondentMapState, respondentFailure: $respondentFailure, eventState: $eventState, saveParameters: $saveParameters)';
+    return 'RespondentState(stateId: $stateId, surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap, searchText: $searchText, searchRespondentMap: $searchRespondentMap, needToJump: $needToJump, jumpToIndex: $jumpToIndex, surveyRespondentMapState: $surveyRespondentMapState, respondentFailure: $respondentFailure, eventState: $eventState, saveParameters: $saveParameters)';
   }
 
   @override
@@ -3250,6 +3317,10 @@ class _$_RespondentState extends _RespondentState {
                 .equals(other.tabRespondentMap, tabRespondentMap) &&
             const DeepCollectionEquality()
                 .equals(other.responseInfoMap, responseInfoMap) &&
+            (identical(other.searchText, searchText) ||
+                other.searchText == searchText) &&
+            const DeepCollectionEquality()
+                .equals(other.searchRespondentMap, searchRespondentMap) &&
             (identical(other.needToJump, needToJump) ||
                 other.needToJump == needToJump) &&
             (identical(other.jumpToIndex, jumpToIndex) ||
@@ -3278,6 +3349,8 @@ class _$_RespondentState extends _RespondentState {
       const DeepCollectionEquality().hash(visitRecordsMap),
       const DeepCollectionEquality().hash(tabRespondentMap),
       const DeepCollectionEquality().hash(responseInfoMap),
+      searchText,
+      const DeepCollectionEquality().hash(searchRespondentMap),
       needToJump,
       jumpToIndex,
       surveyRespondentMapState,
@@ -3303,6 +3376,8 @@ abstract class _RespondentState extends RespondentState {
       required Map<String, List<VisitRecord>> visitRecordsMap,
       required Map<TabType, Map<String, Respondent>> tabRespondentMap,
       required Map<UniqueId, Response> responseInfoMap,
+      required String searchText,
+      required Map<String, bool> searchRespondentMap,
       required bool needToJump,
       required int jumpToIndex,
       required LoadState surveyRespondentMapState,
@@ -3331,6 +3406,10 @@ abstract class _RespondentState extends RespondentState {
   Map<TabType, Map<String, Respondent>> get tabRespondentMap;
   @override
   Map<UniqueId, Response> get responseInfoMap;
+  @override
+  String get searchText;
+  @override
+  Map<String, bool> get searchRespondentMap;
   @override // H_ 中間資料
   bool get needToJump;
   @override

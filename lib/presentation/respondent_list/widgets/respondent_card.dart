@@ -53,7 +53,10 @@ class RespondentCard extends StatelessWidget {
               (!const DeepCollectionEquality().equals(
                 p.visitRecordsMap[respondent.id],
                 c.visitRecordsMap[respondent.id],
-              ))),
+              ))) ||
+          // S_ 搜尋篩選
+          (p.searchRespondentMap[respondent.id] !=
+              c.searchRespondentMap[respondent.id]),
       builder: (context, state) {
         logger('Build').i('RespondentCard');
 
@@ -63,6 +66,8 @@ class RespondentCard extends StatelessWidget {
         final lastVisitRecordStatus =
             state.visitRecordsMap[respondent.id]?.firstOrNull?.description ??
                 '';
+
+        final visible = state.searchRespondentMap[respondent.id] ?? true;
 
         // H_ module buttons
         Visibility moduleButton(
@@ -166,79 +171,82 @@ class RespondentCard extends StatelessWidget {
                     ),
                   ),
                 ),
-                Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  margin: const EdgeInsets.only(top: 10),
-                  child: InkWell(
-                    onTap: () {
-                      context.read<RespondentBloc>().add(
-                            RespondentEvent.respondentSelected(
-                              respondentId: respondent.id,
-                            ),
-                          );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 18.0,
-                        horizontal: 18.0,
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                respondent.id,
-                                style: kCardH4TextStyle,
+                Visibility(
+                  visible: visible,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    margin: const EdgeInsets.only(top: 10),
+                    child: InkWell(
+                      onTap: () {
+                        context.read<RespondentBloc>().add(
+                              RespondentEvent.respondentSelected(
+                                respondentId: respondent.id,
                               ),
-                              Text(
-                                lastVisitRecordStatus,
-                                style: kCardH4TextStyle,
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                respondent.remainAddress,
-                                style: kCardH2TextStyle,
-                              ),
-                              Icon(
-                                isSelected
-                                    ? Icons.expand_less
-                                    : Icons.expand_more,
-                              ),
-                            ],
-                          ),
-                          Visibility(
-                            visible: isSelected,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: <Widget>[
-                                const SizedBox(height: kPFontSize),
-                                Wrap(
-                                  alignment: WrapAlignment.start,
-                                  spacing: kPFontSize,
-                                  runSpacing: kPFontSize,
-                                  children: <Widget>[
-                                    samplingWithinHouseholdModuleButton,
-                                    mainModuleButton,
-                                    visitReportModuleButton,
-                                    housingTypeModuleButton,
-                                    interviewReportModuleButton,
-                                    recodeModuleButton,
-                                  ],
+                            );
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 18.0,
+                          horizontal: 18.0,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  respondent.id,
+                                  style: kCardH4TextStyle,
                                 ),
-                                const SizedBox(height: kPFontSize),
-                                VisitHistory(respondent: respondent),
+                                Text(
+                                  lastVisitRecordStatus,
+                                  style: kCardH4TextStyle,
+                                ),
                               ],
                             ),
-                          ),
-                        ],
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  respondent.remainAddress,
+                                  style: kCardH2TextStyle,
+                                ),
+                                Icon(
+                                  isSelected
+                                      ? Icons.expand_less
+                                      : Icons.expand_more,
+                                ),
+                              ],
+                            ),
+                            Visibility(
+                              visible: isSelected,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: <Widget>[
+                                  const SizedBox(height: kPFontSize),
+                                  Wrap(
+                                    alignment: WrapAlignment.start,
+                                    spacing: kPFontSize,
+                                    runSpacing: kPFontSize,
+                                    children: <Widget>[
+                                      samplingWithinHouseholdModuleButton,
+                                      mainModuleButton,
+                                      visitReportModuleButton,
+                                      housingTypeModuleButton,
+                                      interviewReportModuleButton,
+                                      recodeModuleButton,
+                                    ],
+                                  ),
+                                  const SizedBox(height: kPFontSize),
+                                  VisitHistory(respondent: respondent),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
