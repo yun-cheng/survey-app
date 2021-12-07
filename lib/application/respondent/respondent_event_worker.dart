@@ -62,6 +62,8 @@ void _eventWorker(
         ),
       );
       state = respondentMapLoaded(state);
+      state = tabRespondentsUpdated(state);
+      state = visitReportUpdated(state);
     },
     // H_ 使用者選擇受訪者
     respondentSelected: (e) {
@@ -125,13 +127,15 @@ void _eventWorker(
     tabRespondentsUpdated: (e) {
       logger('Event').i('RespondentEvent: tabRespondentsUpdated');
 
-      state = tabRespondentsUpdated(e, state);
+      state = responseInfoMapUpdated(e.responseMap, state);
+      state = tabRespondentsUpdated(state);
     },
     // H_ 查址紀錄更新時
     visitReportUpdated: (e) {
       logger('Event').i('RespondentEvent: visitReportUpdated');
 
-      state = visitReportUpdated(e, state);
+      state = responseInfoMapUpdated(e.responseMap, state);
+      state = visitReportUpdated(state);
     },
     // H_ 切換鄉鎮市區
     jumpedToTown: (e) {

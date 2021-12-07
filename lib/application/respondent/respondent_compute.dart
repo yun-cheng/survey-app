@@ -4,26 +4,19 @@ part of 'respondent_bloc.dart';
 RespondentState respondentMapLoaded(RespondentState state) {
   logger('Compute').i('respondentMapLoaded');
 
-  // S_ 必須要已選擇問卷
-  if (state.survey.id != '' && state.surveyRespondentMap.isNotEmpty) {
-    final respondentMap = state.surveyRespondentMap[state.survey.id]!;
-
-    final state1 = state.copyWith(
-      respondentMap: respondentMap,
-      respondentFailure: none(),
-    );
-
-    return tabRespondentsUpdatedJob(state1);
-  } else {
-    return state;
-  }
+  return state.copyWith(
+    respondentMap: state.surveyRespondentMap[state.survey.id] ?? {},
+    respondentFailure: none(),
+  );
 }
 
-// H_
+// H_ 更新 responseInfoMap
 RespondentState responseInfoMapUpdated(
   ResponseMap responseMap,
   RespondentState state,
 ) {
+  logger('Compute').i('responseInfoMapUpdated');
+
   return state.copyWith(
     responseInfoMap: responseMap.mapValues((r) => r.onlyInfo()),
     saveParameters: state.saveParameters.copyWith(
@@ -33,20 +26,8 @@ RespondentState responseInfoMapUpdated(
 }
 
 // H_ 查址紀錄更新時
-RespondentState visitReportUpdated(
-  _VisitReportUpdated e,
-  RespondentState state,
-) {
+RespondentState visitReportUpdated(RespondentState state) {
   logger('Compute').i('visitReportUpdated');
-
-  final state1 = responseInfoMapUpdated(e.responseMap, state);
-
-  return visitReportUpdatedJob(state1);
-}
-
-// H_ 查址紀錄更新時
-RespondentState visitReportUpdatedJob(RespondentState state) {
-  logger('Compute').i('visitReportUpdatedJob');
 
   final visitRecordsMap = state.responseInfoMap.values
       .where(
@@ -126,20 +107,8 @@ RespondentState visitReportUpdatedJob(RespondentState state) {
 }
 
 // H_ 分頁受訪者名單更新時
-RespondentState tabRespondentsUpdated(
-  _TabRespondentsUpdated e,
-  RespondentState state,
-) {
+RespondentState tabRespondentsUpdated(RespondentState state) {
   logger('Compute').i('tabRespondentsUpdated');
-
-  final state1 = responseInfoMapUpdated(e.responseMap, state);
-
-  return tabRespondentsUpdatedJob(state1);
-}
-
-// H_ 分頁受訪者名單更新時
-RespondentState tabRespondentsUpdatedJob(RespondentState state) {
-  logger('Compute').i('tabRespondentsUpdatedJob');
 
   final TabRespondentMap tabRespondentMap = {};
 

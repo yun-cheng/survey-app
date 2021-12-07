@@ -26,7 +26,7 @@ class ResponseStateDto with _$ResponseStateDto {
     String? surveyId,
     InterviewerDto? interviewer,
     RespondentDto? respondent,
-    ResponseMapDto? responseMap,
+    Map<String, ResponseDto>? responseMap,
     List<String>? responseMapKeys,
     List<ReferenceDto>? referenceList,
     ResponseDto? response,
@@ -72,6 +72,7 @@ class ResponseStateDto with _$ResponseStateDto {
       respondent: domain.saveParameters.respondent
           ? RespondentDto.fromDomain(domain.respondent)
           : null,
+      // NOTE 要注意 responseMap 是用 ResponseMapDto 來處理，所以最後要加 .map
       responseMap: domain.saveParameters.responseMap
           ? ResponseMapDto.fromDomain(
               domain.saveParameters.responseMapKeys.isEmpty
@@ -79,7 +80,7 @@ class ResponseStateDto with _$ResponseStateDto {
                   : domain.responseMap.filterByKeys(
                       (k) => domain.saveParameters.responseMapKeys.contains(k),
                     ),
-            )
+            ).map
           : null,
       referenceList: domain.saveParameters.referenceList
           ? domain.referenceList.map((e) => ReferenceDto.fromDomain(e)).toList()
@@ -97,7 +98,8 @@ class ResponseStateDto with _$ResponseStateDto {
       survey: survey?.toDomain() ?? initial.survey,
       respondent: respondent?.toDomain() ?? initial.respondent,
       interviewer: interviewer?.toDomain() ?? initial.interviewer,
-      responseMap: responseMap?.toDomain() ?? initial.responseMap,
+      // NOTE 要注意 responseMap 是用 ResponseMapDto 來處理，所以可以直接這樣寫
+      responseMap: ResponseMapDto(map: responseMap).toDomain(),
       referenceList: referenceList?.map((dto) => dto.toDomain()).toList() ??
           initial.referenceList,
       response: response?.toDomain() ?? initial.response,

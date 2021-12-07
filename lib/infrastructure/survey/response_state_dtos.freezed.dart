@@ -26,7 +26,7 @@ class _$ResponseStateDtoTearOff {
       String? surveyId,
       InterviewerDto? interviewer,
       RespondentDto? respondent,
-      ResponseMapDto? responseMap,
+      Map<String, ResponseDto>? responseMap,
       List<String>? responseMapKeys,
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
@@ -60,7 +60,8 @@ mixin _$ResponseStateDto {
   String? get surveyId => throw _privateConstructorUsedError;
   InterviewerDto? get interviewer => throw _privateConstructorUsedError;
   RespondentDto? get respondent => throw _privateConstructorUsedError;
-  ResponseMapDto? get responseMap => throw _privateConstructorUsedError;
+  Map<String, ResponseDto>? get responseMap =>
+      throw _privateConstructorUsedError;
   List<String>? get responseMapKeys => throw _privateConstructorUsedError;
   List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
   ResponseDto? get response => throw _privateConstructorUsedError;
@@ -84,7 +85,7 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       String? surveyId,
       InterviewerDto? interviewer,
       RespondentDto? respondent,
-      ResponseMapDto? responseMap,
+      Map<String, ResponseDto>? responseMap,
       List<String>? responseMapKeys,
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
@@ -94,7 +95,6 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
   $SurveyDtoCopyWith<$Res>? get survey;
   $InterviewerDtoCopyWith<$Res>? get interviewer;
   $RespondentDtoCopyWith<$Res>? get respondent;
-  $ResponseMapDtoCopyWith<$Res>? get responseMap;
   $ResponseDtoCopyWith<$Res>? get response;
   $StateParametersCopyWith<$Res>? get saveParameters;
 }
@@ -141,7 +141,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
       responseMap: responseMap == freezed
           ? _value.responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
-              as ResponseMapDto?,
+              as Map<String, ResponseDto>?,
       responseMapKeys: responseMapKeys == freezed
           ? _value.responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
@@ -199,17 +199,6 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
   }
 
   @override
-  $ResponseMapDtoCopyWith<$Res>? get responseMap {
-    if (_value.responseMap == null) {
-      return null;
-    }
-
-    return $ResponseMapDtoCopyWith<$Res>(_value.responseMap!, (value) {
-      return _then(_value.copyWith(responseMap: value));
-    });
-  }
-
-  @override
   $ResponseDtoCopyWith<$Res>? get response {
     if (_value.response == null) {
       return null;
@@ -244,7 +233,7 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       String? surveyId,
       InterviewerDto? interviewer,
       RespondentDto? respondent,
-      ResponseMapDto? responseMap,
+      Map<String, ResponseDto>? responseMap,
       List<String>? responseMapKeys,
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
@@ -257,8 +246,6 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
   $InterviewerDtoCopyWith<$Res>? get interviewer;
   @override
   $RespondentDtoCopyWith<$Res>? get respondent;
-  @override
-  $ResponseMapDtoCopyWith<$Res>? get responseMap;
   @override
   $ResponseDtoCopyWith<$Res>? get response;
   @override
@@ -309,7 +296,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
       responseMap: responseMap == freezed
           ? _value.responseMap
           : responseMap // ignore: cast_nullable_to_non_nullable
-              as ResponseMapDto?,
+              as Map<String, ResponseDto>?,
       responseMapKeys: responseMapKeys == freezed
           ? _value.responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
@@ -363,7 +350,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   @override
   final RespondentDto? respondent;
   @override
-  final ResponseMapDto? responseMap;
+  final Map<String, ResponseDto>? responseMap;
   @override
   final List<String>? responseMapKeys;
   @override
@@ -393,8 +380,8 @@ class _$_ResponseStateDto extends _ResponseStateDto {
                 other.interviewer == interviewer) &&
             (identical(other.respondent, respondent) ||
                 other.respondent == respondent) &&
-            (identical(other.responseMap, responseMap) ||
-                other.responseMap == responseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.responseMap, responseMap) &&
             const DeepCollectionEquality()
                 .equals(other.responseMapKeys, responseMapKeys) &&
             const DeepCollectionEquality()
@@ -414,7 +401,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       surveyId,
       interviewer,
       respondent,
-      responseMap,
+      const DeepCollectionEquality().hash(responseMap),
       const DeepCollectionEquality().hash(responseMapKeys),
       const DeepCollectionEquality().hash(referenceList),
       response,
@@ -438,7 +425,7 @@ abstract class _ResponseStateDto extends ResponseStateDto {
           String? surveyId,
           InterviewerDto? interviewer,
           RespondentDto? respondent,
-          ResponseMapDto? responseMap,
+          Map<String, ResponseDto>? responseMap,
           List<String>? responseMapKeys,
           List<ReferenceDto>? referenceList,
           ResponseDto? response,
@@ -459,7 +446,7 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   @override
   RespondentDto? get respondent;
   @override
-  ResponseMapDto? get responseMap;
+  Map<String, ResponseDto>? get responseMap;
   @override
   List<String>? get responseMapKeys;
   @override

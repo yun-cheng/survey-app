@@ -5,8 +5,9 @@ ResponseState responseMapMerged(ResponseState state) {
   logger('Compute').i('responseMapMerged');
 
   final responseMap = {...state.responseMap};
-  bool updateVisitReportsMap = false;
-  bool updateTabRespondentMap = false;
+  // NOTE 如果還沒點進任何 survey 則都要更新，目的是把 responseMap 傳到 RespondentBloc
+  bool updateVisitReportsMap = state.survey.id.isEmpty;
+  bool updateTabRespondentMap = state.survey.id.isEmpty;
   final saveKeys = <UniqueId>{};
 
   // S_ 合併剛下載的 responseMap 與當前的 responseMap，
@@ -17,8 +18,8 @@ ResponseState responseMapMerged(ResponseState state) {
   for (final response in state.downloadedResponseMap.values) {
     final responseId = response.responseId;
     if (!responseMap.containsKey(response.responseId) ||
-        response.lastChangedTimeStamp.toInt() >
-            (responseMap[responseId]?.lastChangedTimeStamp.toInt() ?? -1)) {
+        (response.lastChangedTimeStamp.toInt() >
+            (responseMap[responseId]?.lastChangedTimeStamp.toInt() ?? -1))) {
       responseMap[responseId] = response;
 
       saveKeys.add(responseId);

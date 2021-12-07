@@ -115,7 +115,7 @@ class StateParameters with _$StateParameters {
     required bool interviewer,
     required bool respondent,
     required bool responseMap,
-    required Set responseMapKeys,
+    required Set<UniqueId> responseMapKeys,
     // H_ 更新
     required bool visitReportsMap,
     required bool respondentResponseMap,

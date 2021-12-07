@@ -36,7 +36,7 @@ void _eventWorker(
       );
     },
     // H_ 接收到 responseMap
-    // NOTE 只有在其他裝置有上傳才會觸發，本地端的上傳不會
+    // NOTE 只有在初次同步，或其他裝置有上傳才會觸發，本地端上傳時不會
     responseMapReceived: (e) {
       logger('Receive').i('ResponseBloc: responseMapReceived');
 

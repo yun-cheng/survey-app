@@ -13,7 +13,7 @@ extension MapX<K, V> on Map<K, V> {
     updateAll((key, value) => update(value));
   }
 
-    Map<K, V> filterByKeys(bool Function(K) test) {
+  Map<K, V> filterByKeys(bool Function(K) test) {
     return entries.where((e) => test(e.key)).toMap();
   }
 

@@ -4463,7 +4463,7 @@ class _$StateParametersTearOff {
       required bool interviewer,
       required bool respondent,
       required bool responseMap,
-      required Set<dynamic> responseMapKeys,
+      required Set<UniqueId> responseMapKeys,
       required bool visitReportsMap,
       required bool respondentResponseMap,
       required bool tabRespondentMap}) {
@@ -4494,7 +4494,7 @@ mixin _$StateParameters {
   bool get interviewer => throw _privateConstructorUsedError;
   bool get respondent => throw _privateConstructorUsedError;
   bool get responseMap => throw _privateConstructorUsedError;
-  Set<dynamic> get responseMapKeys =>
+  Set<UniqueId> get responseMapKeys =>
       throw _privateConstructorUsedError; // H_ 更新
   bool get visitReportsMap => throw _privateConstructorUsedError;
   bool get respondentResponseMap => throw _privateConstructorUsedError;
@@ -4517,7 +4517,7 @@ abstract class $StateParametersCopyWith<$Res> {
       bool interviewer,
       bool respondent,
       bool responseMap,
-      Set<dynamic> responseMapKeys,
+      Set<UniqueId> responseMapKeys,
       bool visitReportsMap,
       bool respondentResponseMap,
       bool tabRespondentMap});
@@ -4573,7 +4573,7 @@ class _$StateParametersCopyWithImpl<$Res>
       responseMapKeys: responseMapKeys == freezed
           ? _value.responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
-              as Set<dynamic>,
+              as Set<UniqueId>,
       visitReportsMap: visitReportsMap == freezed
           ? _value.visitReportsMap
           : visitReportsMap // ignore: cast_nullable_to_non_nullable
@@ -4604,7 +4604,7 @@ abstract class _$StateParametersCopyWith<$Res>
       bool interviewer,
       bool respondent,
       bool responseMap,
-      Set<dynamic> responseMapKeys,
+      Set<UniqueId> responseMapKeys,
       bool visitReportsMap,
       bool respondentResponseMap,
       bool tabRespondentMap});
@@ -4662,7 +4662,7 @@ class __$StateParametersCopyWithImpl<$Res>
       responseMapKeys: responseMapKeys == freezed
           ? _value.responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
-              as Set<dynamic>,
+              as Set<UniqueId>,
       visitReportsMap: visitReportsMap == freezed
           ? _value.visitReportsMap
           : visitReportsMap // ignore: cast_nullable_to_non_nullable
@@ -4708,7 +4708,7 @@ class _$_StateParameters extends _StateParameters {
   @override
   final bool responseMap;
   @override
-  final Set<dynamic> responseMapKeys;
+  final Set<UniqueId> responseMapKeys;
   @override // H_ 更新
   final bool visitReportsMap;
   @override
@@ -4775,7 +4775,7 @@ abstract class _StateParameters extends StateParameters {
       required bool interviewer,
       required bool respondent,
       required bool responseMap,
-      required Set<dynamic> responseMapKeys,
+      required Set<UniqueId> responseMapKeys,
       required bool visitReportsMap,
       required bool respondentResponseMap,
       required bool tabRespondentMap}) = _$_StateParameters;
@@ -4794,7 +4794,7 @@ abstract class _StateParameters extends StateParameters {
   @override
   bool get responseMap;
   @override
-  Set<dynamic> get responseMapKeys;
+  Set<UniqueId> get responseMapKeys;
   @override // H_ 更新
   bool get visitReportsMap;
   @override

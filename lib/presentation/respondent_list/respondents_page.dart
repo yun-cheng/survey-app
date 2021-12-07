@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import '../core/widgets/tap_out_dismiss_keyboard.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../application/navigation/navigation_bloc.dart';
@@ -74,38 +75,40 @@ class RespondentsPage extends HookWidget {
       ],
     );
 
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            context.read<NavigationBloc>().add(
-                  NavigationEvent.pageChanged(
-                    page: NavigationPage.overview(),
-                  ),
-                );
-            context.router.pop();
-          },
-        ),
-        flexibleSpace: Align(
-          alignment: Alignment.bottomCenter,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const SizedBox(width: 60),
-              Flexible(child: BadgedTabBar(tabController: _tabController)),
-            ],
+    return TapOutDismissKeyboard(
+      child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              context.read<NavigationBloc>().add(
+                    NavigationEvent.pageChanged(
+                      page: NavigationPage.overview(),
+                    ),
+                  );
+              context.router.pop();
+            },
+          ),
+          flexibleSpace: Align(
+            alignment: Alignment.bottomCenter,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(width: 60),
+                Flexible(child: BadgedTabBar(tabController: _tabController)),
+              ],
+            ),
           ),
         ),
-      ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            GroupTopBar(
-              tabScrollControllerMap: tabScrollControllerMap,
-            ),
-            Expanded(child: tabBarView),
-          ],
+        body: SafeArea(
+          child: Column(
+            children: [
+              GroupTopBar(
+                tabScrollControllerMap: tabScrollControllerMap,
+              ),
+              Expanded(child: tabBarView),
+            ],
+          ),
         ),
       ),
     );

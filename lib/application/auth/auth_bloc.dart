@@ -37,6 +37,8 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
   ) async {
     await event.map(
       initialized: (e) async {
+        final signInState = state.signInState;
+
         // NOTE 故意改變 signInState 來觸發 listener
         state
             .copyWith(
@@ -46,7 +48,7 @@ class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
 
         state
             .copyWith(
-              signInState: state.signInState,
+              signInState: signInState,
             )
             .emit(emit);
       },

@@ -19,10 +19,9 @@ _$_ResponseStateDto _$$_ResponseStateDtoFromJson(Map<String, dynamic> json) =>
       respondent: json['respondent'] == null
           ? null
           : RespondentDto.fromJson(json['respondent'] as Map<String, dynamic>),
-      responseMap: json['responseMap'] == null
-          ? null
-          : ResponseMapDto.fromJson(
-              json['responseMap'] as Map<String, dynamic>),
+      responseMap: (json['responseMap'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, ResponseDto.fromJson(e as Map<String, dynamic>)),
+      ),
       responseMapKeys: (json['responseMapKeys'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
@@ -48,7 +47,8 @@ Map<String, dynamic> _$$_ResponseStateDtoToJson(_$_ResponseStateDto instance) {
   writeNotNull('surveyId', instance.surveyId);
   writeNotNull('interviewer', instance.interviewer?.toJson());
   writeNotNull('respondent', instance.respondent?.toJson());
-  writeNotNull('responseMap', instance.responseMap?.toJson());
+  writeNotNull('responseMap',
+      instance.responseMap?.map((k, e) => MapEntry(k, e.toJson())));
   writeNotNull('responseMapKeys', instance.responseMapKeys);
   writeNotNull(
       'referenceList', instance.referenceList?.map((e) => e.toJson()).toList());

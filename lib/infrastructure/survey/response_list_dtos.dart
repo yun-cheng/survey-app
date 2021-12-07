@@ -39,7 +39,7 @@ class ResponseMapDto with _$ResponseMapDto {
   factory ResponseMapDto.fromFirestore(QuerySnapshot snapshot) {
     final iterable = snapshot.docs.map((doc) => MapEntry(doc.id, doc.data()));
 
-    return ResponseMapDto.fromJson(Map.fromEntries(iterable));
+    return ResponseMapDto.fromJson({'map': Map.fromEntries(iterable)});
   }
 }
 
