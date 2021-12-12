@@ -2,9 +2,10 @@ import 'package:expression_language/expression_language.dart'
     as expression_parser;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/answer_status.dart';
-import 'package:interviewer_quiz_flutter_app/domain/survey/expression.dart';
+
+import 'answer.dart';
+import 'answer_status.dart';
+import 'expression.dart';
 
 part 'full_expression.freezed.dart';
 

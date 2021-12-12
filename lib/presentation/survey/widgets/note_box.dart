@@ -35,7 +35,6 @@ class NoteBox extends HookWidget {
         // key: textFieldKey,
         controller: controller,
         enabled: canEdit,
-        // autofocus: true,
         decoration: InputDecoration(
           filled: true,
           fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
@@ -46,7 +45,8 @@ class NoteBox extends HookWidget {
             ),
           ),
         ),
-        // maxLines: null,
+        maxLines: null,
+        keyboardType: TextInputType.multiline,
         onChanged: (value) {
           context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(

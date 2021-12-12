@@ -1,7 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'simple_choice.dart';
-
 part 'value_objects.freezed.dart';
 
 @freezed
@@ -80,14 +78,6 @@ class AnswerStatusType with _$AnswerStatusType {
   factory AnswerStatusType.fromString(String string) => string == ''
       ? AnswerStatusType.unanswered()
       : AnswerStatusType.answered();
-  factory AnswerStatusType.fromChoice(SimpleChoice choice) =>
-      choice == SimpleChoice.empty()
-          ? AnswerStatusType.unanswered()
-          : AnswerStatusType.answered();
-  factory AnswerStatusType.fromChoiceList(List<SimpleChoice> choiceList) =>
-      choiceList.isEmpty
-          ? AnswerStatusType.unanswered()
-          : AnswerStatusType.answered();
 
   bool get isAnswered => value == 'answered';
   bool get isUnanswered => value == 'unanswered';

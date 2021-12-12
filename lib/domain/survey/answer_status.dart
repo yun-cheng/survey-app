@@ -65,22 +65,14 @@ class AnswerStatus with _$AnswerStatus {
   }) {
     late final AnswerStatusType newType;
 
-    if (answer.value == null) {
+    if (answer.valueIsUnfinished) {
       newType = AnswerStatusType.unanswered();
-    }
-
-    if (answer.type == AnswerType.string()) {
-      if (answer.stringValue == null || answer.stringValue == '') {
-        newType = AnswerStatusType.unanswered();
-      } else {
-        newType = expression.evaluate(answer: answer)
-            ? AnswerStatusType.answered()
-            : AnswerStatusType.invalid();
-      }
-    } else if (answer.type == AnswerType.choice()) {
-      newType = AnswerStatusType.fromChoice(answer.choiceValue!);
-    } else if (answer.type == AnswerType.choiceList()) {
-      newType = AnswerStatusType.fromChoiceList(answer.choiceListValue!);
+    } else if (isSpecialAnswer) {
+      newType = AnswerStatusType.answered();
+    } else {
+      newType = expression.evaluate(answer: answer)
+          ? AnswerStatusType.answered()
+          : AnswerStatusType.invalid();
     }
 
     return copyWith(

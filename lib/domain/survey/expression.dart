@@ -25,7 +25,12 @@ class Expression with _$Expression {
       //  為了讓 description 題型也能加入判斷，在 showQuestion 不考慮 answer
       if ((answer.valueIsFinished && answerStatus == null) ||
           (answerStatus != null && answerStatus.type.isAnswered)) {
-        final answerComparableValue = answer.toComparableValue();
+        late final dynamic answerComparableValue;
+        if (field == '__LEN') {
+          answerComparableValue = (answer.value as List).length.toString();
+        } else {
+          answerComparableValue = answer.toComparableValue();
+        }
         final comparisonComparableValue = comparisonValue.toComparableValue();
 
         if (operator == Operator.isEqualTo()) {

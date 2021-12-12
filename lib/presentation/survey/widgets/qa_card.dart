@@ -92,6 +92,7 @@ class QaCard extends StatelessWidget {
                           SpecialAnswerSwitch(
                             questionId: thisQuestion.id,
                             isSpecialAnswer: isSpecialAnswer,
+                            showText: false,
                           ),
                         ],
                         const SizedBox(height: 10),

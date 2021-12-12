@@ -54,14 +54,16 @@ class TextBox extends HookWidget {
             ),
           ),
         ),
-        // maxLines: null,
-        keyboardType:
-            questionType.isNumber ? TextInputType.number : TextInputType.text,
+        maxLines: null,
+        keyboardType: questionType.isNumber
+            ? const TextInputType.numberWithOptions(
+                signed: true,
+                decimal: true,
+              )
+            : TextInputType.multiline,
         inputFormatters: questionType.isNumber
             ? <TextInputFormatter>[
-                // FilteringTextInputFormatter.digitsOnly,
-                FilteringTextInputFormatter.allow(RegExp(r'^-?\d*$')),
-                // FilteringTextInputFormatter.allow(RegExp(r'^\d+\.?\d{0,2}')),
+                FilteringTextInputFormatter.allow(RegExp(r'^-?\d*\.?\d*$')),
               ]
             : null,
         // autocorrect: false,
