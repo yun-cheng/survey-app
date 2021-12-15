@@ -179,13 +179,16 @@ class _$_PageChanged implements _PageChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PageChanged &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.respondentId, respondentId) ||
-                other.respondentId == respondentId));
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page, respondentId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(respondentId));
 
   @JsonKey(ignore: true)
   @override
@@ -792,15 +795,18 @@ class _$_NavigationState implements _NavigationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NavigationState &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.respondentId, respondentId) ||
-                other.respondentId == respondentId) &&
-            (identical(other.pageState, pageState) ||
-                other.pageState == pageState));
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId) &&
+            const DeepCollectionEquality().equals(other.pageState, pageState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page, respondentId, pageState);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(respondentId),
+      const DeepCollectionEquality().hash(pageState));
 
   @JsonKey(ignore: true)
   @override

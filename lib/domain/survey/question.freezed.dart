@@ -437,54 +437,54 @@ class _$_Question extends _Question {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Question &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.hideId, hideId) || other.hideId == hideId) &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.hideId, hideId) &&
+            const DeepCollectionEquality()
+                .equals(other.serialNumber, serialNumber) &&
             const DeepCollectionEquality().equals(other.body, body) &&
-            (identical(other.stringBody, stringBody) ||
-                other.stringBody == stringBody) &&
-            (identical(other.note, note) || other.note == note) &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.show, show) || other.show == show) &&
+            const DeepCollectionEquality()
+                .equals(other.stringBody, stringBody) &&
+            const DeepCollectionEquality().equals(other.note, note) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.show, show) &&
             const DeepCollectionEquality()
                 .equals(other.choiceList, choiceList) &&
             const DeepCollectionEquality()
                 .equals(other.initChoiceList, initChoiceList) &&
-            (identical(other.hasSpecialAnswer, hasSpecialAnswer) ||
-                other.hasSpecialAnswer == hasSpecialAnswer) &&
-            (identical(other.validateAnswer, validateAnswer) ||
-                other.validateAnswer == validateAnswer) &&
-            (identical(other.upperQuestionId, upperQuestionId) ||
-                other.upperQuestionId == upperQuestionId) &&
-            (identical(other.pageNumber, pageNumber) ||
-                other.pageNumber == pageNumber) &&
-            (identical(other.recodeNeeded, recodeNeeded) ||
-                other.recodeNeeded == recodeNeeded) &&
-            (identical(other.tableId, tableId) || other.tableId == tableId) &&
-            (identical(other.rowId, rowId) || other.rowId == rowId));
+            const DeepCollectionEquality()
+                .equals(other.hasSpecialAnswer, hasSpecialAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.validateAnswer, validateAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.upperQuestionId, upperQuestionId) &&
+            const DeepCollectionEquality()
+                .equals(other.pageNumber, pageNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeNeeded, recodeNeeded) &&
+            const DeepCollectionEquality().equals(other.tableId, tableId) &&
+            const DeepCollectionEquality().equals(other.rowId, rowId));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      id,
-      hideId,
-      serialNumber,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(hideId),
+      const DeepCollectionEquality().hash(serialNumber),
       const DeepCollectionEquality().hash(body),
-      stringBody,
-      note,
-      type,
-      show,
+      const DeepCollectionEquality().hash(stringBody),
+      const DeepCollectionEquality().hash(note),
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(show),
       const DeepCollectionEquality().hash(choiceList),
       const DeepCollectionEquality().hash(initChoiceList),
-      hasSpecialAnswer,
-      validateAnswer,
-      upperQuestionId,
-      pageNumber,
-      recodeNeeded,
-      tableId,
-      rowId);
+      const DeepCollectionEquality().hash(hasSpecialAnswer),
+      const DeepCollectionEquality().hash(validateAnswer),
+      const DeepCollectionEquality().hash(upperQuestionId),
+      const DeepCollectionEquality().hash(pageNumber),
+      const DeepCollectionEquality().hash(recodeNeeded),
+      const DeepCollectionEquality().hash(tableId),
+      const DeepCollectionEquality().hash(rowId));
 
   @JsonKey(ignore: true)
   @override

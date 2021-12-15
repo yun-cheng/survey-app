@@ -159,10 +159,11 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
       },
       loggedOut: (e) async {
         _responseMapSubscription?.cancel();
-        _surveyRepository.cleanResponseMap(
-          teamId: state.survey.teamId,
-          interviewerId: state.interviewer.id,
-        );
+        // S_ 清除此訪員資料庫資料
+        // _surveyRepository.cleanResponseMap(
+        //   teamId: state.survey.teamId,
+        //   interviewerId: state.interviewer.id,
+        // );
         _inactiveTimer?.cancel();
         _activeTimer?.cancel();
         await execute(event, emit);

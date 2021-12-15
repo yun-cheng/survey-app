@@ -120,11 +120,12 @@ class _$_UniqueId extends _UniqueId with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UniqueId &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -252,11 +253,12 @@ class _$_LoadState extends _LoadState with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadState &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -384,11 +386,12 @@ class _$_PageState extends _PageState with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PageState &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -521,11 +524,12 @@ class _$_NavigationPage extends _NavigationPage with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NavigationPage &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -656,11 +660,12 @@ class _$_NetworkType extends _NetworkType with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NetworkType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -811,10 +816,10 @@ class _$_DtoInfo extends _DtoInfo with DiagnosticableTreeMixin {
   final String? box;
   @override
   final String? key;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool readOnly;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isMapEntries;
 
@@ -839,17 +844,20 @@ class _$_DtoInfo extends _DtoInfo with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DtoInfo &&
-            (identical(other.box, box) || other.box == box) &&
-            (identical(other.key, key) || other.key == key) &&
-            (identical(other.readOnly, readOnly) ||
-                other.readOnly == readOnly) &&
-            (identical(other.isMapEntries, isMapEntries) ||
-                other.isMapEntries == isMapEntries));
+            const DeepCollectionEquality().equals(other.box, box) &&
+            const DeepCollectionEquality().equals(other.key, key) &&
+            const DeepCollectionEquality().equals(other.readOnly, readOnly) &&
+            const DeepCollectionEquality()
+                .equals(other.isMapEntries, isMapEntries));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, box, key, readOnly, isMapEntries);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(box),
+      const DeepCollectionEquality().hash(key),
+      const DeepCollectionEquality().hash(readOnly),
+      const DeepCollectionEquality().hash(isMapEntries));
 
   @JsonKey(ignore: true)
   @override

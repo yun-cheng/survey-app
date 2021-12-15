@@ -151,14 +151,16 @@ class _$_FullExpressionDto extends _FullExpressionDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FullExpressionDto &&
-            (identical(other.fullExpressionBody, fullExpressionBody) ||
-                other.fullExpressionBody == fullExpressionBody) &&
+            const DeepCollectionEquality()
+                .equals(other.fullExpressionBody, fullExpressionBody) &&
             const DeepCollectionEquality()
                 .equals(other.expressionMap, expressionMap));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, fullExpressionBody,
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(fullExpressionBody),
       const DeepCollectionEquality().hash(expressionMap));
 
   @JsonKey(ignore: true)
@@ -356,16 +358,18 @@ class _$_ExpressionDto extends _ExpressionDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ExpressionDto &&
-            (identical(other.field, field) || other.field == field) &&
-            (identical(other.operator, operator) ||
-                other.operator == operator) &&
-            (identical(other.comparisonValue, comparisonValue) ||
-                other.comparisonValue == comparisonValue));
+            const DeepCollectionEquality().equals(other.field, field) &&
+            const DeepCollectionEquality().equals(other.operator, operator) &&
+            const DeepCollectionEquality()
+                .equals(other.comparisonValue, comparisonValue));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, field, operator, comparisonValue);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(field),
+      const DeepCollectionEquality().hash(operator),
+      const DeepCollectionEquality().hash(comparisonValue));
 
   @JsonKey(ignore: true)
   @override

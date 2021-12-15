@@ -202,7 +202,7 @@ class _$_FormattedTextDto extends _FormattedTextDto {
 
   @override
   final String type;
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
   final String stringBody;
   @override
@@ -220,17 +220,21 @@ class _$_FormattedTextDto extends _FormattedTextDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FormattedTextDto &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.stringBody, stringBody) ||
-                other.stringBody == stringBody) &&
-            (identical(other.referenceKey, referenceKey) ||
-                other.referenceKey == referenceKey) &&
-            (identical(other.answer, answer) || other.answer == answer));
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality()
+                .equals(other.stringBody, stringBody) &&
+            const DeepCollectionEquality()
+                .equals(other.referenceKey, referenceKey) &&
+            const DeepCollectionEquality().equals(other.answer, answer));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, stringBody, referenceKey, answer);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(stringBody),
+      const DeepCollectionEquality().hash(referenceKey),
+      const DeepCollectionEquality().hash(answer));
 
   @JsonKey(ignore: true)
   @override

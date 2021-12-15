@@ -171,17 +171,20 @@ class _$_CardScrollPosition extends _CardScrollPosition {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _CardScrollPosition &&
-            (identical(other.firstCardIndex, firstCardIndex) ||
-                other.firstCardIndex == firstCardIndex) &&
-            (identical(other.firstCardAlignment, firstCardAlignment) ||
-                other.firstCardAlignment == firstCardAlignment) &&
-            (identical(other.firstRespondent, firstRespondent) ||
-                other.firstRespondent == firstRespondent));
+            const DeepCollectionEquality()
+                .equals(other.firstCardIndex, firstCardIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.firstCardAlignment, firstCardAlignment) &&
+            const DeepCollectionEquality()
+                .equals(other.firstRespondent, firstRespondent));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, firstCardIndex, firstCardAlignment, firstRespondent);
+      runtimeType,
+      const DeepCollectionEquality().hash(firstCardIndex),
+      const DeepCollectionEquality().hash(firstCardAlignment),
+      const DeepCollectionEquality().hash(firstRespondent));
 
   @JsonKey(ignore: true)
   @override

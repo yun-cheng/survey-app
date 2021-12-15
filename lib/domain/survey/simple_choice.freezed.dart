@@ -127,12 +127,15 @@ class _$_Choice extends _Choice {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Choice &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.body, body) || other.body == body));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.body, body));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, body);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(body));
 
   @JsonKey(ignore: true)
   @override

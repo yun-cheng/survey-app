@@ -643,69 +643,64 @@ class _$_ResponseDto extends _ResponseDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ResponseDto &&
-            (identical(other.teamId, teamId) || other.teamId == teamId) &&
-            (identical(other.projectId, projectId) ||
-                other.projectId == projectId) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.moduleType, moduleType) ||
-                other.moduleType == moduleType) &&
-            (identical(other.respondentId, respondentId) ||
-                other.respondentId == respondentId) &&
-            (identical(other.responseId, responseId) ||
-                other.responseId == responseId) &&
-            (identical(other.tempResponseId, tempResponseId) ||
-                other.tempResponseId == tempResponseId) &&
-            (identical(other.ticketId, ticketId) ||
-                other.ticketId == ticketId) &&
-            (identical(other.editFinished, editFinished) ||
-                other.editFinished == editFinished) &&
-            (identical(other.interviewerId, interviewerId) ||
-                other.interviewerId == interviewerId) &&
-            (identical(other.deviceId, deviceId) ||
-                other.deviceId == deviceId) &&
-            (identical(other.createdTimeStamp, createdTimeStamp) ||
-                other.createdTimeStamp == createdTimeStamp) &&
-            (identical(other.sessionStartTimeStamp, sessionStartTimeStamp) ||
-                other.sessionStartTimeStamp == sessionStartTimeStamp) &&
-            (identical(other.sessionEndTimeStamp, sessionEndTimeStamp) ||
-                other.sessionEndTimeStamp == sessionEndTimeStamp) &&
-            (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
-                other.lastChangedTimeStamp == lastChangedTimeStamp) &&
-            (identical(other.responseStatus, responseStatus) ||
-                other.responseStatus == responseStatus) &&
-            (identical(other.isDeleted, isDeleted) ||
-                other.isDeleted == isDeleted) &&
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality().equals(other.projectId, projectId) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId) &&
+            const DeepCollectionEquality()
+                .equals(other.responseId, responseId) &&
+            const DeepCollectionEquality()
+                .equals(other.tempResponseId, tempResponseId) &&
+            const DeepCollectionEquality().equals(other.ticketId, ticketId) &&
+            const DeepCollectionEquality()
+                .equals(other.editFinished, editFinished) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerId, interviewerId) &&
+            const DeepCollectionEquality().equals(other.deviceId, deviceId) &&
+            const DeepCollectionEquality()
+                .equals(other.createdTimeStamp, createdTimeStamp) &&
+            const DeepCollectionEquality()
+                .equals(other.sessionStartTimeStamp, sessionStartTimeStamp) &&
+            const DeepCollectionEquality()
+                .equals(other.sessionEndTimeStamp, sessionEndTimeStamp) &&
+            const DeepCollectionEquality()
+                .equals(other.lastChangedTimeStamp, lastChangedTimeStamp) &&
+            const DeepCollectionEquality()
+                .equals(other.responseStatus, responseStatus) &&
+            const DeepCollectionEquality().equals(other.isDeleted, isDeleted) &&
             const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
             const DeepCollectionEquality()
                 .equals(other.answerStatusMap, answerStatusMap) &&
-            (identical(other.surveyPageState, surveyPageState) ||
-                other.surveyPageState == surveyPageState));
+            const DeepCollectionEquality()
+                .equals(other.surveyPageState, surveyPageState));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        teamId,
-        projectId,
-        surveyId,
-        moduleType,
-        respondentId,
-        responseId,
-        tempResponseId,
-        ticketId,
-        editFinished,
-        interviewerId,
-        deviceId,
-        createdTimeStamp,
-        sessionStartTimeStamp,
-        sessionEndTimeStamp,
-        lastChangedTimeStamp,
-        responseStatus,
-        isDeleted,
+        const DeepCollectionEquality().hash(teamId),
+        const DeepCollectionEquality().hash(projectId),
+        const DeepCollectionEquality().hash(surveyId),
+        const DeepCollectionEquality().hash(moduleType),
+        const DeepCollectionEquality().hash(respondentId),
+        const DeepCollectionEquality().hash(responseId),
+        const DeepCollectionEquality().hash(tempResponseId),
+        const DeepCollectionEquality().hash(ticketId),
+        const DeepCollectionEquality().hash(editFinished),
+        const DeepCollectionEquality().hash(interviewerId),
+        const DeepCollectionEquality().hash(deviceId),
+        const DeepCollectionEquality().hash(createdTimeStamp),
+        const DeepCollectionEquality().hash(sessionStartTimeStamp),
+        const DeepCollectionEquality().hash(sessionEndTimeStamp),
+        const DeepCollectionEquality().hash(lastChangedTimeStamp),
+        const DeepCollectionEquality().hash(responseStatus),
+        const DeepCollectionEquality().hash(isDeleted),
         const DeepCollectionEquality().hash(answerMap),
         const DeepCollectionEquality().hash(answerStatusMap),
-        surveyPageState
+        const DeepCollectionEquality().hash(surveyPageState)
       ]);
 
   @JsonKey(ignore: true)

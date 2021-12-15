@@ -135,14 +135,16 @@ class _$_FullExpression extends _FullExpression {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FullExpression &&
-            (identical(other.body, body) || other.body == body) &&
+            const DeepCollectionEquality().equals(other.body, body) &&
             const DeepCollectionEquality()
                 .equals(other.expressionMap, expressionMap));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, body, const DeepCollectionEquality().hash(expressionMap));
+      runtimeType,
+      const DeepCollectionEquality().hash(body),
+      const DeepCollectionEquality().hash(expressionMap));
 
   @JsonKey(ignore: true)
   @override

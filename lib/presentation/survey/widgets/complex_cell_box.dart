@@ -125,6 +125,7 @@ class ComplexCellBox extends StatelessWidget {
                     WarningBox(
                       question: question,
                       questionId: questionId,
+                      isinCell: true,
                     ),
                   ],
                 ),

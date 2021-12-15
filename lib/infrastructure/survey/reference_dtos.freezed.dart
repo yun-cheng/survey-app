@@ -217,20 +217,24 @@ class _$_ReferenceDto extends _ReferenceDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ReferenceDto &&
-            (identical(other.respondentId, respondentId) ||
-                other.respondentId == respondentId) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.moduleType, moduleType) ||
-                other.moduleType == moduleType) &&
-            (identical(other.questionId, questionId) ||
-                other.questionId == questionId) &&
-            (identical(other.answer, answer) || other.answer == answer));
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.questionId, questionId) &&
+            const DeepCollectionEquality().equals(other.answer, answer));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, respondentId, surveyId, moduleType, questionId, answer);
+      runtimeType,
+      const DeepCollectionEquality().hash(respondentId),
+      const DeepCollectionEquality().hash(surveyId),
+      const DeepCollectionEquality().hash(moduleType),
+      const DeepCollectionEquality().hash(questionId),
+      const DeepCollectionEquality().hash(answer));
 
   @JsonKey(ignore: true)
   @override

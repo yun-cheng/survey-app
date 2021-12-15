@@ -274,37 +274,35 @@ class _$_ChoiceDto extends _ChoiceDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ChoiceDto &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
-            (identical(other.choiceId, choiceId) ||
-                other.choiceId == choiceId) &&
-            (identical(other.choiceBody, choiceBody) ||
-                other.choiceBody == choiceBody) &&
-            (identical(other.asNote, asNote) || other.asNote == asNote) &&
-            (identical(other.asSingle, asSingle) ||
-                other.asSingle == asSingle) &&
-            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                other.isSpecialAnswer == isSpecialAnswer) &&
-            (identical(other.choiceGroup, choiceGroup) ||
-                other.choiceGroup == choiceGroup) &&
-            (identical(other.isGroupFirst, isGroupFirst) ||
-                other.isGroupFirst == isGroupFirst) &&
-            (identical(other.upperChoiceId, upperChoiceId) ||
-                other.upperChoiceId == upperChoiceId));
+            const DeepCollectionEquality()
+                .equals(other.serialNumber, serialNumber) &&
+            const DeepCollectionEquality().equals(other.choiceId, choiceId) &&
+            const DeepCollectionEquality()
+                .equals(other.choiceBody, choiceBody) &&
+            const DeepCollectionEquality().equals(other.asNote, asNote) &&
+            const DeepCollectionEquality().equals(other.asSingle, asSingle) &&
+            const DeepCollectionEquality()
+                .equals(other.isSpecialAnswer, isSpecialAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.choiceGroup, choiceGroup) &&
+            const DeepCollectionEquality()
+                .equals(other.isGroupFirst, isGroupFirst) &&
+            const DeepCollectionEquality()
+                .equals(other.upperChoiceId, upperChoiceId));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      serialNumber,
-      choiceId,
-      choiceBody,
-      asNote,
-      asSingle,
-      isSpecialAnswer,
-      choiceGroup,
-      isGroupFirst,
-      upperChoiceId);
+      const DeepCollectionEquality().hash(serialNumber),
+      const DeepCollectionEquality().hash(choiceId),
+      const DeepCollectionEquality().hash(choiceBody),
+      const DeepCollectionEquality().hash(asNote),
+      const DeepCollectionEquality().hash(asSingle),
+      const DeepCollectionEquality().hash(isSpecialAnswer),
+      const DeepCollectionEquality().hash(choiceGroup),
+      const DeepCollectionEquality().hash(isGroupFirst),
+      const DeepCollectionEquality().hash(upperChoiceId));
 
   @JsonKey(ignore: true)
   @override

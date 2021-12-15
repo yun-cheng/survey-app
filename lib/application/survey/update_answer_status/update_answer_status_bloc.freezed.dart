@@ -585,24 +585,23 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
                 .equals(other.recodeAnswerMap, recodeAnswerMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeAnswerStatusMap, recodeAnswerStatusMap) &&
-            (identical(other.surveyPageState, surveyPageState) ||
-                other.surveyPageState == surveyPageState) &&
-            (identical(other.respondent, respondent) ||
-                other.respondent == respondent) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.moduleType, moduleType) ||
-                other.moduleType == moduleType) &&
-            (identical(other.isReadOnly, isReadOnly) ||
-                other.isReadOnly == isReadOnly) &&
-            (identical(other.isRecodeModule, isRecodeModule) ||
-                other.isRecodeModule == isRecodeModule) &&
+            const DeepCollectionEquality()
+                .equals(other.surveyPageState, surveyPageState) &&
+            const DeepCollectionEquality()
+                .equals(other.respondent, respondent) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.isReadOnly, isReadOnly) &&
+            const DeepCollectionEquality()
+                .equals(other.isRecodeModule, isRecodeModule) &&
             const DeepCollectionEquality()
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeQuestionMap, recodeQuestionMap) &&
-            (identical(other.dialogType, dialogType) ||
-                other.dialogType == dialogType));
+            const DeepCollectionEquality()
+                .equals(other.dialogType, dialogType));
   }
 
   @override
@@ -612,15 +611,15 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
       const DeepCollectionEquality().hash(answerStatusMap),
       const DeepCollectionEquality().hash(recodeAnswerMap),
       const DeepCollectionEquality().hash(recodeAnswerStatusMap),
-      surveyPageState,
-      respondent,
-      surveyId,
-      moduleType,
-      isReadOnly,
-      isRecodeModule,
+      const DeepCollectionEquality().hash(surveyPageState),
+      const DeepCollectionEquality().hash(respondent),
+      const DeepCollectionEquality().hash(surveyId),
+      const DeepCollectionEquality().hash(moduleType),
+      const DeepCollectionEquality().hash(isReadOnly),
+      const DeepCollectionEquality().hash(isRecodeModule),
       const DeepCollectionEquality().hash(questionMap),
       const DeepCollectionEquality().hash(recodeQuestionMap),
-      dialogType);
+      const DeepCollectionEquality().hash(dialogType));
 
   @JsonKey(ignore: true)
   @override
@@ -1294,21 +1293,21 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   final String questionId;
   @override
   final dynamic answerValue;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isSpecialAnswer;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isNote;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool toggle;
   @override
   final String? noteOf;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isRecode;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool toggleSpecialAnswer;
 
@@ -1338,32 +1337,31 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AnswerUpdated &&
-            (identical(other.questionId, questionId) ||
-                other.questionId == questionId) &&
+            const DeepCollectionEquality()
+                .equals(other.questionId, questionId) &&
             const DeepCollectionEquality()
                 .equals(other.answerValue, answerValue) &&
-            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                other.isSpecialAnswer == isSpecialAnswer) &&
-            (identical(other.isNote, isNote) || other.isNote == isNote) &&
-            (identical(other.toggle, toggle) || other.toggle == toggle) &&
-            (identical(other.noteOf, noteOf) || other.noteOf == noteOf) &&
-            (identical(other.isRecode, isRecode) ||
-                other.isRecode == isRecode) &&
-            (identical(other.toggleSpecialAnswer, toggleSpecialAnswer) ||
-                other.toggleSpecialAnswer == toggleSpecialAnswer));
+            const DeepCollectionEquality()
+                .equals(other.isSpecialAnswer, isSpecialAnswer) &&
+            const DeepCollectionEquality().equals(other.isNote, isNote) &&
+            const DeepCollectionEquality().equals(other.toggle, toggle) &&
+            const DeepCollectionEquality().equals(other.noteOf, noteOf) &&
+            const DeepCollectionEquality().equals(other.isRecode, isRecode) &&
+            const DeepCollectionEquality()
+                .equals(other.toggleSpecialAnswer, toggleSpecialAnswer));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      questionId,
+      const DeepCollectionEquality().hash(questionId),
       const DeepCollectionEquality().hash(answerValue),
-      isSpecialAnswer,
-      isNote,
-      toggle,
-      noteOf,
-      isRecode,
-      toggleSpecialAnswer);
+      const DeepCollectionEquality().hash(isSpecialAnswer),
+      const DeepCollectionEquality().hash(isNote),
+      const DeepCollectionEquality().hash(toggle),
+      const DeepCollectionEquality().hash(noteOf),
+      const DeepCollectionEquality().hash(isRecode),
+      const DeepCollectionEquality().hash(toggleSpecialAnswer));
 
   @JsonKey(ignore: true)
   @override
@@ -1667,7 +1665,7 @@ class _$_PageNavigatedTo
     implements _PageNavigatedTo {
   const _$_PageNavigatedTo({this.direction = Direction.current, this.page});
 
-  @JsonKey(defaultValue: Direction.current)
+  @JsonKey()
   @override
   final Direction direction;
   @override
@@ -1693,13 +1691,15 @@ class _$_PageNavigatedTo
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PageNavigatedTo &&
-            (identical(other.direction, direction) ||
-                other.direction == direction) &&
-            (identical(other.page, page) || other.page == page));
+            const DeepCollectionEquality().equals(other.direction, direction) &&
+            const DeepCollectionEquality().equals(other.page, page));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, direction, page);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(direction),
+      const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
   @override
@@ -2012,13 +2012,16 @@ class _$_ScrolledToQuestionId
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ScrolledToQuestionId &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.questionId, questionId) ||
-                other.questionId == questionId));
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality()
+                .equals(other.questionId, questionId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, page, questionId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(questionId));
 
   @JsonKey(ignore: true)
   @override
@@ -4000,12 +4003,12 @@ class _$_AppLifeCycleChanged
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppLifeCycleChanged &&
-            (identical(other.isPaused, isPaused) ||
-                other.isPaused == isPaused));
+            const DeepCollectionEquality().equals(other.isPaused, isPaused));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isPaused);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(isPaused));
 
   @JsonKey(ignore: true)
   @override
@@ -6047,7 +6050,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _UpdateAnswerStatusState &&
-            (identical(other.stateId, stateId) || other.stateId == stateId) &&
+            const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
             const DeepCollectionEquality()
                 .equals(other.answerStatusMap, answerStatusMap) &&
@@ -6055,16 +6058,16 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
                 .equals(other.recodeAnswerMap, recodeAnswerMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeAnswerStatusMap, recodeAnswerStatusMap) &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.newestPage, newestPage) ||
-                other.newestPage == newestPage) &&
-            (identical(other.isLastPage, isLastPage) ||
-                other.isLastPage == isLastPage) &&
-            (identical(other.warning, warning) || other.warning == warning) &&
-            (identical(other.showWarning, showWarning) ||
-                other.showWarning == showWarning) &&
-            (identical(other.questionId, questionId) ||
-                other.questionId == questionId) &&
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality()
+                .equals(other.newestPage, newestPage) &&
+            const DeepCollectionEquality()
+                .equals(other.isLastPage, isLastPage) &&
+            const DeepCollectionEquality().equals(other.warning, warning) &&
+            const DeepCollectionEquality()
+                .equals(other.showWarning, showWarning) &&
+            const DeepCollectionEquality()
+                .equals(other.questionId, questionId) &&
             const DeepCollectionEquality()
                 .equals(other.updatedQIdSet, updatedQIdSet) &&
             const DeepCollectionEquality()
@@ -6073,30 +6076,27 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
                 .equals(other.pageQIdSet, pageQIdSet) &&
             const DeepCollectionEquality()
                 .equals(other.contentQIdSet, contentQIdSet) &&
-            (identical(other.direction, direction) ||
-                other.direction == direction) &&
-            (identical(other.finishResponse, finishResponse) ||
-                other.finishResponse == finishResponse) &&
-            (identical(other.dialogType, dialogType) ||
-                other.dialogType == dialogType) &&
-            (identical(other.showLeaveButton, showLeaveButton) ||
-                other.showLeaveButton == showLeaveButton) &&
-            (identical(other.leavePage, leavePage) ||
-                other.leavePage == leavePage) &&
-            (identical(other.appIsPaused, appIsPaused) ||
-                other.appIsPaused == appIsPaused) &&
-            (identical(other.scrollToQuestionIndex, scrollToQuestionIndex) ||
-                other.scrollToQuestionIndex == scrollToQuestionIndex) &&
-            (identical(other.respondent, respondent) ||
-                other.respondent == respondent) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.moduleType, moduleType) ||
-                other.moduleType == moduleType) &&
-            (identical(other.isReadOnly, isReadOnly) ||
-                other.isReadOnly == isReadOnly) &&
-            (identical(other.isRecodeModule, isRecodeModule) ||
-                other.isRecodeModule == isRecodeModule) &&
+            const DeepCollectionEquality().equals(other.direction, direction) &&
+            const DeepCollectionEquality()
+                .equals(other.finishResponse, finishResponse) &&
+            const DeepCollectionEquality()
+                .equals(other.dialogType, dialogType) &&
+            const DeepCollectionEquality()
+                .equals(other.showLeaveButton, showLeaveButton) &&
+            const DeepCollectionEquality().equals(other.leavePage, leavePage) &&
+            const DeepCollectionEquality()
+                .equals(other.appIsPaused, appIsPaused) &&
+            const DeepCollectionEquality()
+                .equals(other.scrollToQuestionIndex, scrollToQuestionIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.respondent, respondent) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.isReadOnly, isReadOnly) &&
+            const DeepCollectionEquality()
+                .equals(other.isRecodeModule, isRecodeModule) &&
             const DeepCollectionEquality()
                 .equals(other.referenceList, referenceList) &&
             const DeepCollectionEquality()
@@ -6105,57 +6105,57 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeQuestionMap, recodeQuestionMap) &&
-            (identical(other.restoreState, restoreState) ||
-                other.restoreState == restoreState) &&
-            (identical(other.eventState, eventState) ||
-                other.eventState == eventState) &&
-            (identical(other.updateState, updateState) ||
-                other.updateState == updateState) &&
-            (identical(other.updateParameters, updateParameters) ||
-                other.updateParameters == updateParameters) &&
-            (identical(other.saveParameters, saveParameters) ||
-                other.saveParameters == saveParameters));
+            const DeepCollectionEquality()
+                .equals(other.restoreState, restoreState) &&
+            const DeepCollectionEquality()
+                .equals(other.eventState, eventState) &&
+            const DeepCollectionEquality()
+                .equals(other.updateState, updateState) &&
+            const DeepCollectionEquality()
+                .equals(other.updateParameters, updateParameters) &&
+            const DeepCollectionEquality()
+                .equals(other.saveParameters, saveParameters));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        stateId,
+        const DeepCollectionEquality().hash(stateId),
         const DeepCollectionEquality().hash(answerMap),
         const DeepCollectionEquality().hash(answerStatusMap),
         const DeepCollectionEquality().hash(recodeAnswerMap),
         const DeepCollectionEquality().hash(recodeAnswerStatusMap),
-        page,
-        newestPage,
-        isLastPage,
-        warning,
-        showWarning,
-        questionId,
+        const DeepCollectionEquality().hash(page),
+        const DeepCollectionEquality().hash(newestPage),
+        const DeepCollectionEquality().hash(isLastPage),
+        const DeepCollectionEquality().hash(warning),
+        const DeepCollectionEquality().hash(showWarning),
+        const DeepCollectionEquality().hash(questionId),
         const DeepCollectionEquality().hash(updatedQIdSet),
         const DeepCollectionEquality().hash(clearAnswerQIdSet),
         const DeepCollectionEquality().hash(pageQIdSet),
         const DeepCollectionEquality().hash(contentQIdSet),
-        direction,
-        finishResponse,
-        dialogType,
-        showLeaveButton,
-        leavePage,
-        appIsPaused,
-        scrollToQuestionIndex,
-        respondent,
-        surveyId,
-        moduleType,
-        isReadOnly,
-        isRecodeModule,
+        const DeepCollectionEquality().hash(direction),
+        const DeepCollectionEquality().hash(finishResponse),
+        const DeepCollectionEquality().hash(dialogType),
+        const DeepCollectionEquality().hash(showLeaveButton),
+        const DeepCollectionEquality().hash(leavePage),
+        const DeepCollectionEquality().hash(appIsPaused),
+        const DeepCollectionEquality().hash(scrollToQuestionIndex),
+        const DeepCollectionEquality().hash(respondent),
+        const DeepCollectionEquality().hash(surveyId),
+        const DeepCollectionEquality().hash(moduleType),
+        const DeepCollectionEquality().hash(isReadOnly),
+        const DeepCollectionEquality().hash(isRecodeModule),
         const DeepCollectionEquality().hash(referenceList),
         const DeepCollectionEquality().hash(respondentResponseMap),
         const DeepCollectionEquality().hash(questionMap),
         const DeepCollectionEquality().hash(recodeQuestionMap),
-        restoreState,
-        eventState,
-        updateState,
-        updateParameters,
-        saveParameters
+        const DeepCollectionEquality().hash(restoreState),
+        const DeepCollectionEquality().hash(eventState),
+        const DeepCollectionEquality().hash(updateState),
+        const DeepCollectionEquality().hash(updateParameters),
+        const DeepCollectionEquality().hash(saveParameters)
       ]);
 
   @JsonKey(ignore: true)
@@ -6785,72 +6785,70 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StateParameters &&
-            (identical(other.answerMap, answerMap) ||
-                other.answerMap == answerMap) &&
-            (identical(other.answerStatusMap, answerStatusMap) ||
-                other.answerStatusMap == answerStatusMap) &&
-            (identical(other.recodeAnswerMap, recodeAnswerMap) ||
-                other.recodeAnswerMap == recodeAnswerMap) &&
-            (identical(other.recodeAnswerStatusMap, recodeAnswerStatusMap) ||
-                other.recodeAnswerStatusMap == recodeAnswerStatusMap) &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.newestPage, newestPage) ||
-                other.newestPage == newestPage) &&
-            (identical(other.isLastPage, isLastPage) ||
-                other.isLastPage == isLastPage) &&
-            (identical(other.warning, warning) || other.warning == warning) &&
-            (identical(other.showWarning, showWarning) ||
-                other.showWarning == showWarning) &&
-            (identical(other.pageQIdSet, pageQIdSet) ||
-                other.pageQIdSet == pageQIdSet) &&
-            (identical(other.contentQIdSet, contentQIdSet) ||
-                other.contentQIdSet == contentQIdSet) &&
-            (identical(other.dialogType, dialogType) ||
-                other.dialogType == dialogType) &&
-            (identical(other.showLeaveButton, showLeaveButton) ||
-                other.showLeaveButton == showLeaveButton) &&
-            (identical(other.respondent, respondent) ||
-                other.respondent == respondent) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.moduleType, moduleType) ||
-                other.moduleType == moduleType) &&
-            (identical(other.isReadOnly, isReadOnly) ||
-                other.isReadOnly == isReadOnly) &&
-            (identical(other.isRecodeModule, isRecodeModule) ||
-                other.isRecodeModule == isRecodeModule) &&
-            (identical(other.respondentResponseMap, respondentResponseMap) ||
-                other.respondentResponseMap == respondentResponseMap) &&
-            (identical(other.questionMap, questionMap) ||
-                other.questionMap == questionMap) &&
-            (identical(other.recodeQuestionMap, recodeQuestionMap) ||
-                other.recodeQuestionMap == recodeQuestionMap));
+            const DeepCollectionEquality().equals(other.answerMap, answerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusMap, answerStatusMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerMap, recodeAnswerMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeAnswerStatusMap, recodeAnswerStatusMap) &&
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality()
+                .equals(other.newestPage, newestPage) &&
+            const DeepCollectionEquality()
+                .equals(other.isLastPage, isLastPage) &&
+            const DeepCollectionEquality().equals(other.warning, warning) &&
+            const DeepCollectionEquality()
+                .equals(other.showWarning, showWarning) &&
+            const DeepCollectionEquality()
+                .equals(other.pageQIdSet, pageQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.contentQIdSet, contentQIdSet) &&
+            const DeepCollectionEquality()
+                .equals(other.dialogType, dialogType) &&
+            const DeepCollectionEquality()
+                .equals(other.showLeaveButton, showLeaveButton) &&
+            const DeepCollectionEquality()
+                .equals(other.respondent, respondent) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.isReadOnly, isReadOnly) &&
+            const DeepCollectionEquality()
+                .equals(other.isRecodeModule, isRecodeModule) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentResponseMap, respondentResponseMap) &&
+            const DeepCollectionEquality()
+                .equals(other.questionMap, questionMap) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeQuestionMap, recodeQuestionMap));
   }
 
   @override
   int get hashCode => Object.hashAll([
         runtimeType,
-        answerMap,
-        answerStatusMap,
-        recodeAnswerMap,
-        recodeAnswerStatusMap,
-        page,
-        newestPage,
-        isLastPage,
-        warning,
-        showWarning,
-        pageQIdSet,
-        contentQIdSet,
-        dialogType,
-        showLeaveButton,
-        respondent,
-        surveyId,
-        moduleType,
-        isReadOnly,
-        isRecodeModule,
-        respondentResponseMap,
-        questionMap,
-        recodeQuestionMap
+        const DeepCollectionEquality().hash(answerMap),
+        const DeepCollectionEquality().hash(answerStatusMap),
+        const DeepCollectionEquality().hash(recodeAnswerMap),
+        const DeepCollectionEquality().hash(recodeAnswerStatusMap),
+        const DeepCollectionEquality().hash(page),
+        const DeepCollectionEquality().hash(newestPage),
+        const DeepCollectionEquality().hash(isLastPage),
+        const DeepCollectionEquality().hash(warning),
+        const DeepCollectionEquality().hash(showWarning),
+        const DeepCollectionEquality().hash(pageQIdSet),
+        const DeepCollectionEquality().hash(contentQIdSet),
+        const DeepCollectionEquality().hash(dialogType),
+        const DeepCollectionEquality().hash(showLeaveButton),
+        const DeepCollectionEquality().hash(respondent),
+        const DeepCollectionEquality().hash(surveyId),
+        const DeepCollectionEquality().hash(moduleType),
+        const DeepCollectionEquality().hash(isReadOnly),
+        const DeepCollectionEquality().hash(isRecodeModule),
+        const DeepCollectionEquality().hash(respondentResponseMap),
+        const DeepCollectionEquality().hash(questionMap),
+        const DeepCollectionEquality().hash(recodeQuestionMap)
       ]);
 
   @JsonKey(ignore: true)

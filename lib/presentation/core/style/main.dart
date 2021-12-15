@@ -8,7 +8,7 @@ part 'survey.dart';
 part 'text.dart';
 part 'theme.dart';
 
-const kCardMaxWith = BoxConstraints(maxWidth: 730.0);
+const kCardMaxWith = BoxConstraints(maxWidth: 768);
 
 final kButtonShape = RoundedRectangleBorder(
   borderRadius: BorderRadius.circular(8.0),

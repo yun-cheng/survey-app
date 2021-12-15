@@ -221,19 +221,24 @@ class _$_SimpleSurveyPageStateDto extends _SimpleSurveyPageStateDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SimpleSurveyPageStateDto &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.newestPage, newestPage) ||
-                other.newestPage == newestPage) &&
-            (identical(other.isLastPage, isLastPage) ||
-                other.isLastPage == isLastPage) &&
-            (identical(other.warning, warning) || other.warning == warning) &&
-            (identical(other.showWarning, showWarning) ||
-                other.showWarning == showWarning));
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality()
+                .equals(other.newestPage, newestPage) &&
+            const DeepCollectionEquality()
+                .equals(other.isLastPage, isLastPage) &&
+            const DeepCollectionEquality().equals(other.warning, warning) &&
+            const DeepCollectionEquality()
+                .equals(other.showWarning, showWarning));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, page, newestPage, isLastPage, warning, showWarning);
+      runtimeType,
+      const DeepCollectionEquality().hash(page),
+      const DeepCollectionEquality().hash(newestPage),
+      const DeepCollectionEquality().hash(isLastPage),
+      const DeepCollectionEquality().hash(warning),
+      const DeepCollectionEquality().hash(showWarning));
 
   @JsonKey(ignore: true)
   @override

@@ -202,19 +202,22 @@ class _$_SurveyDto extends _SurveyDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SurveyDto &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.surveyName, surveyName) ||
-                other.surveyName == surveyName) &&
-            (identical(other.projectId, projectId) ||
-                other.projectId == projectId) &&
-            (identical(other.teamId, teamId) || other.teamId == teamId) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.surveyName, surveyName) &&
+            const DeepCollectionEquality().equals(other.projectId, projectId) &&
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality().equals(other.module, module));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, surveyId, surveyName, projectId,
-      teamId, const DeepCollectionEquality().hash(module));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(surveyId),
+      const DeepCollectionEquality().hash(surveyName),
+      const DeepCollectionEquality().hash(projectId),
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(module));
 
   @JsonKey(ignore: true)
   @override

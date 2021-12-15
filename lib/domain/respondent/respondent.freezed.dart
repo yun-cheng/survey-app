@@ -210,21 +210,27 @@ class _$_Respondent extends _Respondent {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Respondent &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.countyTown, countyTown) ||
-                other.countyTown == countyTown) &&
-            (identical(other.village, village) || other.village == village) &&
-            (identical(other.remainAddress, remainAddress) ||
-                other.remainAddress == remainAddress) &&
-            (identical(other.isCountyTownFirst, isCountyTownFirst) ||
-                other.isCountyTownFirst == isCountyTownFirst) &&
-            (identical(other.isVillageFirst, isVillageFirst) ||
-                other.isVillageFirst == isVillageFirst));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.countyTown, countyTown) &&
+            const DeepCollectionEquality().equals(other.village, village) &&
+            const DeepCollectionEquality()
+                .equals(other.remainAddress, remainAddress) &&
+            const DeepCollectionEquality()
+                .equals(other.isCountyTownFirst, isCountyTownFirst) &&
+            const DeepCollectionEquality()
+                .equals(other.isVillageFirst, isVillageFirst));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, countyTown, village,
-      remainAddress, isCountyTownFirst, isVillageFirst);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(countyTown),
+      const DeepCollectionEquality().hash(village),
+      const DeepCollectionEquality().hash(remainAddress),
+      const DeepCollectionEquality().hash(isCountyTownFirst),
+      const DeepCollectionEquality().hash(isVillageFirst));
 
   @JsonKey(ignore: true)
   @override

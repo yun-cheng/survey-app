@@ -179,12 +179,12 @@ class _$_RecordStarted with DiagnosticableTreeMixin implements _RecordStarted {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _RecordStarted &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName));
+            const DeepCollectionEquality().equals(other.fileName, fileName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, fileName);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(fileName));
 
   @JsonKey(ignore: true)
   @override
@@ -583,11 +583,12 @@ class _$_DbUpdated with DiagnosticableTreeMixin implements _DbUpdated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DbUpdated &&
-            (identical(other.db, db) || other.db == db));
+            const DeepCollectionEquality().equals(other.db, db));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, db);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(db));
 
   @JsonKey(ignore: true)
   @override
@@ -895,19 +896,24 @@ class _$_AudioRecorderState extends _AudioRecorderState
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AudioRecorderState &&
-            (identical(other.db, db) || other.db == db) &&
-            (identical(other.isRecording, isRecording) ||
-                other.isRecording == isRecording) &&
-            (identical(other.audio, audio) || other.audio == audio) &&
-            (identical(other.recorderState, recorderState) ||
-                other.recorderState == recorderState) &&
-            (identical(other.audioFailure, audioFailure) ||
-                other.audioFailure == audioFailure));
+            const DeepCollectionEquality().equals(other.db, db) &&
+            const DeepCollectionEquality()
+                .equals(other.isRecording, isRecording) &&
+            const DeepCollectionEquality().equals(other.audio, audio) &&
+            const DeepCollectionEquality()
+                .equals(other.recorderState, recorderState) &&
+            const DeepCollectionEquality()
+                .equals(other.audioFailure, audioFailure));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, db, isRecording, audio, recorderState, audioFailure);
+      runtimeType,
+      const DeepCollectionEquality().hash(db),
+      const DeepCollectionEquality().hash(isRecording),
+      const DeepCollectionEquality().hash(audio),
+      const DeepCollectionEquality().hash(recorderState),
+      const DeepCollectionEquality().hash(audioFailure));
 
   @JsonKey(ignore: true)
   @override

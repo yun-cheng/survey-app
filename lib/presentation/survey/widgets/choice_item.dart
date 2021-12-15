@@ -65,25 +65,10 @@ class ChoiceItem extends HookWidget {
         context.read<UpdateAnswerStatusBloc>().state.isRecodeModule;
     final canEdit = !isReadOnly && !isRecodeModule;
 
-    final itemTitle = isinCell
-        ? Container()
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                '(${choice.id}) ${choice.body}',
-                style: kPTextStyle,
-              ),
-              if (choice.asNote && isSelected.value) ...[
-                NoteBox(
-                  questionId: questionId,
-                  choice: choice,
-                  note: answer.value.noteMap?[choice.id] ?? '',
-                  canEdit: canEdit,
-                ),
-              ]
-            ],
-          );
+    final isSingleAnswer =
+        questionType.isSingle || choice.asSingle || isSpecialAnswer;
+
+    final activeColor = canEdit ? Colors.teal : Colors.grey[600];
 
     void clickAction({
       bool toggle = false,
@@ -106,11 +91,6 @@ class ChoiceItem extends HookWidget {
       }
     }
 
-    final isSingleAnswer =
-        questionType.isSingle || choice.asSingle || isSpecialAnswer;
-
-    final activeColor = canEdit ? Colors.teal : Colors.grey[600];
-
     if (isinCell) {
       return Ink(
         width: 100,
@@ -132,32 +112,47 @@ class ChoiceItem extends HookWidget {
         ),
       );
     } else {
-      final tileColor = isSelected.value
-          ? canEdit
-              ? kAnswerBackgroundColor
-              : kCannotEditColor
-          : null;
-      final item = isSingleAnswer
-          ? RadioListTile(
-              title: itemTitle,
-              value: choice.id,
-              groupValue: answer.value.groupValue,
-              onChanged: (_) => clickAction(),
-              activeColor: activeColor,
-              dense: true,
-            )
-          : CheckboxListTile(
-              controlAffinity: ListTileControlAffinity.leading,
-              title: itemTitle,
-              value: isSelected.value,
-              onChanged: (_) => clickAction(toggle: true),
-              activeColor: activeColor,
-              dense: true,
-            );
+      final itemTitle = Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '(${choice.id}) ${choice.body}',
+            style: kPTextStyle,
+          ),
+          if (choice.asNote && isSelected.value) ...[
+            NoteBox(
+              questionId: questionId,
+              choice: choice,
+              note: answer.value.noteMap?[choice.id] ?? '',
+              canEdit: canEdit,
+            ),
+          ]
+        ],
+      );
 
       return Container(
-        color: tileColor,
-        child: item,
+        color: isSelected.value
+            ? canEdit
+                ? kAnswerBackgroundColor
+                : kCannotEditColor
+            : null,
+        child: isSingleAnswer
+            ? RadioListTile(
+                title: itemTitle,
+                value: choice.id,
+                groupValue: answer.value.groupValue,
+                onChanged: (_) => clickAction(),
+                activeColor: activeColor,
+                dense: true,
+              )
+            : CheckboxListTile(
+                controlAffinity: ListTileControlAffinity.leading,
+                title: itemTitle,
+                value: isSelected.value,
+                onChanged: (_) => clickAction(toggle: true),
+                activeColor: activeColor,
+                dense: true,
+              ),
       );
     }
   }

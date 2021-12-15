@@ -260,25 +260,33 @@ class _$_Choice extends _Choice {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Choice &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.body, body) || other.body == body) &&
-            (identical(other.asNote, asNote) || other.asNote == asNote) &&
-            (identical(other.asSingle, asSingle) ||
-                other.asSingle == asSingle) &&
-            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                other.isSpecialAnswer == isSpecialAnswer) &&
-            (identical(other.group, group) || other.group == group) &&
-            (identical(other.isGroupFirst, isGroupFirst) ||
-                other.isGroupFirst == isGroupFirst) &&
-            (identical(other.upperChoiceId, upperChoiceId) ||
-                other.upperChoiceId == upperChoiceId));
+            const DeepCollectionEquality()
+                .equals(other.serialNumber, serialNumber) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.body, body) &&
+            const DeepCollectionEquality().equals(other.asNote, asNote) &&
+            const DeepCollectionEquality().equals(other.asSingle, asSingle) &&
+            const DeepCollectionEquality()
+                .equals(other.isSpecialAnswer, isSpecialAnswer) &&
+            const DeepCollectionEquality().equals(other.group, group) &&
+            const DeepCollectionEquality()
+                .equals(other.isGroupFirst, isGroupFirst) &&
+            const DeepCollectionEquality()
+                .equals(other.upperChoiceId, upperChoiceId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, serialNumber, id, body, asNote,
-      asSingle, isSpecialAnswer, group, isGroupFirst, upperChoiceId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(serialNumber),
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(body),
+      const DeepCollectionEquality().hash(asNote),
+      const DeepCollectionEquality().hash(asSingle),
+      const DeepCollectionEquality().hash(isSpecialAnswer),
+      const DeepCollectionEquality().hash(group),
+      const DeepCollectionEquality().hash(isGroupFirst),
+      const DeepCollectionEquality().hash(upperChoiceId));
 
   @JsonKey(ignore: true)
   @override

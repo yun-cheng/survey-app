@@ -146,7 +146,10 @@ void showSurveyDialog(BuildContext context) {
             ),
             actions: <Widget>[
               TextButton(
-                child: const Text('中止訪問'),
+                child: const Text(
+                  '中止訪問',
+                  style: kPTextStyle,
+                ),
                 onPressed: () async {
                   controller.dismiss(true);
 
@@ -155,7 +158,10 @@ void showSurveyDialog(BuildContext context) {
                 },
               ),
               TextButton(
-                child: const Text('繼續訪問'),
+                child: const Text(
+                  '繼續訪問',
+                  style: kPTextStyle,
+                ),
                 onPressed: () {
                   controller.dismiss();
                   context.read<UpdateAnswerStatusBloc>().add(
@@ -184,7 +190,10 @@ void showSurveyDialog(BuildContext context) {
             ),
             actions: <Widget>[
               TextButton(
-                child: const Text('確定'),
+                child: const Text(
+                  '確定',
+                  style: kPTextStyle,
+                ),
                 onPressed: () async {
                   controller.dismiss(true);
                 },

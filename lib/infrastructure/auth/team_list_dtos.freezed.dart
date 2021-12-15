@@ -285,13 +285,15 @@ class _$_TeamDto extends _TeamDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TeamDto &&
-            (identical(other.teamId, teamId) || other.teamId == teamId) &&
-            (identical(other.teamName, teamName) ||
-                other.teamName == teamName));
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality().equals(other.teamName, teamName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, teamId, teamName);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(teamName));
 
   @JsonKey(ignore: true)
   @override

@@ -255,15 +255,13 @@ class _$_AnswerDto extends _AnswerDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AnswerDto &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.withNote, withNote) ||
-                other.withNote == withNote) &&
-            (identical(other.stringValue, stringValue) ||
-                other.stringValue == stringValue) &&
-            (identical(other.intValue, intValue) ||
-                other.intValue == intValue) &&
-            (identical(other.choiceValue, choiceValue) ||
-                other.choiceValue == choiceValue) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality().equals(other.withNote, withNote) &&
+            const DeepCollectionEquality()
+                .equals(other.stringValue, stringValue) &&
+            const DeepCollectionEquality().equals(other.intValue, intValue) &&
+            const DeepCollectionEquality()
+                .equals(other.choiceValue, choiceValue) &&
             const DeepCollectionEquality()
                 .equals(other.choiceListValue, choiceListValue) &&
             const DeepCollectionEquality().equals(other.noteMap, noteMap));
@@ -272,11 +270,11 @@ class _$_AnswerDto extends _AnswerDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      type,
-      withNote,
-      stringValue,
-      intValue,
-      choiceValue,
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(withNote),
+      const DeepCollectionEquality().hash(stringValue),
+      const DeepCollectionEquality().hash(intValue),
+      const DeepCollectionEquality().hash(choiceValue),
       const DeepCollectionEquality().hash(choiceListValue),
       const DeepCollectionEquality().hash(noteMap));
 

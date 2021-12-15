@@ -264,11 +264,12 @@ class _$_NetworkChanged implements _NetworkChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NetworkChanged &&
-            (identical(other.result, result) || other.result == result));
+            const DeepCollectionEquality().equals(other.result, result));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, result);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(result));
 
   @JsonKey(ignore: true)
   @override
@@ -404,12 +405,13 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AppLifeCycleChanged &&
-            (identical(other.appLifeCycle, appLifeCycle) ||
-                other.appLifeCycle == appLifeCycle));
+            const DeepCollectionEquality()
+                .equals(other.appLifeCycle, appLifeCycle));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, appLifeCycle);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(appLifeCycle));
 
   @JsonKey(ignore: true)
   @override
@@ -628,14 +630,17 @@ class _$_NetworkState extends _NetworkState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NetworkState &&
-            (identical(other.networkType, networkType) ||
-                other.networkType == networkType) &&
-            (identical(other.appIsPaused, appIsPaused) ||
-                other.appIsPaused == appIsPaused));
+            const DeepCollectionEquality()
+                .equals(other.networkType, networkType) &&
+            const DeepCollectionEquality()
+                .equals(other.appIsPaused, appIsPaused));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkType, appIsPaused);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(networkType),
+      const DeepCollectionEquality().hash(appIsPaused));
 
   @JsonKey(ignore: true)
   @override

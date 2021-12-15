@@ -369,41 +369,40 @@ class _$_RespondentStateDto extends _RespondentStateDto {
             other is _RespondentStateDto &&
             const DeepCollectionEquality()
                 .equals(other.surveyRespondentMap, surveyRespondentMap) &&
-            (identical(other.survey, survey) || other.survey == survey) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
+            const DeepCollectionEquality().equals(other.survey, survey) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
             const DeepCollectionEquality()
                 .equals(other.respondentMap, respondentMap) &&
-            (identical(other.currentTab, currentTab) ||
-                other.currentTab == currentTab) &&
+            const DeepCollectionEquality()
+                .equals(other.currentTab, currentTab) &&
             const DeepCollectionEquality()
                 .equals(other.tabScrollPosition, tabScrollPosition) &&
-            (identical(other.selectedRespondentId, selectedRespondentId) ||
-                other.selectedRespondentId == selectedRespondentId) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedRespondentId, selectedRespondentId) &&
             const DeepCollectionEquality()
                 .equals(other.visitRecordsMap, visitRecordsMap) &&
             const DeepCollectionEquality()
                 .equals(other.tabRespondentMap, tabRespondentMap) &&
-            (identical(other.responseInfoMap, responseInfoMap) ||
-                other.responseInfoMap == responseInfoMap) &&
-            (identical(other.saveParameters, saveParameters) ||
-                other.saveParameters == saveParameters));
+            const DeepCollectionEquality()
+                .equals(other.responseInfoMap, responseInfoMap) &&
+            const DeepCollectionEquality()
+                .equals(other.saveParameters, saveParameters));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(surveyRespondentMap),
-      survey,
-      surveyId,
+      const DeepCollectionEquality().hash(survey),
+      const DeepCollectionEquality().hash(surveyId),
       const DeepCollectionEquality().hash(respondentMap),
-      currentTab,
+      const DeepCollectionEquality().hash(currentTab),
       const DeepCollectionEquality().hash(tabScrollPosition),
-      selectedRespondentId,
+      const DeepCollectionEquality().hash(selectedRespondentId),
       const DeepCollectionEquality().hash(visitRecordsMap),
       const DeepCollectionEquality().hash(tabRespondentMap),
-      responseInfoMap,
-      saveParameters);
+      const DeepCollectionEquality().hash(responseInfoMap),
+      const DeepCollectionEquality().hash(saveParameters));
 
   @JsonKey(ignore: true)
   @override

@@ -182,14 +182,16 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
         (other.runtimeType == runtimeType &&
             other is _WatchSurveyStateDto &&
             const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
-            (identical(other.survey, survey) || other.survey == survey) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId));
+            const DeepCollectionEquality().equals(other.survey, survey) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(surveyMap), survey, surveyId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(surveyMap),
+      const DeepCollectionEquality().hash(survey),
+      const DeepCollectionEquality().hash(surveyId));
 
   @JsonKey(ignore: true)
   @override

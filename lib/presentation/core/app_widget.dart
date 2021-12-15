@@ -87,14 +87,19 @@ class AppWidget extends StatelessWidget {
           return MaterialApp.router(
             // showPerformanceOverlay: true,
             // checkerboardOffscreenLayers: true,
-            builder: (context, widget) => ResponsiveWrapper.builder(
-              ClampingScrollWrapper.builder(context, widget!),
-              breakpoints: const [
-                ResponsiveBreakpoint.resize(600, name: MOBILE),
-                ResponsiveBreakpoint.resize(800, name: TABLET),
-                ResponsiveBreakpoint.resize(1000, name: DESKTOP),
-              ],
-            ),
+            builder: (context, widget) {
+              return MediaQuery(
+                data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                child: ResponsiveWrapper.builder(
+                  ClampingScrollWrapper.builder(context, widget!),
+                  breakpoints: const [
+                    ResponsiveBreakpoint.resize(600, name: MOBILE),
+                    ResponsiveBreakpoint.resize(800, name: TABLET),
+                    ResponsiveBreakpoint.resize(1000, name: DESKTOP),
+                  ],
+                ),
+              );
+            },
             title: '問卷',
             debugShowCheckedModeBanner: false,
             theme: kLightTheme,

@@ -443,60 +443,60 @@ class _$_QuestionDto extends _QuestionDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _QuestionDto &&
-            (identical(other.questionId, questionId) ||
-                other.questionId == questionId) &&
-            (identical(other.hideQuestionId, hideQuestionId) ||
-                other.hideQuestionId == hideQuestionId) &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.questionId, questionId) &&
+            const DeepCollectionEquality()
+                .equals(other.hideQuestionId, hideQuestionId) &&
+            const DeepCollectionEquality()
+                .equals(other.serialNumber, serialNumber) &&
             const DeepCollectionEquality()
                 .equals(other.questionBody, questionBody) &&
-            (identical(other.stringBody, stringBody) ||
-                other.stringBody == stringBody) &&
-            (identical(other.questionNote, questionNote) ||
-                other.questionNote == questionNote) &&
-            (identical(other.questionType, questionType) ||
-                other.questionType == questionType) &&
-            (identical(other.showQuestion, showQuestion) ||
-                other.showQuestion == showQuestion) &&
+            const DeepCollectionEquality()
+                .equals(other.stringBody, stringBody) &&
+            const DeepCollectionEquality()
+                .equals(other.questionNote, questionNote) &&
+            const DeepCollectionEquality()
+                .equals(other.questionType, questionType) &&
+            const DeepCollectionEquality()
+                .equals(other.showQuestion, showQuestion) &&
             const DeepCollectionEquality()
                 .equals(other.choiceList, choiceList) &&
             const DeepCollectionEquality()
                 .equals(other.initChoiceList, initChoiceList) &&
-            (identical(other.hasSpecialAnswer, hasSpecialAnswer) ||
-                other.hasSpecialAnswer == hasSpecialAnswer) &&
-            (identical(other.validateAnswer, validateAnswer) ||
-                other.validateAnswer == validateAnswer) &&
-            (identical(other.upperQuestionId, upperQuestionId) ||
-                other.upperQuestionId == upperQuestionId) &&
-            (identical(other.pageNumber, pageNumber) ||
-                other.pageNumber == pageNumber) &&
-            (identical(other.recodeNeeded, recodeNeeded) ||
-                other.recodeNeeded == recodeNeeded) &&
-            (identical(other.tableId, tableId) || other.tableId == tableId) &&
-            (identical(other.rowId, rowId) || other.rowId == rowId));
+            const DeepCollectionEquality()
+                .equals(other.hasSpecialAnswer, hasSpecialAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.validateAnswer, validateAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.upperQuestionId, upperQuestionId) &&
+            const DeepCollectionEquality()
+                .equals(other.pageNumber, pageNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.recodeNeeded, recodeNeeded) &&
+            const DeepCollectionEquality().equals(other.tableId, tableId) &&
+            const DeepCollectionEquality().equals(other.rowId, rowId));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      questionId,
-      hideQuestionId,
-      serialNumber,
+      const DeepCollectionEquality().hash(questionId),
+      const DeepCollectionEquality().hash(hideQuestionId),
+      const DeepCollectionEquality().hash(serialNumber),
       const DeepCollectionEquality().hash(questionBody),
-      stringBody,
-      questionNote,
-      questionType,
-      showQuestion,
+      const DeepCollectionEquality().hash(stringBody),
+      const DeepCollectionEquality().hash(questionNote),
+      const DeepCollectionEquality().hash(questionType),
+      const DeepCollectionEquality().hash(showQuestion),
       const DeepCollectionEquality().hash(choiceList),
       const DeepCollectionEquality().hash(initChoiceList),
-      hasSpecialAnswer,
-      validateAnswer,
-      upperQuestionId,
-      pageNumber,
-      recodeNeeded,
-      tableId,
-      rowId);
+      const DeepCollectionEquality().hash(hasSpecialAnswer),
+      const DeepCollectionEquality().hash(validateAnswer),
+      const DeepCollectionEquality().hash(upperQuestionId),
+      const DeepCollectionEquality().hash(pageNumber),
+      const DeepCollectionEquality().hash(recodeNeeded),
+      const DeepCollectionEquality().hash(tableId),
+      const DeepCollectionEquality().hash(rowId));
 
   @JsonKey(ignore: true)
   @override

@@ -172,13 +172,13 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
 
   @override
   final String answerStatusType;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool isSpecialAnswer;
-  @JsonKey(defaultValue: -2209017600000000)
+  @JsonKey()
   @override
   final int lastChangedTimeStamp;
-  @JsonKey(defaultValue: const {})
+  @JsonKey()
   @override
   final Map<String, String> noteMap;
 
@@ -192,21 +192,21 @@ class _$_AnswerStatusDto extends _AnswerStatusDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AnswerStatusDto &&
-            (identical(other.answerStatusType, answerStatusType) ||
-                other.answerStatusType == answerStatusType) &&
-            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                other.isSpecialAnswer == isSpecialAnswer) &&
-            (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
-                other.lastChangedTimeStamp == lastChangedTimeStamp) &&
+            const DeepCollectionEquality()
+                .equals(other.answerStatusType, answerStatusType) &&
+            const DeepCollectionEquality()
+                .equals(other.isSpecialAnswer, isSpecialAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.lastChangedTimeStamp, lastChangedTimeStamp) &&
             const DeepCollectionEquality().equals(other.noteMap, noteMap));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      answerStatusType,
-      isSpecialAnswer,
-      lastChangedTimeStamp,
+      const DeepCollectionEquality().hash(answerStatusType),
+      const DeepCollectionEquality().hash(isSpecialAnswer),
+      const DeepCollectionEquality().hash(lastChangedTimeStamp),
       const DeepCollectionEquality().hash(noteMap));
 
   @JsonKey(ignore: true)

@@ -186,19 +186,23 @@ class _$_WarningDto extends _WarningDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WarningDto &&
-            (identical(other.questionId, questionId) ||
-                other.questionId == questionId) &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
-            (identical(other.pageNumber, pageNumber) ||
-                other.pageNumber == pageNumber) &&
-            (identical(other.warningType, warningType) ||
-                other.warningType == warningType));
+            const DeepCollectionEquality()
+                .equals(other.questionId, questionId) &&
+            const DeepCollectionEquality()
+                .equals(other.serialNumber, serialNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.pageNumber, pageNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.warningType, warningType));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, questionId, serialNumber, pageNumber, warningType);
+      runtimeType,
+      const DeepCollectionEquality().hash(questionId),
+      const DeepCollectionEquality().hash(serialNumber),
+      const DeepCollectionEquality().hash(pageNumber),
+      const DeepCollectionEquality().hash(warningType));
 
   @JsonKey(ignore: true)
   @override

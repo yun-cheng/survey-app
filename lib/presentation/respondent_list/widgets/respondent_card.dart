@@ -173,6 +173,7 @@ class RespondentCard extends StatelessWidget {
                 ),
                 Visibility(
                   visible: visible,
+                  // TODO use ExpansionPanel?
                   child: Card(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),

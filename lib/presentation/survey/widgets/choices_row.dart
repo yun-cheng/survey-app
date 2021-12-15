@@ -94,6 +94,7 @@ class ChoicesRow extends HookWidget {
                 WarningBox(
                   question: question,
                   questionId: questionId,
+                  isinCell: true,
                 ),
                 if (hasSpecialAnswer) ...[
                   SpecialAnswerSwitch(

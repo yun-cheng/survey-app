@@ -336,41 +336,40 @@ class _$_AuthStateDto extends _AuthStateDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AuthStateDto &&
-            (identical(other.teamListState, teamListState) ||
-                other.teamListState == teamListState) &&
+            const DeepCollectionEquality()
+                .equals(other.teamListState, teamListState) &&
             const DeepCollectionEquality().equals(other.teamList, teamList) &&
-            (identical(other.team, team) || other.team == team) &&
-            (identical(other.interviewerListState, interviewerListState) ||
-                other.interviewerListState == interviewerListState) &&
+            const DeepCollectionEquality().equals(other.team, team) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerListState, interviewerListState) &&
             const DeepCollectionEquality()
                 .equals(other.interviewerList, interviewerList) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.signInState, signInState) ||
-                other.signInState == signInState) &&
-            (identical(other.interviewer, interviewer) ||
-                other.interviewer == interviewer) &&
-            (identical(other.authFailure, authFailure) ||
-                other.authFailure == authFailure) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                other.showErrorMessages == showErrorMessages));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.signInState, signInState) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewer, interviewer) &&
+            const DeepCollectionEquality()
+                .equals(other.authFailure, authFailure) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      teamListState,
+      const DeepCollectionEquality().hash(teamListState),
       const DeepCollectionEquality().hash(teamList),
-      team,
-      interviewerListState,
+      const DeepCollectionEquality().hash(team),
+      const DeepCollectionEquality().hash(interviewerListState),
       const DeepCollectionEquality().hash(interviewerList),
-      id,
-      password,
-      signInState,
-      interviewer,
-      authFailure,
-      showErrorMessages);
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(signInState),
+      const DeepCollectionEquality().hash(interviewer),
+      const DeepCollectionEquality().hash(authFailure),
+      const DeepCollectionEquality().hash(showErrorMessages));
 
   @JsonKey(ignore: true)
   @override

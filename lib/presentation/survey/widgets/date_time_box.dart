@@ -99,7 +99,7 @@ class DateTimeBox extends HookWidget {
                 onPressed: () => isReadOnly ? null : _selectDate(context),
                 child: Text(
                   dateTime.toDateString(),
-                  style: kH3TextStyle,
+                  style: kH4TextStyle,
                 ),
               ),
             ],
@@ -109,7 +109,7 @@ class DateTimeBox extends HookWidget {
                 onPressed: () => isReadOnly ? null : _selectTime(context),
                 child: Text(
                   dateTime.toTimeString(),
-                  style: kH3TextStyle,
+                  style: kH4TextStyle,
                 ),
               ),
             ]

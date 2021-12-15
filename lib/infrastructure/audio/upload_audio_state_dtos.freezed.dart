@@ -170,15 +170,18 @@ class _$_UploadAudioStateDto extends _UploadAudioStateDto {
         (other.runtimeType == runtimeType &&
             other is _UploadAudioStateDto &&
             const DeepCollectionEquality().equals(other.audioMap, audioMap) &&
-            (identical(other.uploadState, uploadState) ||
-                other.uploadState == uploadState) &&
-            (identical(other.audioFailure, audioFailure) ||
-                other.audioFailure == audioFailure));
+            const DeepCollectionEquality()
+                .equals(other.uploadState, uploadState) &&
+            const DeepCollectionEquality()
+                .equals(other.audioFailure, audioFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(audioMap), uploadState, audioFailure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(audioMap),
+      const DeepCollectionEquality().hash(uploadState),
+      const DeepCollectionEquality().hash(audioFailure));
 
   @JsonKey(ignore: true)
   @override

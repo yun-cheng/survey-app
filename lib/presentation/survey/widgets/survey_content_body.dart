@@ -72,7 +72,7 @@ class SurveyContentBody extends StatelessWidget {
                     leading: leadingIcon,
                     title: Text(
                       contentText,
-                      style: kH4TextStyle,
+                      style: kPTextStyle,
                       maxLines: 1,
                       overflow: TextOverflow.clip,
                       softWrap: false,

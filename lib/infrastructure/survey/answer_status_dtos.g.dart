@@ -15,7 +15,7 @@ _$_AnswerStatusDto _$$_AnswerStatusDtoFromJson(Map<String, dynamic> json) =>
       noteMap: (json['noteMap'] as Map<String, dynamic>?)?.map(
             (k, e) => MapEntry(k, e as String),
           ) ??
-          {},
+          const {},
     );
 
 Map<String, dynamic> _$$_AnswerStatusDtoToJson(_$_AnswerStatusDto instance) =>

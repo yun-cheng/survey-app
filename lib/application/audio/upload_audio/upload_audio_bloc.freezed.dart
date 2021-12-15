@@ -172,11 +172,12 @@ class _$_AudioAdded implements _AudioAdded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AudioAdded &&
-            (identical(other.audio, audio) || other.audio == audio));
+            const DeepCollectionEquality().equals(other.audio, audio));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, audio);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(audio));
 
   @JsonKey(ignore: true)
   @override
@@ -436,12 +437,13 @@ class _$_AudioUploaded implements _AudioUploaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AudioUploaded &&
-            (identical(other.failureOrAudio, failureOrAudio) ||
-                other.failureOrAudio == failureOrAudio));
+            const DeepCollectionEquality()
+                .equals(other.failureOrAudio, failureOrAudio));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrAudio);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failureOrAudio));
 
   @JsonKey(ignore: true)
   @override
@@ -810,15 +812,18 @@ class _$_UploadAudioState extends _UploadAudioState {
         (other.runtimeType == runtimeType &&
             other is _UploadAudioState &&
             const DeepCollectionEquality().equals(other.audioMap, audioMap) &&
-            (identical(other.uploadState, uploadState) ||
-                other.uploadState == uploadState) &&
-            (identical(other.audioFailure, audioFailure) ||
-                other.audioFailure == audioFailure));
+            const DeepCollectionEquality()
+                .equals(other.uploadState, uploadState) &&
+            const DeepCollectionEquality()
+                .equals(other.audioFailure, audioFailure));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(audioMap), uploadState, audioFailure);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(audioMap),
+      const DeepCollectionEquality().hash(uploadState),
+      const DeepCollectionEquality().hash(audioFailure));
 
   @JsonKey(ignore: true)
   @override

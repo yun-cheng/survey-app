@@ -598,32 +598,31 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
                 .equals(other.recodeAnswerMap, recodeAnswerMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeAnswerStatusMap, recodeAnswerStatusMap) &&
-            (identical(other.page, page) || other.page == page) &&
-            (identical(other.newestPage, newestPage) ||
-                other.newestPage == newestPage) &&
-            (identical(other.isLastPage, isLastPage) ||
-                other.isLastPage == isLastPage) &&
-            (identical(other.warning, warning) || other.warning == warning) &&
-            (identical(other.showWarning, showWarning) ||
-                other.showWarning == showWarning) &&
+            const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality()
+                .equals(other.newestPage, newestPage) &&
+            const DeepCollectionEquality()
+                .equals(other.isLastPage, isLastPage) &&
+            const DeepCollectionEquality().equals(other.warning, warning) &&
+            const DeepCollectionEquality()
+                .equals(other.showWarning, showWarning) &&
             const DeepCollectionEquality()
                 .equals(other.pageQIdSet, pageQIdSet) &&
             const DeepCollectionEquality()
                 .equals(other.contentQIdSet, contentQIdSet) &&
-            (identical(other.dialogType, dialogType) ||
-                other.dialogType == dialogType) &&
-            (identical(other.showLeaveButton, showLeaveButton) ||
-                other.showLeaveButton == showLeaveButton) &&
-            (identical(other.respondent, respondent) ||
-                other.respondent == respondent) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.moduleType, moduleType) ||
-                other.moduleType == moduleType) &&
-            (identical(other.isReadOnly, isReadOnly) ||
-                other.isReadOnly == isReadOnly) &&
-            (identical(other.isRecodeModule, isRecodeModule) ||
-                other.isRecodeModule == isRecodeModule) &&
+            const DeepCollectionEquality()
+                .equals(other.dialogType, dialogType) &&
+            const DeepCollectionEquality()
+                .equals(other.showLeaveButton, showLeaveButton) &&
+            const DeepCollectionEquality()
+                .equals(other.respondent, respondent) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.moduleType, moduleType) &&
+            const DeepCollectionEquality()
+                .equals(other.isReadOnly, isReadOnly) &&
+            const DeepCollectionEquality()
+                .equals(other.isRecodeModule, isRecodeModule) &&
             const DeepCollectionEquality()
                 .equals(other.referenceList, referenceList) &&
             const DeepCollectionEquality()
@@ -632,10 +631,10 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality()
                 .equals(other.recodeQuestionMap, recodeQuestionMap) &&
-            (identical(other.restoreState, restoreState) ||
-                other.restoreState == restoreState) &&
-            (identical(other.updateState, updateState) ||
-                other.updateState == updateState));
+            const DeepCollectionEquality()
+                .equals(other.restoreState, restoreState) &&
+            const DeepCollectionEquality()
+                .equals(other.updateState, updateState));
   }
 
   @override
@@ -645,26 +644,26 @@ class _$_UpdateAnswerStatusStateDto extends _UpdateAnswerStatusStateDto {
         const DeepCollectionEquality().hash(answerStatusMap),
         const DeepCollectionEquality().hash(recodeAnswerMap),
         const DeepCollectionEquality().hash(recodeAnswerStatusMap),
-        page,
-        newestPage,
-        isLastPage,
-        warning,
-        showWarning,
+        const DeepCollectionEquality().hash(page),
+        const DeepCollectionEquality().hash(newestPage),
+        const DeepCollectionEquality().hash(isLastPage),
+        const DeepCollectionEquality().hash(warning),
+        const DeepCollectionEquality().hash(showWarning),
         const DeepCollectionEquality().hash(pageQIdSet),
         const DeepCollectionEquality().hash(contentQIdSet),
-        dialogType,
-        showLeaveButton,
-        respondent,
-        surveyId,
-        moduleType,
-        isReadOnly,
-        isRecodeModule,
+        const DeepCollectionEquality().hash(dialogType),
+        const DeepCollectionEquality().hash(showLeaveButton),
+        const DeepCollectionEquality().hash(respondent),
+        const DeepCollectionEquality().hash(surveyId),
+        const DeepCollectionEquality().hash(moduleType),
+        const DeepCollectionEquality().hash(isReadOnly),
+        const DeepCollectionEquality().hash(isRecodeModule),
         const DeepCollectionEquality().hash(referenceList),
         const DeepCollectionEquality().hash(respondentResponseMap),
         const DeepCollectionEquality().hash(questionMap),
         const DeepCollectionEquality().hash(recodeQuestionMap),
-        restoreState,
-        updateState
+        const DeepCollectionEquality().hash(restoreState),
+        const DeepCollectionEquality().hash(updateState)
       ]);
 
   @JsonKey(ignore: true)

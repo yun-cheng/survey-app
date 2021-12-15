@@ -195,13 +195,16 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WatchSurveyMapStarted &&
-            (identical(other.teamId, teamId) || other.teamId == teamId) &&
-            (identical(other.interviewerId, interviewerId) ||
-                other.interviewerId == interviewerId));
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerId, interviewerId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, teamId, interviewerId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(interviewerId));
 
   @JsonKey(ignore: true)
   @override
@@ -362,12 +365,13 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SurveyMapReceived &&
-            (identical(other.failureOrSurveyMap, failureOrSurveyMap) ||
-                other.failureOrSurveyMap == failureOrSurveyMap));
+            const DeepCollectionEquality()
+                .equals(other.failureOrSurveyMap, failureOrSurveyMap));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrSurveyMap);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failureOrSurveyMap));
 
   @JsonKey(ignore: true)
   @override
@@ -535,11 +539,12 @@ class _$_SurveySelected implements _SurveySelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SurveySelected &&
-            (identical(other.survey, survey) || other.survey == survey));
+            const DeepCollectionEquality().equals(other.survey, survey));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, survey);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(survey));
 
   @JsonKey(ignore: true)
   @override
@@ -1153,26 +1158,26 @@ class _$_WatchSurveyState extends _WatchSurveyState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WatchSurveyState &&
-            (identical(other.stateId, stateId) || other.stateId == stateId) &&
+            const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
-            (identical(other.survey, survey) || other.survey == survey) &&
-            (identical(other.eventState, eventState) ||
-                other.eventState == eventState) &&
-            (identical(other.surveyMapState, surveyMapState) ||
-                other.surveyMapState == surveyMapState) &&
-            (identical(other.surveyFailure, surveyFailure) ||
-                other.surveyFailure == surveyFailure));
+            const DeepCollectionEquality().equals(other.survey, survey) &&
+            const DeepCollectionEquality()
+                .equals(other.eventState, eventState) &&
+            const DeepCollectionEquality()
+                .equals(other.surveyMapState, surveyMapState) &&
+            const DeepCollectionEquality()
+                .equals(other.surveyFailure, surveyFailure));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      stateId,
+      const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(surveyMap),
-      survey,
-      eventState,
-      surveyMapState,
-      surveyFailure);
+      const DeepCollectionEquality().hash(survey),
+      const DeepCollectionEquality().hash(eventState),
+      const DeepCollectionEquality().hash(surveyMapState),
+      const DeepCollectionEquality().hash(surveyFailure));
 
   @JsonKey(ignore: true)
   @override

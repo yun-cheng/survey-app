@@ -56,7 +56,7 @@ class QuestionBox extends StatelessWidget {
             children: <Widget>[
               Text(
                 questionText,
-                style: (isinCell ? kH4TextStyle : kH3TextStyle).copyWith(
+                style: (isinCell ? kPTextStyle : kH3TextStyle).copyWith(
                   fontWeight: FontWeight.w500,
                 ),
               ),
@@ -64,7 +64,7 @@ class QuestionBox extends StatelessWidget {
                 const SizedBox(height: 10.0),
                 Text(
                   question.note,
-                  style: kH4TextStyle.copyWith(
+                  style: (isinCell ? kPTextStyle : kH4TextStyle).copyWith(
                     fontStyle: FontStyle.italic,
                     color: Colors.blue[800],
                   ),

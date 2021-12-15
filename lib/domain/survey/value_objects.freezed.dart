@@ -115,11 +115,12 @@ class _$_FormatType extends _FormatType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _FormatType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -242,11 +243,12 @@ class _$_QuestionType extends _QuestionType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _QuestionType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -368,11 +370,12 @@ class _$_AnswerType extends _AnswerType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AnswerType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -497,11 +500,12 @@ class _$_AnswerStatusType extends _AnswerStatusType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AnswerStatusType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -624,11 +628,12 @@ class _$_WarningType extends _WarningType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WarningType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -747,11 +752,12 @@ class _$_Operator extends _Operator {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Operator &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -873,11 +879,12 @@ class _$_ModuleType extends _ModuleType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ModuleType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -1002,11 +1009,12 @@ class _$_ResponseStatus extends _ResponseStatus {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ResponseStatus &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -1131,11 +1139,12 @@ class _$_DeviceTimeStamp extends _DeviceTimeStamp {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DeviceTimeStamp &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -1257,11 +1266,12 @@ class _$_DialogType extends _DialogType {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _DialogType &&
-            (identical(other.value, value) || other.value == value));
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override

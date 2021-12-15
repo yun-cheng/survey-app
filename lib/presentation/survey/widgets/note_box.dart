@@ -35,6 +35,7 @@ class NoteBox extends HookWidget {
         // key: textFieldKey,
         controller: controller,
         enabled: canEdit,
+        style: kPTextStyle,
         decoration: InputDecoration(
           filled: true,
           fillColor: canEdit ? kAnswerBackgroundColor : kCannotEditColor,

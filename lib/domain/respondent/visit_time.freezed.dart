@@ -128,13 +128,16 @@ class _$_VisitTime extends _VisitTime {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _VisitTime &&
-            (identical(other.date, date) || other.date == date) &&
-            (identical(other.timeSession, timeSession) ||
-                other.timeSession == timeSession));
+            const DeepCollectionEquality().equals(other.date, date) &&
+            const DeepCollectionEquality()
+                .equals(other.timeSession, timeSession));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, date, timeSession);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(date),
+      const DeepCollectionEquality().hash(timeSession));
 
   @JsonKey(ignore: true)
   @override

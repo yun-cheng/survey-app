@@ -299,13 +299,16 @@ class _$_WatchSurveyRespondentMapStarted
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _WatchSurveyRespondentMapStarted &&
-            (identical(other.teamId, teamId) || other.teamId == teamId) &&
-            (identical(other.interviewerId, interviewerId) ||
-                other.interviewerId == interviewerId));
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerId, interviewerId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, teamId, interviewerId);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(interviewerId));
 
   @JsonKey(ignore: true)
   @override
@@ -528,14 +531,14 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SurveyRespondentMapReceived &&
-            (identical(other.failureOrSurveyRespondentMap,
-                    failureOrSurveyRespondentMap) ||
-                other.failureOrSurveyRespondentMap ==
-                    failureOrSurveyRespondentMap));
+            const DeepCollectionEquality().equals(
+                other.failureOrSurveyRespondentMap,
+                failureOrSurveyRespondentMap));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrSurveyRespondentMap);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(failureOrSurveyRespondentMap));
 
   @JsonKey(ignore: true)
   @override
@@ -760,11 +763,12 @@ class _$_SurveySelected implements _SurveySelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SurveySelected &&
-            (identical(other.survey, survey) || other.survey == survey));
+            const DeepCollectionEquality().equals(other.survey, survey));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, survey);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(survey));
 
   @JsonKey(ignore: true)
   @override
@@ -976,11 +980,12 @@ class _$_TextSearched implements _TextSearched {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TextSearched &&
-            (identical(other.text, text) || other.text == text));
+            const DeepCollectionEquality().equals(other.text, text));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, text);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(text));
 
   @JsonKey(ignore: true)
   @override
@@ -1192,12 +1197,13 @@ class _$_RespondentSelected implements _RespondentSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _RespondentSelected &&
-            (identical(other.respondentId, respondentId) ||
-                other.respondentId == respondentId));
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, respondentId);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(respondentId));
 
   @JsonKey(ignore: true)
   @override
@@ -1410,11 +1416,12 @@ class _$_TabSwitched implements _TabSwitched {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TabSwitched &&
-            (identical(other.index, index) || other.index == index));
+            const DeepCollectionEquality().equals(other.index, index));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, index);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(index));
 
   @JsonKey(ignore: true)
   @override
@@ -1626,11 +1633,12 @@ class _$_PageScrolled implements _PageScrolled {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PageScrolled &&
-            (identical(other.tabType, tabType) || other.tabType == tabType));
+            const DeepCollectionEquality().equals(other.tabType, tabType));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, tabType);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(tabType));
 
   @JsonKey(ignore: true)
   @override
@@ -1842,12 +1850,13 @@ class _$_JumpedToTown implements _JumpedToTown {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _JumpedToTown &&
-            (identical(other.countyTown, countyTown) ||
-                other.countyTown == countyTown));
+            const DeepCollectionEquality()
+                .equals(other.countyTown, countyTown));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, countyTown);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(countyTown));
 
   @JsonKey(ignore: true)
   @override
@@ -3299,64 +3308,63 @@ class _$_RespondentState extends _RespondentState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _RespondentState &&
-            (identical(other.stateId, stateId) || other.stateId == stateId) &&
+            const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality()
                 .equals(other.surveyRespondentMap, surveyRespondentMap) &&
-            (identical(other.survey, survey) || other.survey == survey) &&
+            const DeepCollectionEquality().equals(other.survey, survey) &&
             const DeepCollectionEquality()
                 .equals(other.respondentMap, respondentMap) &&
-            (identical(other.currentTab, currentTab) ||
-                other.currentTab == currentTab) &&
+            const DeepCollectionEquality()
+                .equals(other.currentTab, currentTab) &&
             const DeepCollectionEquality()
                 .equals(other.tabScrollPosition, tabScrollPosition) &&
-            (identical(other.selectedRespondentId, selectedRespondentId) ||
-                other.selectedRespondentId == selectedRespondentId) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedRespondentId, selectedRespondentId) &&
             const DeepCollectionEquality()
                 .equals(other.visitRecordsMap, visitRecordsMap) &&
             const DeepCollectionEquality()
                 .equals(other.tabRespondentMap, tabRespondentMap) &&
             const DeepCollectionEquality()
                 .equals(other.responseInfoMap, responseInfoMap) &&
-            (identical(other.searchText, searchText) ||
-                other.searchText == searchText) &&
+            const DeepCollectionEquality()
+                .equals(other.searchText, searchText) &&
             const DeepCollectionEquality()
                 .equals(other.searchRespondentMap, searchRespondentMap) &&
-            (identical(other.needToJump, needToJump) ||
-                other.needToJump == needToJump) &&
-            (identical(other.jumpToIndex, jumpToIndex) ||
-                other.jumpToIndex == jumpToIndex) &&
-            (identical(
-                    other.surveyRespondentMapState, surveyRespondentMapState) ||
-                other.surveyRespondentMapState == surveyRespondentMapState) &&
-            (identical(other.respondentFailure, respondentFailure) ||
-                other.respondentFailure == respondentFailure) &&
-            (identical(other.eventState, eventState) ||
-                other.eventState == eventState) &&
-            (identical(other.saveParameters, saveParameters) ||
-                other.saveParameters == saveParameters));
+            const DeepCollectionEquality()
+                .equals(other.needToJump, needToJump) &&
+            const DeepCollectionEquality()
+                .equals(other.jumpToIndex, jumpToIndex) &&
+            const DeepCollectionEquality().equals(
+                other.surveyRespondentMapState, surveyRespondentMapState) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentFailure, respondentFailure) &&
+            const DeepCollectionEquality()
+                .equals(other.eventState, eventState) &&
+            const DeepCollectionEquality()
+                .equals(other.saveParameters, saveParameters));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      stateId,
+      const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(surveyRespondentMap),
-      survey,
+      const DeepCollectionEquality().hash(survey),
       const DeepCollectionEquality().hash(respondentMap),
-      currentTab,
+      const DeepCollectionEquality().hash(currentTab),
       const DeepCollectionEquality().hash(tabScrollPosition),
-      selectedRespondentId,
+      const DeepCollectionEquality().hash(selectedRespondentId),
       const DeepCollectionEquality().hash(visitRecordsMap),
       const DeepCollectionEquality().hash(tabRespondentMap),
       const DeepCollectionEquality().hash(responseInfoMap),
-      searchText,
+      const DeepCollectionEquality().hash(searchText),
       const DeepCollectionEquality().hash(searchRespondentMap),
-      needToJump,
-      jumpToIndex,
-      surveyRespondentMapState,
-      respondentFailure,
-      eventState,
-      saveParameters);
+      const DeepCollectionEquality().hash(needToJump),
+      const DeepCollectionEquality().hash(jumpToIndex),
+      const DeepCollectionEquality().hash(surveyRespondentMapState),
+      const DeepCollectionEquality().hash(respondentFailure),
+      const DeepCollectionEquality().hash(eventState),
+      const DeepCollectionEquality().hash(saveParameters));
 
   @JsonKey(ignore: true)
   @override
@@ -3682,37 +3690,37 @@ class _$_StateParameters extends _StateParameters {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _StateParameters &&
-            (identical(other.surveyRespondentMap, surveyRespondentMap) ||
-                other.surveyRespondentMap == surveyRespondentMap) &&
-            (identical(other.survey, survey) || other.survey == survey) &&
-            (identical(other.respondentMap, respondentMap) ||
-                other.respondentMap == respondentMap) &&
-            (identical(other.currentTab, currentTab) ||
-                other.currentTab == currentTab) &&
-            (identical(other.tabScrollPosition, tabScrollPosition) ||
-                other.tabScrollPosition == tabScrollPosition) &&
-            (identical(other.selectedRespondentId, selectedRespondentId) ||
-                other.selectedRespondentId == selectedRespondentId) &&
-            (identical(other.visitRecordsMap, visitRecordsMap) ||
-                other.visitRecordsMap == visitRecordsMap) &&
-            (identical(other.tabRespondentMap, tabRespondentMap) ||
-                other.tabRespondentMap == tabRespondentMap) &&
-            (identical(other.responseInfoMap, responseInfoMap) ||
-                other.responseInfoMap == responseInfoMap));
+            const DeepCollectionEquality()
+                .equals(other.surveyRespondentMap, surveyRespondentMap) &&
+            const DeepCollectionEquality().equals(other.survey, survey) &&
+            const DeepCollectionEquality()
+                .equals(other.respondentMap, respondentMap) &&
+            const DeepCollectionEquality()
+                .equals(other.currentTab, currentTab) &&
+            const DeepCollectionEquality()
+                .equals(other.tabScrollPosition, tabScrollPosition) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedRespondentId, selectedRespondentId) &&
+            const DeepCollectionEquality()
+                .equals(other.visitRecordsMap, visitRecordsMap) &&
+            const DeepCollectionEquality()
+                .equals(other.tabRespondentMap, tabRespondentMap) &&
+            const DeepCollectionEquality()
+                .equals(other.responseInfoMap, responseInfoMap));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      surveyRespondentMap,
-      survey,
-      respondentMap,
-      currentTab,
-      tabScrollPosition,
-      selectedRespondentId,
-      visitRecordsMap,
-      tabRespondentMap,
-      responseInfoMap);
+      const DeepCollectionEquality().hash(surveyRespondentMap),
+      const DeepCollectionEquality().hash(survey),
+      const DeepCollectionEquality().hash(respondentMap),
+      const DeepCollectionEquality().hash(currentTab),
+      const DeepCollectionEquality().hash(tabScrollPosition),
+      const DeepCollectionEquality().hash(selectedRespondentId),
+      const DeepCollectionEquality().hash(visitRecordsMap),
+      const DeepCollectionEquality().hash(tabRespondentMap),
+      const DeepCollectionEquality().hash(responseInfoMap));
 
   @JsonKey(ignore: true)
   @override

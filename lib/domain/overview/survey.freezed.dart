@@ -184,16 +184,20 @@ class _$_Survey extends _Survey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Survey &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.teamId, teamId) || other.teamId == teamId) &&
-            (identical(other.projectId, projectId) ||
-                other.projectId == projectId) &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality().equals(other.projectId, projectId) &&
             const DeepCollectionEquality().equals(other.module, module));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, teamId, projectId,
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(projectId),
       const DeepCollectionEquality().hash(module));
 
   @JsonKey(ignore: true)

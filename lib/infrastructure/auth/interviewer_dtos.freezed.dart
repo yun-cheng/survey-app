@@ -322,17 +322,20 @@ class _$_InterviewerDto extends _InterviewerDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _InterviewerDto &&
-            (identical(other.interviewerId, interviewerId) ||
-                other.interviewerId == interviewerId) &&
-            (identical(other.interviewerName, interviewerName) ||
-                other.interviewerName == interviewerName) &&
-            (identical(other.interviewerPassword, interviewerPassword) ||
-                other.interviewerPassword == interviewerPassword));
+            const DeepCollectionEquality()
+                .equals(other.interviewerId, interviewerId) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerName, interviewerName) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerPassword, interviewerPassword));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, interviewerId, interviewerName, interviewerPassword);
+      runtimeType,
+      const DeepCollectionEquality().hash(interviewerId),
+      const DeepCollectionEquality().hash(interviewerName),
+      const DeepCollectionEquality().hash(interviewerPassword));
 
   @JsonKey(ignore: true)
   @override

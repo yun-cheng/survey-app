@@ -407,12 +407,13 @@ class _$_TeamListReceived implements _TeamListReceived {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TeamListReceived &&
-            (identical(other.failureOrTeamList, failureOrTeamList) ||
-                other.failureOrTeamList == failureOrTeamList));
+            const DeepCollectionEquality()
+                .equals(other.failureOrTeamList, failureOrTeamList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrTeamList);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failureOrTeamList));
 
   @JsonKey(ignore: true)
   @override
@@ -611,11 +612,12 @@ class _$_TeamSelected implements _TeamSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TeamSelected &&
-            (identical(other.team, team) || other.team == team));
+            const DeepCollectionEquality().equals(other.team, team));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, team);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(team));
 
   @JsonKey(ignore: true)
   @override
@@ -976,13 +978,13 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _InterviewerListReceived &&
-            (identical(
-                    other.failureOrInterviewerList, failureOrInterviewerList) ||
-                other.failureOrInterviewerList == failureOrInterviewerList));
+            const DeepCollectionEquality().equals(
+                other.failureOrInterviewerList, failureOrInterviewerList));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOrInterviewerList);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(failureOrInterviewerList));
 
   @JsonKey(ignore: true)
   @override
@@ -1173,11 +1175,12 @@ class _$_IdChanged implements _IdChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _IdChanged &&
-            (identical(other.id, id) || other.id == id));
+            const DeepCollectionEquality().equals(other.id, id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
 
   @JsonKey(ignore: true)
   @override
@@ -1366,12 +1369,12 @@ class _$_PasswordChanged implements _PasswordChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PasswordChanged &&
-            (identical(other.password, password) ||
-                other.password == password));
+            const DeepCollectionEquality().equals(other.password, password));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, password);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(password));
 
   @JsonKey(ignore: true)
   @override
@@ -2342,41 +2345,40 @@ class _$_AuthState extends _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AuthState &&
-            (identical(other.teamListState, teamListState) ||
-                other.teamListState == teamListState) &&
+            const DeepCollectionEquality()
+                .equals(other.teamListState, teamListState) &&
             const DeepCollectionEquality().equals(other.teamList, teamList) &&
-            (identical(other.team, team) || other.team == team) &&
-            (identical(other.interviewerListState, interviewerListState) ||
-                other.interviewerListState == interviewerListState) &&
+            const DeepCollectionEquality().equals(other.team, team) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerListState, interviewerListState) &&
             const DeepCollectionEquality()
                 .equals(other.interviewerList, interviewerList) &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.password, password) ||
-                other.password == password) &&
-            (identical(other.signInState, signInState) ||
-                other.signInState == signInState) &&
-            (identical(other.interviewer, interviewer) ||
-                other.interviewer == interviewer) &&
-            (identical(other.authFailure, authFailure) ||
-                other.authFailure == authFailure) &&
-            (identical(other.showErrorMessages, showErrorMessages) ||
-                other.showErrorMessages == showErrorMessages));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality()
+                .equals(other.signInState, signInState) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewer, interviewer) &&
+            const DeepCollectionEquality()
+                .equals(other.authFailure, authFailure) &&
+            const DeepCollectionEquality()
+                .equals(other.showErrorMessages, showErrorMessages));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      teamListState,
+      const DeepCollectionEquality().hash(teamListState),
       const DeepCollectionEquality().hash(teamList),
-      team,
-      interviewerListState,
+      const DeepCollectionEquality().hash(team),
+      const DeepCollectionEquality().hash(interviewerListState),
       const DeepCollectionEquality().hash(interviewerList),
-      id,
-      password,
-      signInState,
-      interviewer,
-      authFailure,
-      showErrorMessages);
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(signInState),
+      const DeepCollectionEquality().hash(interviewer),
+      const DeepCollectionEquality().hash(authFailure),
+      const DeepCollectionEquality().hash(showErrorMessages));
 
   @JsonKey(ignore: true)
   @override

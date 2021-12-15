@@ -138,13 +138,15 @@ class _$_AudioDto extends _AudioDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AudioDto &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName) &&
-            (identical(other.type, type) || other.type == type));
+            const DeepCollectionEquality().equals(other.fileName, fileName) &&
+            const DeepCollectionEquality().equals(other.type, type));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, fileName, type);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(fileName),
+      const DeepCollectionEquality().hash(type));
 
   @JsonKey(ignore: true)
   @override

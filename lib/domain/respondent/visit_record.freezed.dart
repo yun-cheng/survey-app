@@ -215,20 +215,24 @@ class _$_VisitRecord extends _VisitRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _VisitRecord &&
-            (identical(other.respondentId, respondentId) ||
-                other.respondentId == respondentId) &&
-            (identical(other.responseId, responseId) ||
-                other.responseId == responseId) &&
-            (identical(other.visitTime, visitTime) ||
-                other.visitTime == visitTime) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.description, description) ||
-                other.description == description));
+            const DeepCollectionEquality()
+                .equals(other.respondentId, respondentId) &&
+            const DeepCollectionEquality()
+                .equals(other.responseId, responseId) &&
+            const DeepCollectionEquality().equals(other.visitTime, visitTime) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, respondentId, responseId, visitTime, status, description);
+      runtimeType,
+      const DeepCollectionEquality().hash(respondentId),
+      const DeepCollectionEquality().hash(responseId),
+      const DeepCollectionEquality().hash(visitTime),
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(description));
 
   @JsonKey(ignore: true)
   @override

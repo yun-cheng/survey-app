@@ -199,17 +199,21 @@ class _$_AnswerStatus extends _AnswerStatus {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AnswerStatus &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.isSpecialAnswer, isSpecialAnswer) ||
-                other.isSpecialAnswer == isSpecialAnswer) &&
-            (identical(other.lastChangedTimeStamp, lastChangedTimeStamp) ||
-                other.lastChangedTimeStamp == lastChangedTimeStamp) &&
+            const DeepCollectionEquality().equals(other.type, type) &&
+            const DeepCollectionEquality()
+                .equals(other.isSpecialAnswer, isSpecialAnswer) &&
+            const DeepCollectionEquality()
+                .equals(other.lastChangedTimeStamp, lastChangedTimeStamp) &&
             const DeepCollectionEquality().equals(other.noteMap, noteMap));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, isSpecialAnswer,
-      lastChangedTimeStamp, const DeepCollectionEquality().hash(noteMap));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(type),
+      const DeepCollectionEquality().hash(isSpecialAnswer),
+      const DeepCollectionEquality().hash(lastChangedTimeStamp),
+      const DeepCollectionEquality().hash(noteMap));
 
   @JsonKey(ignore: true)
   @override

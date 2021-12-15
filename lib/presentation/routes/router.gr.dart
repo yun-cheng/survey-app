@@ -63,31 +63,36 @@ class RootRouter extends _i7.RootStackRouter {
       ];
 }
 
-/// generated route for [_i1.SplashPage]
+/// generated route for
+/// [_i1.SplashPage]
 class SplashRoute extends _i7.PageRouteInfo<void> {
-  const SplashRoute() : super(name, path: '/');
+  const SplashRoute() : super(SplashRoute.name, path: '/');
 
   static const String name = 'SplashRoute';
 }
 
-/// generated route for [_i2.SignInPage]
+/// generated route for
+/// [_i2.SignInPage]
 class SignInRoute extends _i7.PageRouteInfo<void> {
-  const SignInRoute() : super(name, path: '/sign-in');
+  const SignInRoute() : super(SignInRoute.name, path: '/sign-in');
 
   static const String name = 'SignInRoute';
 }
 
-/// generated route for [_i3.OverviewPage]
+/// generated route for
+/// [_i3.OverviewPage]
 class OverviewRoute extends _i7.PageRouteInfo<void> {
-  const OverviewRoute() : super(name, path: '/overview');
+  const OverviewRoute() : super(OverviewRoute.name, path: '/overview');
 
   static const String name = 'OverviewRoute';
 }
 
-/// generated route for [_i4.RespondentsPage]
+/// generated route for
+/// [_i4.RespondentsPage]
 class RespondentsRoute extends _i7.PageRouteInfo<RespondentsRouteArgs> {
   RespondentsRoute({_i8.Key? key})
-      : super(name, path: '/respondents', args: RespondentsRouteArgs(key: key));
+      : super(RespondentsRoute.name,
+            path: '/respondents', args: RespondentsRouteArgs(key: key));
 
   static const String name = 'RespondentsRoute';
 }
@@ -103,16 +108,19 @@ class RespondentsRouteArgs {
   }
 }
 
-/// generated route for [_i5.SurveyPage]
+/// generated route for
+/// [_i5.SurveyPage]
 class SurveyRoute extends _i7.PageRouteInfo<void> {
-  const SurveyRoute() : super(name, path: '/survey');
+  const SurveyRoute() : super(SurveyRoute.name, path: '/survey');
 
   static const String name = 'SurveyRoute';
 }
 
-/// generated route for [_i6.SurveyContentPage]
+/// generated route for
+/// [_i6.SurveyContentPage]
 class SurveyContentRoute extends _i7.PageRouteInfo<void> {
-  const SurveyContentRoute() : super(name, path: '/survey-content');
+  const SurveyContentRoute()
+      : super(SurveyContentRoute.name, path: '/survey-content');
 
   static const String name = 'SurveyContentRoute';
 }

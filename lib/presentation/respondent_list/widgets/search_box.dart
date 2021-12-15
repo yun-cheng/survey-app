@@ -17,6 +17,7 @@ class SearchBox extends HookWidget {
       padding: const EdgeInsets.all(10),
       child: TextField(
         controller: controller,
+        style: kPTextStyle,
         decoration: InputDecoration(
           // isDense: true,
           isCollapsed: true,

@@ -10,11 +10,13 @@ import '../../core/style/main.dart';
 class WarningBox extends StatelessWidget {
   final Question question;
   final String questionId;
+  final bool isinCell;
 
   const WarningBox({
     Key? key,
     required this.question,
     required this.questionId,
+    this.isinCell = false,
   }) : super(key: key);
 
   @override
@@ -44,7 +46,7 @@ class WarningBox extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10.0),
               child: Text(
                 warning.type.value,
-                style: kH4TextStyle.copyWith(
+                style: (isinCell ? kPTextStyle : kH4TextStyle).copyWith(
                   color: Colors.red,
                   fontWeight: FontWeight.w600,
                 ),

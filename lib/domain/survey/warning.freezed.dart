@@ -174,17 +174,21 @@ class _$_Warning extends _Warning {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Warning &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.serialNumber, serialNumber) ||
-                other.serialNumber == serialNumber) &&
-            (identical(other.pageNumber, pageNumber) ||
-                other.pageNumber == pageNumber) &&
-            (identical(other.type, type) || other.type == type));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.serialNumber, serialNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.pageNumber, pageNumber) &&
+            const DeepCollectionEquality().equals(other.type, type));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, serialNumber, pageNumber, type);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(serialNumber),
+      const DeepCollectionEquality().hash(pageNumber),
+      const DeepCollectionEquality().hash(type));
 
   @JsonKey(ignore: true)
   @override

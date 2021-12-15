@@ -172,16 +172,18 @@ class _$_Expression extends _Expression {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Expression &&
-            (identical(other.field, field) || other.field == field) &&
-            (identical(other.operator, operator) ||
-                other.operator == operator) &&
-            (identical(other.comparisonValue, comparisonValue) ||
-                other.comparisonValue == comparisonValue));
+            const DeepCollectionEquality().equals(other.field, field) &&
+            const DeepCollectionEquality().equals(other.operator, operator) &&
+            const DeepCollectionEquality()
+                .equals(other.comparisonValue, comparisonValue));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, field, operator, comparisonValue);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(field),
+      const DeepCollectionEquality().hash(operator),
+      const DeepCollectionEquality().hash(comparisonValue));
 
   @JsonKey(ignore: true)
   @override

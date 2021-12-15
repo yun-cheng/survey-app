@@ -373,40 +373,38 @@ class _$_ResponseStateDto extends _ResponseStateDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ResponseStateDto &&
-            (identical(other.survey, survey) || other.survey == survey) &&
-            (identical(other.surveyId, surveyId) ||
-                other.surveyId == surveyId) &&
-            (identical(other.interviewer, interviewer) ||
-                other.interviewer == interviewer) &&
-            (identical(other.respondent, respondent) ||
-                other.respondent == respondent) &&
+            const DeepCollectionEquality().equals(other.survey, survey) &&
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewer, interviewer) &&
+            const DeepCollectionEquality()
+                .equals(other.respondent, respondent) &&
             const DeepCollectionEquality()
                 .equals(other.responseMap, responseMap) &&
             const DeepCollectionEquality()
                 .equals(other.responseMapKeys, responseMapKeys) &&
             const DeepCollectionEquality()
                 .equals(other.referenceList, referenceList) &&
-            (identical(other.response, response) ||
-                other.response == response) &&
-            (identical(other.responseId, responseId) ||
-                other.responseId == responseId) &&
-            (identical(other.saveParameters, saveParameters) ||
-                other.saveParameters == saveParameters));
+            const DeepCollectionEquality().equals(other.response, response) &&
+            const DeepCollectionEquality()
+                .equals(other.responseId, responseId) &&
+            const DeepCollectionEquality()
+                .equals(other.saveParameters, saveParameters));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      survey,
-      surveyId,
-      interviewer,
-      respondent,
+      const DeepCollectionEquality().hash(survey),
+      const DeepCollectionEquality().hash(surveyId),
+      const DeepCollectionEquality().hash(interviewer),
+      const DeepCollectionEquality().hash(respondent),
       const DeepCollectionEquality().hash(responseMap),
       const DeepCollectionEquality().hash(responseMapKeys),
       const DeepCollectionEquality().hash(referenceList),
-      response,
-      responseId,
-      saveParameters);
+      const DeepCollectionEquality().hash(response),
+      const DeepCollectionEquality().hash(responseId),
+      const DeepCollectionEquality().hash(saveParameters));
 
   @JsonKey(ignore: true)
   @override
