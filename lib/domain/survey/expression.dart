@@ -27,7 +27,11 @@ class Expression with _$Expression {
           (answerStatus != null && answerStatus.type.isAnswered)) {
         late final dynamic answerComparableValue;
         if (field == '__LEN') {
-          answerComparableValue = (answer.value as List).length.toString();
+          if (answer.type == AnswerType.choiceList()) {
+            answerComparableValue = (answer.value as List).length.toString();
+          } else {
+            answerComparableValue = '1';
+          }
         } else {
           answerComparableValue = answer.toComparableValue();
         }

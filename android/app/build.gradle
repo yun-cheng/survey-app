@@ -29,6 +29,15 @@ apply plugin: 'com.google.gms.google-services'
 android {
     compileSdkVersion 31
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -40,7 +49,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.yun_cheng.interviewer_quiz"
+        applicationId "com.yun_cheng.survey"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
@@ -61,13 +70,13 @@ android {
     productFlavors {
         dev {
             dimension "flavor-type"
-            applicationId "com.yun_cheng.interviewer_quiz.dev"
+            applicationId "com.yun_cheng.survey.dev"
             versionCode 1
             versionName "1.0"
         }
-        prod{
+        prod {
             dimension "flavor-type"
-            applicationId "com.yun_cheng.interviewer_quiz"
+            applicationId "com.yun_cheng.survey"
             versionCode 1
             versionName "1.0"
         }

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(interviewer_quiz_flutter_app LANGUAGES CXX)
+project(survey LANGUAGES CXX)
 
-set(BINARY_NAME "interviewer_quiz_flutter_app")
+set(BINARY_NAME "survey")
 
 cmake_policy(SET CMP0063 NEW)
 

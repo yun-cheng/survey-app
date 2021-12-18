@@ -11,7 +11,7 @@ const kChoiceGroupTextStyle = TextStyle(
 );
 
 const kSimpleTableCellWidth = 130.0;
-const kFirstColumnWidth = 250.0;
+const kFirstColumnWidth = 300.0;
 const kComplexTableCellWidth = 300.0;
 const kAnswerElementWidth = 350.0;
 const kPageControlButtonHeight = 50.0;

@@ -1,8 +1,8 @@
 import 'package:expression_language/expression_language.dart'
     as expression_parser;
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
 
+import '../../domain/core/logger.dart';
 import 'answer.dart';
 import 'answer_status.dart';
 import 'expression.dart';

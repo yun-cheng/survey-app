@@ -1,4 +1,4 @@
-package com.yun_cheng.interviewer_quiz
+package com.yun_cheng.survey
 
 import io.flutter.embedding.android.FlutterActivity
 

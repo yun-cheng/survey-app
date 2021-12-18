@@ -4,13 +4,12 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/logger.dart';
-import 'package:meta/meta.dart';
 
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
+import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../infrastructure/auth/auth_state_dtos.dart';
 

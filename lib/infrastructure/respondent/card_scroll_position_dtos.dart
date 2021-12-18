@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:interviewer_quiz_flutter_app/domain/respondent/card_scroll_position.dart';
-import 'package:interviewer_quiz_flutter_app/infrastructure/respondent/respondent_dtos.dart';
+
+import '../../domain/respondent/card_scroll_position.dart';
+import '../respondent/respondent_dtos.dart';
 
 part 'card_scroll_position_dtos.freezed.dart';
 part 'card_scroll_position_dtos.g.dart';

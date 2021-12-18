@@ -97,6 +97,7 @@ class DropdownBox extends StatelessWidget {
                     value: choice.id,
                     child: Text(
                       '(${choice.id}) ${choice.body}',
+                      style: kPTextStyle,
                     ),
                   ),
                 );
@@ -112,7 +113,7 @@ class DropdownBox extends StatelessWidget {
               decoration: BoxDecoration(
                 color: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
               ),
-              child: DropdownButton<String>(  
+              child: DropdownButton<String>(
                 value: thisAnswer.value?.id,
                 style: kPTextStyle.copyWith(
                   color: Colors.black,

@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:interviewer_quiz_flutter_app/domain/core/value_objects.dart';
 
+import '../../domain/core/value_objects.dart';
 import 'audio.dart';
 import 'audio_failure.dart';
 

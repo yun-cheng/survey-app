@@ -1,6 +1,6 @@
 {
-    "name": "interviewer_quiz_flutter_app",
-    "short_name": "interviewer_quiz_flutter_app",
+    "name": "survey",
+    "short_name": "survey",
     "start_url": ".",
     "display": "minimal-ui",
     "background_color": "#0175C2",
