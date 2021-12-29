@@ -21,10 +21,11 @@ class QuestionDto with _$QuestionDto {
     required String stringBody,
     required String questionNote,
     required String questionType,
-    required FullExpressionDto showQuestion,
-    required List<ChoiceDto> choiceList,
     List<ChoiceDto>? initChoiceList,
+    required List<ChoiceDto> choiceList,
+    List<ChoiceDto>? specialAnswerList,
     required bool hasSpecialAnswer,
+    required FullExpressionDto showQuestion,
     required FullExpressionDto validateAnswer,
     required String upperQuestionId,
     required int pageNumber,
@@ -43,14 +44,17 @@ class QuestionDto with _$QuestionDto {
       stringBody: domain.stringBody,
       questionNote: domain.note,
       questionType: domain.type.value,
-      showQuestion: FullExpressionDto.fromDomain(domain.show),
-      choiceList: domain.choiceList
-          .map((choice) => ChoiceDto.fromDomain(choice))
-          .toList(),
       initChoiceList: domain.initChoiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .toList(),
+      choiceList: domain.choiceList
+          .map((choice) => ChoiceDto.fromDomain(choice))
+          .toList(),
+      specialAnswerList: domain.specialAnswerList
+          .map((choice) => ChoiceDto.fromDomain(choice))
+          .toList(),
       hasSpecialAnswer: domain.hasSpecialAnswer,
+      showQuestion: FullExpressionDto.fromDomain(domain.show),
       validateAnswer: FullExpressionDto.fromDomain(domain.validateAnswer),
       upperQuestionId: domain.upperQuestionId,
       pageNumber: domain.pageNumber,
@@ -69,11 +73,15 @@ class QuestionDto with _$QuestionDto {
       stringBody: stringBody,
       note: questionNote,
       type: QuestionType(questionType),
-      show: showQuestion.toDomain(),
-      choiceList: choiceList.map((dto) => dto.toDomain()).toList(),
       initChoiceList:
           (initChoiceList ?? choiceList).map((dto) => dto.toDomain()).toList(),
+      choiceList: choiceList.map((dto) => dto.toDomain()).toList(),
+      // FIXME
+      specialAnswerList: (specialAnswerList ?? choiceList)
+          .map((dto) => dto.toDomain())
+          .toList(),
       hasSpecialAnswer: hasSpecialAnswer,
+      show: showQuestion.toDomain(),
       validateAnswer: validateAnswer.toDomain(),
       upperQuestionId: upperQuestionId,
       pageNumber: pageNumber,

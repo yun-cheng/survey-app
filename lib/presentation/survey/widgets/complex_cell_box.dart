@@ -1,23 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer_status.dart';
 import '../../../domain/survey/question.dart';
-import '../../../domain/survey/value_objects.dart';
+import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
 import 'answer_box.dart';
 import 'question_box.dart';
 import 'special_answer_switch.dart';
 import 'warning_box.dart';
 
-class ComplexCellBox extends StatelessWidget {
+class ComplexCellBox extends HookWidget {
   final String questionId;
-  final Question question;
-  final QuestionType questionType;
-  final bool hasSpecialAnswer;
   final bool isTitle;
   final bool isFirstColumn;
   final String colQuestionId;
@@ -25,9 +22,6 @@ class ComplexCellBox extends StatelessWidget {
   const ComplexCellBox({
     Key? key,
     required this.questionId,
-    required this.question,
-    this.questionType = const QuestionType(''),
-    this.hasSpecialAnswer = false,
     this.isTitle = false,
     this.isFirstColumn = false,
     this.colQuestionId = '',
@@ -35,7 +29,9 @@ class ComplexCellBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+    logger('Build').i('ComplexCellBox');
+
+    final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
             c.updateState == LoadState.success()) {
@@ -46,9 +42,8 @@ class ComplexCellBox extends StatelessWidget {
             return false;
           }
 
-          // S_ 在該題變換顯示/隱藏、切換特殊作答時才需要 rebuild
-          if (pAnswerStatus?.isHidden != cAnswerStatus.isHidden ||
-              pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
+          // S_ 在該題變換顯示/隱藏時 rebuild
+          if (pAnswerStatus?.isHidden != cAnswerStatus.isHidden) {
             return true;
           }
 
@@ -60,6 +55,7 @@ class ComplexCellBox extends StatelessWidget {
               return false;
             }
 
+            // S_ 在該 column 變換顯示/隱藏時 rebuild
             if (pColAnswerStatus?.isHidden != cColAnswerStatus.isHidden) {
               return true;
             }
@@ -67,88 +63,91 @@ class ComplexCellBox extends StatelessWidget {
         }
         return false;
       },
-      builder: (context, state) {
-        logger('Build').i('ComplexCellBox');
+    );
 
-        final answerStatus =
-            state.answerStatusMap[questionId] ?? AnswerStatus.empty();
+    final question = state.questionMap[questionId] ?? Question.empty();
+    final canEdit = !state.isReadOnly && !state.isRecodeModule;
+    final visible =
+        !(state.answerStatusMap[questionId] ?? AnswerStatus.empty()).isHidden;
 
-        final isSpecialAnswer = answerStatus.isSpecialAnswer;
+    bool colVisible = false;
+    if (!isTitle && !isFirstColumn) {
+      colVisible =
+          !(state.answerStatusMap[colQuestionId] ?? AnswerStatus.empty())
+              .isHidden;
+    } else {
+      colVisible = visible;
+    }
 
-        final visible = !answerStatus.isHidden;
+    final isSpecialAnswer = useValueNotifier(false);
 
-        bool colVisible = false;
-        if (!isTitle && !isFirstColumn) {
-          colVisible =
-              !(state.answerStatusMap[colQuestionId] ?? AnswerStatus.empty())
-                  .isHidden;
-        } else {
-          colVisible = visible;
-        }
+    late final Widget cellBox;
 
-        late final Widget cellBox;
-
-        if (isTitle) {
-          cellBox = Container(
-            alignment: Alignment.topCenter,
-            width: kComplexTableCellWidth,
-            child: QuestionBox(
-              questionId: questionId,
-              isinCell: true,
-            ),
-          );
-        } else if (isFirstColumn) {
-          cellBox = SizedBox(
-            width: kFirstColumnWidth,
-            child: QuestionBox(
-              questionId: questionId,
-              isinCell: true,
-            ),
-          );
-        } else {
-          cellBox = SizedBox(
-            width: kComplexTableCellWidth,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
+    // H_ title
+    if (isTitle) {
+      cellBox = Container(
+        alignment: Alignment.topCenter,
+        width: kComplexTableCellWidth,
+        child: QuestionBox(
+          questionId: questionId,
+          isinCell: true,
+        ),
+      );
+      // H_ first column
+    } else if (isFirstColumn) {
+      cellBox = SizedBox(
+        width: kFirstColumnWidth,
+        child: QuestionBox(
+          questionId: questionId,
+          isinCell: true,
+        ),
+      );
+      // H_ cell
+    } else {
+      cellBox = SizedBox(
+        width: kComplexTableCellWidth,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if (hasSpecialAnswer) ...[
-                      SpecialAnswerSwitch(
-                        questionId: questionId,
-                        isSpecialAnswer: isSpecialAnswer,
-                        showText: false,
-                      ),
-                    ],
-                    WarningBox(
-                      question: question,
+                if (question.hasSpecialAnswer) ...[
+                  Visibility(
+                    visible: canEdit,
+                    maintainState: true,
+                    child: SpecialAnswerSwitch(
                       questionId: questionId,
-                      isinCell: true,
+                      isSpecialAnswer: isSpecialAnswer,
+                      showText: false,
                     ),
-                  ],
-                ),
-                AnswerBox(
+                  ),
+                ],
+                WarningBox(
+                  question: question,
                   questionId: questionId,
-                  questionType: questionType,
-                  isSpecialAnswer: isSpecialAnswer,
-                  forceDropdown: isSpecialAnswer,
                   isinCell: true,
                 ),
               ],
             ),
-          );
-        }
+            AnswerBox(
+              questionId: questionId,
+              questionType: question.type,
+              isSpecialAnswer: isSpecialAnswer,
+              isinCell: true,
+            ),
+          ],
+        ),
+      );
+    }
 
-        return Visibility(
-          visible: visible,
-          maintainSize: colVisible,
-          maintainAnimation: colVisible,
-          maintainState: colVisible,
-          child: cellBox,
-        );
-      },
+    return Visibility(
+      visible: visible,
+      maintainSize: colVisible,
+      maintainAnimation: colVisible,
+      maintainState: colVisible,
+      child: cellBox,
     );
   }
 }

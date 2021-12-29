@@ -5,8 +5,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/value_objects.dart';
+import '../../../infrastructure/core/use_bloc.dart';
 import '../../core/style/main.dart';
 
 class TextBox extends HookWidget {
@@ -23,25 +25,32 @@ class TextBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('TextBox');
 
-    // final textFieldKey = useMemoized(() => GlobalKey());
+    late final TextEditingController controller;
 
-    final isReadOnly = context.read<UpdateAnswerStatusBloc>().state.isReadOnly;
-    final isRecodeModule =
-        context.read<UpdateAnswerStatusBloc>().state.isRecodeModule;
-    final canEdit = !isReadOnly && !isRecodeModule;
+    final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+      buildWhen: (p, c) {
+        if (p.updateState != c.updateState &&
+            c.updateState == LoadState.success()) {
+          // S_ 該題作答清空時，更新 answer
+          if (c.updatedQIdSet.contains(questionId) &&
+              c.answerMap[questionId]! == Answer.empty()) {
+            controller.clear();
+          }
+        }
+        return false;
+      },
+    );
+
+    final canEdit = !state.isReadOnly && !state.isRecodeModule;
     final note =
-        (context.read<UpdateAnswerStatusBloc>().state.answerMap[questionId] ??
-                    Answer.empty())
-                .value as String? ??
-            '';
+        (state.answerMap[questionId] ?? Answer.empty()).stringTypeValue;
 
-    final controller = useTextEditingController(text: note);
+    controller = useTextEditingController(text: note);
 
     return Container(
       width: kAnswerElementWidth,
       padding: const EdgeInsets.all(10),
       child: TextField(
-        // key: textFieldKey,
         controller: controller,
         enabled: canEdit,
         style: kPTextStyle,

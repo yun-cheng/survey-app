@@ -12,10 +12,12 @@ import 'note_box.dart';
 
 class DropdownBox extends StatelessWidget {
   final String questionId;
+  final bool isSpecialAnswer;
 
   const DropdownBox({
     Key? key,
     required this.questionId,
+    required this.isSpecialAnswer,
   }) : super(key: key);
 
   @override
@@ -34,12 +36,6 @@ class DropdownBox extends StatelessWidget {
             return false;
           }
 
-          // S_ 該題切換特殊作答時
-          if (p.answerStatusMap[questionId]?.isSpecialAnswer !=
-              c.answerStatusMap[questionId]!.isSpecialAnswer) {
-            return true;
-          }
-
           // S_ 若 question 前或後不存在，交由上層 widget 處理
           if (!p.pageQIdSet.contains(questionId) ||
               !c.pageQIdSet.contains(questionId)) {
@@ -47,31 +43,34 @@ class DropdownBox extends StatelessWidget {
           }
 
           // S_ 該題選項有變更時，需要 rebuild
-          return !const DeepCollectionEquality().equals(
-            p.questionMap[questionId]!.choiceList,
-            c.questionMap[questionId]!.choiceList,
-          );
+          return !isSpecialAnswer &&
+              !const DeepCollectionEquality().equals(
+                p.questionMap[questionId]!.choiceList,
+                c.questionMap[questionId]!.choiceList,
+              );
         }
         return false;
       },
       builder: (context, state) {
         logger('Build').i('DropdownBox');
 
-        final thisAnswer = state.answerMap[questionId] ?? Answer.empty();
-
+        final question = state.questionMap[questionId];
+        final choiceList = (isSpecialAnswer
+                ? question?.specialAnswerList
+                : question?.choiceList) ??
+            [];
         final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-        final isSpecialAnswer =
-            state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
-
-        final choiceList = state.questionMap[questionId]?.choiceList ?? [];
-
+        final answer = state.answerMap[questionId] ?? Answer.empty();
         final selectedChoice = choiceList.firstWhereOrNull(
-                (choice) => choice.id == thisAnswer.choiceValue?.id) ??
+                (choice) => choice.id == answer.choiceValue?.id) ??
             Choice.empty();
 
         final choiceItemList = choiceList
             .map((choice) {
+              if (!canEdit && selectedChoice.id != choice.id) {
+                return const [null];
+              }
               final itemList = <DropdownMenuItem<String>>[];
               if (choice.isGroupFirst) {
                 itemList.add(
@@ -103,10 +102,10 @@ class DropdownBox extends StatelessWidget {
                 );
             })
             .flattened
+            .whereNotNull()
             .toList();
 
         return Column(
-          // crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
               width: kAnswerElementWidth,
@@ -114,7 +113,7 @@ class DropdownBox extends StatelessWidget {
                 color: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
               ),
               child: DropdownButton<String>(
-                value: thisAnswer.value?.id,
+                value: selectedChoice.id != '' ? selectedChoice.id : null,
                 style: kPTextStyle.copyWith(
                   color: Colors.black,
                 ),
@@ -146,7 +145,7 @@ class DropdownBox extends StatelessWidget {
               NoteBox(
                 questionId: questionId,
                 choice: selectedChoice,
-                note: thisAnswer.noteMap?[selectedChoice.id] ?? '',
+                note: answer.noteMap?[selectedChoice.id] ?? '',
                 canEdit: canEdit,
               ),
             ]

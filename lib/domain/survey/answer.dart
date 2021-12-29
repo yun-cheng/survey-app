@@ -25,24 +25,13 @@ class Answer with _$Answer {
         withNote: false,
       );
 
-  // factory Answer.fromChoiceValue(String choiceValue) => Answer(
-  //       type: AnswerType.choice(),
-  //       withNote: false,
-  //       choiceValue: ChoiceId(choiceValue),
-  //     );
-
   factory Answer.fromStringValue(String stringValue) => Answer(
         type: AnswerType.string(),
         withNote: false,
         stringValue: stringValue,
       );
 
-  // factory Answer.fromChoiceListValue(List<String> choiceListValue) => Answer(
-  //       type: AnswerType.choiceList(),
-  //       withNote: false,
-  //       choiceListValue:
-  //           choiceListValue.map((i) => ChoiceId(i)).toImmutableList(),
-  //     );
+  bool get isEmpty => this == Answer.empty();
 
   bool get valueIsUnfinished {
     if (value == null) {
@@ -141,6 +130,14 @@ class Answer with _$Answer {
     } else if (type == AnswerType.choiceList()) {
       result =
           choiceListValue!.map((choice) => choiceToString(choice)).join('、');
+    }
+    return result ?? '';
+  }
+
+  String get stringTypeValue {
+    String? result;
+    if (type == AnswerType.string()) {
+      result = stringValue;
     }
     return result ?? '';
   }

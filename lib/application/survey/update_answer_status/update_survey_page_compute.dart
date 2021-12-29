@@ -32,7 +32,12 @@ UpdateAnswerStatusState pageQuestionMapUpdated(UpdateAnswerStatusState state) {
 
     // S_ 如果是選擇題要篩選項
     if (question.type.isChoice) {
-      var choiceList = question.initChoiceList;
+      // H_ 區分是否為特殊作答的選項
+      final pChoiceList =
+          question.initChoiceList.partition((choice) => choice.isSpecialAnswer);
+
+      var specialAnswerList = pChoiceList.item1;
+      var normalChoiceList = pChoiceList.item2;
 
       // NOTE 有可能尚未作答
       final thisAnswer = answerMap[questionId] ?? Answer.empty();
@@ -43,25 +48,25 @@ UpdateAnswerStatusState pageQuestionMapUpdated(UpdateAnswerStatusState state) {
         final upperAnswer =
             answerMap[question.upperQuestionId] ?? Answer.empty();
         // NOTE 用 id 文字比對
-        choiceList = question.initChoiceList
+        normalChoiceList = normalChoiceList
             .filter((choice) => choice.upperChoiceId == upperAnswer.valueString)
             .toList();
       }
 
-      // H_ 篩選是否為特殊作答的選項
-      choiceList = choiceList
-          .filter((choice) => choice.isSpecialAnswer == isSpecialAnswer)
-          .toList();
-
       // H_ 如果是唯讀或預過錄模組，只保留選擇的選項
-      if (state.isReadOnly || state.isRecodeModule) {
-        choiceList = choiceList
+      if ((state.isReadOnly || state.isRecodeModule) &&
+          question.tableId.isEmpty) {
+        normalChoiceList = normalChoiceList
+            .filter((choice) => thisAnswer.contains(choice.simple()))
+            .toList();
+        specialAnswerList = specialAnswerList
             .filter((choice) => thisAnswer.contains(choice.simple()))
             .toList();
       }
 
       question = question.copyWith(
-        choiceList: choiceList,
+        choiceList: normalChoiceList,
+        specialAnswerList: specialAnswerList,
       );
     }
 

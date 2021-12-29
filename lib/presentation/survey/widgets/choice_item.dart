@@ -130,29 +130,32 @@ class ChoiceItem extends HookWidget {
         ],
       );
 
-      return Container(
-        color: isSelected.value
-            ? canEdit
-                ? kAnswerBackgroundColor
-                : kCannotEditColor
-            : null,
-        child: isSingleAnswer
-            ? RadioListTile(
-                title: itemTitle,
-                value: choice.id,
-                groupValue: answer.value.groupValue,
-                onChanged: (_) => clickAction(),
-                activeColor: activeColor,
-                dense: true,
-              )
-            : CheckboxListTile(
-                controlAffinity: ListTileControlAffinity.leading,
-                title: itemTitle,
-                value: isSelected.value,
-                onChanged: (_) => clickAction(toggle: true),
-                activeColor: activeColor,
-                dense: true,
-              ),
+      return Visibility(
+        visible: canEdit || isSelected.value,
+        child: Container(
+          color: isSelected.value
+              ? canEdit
+                  ? kAnswerBackgroundColor
+                  : kCannotEditColor
+              : null,
+          child: isSingleAnswer
+              ? RadioListTile(
+                  title: itemTitle,
+                  value: choice.id,
+                  groupValue: answer.value.groupValue,
+                  onChanged: (_) => clickAction(),
+                  activeColor: activeColor,
+                  dense: true,
+                )
+              : CheckboxListTile(
+                  controlAffinity: ListTileControlAffinity.leading,
+                  title: itemTitle,
+                  value: isSelected.value,
+                  onChanged: (_) => clickAction(toggle: true),
+                  activeColor: activeColor,
+                  dense: true,
+                ),
+        ),
       );
     }
   }

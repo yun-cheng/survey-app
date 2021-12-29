@@ -61,6 +61,8 @@ class AnswerType with _$AnswerType {
   factory AnswerType.num() => const AnswerType('num');
   factory AnswerType.choice() => const AnswerType('choice');
   factory AnswerType.choiceList() => const AnswerType('choiceList');
+
+  bool get isChoice => value == 'choice';
 }
 
 @freezed

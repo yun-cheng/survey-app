@@ -34,20 +34,20 @@ class ComplexTableBox extends HookWidget {
     final pageQIdSet = context.read<UpdateAnswerStatusBloc>().state.pageQIdSet;
     final questionMap =
         context.read<UpdateAnswerStatusBloc>().state.questionMap;
-
     final tableQuestionList = pageQIdSet
         .map((questionId) => questionMap[questionId]!)
         .filter(
             (question) => question.tableId == tableId && !question.type.isTable)
         .toList();
 
+    // S_ 分成 title 跟 row questions
     final pTableQuestionList =
         tableQuestionList.partition((question) => question.rowId == -1);
 
-    // S_ column questions
-    final colQuestionList = pTableQuestionList.item1;
+    // S_ title question list
+    final titleQuestionList = pTableQuestionList.item1;
 
-    // S_ row questions
+    // S_ row question map
     final rowQuestionMap = pTableQuestionList.item2
         .groupBy<int, Question>((question) => question.rowId);
 
@@ -65,8 +65,52 @@ class ComplexTableBox extends HookWidget {
       return () => controllerMap.values.map((c) => c.dispose());
     }, []);
 
+    // S_
+    final rowList = rowQuestionMap
+        .map((index, questionList) {
+          final questionCells = questionList
+              .withoutFirst()
+              .toList()
+              .asMap()
+              .entries
+              .map(
+                (e) => ComplexCellBox(
+                  questionId: e.value.id,
+                  colQuestionId: titleQuestionList[e.key].id,
+                ),
+              )
+              .toList();
+
+          return MapEntry(
+              index,
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ComplexCellBox(
+                    questionId: questionList[0].id,
+                    isFirstColumn: true,
+                  ),
+                  Flexible(
+                    child: SingleChildScrollView(
+                      key: Key(UniqueId.v1().value),
+                      scrollDirection: Axis.horizontal,
+                      controller: getController('$index'),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: questionCells,
+                      ),
+                    ),
+                  ),
+                ],
+              ));
+        })
+        .values
+        .toList();
+
     return SliverStickyHeader(
-      // H_ title row
+      // H_ title
       header: Container(
         color: Theme.of(_context).scaffoldBackgroundColor,
         child: Row(
@@ -80,11 +124,10 @@ class ComplexTableBox extends HookWidget {
                 scrollDirection: Axis.horizontal,
                 controller: getController('_titleRow'),
                 child: Row(
-                  children: colQuestionList
+                  children: titleQuestionList
                       .map(
                         (question) => ComplexCellBox(
                           questionId: question.id,
-                          question: question,
                           isTitle: true,
                         ),
                       )
@@ -95,53 +138,11 @@ class ComplexTableBox extends HookWidget {
           ],
         ),
       ),
-      // H_ question rows
-      sliver: SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            final questionList = rowQuestionMap[index]!;
-
-            final questionCells = questionList
-                .withoutFirst()
-                .toList()
-                .asMap()
-                .entries
-                .map(
-                  (e) => ComplexCellBox(
-                    questionId: e.value.id,
-                    question: e.value,
-                    questionType: e.value.type,
-                    hasSpecialAnswer: e.value.hasSpecialAnswer,
-                    colQuestionId: colQuestionList[e.key].id,
-                  ),
-                )
-                .toList();
-
-            return Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                ComplexCellBox(
-                  questionId: questionList[0].id,
-                  question: questionList[0],
-                  isFirstColumn: true,
-                ),
-                Flexible(
-                  child: SingleChildScrollView(
-                    key: Key(UniqueId.v1().value),
-                    scrollDirection: Axis.horizontal,
-                    controller: getController('$index'),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: questionCells,
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
-          childCount: rowQuestionMap.length,
+      // H_ rows
+      // NOTE 用 SliverList 在實機上會卡，所以改 Column
+      sliver: SliverToBoxAdapter(
+        child: Column(
+          children: rowList,
         ),
       ),
     );

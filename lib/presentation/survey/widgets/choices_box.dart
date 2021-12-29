@@ -14,12 +14,14 @@ import 'choice_item.dart';
 class ChoicesBox extends HookWidget {
   final String questionId;
   final QuestionType questionType;
+  final bool isSpecialAnswer;
   final bool isinCell;
 
   const ChoicesBox({
     Key? key,
     required this.questionId,
     required this.questionType,
+    required this.isSpecialAnswer,
     this.isinCell = false,
   }) : super(key: key);
 
@@ -36,8 +38,9 @@ class ChoicesBox extends HookWidget {
           // S_ 該題作答清空時，更新 answer
           if (c.updatedQIdSet.contains(questionId) &&
               c.answerMap[questionId]! == Answer.empty()) {
+            final oldAnswer = answer.value;
             answer.value = Answer.empty();
-            return true;
+            return oldAnswer != Answer.empty();
           }
 
           // S_ 若 question 前或後不存在，交由上層 widget 處理
@@ -47,21 +50,23 @@ class ChoicesBox extends HookWidget {
           }
 
           // S_ 該題選項有變更時，需要 rebuild
-          return !const DeepCollectionEquality().equals(
-            p.questionMap[questionId]!.choiceList,
-            c.questionMap[questionId]!.choiceList,
-          );
+          return !isSpecialAnswer &&
+              !const DeepCollectionEquality().equals(
+                p.questionMap[questionId]!.choiceList,
+                c.questionMap[questionId]!.choiceList,
+              );
         }
         return false;
       },
     );
 
-    final choiceList = state.questionMap[questionId]?.choiceList ?? [];
+    final question = state.questionMap[questionId];
+    final choiceList = (isSpecialAnswer
+            ? question?.specialAnswerList
+            : question?.choiceList) ??
+        [];
     final size = choiceList.length;
     answer.value = state.answerMap[questionId] ?? Answer.empty();
-    final isSpecialAnswer =
-        state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
-    final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
     // S_ 大於等於 4 個選項就要用 2 個 ListView
     int firstCount = size;

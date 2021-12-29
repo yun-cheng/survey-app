@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
@@ -10,7 +9,7 @@ import '../../../application/survey/update_answer_status/update_answer_status_bl
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
-import 'choices_row.dart';
+import 'simple_table_row.dart';
 
 class SimpleTableBox extends HookWidget {
   final String tableId;
@@ -75,8 +74,9 @@ class SimpleTableBox extends HookWidget {
                 child: Row(
                   children: choiceList
                       .map(
-                        (choice) => SizedBox(
+                        (choice) => Container(
                           width: kSimpleTableCellWidth,
+                          alignment: Alignment.center,
                           child: Text(
                             '(${choice.id}) ${choice.body}',
                             style: kPTextStyle,
@@ -90,23 +90,19 @@ class SimpleTableBox extends HookWidget {
           ],
         ),
       ),
-      sliver: SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (BuildContext context, int index) {
-            final question = tableQuestionList[index];
-
-            return ChoicesRow(
-              // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-              key: Key(UniqueId.v1().value),
-              questionId: question.id,
-              questionType: question.type,
-              choiceList: choiceList,
-              hasSpecialAnswer: question.hasSpecialAnswer,
-              question: question,
-              scrollController: getController(question.id),
-            );
-          },
-          childCount: tableQuestionList.length,
+      // NOTE 用 SliverList 在實機上會卡，所以改 Column
+      sliver: SliverToBoxAdapter(
+        child: Column(
+          children: tableQuestionList
+              .map(
+                (question) => SimpleTableRow(
+                  // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                  key: Key(UniqueId.v1().value),
+                  questionId: question.id,
+                  scrollController: getController(question.id),
+                ),
+              )
+              .toList(),
         ),
       ),
     );

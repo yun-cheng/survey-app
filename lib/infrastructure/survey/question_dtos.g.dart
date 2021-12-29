@@ -17,15 +17,18 @@ _$_QuestionDto _$$_QuestionDtoFromJson(Map<String, dynamic> json) =>
       stringBody: json['stringBody'] as String,
       questionNote: json['questionNote'] as String,
       questionType: json['questionType'] as String,
-      showQuestion: FullExpressionDto.fromJson(
-          json['showQuestion'] as Map<String, dynamic>),
-      choiceList: (json['choiceList'] as List<dynamic>)
-          .map((e) => ChoiceDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
       initChoiceList: (json['initChoiceList'] as List<dynamic>?)
           ?.map((e) => ChoiceDto.fromJson(e as Map<String, dynamic>))
           .toList(),
+      choiceList: (json['choiceList'] as List<dynamic>)
+          .map((e) => ChoiceDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
+      specialAnswerList: (json['specialAnswerList'] as List<dynamic>?)
+          ?.map((e) => ChoiceDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
       hasSpecialAnswer: json['hasSpecialAnswer'] as bool,
+      showQuestion: FullExpressionDto.fromJson(
+          json['showQuestion'] as Map<String, dynamic>),
       validateAnswer: FullExpressionDto.fromJson(
           json['validateAnswer'] as Map<String, dynamic>),
       upperQuestionId: json['upperQuestionId'] as String,
@@ -44,11 +47,13 @@ Map<String, dynamic> _$$_QuestionDtoToJson(_$_QuestionDto instance) =>
       'stringBody': instance.stringBody,
       'questionNote': instance.questionNote,
       'questionType': instance.questionType,
-      'showQuestion': instance.showQuestion.toJson(),
-      'choiceList': instance.choiceList.map((e) => e.toJson()).toList(),
       'initChoiceList':
           instance.initChoiceList?.map((e) => e.toJson()).toList(),
+      'choiceList': instance.choiceList.map((e) => e.toJson()).toList(),
+      'specialAnswerList':
+          instance.specialAnswerList?.map((e) => e.toJson()).toList(),
       'hasSpecialAnswer': instance.hasSpecialAnswer,
+      'showQuestion': instance.showQuestion.toJson(),
       'validateAnswer': instance.validateAnswer.toJson(),
       'upperQuestionId': instance.upperQuestionId,
       'pageNumber': instance.pageNumber,
