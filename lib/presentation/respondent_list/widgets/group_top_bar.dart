@@ -108,29 +108,32 @@ class TownDropDown extends HookWidget {
         )
         .toList();
 
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        DropdownButton<String?>(
-          value: selectedCountyTown.value,
-          selectedItemBuilder: (_) => selectedItemList,
-          underline: const SizedBox(),
-          iconSize: 40,
-          itemHeight: null,
-          items: choiceItemList,
-          onChanged: (String? countyTown) {
-            selectedCountyTown.value = countyTown;
-            context.read<RespondentBloc>().add(
-                  RespondentEvent.jumpedToTown(countyTown: countyTown!),
-                );
-          },
-        ),
-        // Text(
-        //   firstRespondent.village,
-        //   style: kCardH2TextStyle,
-        // ),
-        const SearchBox(),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          DropdownButton<String?>(
+            value: selectedCountyTown.value,
+            selectedItemBuilder: (_) => selectedItemList,
+            underline: const SizedBox(),
+            iconSize: 40,
+            itemHeight: null,
+            items: choiceItemList,
+            onChanged: (String? countyTown) {
+              selectedCountyTown.value = countyTown;
+              context.read<RespondentBloc>().add(
+                    RespondentEvent.jumpedToTown(countyTown: countyTown!),
+                  );
+            },
+          ),
+          // Text(
+          //   firstRespondent.village,
+          //   style: kCardH2TextStyle,
+          // ),
+          const SearchBox(),
+        ],
+      ),
     );
   }
 }

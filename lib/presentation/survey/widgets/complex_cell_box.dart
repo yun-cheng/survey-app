@@ -79,7 +79,8 @@ class ComplexCellBox extends HookWidget {
       colVisible = visible;
     }
 
-    final isSpecialAnswer = useValueNotifier(false);
+    final isSpecialAnswer = useValueNotifier(
+        state.answerStatusMap[questionId]?.isSpecialAnswer ?? false);
 
     late final Widget cellBox;
 
@@ -111,7 +112,6 @@ class ComplexCellBox extends HookWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (question.hasSpecialAnswer) ...[
                   Visibility(

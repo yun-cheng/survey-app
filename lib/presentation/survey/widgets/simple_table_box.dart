@@ -26,22 +26,17 @@ class SimpleTableBox extends HookWidget {
     logger('Build').i('SimpleTableBox');
 
     final _context = useContext();
+    final state = _context.read<UpdateAnswerStatusBloc>().state;
 
     // S_ 篩出是這個 tableId 的 questions
-    final pageQIdSet = context.read<UpdateAnswerStatusBloc>().state.pageQIdSet;
-    final questionMap =
-        context.read<UpdateAnswerStatusBloc>().state.questionMap;
-
-    final tableQuestionList = pageQIdSet
-        .map((questionId) => questionMap[questionId]!)
+    final tableQuestionList = state.pageQIdSet
+        .map((questionId) => state.questionMap[questionId]!)
         .filter(
             (question) => question.tableId == tableId && !question.type.isTable)
         .toList();
 
     // S_ 取出 choiceList
-    final choiceList = tableQuestionList.first.initChoiceList
-        .filter((choice) => !choice.isSpecialAnswer)
-        .toList();
+    final choiceList = tableQuestionList.first.choiceList;
 
     // S_ scroll controllers
     final controllers = useMemoized(() => LinkedScrollControllerGroup());
@@ -106,31 +101,5 @@ class SimpleTableBox extends HookWidget {
         ),
       ),
     );
-
-    // NOTE 讓 nested scroll widget 可以同時運作，
-    //  目前先不設 table box 的 height，所以沒用到
-    // NOTE https://stackoverflow.com/a/60712386/16521555
-    // DragStartDetails? dragStartDetails;
-    // Drag? drag;
-
-    // return NotificationListener(
-    //   onNotification: (notification) {
-    //     if (notification is ScrollStartNotification) {
-    //       dragStartDetails = notification.dragDetails;
-    //     }
-    //     if (notification is OverscrollNotification) {
-    //       drag = scrollController.position.drag(dragStartDetails!, () {});
-
-    //       if (notification.dragDetails != null) {
-    //         drag!.update(notification.dragDetails!);
-    //       }
-    //     }
-    //     if (notification is ScrollEndNotification) {
-    //       drag?.cancel();
-    //     }
-    //     return true;
-    //   },
-    //   child: SliverStickyHeader(),
-    // );
   }
 }

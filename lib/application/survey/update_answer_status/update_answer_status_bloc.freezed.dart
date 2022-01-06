@@ -5182,6 +5182,7 @@ class _$UpdateAnswerStatusStateTearOff {
       required bool leavePage,
       required bool appIsPaused,
       required int scrollToQuestionIndex,
+      required bool blockGesture,
       required Respondent respondent,
       required String surveyId,
       required ModuleType moduleType,
@@ -5219,6 +5220,7 @@ class _$UpdateAnswerStatusStateTearOff {
       leavePage: leavePage,
       appIsPaused: appIsPaused,
       scrollToQuestionIndex: scrollToQuestionIndex,
+      blockGesture: blockGesture,
       respondent: respondent,
       surveyId: surveyId,
       moduleType: moduleType,
@@ -5267,7 +5269,8 @@ mixin _$UpdateAnswerStatusState {
   bool get showLeaveButton => throw _privateConstructorUsedError;
   bool get leavePage => throw _privateConstructorUsedError;
   bool get appIsPaused => throw _privateConstructorUsedError;
-  int get scrollToQuestionIndex =>
+  int get scrollToQuestionIndex => throw _privateConstructorUsedError;
+  bool get blockGesture =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
   Respondent get respondent => throw _privateConstructorUsedError;
   String get surveyId => throw _privateConstructorUsedError;
@@ -5319,6 +5322,7 @@ abstract class $UpdateAnswerStatusStateCopyWith<$Res> {
       bool leavePage,
       bool appIsPaused,
       int scrollToQuestionIndex,
+      bool blockGesture,
       Respondent respondent,
       String surveyId,
       ModuleType moduleType,
@@ -5379,6 +5383,7 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
     Object? scrollToQuestionIndex = freezed,
+    Object? blockGesture = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -5483,6 +5488,10 @@ class _$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.scrollToQuestionIndex
           : scrollToQuestionIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      blockGesture: blockGesture == freezed
+          ? _value.blockGesture
+          : blockGesture // ignore: cast_nullable_to_non_nullable
+              as bool,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
@@ -5643,6 +5652,7 @@ abstract class _$UpdateAnswerStatusStateCopyWith<$Res>
       bool leavePage,
       bool appIsPaused,
       int scrollToQuestionIndex,
+      bool blockGesture,
       Respondent respondent,
       String surveyId,
       ModuleType moduleType,
@@ -5716,6 +5726,7 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
     Object? leavePage = freezed,
     Object? appIsPaused = freezed,
     Object? scrollToQuestionIndex = freezed,
+    Object? blockGesture = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
     Object? moduleType = freezed,
@@ -5820,6 +5831,10 @@ class __$UpdateAnswerStatusStateCopyWithImpl<$Res>
           ? _value.scrollToQuestionIndex
           : scrollToQuestionIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      blockGesture: blockGesture == freezed
+          ? _value.blockGesture
+          : blockGesture // ignore: cast_nullable_to_non_nullable
+              as bool,
       respondent: respondent == freezed
           ? _value.respondent
           : respondent // ignore: cast_nullable_to_non_nullable
@@ -5907,6 +5922,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       required this.leavePage,
       required this.appIsPaused,
       required this.scrollToQuestionIndex,
+      required this.blockGesture,
       required this.respondent,
       required this.surveyId,
       required this.moduleType,
@@ -5968,6 +5984,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
   final bool appIsPaused;
   @override
   final int scrollToQuestionIndex;
+  @override
+  final bool blockGesture;
   @override // H_ 同 session 不變的參考資料
   final Respondent respondent;
   @override
@@ -5999,7 +6017,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'UpdateAnswerStatusState(stateId: $stateId, answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, questionId: $questionId, updatedQIdSet: $updatedQIdSet, clearAnswerQIdSet: $clearAnswerQIdSet, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, direction: $direction, finishResponse: $finishResponse, dialogType: $dialogType, showLeaveButton: $showLeaveButton, leavePage: $leavePage, appIsPaused: $appIsPaused, scrollToQuestionIndex: $scrollToQuestionIndex, blockGesture: $blockGesture, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, referenceList: $referenceList, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap, restoreState: $restoreState, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -6029,6 +6047,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
       ..add(DiagnosticsProperty('leavePage', leavePage))
       ..add(DiagnosticsProperty('appIsPaused', appIsPaused))
       ..add(DiagnosticsProperty('scrollToQuestionIndex', scrollToQuestionIndex))
+      ..add(DiagnosticsProperty('blockGesture', blockGesture))
       ..add(DiagnosticsProperty('respondent', respondent))
       ..add(DiagnosticsProperty('surveyId', surveyId))
       ..add(DiagnosticsProperty('moduleType', moduleType))
@@ -6089,6 +6108,8 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
             const DeepCollectionEquality()
                 .equals(other.scrollToQuestionIndex, scrollToQuestionIndex) &&
             const DeepCollectionEquality()
+                .equals(other.blockGesture, blockGesture) &&
+            const DeepCollectionEquality()
                 .equals(other.respondent, respondent) &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
             const DeepCollectionEquality()
@@ -6142,6 +6163,7 @@ class _$_UpdateAnswerStatusState extends _UpdateAnswerStatusState
         const DeepCollectionEquality().hash(leavePage),
         const DeepCollectionEquality().hash(appIsPaused),
         const DeepCollectionEquality().hash(scrollToQuestionIndex),
+        const DeepCollectionEquality().hash(blockGesture),
         const DeepCollectionEquality().hash(respondent),
         const DeepCollectionEquality().hash(surveyId),
         const DeepCollectionEquality().hash(moduleType),
@@ -6189,6 +6211,7 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
       required bool leavePage,
       required bool appIsPaused,
       required int scrollToQuestionIndex,
+      required bool blockGesture,
       required Respondent respondent,
       required String surveyId,
       required ModuleType moduleType,
@@ -6250,6 +6273,8 @@ abstract class _UpdateAnswerStatusState extends UpdateAnswerStatusState {
   bool get appIsPaused;
   @override
   int get scrollToQuestionIndex;
+  @override
+  bool get blockGesture;
   @override // H_ 同 session 不變的參考資料
   Respondent get respondent;
   @override

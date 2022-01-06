@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/value_objects.dart';
@@ -33,7 +34,7 @@ class ChoiceItem extends HookWidget {
     logger('Build').i('ChoiceItem');
 
     final isSelected = useState(answer.value.contains(choice.simple()));
-    final wait = useValueNotifier(false);
+    final delayAction = useValueNotifier(false);
 
     useEffect(() {
       // H_ answer 變更時
@@ -42,8 +43,8 @@ class ChoiceItem extends HookWidget {
         isSelected.value = answer.value.contains(choice.simple());
 
         // S_ 當前選項被點擊時
-        if (wait.value) {
-          wait.value = false;
+        if (delayAction.value) {
+          delayAction.value = false;
 
           context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(
@@ -70,11 +71,12 @@ class ChoiceItem extends HookWidget {
 
     final activeColor = canEdit ? Colors.teal : Colors.grey[600];
 
+    // NOTE 點擊後，先改 local 資料，widget rebuild 後再傳進 bloc，如此可減少延遲
     void clickAction({
       bool toggle = false,
     }) {
       if (canEdit) {
-        wait.value = true;
+        delayAction.value = true;
 
         // S_ 改 local answer
         if (!toggle) {
@@ -97,18 +99,22 @@ class ChoiceItem extends HookWidget {
         height: 100,
         child: InkWell(
           onTap: () => clickAction(toggle: !isSingleAnswer),
-          child: isSingleAnswer
-              ? Radio(
-                  value: choice.id,
-                  groupValue: answer.value.groupValue,
-                  onChanged: (_) => clickAction(),
-                  activeColor: activeColor,
-                )
-              : Checkbox(
-                  value: isSelected.value,
-                  onChanged: (_) => clickAction(toggle: true),
-                  activeColor: activeColor,
-                ),
+          child: Container(
+            // NOTE 強制 rebuild 取消動畫
+            key: Key(UniqueId.v1().value),
+            child: isSingleAnswer
+                ? Radio(
+                    value: choice.id,
+                    groupValue: answer.value.groupValue,
+                    onChanged: (_) => clickAction(),
+                    activeColor: activeColor,
+                  )
+                : Checkbox(
+                    value: isSelected.value,
+                    onChanged: (_) => clickAction(toggle: true),
+                    activeColor: activeColor,
+                  ),
+          ),
         ),
       );
     } else {
@@ -133,6 +139,7 @@ class ChoiceItem extends HookWidget {
       return Visibility(
         visible: canEdit || isSelected.value,
         child: Container(
+          // NOTE 強制 rebuild 取消動畫
           color: isSelected.value
               ? canEdit
                   ? kAnswerBackgroundColor

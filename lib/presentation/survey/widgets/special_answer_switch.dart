@@ -24,6 +24,9 @@ class SpecialAnswerSwitch extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('SpecialAnswerSwitch');
 
+    final isOn = useState(isSpecialAnswer.value);
+    final delayAction = useValueNotifier(false);
+
     final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
@@ -31,60 +34,60 @@ class SpecialAnswerSwitch extends HookWidget {
           final pAnswerStatus = p.answerStatusMap[questionId];
           final cAnswerStatus = c.answerStatusMap[questionId];
 
-          if (cAnswerStatus == null) {
-            return false;
-          }
-
-          // S_ 在該題切換特殊作答時才需要 rebuild
-          if (pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
+          if (cAnswerStatus != null &&
+              pAnswerStatus?.isSpecialAnswer != cAnswerStatus.isSpecialAnswer) {
             isSpecialAnswer.value = cAnswerStatus.isSpecialAnswer;
-            return true;
           }
         }
         return false;
       },
     );
 
-    isSpecialAnswer.value =
-        state.answerStatusMap[questionId]?.isSpecialAnswer ?? false;
+    useEffect(() {
+      void listener() async {
+        isOn.value = isSpecialAnswer.value;
+
+        if (delayAction.value) {
+          delayAction.value = false;
+
+          context.read<UpdateAnswerStatusBloc>().add(
+                UpdateAnswerStatusEvent.answerUpdated(
+                  questionId: questionId,
+                  answerValue: null,
+                  toggleSpecialAnswer: true,
+                ),
+              );
+        }
+      }
+
+      isSpecialAnswer.addListener(listener);
+      return () => isSpecialAnswer.removeListener(listener);
+    }, []);
 
     final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-    return Padding(
-      padding: const EdgeInsets.only(top: 10.0),
-      child: Row(
-        children: [
-          Switch(
-            value: isSpecialAnswer.value,
-            onChanged: (_) {
-              if (canEdit) {
-                isSpecialAnswer.value = !isSpecialAnswer.value;
-                context.read<UpdateAnswerStatusBloc>().add(
-                      UpdateAnswerStatusEvent.answerUpdated(
-                        questionId: questionId,
-                        answerValue: null,
-                        toggleSpecialAnswer: true,
-                      ),
-                    );
-              }
-            },
-          ),
-          if (showText) ...[
-            Flexible(
-              child: Column(
-                children: [
-                  Text(
-                    '切換特殊作答',
-                    style: kPTextStyle.copyWith(
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                ],
-              ),
+    return Row(
+      // NOTE 強制 rebuild 取消動畫
+      key: Key(UniqueId.v1().value),
+      children: [
+        Switch(
+          value: isSpecialAnswer.value,
+          onChanged: (_) {
+            if (canEdit) {
+              delayAction.value = true;
+              isSpecialAnswer.value = !isSpecialAnswer.value;
+            }
+          },
+        ),
+        if (showText) ...[
+          Text(
+            '切換特殊作答',
+            style: kPTextStyle.copyWith(
+              color: Colors.grey[700],
             ),
-          ]
-        ],
-      ),
+          ),
+        ]
+      ],
     );
   }
 }

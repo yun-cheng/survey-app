@@ -43,23 +43,21 @@ class QaCard extends HookWidget {
           final pAnswerStatus = p.answerStatusMap[questionId];
           final cAnswerStatus = c.answerStatusMap[questionId];
 
-          if (cAnswerStatus == null) {
-            return false;
-          }
-
           // S_ 在該題變換顯示/隱藏時才需要 rebuild
-          return pAnswerStatus?.isHidden != cAnswerStatus.isHidden;
+          return cAnswerStatus != null &&
+              pAnswerStatus?.isHidden != cAnswerStatus.isHidden;
         }
         return false;
       },
     );
 
     final question = state.questionMap[questionId] ?? Question.empty();
+    final canEdit = !state.isReadOnly && !state.isRecodeModule;
     final visible =
         !(state.answerStatusMap[questionId] ?? AnswerStatus.empty()).isHidden;
-    final canEdit = !state.isReadOnly && !state.isRecodeModule;
 
-    final isSpecialAnswer = useValueNotifier(false);
+    final isSpecialAnswer = useValueNotifier(
+        state.answerStatusMap[questionId]?.isSpecialAnswer ?? false);
 
     return MultiSliver(
       children: [
@@ -78,25 +76,30 @@ class QaCard extends HookWidget {
                   children: [
                     // H_ QuestionBox
                     QuestionBox(questionId: questionId),
-                    // H_ WarningBox
-                    WarningBox(
-                      question: question,
-                      questionId: question.id,
-                    ),
-                    // H_ SpecialAnswerSwitch
-                    if (question.hasSpecialAnswer &&
-                        !question.type.isTable) ...[
-                      Visibility(
-                        visible: canEdit,
-                        maintainState: true,
-                        child: SpecialAnswerSwitch(
-                          questionId: question.id,
-                          isSpecialAnswer: isSpecialAnswer,
-                          showText: false,
+                    Row(
+                      children: [
+                        const SizedBox(height: 40),
+                        // H_ SpecialAnswerSwitch
+                        if (question.hasSpecialAnswer &&
+                            !question.type.isTable) ...[
+                          Visibility(
+                            visible: canEdit,
+                            maintainState: true,
+                            child: SpecialAnswerSwitch(
+                              questionId: question.id,
+                              isSpecialAnswer: isSpecialAnswer,
+                              showText: false,
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                        ],
+                        // // H_ WarningBox
+                        WarningBox(
+                          question: question,
+                          questionId: questionId,
                         ),
-                      ),
-                    ],
-                    const SizedBox(height: 10),
+                      ],
+                    ),
                     if (!question.type.isTable) ...[
                       Align(
                         alignment: Alignment.topLeft,
@@ -134,8 +137,10 @@ class QaCard extends HookWidget {
                 children: [
                   // H_ RecodeBox
                   if (state.isRecodeModule && question.recodeNeeded) ...[
+                    const SizedBox(height: 10),
                     RecodeBox(questionId: question.id),
                   ],
+                  const SizedBox(height: 15),
                   // H_ Divider
                   const Divider(
                     thickness: 1.5,

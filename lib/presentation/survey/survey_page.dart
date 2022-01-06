@@ -9,6 +9,8 @@ import '../../application/survey/update_answer_status/update_answer_status_bloc.
 import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
 import '../routes/router.gr.dart';
+import 'widgets/gesture_blocker_box.dart';
+import 'widgets/loading_box.dart';
 import 'widgets/page_control_bar.dart';
 import 'widgets/re_answer_button.dart';
 import 'widgets/survey_body.dart';
@@ -22,6 +24,7 @@ class SurveyPage extends HookWidget {
     logger('Build').i('SurveyPage');
 
     final showDialog = useValueNotifier(true);
+    final blockGesture = useValueNotifier(false);
 
     useEffect(() {
       if (showDialog.value) {
@@ -55,6 +58,8 @@ class SurveyPage extends HookWidget {
             title: Text(respondent.remainAddress),
             leading: SurveyLeadingButton(scrollController: scrollController),
             actions: [
+              const LoadingBox(),
+              const SizedBox(width: 10),
               const ReAnswerButton(),
               IconButton(
                 icon: const Icon(Icons.format_list_bulleted),
@@ -69,12 +74,17 @@ class SurveyPage extends HookWidget {
             ],
           ),
           body: SafeArea(
-            child: Column(
+            child: Stack(
               children: [
-                Expanded(
-                  child: SurveyBody(scrollController: scrollController),
+                Column(
+                  children: [
+                    Expanded(
+                      child: SurveyBody(scrollController: scrollController),
+                    ),
+                    PageControlBar(blockGesture: blockGesture),
+                  ],
                 ),
-                const PageControlBar(),
+                GestureBlockerBox(blockGesture: blockGesture),
               ],
             ),
           ),

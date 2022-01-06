@@ -12,8 +12,11 @@ import 'page_control_button.dart';
 import 'warning_button.dart';
 
 class PageControlBar extends HookWidget {
+  final ValueNotifier<bool> blockGesture;
+
   const PageControlBar({
     Key? key,
+    required this.blockGesture,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -68,6 +71,7 @@ class PageControlBar extends HookWidget {
         child: PageControlButton(
           Icons.arrow_back_ios_sharp,
           onPressed: () {
+            blockGesture.value = true;
             context.read<UpdateAnswerStatusBloc>().add(
                   const UpdateAnswerStatusEvent.pageNavigatedTo(
                     direction: Direction.previous,
@@ -85,6 +89,7 @@ class PageControlBar extends HookWidget {
         child: PageControlButton(
           Icons.arrow_forward_ios_sharp,
           onPressed: () {
+            blockGesture.value = true;
             context.read<UpdateAnswerStatusBloc>().add(
                   const UpdateAnswerStatusEvent.pageNavigatedTo(
                     direction: Direction.next,
@@ -105,6 +110,7 @@ class PageControlBar extends HookWidget {
           child: TextButton(
             style: kWarningButtonStyle,
             onPressed: () {
+              blockGesture.value = true;
               context.read<UpdateAnswerStatusBloc>().add(
                     const UpdateAnswerStatusEvent.finishedButtonPressed(),
                   );

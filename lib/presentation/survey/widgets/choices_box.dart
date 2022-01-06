@@ -65,27 +65,26 @@ class ChoicesBox extends HookWidget {
             ? question?.specialAnswerList
             : question?.choiceList) ??
         [];
-    final size = choiceList.length;
+    final totalCount = choiceList.length;
     answer.value = state.answerMap[questionId] ?? Answer.empty();
 
     // S_ 大於等於 4 個選項就要用 2 個 ListView
-    int firstCount = size;
-    int secondCount = 0;
-    final twoCols = size >= 4 && !isinCell;
+    int col1Count = totalCount;
+    int col2Count = 0;
+    final useTwoCols = totalCount >= 4 && !isinCell;
 
-    if (twoCols) {
-      firstCount = (size / 2).ceil();
-      secondCount = size - firstCount;
+    if (useTwoCols) {
+      col1Count = (totalCount / 2).ceil();
+      col2Count = totalCount - col1Count;
     }
 
     Widget choiceItemListView({bool isFirst = true}) {
       return ListView.builder(
         physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        itemCount: isFirst ? firstCount : secondCount,
+        itemCount: isFirst ? col1Count : col2Count,
         itemBuilder: (context, int index) {
-          final append = isFirst ? 0 : firstCount;
-          final choice = choiceList[index + append];
+          final choice = choiceList[index + (isFirst ? 0 : col1Count)];
 
           return Container(
             constraints: kAnswerElementMaxWith,
@@ -109,7 +108,7 @@ class ChoicesBox extends HookWidget {
         Expanded(
           child: choiceItemListView(),
         ),
-        if (twoCols) ...[
+        if (useTwoCols) ...[
           Expanded(
             child: choiceItemListView(isFirst: false),
           ),

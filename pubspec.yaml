@@ -58,6 +58,7 @@ dependencies:
   sliver_tools: ^0.2.5
   scroll_to_index: ^2.1.1
   flash: ^2.0.3+1
+  progress_indicators: ^1.0.0
   # H_ others
   dartz: ^0.10.1
   tuple: ^2.0.0

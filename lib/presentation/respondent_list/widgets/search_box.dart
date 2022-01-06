@@ -12,9 +12,8 @@ class SearchBox extends HookWidget {
   Widget build(BuildContext context) {
     final controller = useTextEditingController(text: '');
 
-    return Container(
+    return SizedBox(
       width: kAnswerElementWidth,
-      padding: const EdgeInsets.all(10),
       child: TextField(
         controller: controller,
         style: kPTextStyle,

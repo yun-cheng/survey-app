@@ -107,38 +107,41 @@ class DropdownBox extends StatelessWidget {
 
         return Column(
           children: [
-            Container(
-              width: kAnswerElementWidth,
-              decoration: BoxDecoration(
-                color: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
-              ),
-              child: DropdownButton<String>(
-                value: selectedChoice.id != '' ? selectedChoice.id : null,
-                style: kPTextStyle.copyWith(
-                  color: Colors.black,
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Container(
+                width: kAnswerElementWidth,
+                decoration: BoxDecoration(
+                  color: canEdit ? kAnswerBackgroundColor : kCannotEditColor,
                 ),
-                underline: const SizedBox(),
-                focusColor: Colors.red,
-                iconSize: 40.0,
-                isExpanded: true,
-                borderRadius: BorderRadius.circular(10),
-                itemHeight: null,
-                icon: Visibility(
-                  visible: canEdit,
-                  child: const Icon(Icons.arrow_drop_down),
+                child: DropdownButton<String>(
+                  value: selectedChoice.id != '' ? selectedChoice.id : null,
+                  style: kPTextStyle.copyWith(
+                    color: Colors.black,
+                  ),
+                  underline: const SizedBox(),
+                  focusColor: Colors.red,
+                  iconSize: 40.0,
+                  isExpanded: true,
+                  borderRadius: BorderRadius.circular(10),
+                  itemHeight: null,
+                  icon: Visibility(
+                    visible: canEdit,
+                    child: const Icon(Icons.arrow_drop_down),
+                  ),
+                  items: choiceItemList,
+                  onChanged: (String? value) {
+                    context.read<UpdateAnswerStatusBloc>().add(
+                          UpdateAnswerStatusEvent.answerUpdated(
+                            questionId: questionId,
+                            answerValue: choiceList
+                                .firstWhere((choice) => choice.id == value),
+                            isSpecialAnswer: isSpecialAnswer,
+                            // asSingle: choice.asSingle,
+                          ),
+                        );
+                  },
                 ),
-                items: choiceItemList,
-                onChanged: (String? value) {
-                  context.read<UpdateAnswerStatusBloc>().add(
-                        UpdateAnswerStatusEvent.answerUpdated(
-                          questionId: questionId,
-                          answerValue: choiceList
-                              .firstWhere((choice) => choice.id == value),
-                          isSpecialAnswer: isSpecialAnswer,
-                          // asSingle: choice.asSingle,
-                        ),
-                      );
-                },
               ),
             ),
             if (selectedChoice.asNote) ...[

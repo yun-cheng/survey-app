@@ -42,14 +42,11 @@ class WarningBox extends StatelessWidget {
 
           return Visibility(
             visible: state.showWarning && !warning.isEmpty,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 10.0),
-              child: Text(
-                warning.type.value,
-                style: (isinCell ? kPTextStyle : kH4TextStyle).copyWith(
-                  color: Colors.red,
-                  fontWeight: FontWeight.w600,
-                ),
+            child: Text(
+              warning.type.value,
+              style: (isinCell ? kPTextStyle : kH4TextStyle).copyWith(
+                color: Colors.red,
+                fontWeight: FontWeight.w600,
               ),
             ),
           );

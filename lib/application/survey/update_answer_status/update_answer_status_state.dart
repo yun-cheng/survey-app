@@ -31,6 +31,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required bool leavePage,
     required bool appIsPaused,
     required int scrollToQuestionIndex,
+    required bool blockGesture,
     // H_ 同 session 不變的參考資料
     required Respondent respondent,
     required String surveyId,
@@ -76,6 +77,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         leavePage: false,
         appIsPaused: false,
         scrollToQuestionIndex: -99,
+        blockGesture: false,
         // H_ 同 session 不變的參考資料
         respondent: Respondent.empty(),
         surveyId: '',
@@ -96,10 +98,14 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         saveParameters: StateParameters.initial(),
       );
 
-  UpdateAnswerStatusState sendInProgress(AsyncTaskChannel channel) {
+  UpdateAnswerStatusState sendInProgress(
+    AsyncTaskChannel channel, {
+    bool blockGesture = false,
+  }) {
     return copyWith(
       updateState: LoadState.inProgress(),
       updateParameters: StateParameters.initial(),
+      blockGesture: blockGesture,
     ).send(channel);
   }
 
@@ -141,6 +147,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
   ) {
     return copyWith(
       eventState: LoadState.success(),
+      blockGesture: false,
     ).send(channel).saveState(localStorage);
   }
 }

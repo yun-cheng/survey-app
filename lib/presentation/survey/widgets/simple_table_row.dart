@@ -27,8 +27,6 @@ class SimpleTableRow extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('SimpleTableRow');
 
-    final isSpecialAnswer = useValueNotifier(false);
-
     final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
@@ -36,12 +34,9 @@ class SimpleTableRow extends HookWidget {
           final pAnswerStatus = p.answerStatusMap[questionId];
           final cAnswerStatus = c.answerStatusMap[questionId];
 
-          if (cAnswerStatus == null) {
-            return false;
-          }
-
           // S_ 在該題變換顯示/隱藏時才需要 rebuild
-          return pAnswerStatus?.isHidden != cAnswerStatus.isHidden;
+          return cAnswerStatus != null &&
+              pAnswerStatus?.isHidden != cAnswerStatus.isHidden;
         }
         return false;
       },
@@ -51,6 +46,9 @@ class SimpleTableRow extends HookWidget {
     final canEdit = !state.isReadOnly && !state.isRecodeModule;
     final visible =
         !(state.answerStatusMap[questionId] ?? AnswerStatus.empty()).isHidden;
+
+    final isSpecialAnswer = useValueNotifier(
+        state.answerStatusMap[questionId]?.isSpecialAnswer ?? false);
 
     return Visibility(
       visible: visible,
@@ -68,7 +66,6 @@ class SimpleTableRow extends HookWidget {
                   isinCell: true,
                 ),
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if (question.hasSpecialAnswer && canEdit) ...[
                       SpecialAnswerSwitch(

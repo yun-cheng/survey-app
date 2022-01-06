@@ -31,6 +31,7 @@ void _eventWorker(
       state = state
           .copyWith(
             restoreState: LoadState.inProgress(),
+            blockGesture: true,
           )
           .send(channel);
 
@@ -70,6 +71,7 @@ void _eventWorker(
       state = UpdateAnswerStatusState.initial()
           .copyWith(
             saveParameters: StateParameters.clear(),
+            blockGesture: true,
           )
           .send(channel);
     },
@@ -125,7 +127,7 @@ void _eventWorker(
     pageNavigatedTo: (e) {
       logger('User Event').i('UpdateAnswerStatusEvent: pageNavigatedTo');
 
-      state = state.sendInProgress(channel);
+      state = state.sendInProgress(channel, blockGesture: true);
       state = state.copyWith(
         direction: e.direction,
         page: e.page ?? state.page,
@@ -166,7 +168,7 @@ void _eventWorker(
     navigatedToQuestionId: (e) {
       logger('User Event').i('UpdateAnswerStatusEvent: navigatedToQuestionId');
 
-      state = state.sendInProgress(channel);
+      state = state.sendInProgress(channel, blockGesture: true);
 
       state = state.copyWith(
         direction: Direction.current,
@@ -216,7 +218,7 @@ void _eventWorker(
     finishedButtonPressed: (e) {
       logger('User Event').i('UpdateAnswerStatusEvent: finishedButtonPressed');
 
-      state = state.sendInProgress(channel);
+      state = state.sendInProgress(channel, blockGesture: true);
       final warningIsEmpty = state.warning.isEmpty;
 
       state = state

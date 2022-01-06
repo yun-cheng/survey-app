@@ -34,7 +34,7 @@ class RecodeBox extends HookWidget {
 
     return Container(
       width: kAnswerElementWidth,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.only(right: 10),
       child: TextField(
         // key: textFieldKey,
         controller: controller,
