@@ -11,27 +11,31 @@ UpdateAnswerStatusState answerUpdated(
   final answerMap = {
     ...state.isRecodeModule ? state.recodeAnswerMap : state.answerMap
   };
-  final oldAnswer = answerMap[e.questionId] ?? Answer.empty();
+  
   late final Answer newAnswer;
-
-  if (e.toggleSpecialAnswer) {
-    newAnswer = Answer.empty();
-  } else if (e.isNote) {
-    newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
-  } else if ((!question.type.isChoice & !e.isSpecialAnswer) || e.isRecode) {
-    newAnswer = oldAnswer.setString(e.answerValue);
-  } else if ((e.answerValue as Choice).asSingle || !e.toggle) {
-    newAnswer = oldAnswer.setChoice(
-      choice: e.answerValue.simple(),
-      asNote: e.answerValue.asNote,
-    );
+  if (e.answer != null) {
+    newAnswer = e.answer!;
   } else {
-    newAnswer = oldAnswer.toggleChoice(
-      choice: e.answerValue.simple(),
-      asNote: e.answerValue.asNote,
-    );
-  }
+    final oldAnswer = answerMap[e.questionId] ?? Answer.empty();
 
+    if (e.toggleSpecialAnswer) {
+      newAnswer = Answer.empty();
+    } else if (e.isNote) {
+      newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);
+    } else if ((!question.type.isChoice & !e.isSpecialAnswer) || e.isRecode) {
+      newAnswer = oldAnswer.setString(e.answerValue);
+    } else if ((e.answerValue as Choice).asSingle || !e.toggle) {
+      newAnswer = oldAnswer.setChoice(
+        choice: e.answerValue.simple(),
+        asNote: e.answerValue.asNote,
+      );
+    } else {
+      newAnswer = oldAnswer.toggleChoice(
+        choice: e.answerValue.simple(),
+        asNote: e.answerValue.asNote,
+      );
+    }
+  }
   answerMap[e.questionId] = newAnswer;
 
   return state.copyWith(

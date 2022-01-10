@@ -5,6 +5,7 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:supercharged/supercharged.dart';
 
+import '../../../application/survey/is_special_answer_cubit.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
@@ -90,11 +91,16 @@ class SimpleTableBox extends HookWidget {
         child: Column(
           children: tableQuestionList
               .map(
-                (question) => SimpleTableRow(
-                  // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-                  key: Key(UniqueId.v1().value),
-                  questionId: question.id,
-                  scrollController: getController(question.id),
+                (question) => BlocProvider(
+                  create: (context) => IsSpecialAnswerCubit(
+                    state.answerStatusMap[question.id]?.isSpecialAnswer,
+                  ),
+                  child: SimpleTableRow(
+                    // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
+                    key: Key(UniqueId.v1().value),
+                    questionId: question.id,
+                    scrollController: getController(question.id),
+                  ),
                 ),
               )
               .toList(),

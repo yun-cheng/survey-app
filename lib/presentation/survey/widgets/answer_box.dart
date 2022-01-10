@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/survey/answer_cubit.dart';
+import '../../../application/survey/is_special_answer_cubit.dart';
+import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/survey/value_objects.dart';
 import 'choices_box.dart';
@@ -11,10 +14,9 @@ import 'phone_box.dart';
 import 'simple_table_box.dart';
 import 'text_box.dart';
 
-class AnswerBox extends HookWidget {
+class AnswerBox extends StatelessWidget {
   final String questionId;
   final QuestionType questionType;
-  final ValueNotifier<bool> isSpecialAnswer;
   final bool isinCell;
   final String tableId;
   final ScrollController? scrollController;
@@ -23,7 +25,6 @@ class AnswerBox extends HookWidget {
     Key? key,
     required this.questionId,
     required this.questionType,
-    required this.isSpecialAnswer,
     this.isinCell = false,
     this.tableId = '',
     this.scrollController,
@@ -33,16 +34,7 @@ class AnswerBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('AnswerBox');
 
-    final toggleSpecialAnswer = useState(isSpecialAnswer.value);
-
-    useEffect(() {
-      void listener() async {
-        toggleSpecialAnswer.value = isSpecialAnswer.value;
-      }
-
-      isSpecialAnswer.addListener(listener);
-      return () => isSpecialAnswer.removeListener(listener);
-    }, []);
+    final isSpecialAnswer = context.watch<IsSpecialAnswerCubit>().state;
 
     if (questionType.isValid) {
       if (questionType == QuestionType.simpleTable()) {
@@ -60,7 +52,7 @@ class AnswerBox extends HookWidget {
           children: [
             // H_ special answer
             Visibility(
-              visible: isSpecialAnswer.value,
+              visible: isSpecialAnswer,
               maintainState: true,
               child: PureAnswerBox(
                 questionId: questionId,
@@ -71,7 +63,7 @@ class AnswerBox extends HookWidget {
             ),
             // H_ normal answer
             Visibility(
-              visible: !isSpecialAnswer.value,
+              visible: !isSpecialAnswer,
               maintainState: true,
               child: PureAnswerBox(
                 questionId: questionId,
@@ -113,11 +105,16 @@ class PureAnswerBox extends StatelessWidget {
         isSpecialAnswer: isSpecialAnswer,
       );
     } else if (questionType.isNormalChoice || isSpecialAnswer) {
-      return ChoicesBox(
-        questionId: questionId,
-        questionType: questionType,
-        isSpecialAnswer: isSpecialAnswer,
-        isinCell: isinCell,
+      return BlocProvider(
+        create: (context) => AnswerCubit(
+          context.read<UpdateAnswerStatusBloc>().state.answerMap[questionId],
+        ),
+        child: ChoicesBox(
+          questionId: questionId,
+          questionType: questionType,
+          isSpecialAnswer: isSpecialAnswer,
+          isinCell: isinCell,
+        ),
       );
     } else if ([QuestionType.number(), QuestionType.text()]
         .contains(questionType)) {

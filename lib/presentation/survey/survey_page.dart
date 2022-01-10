@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
+import '../../application/survey/block_gesture_cubit.dart';
 import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/logger.dart';
@@ -24,7 +25,6 @@ class SurveyPage extends HookWidget {
     logger('Build').i('SurveyPage');
 
     final showDialog = useValueNotifier(true);
-    final blockGesture = useValueNotifier(false);
 
     useEffect(() {
       if (showDialog.value) {
@@ -74,18 +74,21 @@ class SurveyPage extends HookWidget {
             ],
           ),
           body: SafeArea(
-            child: Stack(
-              children: [
-                Column(
-                  children: [
-                    Expanded(
-                      child: SurveyBody(scrollController: scrollController),
-                    ),
-                    PageControlBar(blockGesture: blockGesture),
-                  ],
-                ),
-                GestureBlockerBox(blockGesture: blockGesture),
-              ],
+            child: BlocProvider(
+              create: (context) => BlockGestureCubit(),
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Expanded(
+                        child: SurveyBody(scrollController: scrollController),
+                      ),
+                      const PageControlBar(),
+                    ],
+                  ),
+                  const GestureBlockerBox(),
+                ],
+              ),
             ),
           ),
         ),

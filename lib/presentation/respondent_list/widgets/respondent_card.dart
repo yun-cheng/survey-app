@@ -84,9 +84,7 @@ class RespondentCard extends StatelessWidget {
           }
           return Visibility(
             visible: enabled,
-            maintainAnimation: true,
             maintainState: true,
-            maintainSize: false,
             child: TextButton(
               style: buttonStyle,
               onPressed: () {

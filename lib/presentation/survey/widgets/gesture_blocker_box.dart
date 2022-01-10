@@ -1,57 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/survey/block_gesture_cubit.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
-import '../../../infrastructure/core/use_bloc.dart';
 
-class GestureBlockerBox extends HookWidget {
-  final ValueNotifier<bool> blockGesture;
-
+class GestureBlockerBox extends StatelessWidget {
   const GestureBlockerBox({
     Key? key,
-    required this.blockGesture,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    logger('Build').e('GestureBlockerBox');
-
-    final isBlocked = useState(false);
-
-    useEffect(() {
-      void listener() async {
-        if (blockGesture.value) {
-          isBlocked.value = true;
+    return BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+      listenWhen: (p, c) => p.blockGesture != c.blockGesture,
+      listener: (context, state) async {
+        if (state.blockGesture) {
+          context.read<BlockGestureCubit>().block();
         } else {
           await Future.delayed(const Duration(milliseconds: 100));
-          isBlocked.value = false;
+          context.read<BlockGestureCubit>().unblock();
         }
-      }
-
-      blockGesture.addListener(listener);
-      return () => blockGesture.removeListener(listener);
-    }, []);
-
-    final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-      buildWhen: (p, c) {
-        if (p.blockGesture != c.blockGesture) {
-          blockGesture.value = c.blockGesture;
-        }
-        return false;
       },
-    );
+      child: BlocBuilder<BlockGestureCubit, bool>(
+        builder: (context, blockGesture) {
+          logger('Build').i('GestureBlockerBox');
 
-    blockGesture.value = state.blockGesture;
-
-    return Visibility(
-      visible: isBlocked.value,
-      child: AbsorbPointer(
-        absorbing: true,
-        child: Container(
-          color: Colors.black.withOpacity(0.4),
-          constraints: const BoxConstraints.expand(),
-        ),
+          return Visibility(
+            visible: blockGesture,
+            child: AbsorbPointer(
+              absorbing: true,
+              child: Container(
+                color: Colors.black.withOpacity(0.4),
+                constraints: const BoxConstraints.expand(),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

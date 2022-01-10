@@ -26,6 +26,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   factory UpdateAnswerStatusEvent.answerUpdated({
     required String questionId,
     required dynamic answerValue,
+    Answer? answer,
     @Default(false) bool isSpecialAnswer,
     @Default(false) bool isNote,
     @Default(false) bool toggle,

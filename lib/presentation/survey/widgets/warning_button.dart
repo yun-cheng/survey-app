@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../application/survey/block_gesture_cubit.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../core/style/main.dart';
 
 class WarningButton extends StatelessWidget {
-  final bool isLastPage;
-
   const WarningButton({
     Key? key,
-    required this.isLastPage,
   }) : super(key: key);
 
   @override
@@ -24,14 +22,12 @@ class WarningButton extends StatelessWidget {
       builder: (context, state) {
         logger('Build').i('WarningButton');
 
-        final showWarning = state.showWarning;
         final warning = state.warning;
-        final warningIsEmpty = warning.isEmpty;
-        final hasWarning = showWarning && !warningIsEmpty;
+        final hasWarning = state.showWarning && !warning.isEmpty;
 
         return Visibility(
           visible: hasWarning,
-          maintainSize: !isLastPage,
+          maintainSize: true,
           maintainAnimation: true,
           maintainState: true,
           child: SizedBox(
@@ -40,6 +36,7 @@ class WarningButton extends StatelessWidget {
             child: TextButton(
               style: kWarningButtonStyle,
               onPressed: () {
+                context.read<BlockGestureCubit>().block();
                 context.read<UpdateAnswerStatusBloc>().add(
                       UpdateAnswerStatusEvent.navigatedToQuestionId(
                         page: warning.pageNumber,

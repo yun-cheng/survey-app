@@ -76,7 +76,6 @@ class TextBox extends HookWidget {
                 FilteringTextInputFormatter.allow(RegExp(r'^-?\d*\.?\d*$')),
               ]
             : null,
-        // autocorrect: false,
         onChanged: (value) {
           context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(

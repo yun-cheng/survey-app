@@ -55,6 +55,7 @@ class _$UpdateAnswerStatusEventTearOff {
   _AnswerUpdated answerUpdated(
       {required String questionId,
       required dynamic answerValue,
+      Answer? answer,
       bool isSpecialAnswer = false,
       bool isNote = false,
       bool toggle = false,
@@ -64,6 +65,7 @@ class _$UpdateAnswerStatusEventTearOff {
     return _AnswerUpdated(
       questionId: questionId,
       answerValue: answerValue,
+      answer: answer,
       isSpecialAnswer: isSpecialAnswer,
       isNote: isNote,
       toggle: toggle,
@@ -165,6 +167,7 @@ mixin _$UpdateAnswerStatusEvent {
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -210,6 +213,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -253,6 +257,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -648,6 +653,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -709,6 +715,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -768,6 +775,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -993,6 +1001,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1041,6 +1050,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1087,6 +1097,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1209,12 +1220,15 @@ abstract class _$AnswerUpdatedCopyWith<$Res> {
   $Res call(
       {String questionId,
       dynamic answerValue,
+      Answer? answer,
       bool isSpecialAnswer,
       bool isNote,
       bool toggle,
       String? noteOf,
       bool isRecode,
       bool toggleSpecialAnswer});
+
+  $AnswerCopyWith<$Res>? get answer;
 }
 
 /// @nodoc
@@ -1232,6 +1246,7 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
   $Res call({
     Object? questionId = freezed,
     Object? answerValue = freezed,
+    Object? answer = freezed,
     Object? isSpecialAnswer = freezed,
     Object? isNote = freezed,
     Object? toggle = freezed,
@@ -1248,6 +1263,10 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
           ? _value.answerValue
           : answerValue // ignore: cast_nullable_to_non_nullable
               as dynamic,
+      answer: answer == freezed
+          ? _value.answer
+          : answer // ignore: cast_nullable_to_non_nullable
+              as Answer?,
       isSpecialAnswer: isSpecialAnswer == freezed
           ? _value.isSpecialAnswer
           : isSpecialAnswer // ignore: cast_nullable_to_non_nullable
@@ -1274,6 +1293,17 @@ class __$AnswerUpdatedCopyWithImpl<$Res>
               as bool,
     ));
   }
+
+  @override
+  $AnswerCopyWith<$Res>? get answer {
+    if (_value.answer == null) {
+      return null;
+    }
+
+    return $AnswerCopyWith<$Res>(_value.answer!, (value) {
+      return _then(_value.copyWith(answer: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -1282,6 +1312,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   _$_AnswerUpdated(
       {required this.questionId,
       required this.answerValue,
+      this.answer,
       this.isSpecialAnswer = false,
       this.isNote = false,
       this.toggle = false,
@@ -1293,6 +1324,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
   final String questionId;
   @override
   final dynamic answerValue;
+  @override
+  final Answer? answer;
   @JsonKey()
   @override
   final bool isSpecialAnswer;
@@ -1313,7 +1346,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UpdateAnswerStatusEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, toggle: $toggle, noteOf: $noteOf, isRecode: $isRecode, toggleSpecialAnswer: $toggleSpecialAnswer)';
+    return 'UpdateAnswerStatusEvent.answerUpdated(questionId: $questionId, answerValue: $answerValue, answer: $answer, isSpecialAnswer: $isSpecialAnswer, isNote: $isNote, toggle: $toggle, noteOf: $noteOf, isRecode: $isRecode, toggleSpecialAnswer: $toggleSpecialAnswer)';
   }
 
   @override
@@ -1324,6 +1357,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
           DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.answerUpdated'))
       ..add(DiagnosticsProperty('questionId', questionId))
       ..add(DiagnosticsProperty('answerValue', answerValue))
+      ..add(DiagnosticsProperty('answer', answer))
       ..add(DiagnosticsProperty('isSpecialAnswer', isSpecialAnswer))
       ..add(DiagnosticsProperty('isNote', isNote))
       ..add(DiagnosticsProperty('toggle', toggle))
@@ -1341,6 +1375,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
                 .equals(other.questionId, questionId) &&
             const DeepCollectionEquality()
                 .equals(other.answerValue, answerValue) &&
+            const DeepCollectionEquality().equals(other.answer, answer) &&
             const DeepCollectionEquality()
                 .equals(other.isSpecialAnswer, isSpecialAnswer) &&
             const DeepCollectionEquality().equals(other.isNote, isNote) &&
@@ -1356,6 +1391,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
       runtimeType,
       const DeepCollectionEquality().hash(questionId),
       const DeepCollectionEquality().hash(answerValue),
+      const DeepCollectionEquality().hash(answer),
       const DeepCollectionEquality().hash(isSpecialAnswer),
       const DeepCollectionEquality().hash(isNote),
       const DeepCollectionEquality().hash(toggle),
@@ -1390,6 +1426,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1413,8 +1450,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
         referenceListUpdated,
     required TResult Function() initialized,
   }) {
-    return answerUpdated(questionId, answerValue, isSpecialAnswer, isNote,
-        toggle, noteOf, isRecode, toggleSpecialAnswer);
+    return answerUpdated(questionId, answerValue, answer, isSpecialAnswer,
+        isNote, toggle, noteOf, isRecode, toggleSpecialAnswer);
   }
 
   @override
@@ -1439,6 +1476,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1460,8 +1498,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(List<Reference> referenceList)? referenceListUpdated,
     TResult Function()? initialized,
   }) {
-    return answerUpdated?.call(questionId, answerValue, isSpecialAnswer, isNote,
-        toggle, noteOf, isRecode, toggleSpecialAnswer);
+    return answerUpdated?.call(questionId, answerValue, answer, isSpecialAnswer,
+        isNote, toggle, noteOf, isRecode, toggleSpecialAnswer);
   }
 
   @override
@@ -1486,6 +1524,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1509,8 +1548,8 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     required TResult orElse(),
   }) {
     if (answerUpdated != null) {
-      return answerUpdated(questionId, answerValue, isSpecialAnswer, isNote,
-          toggle, noteOf, isRecode, toggleSpecialAnswer);
+      return answerUpdated(questionId, answerValue, answer, isSpecialAnswer,
+          isNote, toggle, noteOf, isRecode, toggleSpecialAnswer);
     }
     return orElse();
   }
@@ -1601,6 +1640,7 @@ abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
   factory _AnswerUpdated(
       {required String questionId,
       required dynamic answerValue,
+      Answer? answer,
       bool isSpecialAnswer,
       bool isNote,
       bool toggle,
@@ -1610,6 +1650,7 @@ abstract class _AnswerUpdated implements UpdateAnswerStatusEvent {
 
   String get questionId;
   dynamic get answerValue;
+  Answer? get answer;
   bool get isSpecialAnswer;
   bool get isNote;
   bool get toggle;
@@ -1728,6 +1769,7 @@ class _$_PageNavigatedTo
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1776,6 +1818,7 @@ class _$_PageNavigatedTo
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -1822,6 +1865,7 @@ class _$_PageNavigatedTo
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2051,6 +2095,7 @@ class _$_ScrolledToQuestionId
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2099,6 +2144,7 @@ class _$_ScrolledToQuestionId
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2145,6 +2191,7 @@ class _$_ScrolledToQuestionId
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2339,6 +2386,7 @@ class _$_ContentQuestionMapUpdated
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2387,6 +2435,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2433,6 +2482,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2617,6 +2667,7 @@ class _$_FinishedButtonPressed
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2665,6 +2716,7 @@ class _$_FinishedButtonPressed
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2711,6 +2763,7 @@ class _$_FinishedButtonPressed
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2893,6 +2946,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2941,6 +2995,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -2987,6 +3042,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3171,6 +3227,7 @@ class _$_LeaveButtonPressed
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3219,6 +3276,7 @@ class _$_LeaveButtonPressed
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3265,6 +3323,7 @@ class _$_LeaveButtonPressed
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3449,6 +3508,7 @@ class _$_LeaveButtonHidden
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3497,6 +3557,7 @@ class _$_LeaveButtonHidden
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3543,6 +3604,7 @@ class _$_LeaveButtonHidden
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3732,6 +3794,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3780,6 +3843,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -3826,6 +3890,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4038,6 +4103,7 @@ class _$_AppLifeCycleChanged
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4086,6 +4152,7 @@ class _$_AppLifeCycleChanged
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4132,6 +4199,7 @@ class _$_AppLifeCycleChanged
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4353,6 +4421,7 @@ class _$_RespondentResponseListUpdated
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4401,6 +4470,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4447,6 +4517,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4666,6 +4737,7 @@ class _$_ReferenceListUpdated
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4714,6 +4786,7 @@ class _$_ReferenceListUpdated
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4760,6 +4833,7 @@ class _$_ReferenceListUpdated
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4947,6 +5021,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     required TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -4995,6 +5070,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,
@@ -5041,6 +5117,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(
             String questionId,
             dynamic answerValue,
+            Answer? answer,
             bool isSpecialAnswer,
             bool isNote,
             bool toggle,

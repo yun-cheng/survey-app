@@ -43,9 +43,7 @@ class PhoneBox extends StatelessWidget {
               enabled: !isReadOnly && !isRecodeModule,
               decoration: const InputDecoration(
               ),
-              maxLines: null,
               keyboardType: TextInputType.phone,
-              // autocorrect: false,
               onChanged: (value) {
                 context.read<UpdateAnswerStatusBloc>().add(
                       UpdateAnswerStatusEvent.answerUpdated(

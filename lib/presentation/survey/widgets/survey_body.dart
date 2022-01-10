@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:supercharged_dart/supercharged_dart.dart';
 
+import '../../../application/survey/is_special_answer_cubit.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
@@ -49,6 +50,8 @@ class SurveyBody extends StatelessWidget {
               .toList();
 
           return CustomScrollView(
+            // NOTE 避免換頁時部分 child widget 沒有 rebuild
+            key: ValueKey(state.page),
             controller: scrollController,
             slivers: <Widget>[
               // NOTE 必須要加在這邊，而不是 SurveyPage，才不會在頂端佔據一段空白
@@ -59,11 +62,15 @@ class SurveyBody extends StatelessWidget {
                   .asMap()
                   .entries
                   .map(
-                    (e) => QaCard(
-                      key: Key(e.value),
-                      questionId: e.value,
-                      questionIndex: e.key,
-                      scrollController: scrollController,
+                    (e) => BlocProvider(
+                      create: (context) => IsSpecialAnswerCubit(
+                        state.answerStatusMap[e.value]?.isSpecialAnswer,
+                      ),
+                      child: QaCard(
+                        questionId: e.value,
+                        questionIndex: e.key,
+                        scrollController: scrollController,
+                      ),
                     ),
                   )
                   .toList(),

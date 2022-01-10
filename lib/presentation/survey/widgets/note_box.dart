@@ -25,14 +25,12 @@ class NoteBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('NoteBox');
 
-    // final textFieldKey = useMemoized(() => GlobalKey());
     final controller = useTextEditingController(text: note);
 
     return Container(
       width: kAnswerElementWidth,
       padding: const EdgeInsets.only(right: 10),
       child: TextField(
-        // key: textFieldKey,
         controller: controller,
         enabled: canEdit,
         style: kPTextStyle,
@@ -58,7 +56,6 @@ class NoteBox extends HookWidget {
                 ),
               );
         },
-        // validator: (_) {},
       ),
     );
   }

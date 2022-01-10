@@ -20,8 +20,6 @@ class RecodeBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('RecodeBox');
 
-    // final textFieldKey = useMemoized(() => GlobalKey());
-
     final canEdit = !context.read<UpdateAnswerStatusBloc>().state.isReadOnly;
     final note = (context
                     .read<UpdateAnswerStatusBloc>()
@@ -36,7 +34,6 @@ class RecodeBox extends HookWidget {
       width: kAnswerElementWidth,
       padding: const EdgeInsets.only(right: 10),
       child: TextField(
-        // key: textFieldKey,
         controller: controller,
         enabled: canEdit,
         style: kPTextStyle,
@@ -50,7 +47,6 @@ class RecodeBox extends HookWidget {
             ),
           ),
         ),
-        // maxLines: null,
         keyboardType: TextInputType.number,
         inputFormatters: <TextInputFormatter>[
           FilteringTextInputFormatter.digitsOnly,
@@ -64,7 +60,6 @@ class RecodeBox extends HookWidget {
                 ),
               );
         },
-        // validator: (_) {},
       ),
     );
   }

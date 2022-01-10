@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 
+import '../../../application/survey/block_gesture_cubit.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
@@ -12,11 +13,8 @@ import 'page_control_button.dart';
 import 'warning_button.dart';
 
 class PageControlBar extends HookWidget {
-  final ValueNotifier<bool> blockGesture;
-
   const PageControlBar({
     Key? key,
-    required this.blockGesture,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -54,76 +52,25 @@ class PageControlBar extends HookWidget {
       logger('Build').i('PageControlBar');
 
       final loadSuccess = state.updateState == LoadState.success();
-      final currentPage = state.page;
       final isLastPage = state.isLastPage;
-      final isReadOnly = state.isReadOnly;
-      final showWarning = state.showWarning;
-      final warningIsEmpty = state.warning.isEmpty;
-      final hasWarning = showWarning && !warningIsEmpty;
-      final canFinish = isLastPage && !hasWarning && !isReadOnly;
+      final hasWarning = state.showWarning && !state.warning.isEmpty;
+      final canFinish = isLastPage && !hasWarning && !state.isReadOnly;
 
-      // H_ 往前按鈕
-      final previousButton = Visibility(
-        visible: currentPage != 0,
-        maintainSize: true,
-        maintainAnimation: true,
-        maintainState: true,
-        child: PageControlButton(
-          Icons.arrow_back_ios_sharp,
-          onPressed: () {
-            blockGesture.value = true;
-            context.read<UpdateAnswerStatusBloc>().add(
-                  const UpdateAnswerStatusEvent.pageNavigatedTo(
-                    direction: Direction.previous,
-                  ),
-                );
-          },
-        ),
-      );
+      void onPressed(Direction? direction) {
+        context.read<BlockGestureCubit>().block();
 
-      // H_ 往後按鈕
-      final nextButton = Visibility(
-        visible: !isLastPage,
-        maintainAnimation: true,
-        maintainState: true,
-        child: PageControlButton(
-          Icons.arrow_forward_ios_sharp,
-          onPressed: () {
-            blockGesture.value = true;
-            context.read<UpdateAnswerStatusBloc>().add(
-                  const UpdateAnswerStatusEvent.pageNavigatedTo(
-                    direction: Direction.next,
-                  ),
-                );
-          },
-        ),
-      );
-
-      // H_ 完成按鈕
-      final finishButton = Visibility(
-        visible: canFinish && loadSuccess,
-        maintainAnimation: true,
-        maintainState: true,
-        child: SizedBox(
-          height: kPageControlButtonHeight,
-          width: 140.0,
-          child: TextButton(
-            style: kWarningButtonStyle,
-            onPressed: () {
-              blockGesture.value = true;
-              context.read<UpdateAnswerStatusBloc>().add(
-                    const UpdateAnswerStatusEvent.finishedButtonPressed(),
-                  );
-            },
-            child: Text(
-              '完成問卷',
-              style: kH3TextStyle.copyWith(
-                color: kCardTextColor,
-              ),
-            ),
-          ),
-        ),
-      );
+        if (direction != null) {
+          context.read<UpdateAnswerStatusBloc>().add(
+                UpdateAnswerStatusEvent.pageNavigatedTo(
+                  direction: direction,
+                ),
+              );
+        } else {
+          context.read<UpdateAnswerStatusBloc>().add(
+                const UpdateAnswerStatusEvent.finishedButtonPressed(),
+              );
+        }
+      }
 
       return Visibility(
         visible: !isKeyboardVisible.value && loadSuccess,
@@ -137,20 +84,50 @@ class PageControlBar extends HookWidget {
             constraints: BoxConstraints.expand(width: kCardMaxWith.maxWidth),
             child: Stack(
               children: <Widget>[
+                // H_ 往前按鈕
                 Align(
                   alignment: Alignment.centerLeft,
-                  child: previousButton,
+                  child: PageControlButton(
+                    Icons.arrow_back_ios_sharp,
+                    visible: state.page != 0,
+                    maintainSize: true,
+                    onPressed: () => onPressed(Direction.previous),
+                  ),
                 ),
-                Align(
-                  child: WarningButton(isLastPage: isLastPage),
+                // H_ 錯誤提醒按鈕
+                const Align(
+                  child: WarningButton(),
                 ),
+                // H_ 往後按鈕
                 Align(
                   alignment: Alignment.centerRight,
-                  child: finishButton,
+                  child: PageControlButton(
+                    Icons.arrow_forward_ios_sharp,
+                    visible: !isLastPage,
+                    onPressed: () => onPressed(Direction.next),
+                  ),
                 ),
+                // H_ 完成按鈕
                 Align(
                   alignment: Alignment.centerRight,
-                  child: nextButton,
+                  child: Visibility(
+                    visible: canFinish && loadSuccess,
+                    maintainState: true,
+                    child: SizedBox(
+                      height: kPageControlButtonHeight,
+                      width: 140.0,
+                      child: TextButton(
+                        style: kWarningButtonStyle,
+                        onPressed: () => onPressed(null),
+                        child: Text(
+                          '完成問卷',
+                          style: kH3TextStyle.copyWith(
+                            color: kCardTextColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

@@ -5,6 +5,7 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 import 'package:supercharged/supercharged.dart';
 
+import '../../../application/survey/is_special_answer_cubit.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
@@ -29,13 +30,11 @@ class ComplexTableBox extends HookWidget {
     logger('Build').i('TableBox');
 
     final _context = useContext();
+    final state = _context.read<UpdateAnswerStatusBloc>().state;
 
     // S_ 篩出是這個 tableId 的 questions
-    final pageQIdSet = context.read<UpdateAnswerStatusBloc>().state.pageQIdSet;
-    final questionMap =
-        context.read<UpdateAnswerStatusBloc>().state.questionMap;
-    final tableQuestionList = pageQIdSet
-        .map((questionId) => questionMap[questionId]!)
+    final tableQuestionList = state.pageQIdSet
+        .map((questionId) => state.questionMap[questionId]!)
         .filter(
             (question) => question.tableId == tableId && !question.type.isTable)
         .toList();
@@ -74,9 +73,14 @@ class ComplexTableBox extends HookWidget {
               .asMap()
               .entries
               .map(
-                (e) => ComplexCellBox(
-                  questionId: e.value.id,
-                  colQuestionId: titleQuestionList[e.key].id,
+                (e) => BlocProvider(
+                  create: (context) => IsSpecialAnswerCubit(
+                    state.answerStatusMap[e.value.id]?.isSpecialAnswer,
+                  ),
+                  child: ComplexCellBox(
+                    questionId: e.value.id,
+                    colQuestionId: titleQuestionList[e.key].id,
+                  ),
                 ),
               )
               .toList();

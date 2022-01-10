@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
@@ -9,7 +8,7 @@ import '../../../domain/survey/value_objects.dart';
 import '../../../infrastructure/core/extensions.dart';
 import '../../core/style/main.dart';
 
-class DateTimeBox extends HookWidget {
+class DateTimeBox extends StatelessWidget {
   final String questionId;
   final QuestionType questionType;
 
