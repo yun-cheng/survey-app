@@ -151,6 +151,25 @@ class ModuleType with _$ModuleType {
   bool get needUpdateTab => value != 'visitReport';
   bool get ableToReAnswer =>
       ['samplingWithinHousehold', 'housingType'].contains(value);
+
+  String toText() {
+    switch (value) {
+      case 'samplingWithinHousehold':
+        return '戶中抽樣';
+      case 'main':
+        return '開始訪問';
+      case 'visitReport':
+        return '查址';
+      case 'housingType':
+        return '住屋';
+      case 'interviewReport':
+        return '訪問紀錄';
+      case 'recode':
+        return '預過錄';
+      default:
+        return '';
+    }
+  }
 }
 
 @freezed

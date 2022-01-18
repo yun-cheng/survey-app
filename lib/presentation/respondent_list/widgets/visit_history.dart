@@ -45,22 +45,24 @@ class VisitHistory extends StatelessWidget {
             return TextButton(
               style: kVisitHistoryStyle,
               onPressed: () {
-                context.read<ResponseBloc>().add(
-                      ResponseEvent.responseStarted(
-                        respondent: respondent,
-                        moduleType: ModuleType.visitReport(),
-                        withResponseId: true,
-                        responseId: record.responseId,
-                      ),
-                    );
-                // TODO 是否要改？？
-                context.read<NavigationBloc>().add(
-                      NavigationEvent.pageChanged(
-                        page: NavigationPage.survey(),
-                        respondentId: respondent.id,
-                      ),
-                    );
-                context.router.push(const SurveyRoute());
+                if (record.status != '完訪 100') {
+                  context.read<ResponseBloc>().add(
+                        ResponseEvent.responseStarted(
+                          respondent: respondent,
+                          moduleType: ModuleType.visitReport(),
+                          withResponseId: true,
+                          responseId: record.responseId,
+                        ),
+                      );
+                  // TODO 是否要改？？
+                  context.read<NavigationBloc>().add(
+                        NavigationEvent.pageChanged(
+                          page: NavigationPage.survey(),
+                          respondentId: respondent.id,
+                        ),
+                      );
+                  context.router.push(const SurveyRoute());
+                }
               },
               child: Align(
                 alignment: Alignment.centerLeft,

@@ -29,7 +29,7 @@ RespondentState responseInfoMapUpdated(
 RespondentState visitReportUpdated(RespondentState state) {
   logger('Compute').i('visitReportUpdated');
 
-  final visitRecordsMap = state.responseInfoMap.values
+  final visitReportList = state.responseInfoMap.values
       .where(
         (r) =>
             r.responseStatus == ResponseStatus.finished() &&
@@ -42,59 +42,93 @@ RespondentState visitReportUpdated(RespondentState state) {
       .mapValues((e) => e.firstOrNull)
       .values
       .map(
-        (r) {
-          late final DateTime date;
-          late final String timeSession;
+    (r) {
+      late final DateTime date;
+      late final String timeSession;
 
-          final dateStr = (r!.answerMap['date'] ?? Answer.empty()).value;
+      final dateStr = (r!.answerMap['date'] ?? Answer.empty()).value;
 
-          // S_ 紙本
-          if (dateStr != null) {
-            date = DateTimeX.fromDateTimeString(dateStr)!;
-            timeSession =
-                (r.answerMap['time'] ?? Answer.empty()).choiceValue?.id ?? '';
-          } else {
-            date = r.createdTimeStamp.value;
-            if (date.hour < 12) {
-              timeSession = '1';
-            } else if (date.hour < 18) {
-              timeSession = '2';
-            } else {
-              timeSession = '3';
-            }
-          }
+      // S_ 紙本
+      if (dateStr != null) {
+        date = DateTimeX.fromDateTimeString(dateStr)!;
+        timeSession =
+            (r.answerMap['time'] ?? Answer.empty()).choiceValue?.id ?? '';
+      } else {
+        date = r.createdTimeStamp.value;
+        if (date.hour < 12) {
+          timeSession = '1';
+        } else if (date.hour < 18) {
+          timeSession = '2';
+        } else {
+          timeSession = '3';
+        }
+      }
 
-          // S_ 要取得所選選項之分組
-          final statusChoiceList = state
-              .survey
-              .module[ModuleType.visitReport()]!
-              .questionMap['status']
-              ?.choiceList;
+      // S_ 要取得所選選項之分組
+      final statusChoiceList = state.survey.module[ModuleType.visitReport()]!
+          .questionMap['status']?.choiceList;
 
-          final statusChoiceId =
-              (r.answerMap['status'] ?? Answer.empty()).choiceValue?.id;
+      final statusChoiceId =
+          (r.answerMap['status'] ?? Answer.empty()).choiceValue?.id;
 
-          final statusChoice =
-              statusChoiceList?.firstWhere((c) => c.id == statusChoiceId) ??
-                  Choice.empty();
+      final statusChoice =
+          statusChoiceList?.firstWhere((c) => c.id == statusChoiceId) ??
+              Choice.empty();
 
-          final status = '${statusChoice.group} ${statusChoice.id}';
+      final status = '${statusChoice.group} ${statusChoice.id}';
 
-          final note = (r.answerMap['note'] ?? Answer.empty()).stringBody;
+      final note = (r.answerMap['note'] ?? Answer.empty()).stringBody;
 
-          return VisitRecord(
-            respondentId: r.respondentId,
-            responseId: r.responseId,
-            visitTime: VisitTime(
-              date: date,
-              timeSession: timeSession,
-            ),
-            status: status,
-            description: '$status $note',
-          );
-        },
+      return VisitRecord(
+        respondentId: r.respondentId,
+        responseId: r.responseId,
+        visitTime: VisitTime(
+          date: date,
+          timeSession: timeSession,
+        ),
+        status: status,
+        description: '$status $note',
+      );
+    },
+  );
+
+  final finishedMainList = state.responseInfoMap.values
+      .where(
+        (r) =>
+            r.responseStatus == ResponseStatus.finished() &&
+            r.surveyId == state.survey.id &&
+            r.moduleType == ModuleType.main(),
       )
       .toList()
+      .sortedByDescendingX((r) => r.lastChangedTimeStamp.toInt())
+      .groupListsBy((r) => r.respondentId)
+      .mapValues((e) => e.firstOrNull)
+      .values
+      .map((r) {
+    late final String timeSession;
+
+    final date = r!.sessionEndTimeStamp.value;
+    if (date.hour < 12) {
+      timeSession = '1';
+    } else if (date.hour < 18) {
+      timeSession = '2';
+    } else {
+      timeSession = '3';
+    }
+
+    return VisitRecord(
+      respondentId: r.respondentId,
+      responseId: r.responseId,
+      visitTime: VisitTime(
+        date: date,
+        timeSession: timeSession,
+      ),
+      status: '完訪 100',
+      description: '完訪 100',
+    );
+  });
+
+  final visitRecordsMap = [...visitReportList, ...finishedMainList]
       .sortedByDescendingX((v) => v.visitTime.toInt())
       .groupListsBy((r) => r.respondentId);
 

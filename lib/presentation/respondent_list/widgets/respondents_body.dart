@@ -9,7 +9,7 @@ import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../core/widgets/automatic_keep_alive_hook.dart';
-import 'respondent_card.dart';
+import 'respondent_item.dart';
 
 class RespondentsBody extends HookWidget {
   final TabType tabType;
@@ -43,12 +43,13 @@ class RespondentsBody extends HookWidget {
     // });
 
     return BlocBuilder<RespondentBloc, RespondentState>(
-      buildWhen: (p, c) => ((p.eventState != c.eventState &&
+      buildWhen: (p, c) =>
+          (p.eventState != c.eventState &&
               c.eventState == LoadState.success()) &&
           (!const DeepCollectionEquality().equals(
             p.tabRespondentMap[tabType],
             c.tabRespondentMap[tabType],
-          ))),
+          )),
       builder: (context, state) {
         logger('Build').i('RespondentsBody: list');
 
@@ -66,7 +67,7 @@ class RespondentsBody extends HookWidget {
                 key: ValueKey(index),
                 controller: scrollController,
                 index: index,
-                child: RespondentCard(
+                child: RespondentItem(
                   tabType: tabType,
                   respondent: respondent,
                 ),

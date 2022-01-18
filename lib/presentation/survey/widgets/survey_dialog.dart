@@ -101,8 +101,27 @@ class SurveyLeadingButton extends StatelessWidget {
                     );
               }
 
+              // H_ 在完成問卷或要離開問卷時
               if (state.leavePage) {
-                backToRespondentsPage(context, finished: state.finishResponse);
+                context
+                    .read<AudioRecorderBloc>()
+                    .add(const AudioRecorderEvent.recordStopped());
+                context.read<ResponseBloc>().add(
+                      ResponseEvent.editFinished(
+                          responseFinished: state.finishResponse),
+                    );
+                context.read<UpdateAnswerStatusBloc>().add(
+                      const UpdateAnswerStatusEvent.stateCleared(),
+                    );
+
+                context.read<NavigationBloc>().add(
+                      NavigationEvent.pageChanged(
+                        page: NavigationPage.respondent(),
+                      ),
+                    );
+
+                // NOTE 從目錄頁要跳兩層，所以直接用 navigate
+                context.router.navigate(RespondentsRoute());
               }
             }),
       ],
@@ -239,26 +258,4 @@ void switchToVisitReportModule(BuildContext context) {
           breakInterview: true,
         ),
       );
-}
-
-/// NOTE 在完成問卷或要離開問卷時觸發
-void backToRespondentsPage(BuildContext context, {bool finished = false}) {
-  context
-      .read<AudioRecorderBloc>()
-      .add(const AudioRecorderEvent.recordStopped());
-  context.read<ResponseBloc>().add(
-        ResponseEvent.editFinished(responseFinished: finished),
-      );
-  context.read<UpdateAnswerStatusBloc>().add(
-        const UpdateAnswerStatusEvent.stateCleared(),
-      );
-
-  context.read<NavigationBloc>().add(
-        NavigationEvent.pageChanged(
-          page: NavigationPage.respondent(),
-        ),
-      );
-
-  // NOTE 從目錄頁要跳兩層，所以直接用 navigate
-  context.router.navigate(RespondentsRoute());
 }

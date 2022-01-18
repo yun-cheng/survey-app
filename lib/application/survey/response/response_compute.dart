@@ -254,7 +254,8 @@ ResponseState editFinished(
       response: newResponse,
       responseMap: responseMap,
       updateParameters: state.updateParameters.copyWith(
-        visitReportsMap: newResponse.moduleType == ModuleType.visitReport(),
+        visitReportsMap: newResponse.moduleType == ModuleType.visitReport() ||
+            (e.responseFinished && newResponse.moduleType == ModuleType.main()),
         tabRespondentMap:
             e.responseFinished && newResponse.moduleType.needUpdateTab,
       ),
