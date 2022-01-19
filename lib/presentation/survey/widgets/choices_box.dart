@@ -84,7 +84,9 @@ class ChoicesBox extends StatelessWidget {
           // S_ 大於等於 4 個選項就要用 2 個 ListView
           int col1Count = totalCount;
           int col2Count = 0;
-          final useTwoCols = totalCount >= 4 && !isinCell;
+          final useTwoCols =
+              totalCount >= (question?.splitColumnChoiceCount ?? 4) &&
+                  !isinCell;
 
           if (useTwoCols) {
             col1Count = (totalCount / 2).ceil();

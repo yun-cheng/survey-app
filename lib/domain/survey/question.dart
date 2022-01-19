@@ -22,15 +22,18 @@ class Question with _$Question {
     required String stringBody,
     required String note,
     required QuestionType type,
-    required List<Choice> initChoiceList,
-    required List<Choice> choiceList,
-    required List<Choice> specialAnswerList,
     required bool hasSpecialAnswer,
-    required FullExpression show,
-    required FullExpression validateAnswer,
     required String upperQuestionId,
     required int pageNumber,
     required bool recodeNeeded,
+    required int splitColumnChoiceCount,
+    // H_ choice list
+    required List<Choice> initChoiceList,
+    required List<Choice> choiceList,
+    required List<Choice> specialAnswerList,
+    // H_ expression
+    required FullExpression show,
+    required FullExpression validateAnswer,
     // H_ table
     required String tableId,
     required int rowId,
@@ -44,15 +47,19 @@ class Question with _$Question {
         stringBody: '',
         note: '',
         type: QuestionType.description(),
-        initChoiceList: <Choice>[],
-        choiceList: <Choice>[],
-        specialAnswerList: <Choice>[],
         hasSpecialAnswer: false,
-        show: FullExpression.empty(),
-        validateAnswer: FullExpression.empty(),
         upperQuestionId: '',
         pageNumber: 0,
         recodeNeeded: false,
+        splitColumnChoiceCount: 4,
+        // H_ choice list
+        initChoiceList: <Choice>[],
+        choiceList: <Choice>[],
+        specialAnswerList: <Choice>[],
+        // H_ expression
+        show: FullExpression.empty(),
+        validateAnswer: FullExpression.empty(),
+        // H_ table
         tableId: '',
         rowId: -1,
       );

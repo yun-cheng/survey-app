@@ -21,15 +21,19 @@ class QuestionDto with _$QuestionDto {
     required String stringBody,
     required String questionNote,
     required String questionType,
-    List<ChoiceDto>? initChoiceList,
-    required List<ChoiceDto> choiceList,
-    List<ChoiceDto>? specialAnswerList,
     required bool hasSpecialAnswer,
-    required FullExpressionDto showQuestion,
-    required FullExpressionDto validateAnswer,
     required String upperQuestionId,
     required int pageNumber,
     required bool recodeNeeded,
+    required int splitColumnChoiceCount,
+    // H_ choice list
+    List<ChoiceDto>? initChoiceList,
+    required List<ChoiceDto> choiceList,
+    List<ChoiceDto>? specialAnswerList,
+    // H_ expression
+    required FullExpressionDto showQuestion,
+    required FullExpressionDto validateAnswer,
+    // H_ table
     required String tableId,
     required int rowId,
   }) = _QuestionDto;
@@ -44,6 +48,12 @@ class QuestionDto with _$QuestionDto {
       stringBody: domain.stringBody,
       questionNote: domain.note,
       questionType: domain.type.value,
+      hasSpecialAnswer: domain.hasSpecialAnswer,
+      upperQuestionId: domain.upperQuestionId,
+      pageNumber: domain.pageNumber,
+      recodeNeeded: domain.recodeNeeded,
+      splitColumnChoiceCount: domain.splitColumnChoiceCount,
+      // H_ choice list
       initChoiceList: domain.initChoiceList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .toList(),
@@ -53,12 +63,10 @@ class QuestionDto with _$QuestionDto {
       specialAnswerList: domain.specialAnswerList
           .map((choice) => ChoiceDto.fromDomain(choice))
           .toList(),
-      hasSpecialAnswer: domain.hasSpecialAnswer,
+      // H_ expression
       showQuestion: FullExpressionDto.fromDomain(domain.show),
       validateAnswer: FullExpressionDto.fromDomain(domain.validateAnswer),
-      upperQuestionId: domain.upperQuestionId,
-      pageNumber: domain.pageNumber,
-      recodeNeeded: domain.recodeNeeded,
+      // H_ table
       tableId: domain.tableId,
       rowId: domain.rowId,
     );
@@ -73,6 +81,12 @@ class QuestionDto with _$QuestionDto {
       stringBody: stringBody,
       note: questionNote,
       type: QuestionType(questionType),
+      hasSpecialAnswer: hasSpecialAnswer,
+      upperQuestionId: upperQuestionId,
+      pageNumber: pageNumber,
+      recodeNeeded: recodeNeeded,
+      splitColumnChoiceCount: splitColumnChoiceCount,
+      // H_ choice list
       initChoiceList:
           (initChoiceList ?? choiceList).map((dto) => dto.toDomain()).toList(),
       choiceList: choiceList.map((dto) => dto.toDomain()).toList(),
@@ -80,12 +94,10 @@ class QuestionDto with _$QuestionDto {
       specialAnswerList: (specialAnswerList ?? choiceList)
           .map((dto) => dto.toDomain())
           .toList(),
-      hasSpecialAnswer: hasSpecialAnswer,
+      // H_ expression
       show: showQuestion.toDomain(),
       validateAnswer: validateAnswer.toDomain(),
-      upperQuestionId: upperQuestionId,
-      pageNumber: pageNumber,
-      recodeNeeded: recodeNeeded,
+      // H_ table
       tableId: tableId,
       rowId: rowId,
     );
