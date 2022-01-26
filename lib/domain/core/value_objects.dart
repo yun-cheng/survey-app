@@ -80,6 +80,31 @@ class NetworkType with _$NetworkType {
 }
 
 @freezed
+class SyncState with _$SyncState {
+  const SyncState._();
+
+  const factory SyncState(String value) = _SyncState;
+
+  factory SyncState.empty() => const SyncState('');
+  factory SyncState.inProgress() => const SyncState('inProgress');
+  factory SyncState.failure() => const SyncState('failure');
+  factory SyncState.success() => const SyncState('success');
+
+  String toText() {
+    switch (value) {
+      case 'inProgress':
+        return '資料同步中';
+      case 'failure':
+        return '資料同步失敗';
+      case 'success':
+        return '資料已同步';
+      default:
+        return '資料同步中';
+    }
+  }
+}
+
+@freezed
 class DtoInfo with _$DtoInfo {
   const DtoInfo._();
 

@@ -11,6 +11,7 @@ import '../../../domain/respondent/respondent.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../core/style/main.dart';
 import 'search_box.dart';
+import 'sync_box.dart';
 
 class GroupTopBar extends StatelessWidget {
   final Map<TabType, AutoScrollController> tabScrollControllerMap;
@@ -108,11 +109,17 @@ class TownDropDown extends HookWidget {
         )
         .toList();
 
+    final surveyName = context.read<RespondentBloc>().state.survey.name;
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Text(
+            surveyName,
+            style: kH1TextStyle,
+          ),
           DropdownButton<String?>(
             value: selectedCountyTown.value,
             selectedItemBuilder: (_) => selectedItemList,
@@ -132,6 +139,8 @@ class TownDropDown extends HookWidget {
           //   style: kCardH2TextStyle,
           // ),
           const SearchBox(),
+          const SizedBox(width: 10),
+          const SyncBox(),
         ],
       ),
     );

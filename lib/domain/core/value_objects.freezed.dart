@@ -686,6 +686,139 @@ abstract class _NetworkType extends NetworkType {
 }
 
 /// @nodoc
+class _$SyncStateTearOff {
+  const _$SyncStateTearOff();
+
+  _SyncState call(String value) {
+    return _SyncState(
+      value,
+    );
+  }
+}
+
+/// @nodoc
+const $SyncState = _$SyncStateTearOff();
+
+/// @nodoc
+mixin _$SyncState {
+  String get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $SyncStateCopyWith<SyncState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $SyncStateCopyWith<$Res> {
+  factory $SyncStateCopyWith(SyncState value, $Res Function(SyncState) then) =
+      _$SyncStateCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$SyncStateCopyWithImpl<$Res> implements $SyncStateCopyWith<$Res> {
+  _$SyncStateCopyWithImpl(this._value, this._then);
+
+  final SyncState _value;
+  // ignore: unused_field
+  final $Res Function(SyncState) _then;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$SyncStateCopyWith<$Res> implements $SyncStateCopyWith<$Res> {
+  factory _$SyncStateCopyWith(
+          _SyncState value, $Res Function(_SyncState) then) =
+      __$SyncStateCopyWithImpl<$Res>;
+  @override
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$SyncStateCopyWithImpl<$Res> extends _$SyncStateCopyWithImpl<$Res>
+    implements _$SyncStateCopyWith<$Res> {
+  __$SyncStateCopyWithImpl(_SyncState _value, $Res Function(_SyncState) _then)
+      : super(_value, (v) => _then(v as _SyncState));
+
+  @override
+  _SyncState get _value => super._value as _SyncState;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_SyncState(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SyncState extends _SyncState with DiagnosticableTreeMixin {
+  const _$_SyncState(this.value) : super._();
+
+  @override
+  final String value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'SyncState(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'SyncState'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SyncState &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SyncStateCopyWith<_SyncState> get copyWith =>
+      __$SyncStateCopyWithImpl<_SyncState>(this, _$identity);
+}
+
+abstract class _SyncState extends SyncState {
+  const factory _SyncState(String value) = _$_SyncState;
+  const _SyncState._() : super._();
+
+  @override
+  String get value;
+  @override
+  @JsonKey(ignore: true)
+  _$SyncStateCopyWith<_SyncState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 class _$DtoInfoTearOff {
   const _$DtoInfoTearOff();
 

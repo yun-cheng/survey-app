@@ -53,28 +53,6 @@ class RespondentsPage extends HookWidget {
       }
     });
 
-    final tabBarView = TabBarView(
-      controller: _tabController,
-      children: [
-        RespondentsBody(
-          tabType: TabType.start,
-          tabScrollControllerMap: tabScrollControllerMap,
-        ),
-        RespondentsBody(
-          tabType: TabType.interviewReport,
-          tabScrollControllerMap: tabScrollControllerMap,
-        ),
-        RespondentsBody(
-          tabType: TabType.recode,
-          tabScrollControllerMap: tabScrollControllerMap,
-        ),
-        RespondentsBody(
-          tabType: TabType.finished,
-          tabScrollControllerMap: tabScrollControllerMap,
-        ),
-      ],
-    );
-
     return TapOutDismissKeyboard(
       child: Scaffold(
         appBar: AppBar(
@@ -106,7 +84,29 @@ class RespondentsPage extends HookWidget {
               GroupTopBar(
                 tabScrollControllerMap: tabScrollControllerMap,
               ),
-              Expanded(child: tabBarView),
+              Expanded(
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    RespondentsBody(
+                      tabType: TabType.start,
+                      tabScrollControllerMap: tabScrollControllerMap,
+                    ),
+                    RespondentsBody(
+                      tabType: TabType.interviewReport,
+                      tabScrollControllerMap: tabScrollControllerMap,
+                    ),
+                    RespondentsBody(
+                      tabType: TabType.recode,
+                      tabScrollControllerMap: tabScrollControllerMap,
+                    ),
+                    RespondentsBody(
+                      tabType: TabType.finished,
+                      tabScrollControllerMap: tabScrollControllerMap,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

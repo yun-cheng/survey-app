@@ -23,6 +23,7 @@ class ResponseState with _$ResponseState {
     required DialogType dialogType,
     // H_ 狀態更新進度
     required LoadState responseMapState,
+    required SyncState syncState,
     required Option<SurveyFailure> responseFailure,
     required LoadState eventState,
     required LoadState updateState,
@@ -50,6 +51,7 @@ class ResponseState with _$ResponseState {
         dialogType: DialogType.none(),
         // H_ 狀態更新進度
         responseMapState: LoadState.initial(),
+        syncState: SyncState.inProgress(),
         responseFailure: none(),
         eventState: LoadState.initial(),
         updateState: LoadState.initial(),

@@ -19,7 +19,9 @@ class GestureBlockerBox extends StatelessWidget {
           context.read<BlockGestureCubit>().block();
         } else {
           await Future.delayed(const Duration(milliseconds: 100));
-          context.read<BlockGestureCubit>().unblock();
+          try {
+            context.read<BlockGestureCubit>().unblock();
+          } catch (_) {}
         }
       },
       child: BlocBuilder<BlockGestureCubit, bool>(

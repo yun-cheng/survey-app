@@ -95,10 +95,18 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
                 ResponseEvent.referenceListReceived(failureOrReferenceList),
               ),
             );
+
+        add(const ResponseEvent.responseMapUploading());
       },
       // H_ 上傳倒數計時
       uploadTimerUpdated: (e) async {
         _inactiveTimer?.cancel();
+
+        emit(
+          state.copyWith(
+            syncState: SyncState.inProgress(),
+          ),
+        );
 
         // S_1 若閒置 10 秒未更新則上傳，
         _inactiveTimer = Timer(
@@ -121,6 +129,11 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
 
         if (state.responseMap.isNotEmpty) {
           logger('Upload').i('responseMapUploading');
+          emit(
+            state.copyWith(
+              syncState: SyncState.inProgress(),
+            ),
+          );
           _surveyRepository
               .uploadResponseMap(
                 responseMap: state.responseMap,
@@ -129,12 +142,25 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
                 (failureOrSuccess) =>
                     add(ResponseEvent.responseMapUploaded(failureOrSuccess)),
               );
+        } else {
+          emit(
+            state.copyWith(
+              syncState: SyncState.success(),
+            ),
+          );
         }
       },
       responseMapUploaded: (e) async {
         logger('Upload').e('ResponseEvent: responseMapUploaded');
 
-        // TODO
+        emit(
+          state.copyWith(
+            syncState: e.failureOrSuccess.fold(
+              (l) => SyncState.failure(),
+              (r) => SyncState.success(),
+            ),
+          ),
+        );
       },
       // H_ 作答或切換頁數時更新 response
       responseUpdated: (e) async {

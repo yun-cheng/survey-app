@@ -3748,6 +3748,7 @@ class _$ResponseStateTearOff {
       required Map<ModuleType, Response> respondentResponseMap,
       required DialogType dialogType,
       required LoadState responseMapState,
+      required SyncState syncState,
       required Option<SurveyFailure> responseFailure,
       required LoadState eventState,
       required LoadState updateState,
@@ -3769,6 +3770,7 @@ class _$ResponseStateTearOff {
       respondentResponseMap: respondentResponseMap,
       dialogType: dialogType,
       responseMapState: responseMapState,
+      syncState: syncState,
       responseFailure: responseFailure,
       eventState: eventState,
       updateState: updateState,
@@ -3801,6 +3803,7 @@ mixin _$ResponseState {
       throw _privateConstructorUsedError;
   DialogType get dialogType => throw _privateConstructorUsedError; // H_ 狀態更新進度
   LoadState get responseMapState => throw _privateConstructorUsedError;
+  SyncState get syncState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get responseFailure =>
       throw _privateConstructorUsedError;
   LoadState get eventState => throw _privateConstructorUsedError;
@@ -3834,6 +3837,7 @@ abstract class $ResponseStateCopyWith<$Res> {
       Map<ModuleType, Response> respondentResponseMap,
       DialogType dialogType,
       LoadState responseMapState,
+      SyncState syncState,
       Option<SurveyFailure> responseFailure,
       LoadState eventState,
       LoadState updateState,
@@ -3850,6 +3854,7 @@ abstract class $ResponseStateCopyWith<$Res> {
   $ResponseCopyWith<$Res> get mainResponse;
   $DialogTypeCopyWith<$Res> get dialogType;
   $LoadStateCopyWith<$Res> get responseMapState;
+  $SyncStateCopyWith<$Res> get syncState;
   $LoadStateCopyWith<$Res> get eventState;
   $LoadStateCopyWith<$Res> get updateState;
   $StateParametersCopyWith<$Res> get updateParameters;
@@ -3882,6 +3887,7 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? respondentResponseMap = freezed,
     Object? dialogType = freezed,
     Object? responseMapState = freezed,
+    Object? syncState = freezed,
     Object? responseFailure = freezed,
     Object? eventState = freezed,
     Object? updateState = freezed,
@@ -3949,6 +3955,10 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
               as LoadState,
+      syncState: syncState == freezed
+          ? _value.syncState
+          : syncState // ignore: cast_nullable_to_non_nullable
+              as SyncState,
       responseFailure: responseFailure == freezed
           ? _value.responseFailure
           : responseFailure // ignore: cast_nullable_to_non_nullable
@@ -4043,6 +4053,13 @@ class _$ResponseStateCopyWithImpl<$Res>
   }
 
   @override
+  $SyncStateCopyWith<$Res> get syncState {
+    return $SyncStateCopyWith<$Res>(_value.syncState, (value) {
+      return _then(_value.copyWith(syncState: value));
+    });
+  }
+
+  @override
   $LoadStateCopyWith<$Res> get eventState {
     return $LoadStateCopyWith<$Res>(_value.eventState, (value) {
       return _then(_value.copyWith(eventState: value));
@@ -4094,6 +4111,7 @@ abstract class _$ResponseStateCopyWith<$Res>
       Map<ModuleType, Response> respondentResponseMap,
       DialogType dialogType,
       LoadState responseMapState,
+      SyncState syncState,
       Option<SurveyFailure> responseFailure,
       LoadState eventState,
       LoadState updateState,
@@ -4120,6 +4138,8 @@ abstract class _$ResponseStateCopyWith<$Res>
   $DialogTypeCopyWith<$Res> get dialogType;
   @override
   $LoadStateCopyWith<$Res> get responseMapState;
+  @override
+  $SyncStateCopyWith<$Res> get syncState;
   @override
   $LoadStateCopyWith<$Res> get eventState;
   @override
@@ -4158,6 +4178,7 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? respondentResponseMap = freezed,
     Object? dialogType = freezed,
     Object? responseMapState = freezed,
+    Object? syncState = freezed,
     Object? responseFailure = freezed,
     Object? eventState = freezed,
     Object? updateState = freezed,
@@ -4225,6 +4246,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
               as LoadState,
+      syncState: syncState == freezed
+          ? _value.syncState
+          : syncState // ignore: cast_nullable_to_non_nullable
+              as SyncState,
       responseFailure: responseFailure == freezed
           ? _value.responseFailure
           : responseFailure // ignore: cast_nullable_to_non_nullable
@@ -4268,6 +4293,7 @@ class _$_ResponseState extends _ResponseState {
       required this.respondentResponseMap,
       required this.dialogType,
       required this.responseMapState,
+      required this.syncState,
       required this.responseFailure,
       required this.eventState,
       required this.updateState,
@@ -4306,6 +4332,8 @@ class _$_ResponseState extends _ResponseState {
   @override // H_ 狀態更新進度
   final LoadState responseMapState;
   @override
+  final SyncState syncState;
+  @override
   final Option<SurveyFailure> responseFailure;
   @override
   final LoadState eventState;
@@ -4318,7 +4346,7 @@ class _$_ResponseState extends _ResponseState {
 
   @override
   String toString() {
-    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, dialogType: $dialogType, responseMapState: $responseMapState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, dialogType: $dialogType, responseMapState: $responseMapState, syncState: $syncState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -4353,6 +4381,7 @@ class _$_ResponseState extends _ResponseState {
                 .equals(other.dialogType, dialogType) &&
             const DeepCollectionEquality()
                 .equals(other.responseMapState, responseMapState) &&
+            const DeepCollectionEquality().equals(other.syncState, syncState) &&
             const DeepCollectionEquality()
                 .equals(other.responseFailure, responseFailure) &&
             const DeepCollectionEquality()
@@ -4383,6 +4412,7 @@ class _$_ResponseState extends _ResponseState {
         const DeepCollectionEquality().hash(respondentResponseMap),
         const DeepCollectionEquality().hash(dialogType),
         const DeepCollectionEquality().hash(responseMapState),
+        const DeepCollectionEquality().hash(syncState),
         const DeepCollectionEquality().hash(responseFailure),
         const DeepCollectionEquality().hash(eventState),
         const DeepCollectionEquality().hash(updateState),
@@ -4413,6 +4443,7 @@ abstract class _ResponseState extends ResponseState {
       required Map<ModuleType, Response> respondentResponseMap,
       required DialogType dialogType,
       required LoadState responseMapState,
+      required SyncState syncState,
       required Option<SurveyFailure> responseFailure,
       required LoadState eventState,
       required LoadState updateState,
@@ -4450,6 +4481,8 @@ abstract class _ResponseState extends ResponseState {
   DialogType get dialogType;
   @override // H_ 狀態更新進度
   LoadState get responseMapState;
+  @override
+  SyncState get syncState;
   @override
   Option<SurveyFailure> get responseFailure;
   @override
