@@ -8,12 +8,14 @@ import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
 import '../../domain/core/logger.dart';
+import '../../domain/overview/project.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/survey/i_survey_repository.dart';
 import '../../domain/survey/reference.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/typedefs.dart';
 import '../core/firestore_helpers.dart';
+import '../overview/project_dtos.dart';
 import 'reference_dtos.dart';
 import 'response_list_dtos.dart';
 import 'survey_dtos.dart';
@@ -70,6 +72,34 @@ class SurveyRepository implements ISurveyRepository {
       } else {
         logger('Test').e(e);
         logger('Test').e(stackTrace);
+        return left(SurveyFailure.unexpected());
+      }
+    });
+  }
+
+  @override
+  Stream<Either<SurveyFailure, Map<String, Project>>> watchProjectMap({
+    required String teamId,
+  }) async* {
+    final projectCollection = _firestore.projectCollection;
+
+    yield* projectCollection
+        .where('teamId', isEqualTo: teamId)
+        .snapshots()
+        .map(
+          (snapshot) => right<SurveyFailure, Map<String, Project>>(
+            Map.fromEntries(
+              snapshot.docs.map(
+                (doc) =>
+                    MapEntry(doc.id, ProjectDto.fromFirestore(doc).toDomain()),
+              ),
+            ),
+          ),
+        )
+        .onErrorReturnWith((e, stackTrace) {
+      if (e is FirebaseException && e.code == 'permission-denied') {
+        return left(SurveyFailure.insufficientPermission());
+      } else {
         return left(SurveyFailure.unexpected());
       }
     });

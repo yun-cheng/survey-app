@@ -9,6 +9,7 @@ part of 'choice_dtos.dart';
 _$_ChoiceDto _$$_ChoiceDtoFromJson(Map<String, dynamic> json) => _$_ChoiceDto(
       serialNumber: json['serialNumber'] as int,
       choiceId: json['choiceId'] as String,
+      transformedId: json['transformedId'] as String,
       choiceBody: json['choiceBody'] as String,
       asNote: json['asNote'] as bool,
       asSingle: json['asSingle'] as bool,
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$_ChoiceDtoToJson(_$_ChoiceDto instance) =>
     <String, dynamic>{
       'serialNumber': instance.serialNumber,
       'choiceId': instance.choiceId,
+      'transformedId': instance.transformedId,
       'choiceBody': instance.choiceBody,
       'asNote': instance.asNote,
       'asSingle': instance.asSingle,

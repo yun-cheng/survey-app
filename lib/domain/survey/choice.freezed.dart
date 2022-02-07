@@ -20,6 +20,7 @@ class _$ChoiceTearOff {
   _Choice call(
       {required int serialNumber,
       required String id,
+      required String transformedId,
       required String body,
       required bool asNote,
       required bool asSingle,
@@ -30,6 +31,7 @@ class _$ChoiceTearOff {
     return _Choice(
       serialNumber: serialNumber,
       id: id,
+      transformedId: transformedId,
       body: body,
       asNote: asNote,
       asSingle: asSingle,
@@ -48,6 +50,7 @@ const $Choice = _$ChoiceTearOff();
 mixin _$Choice {
   int get serialNumber => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
+  String get transformedId => throw _privateConstructorUsedError;
   String get body => throw _privateConstructorUsedError;
   bool get asNote => throw _privateConstructorUsedError;
   bool get asSingle => throw _privateConstructorUsedError;
@@ -67,6 +70,7 @@ abstract class $ChoiceCopyWith<$Res> {
   $Res call(
       {int serialNumber,
       String id,
+      String transformedId,
       String body,
       bool asNote,
       bool asSingle,
@@ -88,6 +92,7 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
   $Res call({
     Object? serialNumber = freezed,
     Object? id = freezed,
+    Object? transformedId = freezed,
     Object? body = freezed,
     Object? asNote = freezed,
     Object? asSingle = freezed,
@@ -104,6 +109,10 @@ class _$ChoiceCopyWithImpl<$Res> implements $ChoiceCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      transformedId: transformedId == freezed
+          ? _value.transformedId
+          : transformedId // ignore: cast_nullable_to_non_nullable
               as String,
       body: body == freezed
           ? _value.body
@@ -145,6 +154,7 @@ abstract class _$ChoiceCopyWith<$Res> implements $ChoiceCopyWith<$Res> {
   $Res call(
       {int serialNumber,
       String id,
+      String transformedId,
       String body,
       bool asNote,
       bool asSingle,
@@ -167,6 +177,7 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
   $Res call({
     Object? serialNumber = freezed,
     Object? id = freezed,
+    Object? transformedId = freezed,
     Object? body = freezed,
     Object? asNote = freezed,
     Object? asSingle = freezed,
@@ -183,6 +194,10 @@ class __$ChoiceCopyWithImpl<$Res> extends _$ChoiceCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      transformedId: transformedId == freezed
+          ? _value.transformedId
+          : transformedId // ignore: cast_nullable_to_non_nullable
               as String,
       body: body == freezed
           ? _value.body
@@ -222,6 +237,7 @@ class _$_Choice extends _Choice {
   const _$_Choice(
       {required this.serialNumber,
       required this.id,
+      required this.transformedId,
       required this.body,
       required this.asNote,
       required this.asSingle,
@@ -235,6 +251,8 @@ class _$_Choice extends _Choice {
   final int serialNumber;
   @override
   final String id;
+  @override
+  final String transformedId;
   @override
   final String body;
   @override
@@ -252,7 +270,7 @@ class _$_Choice extends _Choice {
 
   @override
   String toString() {
-    return 'Choice(serialNumber: $serialNumber, id: $id, body: $body, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, group: $group, isGroupFirst: $isGroupFirst, upperChoiceId: $upperChoiceId)';
+    return 'Choice(serialNumber: $serialNumber, id: $id, transformedId: $transformedId, body: $body, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, group: $group, isGroupFirst: $isGroupFirst, upperChoiceId: $upperChoiceId)';
   }
 
   @override
@@ -263,6 +281,8 @@ class _$_Choice extends _Choice {
             const DeepCollectionEquality()
                 .equals(other.serialNumber, serialNumber) &&
             const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality()
+                .equals(other.transformedId, transformedId) &&
             const DeepCollectionEquality().equals(other.body, body) &&
             const DeepCollectionEquality().equals(other.asNote, asNote) &&
             const DeepCollectionEquality().equals(other.asSingle, asSingle) &&
@@ -280,6 +300,7 @@ class _$_Choice extends _Choice {
       runtimeType,
       const DeepCollectionEquality().hash(serialNumber),
       const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(transformedId),
       const DeepCollectionEquality().hash(body),
       const DeepCollectionEquality().hash(asNote),
       const DeepCollectionEquality().hash(asSingle),
@@ -298,6 +319,7 @@ abstract class _Choice extends Choice {
   const factory _Choice(
       {required int serialNumber,
       required String id,
+      required String transformedId,
       required String body,
       required bool asNote,
       required bool asSingle,
@@ -311,6 +333,8 @@ abstract class _Choice extends Choice {
   int get serialNumber;
   @override
   String get id;
+  @override
+  String get transformedId;
   @override
   String get body;
   @override

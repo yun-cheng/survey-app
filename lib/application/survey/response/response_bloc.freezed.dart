@@ -4512,6 +4512,7 @@ class _$StateParametersTearOff {
       required bool responseMap,
       required Set<UniqueId> responseMapKeys,
       required bool visitReportsMap,
+      required bool housingMap,
       required bool respondentResponseMap,
       required bool tabRespondentMap}) {
     return _StateParameters(
@@ -4523,6 +4524,7 @@ class _$StateParametersTearOff {
       responseMap: responseMap,
       responseMapKeys: responseMapKeys,
       visitReportsMap: visitReportsMap,
+      housingMap: housingMap,
       respondentResponseMap: respondentResponseMap,
       tabRespondentMap: tabRespondentMap,
     );
@@ -4544,6 +4546,7 @@ mixin _$StateParameters {
   Set<UniqueId> get responseMapKeys =>
       throw _privateConstructorUsedError; // H_ 更新
   bool get visitReportsMap => throw _privateConstructorUsedError;
+  bool get housingMap => throw _privateConstructorUsedError;
   bool get respondentResponseMap => throw _privateConstructorUsedError;
   bool get tabRespondentMap => throw _privateConstructorUsedError;
 
@@ -4566,6 +4569,7 @@ abstract class $StateParametersCopyWith<$Res> {
       bool responseMap,
       Set<UniqueId> responseMapKeys,
       bool visitReportsMap,
+      bool housingMap,
       bool respondentResponseMap,
       bool tabRespondentMap});
 }
@@ -4589,6 +4593,7 @@ class _$StateParametersCopyWithImpl<$Res>
     Object? responseMap = freezed,
     Object? responseMapKeys = freezed,
     Object? visitReportsMap = freezed,
+    Object? housingMap = freezed,
     Object? respondentResponseMap = freezed,
     Object? tabRespondentMap = freezed,
   }) {
@@ -4625,6 +4630,10 @@ class _$StateParametersCopyWithImpl<$Res>
           ? _value.visitReportsMap
           : visitReportsMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       respondentResponseMap: respondentResponseMap == freezed
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
@@ -4653,6 +4662,7 @@ abstract class _$StateParametersCopyWith<$Res>
       bool responseMap,
       Set<UniqueId> responseMapKeys,
       bool visitReportsMap,
+      bool housingMap,
       bool respondentResponseMap,
       bool tabRespondentMap});
 }
@@ -4678,6 +4688,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? responseMap = freezed,
     Object? responseMapKeys = freezed,
     Object? visitReportsMap = freezed,
+    Object? housingMap = freezed,
     Object? respondentResponseMap = freezed,
     Object? tabRespondentMap = freezed,
   }) {
@@ -4714,6 +4725,10 @@ class __$StateParametersCopyWithImpl<$Res>
           ? _value.visitReportsMap
           : visitReportsMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       respondentResponseMap: respondentResponseMap == freezed
           ? _value.respondentResponseMap
           : respondentResponseMap // ignore: cast_nullable_to_non_nullable
@@ -4738,6 +4753,7 @@ class _$_StateParameters extends _StateParameters {
       required this.responseMap,
       required this.responseMapKeys,
       required this.visitReportsMap,
+      required this.housingMap,
       required this.respondentResponseMap,
       required this.tabRespondentMap})
       : super._();
@@ -4759,13 +4775,15 @@ class _$_StateParameters extends _StateParameters {
   @override // H_ 更新
   final bool visitReportsMap;
   @override
+  final bool housingMap;
+  @override
   final bool respondentResponseMap;
   @override
   final bool tabRespondentMap;
 
   @override
   String toString() {
-    return 'StateParameters(referenceList: $referenceList, response: $response, survey: $survey, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, visitReportsMap: $visitReportsMap, respondentResponseMap: $respondentResponseMap, tabRespondentMap: $tabRespondentMap)';
+    return 'StateParameters(referenceList: $referenceList, response: $response, survey: $survey, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, visitReportsMap: $visitReportsMap, housingMap: $housingMap, respondentResponseMap: $respondentResponseMap, tabRespondentMap: $tabRespondentMap)';
   }
 
   @override
@@ -4788,6 +4806,8 @@ class _$_StateParameters extends _StateParameters {
             const DeepCollectionEquality()
                 .equals(other.visitReportsMap, visitReportsMap) &&
             const DeepCollectionEquality()
+                .equals(other.housingMap, housingMap) &&
+            const DeepCollectionEquality()
                 .equals(other.respondentResponseMap, respondentResponseMap) &&
             const DeepCollectionEquality()
                 .equals(other.tabRespondentMap, tabRespondentMap));
@@ -4804,6 +4824,7 @@ class _$_StateParameters extends _StateParameters {
       const DeepCollectionEquality().hash(responseMap),
       const DeepCollectionEquality().hash(responseMapKeys),
       const DeepCollectionEquality().hash(visitReportsMap),
+      const DeepCollectionEquality().hash(housingMap),
       const DeepCollectionEquality().hash(respondentResponseMap),
       const DeepCollectionEquality().hash(tabRespondentMap));
 
@@ -4823,6 +4844,7 @@ abstract class _StateParameters extends StateParameters {
       required bool responseMap,
       required Set<UniqueId> responseMapKeys,
       required bool visitReportsMap,
+      required bool housingMap,
       required bool respondentResponseMap,
       required bool tabRespondentMap}) = _$_StateParameters;
   const _StateParameters._() : super._();
@@ -4843,6 +4865,8 @@ abstract class _StateParameters extends StateParameters {
   Set<UniqueId> get responseMapKeys;
   @override // H_ 更新
   bool get visitReportsMap;
+  @override
+  bool get housingMap;
   @override
   bool get respondentResponseMap;
   @override

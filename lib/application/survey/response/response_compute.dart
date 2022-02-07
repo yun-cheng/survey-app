@@ -7,6 +7,7 @@ ResponseState responseMapMerged(ResponseState state) {
   final responseMap = {...state.responseMap};
   // NOTE 如果還沒點進任何 survey 則都要更新，目的是把 responseMap 傳到 RespondentBloc
   bool updateVisitReportsMap = state.survey.id.isEmpty;
+  bool updateHousingMap = state.survey.id.isEmpty;
   bool updateTabRespondentMap = state.survey.id.isEmpty;
   final saveKeys = <UniqueId>{};
 
@@ -31,6 +32,13 @@ ResponseState responseMapMerged(ResponseState state) {
         updateVisitReportsMap = true;
       }
 
+      // S_ 新下載的 responseMap 包含住屋模組
+      if (!updateHousingMap &&
+          response.surveyId == state.survey.id &&
+          response.moduleType == ModuleType.housingType()) {
+        updateHousingMap = true;
+      }
+
       // S_ 新下載的 responseMap 包含完成的 response
       if (!updateVisitReportsMap &&
           response.surveyId == state.survey.id &&
@@ -47,6 +55,7 @@ ResponseState responseMapMerged(ResponseState state) {
     responseMap: responseMap,
     updateParameters: state.updateParameters.copyWith(
       visitReportsMap: updateVisitReportsMap,
+      housingMap: updateHousingMap,
       tabRespondentMap: updateTabRespondentMap,
     ),
     saveParameters: state.saveParameters.copyWith(
@@ -256,6 +265,7 @@ ResponseState editFinished(
       updateParameters: state.updateParameters.copyWith(
         visitReportsMap: newResponse.moduleType == ModuleType.visitReport() ||
             (e.responseFinished && newResponse.moduleType == ModuleType.main()),
+        housingMap: newResponse.moduleType == ModuleType.housingType(),
         tabRespondentMap:
             e.responseFinished && newResponse.moduleType.needUpdateTab,
       ),

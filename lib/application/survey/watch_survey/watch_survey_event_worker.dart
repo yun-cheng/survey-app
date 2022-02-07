@@ -37,9 +37,32 @@ void _eventWorker(
           surveyMapState: LoadState.failure(),
           surveyFailure: some(f),
         ),
-        (surveyMap) => state.copyWith(
-          surveyMapState: LoadState.success(),
-          surveyMap: surveyMap,
+        (_surveyMap) {
+          final surveyMap = _surveyMap.values
+              .toList()
+              .sortedByMultiX((survey) => [survey.projectId, survey.name])
+              .map((survey) => MapEntry(survey.id, survey))
+              .toMap();
+
+          return state.copyWith(
+            surveyMapState: LoadState.success(),
+            surveyMap: surveyMap,
+            surveyFailure: none(),
+          );
+        },
+      );
+    },
+    projectMapReceived: (e) {
+      logger('Receive').i('WatchSurveyEvent: projectMapReceived');
+
+      state = e.failureOrProjectMap.fold(
+        (f) => state.copyWith(
+          surveyMapState: LoadState.failure(),
+          surveyFailure: some(f),
+        ),
+        (projectMap) => state.copyWith(
+          // surveyMapState: LoadState.success(),
+          projectMap: projectMap,
           surveyFailure: none(),
         ),
       );

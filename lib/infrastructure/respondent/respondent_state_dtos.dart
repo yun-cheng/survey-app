@@ -9,6 +9,7 @@ import '../core/extensions.dart';
 import '../survey/response_list_dtos.dart';
 import '../survey/survey_dtos.dart';
 import 'card_scroll_position_dtos.dart';
+import 'housing_dtos.dart';
 import 'respondent_dtos.dart';
 import 'visit_record_dtos.dart';
 
@@ -29,6 +30,7 @@ class RespondentStateDto with _$RespondentStateDto {
     Map<TabType, CardScrollPositionDto>? tabScrollPosition,
     String? selectedRespondentId,
     Map<String, List<VisitRecordDto>>? visitRecordsMap,
+    Map<String, HousingDto>? housingMap,
     Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
     ResponseMapDto? responseInfoMap,
     @JsonKey(ignore: true) StateParameters? saveParameters,
@@ -54,7 +56,7 @@ class RespondentStateDto with _$RespondentStateDto {
     if (!saveParameters!.surveyRespondentMap) {
       infoMap.remove('surveyRespondentMap');
     }
-    
+
     return infoMap;
   }
 
@@ -77,6 +79,11 @@ class RespondentStateDto with _$RespondentStateDto {
       visitRecordsMap: domain.saveParameters.visitRecordsMap
           ? domain.visitRecordsMap.mapValues(
               (e) => e.map((e1) => VisitRecordDto.fromDomain(e1)).toList(),
+            )
+          : null,
+      housingMap: domain.saveParameters.housingMap
+          ? domain.housingMap.mapValues(
+              (e) => HousingDto.fromDomain(e),
             )
           : null,
       tabRespondentMap: domain.saveParameters.tabRespondentMap
@@ -115,6 +122,8 @@ class RespondentStateDto with _$RespondentStateDto {
       visitRecordsMap: visitRecordsMap?.map((key, value) =>
               MapEntry(key, value.map((dto) => dto.toDomain()).toList())) ??
           initial.visitRecordsMap,
+      housingMap:
+          housingMap?.mapValues((e) => e.toDomain()) ?? initial.housingMap,
       tabRespondentMap: tabRespondentMap?.mapValues(
             (e) => e.mapValues((e1) => e1.toDomain()),
           ) ??

@@ -12,6 +12,7 @@ class ChoiceDto with _$ChoiceDto {
   const factory ChoiceDto({
     required int serialNumber,
     required String choiceId,
+    required String transformedId,
     required String choiceBody,
     required bool asNote,
     required bool asSingle,
@@ -25,6 +26,7 @@ class ChoiceDto with _$ChoiceDto {
     return ChoiceDto(
       serialNumber: domain.serialNumber,
       choiceId: domain.id,
+      transformedId: domain.transformedId,
       choiceBody: domain.body,
       asNote: domain.asNote,
       asSingle: domain.asSingle,
@@ -39,6 +41,7 @@ class ChoiceDto with _$ChoiceDto {
     return Choice(
       serialNumber: serialNumber,
       id: choiceId,
+      transformedId: transformedId,
       body: choiceBody,
       asNote: asNote,
       asSingle: asSingle,

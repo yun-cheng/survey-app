@@ -38,13 +38,11 @@ class VisitHistory extends StatelessWidget {
         return ListView.builder(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          padding: const EdgeInsets.symmetric(horizontal: 15),
           itemBuilder: (context, index) {
             final record = visitRecords![index];
 
-            return TextButton(
-              style: kVisitHistoryStyle,
-              onPressed: () {
+            return InkWell(
+              onTap: () {
                 if (record.status != '完訪 100') {
                   context.read<ResponseBloc>().add(
                         ResponseEvent.responseStarted(
@@ -64,8 +62,8 @@ class VisitHistory extends StatelessWidget {
                   context.router.push(const SurveyRoute());
                 }
               },
-              child: Align(
-                alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Text(
                   '${record.visitTime.toTimeString()}  ${record.description}',
                   style: kPTextStyle,

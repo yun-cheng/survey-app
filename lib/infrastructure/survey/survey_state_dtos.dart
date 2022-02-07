@@ -5,6 +5,7 @@ import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/value_objects.dart';
 import '../core/event_task.dart';
 import '../core/extensions.dart';
+import '../overview/project_dtos.dart';
 import 'survey_dtos.dart';
 
 part 'survey_state_dtos.freezed.dart';
@@ -17,6 +18,7 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
   @JsonSerializable(includeIfNull: false)
   const factory WatchSurveyStateDto({
     Map<String, SurveyDto>? surveyMap,
+    Map<String, ProjectDto>? projectMap,
     SurveyDto? survey,
     String? surveyId,
   }) = _WatchSurveyStateDto;
@@ -29,11 +31,15 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
         'surveyMap': DtoInfo(
           isMapEntries: true,
         ),
+        'projectMap': DtoInfo(
+          isMapEntries: true,
+        ),
       };
 
   factory WatchSurveyStateDto.fromDomain(WatchSurveyState domain) {
     return WatchSurveyStateDto(
       surveyMap: domain.surveyMap.mapValues((e) => SurveyDto.fromDomain(e)),
+      projectMap: domain.projectMap.mapValues((e) => ProjectDto.fromDomain(e)),
       surveyId: domain.survey.id,
     );
   }
@@ -44,6 +50,8 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
       eventState: LoadState.success(),
       surveyMap:
           surveyMap?.mapValues((dto) => dto.toDomain()) ?? initial.surveyMap,
+      projectMap:
+          projectMap?.mapValues((dto) => dto.toDomain()) ?? initial.projectMap,
       survey: survey?.toDomain() ?? initial.survey,
     );
   }

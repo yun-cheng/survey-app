@@ -82,9 +82,8 @@ class Response with _$Response {
   // H_ 簡化
   Response onlyInfo() {
     return copyWith(
-      answerMap: moduleType == ModuleType.visitReport()
-          ? answerMap
-          : const <String, Answer>{},
+      answerMap:
+          moduleType.shouldKeepInfo ? answerMap : const <String, Answer>{},
       answerStatusMap: const <String, AnswerStatus>{},
       surveyPageState: SimpleSurveyPageState.empty(),
     );

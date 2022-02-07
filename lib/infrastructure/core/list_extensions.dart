@@ -16,6 +16,12 @@ extension ListX<T> on List<T> {
     return sortedWith(compareByDescending(selector));
   }
 
+  List<T> sortedByMultiX<R extends Comparable>(
+    List<R> Function(T) selectorList,
+  ) {
+    return sortedWith(compareByMulti(selectorList));
+  }
+
   Tuple2<List<T>, List<T>> partition(bool Function(T) predicate) {
     final first = <T>[];
     final second = <T>[];
@@ -40,5 +46,20 @@ Comparator<T> compareBy<T>(Comparable Function(T) selector) {
 /// Creates a descending comparator using the function to transform value to a [Comparable] instance for comparison.
 Comparator<T> compareByDescending<T>(Comparable Function(T) selector) {
   int compareTo(T a, T b) => selector(b).compareTo(selector(a));
+  return compareTo;
+}
+
+Comparator<T> compareByMulti<T>(List<Comparable> Function(T) selectorList) {
+  int compareTo(T a, T b) {
+    final length = selectorList(a).length;
+    late int result;
+    for (int i = 0; i < length; i++) {
+      result = selectorList(a)[i].compareTo(selectorList(b)[i]);
+
+      if (result != 0) break;
+    }
+    return result;
+  }
+
   return compareTo;
 }

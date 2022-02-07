@@ -8,6 +8,7 @@ import '../../../domain/respondent/respondent.dart';
 import '../../../domain/respondent/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
+import 'housing_box.dart';
 import 'module_button.dart';
 import 'visit_history.dart';
 
@@ -145,6 +146,8 @@ class RespondentCard extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: kPFontSize),
+                    // H_ housing box
+                    HousingBox(respondent: respondent),
                     // H_ visit history
                     VisitHistory(respondent: respondent),
                   ],

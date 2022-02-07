@@ -95,7 +95,7 @@ class DropdownBox extends StatelessWidget {
                   DropdownMenuItem(
                     value: choice.id,
                     child: Text(
-                      '(${choice.id}) ${choice.body}',
+                      choice.toText(),
                       style: kPTextStyle,
                     ),
                   ),

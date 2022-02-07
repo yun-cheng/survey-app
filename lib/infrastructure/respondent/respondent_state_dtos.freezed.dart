@@ -30,6 +30,7 @@ class _$RespondentStateDtoTearOff {
       Map<TabType, CardScrollPositionDto>? tabScrollPosition,
       String? selectedRespondentId,
       Map<String, List<VisitRecordDto>>? visitRecordsMap,
+      Map<String, HousingDto>? housingMap,
       Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
       ResponseMapDto? responseInfoMap,
       @JsonKey(ignore: true) StateParameters? saveParameters}) {
@@ -42,6 +43,7 @@ class _$RespondentStateDtoTearOff {
       tabScrollPosition: tabScrollPosition,
       selectedRespondentId: selectedRespondentId,
       visitRecordsMap: visitRecordsMap,
+      housingMap: housingMap,
       tabRespondentMap: tabRespondentMap,
       responseInfoMap: responseInfoMap,
       saveParameters: saveParameters,
@@ -70,6 +72,7 @@ mixin _$RespondentStateDto {
   String? get selectedRespondentId => throw _privateConstructorUsedError;
   Map<String, List<VisitRecordDto>>? get visitRecordsMap =>
       throw _privateConstructorUsedError;
+  Map<String, HousingDto>? get housingMap => throw _privateConstructorUsedError;
   Map<TabType, Map<String, RespondentDto>>? get tabRespondentMap =>
       throw _privateConstructorUsedError;
   ResponseMapDto? get responseInfoMap => throw _privateConstructorUsedError;
@@ -96,6 +99,7 @@ abstract class $RespondentStateDtoCopyWith<$Res> {
       Map<TabType, CardScrollPositionDto>? tabScrollPosition,
       String? selectedRespondentId,
       Map<String, List<VisitRecordDto>>? visitRecordsMap,
+      Map<String, HousingDto>? housingMap,
       Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
       ResponseMapDto? responseInfoMap,
       @JsonKey(ignore: true) StateParameters? saveParameters});
@@ -124,6 +128,7 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
     Object? tabScrollPosition = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? housingMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
     Object? saveParameters = freezed,
@@ -161,6 +166,10 @@ class _$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as Map<String, List<VisitRecordDto>>?,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, HousingDto>?,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -226,6 +235,7 @@ abstract class _$RespondentStateDtoCopyWith<$Res>
       Map<TabType, CardScrollPositionDto>? tabScrollPosition,
       String? selectedRespondentId,
       Map<String, List<VisitRecordDto>>? visitRecordsMap,
+      Map<String, HousingDto>? housingMap,
       Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
       ResponseMapDto? responseInfoMap,
       @JsonKey(ignore: true) StateParameters? saveParameters});
@@ -259,6 +269,7 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
     Object? tabScrollPosition = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? housingMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
     Object? saveParameters = freezed,
@@ -296,6 +307,10 @@ class __$RespondentStateDtoCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as Map<String, List<VisitRecordDto>>?,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, HousingDto>?,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -325,6 +340,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       this.tabScrollPosition,
       this.selectedRespondentId,
       this.visitRecordsMap,
+      this.housingMap,
       this.tabRespondentMap,
       this.responseInfoMap,
       @JsonKey(ignore: true) this.saveParameters})
@@ -350,6 +366,8 @@ class _$_RespondentStateDto extends _RespondentStateDto {
   @override
   final Map<String, List<VisitRecordDto>>? visitRecordsMap;
   @override
+  final Map<String, HousingDto>? housingMap;
+  @override
   final Map<TabType, Map<String, RespondentDto>>? tabRespondentMap;
   @override
   final ResponseMapDto? responseInfoMap;
@@ -359,7 +377,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
 
   @override
   String toString() {
-    return 'RespondentStateDto(surveyRespondentMap: $surveyRespondentMap, survey: $survey, surveyId: $surveyId, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap, saveParameters: $saveParameters)';
+    return 'RespondentStateDto(surveyRespondentMap: $surveyRespondentMap, survey: $survey, surveyId: $surveyId, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, housingMap: $housingMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap, saveParameters: $saveParameters)';
   }
 
   @override
@@ -382,6 +400,8 @@ class _$_RespondentStateDto extends _RespondentStateDto {
             const DeepCollectionEquality()
                 .equals(other.visitRecordsMap, visitRecordsMap) &&
             const DeepCollectionEquality()
+                .equals(other.housingMap, housingMap) &&
+            const DeepCollectionEquality()
                 .equals(other.tabRespondentMap, tabRespondentMap) &&
             const DeepCollectionEquality()
                 .equals(other.responseInfoMap, responseInfoMap) &&
@@ -400,6 +420,7 @@ class _$_RespondentStateDto extends _RespondentStateDto {
       const DeepCollectionEquality().hash(tabScrollPosition),
       const DeepCollectionEquality().hash(selectedRespondentId),
       const DeepCollectionEquality().hash(visitRecordsMap),
+      const DeepCollectionEquality().hash(housingMap),
       const DeepCollectionEquality().hash(tabRespondentMap),
       const DeepCollectionEquality().hash(responseInfoMap),
       const DeepCollectionEquality().hash(saveParameters));
@@ -425,6 +446,7 @@ abstract class _RespondentStateDto extends RespondentStateDto {
           Map<TabType, CardScrollPositionDto>? tabScrollPosition,
           String? selectedRespondentId,
           Map<String, List<VisitRecordDto>>? visitRecordsMap,
+          Map<String, HousingDto>? housingMap,
           Map<TabType, Map<String, RespondentDto>>? tabRespondentMap,
           ResponseMapDto? responseInfoMap,
           @JsonKey(ignore: true) StateParameters? saveParameters}) =
@@ -450,6 +472,8 @@ abstract class _RespondentStateDto extends RespondentStateDto {
   String? get selectedRespondentId;
   @override
   Map<String, List<VisitRecordDto>>? get visitRecordsMap;
+  @override
+  Map<String, HousingDto>? get housingMap;
   @override
   Map<TabType, Map<String, RespondentDto>>? get tabRespondentMap;
   @override

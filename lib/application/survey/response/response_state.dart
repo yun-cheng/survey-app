@@ -120,6 +120,7 @@ class StateParameters with _$StateParameters {
     required Set<UniqueId> responseMapKeys,
     // H_ 更新
     required bool visitReportsMap,
+    required bool housingMap,
     required bool respondentResponseMap,
     required bool tabRespondentMap,
   }) = _StateParameters;
@@ -133,6 +134,7 @@ class StateParameters with _$StateParameters {
         responseMap: false,
         responseMapKeys: {},
         visitReportsMap: false,
+        housingMap: false,
         respondentResponseMap: false,
         tabRespondentMap: false,
       );
@@ -146,6 +148,7 @@ class StateParameters with _$StateParameters {
         responseMap: true,
         responseMapKeys: {},
         visitReportsMap: true,
+        housingMap: true,
         respondentResponseMap: true,
         tabRespondentMap: true,
       );

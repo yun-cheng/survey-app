@@ -23,10 +23,12 @@ class _$WatchSurveyStateDtoTearOff {
 
   _WatchSurveyStateDto call(
       {Map<String, SurveyDto>? surveyMap,
+      Map<String, ProjectDto>? projectMap,
       SurveyDto? survey,
       String? surveyId}) {
     return _WatchSurveyStateDto(
       surveyMap: surveyMap,
+      projectMap: projectMap,
       survey: survey,
       surveyId: surveyId,
     );
@@ -43,6 +45,7 @@ const $WatchSurveyStateDto = _$WatchSurveyStateDtoTearOff();
 /// @nodoc
 mixin _$WatchSurveyStateDto {
   Map<String, SurveyDto>? get surveyMap => throw _privateConstructorUsedError;
+  Map<String, ProjectDto>? get projectMap => throw _privateConstructorUsedError;
   SurveyDto? get survey => throw _privateConstructorUsedError;
   String? get surveyId => throw _privateConstructorUsedError;
 
@@ -58,7 +61,10 @@ abstract class $WatchSurveyStateDtoCopyWith<$Res> {
           WatchSurveyStateDto value, $Res Function(WatchSurveyStateDto) then) =
       _$WatchSurveyStateDtoCopyWithImpl<$Res>;
   $Res call(
-      {Map<String, SurveyDto>? surveyMap, SurveyDto? survey, String? surveyId});
+      {Map<String, SurveyDto>? surveyMap,
+      Map<String, ProjectDto>? projectMap,
+      SurveyDto? survey,
+      String? surveyId});
 
   $SurveyDtoCopyWith<$Res>? get survey;
 }
@@ -75,6 +81,7 @@ class _$WatchSurveyStateDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? surveyMap = freezed,
+    Object? projectMap = freezed,
     Object? survey = freezed,
     Object? surveyId = freezed,
   }) {
@@ -83,6 +90,10 @@ class _$WatchSurveyStateDtoCopyWithImpl<$Res>
           ? _value.surveyMap
           : surveyMap // ignore: cast_nullable_to_non_nullable
               as Map<String, SurveyDto>?,
+      projectMap: projectMap == freezed
+          ? _value.projectMap
+          : projectMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, ProjectDto>?,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -114,7 +125,10 @@ abstract class _$WatchSurveyStateDtoCopyWith<$Res>
       __$WatchSurveyStateDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Map<String, SurveyDto>? surveyMap, SurveyDto? survey, String? surveyId});
+      {Map<String, SurveyDto>? surveyMap,
+      Map<String, ProjectDto>? projectMap,
+      SurveyDto? survey,
+      String? surveyId});
 
   @override
   $SurveyDtoCopyWith<$Res>? get survey;
@@ -134,6 +148,7 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? surveyMap = freezed,
+    Object? projectMap = freezed,
     Object? survey = freezed,
     Object? surveyId = freezed,
   }) {
@@ -142,6 +157,10 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
           ? _value.surveyMap
           : surveyMap // ignore: cast_nullable_to_non_nullable
               as Map<String, SurveyDto>?,
+      projectMap: projectMap == freezed
+          ? _value.projectMap
+          : projectMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, ProjectDto>?,
       survey: survey == freezed
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
@@ -158,7 +177,8 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
-  const _$_WatchSurveyStateDto({this.surveyMap, this.survey, this.surveyId})
+  const _$_WatchSurveyStateDto(
+      {this.surveyMap, this.projectMap, this.survey, this.surveyId})
       : super._();
 
   factory _$_WatchSurveyStateDto.fromJson(Map<String, dynamic> json) =>
@@ -167,13 +187,15 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
   @override
   final Map<String, SurveyDto>? surveyMap;
   @override
+  final Map<String, ProjectDto>? projectMap;
+  @override
   final SurveyDto? survey;
   @override
   final String? surveyId;
 
   @override
   String toString() {
-    return 'WatchSurveyStateDto(surveyMap: $surveyMap, survey: $survey, surveyId: $surveyId)';
+    return 'WatchSurveyStateDto(surveyMap: $surveyMap, projectMap: $projectMap, survey: $survey, surveyId: $surveyId)';
   }
 
   @override
@@ -182,6 +204,8 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
         (other.runtimeType == runtimeType &&
             other is _WatchSurveyStateDto &&
             const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
+            const DeepCollectionEquality()
+                .equals(other.projectMap, projectMap) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
             const DeepCollectionEquality().equals(other.surveyId, surveyId));
   }
@@ -190,6 +214,7 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(surveyMap),
+      const DeepCollectionEquality().hash(projectMap),
       const DeepCollectionEquality().hash(survey),
       const DeepCollectionEquality().hash(surveyId));
 
@@ -208,6 +233,7 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
 abstract class _WatchSurveyStateDto extends WatchSurveyStateDto {
   const factory _WatchSurveyStateDto(
       {Map<String, SurveyDto>? surveyMap,
+      Map<String, ProjectDto>? projectMap,
       SurveyDto? survey,
       String? surveyId}) = _$_WatchSurveyStateDto;
   const _WatchSurveyStateDto._() : super._();
@@ -217,6 +243,8 @@ abstract class _WatchSurveyStateDto extends WatchSurveyStateDto {
 
   @override
   Map<String, SurveyDto>? get surveyMap;
+  @override
+  Map<String, ProjectDto>? get projectMap;
   @override
   SurveyDto? get survey;
   @override

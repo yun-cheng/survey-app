@@ -74,7 +74,7 @@ class SimpleTableBox extends HookWidget {
                           width: kSimpleTableCellWidth,
                           alignment: Alignment.center,
                           child: Text(
-                            '(${choice.id}) ${choice.body}',
+                            choice.toText(),
                             style: kPTextStyle,
                           ),
                         ),

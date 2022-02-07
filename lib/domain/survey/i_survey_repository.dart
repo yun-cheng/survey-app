@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../overview/project.dart';
 import '../overview/survey.dart';
 import 'reference.dart';
 import 'survey_failure.dart';
@@ -9,6 +10,10 @@ abstract class ISurveyRepository {
   Stream<Either<SurveyFailure, Map<String, Survey>>> watchSurveyMap({
     required String teamId,
     required String interviewerId,
+  });
+
+  Stream<Either<SurveyFailure, Map<String, Project>>> watchProjectMap({
+    required String teamId,
   });
 
   Stream<Either<SurveyFailure, List<Reference>>> watchReferenceList({

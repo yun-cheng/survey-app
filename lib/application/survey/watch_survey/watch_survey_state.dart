@@ -8,6 +8,7 @@ class WatchSurveyState with _$WatchSurveyState {
     required UniqueId stateId,
     // H_ 主要資料
     required Map<String, Survey> surveyMap,
+    required Map<String, Project> projectMap,
     required Survey survey,
     // H_ 狀態更新進度
     required LoadState eventState,
@@ -19,6 +20,7 @@ class WatchSurveyState with _$WatchSurveyState {
         stateId: UniqueId.v1(),
         // H_ 主要資料
         surveyMap: const {},
+        projectMap: const {},
         survey: Survey.empty(),
         // H_ 狀態更新進度
         eventState: LoadState.initial(),

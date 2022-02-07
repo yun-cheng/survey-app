@@ -76,6 +76,13 @@ class _$RespondentEventTearOff {
     );
   }
 
+  _HousingUpdated housingUpdated(
+      {required Map<UniqueId, Response> responseMap}) {
+    return _HousingUpdated(
+      responseMap: responseMap,
+    );
+  }
+
   _TabRespondentsUpdated tabRespondentsUpdated(
       {required Map<UniqueId, Response> responseMap}) {
     return _TabRespondentsUpdated(
@@ -114,6 +121,8 @@ mixin _$RespondentEvent {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -134,6 +143,7 @@ mixin _$RespondentEvent {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -155,6 +165,7 @@ mixin _$RespondentEvent {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -175,6 +186,7 @@ mixin _$RespondentEvent {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -194,6 +206,7 @@ mixin _$RespondentEvent {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -212,6 +225,7 @@ mixin _$RespondentEvent {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -334,6 +348,8 @@ class _$_WatchSurveyRespondentMapStarted
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -357,6 +373,7 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -381,6 +398,7 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -407,6 +425,7 @@ class _$_WatchSurveyRespondentMapStarted
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -429,6 +448,7 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -450,6 +470,7 @@ class _$_WatchSurveyRespondentMapStarted
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -564,6 +585,8 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -587,6 +610,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -611,6 +635,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -637,6 +662,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -659,6 +685,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -680,6 +707,7 @@ class _$_SurveyRespondentMapReceived implements _SurveyRespondentMapReceived {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -793,6 +821,8 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -816,6 +846,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -840,6 +871,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -866,6 +898,7 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -888,6 +921,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -909,6 +943,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1010,6 +1045,8 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -1033,6 +1070,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1057,6 +1095,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1083,6 +1122,7 @@ class _$_TextSearched implements _TextSearched {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -1105,6 +1145,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1126,6 +1167,7 @@ class _$_TextSearched implements _TextSearched {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1228,6 +1270,8 @@ class _$_RespondentSelected implements _RespondentSelected {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -1251,6 +1295,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1275,6 +1320,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1301,6 +1347,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -1323,6 +1370,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1344,6 +1392,7 @@ class _$_RespondentSelected implements _RespondentSelected {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1446,6 +1495,8 @@ class _$_TabSwitched implements _TabSwitched {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -1469,6 +1520,7 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1493,6 +1545,7 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1519,6 +1572,7 @@ class _$_TabSwitched implements _TabSwitched {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -1541,6 +1595,7 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1562,6 +1617,7 @@ class _$_TabSwitched implements _TabSwitched {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1663,6 +1719,8 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -1686,6 +1744,7 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1710,6 +1769,7 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1736,6 +1796,7 @@ class _$_PageScrolled implements _PageScrolled {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -1758,6 +1819,7 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1779,6 +1841,7 @@ class _$_PageScrolled implements _PageScrolled {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1881,6 +1944,8 @@ class _$_JumpedToTown implements _JumpedToTown {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -1904,6 +1969,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1928,6 +1994,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -1954,6 +2021,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -1976,6 +2044,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1997,6 +2066,7 @@ class _$_JumpedToTown implements _JumpedToTown {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2099,6 +2169,8 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -2122,6 +2194,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2146,6 +2219,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2172,6 +2246,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -2194,6 +2269,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2215,6 +2291,7 @@ class _$_VisitReportUpdated implements _VisitReportUpdated {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2234,6 +2311,232 @@ abstract class _VisitReportUpdated implements RespondentEvent {
   Map<UniqueId, Response> get responseMap;
   @JsonKey(ignore: true)
   _$VisitReportUpdatedCopyWith<_VisitReportUpdated> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$HousingUpdatedCopyWith<$Res> {
+  factory _$HousingUpdatedCopyWith(
+          _HousingUpdated value, $Res Function(_HousingUpdated) then) =
+      __$HousingUpdatedCopyWithImpl<$Res>;
+  $Res call({Map<UniqueId, Response> responseMap});
+}
+
+/// @nodoc
+class __$HousingUpdatedCopyWithImpl<$Res>
+    extends _$RespondentEventCopyWithImpl<$Res>
+    implements _$HousingUpdatedCopyWith<$Res> {
+  __$HousingUpdatedCopyWithImpl(
+      _HousingUpdated _value, $Res Function(_HousingUpdated) _then)
+      : super(_value, (v) => _then(v as _HousingUpdated));
+
+  @override
+  _HousingUpdated get _value => super._value as _HousingUpdated;
+
+  @override
+  $Res call({
+    Object? responseMap = freezed,
+  }) {
+    return _then(_HousingUpdated(
+      responseMap: responseMap == freezed
+          ? _value.responseMap
+          : responseMap // ignore: cast_nullable_to_non_nullable
+              as Map<UniqueId, Response>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_HousingUpdated implements _HousingUpdated {
+  const _$_HousingUpdated({required this.responseMap});
+
+  @override
+  final Map<UniqueId, Response> responseMap;
+
+  @override
+  String toString() {
+    return 'RespondentEvent.housingUpdated(responseMap: $responseMap)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _HousingUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.responseMap, responseMap));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(responseMap));
+
+  @JsonKey(ignore: true)
+  @override
+  _$HousingUpdatedCopyWith<_HousingUpdated> get copyWith =>
+      __$HousingUpdatedCopyWithImpl<_HousingUpdated>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String teamId, String interviewerId)
+        watchSurveyRespondentMapStarted,
+    required TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)
+        surveyRespondentMapReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(String text) textSearched,
+    required TResult Function(String respondentId) respondentSelected,
+    required TResult Function(int index) tabSwitched,
+    required TResult Function(TabType tabType) pageScrolled,
+    required TResult Function(String countyTown) jumpedToTown,
+    required TResult Function(Map<UniqueId, Response> responseMap)
+        visitReportUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
+        tabRespondentsUpdated,
+    required TResult Function() loggedOut,
+    required TResult Function() initialized,
+  }) {
+    return housingUpdated(responseMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType)? pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+  }) {
+    return housingUpdated?.call(responseMap);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(
+            Either<RespondentFailure, Map<String, Map<String, Respondent>>>
+                failureOrSurveyRespondentMap)?
+        surveyRespondentMapReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(String text)? textSearched,
+    TResult Function(String respondentId)? respondentSelected,
+    TResult Function(int index)? tabSwitched,
+    TResult Function(TabType tabType)? pageScrolled,
+    TResult Function(String countyTown)? jumpedToTown,
+    TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)?
+        tabRespondentsUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (housingUpdated != null) {
+      return housingUpdated(responseMap);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchSurveyRespondentMapStarted value)
+        watchSurveyRespondentMapStarted,
+    required TResult Function(_SurveyRespondentMapReceived value)
+        surveyRespondentMapReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_TextSearched value) textSearched,
+    required TResult Function(_RespondentSelected value) respondentSelected,
+    required TResult Function(_TabSwitched value) tabSwitched,
+    required TResult Function(_PageScrolled value) pageScrolled,
+    required TResult Function(_JumpedToTown value) jumpedToTown,
+    required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
+    required TResult Function(_TabRespondentsUpdated value)
+        tabRespondentsUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return housingUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return housingUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchSurveyRespondentMapStarted value)?
+        watchSurveyRespondentMapStarted,
+    TResult Function(_SurveyRespondentMapReceived value)?
+        surveyRespondentMapReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_TextSearched value)? textSearched,
+    TResult Function(_RespondentSelected value)? respondentSelected,
+    TResult Function(_TabSwitched value)? tabSwitched,
+    TResult Function(_PageScrolled value)? pageScrolled,
+    TResult Function(_JumpedToTown value)? jumpedToTown,
+    TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
+    TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (housingUpdated != null) {
+      return housingUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _HousingUpdated implements RespondentEvent {
+  const factory _HousingUpdated(
+      {required Map<UniqueId, Response> responseMap}) = _$_HousingUpdated;
+
+  Map<UniqueId, Response> get responseMap;
+  @JsonKey(ignore: true)
+  _$HousingUpdatedCopyWith<_HousingUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2319,6 +2622,8 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -2342,6 +2647,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2366,6 +2672,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2392,6 +2699,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -2414,6 +2722,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2435,6 +2744,7 @@ class _$_TabRespondentsUpdated implements _TabRespondentsUpdated {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2512,6 +2822,8 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -2535,6 +2847,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2559,6 +2872,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2585,6 +2899,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -2607,6 +2922,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2628,6 +2944,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2700,6 +3017,8 @@ class _$_Initialized implements _Initialized {
     required TResult Function(Map<UniqueId, Response> responseMap)
         visitReportUpdated,
     required TResult Function(Map<UniqueId, Response> responseMap)
+        housingUpdated,
+    required TResult Function(Map<UniqueId, Response> responseMap)
         tabRespondentsUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -2723,6 +3042,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2747,6 +3067,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(TabType tabType)? pageScrolled,
     TResult Function(String countyTown)? jumpedToTown,
     TResult Function(Map<UniqueId, Response> responseMap)? visitReportUpdated,
+    TResult Function(Map<UniqueId, Response> responseMap)? housingUpdated,
     TResult Function(Map<UniqueId, Response> responseMap)?
         tabRespondentsUpdated,
     TResult Function()? loggedOut,
@@ -2773,6 +3094,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_PageScrolled value) pageScrolled,
     required TResult Function(_JumpedToTown value) jumpedToTown,
     required TResult Function(_VisitReportUpdated value) visitReportUpdated,
+    required TResult Function(_HousingUpdated value) housingUpdated,
     required TResult Function(_TabRespondentsUpdated value)
         tabRespondentsUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
@@ -2795,6 +3117,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2816,6 +3139,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_PageScrolled value)? pageScrolled,
     TResult Function(_JumpedToTown value)? jumpedToTown,
     TResult Function(_VisitReportUpdated value)? visitReportUpdated,
+    TResult Function(_HousingUpdated value)? housingUpdated,
     TResult Function(_TabRespondentsUpdated value)? tabRespondentsUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -2845,6 +3169,7 @@ class _$RespondentStateTearOff {
       required Map<TabType, CardScrollPosition> tabScrollPosition,
       required String selectedRespondentId,
       required Map<String, List<VisitRecord>> visitRecordsMap,
+      required Map<String, Housing> housingMap,
       required Map<TabType, Map<String, Respondent>> tabRespondentMap,
       required Map<UniqueId, Response> responseInfoMap,
       required String searchText,
@@ -2864,6 +3189,7 @@ class _$RespondentStateTearOff {
       tabScrollPosition: tabScrollPosition,
       selectedRespondentId: selectedRespondentId,
       visitRecordsMap: visitRecordsMap,
+      housingMap: housingMap,
       tabRespondentMap: tabRespondentMap,
       responseInfoMap: responseInfoMap,
       searchText: searchText,
@@ -2895,6 +3221,7 @@ mixin _$RespondentState {
   String get selectedRespondentId => throw _privateConstructorUsedError;
   Map<String, List<VisitRecord>> get visitRecordsMap =>
       throw _privateConstructorUsedError;
+  Map<String, Housing> get housingMap => throw _privateConstructorUsedError;
   Map<TabType, Map<String, Respondent>> get tabRespondentMap =>
       throw _privateConstructorUsedError;
   Map<UniqueId, Response> get responseInfoMap =>
@@ -2929,6 +3256,7 @@ abstract class $RespondentStateCopyWith<$Res> {
       Map<TabType, CardScrollPosition> tabScrollPosition,
       String selectedRespondentId,
       Map<String, List<VisitRecord>> visitRecordsMap,
+      Map<String, Housing> housingMap,
       Map<TabType, Map<String, Respondent>> tabRespondentMap,
       Map<UniqueId, Response> responseInfoMap,
       String searchText,
@@ -2966,6 +3294,7 @@ class _$RespondentStateCopyWithImpl<$Res>
     Object? tabScrollPosition = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? housingMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
     Object? searchText = freezed,
@@ -3010,6 +3339,10 @@ class _$RespondentStateCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as Map<String, List<VisitRecord>>,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Housing>,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -3105,6 +3438,7 @@ abstract class _$RespondentStateCopyWith<$Res>
       Map<TabType, CardScrollPosition> tabScrollPosition,
       String selectedRespondentId,
       Map<String, List<VisitRecord>> visitRecordsMap,
+      Map<String, Housing> housingMap,
       Map<TabType, Map<String, Respondent>> tabRespondentMap,
       Map<UniqueId, Response> responseInfoMap,
       String searchText,
@@ -3149,6 +3483,7 @@ class __$RespondentStateCopyWithImpl<$Res>
     Object? tabScrollPosition = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? housingMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
     Object? searchText = freezed,
@@ -3193,6 +3528,10 @@ class __$RespondentStateCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as Map<String, List<VisitRecord>>,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as Map<String, Housing>,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -3249,6 +3588,7 @@ class _$_RespondentState extends _RespondentState {
       required this.tabScrollPosition,
       required this.selectedRespondentId,
       required this.visitRecordsMap,
+      required this.housingMap,
       required this.tabRespondentMap,
       required this.responseInfoMap,
       required this.searchText,
@@ -3278,6 +3618,8 @@ class _$_RespondentState extends _RespondentState {
   @override
   final Map<String, List<VisitRecord>> visitRecordsMap;
   @override
+  final Map<String, Housing> housingMap;
+  @override
   final Map<TabType, Map<String, Respondent>> tabRespondentMap;
   @override
   final Map<UniqueId, Response> responseInfoMap;
@@ -3300,7 +3642,7 @@ class _$_RespondentState extends _RespondentState {
 
   @override
   String toString() {
-    return 'RespondentState(stateId: $stateId, surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap, searchText: $searchText, searchRespondentMap: $searchRespondentMap, needToJump: $needToJump, jumpToIndex: $jumpToIndex, surveyRespondentMapState: $surveyRespondentMapState, respondentFailure: $respondentFailure, eventState: $eventState, saveParameters: $saveParameters)';
+    return 'RespondentState(stateId: $stateId, surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, housingMap: $housingMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap, searchText: $searchText, searchRespondentMap: $searchRespondentMap, needToJump: $needToJump, jumpToIndex: $jumpToIndex, surveyRespondentMapState: $surveyRespondentMapState, respondentFailure: $respondentFailure, eventState: $eventState, saveParameters: $saveParameters)';
   }
 
   @override
@@ -3322,6 +3664,8 @@ class _$_RespondentState extends _RespondentState {
                 .equals(other.selectedRespondentId, selectedRespondentId) &&
             const DeepCollectionEquality()
                 .equals(other.visitRecordsMap, visitRecordsMap) &&
+            const DeepCollectionEquality()
+                .equals(other.housingMap, housingMap) &&
             const DeepCollectionEquality()
                 .equals(other.tabRespondentMap, tabRespondentMap) &&
             const DeepCollectionEquality()
@@ -3345,26 +3689,28 @@ class _$_RespondentState extends _RespondentState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(stateId),
-      const DeepCollectionEquality().hash(surveyRespondentMap),
-      const DeepCollectionEquality().hash(survey),
-      const DeepCollectionEquality().hash(respondentMap),
-      const DeepCollectionEquality().hash(currentTab),
-      const DeepCollectionEquality().hash(tabScrollPosition),
-      const DeepCollectionEquality().hash(selectedRespondentId),
-      const DeepCollectionEquality().hash(visitRecordsMap),
-      const DeepCollectionEquality().hash(tabRespondentMap),
-      const DeepCollectionEquality().hash(responseInfoMap),
-      const DeepCollectionEquality().hash(searchText),
-      const DeepCollectionEquality().hash(searchRespondentMap),
-      const DeepCollectionEquality().hash(needToJump),
-      const DeepCollectionEquality().hash(jumpToIndex),
-      const DeepCollectionEquality().hash(surveyRespondentMapState),
-      const DeepCollectionEquality().hash(respondentFailure),
-      const DeepCollectionEquality().hash(eventState),
-      const DeepCollectionEquality().hash(saveParameters));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(stateId),
+        const DeepCollectionEquality().hash(surveyRespondentMap),
+        const DeepCollectionEquality().hash(survey),
+        const DeepCollectionEquality().hash(respondentMap),
+        const DeepCollectionEquality().hash(currentTab),
+        const DeepCollectionEquality().hash(tabScrollPosition),
+        const DeepCollectionEquality().hash(selectedRespondentId),
+        const DeepCollectionEquality().hash(visitRecordsMap),
+        const DeepCollectionEquality().hash(housingMap),
+        const DeepCollectionEquality().hash(tabRespondentMap),
+        const DeepCollectionEquality().hash(responseInfoMap),
+        const DeepCollectionEquality().hash(searchText),
+        const DeepCollectionEquality().hash(searchRespondentMap),
+        const DeepCollectionEquality().hash(needToJump),
+        const DeepCollectionEquality().hash(jumpToIndex),
+        const DeepCollectionEquality().hash(surveyRespondentMapState),
+        const DeepCollectionEquality().hash(respondentFailure),
+        const DeepCollectionEquality().hash(eventState),
+        const DeepCollectionEquality().hash(saveParameters)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -3382,6 +3728,7 @@ abstract class _RespondentState extends RespondentState {
       required Map<TabType, CardScrollPosition> tabScrollPosition,
       required String selectedRespondentId,
       required Map<String, List<VisitRecord>> visitRecordsMap,
+      required Map<String, Housing> housingMap,
       required Map<TabType, Map<String, Respondent>> tabRespondentMap,
       required Map<UniqueId, Response> responseInfoMap,
       required String searchText,
@@ -3410,6 +3757,8 @@ abstract class _RespondentState extends RespondentState {
   String get selectedRespondentId;
   @override
   Map<String, List<VisitRecord>> get visitRecordsMap;
+  @override
+  Map<String, Housing> get housingMap;
   @override
   Map<TabType, Map<String, Respondent>> get tabRespondentMap;
   @override
@@ -3448,6 +3797,7 @@ class _$StateParametersTearOff {
       required bool tabScrollPosition,
       required bool selectedRespondentId,
       required bool visitRecordsMap,
+      required bool housingMap,
       required bool tabRespondentMap,
       required bool responseInfoMap}) {
     return _StateParameters(
@@ -3458,6 +3808,7 @@ class _$StateParametersTearOff {
       tabScrollPosition: tabScrollPosition,
       selectedRespondentId: selectedRespondentId,
       visitRecordsMap: visitRecordsMap,
+      housingMap: housingMap,
       tabRespondentMap: tabRespondentMap,
       responseInfoMap: responseInfoMap,
     );
@@ -3476,6 +3827,7 @@ mixin _$StateParameters {
   bool get tabScrollPosition => throw _privateConstructorUsedError;
   bool get selectedRespondentId => throw _privateConstructorUsedError;
   bool get visitRecordsMap => throw _privateConstructorUsedError;
+  bool get housingMap => throw _privateConstructorUsedError;
   bool get tabRespondentMap => throw _privateConstructorUsedError;
   bool get responseInfoMap => throw _privateConstructorUsedError;
 
@@ -3497,6 +3849,7 @@ abstract class $StateParametersCopyWith<$Res> {
       bool tabScrollPosition,
       bool selectedRespondentId,
       bool visitRecordsMap,
+      bool housingMap,
       bool tabRespondentMap,
       bool responseInfoMap});
 }
@@ -3519,6 +3872,7 @@ class _$StateParametersCopyWithImpl<$Res>
     Object? tabScrollPosition = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? housingMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
   }) {
@@ -3551,6 +3905,10 @@ class _$StateParametersCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -3578,6 +3936,7 @@ abstract class _$StateParametersCopyWith<$Res>
       bool tabScrollPosition,
       bool selectedRespondentId,
       bool visitRecordsMap,
+      bool housingMap,
       bool tabRespondentMap,
       bool responseInfoMap});
 }
@@ -3602,6 +3961,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? tabScrollPosition = freezed,
     Object? selectedRespondentId = freezed,
     Object? visitRecordsMap = freezed,
+    Object? housingMap = freezed,
     Object? tabRespondentMap = freezed,
     Object? responseInfoMap = freezed,
   }) {
@@ -3634,6 +3994,10 @@ class __$StateParametersCopyWithImpl<$Res>
           ? _value.visitRecordsMap
           : visitRecordsMap // ignore: cast_nullable_to_non_nullable
               as bool,
+      housingMap: housingMap == freezed
+          ? _value.housingMap
+          : housingMap // ignore: cast_nullable_to_non_nullable
+              as bool,
       tabRespondentMap: tabRespondentMap == freezed
           ? _value.tabRespondentMap
           : tabRespondentMap // ignore: cast_nullable_to_non_nullable
@@ -3657,6 +4021,7 @@ class _$_StateParameters extends _StateParameters {
       required this.tabScrollPosition,
       required this.selectedRespondentId,
       required this.visitRecordsMap,
+      required this.housingMap,
       required this.tabRespondentMap,
       required this.responseInfoMap})
       : super._();
@@ -3676,13 +4041,15 @@ class _$_StateParameters extends _StateParameters {
   @override
   final bool visitRecordsMap;
   @override
+  final bool housingMap;
+  @override
   final bool tabRespondentMap;
   @override
   final bool responseInfoMap;
 
   @override
   String toString() {
-    return 'StateParameters(surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
+    return 'StateParameters(surveyRespondentMap: $surveyRespondentMap, survey: $survey, respondentMap: $respondentMap, currentTab: $currentTab, tabScrollPosition: $tabScrollPosition, selectedRespondentId: $selectedRespondentId, visitRecordsMap: $visitRecordsMap, housingMap: $housingMap, tabRespondentMap: $tabRespondentMap, responseInfoMap: $responseInfoMap)';
   }
 
   @override
@@ -3704,6 +4071,8 @@ class _$_StateParameters extends _StateParameters {
             const DeepCollectionEquality()
                 .equals(other.visitRecordsMap, visitRecordsMap) &&
             const DeepCollectionEquality()
+                .equals(other.housingMap, housingMap) &&
+            const DeepCollectionEquality()
                 .equals(other.tabRespondentMap, tabRespondentMap) &&
             const DeepCollectionEquality()
                 .equals(other.responseInfoMap, responseInfoMap));
@@ -3719,6 +4088,7 @@ class _$_StateParameters extends _StateParameters {
       const DeepCollectionEquality().hash(tabScrollPosition),
       const DeepCollectionEquality().hash(selectedRespondentId),
       const DeepCollectionEquality().hash(visitRecordsMap),
+      const DeepCollectionEquality().hash(housingMap),
       const DeepCollectionEquality().hash(tabRespondentMap),
       const DeepCollectionEquality().hash(responseInfoMap));
 
@@ -3737,6 +4107,7 @@ abstract class _StateParameters extends StateParameters {
       required bool tabScrollPosition,
       required bool selectedRespondentId,
       required bool visitRecordsMap,
+      required bool housingMap,
       required bool tabRespondentMap,
       required bool responseInfoMap}) = _$_StateParameters;
   const _StateParameters._() : super._();
@@ -3755,6 +4126,8 @@ abstract class _StateParameters extends StateParameters {
   bool get selectedRespondentId;
   @override
   bool get visitRecordsMap;
+  @override
+  bool get housingMap;
   @override
   bool get tabRespondentMap;
   @override

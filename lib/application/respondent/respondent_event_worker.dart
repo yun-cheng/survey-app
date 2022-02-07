@@ -137,6 +137,13 @@ void _eventWorker(
       state = responseInfoMapUpdated(e.responseMap, state);
       state = visitReportUpdated(state);
     },
+      // H_ 住屋更新時
+    housingUpdated: (e) {
+      logger('Event').i('RespondentEvent: housingUpdated');
+
+      state = responseInfoMapUpdated(e.responseMap, state);
+      state = housingUpdated(state);
+    },
     // H_ 切換鄉鎮市區
     jumpedToTown: (e) {
       logger('Event').i('RespondentEvent: jumpedToTown');

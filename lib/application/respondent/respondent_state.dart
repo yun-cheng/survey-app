@@ -14,6 +14,7 @@ class RespondentState with _$RespondentState {
     required Map<TabType, CardScrollPosition> tabScrollPosition,
     required String selectedRespondentId,
     required VisitRecordsMap visitRecordsMap,
+    required Map<String, Housing> housingMap,
     required TabRespondentMap tabRespondentMap,
     required ResponseMap responseInfoMap,
     required String searchText,
@@ -40,6 +41,7 @@ class RespondentState with _$RespondentState {
             TabTypeX.toMap().mapValues((e) => CardScrollPosition.empty()),
         selectedRespondentId: '',
         visitRecordsMap: const {},
+        housingMap: const {},
         tabRespondentMap: const {},
         responseInfoMap: const {},
         searchText: '',
@@ -97,6 +99,7 @@ class StateParameters with _$StateParameters {
     required bool tabScrollPosition,
     required bool selectedRespondentId,
     required bool visitRecordsMap,
+    required bool housingMap,
     required bool tabRespondentMap,
     required bool responseInfoMap,
   }) = _StateParameters;
@@ -109,6 +112,7 @@ class StateParameters with _$StateParameters {
         tabScrollPosition: false,
         selectedRespondentId: false,
         visitRecordsMap: false,
+        housingMap: false,
         tabRespondentMap: false,
         responseInfoMap: false,
       );
@@ -121,6 +125,7 @@ class StateParameters with _$StateParameters {
         tabScrollPosition: true,
         selectedRespondentId: true,
         visitRecordsMap: true,
+        housingMap: true,
         tabRespondentMap: true,
         responseInfoMap: true,
       );

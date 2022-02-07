@@ -40,6 +40,9 @@ _$_RespondentStateDto _$$_RespondentStateDtoFromJson(
                 .map((e) => VisitRecordDto.fromJson(e as Map<String, dynamic>))
                 .toList()),
       ),
+      housingMap: (json['housingMap'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, HousingDto.fromJson(e as Map<String, dynamic>)),
+      ),
       tabRespondentMap:
           (json['tabRespondentMap'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(
@@ -83,6 +86,8 @@ Map<String, dynamic> _$$_RespondentStateDtoToJson(
       'visitRecordsMap',
       instance.visitRecordsMap
           ?.map((k, e) => MapEntry(k, e.map((e) => e.toJson()).toList())));
+  writeNotNull('housingMap',
+      instance.housingMap?.map((k, e) => MapEntry(k, e.toJson())));
   writeNotNull(
       'tabRespondentMap',
       instance.tabRespondentMap?.map((k, e) => MapEntry(

@@ -140,6 +140,65 @@ RespondentState visitReportUpdated(RespondentState state) {
   );
 }
 
+// H_ 住屋更新時
+RespondentState housingUpdated(RespondentState state) {
+  logger('Compute').i('housingUpdated');
+
+  final housingMap = state.responseInfoMap.values
+      .where(
+        (r) =>
+            r.surveyId == state.survey.id &&
+            r.moduleType == ModuleType.housingType(),
+      )
+      .toList()
+      .sortedByDescendingX((r) => r.lastChangedTimeStamp.toInt())
+      .groupListsBy((r) => r.respondentId)
+      .mapValues((e) => e.firstOrNull)
+      .values
+      .map(
+        (r) {
+          final questionMap =
+              state.survey.module[ModuleType.housingType()]!.questionMap;
+          final housingTypeChoiceList = questionMap['housing_type']?.choiceList;
+          final housingUsageChoiceList =
+              questionMap['housing_usage']?.choiceList;
+
+          final answerMap = r!.answerMap;
+          final housingTypeChoiceId =
+              (answerMap['housing_type'] ?? Answer.empty()).choiceValue?.id;
+          final housingUsageChoiceId =
+              (answerMap['housing_usage'] ?? Answer.empty()).choiceValue?.id;
+
+          final housingTypeChoice = housingTypeChoiceList?.firstWhere(
+            (c) => c.id == housingTypeChoiceId,
+            orElse: () => Choice.empty(),
+          );
+          final housingUsageChoice = housingUsageChoiceList?.firstWhere(
+            (c) => c.id == housingUsageChoiceId,
+            orElse: () => Choice.empty(),
+          );
+
+          final housingType = housingTypeChoice?.body ?? '';
+          final housingUsage = housingUsageChoice?.body ?? '';
+
+          return Housing(
+            respondentId: r.respondentId,
+            type: housingType,
+            usage: housingUsage,
+          );
+        },
+      )
+      .map((e) => MapEntry(e.respondentId, e))
+      .toMap();
+
+  return state.copyWith(
+    housingMap: housingMap,
+    saveParameters: state.saveParameters.copyWith(
+      housingMap: true,
+    ),
+  );
+}
+
 // H_ 分頁受訪者名單更新時
 RespondentState tabRespondentsUpdated(RespondentState state) {
   logger('Compute').i('tabRespondentsUpdated');

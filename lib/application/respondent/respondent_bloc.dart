@@ -14,6 +14,7 @@ import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/respondent/card_scroll_position.dart';
+import '../../domain/respondent/housing.dart';
 import '../../domain/respondent/i_respondent_repository.dart';
 import '../../domain/respondent/respondent.dart';
 import '../../domain/respondent/respondent_failure.dart';

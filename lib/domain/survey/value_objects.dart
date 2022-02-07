@@ -151,6 +151,7 @@ class ModuleType with _$ModuleType {
   bool get needUpdateTab => value != 'visitReport';
   bool get ableToReAnswer =>
       ['samplingWithinHousehold', 'housingType'].contains(value);
+  bool get shouldKeepInfo => ['visitReport', 'housingType'].contains(value);
 
   String toText() {
     switch (value) {

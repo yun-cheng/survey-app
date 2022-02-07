@@ -47,6 +47,11 @@ class RespondentEvent with _$RespondentEvent {
     required ResponseMap responseMap,
   }) = _VisitReportUpdated;
 
+  // H_ 住屋更新時
+  const factory RespondentEvent.housingUpdated({
+    required ResponseMap responseMap,
+  }) = _HousingUpdated;
+
   // H_ 分頁受訪者名單更新時
   const factory RespondentEvent.tabRespondentsUpdated({
     required ResponseMap responseMap,

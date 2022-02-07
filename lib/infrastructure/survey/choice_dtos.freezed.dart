@@ -24,6 +24,7 @@ class _$ChoiceDtoTearOff {
   _ChoiceDto call(
       {required int serialNumber,
       required String choiceId,
+      required String transformedId,
       required String choiceBody,
       required bool asNote,
       required bool asSingle,
@@ -34,6 +35,7 @@ class _$ChoiceDtoTearOff {
     return _ChoiceDto(
       serialNumber: serialNumber,
       choiceId: choiceId,
+      transformedId: transformedId,
       choiceBody: choiceBody,
       asNote: asNote,
       asSingle: asSingle,
@@ -56,6 +58,7 @@ const $ChoiceDto = _$ChoiceDtoTearOff();
 mixin _$ChoiceDto {
   int get serialNumber => throw _privateConstructorUsedError;
   String get choiceId => throw _privateConstructorUsedError;
+  String get transformedId => throw _privateConstructorUsedError;
   String get choiceBody => throw _privateConstructorUsedError;
   bool get asNote => throw _privateConstructorUsedError;
   bool get asSingle => throw _privateConstructorUsedError;
@@ -77,6 +80,7 @@ abstract class $ChoiceDtoCopyWith<$Res> {
   $Res call(
       {int serialNumber,
       String choiceId,
+      String transformedId,
       String choiceBody,
       bool asNote,
       bool asSingle,
@@ -98,6 +102,7 @@ class _$ChoiceDtoCopyWithImpl<$Res> implements $ChoiceDtoCopyWith<$Res> {
   $Res call({
     Object? serialNumber = freezed,
     Object? choiceId = freezed,
+    Object? transformedId = freezed,
     Object? choiceBody = freezed,
     Object? asNote = freezed,
     Object? asSingle = freezed,
@@ -114,6 +119,10 @@ class _$ChoiceDtoCopyWithImpl<$Res> implements $ChoiceDtoCopyWith<$Res> {
       choiceId: choiceId == freezed
           ? _value.choiceId
           : choiceId // ignore: cast_nullable_to_non_nullable
+              as String,
+      transformedId: transformedId == freezed
+          ? _value.transformedId
+          : transformedId // ignore: cast_nullable_to_non_nullable
               as String,
       choiceBody: choiceBody == freezed
           ? _value.choiceBody
@@ -156,6 +165,7 @@ abstract class _$ChoiceDtoCopyWith<$Res> implements $ChoiceDtoCopyWith<$Res> {
   $Res call(
       {int serialNumber,
       String choiceId,
+      String transformedId,
       String choiceBody,
       bool asNote,
       bool asSingle,
@@ -178,6 +188,7 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
   $Res call({
     Object? serialNumber = freezed,
     Object? choiceId = freezed,
+    Object? transformedId = freezed,
     Object? choiceBody = freezed,
     Object? asNote = freezed,
     Object? asSingle = freezed,
@@ -194,6 +205,10 @@ class __$ChoiceDtoCopyWithImpl<$Res> extends _$ChoiceDtoCopyWithImpl<$Res>
       choiceId: choiceId == freezed
           ? _value.choiceId
           : choiceId // ignore: cast_nullable_to_non_nullable
+              as String,
+      transformedId: transformedId == freezed
+          ? _value.transformedId
+          : transformedId // ignore: cast_nullable_to_non_nullable
               as String,
       choiceBody: choiceBody == freezed
           ? _value.choiceBody
@@ -233,6 +248,7 @@ class _$_ChoiceDto extends _ChoiceDto {
   const _$_ChoiceDto(
       {required this.serialNumber,
       required this.choiceId,
+      required this.transformedId,
       required this.choiceBody,
       required this.asNote,
       required this.asSingle,
@@ -250,6 +266,8 @@ class _$_ChoiceDto extends _ChoiceDto {
   @override
   final String choiceId;
   @override
+  final String transformedId;
+  @override
   final String choiceBody;
   @override
   final bool asNote;
@@ -266,7 +284,7 @@ class _$_ChoiceDto extends _ChoiceDto {
 
   @override
   String toString() {
-    return 'ChoiceDto(serialNumber: $serialNumber, choiceId: $choiceId, choiceBody: $choiceBody, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, choiceGroup: $choiceGroup, isGroupFirst: $isGroupFirst, upperChoiceId: $upperChoiceId)';
+    return 'ChoiceDto(serialNumber: $serialNumber, choiceId: $choiceId, transformedId: $transformedId, choiceBody: $choiceBody, asNote: $asNote, asSingle: $asSingle, isSpecialAnswer: $isSpecialAnswer, choiceGroup: $choiceGroup, isGroupFirst: $isGroupFirst, upperChoiceId: $upperChoiceId)';
   }
 
   @override
@@ -277,6 +295,8 @@ class _$_ChoiceDto extends _ChoiceDto {
             const DeepCollectionEquality()
                 .equals(other.serialNumber, serialNumber) &&
             const DeepCollectionEquality().equals(other.choiceId, choiceId) &&
+            const DeepCollectionEquality()
+                .equals(other.transformedId, transformedId) &&
             const DeepCollectionEquality()
                 .equals(other.choiceBody, choiceBody) &&
             const DeepCollectionEquality().equals(other.asNote, asNote) &&
@@ -296,6 +316,7 @@ class _$_ChoiceDto extends _ChoiceDto {
       runtimeType,
       const DeepCollectionEquality().hash(serialNumber),
       const DeepCollectionEquality().hash(choiceId),
+      const DeepCollectionEquality().hash(transformedId),
       const DeepCollectionEquality().hash(choiceBody),
       const DeepCollectionEquality().hash(asNote),
       const DeepCollectionEquality().hash(asSingle),
@@ -319,6 +340,7 @@ abstract class _ChoiceDto extends ChoiceDto {
   const factory _ChoiceDto(
       {required int serialNumber,
       required String choiceId,
+      required String transformedId,
       required String choiceBody,
       required bool asNote,
       required bool asSingle,
@@ -335,6 +357,8 @@ abstract class _ChoiceDto extends ChoiceDto {
   int get serialNumber;
   @override
   String get choiceId;
+  @override
+  String get transformedId;
   @override
   String get choiceBody;
   @override

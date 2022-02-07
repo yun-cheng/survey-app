@@ -87,7 +87,7 @@ class ChoiceItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '(${choice.id}) ${choice.body}',
+                choice.toText(),
                 style: kPTextStyle,
               ),
               if (choice.asNote && isSelected) ...[

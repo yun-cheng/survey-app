@@ -75,6 +75,16 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
           );
     }
 
+    if (state.updateParameters.housingMap) {
+      logger('Listen').i('ResponseBloc: housingMap');
+
+      context.read<RespondentBloc>().add(
+            RespondentEvent.housingUpdated(
+              responseMap: state.responseMap,
+            ),
+          );
+    }
+
     if (state.updateParameters.respondentResponseMap) {
       logger('Listen').i('ResponseBloc: respondentResponseMap');
 

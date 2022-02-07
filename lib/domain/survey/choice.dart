@@ -11,6 +11,7 @@ class Choice with _$Choice {
   const factory Choice({
     required int serialNumber,
     required String id,
+    required String transformedId,
     required String body,
     required bool asNote,
     required bool asSingle,
@@ -23,6 +24,7 @@ class Choice with _$Choice {
   factory Choice.empty() => const Choice(
         serialNumber: 0,
         id: '',
+        transformedId: '',
         body: '',
         asNote: false,
         asSingle: false,
@@ -31,6 +33,10 @@ class Choice with _$Choice {
         isGroupFirst: false,
         upperChoiceId: '',
       );
+
+  String toText() {
+    return transformedId + (transformedId != '' ? ' ' : '') + body;
+  }
 
   SimpleChoice simple() {
     return SimpleChoice(
