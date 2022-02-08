@@ -25,6 +25,7 @@ class QuestionType with _$QuestionType {
   factory QuestionType.popupSingle() => const QuestionType('popupSingle');
   factory QuestionType.popupMultiple() => const QuestionType('popupMultiple');
   factory QuestionType.number() => const QuestionType('number');
+  factory QuestionType.integer() => const QuestionType('integer');
   factory QuestionType.text() => const QuestionType('text');
   factory QuestionType.date() => const QuestionType('date');
   factory QuestionType.time() => const QuestionType('time');
@@ -38,8 +39,10 @@ class QuestionType with _$QuestionType {
   bool get isMultiple => ['multiple', 'popupMultiple'].contains(value);
   bool get isChoice => isSingle || isMultiple;
   bool get isNormalChoice => ['single', 'multiple'].contains(value);
-  bool get isInput => ['number', 'text'].contains(value);
+  bool get isInput => ['number', 'integer', 'text'].contains(value);
+  bool get isNumberOrInteger => ['number', 'integer'].contains(value);
   bool get isNumber => value == 'number';
+  bool get isInteger => value == 'integer';
   bool get isDateTime => ['date', 'time', 'dateTime'].contains(value);
   bool get isPhone => value == 'phone';
   bool get isTable => ['simpleTable', 'complexTable'].contains(value);

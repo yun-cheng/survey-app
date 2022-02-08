@@ -65,17 +65,21 @@ class TextBox extends HookWidget {
           ),
         ),
         maxLines: null,
-        keyboardType: questionType.isNumber
-            ? const TextInputType.numberWithOptions(
+        keyboardType: questionType.isNumberOrInteger
+            ? TextInputType.numberWithOptions(
                 signed: true,
-                decimal: true,
+                decimal: questionType.isNumber,
               )
             : TextInputType.multiline,
         inputFormatters: questionType.isNumber
             ? <TextInputFormatter>[
                 FilteringTextInputFormatter.allow(RegExp(r'^-?\d*\.?\d*$')),
               ]
-            : null,
+            : questionType.isInteger
+                ? <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(RegExp(r'^-?\d*$')),
+                  ]
+                : null,
         onChanged: (value) {
           context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(

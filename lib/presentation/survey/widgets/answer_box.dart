@@ -116,8 +116,7 @@ class PureAnswerBox extends StatelessWidget {
           isinCell: isinCell,
         ),
       );
-    } else if ([QuestionType.number(), QuestionType.text()]
-        .contains(questionType)) {
+    } else if (questionType.isInput) {
       return TextBox(
         questionId: questionId,
         questionType: questionType,
