@@ -14,20 +14,32 @@ class Survey with _$Survey {
     required String name,
     required String teamId,
     required String projectId,
+    required String version,
+    required bool isCompatible,
+    required DeviceTimeStamp lastUpdatedTimeStamp,
     required Map<ModuleType, SurveyModule> module,
   }) = _Survey;
 
-  factory Survey.empty() => const Survey(
-        id: '',
-        name: '',
-        teamId: '',
-        projectId: '',
-        module: <ModuleType, SurveyModule>{},
-      );
+  factory Survey.empty() {
+    final now = DeviceTimeStamp.now();
+
+    return Survey(
+      id: '',
+      name: '',
+      teamId: '',
+      projectId: '',
+      version: '',
+      isCompatible: false,
+      lastUpdatedTimeStamp: now,
+      module: <ModuleType, SurveyModule>{},
+    );
+  }
+
+  String versionText() => isCompatible ? '$version版' : '版本不相容 ($version版)';
 
   // NOTE 避免 print 太多東西出來
   @override
   String toString() {
-    return 'Survey(id: $id, name: $name, teamId: $teamId, projectId: $projectId)';
+    return 'Survey(id: $id, name: $name, version: $version)';
   }
 }

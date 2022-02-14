@@ -65,7 +65,8 @@ mixin _$ResponseStateDto {
   List<String>? get responseMapKeys => throw _privateConstructorUsedError;
   List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
   ResponseDto? get response => throw _privateConstructorUsedError;
-  String? get responseId => throw _privateConstructorUsedError;
+  String? get responseId =>
+      throw _privateConstructorUsedError; // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
   StateParameters? get saveParameters => throw _privateConstructorUsedError;
 
@@ -359,7 +360,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   final ResponseDto? response;
   @override
   final String? responseId;
-  @override
+  @override // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
   final StateParameters? saveParameters;
 
@@ -453,7 +454,7 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   ResponseDto? get response;
   @override
   String? get responseId;
-  @override
+  @override // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
   StateParameters? get saveParameters;
   @override

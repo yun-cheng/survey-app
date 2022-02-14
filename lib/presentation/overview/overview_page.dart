@@ -9,6 +9,7 @@ import '../../application/respondent/respondent_bloc.dart';
 import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../domain/core/logger.dart';
+import '../../version.dart';
 import '../routes/router.gr.dart';
 import 'widgets/overview_body.dart';
 
@@ -23,7 +24,7 @@ class OverviewPage extends StatelessWidget {
       onWillPop: () async => false,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('選擇問卷'),
+          title: const Text('專案問卷列表 ($appVersion版)'),
           automaticallyImplyLeading: false,
           actions: [
             TextButton(

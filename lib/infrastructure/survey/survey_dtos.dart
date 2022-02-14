@@ -16,6 +16,9 @@ class SurveyDto with _$SurveyDto {
     required String surveyName,
     required String projectId,
     required String teamId,
+    String? version,
+    bool? isCompatible,
+    int? lastUpdatedTimeStamp,
     required Map<String, SurveyModuleDto> module,
   }) = _SurveyDto;
 
@@ -25,19 +28,30 @@ class SurveyDto with _$SurveyDto {
       surveyName: domain.name,
       teamId: domain.teamId,
       projectId: domain.projectId,
+      version: domain.version,
+      isCompatible: domain.isCompatible,
+      lastUpdatedTimeStamp:
+          domain.lastUpdatedTimeStamp.value.microsecondsSinceEpoch,
       module: domain.module.map((key, value) =>
           MapEntry(key.value, SurveyModuleDto.fromDomain(value))),
     );
   }
 
-  Survey toDomain() {
+  Survey toDomain({
+    bool versionIsCompatible = true,
+  }) {
     return Survey(
       id: surveyId,
       name: surveyName,
       teamId: teamId,
       projectId: projectId,
-      module: module
-          .map((key, value) => MapEntry(ModuleType(key), value.toDomain())),
+      version: version ?? '',
+      isCompatible: isCompatible ?? versionIsCompatible,
+      lastUpdatedTimeStamp: DeviceTimeStamp.fromInt(lastUpdatedTimeStamp ?? 0),
+      module: versionIsCompatible
+          ? module
+              .map((key, value) => MapEntry(ModuleType(key), value.toDomain()))
+          : {},
     );
   }
 

@@ -19,6 +19,8 @@ _$_WatchSurveyStateDto _$$_WatchSurveyStateDtoFromJson(
           ? null
           : SurveyDto.fromJson(json['survey'] as Map<String, dynamic>),
       surveyId: json['surveyId'] as String?,
+      teamId: json['teamId'] as String?,
+      interviewerId: json['interviewerId'] as String?,
     );
 
 Map<String, dynamic> _$$_WatchSurveyStateDtoToJson(
@@ -37,5 +39,7 @@ Map<String, dynamic> _$$_WatchSurveyStateDtoToJson(
       instance.projectMap?.map((k, e) => MapEntry(k, e.toJson())));
   writeNotNull('survey', instance.survey?.toJson());
   writeNotNull('surveyId', instance.surveyId);
+  writeNotNull('teamId', instance.teamId);
+  writeNotNull('interviewerId', instance.interviewerId);
   return val;
 }

@@ -25,12 +25,16 @@ class _$WatchSurveyStateDtoTearOff {
       {Map<String, SurveyDto>? surveyMap,
       Map<String, ProjectDto>? projectMap,
       SurveyDto? survey,
-      String? surveyId}) {
+      String? surveyId,
+      String? teamId,
+      String? interviewerId}) {
     return _WatchSurveyStateDto(
       surveyMap: surveyMap,
       projectMap: projectMap,
       survey: survey,
       surveyId: surveyId,
+      teamId: teamId,
+      interviewerId: interviewerId,
     );
   }
 
@@ -48,6 +52,8 @@ mixin _$WatchSurveyStateDto {
   Map<String, ProjectDto>? get projectMap => throw _privateConstructorUsedError;
   SurveyDto? get survey => throw _privateConstructorUsedError;
   String? get surveyId => throw _privateConstructorUsedError;
+  String? get teamId => throw _privateConstructorUsedError;
+  String? get interviewerId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -64,7 +70,9 @@ abstract class $WatchSurveyStateDtoCopyWith<$Res> {
       {Map<String, SurveyDto>? surveyMap,
       Map<String, ProjectDto>? projectMap,
       SurveyDto? survey,
-      String? surveyId});
+      String? surveyId,
+      String? teamId,
+      String? interviewerId});
 
   $SurveyDtoCopyWith<$Res>? get survey;
 }
@@ -84,6 +92,8 @@ class _$WatchSurveyStateDtoCopyWithImpl<$Res>
     Object? projectMap = freezed,
     Object? survey = freezed,
     Object? surveyId = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
   }) {
     return _then(_value.copyWith(
       surveyMap: surveyMap == freezed
@@ -101,6 +111,14 @@ class _$WatchSurveyStateDtoCopyWithImpl<$Res>
       surveyId: surveyId == freezed
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -128,7 +146,9 @@ abstract class _$WatchSurveyStateDtoCopyWith<$Res>
       {Map<String, SurveyDto>? surveyMap,
       Map<String, ProjectDto>? projectMap,
       SurveyDto? survey,
-      String? surveyId});
+      String? surveyId,
+      String? teamId,
+      String? interviewerId});
 
   @override
   $SurveyDtoCopyWith<$Res>? get survey;
@@ -151,6 +171,8 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
     Object? projectMap = freezed,
     Object? survey = freezed,
     Object? surveyId = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
   }) {
     return _then(_WatchSurveyStateDto(
       surveyMap: surveyMap == freezed
@@ -169,6 +191,14 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
           ? _value.surveyId
           : surveyId // ignore: cast_nullable_to_non_nullable
               as String?,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -178,7 +208,12 @@ class __$WatchSurveyStateDtoCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
   const _$_WatchSurveyStateDto(
-      {this.surveyMap, this.projectMap, this.survey, this.surveyId})
+      {this.surveyMap,
+      this.projectMap,
+      this.survey,
+      this.surveyId,
+      this.teamId,
+      this.interviewerId})
       : super._();
 
   factory _$_WatchSurveyStateDto.fromJson(Map<String, dynamic> json) =>
@@ -192,10 +227,14 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
   final SurveyDto? survey;
   @override
   final String? surveyId;
+  @override
+  final String? teamId;
+  @override
+  final String? interviewerId;
 
   @override
   String toString() {
-    return 'WatchSurveyStateDto(surveyMap: $surveyMap, projectMap: $projectMap, survey: $survey, surveyId: $surveyId)';
+    return 'WatchSurveyStateDto(surveyMap: $surveyMap, projectMap: $projectMap, survey: $survey, surveyId: $surveyId, teamId: $teamId, interviewerId: $interviewerId)';
   }
 
   @override
@@ -207,7 +246,10 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
             const DeepCollectionEquality()
                 .equals(other.projectMap, projectMap) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
-            const DeepCollectionEquality().equals(other.surveyId, surveyId));
+            const DeepCollectionEquality().equals(other.surveyId, surveyId) &&
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerId, interviewerId));
   }
 
   @override
@@ -216,7 +258,9 @@ class _$_WatchSurveyStateDto extends _WatchSurveyStateDto {
       const DeepCollectionEquality().hash(surveyMap),
       const DeepCollectionEquality().hash(projectMap),
       const DeepCollectionEquality().hash(survey),
-      const DeepCollectionEquality().hash(surveyId));
+      const DeepCollectionEquality().hash(surveyId),
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(interviewerId));
 
   @JsonKey(ignore: true)
   @override
@@ -235,7 +279,9 @@ abstract class _WatchSurveyStateDto extends WatchSurveyStateDto {
       {Map<String, SurveyDto>? surveyMap,
       Map<String, ProjectDto>? projectMap,
       SurveyDto? survey,
-      String? surveyId}) = _$_WatchSurveyStateDto;
+      String? surveyId,
+      String? teamId,
+      String? interviewerId}) = _$_WatchSurveyStateDto;
   const _WatchSurveyStateDto._() : super._();
 
   factory _WatchSurveyStateDto.fromJson(Map<String, dynamic> json) =
@@ -249,6 +295,10 @@ abstract class _WatchSurveyStateDto extends WatchSurveyStateDto {
   SurveyDto? get survey;
   @override
   String? get surveyId;
+  @override
+  String? get teamId;
+  @override
+  String? get interviewerId;
   @override
   @JsonKey(ignore: true)
   _$WatchSurveyStateDtoCopyWith<_WatchSurveyStateDto> get copyWith =>

@@ -25,6 +25,8 @@ void _eventWorker(
       logger('Watch').i('WatchSurveyEvent: watchSurveyMapStarted');
 
       state = state.copyWith(
+        teamId: e.teamId,
+        interviewerId: e.interviewerId,
         surveyMapState: LoadState.inProgress(),
         surveyFailure: none(),
       );
@@ -61,8 +63,21 @@ void _eventWorker(
           surveyFailure: some(f),
         ),
         (projectMap) => state.copyWith(
-          // surveyMapState: LoadState.success(),
           projectMap: projectMap,
+          surveyFailure: none(),
+        ),
+      );
+    },
+    surveyCompatibilityReceived: (e) {
+      logger('Receive').i('WatchSurveyEvent: surveyCompatibilityReceived');
+
+      state = e.failureOrSurveyCompatibility.fold(
+        (f) => state.copyWith(
+          surveyMapState: LoadState.failure(),
+          surveyFailure: some(f),
+        ),
+        (surveyCompatibility) => state.copyWith(
+          surveyCompatibility: surveyCompatibility,
           surveyFailure: none(),
         ),
       );

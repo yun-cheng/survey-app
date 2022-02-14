@@ -14,6 +14,7 @@ import '../../domain/survey/i_survey_repository.dart';
 import '../../domain/survey/reference.dart';
 import '../../domain/survey/survey_failure.dart';
 import '../../domain/survey/typedefs.dart';
+import '../../version.dart';
 import '../core/firestore_helpers.dart';
 import '../overview/project_dtos.dart';
 import 'reference_dtos.dart';
@@ -32,21 +33,26 @@ class SurveyRepository implements ISurveyRepository {
 
   Future<Survey> downloadSurvey({
     required String surveyId,
+    required List<String> surveyCompatibility,
   }) async {
     final surveyRef = _storage.surveyRef.child('$surveyId/$surveyId.json');
 
     final Uint8List? data =
         await surveyRef.getData().timeout(const Duration(seconds: 30));
     final jsonStr = data != null ? String.fromCharCodes(data) : '';
-    final result = await json.decode(jsonStr);
+    final result = await json.decode(jsonStr) as Map<String, dynamic>;
 
-    return SurveyDto.fromJson(result).toDomain();
+    return SurveyDto.fromJson(result).toDomain(
+      versionIsCompatible:
+          surveyCompatibility.contains(result['version'] ?? ''),
+    );
   }
 
   @override
   Stream<Either<SurveyFailure, Map<String, Survey>>> watchSurveyMap({
     required String teamId,
     required String interviewerId,
+    required List<String> surveyCompatibility,
   }) async* {
     final surveyCollection = _firestore.surveyCollection;
 
@@ -58,7 +64,10 @@ class SurveyRepository implements ISurveyRepository {
       // NOTE Future.wait 會等裡面的東西都齊全
       final list = await Future.wait(snapshot.docs.map((doc) {
         final surveyId = (doc.data()! as Map)['surveyId'] as String;
-        return downloadSurvey(surveyId: surveyId);
+        return downloadSurvey(
+          surveyId: surveyId,
+          surveyCompatibility: surveyCompatibility,
+        );
       }));
 
       final map = Map.fromEntries(
@@ -70,8 +79,26 @@ class SurveyRepository implements ISurveyRepository {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(SurveyFailure.insufficientPermission());
       } else {
-        logger('Test').e(e);
-        logger('Test').e(stackTrace);
+        return left(SurveyFailure.unexpected());
+      }
+    });
+  }
+
+  @override
+  Stream<Either<SurveyFailure, List<String>>>
+      watchSurveyCompatibility() async* {
+    final compatibilityCollection = _firestore.compatibilityCollection;
+
+    yield* compatibilityCollection.doc(appVersion).snapshots().map(
+      (doc) {
+        final result = List<String>.from((doc.data()! as Map)['list'] ?? []);
+
+        return right<SurveyFailure, List<String>>(result);
+      },
+    ).onErrorReturnWith((e, stackTrace) {
+      if (e is FirebaseException && e.code == 'permission-denied') {
+        return left(SurveyFailure.insufficientPermission());
+      } else {
         return left(SurveyFailure.unexpected());
       }
     });

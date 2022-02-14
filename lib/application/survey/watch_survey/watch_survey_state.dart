@@ -10,6 +10,9 @@ class WatchSurveyState with _$WatchSurveyState {
     required Map<String, Survey> surveyMap,
     required Map<String, Project> projectMap,
     required Survey survey,
+    required List<String> surveyCompatibility,
+    required String teamId,
+    required String interviewerId,
     // H_ 狀態更新進度
     required LoadState eventState,
     required LoadState surveyMapState,
@@ -22,6 +25,9 @@ class WatchSurveyState with _$WatchSurveyState {
         surveyMap: const {},
         projectMap: const {},
         survey: Survey.empty(),
+        surveyCompatibility: [],
+        teamId: '',
+        interviewerId: '',
         // H_ 狀態更新進度
         eventState: LoadState.initial(),
         surveyMapState: LoadState.initial(),
@@ -56,4 +62,37 @@ class WatchSurveyState with _$WatchSurveyState {
       eventState: LoadState.success(),
     ).send(channel).saveState(localStorage);
   }
+}
+
+// H_ 參數狀態
+@freezed
+class StateParameters with _$StateParameters {
+  const StateParameters._();
+
+  const factory StateParameters({
+    required bool surveyMap,
+    required bool projectMap,
+    required bool survey,
+    required bool surveyCompatibility,
+    required bool teamId,
+    required bool interviewerId,
+  }) = _StateParameters;
+
+  factory StateParameters.initial() => const StateParameters(
+        surveyMap: false,
+        projectMap: false,
+        survey: false,
+        surveyCompatibility: false,
+        teamId: false,
+        interviewerId: false,
+      );
+
+  factory StateParameters.clear() => const StateParameters(
+        surveyMap: true,
+        projectMap: true,
+        survey: true,
+        surveyCompatibility: true,
+        teamId: true,
+        interviewerId: true,
+      );
 }

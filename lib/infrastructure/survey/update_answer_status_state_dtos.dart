@@ -59,7 +59,6 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
         ),
       };
 
-  // TODO saveParameters
   factory UpdateAnswerStatusStateDto.fromDomain(
       UpdateAnswerStatusState domain) {
     return UpdateAnswerStatusStateDto(

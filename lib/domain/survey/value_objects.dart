@@ -209,7 +209,8 @@ class DeviceTimeStamp with _$DeviceTimeStamp {
         DateTime.fromMicrosecondsSinceEpoch(time),
       );
   int toInt() => value.microsecondsSinceEpoch;
-  String toReadableString() => '${value.month}月${value.day}日${value.hour}時';
+  String toReadableString() =>
+      '${value.year}-${value.month.toString().padLeft(2, '0')}-${value.day.toString().padLeft(2, '0')} ${value.hour.toString().padLeft(2, '0')}:${value.minute.toString().padLeft(2, '0')}';
 }
 
 enum SurveyPageUpdateType {

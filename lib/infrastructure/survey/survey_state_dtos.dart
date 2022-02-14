@@ -21,6 +21,8 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
     Map<String, ProjectDto>? projectMap,
     SurveyDto? survey,
     String? surveyId,
+    String? teamId,
+    String? interviewerId,
   }) = _WatchSurveyStateDto;
 
   static Map<String, DtoInfo> infoMap() => const {
@@ -36,11 +38,23 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
         ),
       };
 
+  // TODO saveParameters
+  Map<String, DtoInfo> subsetInfoMap() {
+    final infoMap = {...WatchSurveyStateDto.infoMap()};
+
+    // if (!saveParameters!.surveyMap) infoMap.remove('surveyMap');
+    // if (!saveParameters!.projectMap) infoMap.remove('projectMap');
+
+    return infoMap;
+  }
+
   factory WatchSurveyStateDto.fromDomain(WatchSurveyState domain) {
     return WatchSurveyStateDto(
       surveyMap: domain.surveyMap.mapValues((e) => SurveyDto.fromDomain(e)),
       projectMap: domain.projectMap.mapValues((e) => ProjectDto.fromDomain(e)),
       surveyId: domain.survey.id,
+      teamId: domain.teamId,
+      interviewerId: domain.interviewerId,
     );
   }
 
@@ -53,13 +67,15 @@ class WatchSurveyStateDto with _$WatchSurveyStateDto {
       projectMap:
           projectMap?.mapValues((dto) => dto.toDomain()) ?? initial.projectMap,
       survey: survey?.toDomain() ?? initial.survey,
+      teamId: teamId ?? initial.teamId,
+      interviewerId: interviewerId ?? initial.interviewerId,
     );
   }
 
   void saveState(ILocalStorage localStorage) => commonSaveState(
         json: toJson(),
         localStorage: localStorage,
-        infoMap: WatchSurveyStateDto.infoMap(),
+        infoMap: subsetInfoMap(),
       );
 
   factory WatchSurveyStateDto.fromJson(Map<String, dynamic> json) =>

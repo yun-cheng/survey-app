@@ -22,12 +22,18 @@ class _$SurveyTearOff {
       required String name,
       required String teamId,
       required String projectId,
+      required String version,
+      required bool isCompatible,
+      required DeviceTimeStamp lastUpdatedTimeStamp,
       required Map<ModuleType, SurveyModule> module}) {
     return _Survey(
       id: id,
       name: name,
       teamId: teamId,
       projectId: projectId,
+      version: version,
+      isCompatible: isCompatible,
+      lastUpdatedTimeStamp: lastUpdatedTimeStamp,
       module: module,
     );
   }
@@ -42,6 +48,10 @@ mixin _$Survey {
   String get name => throw _privateConstructorUsedError;
   String get teamId => throw _privateConstructorUsedError;
   String get projectId => throw _privateConstructorUsedError;
+  String get version => throw _privateConstructorUsedError;
+  bool get isCompatible => throw _privateConstructorUsedError;
+  DeviceTimeStamp get lastUpdatedTimeStamp =>
+      throw _privateConstructorUsedError;
   Map<ModuleType, SurveyModule> get module =>
       throw _privateConstructorUsedError;
 
@@ -58,7 +68,12 @@ abstract class $SurveyCopyWith<$Res> {
       String name,
       String teamId,
       String projectId,
+      String version,
+      bool isCompatible,
+      DeviceTimeStamp lastUpdatedTimeStamp,
       Map<ModuleType, SurveyModule> module});
+
+  $DeviceTimeStampCopyWith<$Res> get lastUpdatedTimeStamp;
 }
 
 /// @nodoc
@@ -75,6 +90,9 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
     Object? name = freezed,
     Object? teamId = freezed,
     Object? projectId = freezed,
+    Object? version = freezed,
+    Object? isCompatible = freezed,
+    Object? lastUpdatedTimeStamp = freezed,
     Object? module = freezed,
   }) {
     return _then(_value.copyWith(
@@ -94,11 +112,30 @@ class _$SurveyCopyWithImpl<$Res> implements $SurveyCopyWith<$Res> {
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
               as String,
+      version: version == freezed
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String,
+      isCompatible: isCompatible == freezed
+          ? _value.isCompatible
+          : isCompatible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lastUpdatedTimeStamp: lastUpdatedTimeStamp == freezed
+          ? _value.lastUpdatedTimeStamp
+          : lastUpdatedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as DeviceTimeStamp,
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
               as Map<ModuleType, SurveyModule>,
     ));
+  }
+
+  @override
+  $DeviceTimeStampCopyWith<$Res> get lastUpdatedTimeStamp {
+    return $DeviceTimeStampCopyWith<$Res>(_value.lastUpdatedTimeStamp, (value) {
+      return _then(_value.copyWith(lastUpdatedTimeStamp: value));
+    });
   }
 }
 
@@ -112,7 +149,13 @@ abstract class _$SurveyCopyWith<$Res> implements $SurveyCopyWith<$Res> {
       String name,
       String teamId,
       String projectId,
+      String version,
+      bool isCompatible,
+      DeviceTimeStamp lastUpdatedTimeStamp,
       Map<ModuleType, SurveyModule> module});
+
+  @override
+  $DeviceTimeStampCopyWith<$Res> get lastUpdatedTimeStamp;
 }
 
 /// @nodoc
@@ -130,6 +173,9 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
     Object? name = freezed,
     Object? teamId = freezed,
     Object? projectId = freezed,
+    Object? version = freezed,
+    Object? isCompatible = freezed,
+    Object? lastUpdatedTimeStamp = freezed,
     Object? module = freezed,
   }) {
     return _then(_Survey(
@@ -149,6 +195,18 @@ class __$SurveyCopyWithImpl<$Res> extends _$SurveyCopyWithImpl<$Res>
           ? _value.projectId
           : projectId // ignore: cast_nullable_to_non_nullable
               as String,
+      version: version == freezed
+          ? _value.version
+          : version // ignore: cast_nullable_to_non_nullable
+              as String,
+      isCompatible: isCompatible == freezed
+          ? _value.isCompatible
+          : isCompatible // ignore: cast_nullable_to_non_nullable
+              as bool,
+      lastUpdatedTimeStamp: lastUpdatedTimeStamp == freezed
+          ? _value.lastUpdatedTimeStamp
+          : lastUpdatedTimeStamp // ignore: cast_nullable_to_non_nullable
+              as DeviceTimeStamp,
       module: module == freezed
           ? _value.module
           : module // ignore: cast_nullable_to_non_nullable
@@ -165,6 +223,9 @@ class _$_Survey extends _Survey {
       required this.name,
       required this.teamId,
       required this.projectId,
+      required this.version,
+      required this.isCompatible,
+      required this.lastUpdatedTimeStamp,
       required this.module})
       : super._();
 
@@ -177,6 +238,12 @@ class _$_Survey extends _Survey {
   @override
   final String projectId;
   @override
+  final String version;
+  @override
+  final bool isCompatible;
+  @override
+  final DeviceTimeStamp lastUpdatedTimeStamp;
+  @override
   final Map<ModuleType, SurveyModule> module;
 
   @override
@@ -188,6 +255,11 @@ class _$_Survey extends _Survey {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.teamId, teamId) &&
             const DeepCollectionEquality().equals(other.projectId, projectId) &&
+            const DeepCollectionEquality().equals(other.version, version) &&
+            const DeepCollectionEquality()
+                .equals(other.isCompatible, isCompatible) &&
+            const DeepCollectionEquality()
+                .equals(other.lastUpdatedTimeStamp, lastUpdatedTimeStamp) &&
             const DeepCollectionEquality().equals(other.module, module));
   }
 
@@ -198,6 +270,9 @@ class _$_Survey extends _Survey {
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(teamId),
       const DeepCollectionEquality().hash(projectId),
+      const DeepCollectionEquality().hash(version),
+      const DeepCollectionEquality().hash(isCompatible),
+      const DeepCollectionEquality().hash(lastUpdatedTimeStamp),
       const DeepCollectionEquality().hash(module));
 
   @JsonKey(ignore: true)
@@ -212,6 +287,9 @@ abstract class _Survey extends Survey {
       required String name,
       required String teamId,
       required String projectId,
+      required String version,
+      required bool isCompatible,
+      required DeviceTimeStamp lastUpdatedTimeStamp,
       required Map<ModuleType, SurveyModule> module}) = _$_Survey;
   const _Survey._() : super._();
 
@@ -223,6 +301,12 @@ abstract class _Survey extends Survey {
   String get teamId;
   @override
   String get projectId;
+  @override
+  String get version;
+  @override
+  bool get isCompatible;
+  @override
+  DeviceTimeStamp get lastUpdatedTimeStamp;
   @override
   Map<ModuleType, SurveyModule> get module;
   @override

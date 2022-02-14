@@ -39,6 +39,13 @@ class _$WatchSurveyEventTearOff {
     );
   }
 
+  _SurveyCompatibilityReceived surveyCompatibilityReceived(
+      Either<SurveyFailure, List<String>> failureOrSurveyCompatibility) {
+    return _SurveyCompatibilityReceived(
+      failureOrSurveyCompatibility,
+    );
+  }
+
   _SurveySelected surveySelected({required Survey survey}) {
     return _SurveySelected(
       survey: survey,
@@ -69,6 +76,9 @@ mixin _$WatchSurveyEvent {
     required TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
         projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -84,6 +94,9 @@ mixin _$WatchSurveyEvent {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -99,6 +112,9 @@ mixin _$WatchSurveyEvent {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -111,6 +127,8 @@ mixin _$WatchSurveyEvent {
         watchSurveyMapStarted,
     required TResult Function(_SurveyMapReceived value) surveyMapReceived,
     required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
@@ -121,6 +139,8 @@ mixin _$WatchSurveyEvent {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -131,6 +151,8 @@ mixin _$WatchSurveyEvent {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -242,6 +264,9 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
     required TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
         projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -260,6 +285,9 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -278,6 +306,9 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -296,6 +327,8 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
         watchSurveyMapStarted,
     required TResult Function(_SurveyMapReceived value) surveyMapReceived,
     required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
@@ -309,6 +342,8 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -322,6 +357,8 @@ class _$_WatchSurveyMapStarted implements _WatchSurveyMapStarted {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -420,6 +457,9 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
     required TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
         projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -438,6 +478,9 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -456,6 +499,9 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -474,6 +520,8 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
         watchSurveyMapStarted,
     required TResult Function(_SurveyMapReceived value) surveyMapReceived,
     required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
@@ -487,6 +535,8 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -500,6 +550,8 @@ class _$_SurveyMapReceived implements _SurveyMapReceived {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -597,6 +649,9 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
     required TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
         projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -615,6 +670,9 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -633,6 +691,9 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -651,6 +712,8 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
         watchSurveyMapStarted,
     required TResult Function(_SurveyMapReceived value) surveyMapReceived,
     required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
@@ -664,6 +727,8 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -677,6 +742,8 @@ class _$_ProjectMapReceived implements _ProjectMapReceived {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -698,6 +765,203 @@ abstract class _ProjectMapReceived implements WatchSurveyEvent {
   @JsonKey(ignore: true)
   _$ProjectMapReceivedCopyWith<_ProjectMapReceived> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$SurveyCompatibilityReceivedCopyWith<$Res> {
+  factory _$SurveyCompatibilityReceivedCopyWith(
+          _SurveyCompatibilityReceived value,
+          $Res Function(_SurveyCompatibilityReceived) then) =
+      __$SurveyCompatibilityReceivedCopyWithImpl<$Res>;
+  $Res call({Either<SurveyFailure, List<String>> failureOrSurveyCompatibility});
+}
+
+/// @nodoc
+class __$SurveyCompatibilityReceivedCopyWithImpl<$Res>
+    extends _$WatchSurveyEventCopyWithImpl<$Res>
+    implements _$SurveyCompatibilityReceivedCopyWith<$Res> {
+  __$SurveyCompatibilityReceivedCopyWithImpl(
+      _SurveyCompatibilityReceived _value,
+      $Res Function(_SurveyCompatibilityReceived) _then)
+      : super(_value, (v) => _then(v as _SurveyCompatibilityReceived));
+
+  @override
+  _SurveyCompatibilityReceived get _value =>
+      super._value as _SurveyCompatibilityReceived;
+
+  @override
+  $Res call({
+    Object? failureOrSurveyCompatibility = freezed,
+  }) {
+    return _then(_SurveyCompatibilityReceived(
+      failureOrSurveyCompatibility == freezed
+          ? _value.failureOrSurveyCompatibility
+          : failureOrSurveyCompatibility // ignore: cast_nullable_to_non_nullable
+              as Either<SurveyFailure, List<String>>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_SurveyCompatibilityReceived implements _SurveyCompatibilityReceived {
+  const _$_SurveyCompatibilityReceived(this.failureOrSurveyCompatibility);
+
+  @override
+  final Either<SurveyFailure, List<String>> failureOrSurveyCompatibility;
+
+  @override
+  String toString() {
+    return 'WatchSurveyEvent.surveyCompatibilityReceived(failureOrSurveyCompatibility: $failureOrSurveyCompatibility)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SurveyCompatibilityReceived &&
+            const DeepCollectionEquality().equals(
+                other.failureOrSurveyCompatibility,
+                failureOrSurveyCompatibility));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(failureOrSurveyCompatibility));
+
+  @JsonKey(ignore: true)
+  @override
+  _$SurveyCompatibilityReceivedCopyWith<_SurveyCompatibilityReceived>
+      get copyWith => __$SurveyCompatibilityReceivedCopyWithImpl<
+          _SurveyCompatibilityReceived>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String teamId, String interviewerId)
+        watchSurveyMapStarted,
+    required TResult Function(
+            Either<SurveyFailure, Map<String, Survey>> failureOrSurveyMap)
+        surveyMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
+        projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function() loggedOut,
+    required TResult Function() initialized,
+  }) {
+    return surveyCompatibilityReceived(failureOrSurveyCompatibility);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyMapStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<String, Survey>> failureOrSurveyMap)?
+        surveyMapReceived,
+    TResult Function(
+            Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
+        projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+  }) {
+    return surveyCompatibilityReceived?.call(failureOrSurveyCompatibility);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, String interviewerId)?
+        watchSurveyMapStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<String, Survey>> failureOrSurveyMap)?
+        surveyMapReceived,
+    TResult Function(
+            Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
+        projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (surveyCompatibilityReceived != null) {
+      return surveyCompatibilityReceived(failureOrSurveyCompatibility);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchSurveyMapStarted value)
+        watchSurveyMapStarted,
+    required TResult Function(_SurveyMapReceived value) surveyMapReceived,
+    required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return surveyCompatibilityReceived(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
+    TResult Function(_SurveyMapReceived value)? surveyMapReceived,
+    TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return surveyCompatibilityReceived?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
+    TResult Function(_SurveyMapReceived value)? surveyMapReceived,
+    TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (surveyCompatibilityReceived != null) {
+      return surveyCompatibilityReceived(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SurveyCompatibilityReceived implements WatchSurveyEvent {
+  const factory _SurveyCompatibilityReceived(
+          Either<SurveyFailure, List<String>> failureOrSurveyCompatibility) =
+      _$_SurveyCompatibilityReceived;
+
+  Either<SurveyFailure, List<String>> get failureOrSurveyCompatibility;
+  @JsonKey(ignore: true)
+  _$SurveyCompatibilityReceivedCopyWith<_SurveyCompatibilityReceived>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -782,6 +1046,9 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
         projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -800,6 +1067,9 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -818,6 +1088,9 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -836,6 +1109,8 @@ class _$_SurveySelected implements _SurveySelected {
         watchSurveyMapStarted,
     required TResult Function(_SurveyMapReceived value) surveyMapReceived,
     required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
@@ -849,6 +1124,8 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -862,6 +1139,8 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -931,6 +1210,9 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
         projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -949,6 +1231,9 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -967,6 +1252,9 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -985,6 +1273,8 @@ class _$_LoggedOut implements _LoggedOut {
         watchSurveyMapStarted,
     required TResult Function(_SurveyMapReceived value) surveyMapReceived,
     required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
@@ -998,6 +1288,8 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1011,6 +1303,8 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1076,6 +1370,9 @@ class _$_Initialized implements _Initialized {
     required TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)
         projectMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)
+        surveyCompatibilityReceived,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -1094,6 +1391,9 @@ class _$_Initialized implements _Initialized {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -1112,6 +1412,9 @@ class _$_Initialized implements _Initialized {
     TResult Function(
             Either<SurveyFailure, Map<String, Project>> failureOrProjectMap)?
         projectMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<String>> failureOrSurveyCompatibility)?
+        surveyCompatibilityReceived,
     TResult Function(Survey survey)? surveySelected,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -1130,6 +1433,8 @@ class _$_Initialized implements _Initialized {
         watchSurveyMapStarted,
     required TResult Function(_SurveyMapReceived value) surveyMapReceived,
     required TResult Function(_ProjectMapReceived value) projectMapReceived,
+    required TResult Function(_SurveyCompatibilityReceived value)
+        surveyCompatibilityReceived,
     required TResult Function(_SurveySelected value) surveySelected,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
@@ -1143,6 +1448,8 @@ class _$_Initialized implements _Initialized {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1156,6 +1463,8 @@ class _$_Initialized implements _Initialized {
     TResult Function(_WatchSurveyMapStarted value)? watchSurveyMapStarted,
     TResult Function(_SurveyMapReceived value)? surveyMapReceived,
     TResult Function(_ProjectMapReceived value)? projectMapReceived,
+    TResult Function(_SurveyCompatibilityReceived value)?
+        surveyCompatibilityReceived,
     TResult Function(_SurveySelected value)? surveySelected,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
@@ -1181,6 +1490,9 @@ class _$WatchSurveyStateTearOff {
       required Map<String, Survey> surveyMap,
       required Map<String, Project> projectMap,
       required Survey survey,
+      required List<String> surveyCompatibility,
+      required String teamId,
+      required String interviewerId,
       required LoadState eventState,
       required LoadState surveyMapState,
       required Option<SurveyFailure> surveyFailure}) {
@@ -1189,6 +1501,9 @@ class _$WatchSurveyStateTearOff {
       surveyMap: surveyMap,
       projectMap: projectMap,
       survey: survey,
+      surveyCompatibility: surveyCompatibility,
+      teamId: teamId,
+      interviewerId: interviewerId,
       eventState: eventState,
       surveyMapState: surveyMapState,
       surveyFailure: surveyFailure,
@@ -1204,7 +1519,10 @@ mixin _$WatchSurveyState {
   UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
   Map<String, Survey> get surveyMap => throw _privateConstructorUsedError;
   Map<String, Project> get projectMap => throw _privateConstructorUsedError;
-  Survey get survey => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  Survey get survey => throw _privateConstructorUsedError;
+  List<String> get surveyCompatibility => throw _privateConstructorUsedError;
+  String get teamId => throw _privateConstructorUsedError;
+  String get interviewerId => throw _privateConstructorUsedError; // H_ 狀態更新進度
   LoadState get eventState => throw _privateConstructorUsedError;
   LoadState get surveyMapState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get surveyFailure => throw _privateConstructorUsedError;
@@ -1224,6 +1542,9 @@ abstract class $WatchSurveyStateCopyWith<$Res> {
       Map<String, Survey> surveyMap,
       Map<String, Project> projectMap,
       Survey survey,
+      List<String> surveyCompatibility,
+      String teamId,
+      String interviewerId,
       LoadState eventState,
       LoadState surveyMapState,
       Option<SurveyFailure> surveyFailure});
@@ -1249,6 +1570,9 @@ class _$WatchSurveyStateCopyWithImpl<$Res>
     Object? surveyMap = freezed,
     Object? projectMap = freezed,
     Object? survey = freezed,
+    Object? surveyCompatibility = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
     Object? eventState = freezed,
     Object? surveyMapState = freezed,
     Object? surveyFailure = freezed,
@@ -1270,6 +1594,18 @@ class _$WatchSurveyStateCopyWithImpl<$Res>
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
+      surveyCompatibility: surveyCompatibility == freezed
+          ? _value.surveyCompatibility
+          : surveyCompatibility // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
       eventState: eventState == freezed
           ? _value.eventState
           : eventState // ignore: cast_nullable_to_non_nullable
@@ -1326,6 +1662,9 @@ abstract class _$WatchSurveyStateCopyWith<$Res>
       Map<String, Survey> surveyMap,
       Map<String, Project> projectMap,
       Survey survey,
+      List<String> surveyCompatibility,
+      String teamId,
+      String interviewerId,
       LoadState eventState,
       LoadState surveyMapState,
       Option<SurveyFailure> surveyFailure});
@@ -1357,6 +1696,9 @@ class __$WatchSurveyStateCopyWithImpl<$Res>
     Object? surveyMap = freezed,
     Object? projectMap = freezed,
     Object? survey = freezed,
+    Object? surveyCompatibility = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
     Object? eventState = freezed,
     Object? surveyMapState = freezed,
     Object? surveyFailure = freezed,
@@ -1378,6 +1720,18 @@ class __$WatchSurveyStateCopyWithImpl<$Res>
           ? _value.survey
           : survey // ignore: cast_nullable_to_non_nullable
               as Survey,
+      surveyCompatibility: surveyCompatibility == freezed
+          ? _value.surveyCompatibility
+          : surveyCompatibility // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as String,
       eventState: eventState == freezed
           ? _value.eventState
           : eventState // ignore: cast_nullable_to_non_nullable
@@ -1402,6 +1756,9 @@ class _$_WatchSurveyState extends _WatchSurveyState {
       required this.surveyMap,
       required this.projectMap,
       required this.survey,
+      required this.surveyCompatibility,
+      required this.teamId,
+      required this.interviewerId,
       required this.eventState,
       required this.surveyMapState,
       required this.surveyFailure})
@@ -1415,6 +1772,12 @@ class _$_WatchSurveyState extends _WatchSurveyState {
   final Map<String, Project> projectMap;
   @override
   final Survey survey;
+  @override
+  final List<String> surveyCompatibility;
+  @override
+  final String teamId;
+  @override
+  final String interviewerId;
   @override // H_ 狀態更新進度
   final LoadState eventState;
   @override
@@ -1424,7 +1787,7 @@ class _$_WatchSurveyState extends _WatchSurveyState {
 
   @override
   String toString() {
-    return 'WatchSurveyState(stateId: $stateId, surveyMap: $surveyMap, projectMap: $projectMap, survey: $survey, eventState: $eventState, surveyMapState: $surveyMapState, surveyFailure: $surveyFailure)';
+    return 'WatchSurveyState(stateId: $stateId, surveyMap: $surveyMap, projectMap: $projectMap, survey: $survey, surveyCompatibility: $surveyCompatibility, teamId: $teamId, interviewerId: $interviewerId, eventState: $eventState, surveyMapState: $surveyMapState, surveyFailure: $surveyFailure)';
   }
 
   @override
@@ -1437,6 +1800,11 @@ class _$_WatchSurveyState extends _WatchSurveyState {
             const DeepCollectionEquality()
                 .equals(other.projectMap, projectMap) &&
             const DeepCollectionEquality().equals(other.survey, survey) &&
+            const DeepCollectionEquality()
+                .equals(other.surveyCompatibility, surveyCompatibility) &&
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerId, interviewerId) &&
             const DeepCollectionEquality()
                 .equals(other.eventState, eventState) &&
             const DeepCollectionEquality()
@@ -1452,6 +1820,9 @@ class _$_WatchSurveyState extends _WatchSurveyState {
       const DeepCollectionEquality().hash(surveyMap),
       const DeepCollectionEquality().hash(projectMap),
       const DeepCollectionEquality().hash(survey),
+      const DeepCollectionEquality().hash(surveyCompatibility),
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(interviewerId),
       const DeepCollectionEquality().hash(eventState),
       const DeepCollectionEquality().hash(surveyMapState),
       const DeepCollectionEquality().hash(surveyFailure));
@@ -1468,6 +1839,9 @@ abstract class _WatchSurveyState extends WatchSurveyState {
       required Map<String, Survey> surveyMap,
       required Map<String, Project> projectMap,
       required Survey survey,
+      required List<String> surveyCompatibility,
+      required String teamId,
+      required String interviewerId,
       required LoadState eventState,
       required LoadState surveyMapState,
       required Option<SurveyFailure> surveyFailure}) = _$_WatchSurveyState;
@@ -1481,6 +1855,12 @@ abstract class _WatchSurveyState extends WatchSurveyState {
   Map<String, Project> get projectMap;
   @override
   Survey get survey;
+  @override
+  List<String> get surveyCompatibility;
+  @override
+  String get teamId;
+  @override
+  String get interviewerId;
   @override // H_ 狀態更新進度
   LoadState get eventState;
   @override
@@ -1490,5 +1870,260 @@ abstract class _WatchSurveyState extends WatchSurveyState {
   @override
   @JsonKey(ignore: true)
   _$WatchSurveyStateCopyWith<_WatchSurveyState> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+class _$StateParametersTearOff {
+  const _$StateParametersTearOff();
+
+  _StateParameters call(
+      {required bool surveyMap,
+      required bool projectMap,
+      required bool survey,
+      required bool surveyCompatibility,
+      required bool teamId,
+      required bool interviewerId}) {
+    return _StateParameters(
+      surveyMap: surveyMap,
+      projectMap: projectMap,
+      survey: survey,
+      surveyCompatibility: surveyCompatibility,
+      teamId: teamId,
+      interviewerId: interviewerId,
+    );
+  }
+}
+
+/// @nodoc
+const $StateParameters = _$StateParametersTearOff();
+
+/// @nodoc
+mixin _$StateParameters {
+  bool get surveyMap => throw _privateConstructorUsedError;
+  bool get projectMap => throw _privateConstructorUsedError;
+  bool get survey => throw _privateConstructorUsedError;
+  bool get surveyCompatibility => throw _privateConstructorUsedError;
+  bool get teamId => throw _privateConstructorUsedError;
+  bool get interviewerId => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $StateParametersCopyWith<StateParameters> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StateParametersCopyWith<$Res> {
+  factory $StateParametersCopyWith(
+          StateParameters value, $Res Function(StateParameters) then) =
+      _$StateParametersCopyWithImpl<$Res>;
+  $Res call(
+      {bool surveyMap,
+      bool projectMap,
+      bool survey,
+      bool surveyCompatibility,
+      bool teamId,
+      bool interviewerId});
+}
+
+/// @nodoc
+class _$StateParametersCopyWithImpl<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  _$StateParametersCopyWithImpl(this._value, this._then);
+
+  final StateParameters _value;
+  // ignore: unused_field
+  final $Res Function(StateParameters) _then;
+
+  @override
+  $Res call({
+    Object? surveyMap = freezed,
+    Object? projectMap = freezed,
+    Object? survey = freezed,
+    Object? surveyCompatibility = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      surveyMap: surveyMap == freezed
+          ? _value.surveyMap
+          : surveyMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      projectMap: projectMap == freezed
+          ? _value.projectMap
+          : projectMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      survey: survey == freezed
+          ? _value.survey
+          : survey // ignore: cast_nullable_to_non_nullable
+              as bool,
+      surveyCompatibility: surveyCompatibility == freezed
+          ? _value.surveyCompatibility
+          : surveyCompatibility // ignore: cast_nullable_to_non_nullable
+              as bool,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$StateParametersCopyWith<$Res>
+    implements $StateParametersCopyWith<$Res> {
+  factory _$StateParametersCopyWith(
+          _StateParameters value, $Res Function(_StateParameters) then) =
+      __$StateParametersCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {bool surveyMap,
+      bool projectMap,
+      bool survey,
+      bool surveyCompatibility,
+      bool teamId,
+      bool interviewerId});
+}
+
+/// @nodoc
+class __$StateParametersCopyWithImpl<$Res>
+    extends _$StateParametersCopyWithImpl<$Res>
+    implements _$StateParametersCopyWith<$Res> {
+  __$StateParametersCopyWithImpl(
+      _StateParameters _value, $Res Function(_StateParameters) _then)
+      : super(_value, (v) => _then(v as _StateParameters));
+
+  @override
+  _StateParameters get _value => super._value as _StateParameters;
+
+  @override
+  $Res call({
+    Object? surveyMap = freezed,
+    Object? projectMap = freezed,
+    Object? survey = freezed,
+    Object? surveyCompatibility = freezed,
+    Object? teamId = freezed,
+    Object? interviewerId = freezed,
+  }) {
+    return _then(_StateParameters(
+      surveyMap: surveyMap == freezed
+          ? _value.surveyMap
+          : surveyMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      projectMap: projectMap == freezed
+          ? _value.projectMap
+          : projectMap // ignore: cast_nullable_to_non_nullable
+              as bool,
+      survey: survey == freezed
+          ? _value.survey
+          : survey // ignore: cast_nullable_to_non_nullable
+              as bool,
+      surveyCompatibility: surveyCompatibility == freezed
+          ? _value.surveyCompatibility
+          : surveyCompatibility // ignore: cast_nullable_to_non_nullable
+              as bool,
+      teamId: teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as bool,
+      interviewerId: interviewerId == freezed
+          ? _value.interviewerId
+          : interviewerId // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_StateParameters extends _StateParameters {
+  const _$_StateParameters(
+      {required this.surveyMap,
+      required this.projectMap,
+      required this.survey,
+      required this.surveyCompatibility,
+      required this.teamId,
+      required this.interviewerId})
+      : super._();
+
+  @override
+  final bool surveyMap;
+  @override
+  final bool projectMap;
+  @override
+  final bool survey;
+  @override
+  final bool surveyCompatibility;
+  @override
+  final bool teamId;
+  @override
+  final bool interviewerId;
+
+  @override
+  String toString() {
+    return 'StateParameters(surveyMap: $surveyMap, projectMap: $projectMap, survey: $survey, surveyCompatibility: $surveyCompatibility, teamId: $teamId, interviewerId: $interviewerId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StateParameters &&
+            const DeepCollectionEquality().equals(other.surveyMap, surveyMap) &&
+            const DeepCollectionEquality()
+                .equals(other.projectMap, projectMap) &&
+            const DeepCollectionEquality().equals(other.survey, survey) &&
+            const DeepCollectionEquality()
+                .equals(other.surveyCompatibility, surveyCompatibility) &&
+            const DeepCollectionEquality().equals(other.teamId, teamId) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewerId, interviewerId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(surveyMap),
+      const DeepCollectionEquality().hash(projectMap),
+      const DeepCollectionEquality().hash(survey),
+      const DeepCollectionEquality().hash(surveyCompatibility),
+      const DeepCollectionEquality().hash(teamId),
+      const DeepCollectionEquality().hash(interviewerId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
+      __$StateParametersCopyWithImpl<_StateParameters>(this, _$identity);
+}
+
+abstract class _StateParameters extends StateParameters {
+  const factory _StateParameters(
+      {required bool surveyMap,
+      required bool projectMap,
+      required bool survey,
+      required bool surveyCompatibility,
+      required bool teamId,
+      required bool interviewerId}) = _$_StateParameters;
+  const _StateParameters._() : super._();
+
+  @override
+  bool get surveyMap;
+  @override
+  bool get projectMap;
+  @override
+  bool get survey;
+  @override
+  bool get surveyCompatibility;
+  @override
+  bool get teamId;
+  @override
+  bool get interviewerId;
+  @override
+  @JsonKey(ignore: true)
+  _$StateParametersCopyWith<_StateParameters> get copyWith =>
       throw _privateConstructorUsedError;
 }

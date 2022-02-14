@@ -11,9 +11,13 @@ class WatchSurveyEvent with _$WatchSurveyEvent {
     Either<SurveyFailure, Map<String, Survey>> failureOrSurveyMap,
   ) = _SurveyMapReceived;
 
-    const factory WatchSurveyEvent.projectMapReceived(
+  const factory WatchSurveyEvent.projectMapReceived(
     Either<SurveyFailure, Map<String, Project>> failureOrProjectMap,
   ) = _ProjectMapReceived;
+
+  const factory WatchSurveyEvent.surveyCompatibilityReceived(
+    Either<SurveyFailure, List<String>> failureOrSurveyCompatibility,
+  ) = _SurveyCompatibilityReceived;
 
   const factory WatchSurveyEvent.surveySelected({
     required Survey survey,

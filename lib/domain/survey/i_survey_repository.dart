@@ -10,7 +10,10 @@ abstract class ISurveyRepository {
   Stream<Either<SurveyFailure, Map<String, Survey>>> watchSurveyMap({
     required String teamId,
     required String interviewerId,
+    required List<String> surveyCompatibility,
   });
+
+  Stream<Either<SurveyFailure, List<String>>> watchSurveyCompatibility();
 
   Stream<Either<SurveyFailure, Map<String, Project>>> watchProjectMap({
     required String teamId,

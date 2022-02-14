@@ -31,13 +31,17 @@ class ResponseStateDto with _$ResponseStateDto {
     List<ReferenceDto>? referenceList,
     ResponseDto? response,
     String? responseId,
+    // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
     @JsonKey(ignore: true) StateParameters? saveParameters,
   }) = _ResponseStateDto;
 
-  // NOTE 設定不同參數怎麼儲存/提取
-  //  box 用在需要獨立儲存的資料
-  //  key 用來從 Map 中提取，一定是 readOnly
-  //  isMapEntries 則是儲存特定的 map entries (用在有需要用 key 提取 的 map)
+  // NOTE 設定不同參數怎麼儲存/提取：
+  //  一般未特別定義的資料會存在 XXState(default) box 中
+  //  不是 readOnly 也沒有 key 的資料才會存在獨立的 box 中
+  //  若未指定 box 名稱則取 map key 來使用
+  //  若有設定 key，則表示不需儲存整個資料，只需儲存 key，並在讀取時從 box 取出，原始資料一定是 map
+  //  isMapEntries 則是將資料用 map entries 的方式儲存，以便在其他地方用 key 來提取特定資料，以及如 responseMap 在 fromDomain 用 responseMapKeys 僅篩出需要儲存的 entries，以節省資源，而不是每次儲存整個 responseMap
+  //  readOnly 則是僅讀取使用
   static Map<String, DtoInfo> infoMap() => const {
         'survey': DtoInfo(
           box: 'surveyMap',
@@ -53,6 +57,7 @@ class ResponseStateDto with _$ResponseStateDto {
         ),
       };
 
+  // NOTE 若有定義在 infoMap 裡面需要儲存，就必須要在這邊視情況不需儲存時 remove
   Map<String, DtoInfo> subsetInfoMap() {
     final infoMap = {...ResponseStateDto.infoMap()};
 

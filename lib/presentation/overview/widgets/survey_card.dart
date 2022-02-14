@@ -38,27 +38,28 @@ class SurveyCard extends StatelessWidget {
               child: ConstrainedBox(
                 constraints: kCardMaxWith,
                 child: Card(
+                  color: survey.isCompatible ? null : Colors.grey[400],
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15.0),
                   ),
                   margin: const EdgeInsets.only(bottom: 10.0),
                   child: InkWell(
                     onTap: () {
-                      context
-                          .read<RespondentBloc>()
-                          .add(RespondentEvent.surveySelected(survey: survey));
-                      context
-                          .read<WatchSurveyBloc>()
-                          .add(WatchSurveyEvent.surveySelected(survey: survey));
-                      context
-                          .read<ResponseBloc>()
-                          .add(ResponseEvent.surveySelected(survey: survey));
-                      context.read<NavigationBloc>().add(
-                            NavigationEvent.pageChanged(
-                              page: NavigationPage.respondent(),
-                            ),
-                          );
-                      context.pushRoute(RespondentsRoute());
+                      if (survey.isCompatible) {
+                        context.read<RespondentBloc>().add(
+                            RespondentEvent.surveySelected(survey: survey));
+                        context.read<WatchSurveyBloc>().add(
+                            WatchSurveyEvent.surveySelected(survey: survey));
+                        context
+                            .read<ResponseBloc>()
+                            .add(ResponseEvent.surveySelected(survey: survey));
+                        context.read<NavigationBloc>().add(
+                              NavigationEvent.pageChanged(
+                                page: NavigationPage.respondent(),
+                              ),
+                            );
+                        context.pushRoute(RespondentsRoute());
+                      }
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
@@ -72,6 +73,18 @@ class SurveyCard extends StatelessWidget {
                           Text(
                             survey.name,
                             style: kCardH2TextStyle,
+                          ),
+                          Text(
+                            survey.versionText(),
+                            style: kCardH4TextStyle.copyWith(
+                              color: Colors.grey[600],
+                            ),
+                          ),
+                          Text(
+                            survey.lastUpdatedTimeStamp.toReadableString(),
+                            style: kCardH4TextStyle.copyWith(
+                              color: Colors.grey[600],
+                            ),
                           ),
                           // AudioRecorderIndicator(),
                         ],

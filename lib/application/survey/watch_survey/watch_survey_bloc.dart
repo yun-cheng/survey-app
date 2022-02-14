@@ -31,6 +31,8 @@ class WatchSurveyBloc extends IsolateBloc<WatchSurveyEvent, WatchSurveyState> {
       _surveyMapSubscription;
   StreamSubscription<Either<SurveyFailure, Map<String, Project>>>?
       _projectMapSubscription;
+  StreamSubscription<Either<SurveyFailure, List<String>>>?
+      _surveyCompatibilitySubscription;
 
   WatchSurveyBloc(
     this._surveyRepository,
@@ -56,29 +58,43 @@ class WatchSurveyBloc extends IsolateBloc<WatchSurveyEvent, WatchSurveyState> {
       watchSurveyMapStarted: (e) async {
         await execute(event, emit);
 
+        await _surveyCompatibilitySubscription?.cancel();
+        _surveyCompatibilitySubscription = _surveyRepository
+            .watchSurveyCompatibility()
+            .listen(
+              (failureOrData) => add(
+                  WatchSurveyEvent.surveyCompatibilityReceived(failureOrData)),
+            );
+
         await _projectMapSubscription?.cancel();
         _projectMapSubscription = _surveyRepository
             .watchProjectMap(
               teamId: e.teamId,
             )
             .listen(
-              (failureOrProjectMap) =>
-                  add(WatchSurveyEvent.projectMapReceived(failureOrProjectMap)),
+              (failureOrData) =>
+                  add(WatchSurveyEvent.projectMapReceived(failureOrData)),
             );
+      },
+      surveyCompatibilityReceived: (e) async {
+        await execute(event, emit);
 
         await _surveyMapSubscription?.cancel();
         _surveyMapSubscription = _surveyRepository
             .watchSurveyMap(
-              teamId: e.teamId,
-              interviewerId: e.interviewerId,
+              teamId: state.teamId,
+              interviewerId: state.interviewerId,
+              surveyCompatibility: state.surveyCompatibility,
             )
             .listen(
-              (failureOrSurveyMap) =>
-                  add(WatchSurveyEvent.surveyMapReceived(failureOrSurveyMap)),
+              (failureOrData) =>
+                  add(WatchSurveyEvent.surveyMapReceived(failureOrData)),
             );
       },
       loggedOut: (e) async {
         _surveyMapSubscription?.cancel();
+        _projectMapSubscription?.cancel();
+        _surveyCompatibilitySubscription?.cancel();
         await execute(event, emit);
       },
       orElse: () async {
@@ -95,6 +111,7 @@ class WatchSurveyBloc extends IsolateBloc<WatchSurveyEvent, WatchSurveyState> {
   Future<void> close() {
     _surveyMapSubscription?.cancel();
     _projectMapSubscription?.cancel();
+    _surveyCompatibilitySubscription?.cancel();
 
     return super.close();
   }
