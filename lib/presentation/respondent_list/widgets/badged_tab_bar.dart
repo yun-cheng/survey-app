@@ -74,6 +74,8 @@ class BadgedTabBar extends StatelessWidget {
             tabs: <Widget>[
               tabTitle(
                   '訪問', state.tabRespondentMap[TabType.start]?.length ?? 0),
+              tabTitle('住屋',
+                  state.tabRespondentMap[TabType.housingType]?.length ?? 0),
               tabTitle('訪問紀錄',
                   state.tabRespondentMap[TabType.interviewReport]?.length ?? 0),
               tabTitle(

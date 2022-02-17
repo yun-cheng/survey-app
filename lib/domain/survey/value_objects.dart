@@ -98,7 +98,7 @@ class WarningType with _$WarningType {
   const factory WarningType(String value) = _WarningType;
 
   factory WarningType.empty() => const WarningType('');
-  factory WarningType.unanswered() => const WarningType('尚未作答！');
+  factory WarningType.unanswered() => const WarningType('請輸入答案。');
   factory WarningType.noteUnanswered() => const WarningType('選項說明尚未填寫！');
   factory WarningType.invalid() => const WarningType('作答不符合格式！');
 
@@ -148,9 +148,11 @@ class ModuleType with _$ModuleType {
   factory ModuleType.interviewReport() => const ModuleType('interviewReport');
   factory ModuleType.recode() => const ModuleType('recode');
 
-  bool get isMainTab => ['samplingWithinHousehold', 'main'].contains(value);
-  bool get isInterviewReportTab =>
-      ['housingType', 'interviewReport'].contains(value);
+  bool get isMain => value == 'main';
+  bool get isSamplingWithinHousehold => value == 'samplingWithinHousehold';
+  bool get isHousingType => value == 'housingType';
+  bool get isInterviewReport => value == 'interviewReport';
+  bool get isRecode => value == 'recode';
   bool get needUpdateTab => value != 'visitReport';
   bool get ableToReAnswer =>
       ['samplingWithinHousehold', 'housingType'].contains(value);

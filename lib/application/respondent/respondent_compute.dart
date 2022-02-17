@@ -224,10 +224,9 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
 
   // NOTE 從最後一個分頁開始篩
   // S_1-2 篩出預過錄已完成，代表全部都已完成
-  pResponseList = finishedResponseList
-      .partition((r) => r.moduleType == ModuleType.recode());
+  pResponseList = finishedResponseList.partition((r) => r.moduleType.isRecode);
 
-  pRespondentMap = state.respondentMap.partitionByValues(
+  pRespondentMap = respondentMap.partitionByValues(
       (r) => pResponseList.item1.any((s) => s.respondentId == r.id));
 
   tabRespondentMap[TabType.finished] = pRespondentMap.item1;
@@ -236,18 +235,12 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
   respondentMap = pRespondentMap.item2;
   finishedResponseList = pResponseList.item2;
 
-  // S_2-2 篩出住屋、訪問紀錄都已完成，代表進到預過錄分頁
+  // S_2-2 篩出訪問紀錄已完成，代表進到預過錄分頁
   pResponseList =
-      finishedResponseList.partition((r) => r.moduleType.isInterviewReportTab);
+      finishedResponseList.partition((r) => r.moduleType.isInterviewReport);
 
   pRespondentMap = respondentMap.partitionByValues(
-    (r) => pResponseList.item1
-        .where((s) => s.respondentId == r.id)
-        .map((s) => s.moduleType)
-        .containsAll(
-      [ModuleType.interviewReport(), ModuleType.housingType()],
-    ),
-  );
+      (r) => pResponseList.item1.any((s) => s.respondentId == r.id));
 
   tabRespondentMap[TabType.recode] = pRespondentMap.item1;
 
@@ -255,22 +248,39 @@ RespondentState tabRespondentsUpdated(RespondentState state) {
   respondentMap = pRespondentMap.item2;
   finishedResponseList = pResponseList.item2;
 
-  // S_3-2 篩出戶抽、主問卷都已完成，代表進到訪問紀錄分頁
-  pResponseList = finishedResponseList.partition((r) => r.moduleType.isMainTab);
+  // S_3-2 篩出主問卷、住屋都已完成，代表進到訪問紀錄分頁
+  pResponseList = finishedResponseList
+      .partition((r) => !r.moduleType.isSamplingWithinHousehold);
+
+  pRespondentMap = respondentMap.partitionByValues(
+    (r) => pResponseList.item1
+        // S_ 篩出是當前 respondent 的 responses
+        .where((s) => s.respondentId == r.id)
+        // S_ 轉換成當前 respondent 的 moduleTypes
+        .map((s) => s.moduleType)
+        // S_ 判斷主問卷、住屋是否都已完成
+        .containsAll([ModuleType.main(), ModuleType.housingType()]),
+  );
+
+  tabRespondentMap[TabType.interviewReport] = pRespondentMap.item1;
+
+  // S_4-1
+  respondentMap = pRespondentMap.item2;
+  finishedResponseList = pResponseList.item1;
+
+  // S_4-2 篩出主問卷已完成，代表進到住屋分頁
+  pResponseList = finishedResponseList.partition((r) => r.moduleType.isMain);
 
   pRespondentMap = respondentMap.partitionByValues(
     (r) => pResponseList.item1
         .where((s) => s.respondentId == r.id)
         .map((s) => s.moduleType)
-        .containsAll(
-      [ModuleType.samplingWithinHousehold(), ModuleType.main()],
-    ),
+        .contains(ModuleType.main()),
   );
 
-  tabRespondentMap[TabType.interviewReport] =
-      SplayTreeMap.from(pRespondentMap.item1);
+  tabRespondentMap[TabType.housingType] = pRespondentMap.item1;
 
-  // S_4-1 剩下的就在訪問分頁
+  // S_5 剩下的就在訪問分頁
   tabRespondentMap[TabType.start] = pRespondentMap.item2;
 
   // S_ 排序

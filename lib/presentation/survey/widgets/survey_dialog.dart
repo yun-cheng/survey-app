@@ -124,6 +124,29 @@ class SurveyLeadingButton extends StatelessWidget {
                 context.router.navigate(RespondentsRoute());
               }
             }),
+        BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+          listenWhen: (p, c) =>
+              p.restartState != c.restartState && c.restartState,
+          listener: (context, state) {
+            logger('Listen').i('UpdateAnswerStatusBloc: restartState');
+
+            context
+                .read<AudioRecorderBloc>()
+                .add(const AudioRecorderEvent.recordStopped());
+            context
+                .read<ResponseBloc>()
+                .add(const ResponseEvent.editFinished(responseFinished: false));
+
+            context.read<NavigationBloc>().add(
+                  NavigationEvent.pageChanged(
+                    page: NavigationPage.respondent(),
+                  ),
+                );
+
+            // NOTE 從目錄頁要跳兩層，所以直接用 navigate
+            context.router.navigate(RespondentsRoute());
+          },
+        ),
       ],
       child: Builder(builder: (context) {
         final showLeaveButton = context.select(

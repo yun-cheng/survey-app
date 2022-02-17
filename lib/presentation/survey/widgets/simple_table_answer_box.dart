@@ -5,6 +5,7 @@ import '../../../application/survey/answer_cubit.dart';
 import '../../../application/survey/is_special_answer_cubit.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
+import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
@@ -33,49 +34,53 @@ class SimpleTableAnswerBox extends StatelessWidget {
 
     final isSpecialAnswer = context.watch<IsSpecialAnswerCubit>().state;
 
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        // H_ dropdown special answer
-        Visibility(
-          visible: isSpecialAnswer,
-          maintainState: true,
-          child: Container(
-            width: kSimpleTableCellWidth * choiceList.length,
-            alignment: Alignment.centerLeft,
+    return SingleChildScrollView(
+      key: Key(UniqueId.v1().value),
+      scrollDirection: Axis.horizontal,
+      controller: scrollController,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          // H_ dropdown special answer
+          Visibility(
+            visible: isSpecialAnswer,
+            maintainState: true,
             child: Container(
-              width: kComplexTableCellWidth,
-              decoration: BoxDecoration(
-                color: canEdit ? null : kCannotEditColor,
+              width: kSimpleTableCellWidth * choiceList.length,
+              alignment: Alignment.centerLeft,
+              child: Container(
+                width: kComplexTableCellWidth,
+                decoration: BoxDecoration(
+                  color: canEdit ? null : kCannotEditColor,
+                ),
+                child: PureAnswerBox(
+                  questionId: questionId,
+                  questionType: questionType,
+                  isSpecialAnswer: true,
+                  isinCell: true,
+                ),
               ),
-              child: PureAnswerBox(
+            ),
+          ),
+          Visibility(
+            visible: !isSpecialAnswer,
+            maintainState: true,
+            child: BlocProvider(
+              create: (context) => AnswerCubit(
+                context
+                    .read<UpdateAnswerStatusBloc>()
+                    .state
+                    .answerMap[questionId],
+              ),
+              child: SimpleTableChoicesBox(
                 questionId: questionId,
                 questionType: questionType,
-                isSpecialAnswer: true,
-                isinCell: true,
+                choiceList: choiceList,
               ),
             ),
           ),
-        ),
-        Visibility(
-          visible: !isSpecialAnswer,
-          maintainState: true,
-          child: BlocProvider(
-            create: (context) => AnswerCubit(
-              context
-                  .read<UpdateAnswerStatusBloc>()
-                  .state
-                  .answerMap[questionId],
-            ),
-            child: SimpleTableChoicesBox(
-              questionId: questionId,
-              questionType: questionType,
-              choiceList: choiceList,
-              scrollController: scrollController,
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -120,7 +120,7 @@ class PageControlBar extends HookWidget {
                         style: kWarningButtonStyle,
                         onPressed: () => onPressed(null),
                         child: Text(
-                          '完成問卷',
+                          '完成',
                           style: kH3TextStyle.copyWith(
                             color: kCardTextColor,
                           ),

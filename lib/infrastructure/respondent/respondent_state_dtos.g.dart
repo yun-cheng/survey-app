@@ -98,6 +98,7 @@ Map<String, dynamic> _$$_RespondentStateDtoToJson(
 
 const _$TabTypeEnumMap = {
   TabType.start: 'start',
+  TabType.housingType: 'housingType',
   TabType.interviewReport: 'interviewReport',
   TabType.recode: 'recode',
   TabType.finished: 'finished',

@@ -5,7 +5,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
 import '../../application/survey/block_gesture_cubit.dart';
-import '../../application/survey/response/response_bloc.dart';
 import '../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../domain/core/logger.dart';
 import '../core/widgets/tap_out_dismiss_keyboard.dart';
@@ -14,6 +13,7 @@ import 'widgets/gesture_blocker_box.dart';
 import 'widgets/loading_box.dart';
 import 'widgets/page_control_bar.dart';
 import 'widgets/re_answer_button.dart';
+import 'widgets/survey_app_bar_title.dart';
 import 'widgets/survey_body.dart';
 import 'widgets/survey_dialog.dart';
 
@@ -48,14 +48,12 @@ class SurveyPage extends HookWidget {
       return () => scrollController.dispose();
     }, []);
 
-    final respondent = context.read<ResponseBloc>().state.respondent;
-
     return WillPopScope(
       onWillPop: () async => false,
       child: TapOutDismissKeyboard(
         child: Scaffold(
           appBar: AppBar(
-            title: Text(respondent.remainAddress),
+            title: const SurveyAppBarTitle(),
             leading: SurveyLeadingButton(scrollController: scrollController),
             actions: [
               const LoadingBox(),

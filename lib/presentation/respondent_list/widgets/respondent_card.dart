@@ -127,18 +127,18 @@ class RespondentCard extends StatelessWidget {
                               respondent: respondent,
                               isCurrentTab: tabType.index <= 1,
                             ),
-                            if (tabType.index >= 1) ...[
+                            if (tabType.index >= 2) ...[
                               ModuleButton(
                                 ModuleType.interviewReport(),
                                 respondent: respondent,
-                                isCurrentTab: tabType.index == 1,
+                                isCurrentTab: tabType.index == 2,
                               ),
                             ],
-                            if (tabType.index >= 2) ...[
+                            if (tabType.index >= 3) ...[
                               ModuleButton(
                                 ModuleType.recode(),
                                 respondent: respondent,
-                                isCurrentTab: tabType.index == 2,
+                                isCurrentTab: tabType.index == 3,
                               ),
                             ],
                           ],

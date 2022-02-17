@@ -3,6 +3,8 @@ import 'package:json_annotation/json_annotation.dart';
 enum TabType {
   @JsonValue('start')
   start,
+  @JsonValue('housingType')
+  housingType,
   @JsonValue('interviewReport')
   interviewReport,
   @JsonValue('recode')

@@ -32,6 +32,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
     required bool appIsPaused,
     required int scrollToQuestionIndex,
     required bool blockGesture,
+    required bool restartState,
     // H_ 同 session 不變的參考資料
     required Respondent respondent,
     required String surveyId,
@@ -78,6 +79,7 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
         appIsPaused: false,
         scrollToQuestionIndex: -99,
         blockGesture: false,
+        restartState: false,
         // H_ 同 session 不變的參考資料
         respondent: Respondent.empty(),
         surveyId: '',
@@ -149,6 +151,20 @@ class UpdateAnswerStatusState with _$UpdateAnswerStatusState {
       eventState: LoadState.success(),
       blockGesture: false,
     ).send(channel).saveState(localStorage);
+  }
+
+  UpdateAnswerStatusState restartStateAndSave(
+    AsyncTaskChannel channel,
+    ILocalStorage localStorage,
+  ) {
+    return UpdateAnswerStatusState.initial()
+        .copyWith(
+          saveParameters: StateParameters.clear(),
+          blockGesture: true,
+          restartState: true,
+        )
+        .send(channel)
+        .saveState(localStorage);
   }
 }
 

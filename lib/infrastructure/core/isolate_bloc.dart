@@ -75,6 +75,8 @@ abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
         }
       } else if (msg is Event) {
         add(msg);
+      } else if (msg == 'RESTART_STATE') {
+        break;
       }
     }
   }

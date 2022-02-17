@@ -8,21 +8,18 @@ import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/answer.dart';
 import '../../../domain/survey/choice.dart';
 import '../../../domain/survey/value_objects.dart';
-import '../../core/style/main.dart';
 import 'choice_item.dart';
 
 class SimpleTableChoicesBox extends StatelessWidget {
   final String questionId;
   final QuestionType questionType;
   final List<Choice> choiceList;
-  final ScrollController scrollController;
 
   const SimpleTableChoicesBox({
     Key? key,
     required this.questionId,
     required this.questionType,
     required this.choiceList,
-    required this.scrollController,
   }) : super(key: key);
 
   @override
@@ -62,30 +59,21 @@ class SimpleTableChoicesBox extends StatelessWidget {
         builder: (context, state) {
           logger('Build').i('SimpleTableChoicesBox');
 
-          return SizedBox(
-            height: 100,
-            child: ListView.builder(
-              // FIXME 讓 hot reload 時強制 rebuild，有沒有別的方法?
-              key: Key(UniqueId.v1().value),
-              controller: scrollController,
-              scrollDirection: Axis.horizontal,
-              itemCount: choiceList.length,
-              itemExtent: kSimpleTableCellWidth,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                final choice = choiceList[index];
-
-                return ChoiceItem(
-                  key: Key(choice.id),
-                  questionId: questionId,
-                  questionType: questionType,
-                  choice: choice,
-                  isSpecialAnswer: false,
-                  // answer: answer,
-                  isinCell: true,
-                );
-              },
-            ),
+          return Row(
+            mainAxisSize: MainAxisSize.min,
+            children: choiceList
+                .map(
+                  (choice) => ChoiceItem(
+                    key: Key(choice.id),
+                    questionId: questionId,
+                    questionType: questionType,
+                    choice: choice,
+                    isSpecialAnswer: false,
+                    // answer: answer,
+                    isinCell: true,
+                  ),
+                )
+                .toList(),
           );
         },
       ),

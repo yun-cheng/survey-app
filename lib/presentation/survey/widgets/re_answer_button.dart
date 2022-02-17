@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
 
 class ReAnswerButton extends StatelessWidget {
@@ -12,9 +13,27 @@ class ReAnswerButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) =>
-          p.isReadOnly != c.isReadOnly || p.moduleType != c.moduleType,
+          p.isReadOnly != c.isReadOnly ||
+          p.moduleType != c.moduleType ||
+          p.updateParameters.respondentResponseMap !=
+              c.updateParameters.respondentResponseMap,
       builder: (context, state) {
-        if (state.isReadOnly && state.moduleType.ableToReAnswer) {
+        bool closeReAnswer = false;
+        if (state.moduleType.isSamplingWithinHousehold) {
+          closeReAnswer = state.respondentResponseMap[ModuleType.main()]
+                  ?.responseStatus.isFinished ??
+              false;
+        } else if (state.moduleType.isHousingType) {
+          closeReAnswer = state
+                  .respondentResponseMap[ModuleType.interviewReport()]
+                  ?.responseStatus
+                  .isFinished ??
+              false;
+        }
+
+        if (state.isReadOnly &&
+            state.moduleType.ableToReAnswer &&
+            !closeReAnswer) {
           return Padding(
             padding: const EdgeInsets.all(10),
             child: OutlinedButton(

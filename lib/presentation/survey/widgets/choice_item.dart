@@ -59,26 +59,28 @@ class ChoiceItem extends StatelessWidget {
         }
 
         if (isinCell) {
-          return Ink(
-            width: 100,
+          return SizedBox(
+            width: kSimpleTableCellWidth,
             height: 100,
-            child: InkWell(
-              onTap: () => clickAction(toggle: !isSingleAnswer),
-              child: Container(
-                // NOTE 強制 rebuild 取消動畫
-                key: Key(UniqueId.v1().value),
-                child: isSingleAnswer
-                    ? Radio(
-                        value: choice.id,
-                        groupValue: answer.groupValue,
-                        onChanged: (_) => clickAction(),
-                        activeColor: activeColor,
-                      )
-                    : Checkbox(
-                        value: isSelected,
-                        onChanged: (_) => clickAction(toggle: true),
-                        activeColor: activeColor,
-                      ),
+            child: Ink(
+              child: InkWell(
+                onTap: () => clickAction(toggle: !isSingleAnswer),
+                child: Container(
+                  // NOTE 強制 rebuild 取消動畫
+                  key: Key(UniqueId.v1().value),
+                  child: isSingleAnswer
+                      ? Radio(
+                          value: choice.id,
+                          groupValue: answer.groupValue,
+                          onChanged: (_) => clickAction(),
+                          activeColor: activeColor,
+                        )
+                      : Checkbox(
+                          value: isSelected,
+                          onChanged: (_) => clickAction(toggle: true),
+                          activeColor: activeColor,
+                        ),
+                ),
               ),
             ),
           );
