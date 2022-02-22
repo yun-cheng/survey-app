@@ -23,7 +23,7 @@ class ResponseEvent with _$ResponseEvent {
   const factory ResponseEvent.responseMapUploading() = _ResponseMapUploading;
 
   const factory ResponseEvent.responseMapUploaded(
-    Either<SurveyFailure, Unit> failureOrSuccess,
+    Either<SurveyFailure, Set<UniqueId>> failureOrResult,
   ) = _ResponseMapUploaded;
 
   // H_ 使用者選擇問卷
@@ -57,6 +57,10 @@ class ResponseEvent with _$ResponseEvent {
   // H_ 使用者在閒置後，選擇繼續訪問
   const factory ResponseEvent.responseResumed(UniqueId responseId) =
       _ResponseResumed;
+
+  const factory ResponseEvent.networkUpdated({
+    required NetworkType networkType,
+  }) = _NetworkUpdated;
 
   const factory ResponseEvent.loggedOut() = _LoggedOut;
 

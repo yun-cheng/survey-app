@@ -37,7 +37,6 @@ _$_UpdateAnswerStatusStateDto _$$_UpdateAnswerStatusStateDtoFromJson(
       contentQIdSet: (json['contentQIdSet'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      dialogType: json['dialogType'] as String?,
       showLeaveButton: json['showLeaveButton'] as bool?,
       respondent: json['respondent'] == null
           ? null
@@ -89,7 +88,6 @@ Map<String, dynamic> _$$_UpdateAnswerStatusStateDtoToJson(
   writeNotNull('showWarning', instance.showWarning);
   writeNotNull('pageQIdSet', instance.pageQIdSet);
   writeNotNull('contentQIdSet', instance.contentQIdSet);
-  writeNotNull('dialogType', instance.dialogType);
   writeNotNull('showLeaveButton', instance.showLeaveButton);
   writeNotNull('respondent', instance.respondent?.toJson());
   writeNotNull('surveyId', instance.surveyId);

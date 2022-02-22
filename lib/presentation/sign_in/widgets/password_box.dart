@@ -13,16 +13,19 @@ class PasswordBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(
-      buildWhen: (p, c) => p.signInState != c.signInState,
+      buildWhen: (p, c) =>
+          p.signInState != c.signInState || p.validate != c.validate,
       builder: (context, state) {
         return TextFormField(
-          initialValue: state.password,
           onChanged: (value) =>
               context.read<AuthBloc>().add(AuthEvent.passwordChanged(value)),
+          autovalidateMode: state.validate
+              ? AutovalidateMode.always
+              : AutovalidateMode.disabled,
           validator: (_) => signInValidator(
-            signInState: context.watch<AuthBloc>().state.signInState,
+            signInState: state.signInState,
             field: '密碼',
-            value: context.watch<AuthBloc>().state.password,
+            value: state.password,
           ),
           obscureText: true,
           autocorrect: false,

@@ -3,8 +3,10 @@ import 'dart:async';
 import 'package:async_task/async_task.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:supercharged_dart/supercharged_dart.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../../domain/auth/interviewer.dart';
@@ -127,21 +129,36 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
         _activeTimer?.cancel();
         _inactiveTimer?.cancel();
 
-        if (state.responseMap.isNotEmpty) {
+        if (state.uploadResponseIdSet.isNotEmpty) {
           logger('Upload').i('responseMapUploading');
           emit(
             state.copyWith(
               syncState: SyncState.inProgress(),
             ),
           );
-          _surveyRepository
-              .uploadResponseMap(
-                responseMap: state.responseMap,
-              )
-              .then(
-                (failureOrSuccess) =>
-                    add(ResponseEvent.responseMapUploaded(failureOrSuccess)),
-              );
+
+          // FIXME 目前先一律允許 web
+          if (state.networkType.isConnected || kIsWeb) {
+            // S_ 篩出要上傳的 response
+            final responseMap = state.uploadResponseIdSet
+                .map((id) => MapEntry(id, state.responseMap[id]!))
+                .toMap();
+
+            _surveyRepository
+                .uploadResponseMap(
+                  responseMap: responseMap,
+                )
+                .then(
+                  (failureOrResult) =>
+                      add(ResponseEvent.responseMapUploaded(failureOrResult)),
+                );
+          } else {
+            emit(
+              state.copyWith(
+                syncState: SyncState.failure(),
+              ),
+            );
+          }
         } else {
           emit(
             state.copyWith(
@@ -149,18 +166,6 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
             ),
           );
         }
-      },
-      responseMapUploaded: (e) async {
-        logger('Upload').e('ResponseEvent: responseMapUploaded');
-
-        emit(
-          state.copyWith(
-            syncState: e.failureOrSuccess.fold(
-              (l) => SyncState.failure(),
-              (r) => SyncState.success(),
-            ),
-          ),
-        );
       },
       // H_ 作答或切換頁數時更新 response
       responseUpdated: (e) async {
@@ -185,11 +190,6 @@ class ResponseBloc extends IsolateBloc<ResponseEvent, ResponseState> {
       },
       loggedOut: (e) async {
         _responseMapSubscription?.cancel();
-        // S_ 清除此訪員資料庫資料
-        // _surveyRepository.cleanResponseMap(
-        //   teamId: state.survey.teamId,
-        //   interviewerId: state.interviewer.id,
-        // );
         _inactiveTimer?.cancel();
         _activeTimer?.cancel();
         await execute(event, emit);

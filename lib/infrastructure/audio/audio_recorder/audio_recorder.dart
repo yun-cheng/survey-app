@@ -1,17 +1,21 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:flutter_sound_lite/flutter_sound.dart';
+import 'package:flutter_sound/flutter_sound.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../../domain/audio/audio.dart';
 import '../../../domain/audio/audio_failure.dart';
 import '../../../domain/audio/audio_recorder/i_audio_recorder.dart';
 import '../../../domain/audio/value_objects.dart';
+import '../../../domain/core/logger.dart';
 
 @Injectable(as: IAudioRecorder)
 class AudioRecorder implements IAudioRecorder {
-  final FlutterSoundRecorder _recorder = FlutterSoundRecorder();
+  final FlutterSoundRecorder _recorder = FlutterSoundRecorder(
+    logLevel: Level.warning,
+  );
 
   @override
   Future<Either<AudioFailure, Unit>> checkPermission() async {
@@ -44,10 +48,8 @@ class AudioRecorder implements IAudioRecorder {
         codec = Codec.aacADTS;
       }
 
-      await _recorder.closeAudioSession();
-      await _recorder.openAudioSession(
-        category: SessionCategory.record,
-      );
+      await _recorder.closeRecorder();
+      await _recorder.openRecorder();
       await _recorder
           .setSubscriptionDuration(const Duration(milliseconds: 100));
       await _recorder.startRecorder(
@@ -56,6 +58,7 @@ class AudioRecorder implements IAudioRecorder {
       );
       return right(unit);
     } catch (e) {
+      logger('Error').e('StartRecording Error!');
       return left(AudioFailure.unexpected());
     }
   }
@@ -64,10 +67,11 @@ class AudioRecorder implements IAudioRecorder {
   Future<Either<AudioFailure, Unit>> stopRecording() async {
     try {
       await _recorder.stopRecorder();
-      await _recorder.closeAudioSession();
+      await _recorder.closeRecorder();
 
       return right(unit);
     } catch (e) {
+      logger('Error').e('StopRecording Error!');
       return left(AudioFailure.unexpected());
     }
   }
@@ -77,6 +81,7 @@ class AudioRecorder implements IAudioRecorder {
     try {
       return right(_recorder.onProgress!.map((e) => e.decibels!));
     } catch (e) {
+      logger('Error').e('DbStream Error!');
       return left(AudioFailure.unexpected());
     }
   }

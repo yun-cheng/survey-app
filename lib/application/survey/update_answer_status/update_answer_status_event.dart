@@ -54,6 +54,11 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
   const factory UpdateAnswerStatusEvent.finishedButtonPressed() =
       _FinishedButtonPressed;
 
+  // H_ 顯示 dialog
+  const factory UpdateAnswerStatusEvent.dialogShowed({
+    required DialogType type,
+  }) = _DialogShowed;
+
   // H_ 關閉 dialog
   const factory UpdateAnswerStatusEvent.dialogClosed() = _DialogClosed;
 

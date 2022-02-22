@@ -240,15 +240,22 @@ void _eventWorker(
               ),
             );
       },
+      // H_ 顯示 dialog
+      dialogShowed: (e) {
+        logger('Event').i('UpdateAnswerStatusEvent: dialogShowed');
+
+        if (e.type.isBreakInterview && state.moduleType.isMain) {
+          state = state.copyWith(
+            dialogType: e.type,
+          );
+        }
+      },
       // H_ 關閉 dialog
       dialogClosed: (e) {
         logger('User Event').i('UpdateAnswerStatusEvent: dialogClosed');
 
         state = state.copyWith(
           dialogType: DialogType.none(),
-          saveParameters: state.saveParameters.copyWith(
-            dialogType: true,
-          ),
         );
       },
       // H_ 點擊離開按鈕時
@@ -262,9 +269,6 @@ void _eventWorker(
           leavePage: leavePage,
           dialogType:
               leavePage ? DialogType.none() : DialogType.breakInterview(),
-          saveParameters: state.saveParameters.copyWith(
-            dialogType: true,
-          ),
         );
       },
       // H_ 隱藏離開按鈕
@@ -280,9 +284,6 @@ void _eventWorker(
       switchedToSamplingWithinHouseholdModule: (e) {
         state = state.copyWith(
           dialogType: DialogType.switchToSamplingWithinHouseholdModule(),
-          saveParameters: state.saveParameters.copyWith(
-            dialogType: true,
-          ),
         );
       },
       // H_ lifeCycle 變更時
@@ -300,9 +301,6 @@ void _eventWorker(
         state = state.copyWith(
           appIsPaused: e.isPaused,
           dialogType: dialogType,
-          saveParameters: state.saveParameters.copyWith(
-            dialogType: true,
-          ),
         );
       },
       // H_ 當前受訪者在其他模組的 response 更新時，更新頁面

@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
@@ -55,18 +54,18 @@ class ManualAuthFacade implements IAuthFacade {
     });
   }
 
-  @override
-  Either<AuthFailure, Interviewer> signIn({
-    required String interviewerId,
-    required String password,
-    required List<Interviewer> interviewerList,
-  }) {
-    final matchInterviewer = interviewerList.firstWhereOrNull((interviewer) =>
-        interviewer.id == interviewerId && interviewer.password == password);
+  // @override
+  // Either<AuthFailure, Interviewer> signIn({
+  //   required String interviewerId,
+  //   required String password,
+  //   required List<Interviewer> interviewerList,
+  // }) {
+  //   final matchInterviewer = interviewerList.firstWhereOrNull((interviewer) =>
+  //       interviewer.id == interviewerId && interviewer.password == password);
 
-    return optionOf(matchInterviewer).fold(
-      () => left(AuthFailure.invalidIdAndPasswordCombination()),
-      (interviewer) => right(interviewer),
-    );
-  }
+  //   return optionOf(matchInterviewer).fold(
+  //     () => left(AuthFailure.invalidIdAndPasswordCombination()),
+  //     (interviewer) => right(interviewer),
+  //   );
+  // }
 }

@@ -5,7 +5,7 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.watchTeamListStarted() = _WatchTeamListStarted;
   const factory AuthEvent.teamListReceived(
       Either<AuthFailure, List<Team>> failureOrTeamList) = _TeamListReceived;
-  const factory AuthEvent.teamSelected(Team team) = _TeamSelected;
+  const factory AuthEvent.teamSelected(String teamId) = _TeamSelected;
   const factory AuthEvent.watchInterviewerListStarted() =
       _WatchInterviewerListStarted;
   const factory AuthEvent.interviewerListReceived(

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'response.dart';
@@ -75,7 +76,11 @@ mixin _$Response {
   ModuleType get moduleType => throw _privateConstructorUsedError;
   String get respondentId =>
       throw _privateConstructorUsedError; // H_ 區分 response 版本
-  UniqueId get responseId => throw _privateConstructorUsedError;
+// NOTE 每次新的 edit session 都會產生新的 responseId，
+//  因此不會發生不同設備同 responseId 的情形
+  UniqueId get responseId =>
+      throw _privateConstructorUsedError; // NOTE 每次的 response update 都會產生新的 tempResponseId
+//  在 edit session 結束時會改成跟 responseId 相同
   UniqueId get tempResponseId => throw _privateConstructorUsedError;
   UniqueId get ticketId => throw _privateConstructorUsedError;
   bool get editFinished => throw _privateConstructorUsedError;
@@ -539,8 +544,11 @@ class _$_Response extends _Response {
   @override
   final String respondentId;
   @override // H_ 區分 response 版本
+// NOTE 每次新的 edit session 都會產生新的 responseId，
+//  因此不會發生不同設備同 responseId 的情形
   final UniqueId responseId;
-  @override
+  @override // NOTE 每次的 response update 都會產生新的 tempResponseId
+//  在 edit session 結束時會改成跟 responseId 相同
   final UniqueId tempResponseId;
   @override
   final UniqueId ticketId;
@@ -675,8 +683,11 @@ abstract class _Response extends Response {
   @override
   String get respondentId;
   @override // H_ 區分 response 版本
+// NOTE 每次新的 edit session 都會產生新的 responseId，
+//  因此不會發生不同設備同 responseId 的情形
   UniqueId get responseId;
-  @override
+  @override // NOTE 每次的 response update 都會產生新的 tempResponseId
+//  在 edit session 結束時會改成跟 responseId 相同
   UniqueId get tempResponseId;
   @override
   UniqueId get ticketId;

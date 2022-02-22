@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'auth_bloc.dart';
@@ -28,9 +29,9 @@ class _$AuthEventTearOff {
     );
   }
 
-  _TeamSelected teamSelected(Team team) {
+  _TeamSelected teamSelected(String teamId) {
     return _TeamSelected(
-      team,
+      teamId,
     );
   }
 
@@ -80,7 +81,7 @@ mixin _$AuthEvent {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -97,7 +98,7 @@ mixin _$AuthEvent {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -114,7 +115,7 @@ mixin _$AuthEvent {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -235,7 +236,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -255,7 +256,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -275,7 +276,7 @@ class _$_WatchTeamListStarted implements _WatchTeamListStarted {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -426,7 +427,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -446,7 +447,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -466,7 +467,7 @@ class _$_TeamListReceived implements _TeamListReceived {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -559,9 +560,7 @@ abstract class _$TeamSelectedCopyWith<$Res> {
   factory _$TeamSelectedCopyWith(
           _TeamSelected value, $Res Function(_TeamSelected) then) =
       __$TeamSelectedCopyWithImpl<$Res>;
-  $Res call({Team team});
-
-  $TeamCopyWith<$Res> get team;
+  $Res call({String teamId});
 }
 
 /// @nodoc
@@ -576,35 +575,28 @@ class __$TeamSelectedCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? team = freezed,
+    Object? teamId = freezed,
   }) {
     return _then(_TeamSelected(
-      team == freezed
-          ? _value.team
-          : team // ignore: cast_nullable_to_non_nullable
-              as Team,
+      teamId == freezed
+          ? _value.teamId
+          : teamId // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
-  }
-
-  @override
-  $TeamCopyWith<$Res> get team {
-    return $TeamCopyWith<$Res>(_value.team, (value) {
-      return _then(_value.copyWith(team: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_TeamSelected implements _TeamSelected {
-  const _$_TeamSelected(this.team);
+  const _$_TeamSelected(this.teamId);
 
   @override
-  final Team team;
+  final String teamId;
 
   @override
   String toString() {
-    return 'AuthEvent.teamSelected(team: $team)';
+    return 'AuthEvent.teamSelected(teamId: $teamId)';
   }
 
   @override
@@ -612,12 +604,12 @@ class _$_TeamSelected implements _TeamSelected {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _TeamSelected &&
-            const DeepCollectionEquality().equals(other.team, team));
+            const DeepCollectionEquality().equals(other.teamId, teamId));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(team));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(teamId));
 
   @JsonKey(ignore: true)
   @override
@@ -630,7 +622,7 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -641,7 +633,7 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return teamSelected(team);
+    return teamSelected(teamId);
   }
 
   @override
@@ -650,7 +642,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -661,7 +653,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return teamSelected?.call(team);
+    return teamSelected?.call(teamId);
   }
 
   @override
@@ -670,7 +662,7 @@ class _$_TeamSelected implements _TeamSelected {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -683,7 +675,7 @@ class _$_TeamSelected implements _TeamSelected {
     required TResult orElse(),
   }) {
     if (teamSelected != null) {
-      return teamSelected(team);
+      return teamSelected(teamId);
     }
     return orElse();
   }
@@ -749,9 +741,9 @@ class _$_TeamSelected implements _TeamSelected {
 }
 
 abstract class _TeamSelected implements AuthEvent {
-  const factory _TeamSelected(Team team) = _$_TeamSelected;
+  const factory _TeamSelected(String teamId) = _$_TeamSelected;
 
-  Team get team;
+  String get teamId;
   @JsonKey(ignore: true)
   _$TeamSelectedCopyWith<_TeamSelected> get copyWith =>
       throw _privateConstructorUsedError;
@@ -805,7 +797,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -825,7 +817,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -845,7 +837,7 @@ class _$_WatchInterviewerListStarted implements _WatchInterviewerListStarted {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -998,7 +990,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -1018,7 +1010,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1038,7 +1030,7 @@ class _$_InterviewerListReceived implements _InterviewerListReceived {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1193,7 +1185,7 @@ class _$_IdChanged implements _IdChanged {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -1213,7 +1205,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1233,7 +1225,7 @@ class _$_IdChanged implements _IdChanged {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1387,7 +1379,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -1407,7 +1399,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1427,7 +1419,7 @@ class _$_PasswordChanged implements _PasswordChanged {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1557,7 +1549,7 @@ class _$_SignInPressed implements _SignInPressed {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -1577,7 +1569,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1597,7 +1589,7 @@ class _$_SignInPressed implements _SignInPressed {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1721,7 +1713,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -1741,7 +1733,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1761,7 +1753,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1886,7 +1878,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function() watchTeamListStarted,
     required TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)
         teamListReceived,
-    required TResult Function(Team team) teamSelected,
+    required TResult Function(String teamId) teamSelected,
     required TResult Function() watchInterviewerListStarted,
     required TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)
@@ -1906,7 +1898,7 @@ class _$_Initialized implements _Initialized {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -1926,7 +1918,7 @@ class _$_Initialized implements _Initialized {
     TResult Function()? watchTeamListStarted,
     TResult Function(Either<AuthFailure, List<Team>> failureOrTeamList)?
         teamListReceived,
-    TResult Function(Team team)? teamSelected,
+    TResult Function(String teamId)? teamSelected,
     TResult Function()? watchInterviewerListStarted,
     TResult Function(
             Either<AuthFailure, List<Interviewer>> failureOrInterviewerList)?
@@ -2013,29 +2005,29 @@ class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
   _AuthState call(
-      {required LoadState teamListState,
+      {required UniqueId stateId,
       required List<Team> teamList,
       required Team team,
-      required LoadState interviewerListState,
       required List<Interviewer> interviewerList,
+      required Interviewer interviewer,
       required String id,
       required String password,
+      required bool validate,
       required LoadState signInState,
-      required Interviewer interviewer,
       required Option<AuthFailure> authFailure,
-      required bool showErrorMessages}) {
+      required LoadState eventState}) {
     return _AuthState(
-      teamListState: teamListState,
+      stateId: stateId,
       teamList: teamList,
       team: team,
-      interviewerListState: interviewerListState,
       interviewerList: interviewerList,
+      interviewer: interviewer,
       id: id,
       password: password,
+      validate: validate,
       signInState: signInState,
-      interviewer: interviewer,
       authFailure: authFailure,
-      showErrorMessages: showErrorMessages,
+      eventState: eventState,
     );
   }
 }
@@ -2045,17 +2037,17 @@ const $AuthState = _$AuthStateTearOff();
 
 /// @nodoc
 mixin _$AuthState {
-  LoadState get teamListState => throw _privateConstructorUsedError;
+  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
   List<Team> get teamList => throw _privateConstructorUsedError;
   Team get team => throw _privateConstructorUsedError;
-  LoadState get interviewerListState => throw _privateConstructorUsedError;
   List<Interviewer> get interviewerList => throw _privateConstructorUsedError;
+  Interviewer get interviewer => throw _privateConstructorUsedError; // H_ 中間資料
   String get id => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
+  bool get validate => throw _privateConstructorUsedError; // H_ 狀態更新進度
   LoadState get signInState => throw _privateConstructorUsedError;
-  Interviewer get interviewer => throw _privateConstructorUsedError;
   Option<AuthFailure> get authFailure => throw _privateConstructorUsedError;
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  LoadState get eventState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -2067,23 +2059,23 @@ abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
   $Res call(
-      {LoadState teamListState,
+      {UniqueId stateId,
       List<Team> teamList,
       Team team,
-      LoadState interviewerListState,
       List<Interviewer> interviewerList,
+      Interviewer interviewer,
       String id,
       String password,
+      bool validate,
       LoadState signInState,
-      Interviewer interviewer,
       Option<AuthFailure> authFailure,
-      bool showErrorMessages});
+      LoadState eventState});
 
-  $LoadStateCopyWith<$Res> get teamListState;
+  $UniqueIdCopyWith<$Res> get stateId;
   $TeamCopyWith<$Res> get team;
-  $LoadStateCopyWith<$Res> get interviewerListState;
-  $LoadStateCopyWith<$Res> get signInState;
   $InterviewerCopyWith<$Res> get interviewer;
+  $LoadStateCopyWith<$Res> get signInState;
+  $LoadStateCopyWith<$Res> get eventState;
 }
 
 /// @nodoc
@@ -2096,23 +2088,23 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? teamListState = freezed,
+    Object? stateId = freezed,
     Object? teamList = freezed,
     Object? team = freezed,
-    Object? interviewerListState = freezed,
     Object? interviewerList = freezed,
+    Object? interviewer = freezed,
     Object? id = freezed,
     Object? password = freezed,
+    Object? validate = freezed,
     Object? signInState = freezed,
-    Object? interviewer = freezed,
     Object? authFailure = freezed,
-    Object? showErrorMessages = freezed,
+    Object? eventState = freezed,
   }) {
     return _then(_value.copyWith(
-      teamListState: teamListState == freezed
-          ? _value.teamListState
-          : teamListState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       teamList: teamList == freezed
           ? _value.teamList
           : teamList // ignore: cast_nullable_to_non_nullable
@@ -2121,14 +2113,14 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
               as Team,
-      interviewerListState: interviewerListState == freezed
-          ? _value.interviewerListState
-          : interviewerListState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
               as List<Interviewer>,
+      interviewer: interviewer == freezed
+          ? _value.interviewer
+          : interviewer // ignore: cast_nullable_to_non_nullable
+              as Interviewer,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2137,29 +2129,29 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      validate: validate == freezed
+          ? _value.validate
+          : validate // ignore: cast_nullable_to_non_nullable
+              as bool,
       signInState: signInState == freezed
           ? _value.signInState
           : signInState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      interviewer: interviewer == freezed
-          ? _value.interviewer
-          : interviewer // ignore: cast_nullable_to_non_nullable
-              as Interviewer,
       authFailure: authFailure == freezed
           ? _value.authFailure
           : authFailure // ignore: cast_nullable_to_non_nullable
               as Option<AuthFailure>,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+      eventState: eventState == freezed
+          ? _value.eventState
+          : eventState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
     ));
   }
 
   @override
-  $LoadStateCopyWith<$Res> get teamListState {
-    return $LoadStateCopyWith<$Res>(_value.teamListState, (value) {
-      return _then(_value.copyWith(teamListState: value));
+  $UniqueIdCopyWith<$Res> get stateId {
+    return $UniqueIdCopyWith<$Res>(_value.stateId, (value) {
+      return _then(_value.copyWith(stateId: value));
     });
   }
 
@@ -2171,9 +2163,9 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   }
 
   @override
-  $LoadStateCopyWith<$Res> get interviewerListState {
-    return $LoadStateCopyWith<$Res>(_value.interviewerListState, (value) {
-      return _then(_value.copyWith(interviewerListState: value));
+  $InterviewerCopyWith<$Res> get interviewer {
+    return $InterviewerCopyWith<$Res>(_value.interviewer, (value) {
+      return _then(_value.copyWith(interviewer: value));
     });
   }
 
@@ -2185,9 +2177,9 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
   }
 
   @override
-  $InterviewerCopyWith<$Res> get interviewer {
-    return $InterviewerCopyWith<$Res>(_value.interviewer, (value) {
-      return _then(_value.copyWith(interviewer: value));
+  $LoadStateCopyWith<$Res> get eventState {
+    return $LoadStateCopyWith<$Res>(_value.eventState, (value) {
+      return _then(_value.copyWith(eventState: value));
     });
   }
 }
@@ -2199,28 +2191,28 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
       __$AuthStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {LoadState teamListState,
+      {UniqueId stateId,
       List<Team> teamList,
       Team team,
-      LoadState interviewerListState,
       List<Interviewer> interviewerList,
+      Interviewer interviewer,
       String id,
       String password,
+      bool validate,
       LoadState signInState,
-      Interviewer interviewer,
       Option<AuthFailure> authFailure,
-      bool showErrorMessages});
+      LoadState eventState});
 
   @override
-  $LoadStateCopyWith<$Res> get teamListState;
+  $UniqueIdCopyWith<$Res> get stateId;
   @override
   $TeamCopyWith<$Res> get team;
   @override
-  $LoadStateCopyWith<$Res> get interviewerListState;
+  $InterviewerCopyWith<$Res> get interviewer;
   @override
   $LoadStateCopyWith<$Res> get signInState;
   @override
-  $InterviewerCopyWith<$Res> get interviewer;
+  $LoadStateCopyWith<$Res> get eventState;
 }
 
 /// @nodoc
@@ -2234,23 +2226,23 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? teamListState = freezed,
+    Object? stateId = freezed,
     Object? teamList = freezed,
     Object? team = freezed,
-    Object? interviewerListState = freezed,
     Object? interviewerList = freezed,
+    Object? interviewer = freezed,
     Object? id = freezed,
     Object? password = freezed,
+    Object? validate = freezed,
     Object? signInState = freezed,
-    Object? interviewer = freezed,
     Object? authFailure = freezed,
-    Object? showErrorMessages = freezed,
+    Object? eventState = freezed,
   }) {
     return _then(_AuthState(
-      teamListState: teamListState == freezed
-          ? _value.teamListState
-          : teamListState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       teamList: teamList == freezed
           ? _value.teamList
           : teamList // ignore: cast_nullable_to_non_nullable
@@ -2259,14 +2251,14 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.team
           : team // ignore: cast_nullable_to_non_nullable
               as Team,
-      interviewerListState: interviewerListState == freezed
-          ? _value.interviewerListState
-          : interviewerListState // ignore: cast_nullable_to_non_nullable
-              as LoadState,
       interviewerList: interviewerList == freezed
           ? _value.interviewerList
           : interviewerList // ignore: cast_nullable_to_non_nullable
               as List<Interviewer>,
+      interviewer: interviewer == freezed
+          ? _value.interviewer
+          : interviewer // ignore: cast_nullable_to_non_nullable
+              as Interviewer,
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2275,22 +2267,22 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
               as String,
+      validate: validate == freezed
+          ? _value.validate
+          : validate // ignore: cast_nullable_to_non_nullable
+              as bool,
       signInState: signInState == freezed
           ? _value.signInState
           : signInState // ignore: cast_nullable_to_non_nullable
               as LoadState,
-      interviewer: interviewer == freezed
-          ? _value.interviewer
-          : interviewer // ignore: cast_nullable_to_non_nullable
-              as Interviewer,
       authFailure: authFailure == freezed
           ? _value.authFailure
           : authFailure // ignore: cast_nullable_to_non_nullable
               as Option<AuthFailure>,
-      showErrorMessages: showErrorMessages == freezed
-          ? _value.showErrorMessages
-          : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+      eventState: eventState == freezed
+          ? _value.eventState
+          : eventState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
     ));
   }
 }
@@ -2299,45 +2291,45 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
 class _$_AuthState extends _AuthState {
   const _$_AuthState(
-      {required this.teamListState,
+      {required this.stateId,
       required this.teamList,
       required this.team,
-      required this.interviewerListState,
       required this.interviewerList,
+      required this.interviewer,
       required this.id,
       required this.password,
+      required this.validate,
       required this.signInState,
-      required this.interviewer,
       required this.authFailure,
-      required this.showErrorMessages})
+      required this.eventState})
       : super._();
 
   @override
-  final LoadState teamListState;
-  @override
+  final UniqueId stateId;
+  @override // H_ 主要資料
   final List<Team> teamList;
   @override
   final Team team;
   @override
-  final LoadState interviewerListState;
-  @override
   final List<Interviewer> interviewerList;
   @override
+  final Interviewer interviewer;
+  @override // H_ 中間資料
   final String id;
   @override
   final String password;
   @override
+  final bool validate;
+  @override // H_ 狀態更新進度
   final LoadState signInState;
-  @override
-  final Interviewer interviewer;
   @override
   final Option<AuthFailure> authFailure;
   @override
-  final bool showErrorMessages;
+  final LoadState eventState;
 
   @override
   String toString() {
-    return 'AuthState(teamListState: $teamListState, teamList: $teamList, team: $team, interviewerListState: $interviewerListState, interviewerList: $interviewerList, id: $id, password: $password, signInState: $signInState, interviewer: $interviewer, authFailure: $authFailure, showErrorMessages: $showErrorMessages)';
+    return 'AuthState(stateId: $stateId, teamList: $teamList, team: $team, interviewerList: $interviewerList, interviewer: $interviewer, id: $id, password: $password, validate: $validate, signInState: $signInState, authFailure: $authFailure, eventState: $eventState)';
   }
 
   @override
@@ -2345,40 +2337,38 @@ class _$_AuthState extends _AuthState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _AuthState &&
-            const DeepCollectionEquality()
-                .equals(other.teamListState, teamListState) &&
+            const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other.teamList, teamList) &&
             const DeepCollectionEquality().equals(other.team, team) &&
             const DeepCollectionEquality()
-                .equals(other.interviewerListState, interviewerListState) &&
-            const DeepCollectionEquality()
                 .equals(other.interviewerList, interviewerList) &&
+            const DeepCollectionEquality()
+                .equals(other.interviewer, interviewer) &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.password, password) &&
+            const DeepCollectionEquality().equals(other.validate, validate) &&
             const DeepCollectionEquality()
                 .equals(other.signInState, signInState) &&
             const DeepCollectionEquality()
-                .equals(other.interviewer, interviewer) &&
-            const DeepCollectionEquality()
                 .equals(other.authFailure, authFailure) &&
             const DeepCollectionEquality()
-                .equals(other.showErrorMessages, showErrorMessages));
+                .equals(other.eventState, eventState));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(teamListState),
+      const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(teamList),
       const DeepCollectionEquality().hash(team),
-      const DeepCollectionEquality().hash(interviewerListState),
       const DeepCollectionEquality().hash(interviewerList),
+      const DeepCollectionEquality().hash(interviewer),
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(password),
+      const DeepCollectionEquality().hash(validate),
       const DeepCollectionEquality().hash(signInState),
-      const DeepCollectionEquality().hash(interviewer),
       const DeepCollectionEquality().hash(authFailure),
-      const DeepCollectionEquality().hash(showErrorMessages));
+      const DeepCollectionEquality().hash(eventState));
 
   @JsonKey(ignore: true)
   @override
@@ -2388,41 +2378,41 @@ class _$_AuthState extends _AuthState {
 
 abstract class _AuthState extends AuthState {
   const factory _AuthState(
-      {required LoadState teamListState,
+      {required UniqueId stateId,
       required List<Team> teamList,
       required Team team,
-      required LoadState interviewerListState,
       required List<Interviewer> interviewerList,
+      required Interviewer interviewer,
       required String id,
       required String password,
+      required bool validate,
       required LoadState signInState,
-      required Interviewer interviewer,
       required Option<AuthFailure> authFailure,
-      required bool showErrorMessages}) = _$_AuthState;
+      required LoadState eventState}) = _$_AuthState;
   const _AuthState._() : super._();
 
   @override
-  LoadState get teamListState;
-  @override
+  UniqueId get stateId;
+  @override // H_ 主要資料
   List<Team> get teamList;
   @override
   Team get team;
   @override
-  LoadState get interviewerListState;
-  @override
   List<Interviewer> get interviewerList;
   @override
+  Interviewer get interviewer;
+  @override // H_ 中間資料
   String get id;
   @override
   String get password;
   @override
+  bool get validate;
+  @override // H_ 狀態更新進度
   LoadState get signInState;
-  @override
-  Interviewer get interviewer;
   @override
   Option<AuthFailure> get authFailure;
   @override
-  bool get showErrorMessages;
+  LoadState get eventState;
   @override
   @JsonKey(ignore: true)
   _$AuthStateCopyWith<_AuthState> get copyWith =>

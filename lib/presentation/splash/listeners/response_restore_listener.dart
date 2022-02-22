@@ -43,6 +43,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
                   : state.questionMap,
               recodeQuestionMap:
                   state.survey.module[ModuleType.recode()]!.questionMap,
+              // FIXME 移至該 bloc 處理，改傳入 switchToSampling
               dialogType: state.dialogType,
             ),
           );

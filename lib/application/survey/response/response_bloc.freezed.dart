@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'response_bloc.dart';
@@ -48,9 +49,9 @@ class _$ResponseEventTearOff {
   }
 
   _ResponseMapUploaded responseMapUploaded(
-      Either<SurveyFailure, Unit> failureOrSuccess) {
+      Either<SurveyFailure, Set<UniqueId>> failureOrResult) {
     return _ResponseMapUploaded(
-      failureOrSuccess,
+      failureOrResult,
     );
   }
 
@@ -100,6 +101,12 @@ class _$ResponseEventTearOff {
     );
   }
 
+  _NetworkUpdated networkUpdated({required NetworkType networkType}) {
+    return _NetworkUpdated(
+      networkType: networkType,
+    );
+  }
+
   _LoggedOut loggedOut() {
     return const _LoggedOut();
   }
@@ -126,7 +133,8 @@ mixin _$ResponseEvent {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -144,6 +152,7 @@ mixin _$ResponseEvent {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) =>
@@ -161,7 +170,7 @@ mixin _$ResponseEvent {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -179,6 +188,7 @@ mixin _$ResponseEvent {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) =>
@@ -196,7 +206,7 @@ mixin _$ResponseEvent {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -214,6 +224,7 @@ mixin _$ResponseEvent {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -234,6 +245,7 @@ mixin _$ResponseEvent {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) =>
@@ -252,6 +264,7 @@ mixin _$ResponseEvent {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) =>
@@ -270,6 +283,7 @@ mixin _$ResponseEvent {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -392,7 +406,8 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -410,6 +425,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -430,7 +446,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -448,6 +464,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -468,7 +485,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -486,6 +503,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -512,6 +530,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -533,6 +552,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -554,6 +574,7 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -655,7 +676,8 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -673,6 +695,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -693,7 +716,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -711,6 +734,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -731,7 +755,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -749,6 +773,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -775,6 +800,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -796,6 +822,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -817,6 +844,7 @@ class _$_ResponseMapReceived implements _ResponseMapReceived {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -916,7 +944,8 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -934,6 +963,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -954,7 +984,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -972,6 +1002,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -992,7 +1023,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1010,6 +1041,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -1036,6 +1068,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1057,6 +1090,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1078,6 +1112,7 @@ class _$_ReferenceListReceived implements _ReferenceListReceived {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -1151,7 +1186,8 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -1169,6 +1205,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -1189,7 +1226,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1207,6 +1244,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -1227,7 +1265,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1245,6 +1283,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -1271,6 +1310,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1292,6 +1332,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1313,6 +1354,7 @@ class _$_UploadTimerUpdated implements _UploadTimerUpdated {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -1379,7 +1421,8 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -1397,6 +1440,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -1417,7 +1461,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1435,6 +1479,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -1455,7 +1500,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1473,6 +1518,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -1499,6 +1545,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1520,6 +1567,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1541,6 +1589,7 @@ class _$_ResponseMapUploading implements _ResponseMapUploading {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -1561,7 +1610,7 @@ abstract class _$ResponseMapUploadedCopyWith<$Res> {
   factory _$ResponseMapUploadedCopyWith(_ResponseMapUploaded value,
           $Res Function(_ResponseMapUploaded) then) =
       __$ResponseMapUploadedCopyWithImpl<$Res>;
-  $Res call({Either<SurveyFailure, Unit> failureOrSuccess});
+  $Res call({Either<SurveyFailure, Set<UniqueId>> failureOrResult});
 }
 
 /// @nodoc
@@ -1577,13 +1626,13 @@ class __$ResponseMapUploadedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? failureOrSuccess = freezed,
+    Object? failureOrResult = freezed,
   }) {
     return _then(_ResponseMapUploaded(
-      failureOrSuccess == freezed
-          ? _value.failureOrSuccess
-          : failureOrSuccess // ignore: cast_nullable_to_non_nullable
-              as Either<SurveyFailure, Unit>,
+      failureOrResult == freezed
+          ? _value.failureOrResult
+          : failureOrResult // ignore: cast_nullable_to_non_nullable
+              as Either<SurveyFailure, Set<UniqueId>>,
     ));
   }
 }
@@ -1591,14 +1640,14 @@ class __$ResponseMapUploadedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ResponseMapUploaded implements _ResponseMapUploaded {
-  const _$_ResponseMapUploaded(this.failureOrSuccess);
+  const _$_ResponseMapUploaded(this.failureOrResult);
 
   @override
-  final Either<SurveyFailure, Unit> failureOrSuccess;
+  final Either<SurveyFailure, Set<UniqueId>> failureOrResult;
 
   @override
   String toString() {
-    return 'ResponseEvent.responseMapUploaded(failureOrSuccess: $failureOrSuccess)';
+    return 'ResponseEvent.responseMapUploaded(failureOrResult: $failureOrResult)';
   }
 
   @override
@@ -1607,12 +1656,12 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
         (other.runtimeType == runtimeType &&
             other is _ResponseMapUploaded &&
             const DeepCollectionEquality()
-                .equals(other.failureOrSuccess, failureOrSuccess));
+                .equals(other.failureOrResult, failureOrResult));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(failureOrSuccess));
+      runtimeType, const DeepCollectionEquality().hash(failureOrResult));
 
   @JsonKey(ignore: true)
   @override
@@ -1633,7 +1682,8 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -1651,10 +1701,11 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return responseMapUploaded(failureOrSuccess);
+    return responseMapUploaded(failureOrResult);
   }
 
   @override
@@ -1671,7 +1722,7 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1689,10 +1740,11 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return responseMapUploaded?.call(failureOrSuccess);
+    return responseMapUploaded?.call(failureOrResult);
   }
 
   @override
@@ -1709,7 +1761,7 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1727,12 +1779,13 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (responseMapUploaded != null) {
-      return responseMapUploaded(failureOrSuccess);
+      return responseMapUploaded(failureOrResult);
     }
     return orElse();
   }
@@ -1753,6 +1806,7 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -1774,6 +1828,7 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -1795,6 +1850,7 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -1808,9 +1864,10 @@ class _$_ResponseMapUploaded implements _ResponseMapUploaded {
 
 abstract class _ResponseMapUploaded implements ResponseEvent {
   const factory _ResponseMapUploaded(
-      Either<SurveyFailure, Unit> failureOrSuccess) = _$_ResponseMapUploaded;
+          Either<SurveyFailure, Set<UniqueId>> failureOrResult) =
+      _$_ResponseMapUploaded;
 
-  Either<SurveyFailure, Unit> get failureOrSuccess;
+  Either<SurveyFailure, Set<UniqueId>> get failureOrResult;
   @JsonKey(ignore: true)
   _$ResponseMapUploadedCopyWith<_ResponseMapUploaded> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1900,7 +1957,8 @@ class _$_SurveySelected implements _SurveySelected {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -1918,6 +1976,7 @@ class _$_SurveySelected implements _SurveySelected {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -1938,7 +1997,7 @@ class _$_SurveySelected implements _SurveySelected {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1956,6 +2015,7 @@ class _$_SurveySelected implements _SurveySelected {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -1976,7 +2036,7 @@ class _$_SurveySelected implements _SurveySelected {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -1994,6 +2054,7 @@ class _$_SurveySelected implements _SurveySelected {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2020,6 +2081,7 @@ class _$_SurveySelected implements _SurveySelected {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2041,6 +2103,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2062,6 +2125,7 @@ class _$_SurveySelected implements _SurveySelected {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -2253,7 +2317,8 @@ class _$_ResponseStarted implements _ResponseStarted {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -2271,6 +2336,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -2292,7 +2358,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -2310,6 +2376,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -2331,7 +2398,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -2349,6 +2416,7 @@ class _$_ResponseStarted implements _ResponseStarted {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2376,6 +2444,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2397,6 +2466,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2418,6 +2488,7 @@ class _$_ResponseStarted implements _ResponseStarted {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -2561,7 +2632,8 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -2579,6 +2651,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -2599,7 +2672,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -2617,6 +2690,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -2637,7 +2711,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -2655,6 +2729,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2681,6 +2756,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2702,6 +2778,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2723,6 +2800,7 @@ class _$_ResponseUpdated implements _ResponseUpdated {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -2824,7 +2902,8 @@ class _$_EditFinished implements _EditFinished {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -2842,6 +2921,7 @@ class _$_EditFinished implements _EditFinished {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -2862,7 +2942,7 @@ class _$_EditFinished implements _EditFinished {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -2880,6 +2960,7 @@ class _$_EditFinished implements _EditFinished {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -2900,7 +2981,7 @@ class _$_EditFinished implements _EditFinished {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -2918,6 +2999,7 @@ class _$_EditFinished implements _EditFinished {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -2944,6 +3026,7 @@ class _$_EditFinished implements _EditFinished {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -2965,6 +3048,7 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -2986,6 +3070,7 @@ class _$_EditFinished implements _EditFinished {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3093,7 +3178,8 @@ class _$_ResponseResumed implements _ResponseResumed {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -3111,6 +3197,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -3131,7 +3218,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -3149,6 +3236,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -3169,7 +3257,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -3187,6 +3275,7 @@ class _$_ResponseResumed implements _ResponseResumed {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -3213,6 +3302,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -3234,6 +3324,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -3255,6 +3346,7 @@ class _$_ResponseResumed implements _ResponseResumed {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3272,6 +3364,281 @@ abstract class _ResponseResumed implements ResponseEvent {
   UniqueId get responseId;
   @JsonKey(ignore: true)
   _$ResponseResumedCopyWith<_ResponseResumed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$NetworkUpdatedCopyWith<$Res> {
+  factory _$NetworkUpdatedCopyWith(
+          _NetworkUpdated value, $Res Function(_NetworkUpdated) then) =
+      __$NetworkUpdatedCopyWithImpl<$Res>;
+  $Res call({NetworkType networkType});
+
+  $NetworkTypeCopyWith<$Res> get networkType;
+}
+
+/// @nodoc
+class __$NetworkUpdatedCopyWithImpl<$Res>
+    extends _$ResponseEventCopyWithImpl<$Res>
+    implements _$NetworkUpdatedCopyWith<$Res> {
+  __$NetworkUpdatedCopyWithImpl(
+      _NetworkUpdated _value, $Res Function(_NetworkUpdated) _then)
+      : super(_value, (v) => _then(v as _NetworkUpdated));
+
+  @override
+  _NetworkUpdated get _value => super._value as _NetworkUpdated;
+
+  @override
+  $Res call({
+    Object? networkType = freezed,
+  }) {
+    return _then(_NetworkUpdated(
+      networkType: networkType == freezed
+          ? _value.networkType
+          : networkType // ignore: cast_nullable_to_non_nullable
+              as NetworkType,
+    ));
+  }
+
+  @override
+  $NetworkTypeCopyWith<$Res> get networkType {
+    return $NetworkTypeCopyWith<$Res>(_value.networkType, (value) {
+      return _then(_value.copyWith(networkType: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_NetworkUpdated implements _NetworkUpdated {
+  const _$_NetworkUpdated({required this.networkType});
+
+  @override
+  final NetworkType networkType;
+
+  @override
+  String toString() {
+    return 'ResponseEvent.networkUpdated(networkType: $networkType)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _NetworkUpdated &&
+            const DeepCollectionEquality()
+                .equals(other.networkType, networkType));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(networkType));
+
+  @JsonKey(ignore: true)
+  @override
+  _$NetworkUpdatedCopyWith<_NetworkUpdated> get copyWith =>
+      __$NetworkUpdatedCopyWithImpl<_NetworkUpdated>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String teamId, Interviewer interviewer)
+        watchResponseMapAndReferenceListStarted,
+    required TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap)
+        responseMapReceived,
+    required TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)
+        referenceListReceived,
+    required TResult Function() uploadTimerUpdated,
+    required TResult Function() responseMapUploading,
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
+        responseMapUploaded,
+    required TResult Function(Survey survey) surveySelected,
+    required TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)
+        responseStarted,
+    required TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)
+        responseUpdated,
+    required TResult Function(bool responseFinished) editFinished,
+    required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
+    required TResult Function() loggedOut,
+    required TResult Function() initialized,
+  }) {
+    return networkUpdated(networkType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+  }) {
+    return networkUpdated?.call(networkType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String teamId, Interviewer interviewer)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(
+            Either<SurveyFailure, Map<UniqueId, Response>>
+                failureOrResponseMap)?
+        responseMapReceived,
+    TResult Function(
+            Either<SurveyFailure, List<Reference>> failureOrReferenceList)?
+        referenceListReceived,
+    TResult Function()? uploadTimerUpdated,
+    TResult Function()? responseMapUploading,
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
+        responseMapUploaded,
+    TResult Function(Survey survey)? surveySelected,
+    TResult Function(
+            Respondent respondent,
+            ModuleType moduleType,
+            bool withResponseId,
+            bool breakInterview,
+            bool isNewResponse,
+            UniqueId? responseId)?
+        responseStarted,
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            SimpleSurveyPageState surveyPageState)?
+        responseUpdated,
+    TResult Function(bool responseFinished)? editFinished,
+    TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
+    TResult Function()? loggedOut,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (networkUpdated != null) {
+      return networkUpdated(networkType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_WatchResponseMapStarted value)
+        watchResponseMapAndReferenceListStarted,
+    required TResult Function(_ResponseMapReceived value) responseMapReceived,
+    required TResult Function(_ReferenceListReceived value)
+        referenceListReceived,
+    required TResult Function(_UploadTimerUpdated value) uploadTimerUpdated,
+    required TResult Function(_ResponseMapUploading value) responseMapUploading,
+    required TResult Function(_ResponseMapUploaded value) responseMapUploaded,
+    required TResult Function(_SurveySelected value) surveySelected,
+    required TResult Function(_ResponseStarted value) responseStarted,
+    required TResult Function(_ResponseUpdated value) responseUpdated,
+    required TResult Function(_EditFinished value) editFinished,
+    required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
+    required TResult Function(_LoggedOut value) loggedOut,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return networkUpdated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return networkUpdated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_WatchResponseMapStarted value)?
+        watchResponseMapAndReferenceListStarted,
+    TResult Function(_ResponseMapReceived value)? responseMapReceived,
+    TResult Function(_ReferenceListReceived value)? referenceListReceived,
+    TResult Function(_UploadTimerUpdated value)? uploadTimerUpdated,
+    TResult Function(_ResponseMapUploading value)? responseMapUploading,
+    TResult Function(_ResponseMapUploaded value)? responseMapUploaded,
+    TResult Function(_SurveySelected value)? surveySelected,
+    TResult Function(_ResponseStarted value)? responseStarted,
+    TResult Function(_ResponseUpdated value)? responseUpdated,
+    TResult Function(_EditFinished value)? editFinished,
+    TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
+    TResult Function(_LoggedOut value)? loggedOut,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (networkUpdated != null) {
+      return networkUpdated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NetworkUpdated implements ResponseEvent {
+  const factory _NetworkUpdated({required NetworkType networkType}) =
+      _$_NetworkUpdated;
+
+  NetworkType get networkType;
+  @JsonKey(ignore: true)
+  _$NetworkUpdatedCopyWith<_NetworkUpdated> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3324,7 +3691,8 @@ class _$_LoggedOut implements _LoggedOut {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -3342,6 +3710,7 @@ class _$_LoggedOut implements _LoggedOut {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -3362,7 +3731,7 @@ class _$_LoggedOut implements _LoggedOut {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -3380,6 +3749,7 @@ class _$_LoggedOut implements _LoggedOut {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -3400,7 +3770,7 @@ class _$_LoggedOut implements _LoggedOut {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -3418,6 +3788,7 @@ class _$_LoggedOut implements _LoggedOut {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -3444,6 +3815,7 @@ class _$_LoggedOut implements _LoggedOut {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -3465,6 +3837,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -3486,6 +3859,7 @@ class _$_LoggedOut implements _LoggedOut {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3551,7 +3925,8 @@ class _$_Initialized implements _Initialized {
         referenceListReceived,
     required TResult Function() uploadTimerUpdated,
     required TResult Function() responseMapUploading,
-    required TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)
+    required TResult Function(
+            Either<SurveyFailure, Set<UniqueId>> failureOrResult)
         responseMapUploaded,
     required TResult Function(Survey survey) surveySelected,
     required TResult Function(
@@ -3569,6 +3944,7 @@ class _$_Initialized implements _Initialized {
         responseUpdated,
     required TResult Function(bool responseFinished) editFinished,
     required TResult Function(UniqueId responseId) responseResumed,
+    required TResult Function(NetworkType networkType) networkUpdated,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
@@ -3589,7 +3965,7 @@ class _$_Initialized implements _Initialized {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -3607,6 +3983,7 @@ class _$_Initialized implements _Initialized {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
@@ -3627,7 +4004,7 @@ class _$_Initialized implements _Initialized {
         referenceListReceived,
     TResult Function()? uploadTimerUpdated,
     TResult Function()? responseMapUploading,
-    TResult Function(Either<SurveyFailure, Unit> failureOrSuccess)?
+    TResult Function(Either<SurveyFailure, Set<UniqueId>> failureOrResult)?
         responseMapUploaded,
     TResult Function(Survey survey)? surveySelected,
     TResult Function(
@@ -3645,6 +4022,7 @@ class _$_Initialized implements _Initialized {
         responseUpdated,
     TResult Function(bool responseFinished)? editFinished,
     TResult Function(UniqueId responseId)? responseResumed,
+    TResult Function(NetworkType networkType)? networkUpdated,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
@@ -3671,6 +4049,7 @@ class _$_Initialized implements _Initialized {
     required TResult Function(_ResponseUpdated value) responseUpdated,
     required TResult Function(_EditFinished value) editFinished,
     required TResult Function(_ResponseResumed value) responseResumed,
+    required TResult Function(_NetworkUpdated value) networkUpdated,
     required TResult Function(_LoggedOut value) loggedOut,
     required TResult Function(_Initialized value) initialized,
   }) {
@@ -3692,6 +4071,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
   }) {
@@ -3713,6 +4093,7 @@ class _$_Initialized implements _Initialized {
     TResult Function(_ResponseUpdated value)? responseUpdated,
     TResult Function(_EditFinished value)? editFinished,
     TResult Function(_ResponseResumed value)? responseResumed,
+    TResult Function(_NetworkUpdated value)? networkUpdated,
     TResult Function(_LoggedOut value)? loggedOut,
     TResult Function(_Initialized value)? initialized,
     required TResult orElse(),
@@ -3744,9 +4125,11 @@ class _$ResponseStateTearOff {
       required UniqueId responseId,
       required Response mainResponse,
       required Map<String, Question> questionMap,
+      required Set<UniqueId> uploadResponseIdSet,
       required Map<UniqueId, Response> downloadedResponseMap,
       required Map<ModuleType, Response> respondentResponseMap,
       required DialogType dialogType,
+      required NetworkType networkType,
       required LoadState responseMapState,
       required SyncState syncState,
       required Option<SurveyFailure> responseFailure,
@@ -3766,9 +4149,11 @@ class _$ResponseStateTearOff {
       responseId: responseId,
       mainResponse: mainResponse,
       questionMap: questionMap,
+      uploadResponseIdSet: uploadResponseIdSet,
       downloadedResponseMap: downloadedResponseMap,
       respondentResponseMap: respondentResponseMap,
       dialogType: dialogType,
+      networkType: networkType,
       responseMapState: responseMapState,
       syncState: syncState,
       responseFailure: responseFailure,
@@ -3797,11 +4182,14 @@ mixin _$ResponseState {
   UniqueId get responseId => throw _privateConstructorUsedError;
   Response get mainResponse => throw _privateConstructorUsedError;
   Map<String, Question> get questionMap => throw _privateConstructorUsedError;
+  Set<UniqueId> get uploadResponseIdSet => throw _privateConstructorUsedError;
   Map<UniqueId, Response> get downloadedResponseMap =>
       throw _privateConstructorUsedError;
   Map<ModuleType, Response> get respondentResponseMap =>
       throw _privateConstructorUsedError;
-  DialogType get dialogType => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  DialogType get dialogType => throw _privateConstructorUsedError;
+  NetworkType get networkType =>
+      throw _privateConstructorUsedError; // H_ 狀態更新進度
   LoadState get responseMapState => throw _privateConstructorUsedError;
   SyncState get syncState => throw _privateConstructorUsedError;
   Option<SurveyFailure> get responseFailure =>
@@ -3833,9 +4221,11 @@ abstract class $ResponseStateCopyWith<$Res> {
       UniqueId responseId,
       Response mainResponse,
       Map<String, Question> questionMap,
+      Set<UniqueId> uploadResponseIdSet,
       Map<UniqueId, Response> downloadedResponseMap,
       Map<ModuleType, Response> respondentResponseMap,
       DialogType dialogType,
+      NetworkType networkType,
       LoadState responseMapState,
       SyncState syncState,
       Option<SurveyFailure> responseFailure,
@@ -3853,6 +4243,7 @@ abstract class $ResponseStateCopyWith<$Res> {
   $UniqueIdCopyWith<$Res> get responseId;
   $ResponseCopyWith<$Res> get mainResponse;
   $DialogTypeCopyWith<$Res> get dialogType;
+  $NetworkTypeCopyWith<$Res> get networkType;
   $LoadStateCopyWith<$Res> get responseMapState;
   $SyncStateCopyWith<$Res> get syncState;
   $LoadStateCopyWith<$Res> get eventState;
@@ -3883,9 +4274,11 @@ class _$ResponseStateCopyWithImpl<$Res>
     Object? responseId = freezed,
     Object? mainResponse = freezed,
     Object? questionMap = freezed,
+    Object? uploadResponseIdSet = freezed,
     Object? downloadedResponseMap = freezed,
     Object? respondentResponseMap = freezed,
     Object? dialogType = freezed,
+    Object? networkType = freezed,
     Object? responseMapState = freezed,
     Object? syncState = freezed,
     Object? responseFailure = freezed,
@@ -3939,6 +4332,10 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
+      uploadResponseIdSet: uploadResponseIdSet == freezed
+          ? _value.uploadResponseIdSet
+          : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<UniqueId>,
       downloadedResponseMap: downloadedResponseMap == freezed
           ? _value.downloadedResponseMap
           : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
@@ -3951,6 +4348,10 @@ class _$ResponseStateCopyWithImpl<$Res>
           ? _value.dialogType
           : dialogType // ignore: cast_nullable_to_non_nullable
               as DialogType,
+      networkType: networkType == freezed
+          ? _value.networkType
+          : networkType // ignore: cast_nullable_to_non_nullable
+              as NetworkType,
       responseMapState: responseMapState == freezed
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
@@ -4046,6 +4447,13 @@ class _$ResponseStateCopyWithImpl<$Res>
   }
 
   @override
+  $NetworkTypeCopyWith<$Res> get networkType {
+    return $NetworkTypeCopyWith<$Res>(_value.networkType, (value) {
+      return _then(_value.copyWith(networkType: value));
+    });
+  }
+
+  @override
   $LoadStateCopyWith<$Res> get responseMapState {
     return $LoadStateCopyWith<$Res>(_value.responseMapState, (value) {
       return _then(_value.copyWith(responseMapState: value));
@@ -4107,9 +4515,11 @@ abstract class _$ResponseStateCopyWith<$Res>
       UniqueId responseId,
       Response mainResponse,
       Map<String, Question> questionMap,
+      Set<UniqueId> uploadResponseIdSet,
       Map<UniqueId, Response> downloadedResponseMap,
       Map<ModuleType, Response> respondentResponseMap,
       DialogType dialogType,
+      NetworkType networkType,
       LoadState responseMapState,
       SyncState syncState,
       Option<SurveyFailure> responseFailure,
@@ -4136,6 +4546,8 @@ abstract class _$ResponseStateCopyWith<$Res>
   $ResponseCopyWith<$Res> get mainResponse;
   @override
   $DialogTypeCopyWith<$Res> get dialogType;
+  @override
+  $NetworkTypeCopyWith<$Res> get networkType;
   @override
   $LoadStateCopyWith<$Res> get responseMapState;
   @override
@@ -4174,9 +4586,11 @@ class __$ResponseStateCopyWithImpl<$Res>
     Object? responseId = freezed,
     Object? mainResponse = freezed,
     Object? questionMap = freezed,
+    Object? uploadResponseIdSet = freezed,
     Object? downloadedResponseMap = freezed,
     Object? respondentResponseMap = freezed,
     Object? dialogType = freezed,
+    Object? networkType = freezed,
     Object? responseMapState = freezed,
     Object? syncState = freezed,
     Object? responseFailure = freezed,
@@ -4230,6 +4644,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.questionMap
           : questionMap // ignore: cast_nullable_to_non_nullable
               as Map<String, Question>,
+      uploadResponseIdSet: uploadResponseIdSet == freezed
+          ? _value.uploadResponseIdSet
+          : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
+              as Set<UniqueId>,
       downloadedResponseMap: downloadedResponseMap == freezed
           ? _value.downloadedResponseMap
           : downloadedResponseMap // ignore: cast_nullable_to_non_nullable
@@ -4242,6 +4660,10 @@ class __$ResponseStateCopyWithImpl<$Res>
           ? _value.dialogType
           : dialogType // ignore: cast_nullable_to_non_nullable
               as DialogType,
+      networkType: networkType == freezed
+          ? _value.networkType
+          : networkType // ignore: cast_nullable_to_non_nullable
+              as NetworkType,
       responseMapState: responseMapState == freezed
           ? _value.responseMapState
           : responseMapState // ignore: cast_nullable_to_non_nullable
@@ -4289,9 +4711,11 @@ class _$_ResponseState extends _ResponseState {
       required this.responseId,
       required this.mainResponse,
       required this.questionMap,
+      required this.uploadResponseIdSet,
       required this.downloadedResponseMap,
       required this.respondentResponseMap,
       required this.dialogType,
+      required this.networkType,
       required this.responseMapState,
       required this.syncState,
       required this.responseFailure,
@@ -4324,11 +4748,15 @@ class _$_ResponseState extends _ResponseState {
   @override
   final Map<String, Question> questionMap;
   @override
+  final Set<UniqueId> uploadResponseIdSet;
+  @override
   final Map<UniqueId, Response> downloadedResponseMap;
   @override
   final Map<ModuleType, Response> respondentResponseMap;
   @override
   final DialogType dialogType;
+  @override
+  final NetworkType networkType;
   @override // H_ 狀態更新進度
   final LoadState responseMapState;
   @override
@@ -4346,7 +4774,7 @@ class _$_ResponseState extends _ResponseState {
 
   @override
   String toString() {
-    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, dialogType: $dialogType, responseMapState: $responseMapState, syncState: $syncState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+    return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, uploadResponseIdSet: $uploadResponseIdSet, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, dialogType: $dialogType, networkType: $networkType, responseMapState: $responseMapState, syncState: $syncState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
   }
 
   @override
@@ -4374,11 +4802,15 @@ class _$_ResponseState extends _ResponseState {
             const DeepCollectionEquality()
                 .equals(other.questionMap, questionMap) &&
             const DeepCollectionEquality()
+                .equals(other.uploadResponseIdSet, uploadResponseIdSet) &&
+            const DeepCollectionEquality()
                 .equals(other.downloadedResponseMap, downloadedResponseMap) &&
             const DeepCollectionEquality()
                 .equals(other.respondentResponseMap, respondentResponseMap) &&
             const DeepCollectionEquality()
                 .equals(other.dialogType, dialogType) &&
+            const DeepCollectionEquality()
+                .equals(other.networkType, networkType) &&
             const DeepCollectionEquality()
                 .equals(other.responseMapState, responseMapState) &&
             const DeepCollectionEquality().equals(other.syncState, syncState) &&
@@ -4408,9 +4840,11 @@ class _$_ResponseState extends _ResponseState {
         const DeepCollectionEquality().hash(responseId),
         const DeepCollectionEquality().hash(mainResponse),
         const DeepCollectionEquality().hash(questionMap),
+        const DeepCollectionEquality().hash(uploadResponseIdSet),
         const DeepCollectionEquality().hash(downloadedResponseMap),
         const DeepCollectionEquality().hash(respondentResponseMap),
         const DeepCollectionEquality().hash(dialogType),
+        const DeepCollectionEquality().hash(networkType),
         const DeepCollectionEquality().hash(responseMapState),
         const DeepCollectionEquality().hash(syncState),
         const DeepCollectionEquality().hash(responseFailure),
@@ -4439,9 +4873,11 @@ abstract class _ResponseState extends ResponseState {
       required UniqueId responseId,
       required Response mainResponse,
       required Map<String, Question> questionMap,
+      required Set<UniqueId> uploadResponseIdSet,
       required Map<UniqueId, Response> downloadedResponseMap,
       required Map<ModuleType, Response> respondentResponseMap,
       required DialogType dialogType,
+      required NetworkType networkType,
       required LoadState responseMapState,
       required SyncState syncState,
       required Option<SurveyFailure> responseFailure,
@@ -4474,11 +4910,15 @@ abstract class _ResponseState extends ResponseState {
   @override
   Map<String, Question> get questionMap;
   @override
+  Set<UniqueId> get uploadResponseIdSet;
+  @override
   Map<UniqueId, Response> get downloadedResponseMap;
   @override
   Map<ModuleType, Response> get respondentResponseMap;
   @override
   DialogType get dialogType;
+  @override
+  NetworkType get networkType;
   @override // H_ 狀態更新進度
   LoadState get responseMapState;
   @override
@@ -4511,6 +4951,7 @@ class _$StateParametersTearOff {
       required bool respondent,
       required bool responseMap,
       required Set<UniqueId> responseMapKeys,
+      required bool uploadResponseIdSet,
       required bool visitReportsMap,
       required bool housingMap,
       required bool respondentResponseMap,
@@ -4523,6 +4964,7 @@ class _$StateParametersTearOff {
       respondent: respondent,
       responseMap: responseMap,
       responseMapKeys: responseMapKeys,
+      uploadResponseIdSet: uploadResponseIdSet,
       visitReportsMap: visitReportsMap,
       housingMap: housingMap,
       respondentResponseMap: respondentResponseMap,
@@ -4543,8 +4985,8 @@ mixin _$StateParameters {
   bool get interviewer => throw _privateConstructorUsedError;
   bool get respondent => throw _privateConstructorUsedError;
   bool get responseMap => throw _privateConstructorUsedError;
-  Set<UniqueId> get responseMapKeys =>
-      throw _privateConstructorUsedError; // H_ 更新
+  Set<UniqueId> get responseMapKeys => throw _privateConstructorUsedError;
+  bool get uploadResponseIdSet => throw _privateConstructorUsedError; // H_ 更新
   bool get visitReportsMap => throw _privateConstructorUsedError;
   bool get housingMap => throw _privateConstructorUsedError;
   bool get respondentResponseMap => throw _privateConstructorUsedError;
@@ -4568,6 +5010,7 @@ abstract class $StateParametersCopyWith<$Res> {
       bool respondent,
       bool responseMap,
       Set<UniqueId> responseMapKeys,
+      bool uploadResponseIdSet,
       bool visitReportsMap,
       bool housingMap,
       bool respondentResponseMap,
@@ -4592,6 +5035,7 @@ class _$StateParametersCopyWithImpl<$Res>
     Object? respondent = freezed,
     Object? responseMap = freezed,
     Object? responseMapKeys = freezed,
+    Object? uploadResponseIdSet = freezed,
     Object? visitReportsMap = freezed,
     Object? housingMap = freezed,
     Object? respondentResponseMap = freezed,
@@ -4626,6 +5070,10 @@ class _$StateParametersCopyWithImpl<$Res>
           ? _value.responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
               as Set<UniqueId>,
+      uploadResponseIdSet: uploadResponseIdSet == freezed
+          ? _value.uploadResponseIdSet
+          : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
       visitReportsMap: visitReportsMap == freezed
           ? _value.visitReportsMap
           : visitReportsMap // ignore: cast_nullable_to_non_nullable
@@ -4661,6 +5109,7 @@ abstract class _$StateParametersCopyWith<$Res>
       bool respondent,
       bool responseMap,
       Set<UniqueId> responseMapKeys,
+      bool uploadResponseIdSet,
       bool visitReportsMap,
       bool housingMap,
       bool respondentResponseMap,
@@ -4687,6 +5136,7 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? respondent = freezed,
     Object? responseMap = freezed,
     Object? responseMapKeys = freezed,
+    Object? uploadResponseIdSet = freezed,
     Object? visitReportsMap = freezed,
     Object? housingMap = freezed,
     Object? respondentResponseMap = freezed,
@@ -4721,6 +5171,10 @@ class __$StateParametersCopyWithImpl<$Res>
           ? _value.responseMapKeys
           : responseMapKeys // ignore: cast_nullable_to_non_nullable
               as Set<UniqueId>,
+      uploadResponseIdSet: uploadResponseIdSet == freezed
+          ? _value.uploadResponseIdSet
+          : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
+              as bool,
       visitReportsMap: visitReportsMap == freezed
           ? _value.visitReportsMap
           : visitReportsMap // ignore: cast_nullable_to_non_nullable
@@ -4752,6 +5206,7 @@ class _$_StateParameters extends _StateParameters {
       required this.respondent,
       required this.responseMap,
       required this.responseMapKeys,
+      required this.uploadResponseIdSet,
       required this.visitReportsMap,
       required this.housingMap,
       required this.respondentResponseMap,
@@ -4772,6 +5227,8 @@ class _$_StateParameters extends _StateParameters {
   final bool responseMap;
   @override
   final Set<UniqueId> responseMapKeys;
+  @override
+  final bool uploadResponseIdSet;
   @override // H_ 更新
   final bool visitReportsMap;
   @override
@@ -4783,7 +5240,7 @@ class _$_StateParameters extends _StateParameters {
 
   @override
   String toString() {
-    return 'StateParameters(referenceList: $referenceList, response: $response, survey: $survey, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, visitReportsMap: $visitReportsMap, housingMap: $housingMap, respondentResponseMap: $respondentResponseMap, tabRespondentMap: $tabRespondentMap)';
+    return 'StateParameters(referenceList: $referenceList, response: $response, survey: $survey, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, uploadResponseIdSet: $uploadResponseIdSet, visitReportsMap: $visitReportsMap, housingMap: $housingMap, respondentResponseMap: $respondentResponseMap, tabRespondentMap: $tabRespondentMap)';
   }
 
   @override
@@ -4804,6 +5261,8 @@ class _$_StateParameters extends _StateParameters {
             const DeepCollectionEquality()
                 .equals(other.responseMapKeys, responseMapKeys) &&
             const DeepCollectionEquality()
+                .equals(other.uploadResponseIdSet, uploadResponseIdSet) &&
+            const DeepCollectionEquality()
                 .equals(other.visitReportsMap, visitReportsMap) &&
             const DeepCollectionEquality()
                 .equals(other.housingMap, housingMap) &&
@@ -4823,6 +5282,7 @@ class _$_StateParameters extends _StateParameters {
       const DeepCollectionEquality().hash(respondent),
       const DeepCollectionEquality().hash(responseMap),
       const DeepCollectionEquality().hash(responseMapKeys),
+      const DeepCollectionEquality().hash(uploadResponseIdSet),
       const DeepCollectionEquality().hash(visitReportsMap),
       const DeepCollectionEquality().hash(housingMap),
       const DeepCollectionEquality().hash(respondentResponseMap),
@@ -4843,6 +5303,7 @@ abstract class _StateParameters extends StateParameters {
       required bool respondent,
       required bool responseMap,
       required Set<UniqueId> responseMapKeys,
+      required bool uploadResponseIdSet,
       required bool visitReportsMap,
       required bool housingMap,
       required bool respondentResponseMap,
@@ -4863,6 +5324,8 @@ abstract class _StateParameters extends StateParameters {
   bool get responseMap;
   @override
   Set<UniqueId> get responseMapKeys;
+  @override
+  bool get uploadResponseIdSet;
   @override // H_ 更新
   bool get visitReportsMap;
   @override

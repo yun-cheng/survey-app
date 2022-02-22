@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'device_bloc.dart';
@@ -21,9 +22,9 @@ class _$DeviceEventTearOff {
     return const _WatchNetworkStarted();
   }
 
-  _NetworkChanged networkChanged(ConnectivityResult result) {
+  _NetworkChanged networkChanged(int resultIndex) {
     return _NetworkChanged(
-      result,
+      resultIndex,
     );
   }
 
@@ -42,7 +43,7 @@ mixin _$DeviceEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchNetworkStarted,
-    required TResult Function(ConnectivityResult result) networkChanged,
+    required TResult Function(int resultIndex) networkChanged,
     required TResult Function(AppLifecycleState appLifeCycle)
         appLifeCycleChanged,
   }) =>
@@ -50,14 +51,14 @@ mixin _$DeviceEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
     required TResult orElse(),
   }) =>
@@ -144,7 +145,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchNetworkStarted,
-    required TResult Function(ConnectivityResult result) networkChanged,
+    required TResult Function(int resultIndex) networkChanged,
     required TResult Function(AppLifecycleState appLifeCycle)
         appLifeCycleChanged,
   }) {
@@ -155,7 +156,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
   }) {
     return watchNetworkStarted?.call();
@@ -165,7 +166,7 @@ class _$_WatchNetworkStarted implements _WatchNetworkStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
     required TResult orElse(),
   }) {
@@ -219,7 +220,7 @@ abstract class _$NetworkChangedCopyWith<$Res> {
   factory _$NetworkChangedCopyWith(
           _NetworkChanged value, $Res Function(_NetworkChanged) then) =
       __$NetworkChangedCopyWithImpl<$Res>;
-  $Res call({ConnectivityResult result});
+  $Res call({int resultIndex});
 }
 
 /// @nodoc
@@ -235,13 +236,13 @@ class __$NetworkChangedCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? result = freezed,
+    Object? resultIndex = freezed,
   }) {
     return _then(_NetworkChanged(
-      result == freezed
-          ? _value.result
-          : result // ignore: cast_nullable_to_non_nullable
-              as ConnectivityResult,
+      resultIndex == freezed
+          ? _value.resultIndex
+          : resultIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -249,14 +250,14 @@ class __$NetworkChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_NetworkChanged implements _NetworkChanged {
-  const _$_NetworkChanged(this.result);
+  const _$_NetworkChanged(this.resultIndex);
 
   @override
-  final ConnectivityResult result;
+  final int resultIndex;
 
   @override
   String toString() {
-    return 'DeviceEvent.networkChanged(result: $result)';
+    return 'DeviceEvent.networkChanged(resultIndex: $resultIndex)';
   }
 
   @override
@@ -264,12 +265,13 @@ class _$_NetworkChanged implements _NetworkChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NetworkChanged &&
-            const DeepCollectionEquality().equals(other.result, result));
+            const DeepCollectionEquality()
+                .equals(other.resultIndex, resultIndex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(result));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(resultIndex));
 
   @JsonKey(ignore: true)
   @override
@@ -280,33 +282,33 @@ class _$_NetworkChanged implements _NetworkChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchNetworkStarted,
-    required TResult Function(ConnectivityResult result) networkChanged,
+    required TResult Function(int resultIndex) networkChanged,
     required TResult Function(AppLifecycleState appLifeCycle)
         appLifeCycleChanged,
   }) {
-    return networkChanged(result);
+    return networkChanged(resultIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
   }) {
-    return networkChanged?.call(result);
+    return networkChanged?.call(resultIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
     required TResult orElse(),
   }) {
     if (networkChanged != null) {
-      return networkChanged(result);
+      return networkChanged(resultIndex);
     }
     return orElse();
   }
@@ -347,9 +349,9 @@ class _$_NetworkChanged implements _NetworkChanged {
 }
 
 abstract class _NetworkChanged implements DeviceEvent {
-  const factory _NetworkChanged(ConnectivityResult result) = _$_NetworkChanged;
+  const factory _NetworkChanged(int resultIndex) = _$_NetworkChanged;
 
-  ConnectivityResult get result;
+  int get resultIndex;
   @JsonKey(ignore: true)
   _$NetworkChangedCopyWith<_NetworkChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -423,7 +425,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() watchNetworkStarted,
-    required TResult Function(ConnectivityResult result) networkChanged,
+    required TResult Function(int resultIndex) networkChanged,
     required TResult Function(AppLifecycleState appLifeCycle)
         appLifeCycleChanged,
   }) {
@@ -434,7 +436,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
   }) {
     return appLifeCycleChanged?.call(appLifeCycle);
@@ -444,7 +446,7 @@ class _$_AppLifeCycleChanged implements _AppLifeCycleChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? watchNetworkStarted,
-    TResult Function(ConnectivityResult result)? networkChanged,
+    TResult Function(int resultIndex)? networkChanged,
     TResult Function(AppLifecycleState appLifeCycle)? appLifeCycleChanged,
     required TResult orElse(),
   }) {

@@ -32,6 +32,9 @@ _$_ResponseStateDto _$$_ResponseStateDtoFromJson(Map<String, dynamic> json) =>
           ? null
           : ResponseDto.fromJson(json['response'] as Map<String, dynamic>),
       responseId: json['responseId'] as String?,
+      uploadResponseIdSet: (json['uploadResponseIdSet'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
     );
 
 Map<String, dynamic> _$$_ResponseStateDtoToJson(_$_ResponseStateDto instance) {
@@ -54,5 +57,6 @@ Map<String, dynamic> _$$_ResponseStateDtoToJson(_$_ResponseStateDto instance) {
       'referenceList', instance.referenceList?.map((e) => e.toJson()).toList());
   writeNotNull('response', instance.response?.toJson());
   writeNotNull('responseId', instance.responseId);
+  writeNotNull('uploadResponseIdSet', instance.uploadResponseIdSet);
   return val;
 }

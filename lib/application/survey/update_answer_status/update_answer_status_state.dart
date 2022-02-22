@@ -196,7 +196,6 @@ class StateParameters with _$StateParameters {
     // H_ 中間資料
     required bool pageQIdSet,
     required bool contentQIdSet,
-    required bool dialogType,
     required bool showLeaveButton,
     // H_ 同 session 不變的參考資料
     required bool respondent,
@@ -226,7 +225,6 @@ class StateParameters with _$StateParameters {
         // H_ 中間資料
         pageQIdSet: false,
         contentQIdSet: false,
-        dialogType: false,
         showLeaveButton: true,
         // H_ 同 session 不變的參考資料
         respondent: false,
@@ -254,7 +252,6 @@ class StateParameters with _$StateParameters {
         // H_ 中間資料
         pageQIdSet: true,
         contentQIdSet: true,
-        dialogType: true,
         showLeaveButton: true,
         // H_ 同 session 不變的參考資料
         respondent: true,

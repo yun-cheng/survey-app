@@ -7,7 +7,7 @@ import 'package:firebase_storage/firebase_storage.dart' hide Reference;
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
 
-import '../../domain/core/logger.dart';
+import '../../domain/core/value_objects.dart';
 import '../../domain/overview/project.dart';
 import '../../domain/overview/survey.dart';
 import '../../domain/survey/i_survey_repository.dart';
@@ -163,10 +163,10 @@ class SurveyRepository implements ISurveyRepository {
 
     yield* responseCollection
         .where('teamId', isEqualTo: teamId)
-        // TODO 應不限於這個訪員?
         .where('interviewerId', isEqualTo: interviewerId)
         .snapshots()
         .map((snapshot) => right<SurveyFailure, ResponseMap>(
+            // TODO 只篩出本地沒有的 response
             ResponseMapDto.fromFirestore(snapshot).toDomain()))
         .onErrorReturnWith((e, stackTrace) {
       if (e is FirebaseException && e.code == 'permission-denied') {
@@ -178,9 +178,10 @@ class SurveyRepository implements ISurveyRepository {
   }
 
   @override
-  Future<Either<SurveyFailure, Unit>> uploadResponseMap({
+  Future<Either<SurveyFailure, Set<UniqueId>>> uploadResponseMap({
     required ResponseMap responseMap,
   }) async {
+    // FIXME timeout
     try {
       final responseCollection = _firestore.responseCollection;
 
@@ -193,7 +194,7 @@ class SurveyRepository implements ISurveyRepository {
 
       await batch.commit();
 
-      return right(unit);
+      return right(responseMap.keys.toSet());
     } catch (e) {
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(SurveyFailure.insufficientPermission());

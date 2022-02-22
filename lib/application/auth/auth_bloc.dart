@@ -1,215 +1,95 @@
 import 'dart:async';
 
+import 'package:async_task/async_task.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
-import 'package:dartz/dartz.dart';
+import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:tuple/tuple.dart';
 
 import '../../domain/auth/auth_failure.dart';
 import '../../domain/auth/i_auth_facade.dart';
 import '../../domain/auth/interviewer.dart';
 import '../../domain/auth/team.dart';
+import '../../domain/core/i_local_storage.dart';
 import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../../infrastructure/auth/auth_state_dtos.dart';
+import '../../infrastructure/core/event_task.dart';
+import '../../infrastructure/core/isolate_bloc.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
+part 'auth_event_worker.dart';
 part 'auth_state.dart';
 
-class AuthBloc extends HydratedBloc<AuthEvent, AuthState> {
+class AuthBloc extends IsolateBloc<AuthEvent, AuthState> {
   final IAuthFacade _authFacade;
   StreamSubscription<Either<AuthFailure, List<Team>>>? _teamListSubscription;
   StreamSubscription<Either<AuthFailure, List<Interviewer>>>?
       _interviewerListSubscription;
 
-  AuthBloc(this._authFacade) : super(AuthState.initial()) {
+  AuthBloc(
+    this._authFacade,
+  ) : super(AuthState.initial()) {
     on<AuthEvent>(_onEvent, transformer: sequential());
     add(const AuthEvent.initialized());
     add(const AuthEvent.watchTeamListStarted());
-    add(const AuthEvent.watchInterviewerListStarted());
   }
 
   FutureOr<void> _onEvent(
     AuthEvent event,
     Emitter<AuthState> emit,
   ) async {
-    await event.map(
+    await event.maybeMap(
       initialized: (e) async {
-        final signInState = state.signInState;
-
-        // NOTE 故意改變 signInState 來觸發 listener
-        state
-            .copyWith(
-              signInState: LoadState.inProgress(),
-            )
-            .emit(emit);
-
-        state
-            .copyWith(
-              signInState: signInState,
-            )
-            .emit(emit);
+        await initialize(
+          boxName: 'AuthState',
+          stateFromStorage: stateFromStorage,
+          eventWorker: _eventWorker,
+          taskTypeRegister: _taskTypeRegister,
+          emit: emit,
+        );
       },
       watchTeamListStarted: (e) async {
-        logger('Watch').i('AuthEvent: watchTeamListStarted');
+        await execute(event, emit);
 
-        state
-            .copyWith(
-              teamListState: LoadState.inProgress(),
-              authFailure: none(),
-            )
-            .emit(emit);
         await _teamListSubscription?.cancel();
         _teamListSubscription = _authFacade.watchTeamList().listen(
               (failureOrTeamList) =>
                   add(AuthEvent.teamListReceived(failureOrTeamList)),
             );
       },
-      teamListReceived: (e) async {
-        logger('Receive').i('AuthEvent: teamListReceived');
-
-        e.failureOrTeamList
-            .fold(
-              (f) => state.copyWith(
-                teamListState: LoadState.failure(),
-                authFailure: some(f),
-              ),
-              (teamList) => state.copyWith(
-                teamListState: LoadState.success(),
-                teamList: teamList,
-                authFailure: none(),
-              ),
-            )
-            .emit(emit);
-      },
-      teamSelected: (e) async {
-        logger('User Event').i('AuthEvent: teamSelected');
-
-        state
-            .copyWith(
-              team: e.team,
-              authFailure: none(),
-            )
-            .emit(emit);
-        add(const AuthEvent.watchInterviewerListStarted());
-      },
       watchInterviewerListStarted: (e) async {
-        logger('Watch').i('AuthEvent: watchInterviewerListStarted');
+        await execute(event, emit);
 
-        if (state.team.id != '') {
-          state
-              .copyWith(
-                interviewerListState: LoadState.inProgress(),
-                authFailure: none(),
-              )
-              .emit(emit);
-          await _interviewerListSubscription?.cancel();
-          _interviewerListSubscription =
-              _authFacade.watchInterviewerList(teamId: state.team.id).listen(
-                    (failureOrInterviewerList) => add(
-                        AuthEvent.interviewerListReceived(
-                            failureOrInterviewerList)),
-                  );
-        }
-      },
-      interviewerListReceived: (e) async {
-        logger('Receive').i('AuthEvent: interviewerListReceived');
-
-        e.failureOrInterviewerList
-            .fold(
-              (f) => state.copyWith(
-                interviewerListState: LoadState.failure(),
-                authFailure: some(f),
-              ),
-              (interviewerList) => state.copyWith(
-                interviewerListState: LoadState.success(),
-                interviewerList: interviewerList,
-                authFailure: none(),
-              ),
-            )
-            .emit(emit);
-      },
-      idChanged: (e) async {
-        state
-            .copyWith(
-              id: e.id,
-              signInState: LoadState.initial(),
-              authFailure: none(),
-            )
-            .emit(emit);
-      },
-      passwordChanged: (e) async {
-        state
-            .copyWith(
-              password: e.password,
-              signInState: LoadState.initial(),
-              authFailure: none(),
-            )
-            .emit(emit);
-      },
-      signInPressed: (e) async {
-        state
-            .copyWith(
-              signInState: LoadState.inProgress(),
-              authFailure: none(),
-            )
-            .emit(emit);
-
-        if (state.id != '' && state.password != '') {
-          final failureOrInterviewer = _authFacade.signIn(
-            interviewerId: state.id,
-            password: state.password,
-            interviewerList: state.interviewerList,
-          );
-
-          failureOrInterviewer
-              .fold(
-                (f) => state.copyWith(
-                  signInState: LoadState.failure(),
-                  authFailure: some(f),
-                  showErrorMessages: true,
-                ),
-                (interviewer) => state.copyWith(
-                  signInState: LoadState.success(),
-                  authFailure: none(),
-                  interviewer: interviewer,
-                ),
-              )
-              .emit(emit);
-        }
+        await _interviewerListSubscription?.cancel();
+        _interviewerListSubscription = _authFacade
+            .watchInterviewerList(teamId: state.team.id)
+            .listen(
+              (failureOrInterviewerList) => add(
+                  AuthEvent.interviewerListReceived(failureOrInterviewerList)),
+            );
       },
       loggedOut: (e) async {
         _teamListSubscription?.cancel();
         _interviewerListSubscription?.cancel();
-        AuthState.initial().emit(emit);
-        await clear();
+        await execute(event, emit);
+      },
+      orElse: () async {
+        await execute(event, emit);
       },
     );
   }
+
+  @override
+  bool executionFinished(AuthState newState) =>
+      newState.eventState == LoadState.success();
 
   @override
   Future<void> close() {
     _teamListSubscription?.cancel();
     _interviewerListSubscription?.cancel();
     return super.close();
-  }
-
-  @override
-  AuthState? fromJson(Map<String, dynamic> json) {
-    try {
-      final newState = AuthStateDto.fromJson(json).toDomain();
-      if (newState.signInState == LoadState.success()) {
-        return newState;
-      }
-      return null;
-    } catch (_) {
-      return null;
-    }
-  }
-
-  @override
-  Map<String, dynamic>? toJson(AuthState state) {
-    return AuthStateDto.fromDomain(state).toJson();
   }
 }

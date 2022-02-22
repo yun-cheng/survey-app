@@ -13,18 +13,19 @@ class AccountBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(
-      buildWhen: (p, c) => p.signInState != c.signInState,
+      buildWhen: (p, c) =>
+          p.signInState != c.signInState || p.validate != c.validate,
       builder: (context, state) {
         return TextFormField(
-          initialValue: state.id,
           onChanged: (value) =>
               context.read<AuthBloc>().add(AuthEvent.idChanged(value)),
-          // HIGHLIGHT 必須要使用完整的 context.watch<AuthBloc>().state，
-          // HIGHLIGHT 才不會只驗證上一個動作的結果
+          autovalidateMode: state.validate
+              ? AutovalidateMode.always
+              : AutovalidateMode.disabled,
           validator: (_) => signInValidator(
-            signInState: context.watch<AuthBloc>().state.signInState,
+            signInState: state.signInState,
             field: '帳號',
-            value: context.watch<AuthBloc>().state.id,
+            value: state.id,
           ),
           autocorrect: false,
           style: kPTextStyle,

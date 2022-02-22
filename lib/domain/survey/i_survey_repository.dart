@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 
+import '../core/value_objects.dart';
 import '../overview/project.dart';
 import '../overview/survey.dart';
 import 'reference.dart';
@@ -29,7 +30,7 @@ abstract class ISurveyRepository {
     required String interviewerId,
   });
 
-  Future<Either<SurveyFailure, Unit>> uploadResponseMap({
+  Future<Either<SurveyFailure, Set<UniqueId>>> uploadResponseMap({
     required ResponseMap responseMap,
   });
 

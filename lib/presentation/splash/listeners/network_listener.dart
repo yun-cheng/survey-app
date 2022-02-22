@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/audio/upload_audio/upload_audio_bloc.dart';
 import '../../../application/core/device/device_bloc.dart';
+import '../../../application/survey/response/response_bloc.dart';
 import '../../../domain/core/logger.dart';
 
 final networkListener = BlocListener<DeviceBloc, DeviceState>(
@@ -9,12 +10,16 @@ final networkListener = BlocListener<DeviceBloc, DeviceState>(
   listener: (context, state) {
     logger('Listen').i('DeviceBloc: networkType');
 
-    if (state.networkType.isConnected) {
-      context
-          .read<UploadAudioBloc>()
-          .add(const UploadAudioEvent.audioUploading());
+    context.read<UploadAudioBloc>().add(
+          UploadAudioEvent.networkUpdated(
+            networkType: state.networkType,
+          ),
+        );
 
-      // TODO 問卷也要重試
-    }
+    context.read<ResponseBloc>().add(
+          ResponseEvent.networkUpdated(
+            networkType: state.networkType,
+          ),
+        );
   },
 );

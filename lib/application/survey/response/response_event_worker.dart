@@ -61,6 +61,28 @@ void _eventWorker(
         state = responseMapMerged(state).updateSuccess();
       }
     },
+    // H_ responseMap 已上傳
+    responseMapUploaded: (e) {
+      logger('Upload').e('ResponseEvent: responseMapUploaded');
+
+      state = e.failureOrResult.fold(
+        (f) => state.copyWith(
+          syncState: SyncState.failure(),
+        ),
+        (result) {
+          final uploadResponseIdSet =
+              state.uploadResponseIdSet.difference(result);
+          // S_ 把現在在編輯的加回來
+          if (state.response.isNotEmpty) {
+            uploadResponseIdSet.add(state.response.responseId);
+          }
+          return state.copyWith(
+            uploadResponseIdSet: uploadResponseIdSet,
+            syncState: SyncState.success(),
+          );
+        },
+      );
+    },
     // H_ 接收到 referenceList
     referenceListReceived: (e) {
       logger('Receive').i('ResponseBloc: referenceListReceived');
@@ -114,6 +136,7 @@ void _eventWorker(
               response: true,
               responseMap: true,
               responseMapKeys: {state.response.responseId},
+              uploadResponseIdSet: true,
               respondent: true,
             ),
           )
@@ -121,11 +144,8 @@ void _eventWorker(
     },
     // H_ 使用者在閒置後，選擇繼續訪問
     responseResumed: (e) {
-      state = responseResumed(e, state).copyWith(
-        saveParameters: state.saveParameters.copyWith(
-          response: true,
-        ),
-      );
+      // NOTE 在裡面決定 saveParameters
+      state = responseResumed(e, state);
     },
     // H_ 作答或切換頁數時更新 response
     responseUpdated: (e) {
@@ -142,6 +162,15 @@ void _eventWorker(
       state = state.sendInProgress(channel);
       // NOTE 在裡面決定要 update/save 什麼
       state = editFinished(e, state).updateSuccess();
+    },
+    networkUpdated: (e) async {
+      logger('Event').i('ResponseEvent: networkUpdated');
+
+      state = state.copyWith(
+        networkType: e.networkType,
+      );
+
+      channel.send(const ResponseEvent.responseMapUploading());
     },
     loggedOut: (e) {
       state = ResponseState.initial().copyWith(

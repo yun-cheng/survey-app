@@ -7,6 +7,7 @@ import 'package:tuple/tuple.dart';
 import '../../domain/core/i_local_storage.dart';
 import 'event_task.dart';
 
+// NOTE 避免使用 HydratedBloc，因可能有 memory leak
 abstract class IsolateBloc<Event, State> extends Bloc<Event, State> {
   AsyncExecutor? executor;
   AsyncTaskChannel? channel;

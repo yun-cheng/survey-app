@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'response_state_dtos.dart';
@@ -31,6 +32,7 @@ class _$ResponseStateDtoTearOff {
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
       String? responseId,
+      List<String>? uploadResponseIdSet,
       @JsonKey(ignore: true) StateParameters? saveParameters}) {
     return _ResponseStateDto(
       survey: survey,
@@ -42,6 +44,7 @@ class _$ResponseStateDtoTearOff {
       referenceList: referenceList,
       response: response,
       responseId: responseId,
+      uploadResponseIdSet: uploadResponseIdSet,
       saveParameters: saveParameters,
     );
   }
@@ -65,7 +68,8 @@ mixin _$ResponseStateDto {
   List<String>? get responseMapKeys => throw _privateConstructorUsedError;
   List<ReferenceDto>? get referenceList => throw _privateConstructorUsedError;
   ResponseDto? get response => throw _privateConstructorUsedError;
-  String? get responseId =>
+  String? get responseId => throw _privateConstructorUsedError;
+  List<String>? get uploadResponseIdSet =>
       throw _privateConstructorUsedError; // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
   StateParameters? get saveParameters => throw _privateConstructorUsedError;
@@ -91,6 +95,7 @@ abstract class $ResponseStateDtoCopyWith<$Res> {
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
       String? responseId,
+      List<String>? uploadResponseIdSet,
       @JsonKey(ignore: true) StateParameters? saveParameters});
 
   $SurveyDtoCopyWith<$Res>? get survey;
@@ -120,6 +125,7 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
     Object? referenceList = freezed,
     Object? response = freezed,
     Object? responseId = freezed,
+    Object? uploadResponseIdSet = freezed,
     Object? saveParameters = freezed,
   }) {
     return _then(_value.copyWith(
@@ -159,6 +165,10 @@ class _$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as String?,
+      uploadResponseIdSet: uploadResponseIdSet == freezed
+          ? _value.uploadResponseIdSet
+          : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       saveParameters: saveParameters == freezed
           ? _value.saveParameters
           : saveParameters // ignore: cast_nullable_to_non_nullable
@@ -239,6 +249,7 @@ abstract class _$ResponseStateDtoCopyWith<$Res>
       List<ReferenceDto>? referenceList,
       ResponseDto? response,
       String? responseId,
+      List<String>? uploadResponseIdSet,
       @JsonKey(ignore: true) StateParameters? saveParameters});
 
   @override
@@ -275,6 +286,7 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
     Object? referenceList = freezed,
     Object? response = freezed,
     Object? responseId = freezed,
+    Object? uploadResponseIdSet = freezed,
     Object? saveParameters = freezed,
   }) {
     return _then(_ResponseStateDto(
@@ -314,6 +326,10 @@ class __$ResponseStateDtoCopyWithImpl<$Res>
           ? _value.responseId
           : responseId // ignore: cast_nullable_to_non_nullable
               as String?,
+      uploadResponseIdSet: uploadResponseIdSet == freezed
+          ? _value.uploadResponseIdSet
+          : uploadResponseIdSet // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
       saveParameters: saveParameters == freezed
           ? _value.saveParameters
           : saveParameters // ignore: cast_nullable_to_non_nullable
@@ -336,6 +352,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       this.referenceList,
       this.response,
       this.responseId,
+      this.uploadResponseIdSet,
       @JsonKey(ignore: true) this.saveParameters})
       : super._();
 
@@ -360,13 +377,15 @@ class _$_ResponseStateDto extends _ResponseStateDto {
   final ResponseDto? response;
   @override
   final String? responseId;
+  @override
+  final List<String>? uploadResponseIdSet;
   @override // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
   final StateParameters? saveParameters;
 
   @override
   String toString() {
-    return 'ResponseStateDto(survey: $survey, surveyId: $surveyId, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, referenceList: $referenceList, response: $response, responseId: $responseId, saveParameters: $saveParameters)';
+    return 'ResponseStateDto(survey: $survey, surveyId: $surveyId, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, referenceList: $referenceList, response: $response, responseId: $responseId, uploadResponseIdSet: $uploadResponseIdSet, saveParameters: $saveParameters)';
   }
 
   @override
@@ -390,6 +409,8 @@ class _$_ResponseStateDto extends _ResponseStateDto {
             const DeepCollectionEquality()
                 .equals(other.responseId, responseId) &&
             const DeepCollectionEquality()
+                .equals(other.uploadResponseIdSet, uploadResponseIdSet) &&
+            const DeepCollectionEquality()
                 .equals(other.saveParameters, saveParameters));
   }
 
@@ -405,6 +426,7 @@ class _$_ResponseStateDto extends _ResponseStateDto {
       const DeepCollectionEquality().hash(referenceList),
       const DeepCollectionEquality().hash(response),
       const DeepCollectionEquality().hash(responseId),
+      const DeepCollectionEquality().hash(uploadResponseIdSet),
       const DeepCollectionEquality().hash(saveParameters));
 
   @JsonKey(ignore: true)
@@ -429,6 +451,7 @@ abstract class _ResponseStateDto extends ResponseStateDto {
           List<ReferenceDto>? referenceList,
           ResponseDto? response,
           String? responseId,
+          List<String>? uploadResponseIdSet,
           @JsonKey(ignore: true) StateParameters? saveParameters}) =
       _$_ResponseStateDto;
   const _ResponseStateDto._() : super._();
@@ -454,6 +477,8 @@ abstract class _ResponseStateDto extends ResponseStateDto {
   ResponseDto? get response;
   @override
   String? get responseId;
+  @override
+  List<String>? get uploadResponseIdSet;
   @override // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
   @JsonKey(ignore: true)
   StateParameters? get saveParameters;

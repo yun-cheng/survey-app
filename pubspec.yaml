@@ -15,9 +15,9 @@ dependencies:
     sdk: flutter
   # H_ essential
   json_annotation: ^4.4.0
-  path_provider: ^2.0.8
+  path_provider: ^2.0.9
   freezed_annotation: ^1.1.0
-  uuid: ^3.0.5
+  uuid: ^3.0.6
   collection: ^1.15.0
   supercharged: ^2.1.1
   # H_ log
@@ -26,23 +26,23 @@ dependencies:
   path: ^1.8.0
   # H_ get_it
   get_it: ^7.2.0
-  injectable: ^1.5.0
+  injectable: ^1.5.3
   # H_ bloc
-  flutter_bloc: ^8.0.0
-  hydrated_bloc: ^8.0.0
+  flutter_bloc: ^8.0.1
+  # hydrated_bloc: ^8.0.0
   bloc_concurrency: ^0.2.0
   # H_ database
-  hive: ^2.0.4
+  hive: ^2.0.5
   hive_flutter: ^1.1.0
   synchronized: ^3.0.0
   # H_ firebase
-  firebase_core: ^1.10.5
-  cloud_firestore: ^3.1.4
-  firebase_storage: ^10.2.3
+  firebase_core: ^1.12.0
+  cloud_firestore: ^3.1.8
+  firebase_storage: ^10.2.7
   # H_ network
-  connectivity_plus: ^2.1.0
+  connectivity_plus: ^2.2.1
   # H_ recorder
-  flutter_sound_lite: ^8.4.2
+  flutter_sound: ^9.1.3
   permission_handler: ^8.3.0
   # H_ route
   auto_route: ^3.2.0
@@ -52,29 +52,29 @@ dependencies:
   responsive_framework: ^0.1.5
   # flex_color_scheme: ^3.0.1
   flutter_hooks: ^0.18.1
-  flutter_keyboard_visibility: ^5.1.0
+  flutter_keyboard_visibility: ^5.2.0
   linked_scroll_controller: ^0.2.0
   flutter_sticky_header: ^0.6.0
   sliver_tools: ^0.2.5
   scroll_to_index: ^2.1.1
-  flash: ^2.0.3+1
+  flash: ^2.0.3+2
   progress_indicators: ^1.0.0
   # H_ others
   dartz: ^0.10.1
   tuple: ^2.0.0
   rxdart: ^0.27.3
   expression_language: ^1.0.1
-  async_task: ^1.0.14
+  async_task: ^1.0.17
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
   # H_ essential
-  json_serializable: ^6.1.1
-  freezed: ^1.1.0
+  json_serializable: ^6.1.4
+  freezed: ^1.1.1
   # H_ get_it
-  injectable_generator: ^1.5.2
+  injectable_generator: ^1.5.3
   # H_ route
   auto_route_generator: ^3.2.0
   # H_ lint

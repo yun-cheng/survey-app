@@ -35,6 +35,10 @@ class AppWidget extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => NavigationBloc(),
+          // HIGHLIGHT lazy: false 讓 app 啟動時就預備好這個 Bloc，
+          //  而不是呼叫了某個 event 才開始準備。
+          //  但可能因提早預備，加上 SplashPage listener 還沒準備好，導致沒有監聽到變化
+          lazy: false,
         ),
         BlocProvider(
           create: (_) => DeviceBloc(),
@@ -44,6 +48,7 @@ class AppWidget extends StatelessWidget {
           create: (_) => AuthBloc(
             getIt<IAuthFacade>(),
           ),
+          lazy: false,
         ),
         BlocProvider(
           create: (_) => WatchSurveyBloc(
@@ -64,11 +69,9 @@ class AppWidget extends StatelessWidget {
           lazy: false,
         ),
         BlocProvider(
-          create: (context) => UpdateAnswerStatusBloc(),
+          create: (_) => UpdateAnswerStatusBloc(),
           lazy: false,
         ),
-        // HIGHLIGHT lazy: false 用來在 app 啟動時就觸發這個 bloc，
-        //  其他 bloc 不需要是因為都在 SplashPage 啟動了
         BlocProvider(
           create: (_) => AudioRecorderBloc(
             getIt<IAudioRecorder>(),

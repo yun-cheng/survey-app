@@ -15,4 +15,7 @@ class AudioFailure with _$AudioFailure {
   factory AudioFailure.unableToGet() => const AudioFailure('unableToGet');
   factory AudioFailure.noMicrophonePermission() =>
       const AudioFailure('noMicrophonePermission');
+  factory AudioFailure.timeout() => const AudioFailure('timeout');
+
+  bool get isTimeout => value == 'timeout';
 }

@@ -35,7 +35,6 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     // H_ 中間資料
     List<String>? pageQIdSet,
     List<String>? contentQIdSet,
-    String? dialogType,
     bool? showLeaveButton,
     // H_ 同 session 不變的參考資料
     RespondentDto? respondent,
@@ -93,8 +92,6 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       contentQIdSet: domain.saveParameters.contentQIdSet
           ? domain.contentQIdSet.toList()
           : null,
-      dialogType:
-          domain.saveParameters.dialogType ? domain.dialogType.value : null,
       showLeaveButton:
           domain.saveParameters.showLeaveButton ? domain.showLeaveButton : null,
       // H_ 同 session 不變的參考資料
@@ -147,14 +144,11 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
       // H_ 中間資料
       pageQIdSet: pageQIdSet?.toSet() ?? initial.pageQIdSet,
       contentQIdSet: contentQIdSet?.toSet() ?? initial.contentQIdSet,
-      dialogType:
-          dialogType != null ? DialogType(dialogType!) : initial.dialogType,
       showLeaveButton: showLeaveButton ?? initial.showLeaveButton,
       // H_ 同 session 不變的參考資料
       respondent: respondent?.toDomain() ?? initial.respondent,
       surveyId: surveyId ?? initial.surveyId,
-      moduleType:
-          moduleType != null ? ModuleType(moduleType!) : initial.moduleType,
+      moduleType: ModuleType(moduleType ?? initial.moduleType.value),
       isReadOnly: isReadOnly ?? initial.isReadOnly,
       isRecodeModule: isRecodeModule ?? initial.isRecodeModule,
       referenceList: referenceList?.map((dto) => dto.toDomain()).toList() ??

@@ -18,7 +18,6 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
 
   DeviceBloc() : super(DeviceState.initial()) {
     on<DeviceEvent>(_onEvent, transformer: sequential());
-    add(const DeviceEvent.watchNetworkStarted());
   }
 
   FutureOr<void> _onEvent(
@@ -30,12 +29,9 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
       watchNetworkStarted: (e) async {
         logger('Watch').i('DeviceEvent: watchNetworkStarted');
 
-        final result = await Connectivity().checkConnectivity();
-        add(DeviceEvent.networkChanged(result));
-
         await _networkMonitor?.cancel();
         _networkMonitor = Connectivity().onConnectivityChanged.listen(
-              (result) => add(DeviceEvent.networkChanged(result)),
+              (result) => add(DeviceEvent.networkChanged(result.index)),
             );
       },
       // H_ 網路狀態改變時
@@ -44,7 +40,7 @@ class DeviceBloc extends Bloc<DeviceEvent, DeviceState> {
 
         state
             .copyWith(
-              networkType: NetworkType.fromIndex(e.result.index),
+              networkType: NetworkType.fromIndex(e.resultIndex),
             )
             .emit(emit);
       },

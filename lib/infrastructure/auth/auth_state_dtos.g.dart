@@ -8,36 +8,36 @@ part of 'auth_state_dtos.dart';
 
 _$_AuthStateDto _$$_AuthStateDtoFromJson(Map<String, dynamic> json) =>
     _$_AuthStateDto(
-      teamListState: json['teamListState'] as String,
-      teamList: (json['teamList'] as List<dynamic>)
-          .map((e) => TeamDto.fromJson(e as Map<String, dynamic>))
+      teamList: (json['teamList'] as List<dynamic>?)
+          ?.map((e) => TeamDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      team: TeamDto.fromJson(json['team'] as Map<String, dynamic>),
-      interviewerListState: json['interviewerListState'] as String,
-      interviewerList: (json['interviewerList'] as List<dynamic>)
-          .map((e) => InterviewerDto.fromJson(e as Map<String, dynamic>))
+      team: json['team'] == null
+          ? null
+          : TeamDto.fromJson(json['team'] as Map<String, dynamic>),
+      interviewerList: (json['interviewerList'] as List<dynamic>?)
+          ?.map((e) => InterviewerDto.fromJson(e as Map<String, dynamic>))
           .toList(),
-      id: json['id'] as String,
-      password: json['password'] as String,
-      signInState: json['signInState'] as String,
-      interviewer:
-          InterviewerDto.fromJson(json['interviewer'] as Map<String, dynamic>),
-      authFailure: json['authFailure'] as String?,
-      showErrorMessages: json['showErrorMessages'] as bool,
+      interviewer: json['interviewer'] == null
+          ? null
+          : InterviewerDto.fromJson(
+              json['interviewer'] as Map<String, dynamic>),
+      signInState: json['signInState'] as String?,
     );
 
-Map<String, dynamic> _$$_AuthStateDtoToJson(_$_AuthStateDto instance) =>
-    <String, dynamic>{
-      'teamListState': instance.teamListState,
-      'teamList': instance.teamList.map((e) => e.toJson()).toList(),
-      'team': instance.team.toJson(),
-      'interviewerListState': instance.interviewerListState,
-      'interviewerList':
-          instance.interviewerList.map((e) => e.toJson()).toList(),
-      'id': instance.id,
-      'password': instance.password,
-      'signInState': instance.signInState,
-      'interviewer': instance.interviewer.toJson(),
-      'authFailure': instance.authFailure,
-      'showErrorMessages': instance.showErrorMessages,
-    };
+Map<String, dynamic> _$$_AuthStateDtoToJson(_$_AuthStateDto instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('teamList', instance.teamList?.map((e) => e.toJson()).toList());
+  writeNotNull('team', instance.team?.toJson());
+  writeNotNull('interviewerList',
+      instance.interviewerList?.map((e) => e.toJson()).toList());
+  writeNotNull('interviewer', instance.interviewer?.toJson());
+  writeNotNull('signInState', instance.signInState);
+  return val;
+}

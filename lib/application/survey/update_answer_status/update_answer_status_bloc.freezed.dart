@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'update_answer_status_bloc.dart';
@@ -99,6 +100,12 @@ class _$UpdateAnswerStatusEventTearOff {
     return const _FinishedButtonPressed();
   }
 
+  _DialogShowed dialogShowed({required DialogType type}) {
+    return _DialogShowed(
+      type: type,
+    );
+  }
+
   _DialogClosed dialogClosed() {
     return const _DialogClosed();
   }
@@ -180,6 +187,7 @@ mixin _$UpdateAnswerStatusEvent {
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -225,6 +233,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -269,6 +278,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -293,6 +303,7 @@ mixin _$UpdateAnswerStatusEvent {
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -315,6 +326,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -337,6 +349,7 @@ mixin _$UpdateAnswerStatusEvent {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -666,6 +679,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -727,6 +741,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -787,6 +802,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -830,6 +846,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -855,6 +872,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -880,6 +898,7 @@ class _$_ModuleLoaded with DiagnosticableTreeMixin implements _ModuleLoaded {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -1014,6 +1033,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -1062,6 +1082,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -1109,6 +1130,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -1139,6 +1161,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -1164,6 +1187,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -1189,6 +1213,7 @@ class _$_StateCleared with DiagnosticableTreeMixin implements _StateCleared {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -1439,6 +1464,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -1488,6 +1514,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -1536,6 +1563,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -1567,6 +1595,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -1592,6 +1621,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -1617,6 +1647,7 @@ class _$_AnswerUpdated with DiagnosticableTreeMixin implements _AnswerUpdated {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -1782,6 +1813,7 @@ class _$_PageNavigatedTo
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -1830,6 +1862,7 @@ class _$_PageNavigatedTo
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -1877,6 +1910,7 @@ class _$_PageNavigatedTo
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -1907,6 +1941,7 @@ class _$_PageNavigatedTo
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -1932,6 +1967,7 @@ class _$_PageNavigatedTo
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -1957,6 +1993,7 @@ class _$_PageNavigatedTo
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -2108,6 +2145,7 @@ class _$_ScrolledToQuestionId
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -2156,6 +2194,7 @@ class _$_ScrolledToQuestionId
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -2203,6 +2242,7 @@ class _$_ScrolledToQuestionId
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -2233,6 +2273,7 @@ class _$_ScrolledToQuestionId
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -2258,6 +2299,7 @@ class _$_ScrolledToQuestionId
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -2283,6 +2325,7 @@ class _$_ScrolledToQuestionId
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -2399,6 +2442,7 @@ class _$_ContentQuestionMapUpdated
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -2447,6 +2491,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -2494,6 +2539,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -2524,6 +2570,7 @@ class _$_ContentQuestionMapUpdated
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -2549,6 +2596,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -2574,6 +2622,7 @@ class _$_ContentQuestionMapUpdated
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -2680,6 +2729,7 @@ class _$_FinishedButtonPressed
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -2728,6 +2778,7 @@ class _$_FinishedButtonPressed
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -2775,6 +2826,7 @@ class _$_FinishedButtonPressed
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -2805,6 +2857,7 @@ class _$_FinishedButtonPressed
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -2830,6 +2883,7 @@ class _$_FinishedButtonPressed
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -2855,6 +2909,7 @@ class _$_FinishedButtonPressed
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -2876,6 +2931,329 @@ class _$_FinishedButtonPressed
 
 abstract class _FinishedButtonPressed implements UpdateAnswerStatusEvent {
   const factory _FinishedButtonPressed() = _$_FinishedButtonPressed;
+}
+
+/// @nodoc
+abstract class _$DialogShowedCopyWith<$Res> {
+  factory _$DialogShowedCopyWith(
+          _DialogShowed value, $Res Function(_DialogShowed) then) =
+      __$DialogShowedCopyWithImpl<$Res>;
+  $Res call({DialogType type});
+
+  $DialogTypeCopyWith<$Res> get type;
+}
+
+/// @nodoc
+class __$DialogShowedCopyWithImpl<$Res>
+    extends _$UpdateAnswerStatusEventCopyWithImpl<$Res>
+    implements _$DialogShowedCopyWith<$Res> {
+  __$DialogShowedCopyWithImpl(
+      _DialogShowed _value, $Res Function(_DialogShowed) _then)
+      : super(_value, (v) => _then(v as _DialogShowed));
+
+  @override
+  _DialogShowed get _value => super._value as _DialogShowed;
+
+  @override
+  $Res call({
+    Object? type = freezed,
+  }) {
+    return _then(_DialogShowed(
+      type: type == freezed
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as DialogType,
+    ));
+  }
+
+  @override
+  $DialogTypeCopyWith<$Res> get type {
+    return $DialogTypeCopyWith<$Res>(_value.type, (value) {
+      return _then(_value.copyWith(type: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_DialogShowed with DiagnosticableTreeMixin implements _DialogShowed {
+  const _$_DialogShowed({required this.type});
+
+  @override
+  final DialogType type;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'UpdateAnswerStatusEvent.dialogShowed(type: $type)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UpdateAnswerStatusEvent.dialogShowed'))
+      ..add(DiagnosticsProperty('type', type));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _DialogShowed &&
+            const DeepCollectionEquality().equals(other.type, type));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(type));
+
+  @JsonKey(ignore: true)
+  @override
+  _$DialogShowedCopyWith<_DialogShowed> get copyWith =>
+      __$DialogShowedCopyWithImpl<_DialogShowed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)
+        moduleLoaded,
+    required TResult Function() stateCleared,
+    required TResult Function(
+            String questionId,
+            dynamic answerValue,
+            Answer? answer,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)
+        answerUpdated,
+    required TResult Function(Direction direction, int? page) pageNavigatedTo,
+    required TResult Function(int page, String questionId)
+        navigatedToQuestionId,
+    required TResult Function() contentQuestionMapUpdated,
+    required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
+    required TResult Function() dialogClosed,
+    required TResult Function() leaveButtonPressed,
+    required TResult Function() leaveButtonHidden,
+    required TResult Function() switchedToSamplingWithinHouseholdModule,
+    required TResult Function(bool isPaused) appLifeCycleChanged,
+    required TResult Function(Map<ModuleType, Response> respondentResponseMap)
+        respondentResponseMapUpdated,
+    required TResult Function(List<Reference> referenceList)
+        referenceListUpdated,
+    required TResult Function() initialized,
+  }) {
+    return dialogShowed(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            Answer? answer,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+  }) {
+    return dialogShowed?.call(type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+            Map<String, Answer> answerMap,
+            Map<String, AnswerStatus> answerStatusMap,
+            Map<String, Answer> recodeAnswerMap,
+            Map<String, AnswerStatus> recodeAnswerStatusMap,
+            SimpleSurveyPageState surveyPageState,
+            Respondent respondent,
+            String surveyId,
+            ModuleType moduleType,
+            bool isReadOnly,
+            bool isRecodeModule,
+            Map<String, Question> questionMap,
+            Map<String, Question> recodeQuestionMap,
+            DialogType dialogType)?
+        moduleLoaded,
+    TResult Function()? stateCleared,
+    TResult Function(
+            String questionId,
+            dynamic answerValue,
+            Answer? answer,
+            bool isSpecialAnswer,
+            bool isNote,
+            bool toggle,
+            String? noteOf,
+            bool isRecode,
+            bool toggleSpecialAnswer)?
+        answerUpdated,
+    TResult Function(Direction direction, int? page)? pageNavigatedTo,
+    TResult Function(int page, String questionId)? navigatedToQuestionId,
+    TResult Function()? contentQuestionMapUpdated,
+    TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
+    TResult Function()? dialogClosed,
+    TResult Function()? leaveButtonPressed,
+    TResult Function()? leaveButtonHidden,
+    TResult Function()? switchedToSamplingWithinHouseholdModule,
+    TResult Function(bool isPaused)? appLifeCycleChanged,
+    TResult Function(Map<ModuleType, Response> respondentResponseMap)?
+        respondentResponseMapUpdated,
+    TResult Function(List<Reference> referenceList)? referenceListUpdated,
+    TResult Function()? initialized,
+    required TResult orElse(),
+  }) {
+    if (dialogShowed != null) {
+      return dialogShowed(type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ModuleLoaded value) moduleLoaded,
+    required TResult Function(_StateCleared value) stateCleared,
+    required TResult Function(_AnswerUpdated value) answerUpdated,
+    required TResult Function(_PageNavigatedTo value) pageNavigatedTo,
+    required TResult Function(_ScrolledToQuestionId value)
+        navigatedToQuestionId,
+    required TResult Function(_ContentQuestionMapUpdated value)
+        contentQuestionMapUpdated,
+    required TResult Function(_FinishedButtonPressed value)
+        finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
+    required TResult Function(_DialogClosed value) dialogClosed,
+    required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
+    required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
+    required TResult Function(_SwitchedToSamplingWithinHouseholdModule value)
+        switchedToSamplingWithinHouseholdModule,
+    required TResult Function(_AppLifeCycleChanged value) appLifeCycleChanged,
+    required TResult Function(_RespondentResponseListUpdated value)
+        respondentResponseMapUpdated,
+    required TResult Function(_ReferenceListUpdated value) referenceListUpdated,
+    required TResult Function(_Initialized value) initialized,
+  }) {
+    return dialogShowed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+  }) {
+    return dialogShowed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ModuleLoaded value)? moduleLoaded,
+    TResult Function(_StateCleared value)? stateCleared,
+    TResult Function(_AnswerUpdated value)? answerUpdated,
+    TResult Function(_PageNavigatedTo value)? pageNavigatedTo,
+    TResult Function(_ScrolledToQuestionId value)? navigatedToQuestionId,
+    TResult Function(_ContentQuestionMapUpdated value)?
+        contentQuestionMapUpdated,
+    TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
+    TResult Function(_DialogClosed value)? dialogClosed,
+    TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
+    TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
+    TResult Function(_SwitchedToSamplingWithinHouseholdModule value)?
+        switchedToSamplingWithinHouseholdModule,
+    TResult Function(_AppLifeCycleChanged value)? appLifeCycleChanged,
+    TResult Function(_RespondentResponseListUpdated value)?
+        respondentResponseMapUpdated,
+    TResult Function(_ReferenceListUpdated value)? referenceListUpdated,
+    TResult Function(_Initialized value)? initialized,
+    required TResult orElse(),
+  }) {
+    if (dialogShowed != null) {
+      return dialogShowed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DialogShowed implements UpdateAnswerStatusEvent {
+  const factory _DialogShowed({required DialogType type}) = _$_DialogShowed;
+
+  DialogType get type;
+  @JsonKey(ignore: true)
+  _$DialogShowedCopyWith<_DialogShowed> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -2959,6 +3337,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -3007,6 +3386,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3054,6 +3434,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3084,6 +3465,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -3109,6 +3491,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -3134,6 +3517,7 @@ class _$_DialogClosed with DiagnosticableTreeMixin implements _DialogClosed {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -3240,6 +3624,7 @@ class _$_LeaveButtonPressed
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -3288,6 +3673,7 @@ class _$_LeaveButtonPressed
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3335,6 +3721,7 @@ class _$_LeaveButtonPressed
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3365,6 +3752,7 @@ class _$_LeaveButtonPressed
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -3390,6 +3778,7 @@ class _$_LeaveButtonPressed
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -3415,6 +3804,7 @@ class _$_LeaveButtonPressed
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -3521,6 +3911,7 @@ class _$_LeaveButtonHidden
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -3569,6 +3960,7 @@ class _$_LeaveButtonHidden
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3616,6 +4008,7 @@ class _$_LeaveButtonHidden
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3646,6 +4039,7 @@ class _$_LeaveButtonHidden
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -3671,6 +4065,7 @@ class _$_LeaveButtonHidden
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -3696,6 +4091,7 @@ class _$_LeaveButtonHidden
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -3807,6 +4203,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -3855,6 +4252,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3902,6 +4300,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -3932,6 +4331,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -3957,6 +4357,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -3982,6 +4383,7 @@ class _$_SwitchedToSamplingWithinHouseholdModule
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -4116,6 +4518,7 @@ class _$_AppLifeCycleChanged
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -4164,6 +4567,7 @@ class _$_AppLifeCycleChanged
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -4211,6 +4615,7 @@ class _$_AppLifeCycleChanged
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -4241,6 +4646,7 @@ class _$_AppLifeCycleChanged
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -4266,6 +4672,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -4291,6 +4698,7 @@ class _$_AppLifeCycleChanged
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -4434,6 +4842,7 @@ class _$_RespondentResponseListUpdated
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -4482,6 +4891,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -4529,6 +4939,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -4559,6 +4970,7 @@ class _$_RespondentResponseListUpdated
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -4584,6 +4996,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -4609,6 +5022,7 @@ class _$_RespondentResponseListUpdated
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -4750,6 +5164,7 @@ class _$_ReferenceListUpdated
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -4798,6 +5213,7 @@ class _$_ReferenceListUpdated
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -4845,6 +5261,7 @@ class _$_ReferenceListUpdated
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -4875,6 +5292,7 @@ class _$_ReferenceListUpdated
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -4900,6 +5318,7 @@ class _$_ReferenceListUpdated
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -4925,6 +5344,7 @@ class _$_ReferenceListUpdated
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -5034,6 +5454,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
         navigatedToQuestionId,
     required TResult Function() contentQuestionMapUpdated,
     required TResult Function() finishedButtonPressed,
+    required TResult Function(DialogType type) dialogShowed,
     required TResult Function() dialogClosed,
     required TResult Function() leaveButtonPressed,
     required TResult Function() leaveButtonHidden,
@@ -5082,6 +5503,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -5129,6 +5551,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(int page, String questionId)? navigatedToQuestionId,
     TResult Function()? contentQuestionMapUpdated,
     TResult Function()? finishedButtonPressed,
+    TResult Function(DialogType type)? dialogShowed,
     TResult Function()? dialogClosed,
     TResult Function()? leaveButtonPressed,
     TResult Function()? leaveButtonHidden,
@@ -5159,6 +5582,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
         contentQuestionMapUpdated,
     required TResult Function(_FinishedButtonPressed value)
         finishedButtonPressed,
+    required TResult Function(_DialogShowed value) dialogShowed,
     required TResult Function(_DialogClosed value) dialogClosed,
     required TResult Function(_LeaveButtonPressed value) leaveButtonPressed,
     required TResult Function(_LeaveButtonHidden value) leaveButtonHidden,
@@ -5184,6 +5608,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -5209,6 +5634,7 @@ class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
     TResult Function(_ContentQuestionMapUpdated value)?
         contentQuestionMapUpdated,
     TResult Function(_FinishedButtonPressed value)? finishedButtonPressed,
+    TResult Function(_DialogShowed value)? dialogShowed,
     TResult Function(_DialogClosed value)? dialogClosed,
     TResult Function(_LeaveButtonPressed value)? leaveButtonPressed,
     TResult Function(_LeaveButtonHidden value)? leaveButtonHidden,
@@ -6427,7 +6853,6 @@ class _$StateParametersTearOff {
       required bool showWarning,
       required bool pageQIdSet,
       required bool contentQIdSet,
-      required bool dialogType,
       required bool showLeaveButton,
       required bool respondent,
       required bool surveyId,
@@ -6449,7 +6874,6 @@ class _$StateParametersTearOff {
       showWarning: showWarning,
       pageQIdSet: pageQIdSet,
       contentQIdSet: contentQIdSet,
-      dialogType: dialogType,
       showLeaveButton: showLeaveButton,
       respondent: respondent,
       surveyId: surveyId,
@@ -6480,7 +6904,6 @@ mixin _$StateParameters {
   bool get showWarning => throw _privateConstructorUsedError; // H_ 中間資料
   bool get pageQIdSet => throw _privateConstructorUsedError;
   bool get contentQIdSet => throw _privateConstructorUsedError;
-  bool get dialogType => throw _privateConstructorUsedError;
   bool get showLeaveButton =>
       throw _privateConstructorUsedError; // H_ 同 session 不變的參考資料
   bool get respondent => throw _privateConstructorUsedError;
@@ -6515,7 +6938,6 @@ abstract class $StateParametersCopyWith<$Res> {
       bool showWarning,
       bool pageQIdSet,
       bool contentQIdSet,
-      bool dialogType,
       bool showLeaveButton,
       bool respondent,
       bool surveyId,
@@ -6549,7 +6971,6 @@ class _$StateParametersCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -6604,10 +7025,6 @@ class _$StateParametersCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
-              as bool,
-      dialogType: dialogType == freezed
-          ? _value.dialogType
-          : dialogType // ignore: cast_nullable_to_non_nullable
               as bool,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -6668,7 +7085,6 @@ abstract class _$StateParametersCopyWith<$Res>
       bool showWarning,
       bool pageQIdSet,
       bool contentQIdSet,
-      bool dialogType,
       bool showLeaveButton,
       bool respondent,
       bool surveyId,
@@ -6704,7 +7120,6 @@ class __$StateParametersCopyWithImpl<$Res>
     Object? showWarning = freezed,
     Object? pageQIdSet = freezed,
     Object? contentQIdSet = freezed,
-    Object? dialogType = freezed,
     Object? showLeaveButton = freezed,
     Object? respondent = freezed,
     Object? surveyId = freezed,
@@ -6759,10 +7174,6 @@ class __$StateParametersCopyWithImpl<$Res>
       contentQIdSet: contentQIdSet == freezed
           ? _value.contentQIdSet
           : contentQIdSet // ignore: cast_nullable_to_non_nullable
-              as bool,
-      dialogType: dialogType == freezed
-          ? _value.dialogType
-          : dialogType // ignore: cast_nullable_to_non_nullable
               as bool,
       showLeaveButton: showLeaveButton == freezed
           ? _value.showLeaveButton
@@ -6819,7 +7230,6 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       required this.showWarning,
       required this.pageQIdSet,
       required this.contentQIdSet,
-      required this.dialogType,
       required this.showLeaveButton,
       required this.respondent,
       required this.surveyId,
@@ -6854,8 +7264,6 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   @override
   final bool contentQIdSet;
   @override
-  final bool dialogType;
-  @override
   final bool showLeaveButton;
   @override // H_ 同 session 不變的參考資料
   final bool respondent;
@@ -6876,7 +7284,7 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, dialogType: $dialogType, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
+    return 'StateParameters(answerMap: $answerMap, answerStatusMap: $answerStatusMap, recodeAnswerMap: $recodeAnswerMap, recodeAnswerStatusMap: $recodeAnswerStatusMap, page: $page, newestPage: $newestPage, isLastPage: $isLastPage, warning: $warning, showWarning: $showWarning, pageQIdSet: $pageQIdSet, contentQIdSet: $contentQIdSet, showLeaveButton: $showLeaveButton, respondent: $respondent, surveyId: $surveyId, moduleType: $moduleType, isReadOnly: $isReadOnly, isRecodeModule: $isRecodeModule, respondentResponseMap: $respondentResponseMap, questionMap: $questionMap, recodeQuestionMap: $recodeQuestionMap)';
   }
 
   @override
@@ -6895,7 +7303,6 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('showWarning', showWarning))
       ..add(DiagnosticsProperty('pageQIdSet', pageQIdSet))
       ..add(DiagnosticsProperty('contentQIdSet', contentQIdSet))
-      ..add(DiagnosticsProperty('dialogType', dialogType))
       ..add(DiagnosticsProperty('showLeaveButton', showLeaveButton))
       ..add(DiagnosticsProperty('respondent', respondent))
       ..add(DiagnosticsProperty('surveyId', surveyId))
@@ -6932,8 +7339,6 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
             const DeepCollectionEquality()
                 .equals(other.contentQIdSet, contentQIdSet) &&
             const DeepCollectionEquality()
-                .equals(other.dialogType, dialogType) &&
-            const DeepCollectionEquality()
                 .equals(other.showLeaveButton, showLeaveButton) &&
             const DeepCollectionEquality()
                 .equals(other.respondent, respondent) &&
@@ -6966,7 +7371,6 @@ class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
         const DeepCollectionEquality().hash(showWarning),
         const DeepCollectionEquality().hash(pageQIdSet),
         const DeepCollectionEquality().hash(contentQIdSet),
-        const DeepCollectionEquality().hash(dialogType),
         const DeepCollectionEquality().hash(showLeaveButton),
         const DeepCollectionEquality().hash(respondent),
         const DeepCollectionEquality().hash(surveyId),
@@ -6997,7 +7401,6 @@ abstract class _StateParameters extends StateParameters {
       required bool showWarning,
       required bool pageQIdSet,
       required bool contentQIdSet,
-      required bool dialogType,
       required bool showLeaveButton,
       required bool respondent,
       required bool surveyId,
@@ -7031,8 +7434,6 @@ abstract class _StateParameters extends StateParameters {
   bool get pageQIdSet;
   @override
   bool get contentQIdSet;
-  @override
-  bool get dialogType;
   @override
   bool get showLeaveButton;
   @override // H_ 同 session 不變的參考資料

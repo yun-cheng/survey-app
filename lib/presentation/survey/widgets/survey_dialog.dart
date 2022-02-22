@@ -28,7 +28,8 @@ class SurveyLeadingButton extends StatelessWidget {
     return MultiBlocListener(
       listeners: [
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
-          // NOTE 如果 app 閒置，則停止錄音，並結束編輯
+          // H_ 如果在主問卷模組閒置時，停止錄音並結束編輯
+          // NOTE 在其他模組則不會結束編輯
           listenWhen: (p, c) =>
               (p.appIsPaused != c.appIsPaused && c.appIsPaused) &&
               c.moduleType == ModuleType.main(),
@@ -44,19 +45,29 @@ class SurveyLeadingButton extends StatelessWidget {
           },
         ),
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+          // H_ 需要跳出對話框時
           listenWhen: (p, c) =>
               p.dialogType != c.dialogType && c.dialogType.notNone,
           listener: (context, state) {
             logger('Build').i('SurveyDialog');
 
-            showSurveyDialog(context);
+            if (state.dialogType.isBreakInterview) {
+              context
+                  .read<AudioRecorderBloc>()
+                  .add(const AudioRecorderEvent.recordStopped());
+            }
+
+            showSurveyDialog(context, dialogType: state.dialogType);
           },
         ),
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+          // H_ 需要跳到某題時
           listenWhen: (p, c) =>
               p.scrollToQuestionIndex != c.scrollToQuestionIndex &&
               c.scrollToQuestionIndex != -99,
           listener: (context, state) async {
+            logger('Listen').i('UpdateAnswerStatusBloc: scrollToQuestionIndex');
+
             // NOTE 因為 table box 會有 sticky header，沒辦法直接 scrollToIndex，
             //  會出錯，所以就先跳到底再往回滾，
             //  實測是沒問題，但題目一多可能要調整 delay 的時間
@@ -74,6 +85,7 @@ class SurveyLeadingButton extends StatelessWidget {
           },
         ),
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+            // H_ event 完成時
             listenWhen: (p, c) =>
                 p.eventState != c.eventState &&
                 c.eventState == LoadState.success(),
@@ -125,6 +137,7 @@ class SurveyLeadingButton extends StatelessWidget {
               }
             }),
         BlocListener<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
+          // H_ 需要重置 state 時
           listenWhen: (p, c) =>
               p.restartState != c.restartState && c.restartState,
           listener: (context, state) {
@@ -149,6 +162,8 @@ class SurveyLeadingButton extends StatelessWidget {
         ),
       ],
       child: Builder(builder: (context) {
+        logger('Build').i('SurveyLeadingButton');
+
         final showLeaveButton = context.select(
             (UpdateAnswerStatusBloc bloc) => bloc.state.showLeaveButton);
 
@@ -169,10 +184,10 @@ class SurveyLeadingButton extends StatelessWidget {
 }
 
 // NOTE 即使在目錄頁面也會顯示
-void showSurveyDialog(BuildContext context) {
-  // NOTE 因為 app 重啟會觸發一次，因此要在裡面取資料
-  final dialogType = context.read<UpdateAnswerStatusBloc>().state.dialogType;
-
+void showSurveyDialog(
+  BuildContext context, {
+  required DialogType dialogType,
+}) {
   if (dialogType.notNone) {
     showFlash(
       onWillPop: () => Future.value(false),
@@ -180,7 +195,8 @@ void showSurveyDialog(BuildContext context) {
       builder: (context, controller) {
         late final FlashBar dialog;
 
-        if (dialogType == DialogType.breakInterview()) {
+        // H_ 訪問暫停
+        if (dialogType.isBreakInterview) {
           dialog = FlashBar(
             content: const Text(
               '繼續或中止訪問',
@@ -210,7 +226,7 @@ void showSurveyDialog(BuildContext context) {
                         const UpdateAnswerStatusEvent.dialogClosed(),
                       );
 
-                  // S_ 如果已閒置，則要開新的 response，並開始錄音
+                  // S_ 開新的 response，並開始錄音
                   final fileName = UniqueId.v1();
                   context.read<ResponseBloc>().add(
                         ResponseEvent.responseResumed(fileName),
@@ -223,8 +239,8 @@ void showSurveyDialog(BuildContext context) {
               ),
             ],
           );
-        } else if (dialogType ==
-            DialogType.switchToSamplingWithinHouseholdModule()) {
+          // H_ 切換至戶抽模組
+        } else if (dialogType.isSwitchToSamplingWithinHouseholdModule) {
           dialog = FlashBar(
             content: const Text(
               '戶抽未完成，切換至戶抽問卷。',

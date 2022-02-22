@@ -31,6 +31,7 @@ class ResponseStateDto with _$ResponseStateDto {
     List<ReferenceDto>? referenceList,
     ResponseDto? response,
     String? responseId,
+    List<String>? uploadResponseIdSet,
     // NOTE 因為之後會 subsetInfoMap，所以要留著，但 ignore
     @JsonKey(ignore: true) StateParameters? saveParameters,
   }) = _ResponseStateDto;
@@ -93,6 +94,9 @@ class ResponseStateDto with _$ResponseStateDto {
       responseId: domain.saveParameters.response
           ? domain.response.responseId.value
           : null,
+      uploadResponseIdSet: domain.saveParameters.uploadResponseIdSet
+          ? domain.uploadResponseIdSet.map((e) => e.value).toList()
+          : null,
       saveParameters: domain.saveParameters,
     );
   }
@@ -108,6 +112,9 @@ class ResponseStateDto with _$ResponseStateDto {
       referenceList: referenceList?.map((dto) => dto.toDomain()).toList() ??
           initial.referenceList,
       response: response?.toDomain() ?? initial.response,
+      uploadResponseIdSet:
+          uploadResponseIdSet?.map((e) => UniqueId(e)).toSet() ??
+              initial.uploadResponseIdSet,
       // H_ 狀態更新進度
       eventState: LoadState.success(),
       // NOTE updateState 維持 initial，避免觸發 listener

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'navigation_bloc.dart';
@@ -17,11 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NavigationEventTearOff {
   const _$NavigationEventTearOff();
 
-  _PageChanged pageChanged(
-      {required NavigationPage page, String? respondentId}) {
+  _PageChanged pageChanged({required NavigationPage page}) {
     return _PageChanged(
       page: page,
-      respondentId: respondentId,
     );
   }
 
@@ -45,8 +44,7 @@ const $NavigationEvent = _$NavigationEventTearOff();
 mixin _$NavigationEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationPage page, String? respondentId)
-        pageChanged,
+    required TResult Function(NavigationPage page) pageChanged,
     required TResult Function() pagePushed,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -54,7 +52,7 @@ mixin _$NavigationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -62,7 +60,7 @@ mixin _$NavigationEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -118,7 +116,7 @@ abstract class _$PageChangedCopyWith<$Res> {
   factory _$PageChangedCopyWith(
           _PageChanged value, $Res Function(_PageChanged) then) =
       __$PageChangedCopyWithImpl<$Res>;
-  $Res call({NavigationPage page, String? respondentId});
+  $Res call({NavigationPage page});
 
   $NavigationPageCopyWith<$Res> get page;
 }
@@ -137,17 +135,12 @@ class __$PageChangedCopyWithImpl<$Res>
   @override
   $Res call({
     Object? page = freezed,
-    Object? respondentId = freezed,
   }) {
     return _then(_PageChanged(
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as NavigationPage,
-      respondentId: respondentId == freezed
-          ? _value.respondentId
-          : respondentId // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 
@@ -162,16 +155,14 @@ class __$PageChangedCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_PageChanged implements _PageChanged {
-  const _$_PageChanged({required this.page, this.respondentId});
+  const _$_PageChanged({required this.page});
 
   @override
   final NavigationPage page;
-  @override
-  final String? respondentId;
 
   @override
   String toString() {
-    return 'NavigationEvent.pageChanged(page: $page, respondentId: $respondentId)';
+    return 'NavigationEvent.pageChanged(page: $page)';
   }
 
   @override
@@ -179,16 +170,12 @@ class _$_PageChanged implements _PageChanged {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _PageChanged &&
-            const DeepCollectionEquality().equals(other.page, page) &&
-            const DeepCollectionEquality()
-                .equals(other.respondentId, respondentId));
+            const DeepCollectionEquality().equals(other.page, page));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(respondentId));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
   @override
@@ -198,37 +185,36 @@ class _$_PageChanged implements _PageChanged {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationPage page, String? respondentId)
-        pageChanged,
+    required TResult Function(NavigationPage page) pageChanged,
     required TResult Function() pagePushed,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
   }) {
-    return pageChanged(page, respondentId);
+    return pageChanged(page);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
   }) {
-    return pageChanged?.call(page, respondentId);
+    return pageChanged?.call(page);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
     required TResult orElse(),
   }) {
     if (pageChanged != null) {
-      return pageChanged(page, respondentId);
+      return pageChanged(page);
     }
     return orElse();
   }
@@ -272,11 +258,9 @@ class _$_PageChanged implements _PageChanged {
 }
 
 abstract class _PageChanged implements NavigationEvent {
-  const factory _PageChanged(
-      {required NavigationPage page, String? respondentId}) = _$_PageChanged;
+  const factory _PageChanged({required NavigationPage page}) = _$_PageChanged;
 
   NavigationPage get page;
-  String? get respondentId;
   @JsonKey(ignore: true)
   _$PageChangedCopyWith<_PageChanged> get copyWith =>
       throw _privateConstructorUsedError;
@@ -323,8 +307,7 @@ class _$_PagePushed implements _PagePushed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationPage page, String? respondentId)
-        pageChanged,
+    required TResult Function(NavigationPage page) pageChanged,
     required TResult Function() pagePushed,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -335,7 +318,7 @@ class _$_PagePushed implements _PagePushed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -346,7 +329,7 @@ class _$_PagePushed implements _PagePushed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -439,8 +422,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationPage page, String? respondentId)
-        pageChanged,
+    required TResult Function(NavigationPage page) pageChanged,
     required TResult Function() pagePushed,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -451,7 +433,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -462,7 +444,7 @@ class _$_LoggedOut implements _LoggedOut {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -557,8 +539,7 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(NavigationPage page, String? respondentId)
-        pageChanged,
+    required TResult Function(NavigationPage page) pageChanged,
     required TResult Function() pagePushed,
     required TResult Function() loggedOut,
     required TResult Function() initialized,
@@ -569,7 +550,7 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -580,7 +561,7 @@ class _$_Initialized implements _Initialized {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(NavigationPage page, String? respondentId)? pageChanged,
+    TResult Function(NavigationPage page)? pageChanged,
     TResult Function()? pagePushed,
     TResult Function()? loggedOut,
     TResult Function()? initialized,
@@ -639,13 +620,15 @@ class _$NavigationStateTearOff {
   const _$NavigationStateTearOff();
 
   _NavigationState call(
-      {required NavigationPage page,
-      required String respondentId,
-      required PageState pageState}) {
+      {required UniqueId stateId,
+      required NavigationPage page,
+      required bool pushPage,
+      required LoadState eventState}) {
     return _NavigationState(
+      stateId: stateId,
       page: page,
-      respondentId: respondentId,
-      pageState: pageState,
+      pushPage: pushPage,
+      eventState: eventState,
     );
   }
 }
@@ -655,9 +638,10 @@ const $NavigationState = _$NavigationStateTearOff();
 
 /// @nodoc
 mixin _$NavigationState {
-  NavigationPage get page => throw _privateConstructorUsedError;
-  String get respondentId => throw _privateConstructorUsedError;
-  PageState get pageState => throw _privateConstructorUsedError;
+  UniqueId get stateId => throw _privateConstructorUsedError; // H_ 主要資料
+  NavigationPage get page => throw _privateConstructorUsedError; // H_ 中間資料
+  bool get pushPage => throw _privateConstructorUsedError; // H_ 狀態更新進度
+  LoadState get eventState => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NavigationStateCopyWith<NavigationState> get copyWith =>
@@ -669,10 +653,15 @@ abstract class $NavigationStateCopyWith<$Res> {
   factory $NavigationStateCopyWith(
           NavigationState value, $Res Function(NavigationState) then) =
       _$NavigationStateCopyWithImpl<$Res>;
-  $Res call({NavigationPage page, String respondentId, PageState pageState});
+  $Res call(
+      {UniqueId stateId,
+      NavigationPage page,
+      bool pushPage,
+      LoadState eventState});
 
+  $UniqueIdCopyWith<$Res> get stateId;
   $NavigationPageCopyWith<$Res> get page;
-  $PageStateCopyWith<$Res> get pageState;
+  $LoadStateCopyWith<$Res> get eventState;
 }
 
 /// @nodoc
@@ -686,24 +675,36 @@ class _$NavigationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? stateId = freezed,
     Object? page = freezed,
-    Object? respondentId = freezed,
-    Object? pageState = freezed,
+    Object? pushPage = freezed,
+    Object? eventState = freezed,
   }) {
     return _then(_value.copyWith(
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as NavigationPage,
-      respondentId: respondentId == freezed
-          ? _value.respondentId
-          : respondentId // ignore: cast_nullable_to_non_nullable
-              as String,
-      pageState: pageState == freezed
-          ? _value.pageState
-          : pageState // ignore: cast_nullable_to_non_nullable
-              as PageState,
+      pushPage: pushPage == freezed
+          ? _value.pushPage
+          : pushPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      eventState: eventState == freezed
+          ? _value.eventState
+          : eventState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
     ));
+  }
+
+  @override
+  $UniqueIdCopyWith<$Res> get stateId {
+    return $UniqueIdCopyWith<$Res>(_value.stateId, (value) {
+      return _then(_value.copyWith(stateId: value));
+    });
   }
 
   @override
@@ -714,9 +715,9 @@ class _$NavigationStateCopyWithImpl<$Res>
   }
 
   @override
-  $PageStateCopyWith<$Res> get pageState {
-    return $PageStateCopyWith<$Res>(_value.pageState, (value) {
-      return _then(_value.copyWith(pageState: value));
+  $LoadStateCopyWith<$Res> get eventState {
+    return $LoadStateCopyWith<$Res>(_value.eventState, (value) {
+      return _then(_value.copyWith(eventState: value));
     });
   }
 }
@@ -728,12 +729,18 @@ abstract class _$NavigationStateCopyWith<$Res>
           _NavigationState value, $Res Function(_NavigationState) then) =
       __$NavigationStateCopyWithImpl<$Res>;
   @override
-  $Res call({NavigationPage page, String respondentId, PageState pageState});
+  $Res call(
+      {UniqueId stateId,
+      NavigationPage page,
+      bool pushPage,
+      LoadState eventState});
 
+  @override
+  $UniqueIdCopyWith<$Res> get stateId;
   @override
   $NavigationPageCopyWith<$Res> get page;
   @override
-  $PageStateCopyWith<$Res> get pageState;
+  $LoadStateCopyWith<$Res> get eventState;
 }
 
 /// @nodoc
@@ -749,45 +756,54 @@ class __$NavigationStateCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? stateId = freezed,
     Object? page = freezed,
-    Object? respondentId = freezed,
-    Object? pageState = freezed,
+    Object? pushPage = freezed,
+    Object? eventState = freezed,
   }) {
     return _then(_NavigationState(
+      stateId: stateId == freezed
+          ? _value.stateId
+          : stateId // ignore: cast_nullable_to_non_nullable
+              as UniqueId,
       page: page == freezed
           ? _value.page
           : page // ignore: cast_nullable_to_non_nullable
               as NavigationPage,
-      respondentId: respondentId == freezed
-          ? _value.respondentId
-          : respondentId // ignore: cast_nullable_to_non_nullable
-              as String,
-      pageState: pageState == freezed
-          ? _value.pageState
-          : pageState // ignore: cast_nullable_to_non_nullable
-              as PageState,
+      pushPage: pushPage == freezed
+          ? _value.pushPage
+          : pushPage // ignore: cast_nullable_to_non_nullable
+              as bool,
+      eventState: eventState == freezed
+          ? _value.eventState
+          : eventState // ignore: cast_nullable_to_non_nullable
+              as LoadState,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_NavigationState implements _NavigationState {
+class _$_NavigationState extends _NavigationState {
   const _$_NavigationState(
-      {required this.page,
-      required this.respondentId,
-      required this.pageState});
+      {required this.stateId,
+      required this.page,
+      required this.pushPage,
+      required this.eventState})
+      : super._();
 
   @override
+  final UniqueId stateId;
+  @override // H_ 主要資料
   final NavigationPage page;
-  @override
-  final String respondentId;
-  @override
-  final PageState pageState;
+  @override // H_ 中間資料
+  final bool pushPage;
+  @override // H_ 狀態更新進度
+  final LoadState eventState;
 
   @override
   String toString() {
-    return 'NavigationState(page: $page, respondentId: $respondentId, pageState: $pageState)';
+    return 'NavigationState(stateId: $stateId, page: $page, pushPage: $pushPage, eventState: $eventState)';
   }
 
   @override
@@ -795,18 +811,20 @@ class _$_NavigationState implements _NavigationState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _NavigationState &&
+            const DeepCollectionEquality().equals(other.stateId, stateId) &&
             const DeepCollectionEquality().equals(other.page, page) &&
+            const DeepCollectionEquality().equals(other.pushPage, pushPage) &&
             const DeepCollectionEquality()
-                .equals(other.respondentId, respondentId) &&
-            const DeepCollectionEquality().equals(other.pageState, pageState));
+                .equals(other.eventState, eventState));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(stateId),
       const DeepCollectionEquality().hash(page),
-      const DeepCollectionEquality().hash(respondentId),
-      const DeepCollectionEquality().hash(pageState));
+      const DeepCollectionEquality().hash(pushPage),
+      const DeepCollectionEquality().hash(eventState));
 
   @JsonKey(ignore: true)
   @override
@@ -814,18 +832,22 @@ class _$_NavigationState implements _NavigationState {
       __$NavigationStateCopyWithImpl<_NavigationState>(this, _$identity);
 }
 
-abstract class _NavigationState implements NavigationState {
+abstract class _NavigationState extends NavigationState {
   const factory _NavigationState(
-      {required NavigationPage page,
-      required String respondentId,
-      required PageState pageState}) = _$_NavigationState;
+      {required UniqueId stateId,
+      required NavigationPage page,
+      required bool pushPage,
+      required LoadState eventState}) = _$_NavigationState;
+  const _NavigationState._() : super._();
 
   @override
+  UniqueId get stateId;
+  @override // H_ 主要資料
   NavigationPage get page;
-  @override
-  String get respondentId;
-  @override
-  PageState get pageState;
+  @override // H_ 中間資料
+  bool get pushPage;
+  @override // H_ 狀態更新進度
+  LoadState get eventState;
   @override
   @JsonKey(ignore: true)
   _$NavigationStateCopyWith<_NavigationState> get copyWith =>

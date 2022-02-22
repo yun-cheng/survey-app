@@ -10,9 +10,9 @@ abstract class IAuthFacade {
   Stream<Either<AuthFailure, List<Interviewer>>> watchInterviewerList({
     required String teamId,
   });
-  Either<AuthFailure, Interviewer> signIn({
-    required String interviewerId,
-    required String password,
-    required List<Interviewer> interviewerList,
-  });
+  // Either<AuthFailure, Interviewer> signIn({
+  //   required String interviewerId,
+  //   required String password,
+  //   required List<Interviewer> interviewerList,
+  // });
 }

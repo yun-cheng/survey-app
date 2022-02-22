@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
@@ -9,6 +10,7 @@ import 'package:path_provider/path_provider.dart';
 import '../../domain/audio/audio.dart';
 import '../../domain/audio/audio_failure.dart';
 import '../../domain/audio/i_audio_repository.dart';
+import '../../domain/core/logger.dart';
 import '../../domain/core/value_objects.dart';
 import '../core/firestore_helpers.dart';
 
@@ -31,7 +33,13 @@ class AudioRepository implements IAudioRepository {
     required Map<UniqueId, Audio> audioMap,
   }) async* {
     for (final audio in audioMap.values) {
-      yield await uploadAudio(audio: audio);
+      var result = await uploadAudio(audio: audio);
+      if (result.isLeft()) {
+        if (result.swap().getOrElse(() => AudioFailure.empty()).isTimeout) {
+          break;
+        }
+      }
+      yield result;
     }
   }
 
@@ -54,6 +62,7 @@ class AudioRepository implements IAudioRepository {
 
       return right(unit);
     } catch (e) {
+      logger('Error').e('MoveAudio Error!');
       return left(AudioFailure.unexpected());
     }
   }
@@ -74,28 +83,33 @@ class AudioRepository implements IAudioRepository {
       }
 
       // S_ 檢查是否已上傳
-      final result = await audioRef.child(audio.fileName.value).list(
-            const ListOptions(maxResults: 1),
-          );
+      final result = await audioRef
+          .child(audio.fileName.value)
+          .list(const ListOptions(maxResults: 1))
+          .timeout(const Duration(seconds: 15));
 
       if (result.items.isEmpty) {
         final metadata = SettableMetadata(
           contentType: 'audio/m4a',
         );
 
-        // TODO 調整 timeout
         final task = audioRef
             .child(audio.toStoragePath())
             .putFile(File(filePath), metadata)
-            .timeout(const Duration(minutes: 5));
+            .timeout(const Duration(minutes: 3));
 
         await task;
       }
 
+      logger('Upload').e(audio.toFileNameString());
+
       return right(audio);
     } catch (e) {
+      logger('Error').e('UploadAudio Error!');
       if (e is FirebaseException && e.code == 'permission-denied') {
         return left(AudioFailure.insufficientPermission());
+      } else if (e is TimeoutException) {
+        return left(AudioFailure.timeout());
       } else {
         return left(AudioFailure.unexpected());
       }

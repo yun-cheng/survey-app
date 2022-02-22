@@ -37,7 +37,6 @@ class ModuleButton extends StatelessWidget {
       context.read<NavigationBloc>().add(
             NavigationEvent.pageChanged(
               page: NavigationPage.survey(),
-              respondentId: respondent.id,
             ),
           );
       context.router.push(const SurveyRoute());

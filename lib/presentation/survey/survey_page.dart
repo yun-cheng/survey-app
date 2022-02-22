@@ -24,18 +24,6 @@ class SurveyPage extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('SurveyPage');
 
-    final showDialog = useValueNotifier(true);
-
-    useEffect(() {
-      if (showDialog.value) {
-        // NOTE https://stackoverflow.com/a/61137589
-        WidgetsBinding.instance!.addPostFrameCallback((_) {
-          showSurveyDialog(context);
-        });
-        showDialog.value = false;
-      }
-    }, []);
-
     final scrollController = useMemoized(
       () => AutoScrollController(
         suggestedRowHeight: 600,

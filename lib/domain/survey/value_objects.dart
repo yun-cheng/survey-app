@@ -237,5 +237,8 @@ class DialogType with _$DialogType {
   factory DialogType.switchToSamplingWithinHouseholdModule() =>
       const DialogType('switchToSamplingWithinHouseholdModule');
 
+  bool get isBreakInterview => value == 'breakInterview';
+  bool get isSwitchToSamplingWithinHouseholdModule =>
+      value == 'switchToSamplingWithinHouseholdModule';
   bool get notNone => value != '';
 }

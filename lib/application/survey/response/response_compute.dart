@@ -11,16 +11,10 @@ ResponseState responseMapMerged(ResponseState state) {
   bool updateTabRespondentMap = state.survey.id.isEmpty;
   final saveKeys = <UniqueId>{};
 
-  // S_ 合併剛下載的 responseMap 與當前的 responseMap，
-  //  各個 responseId 保留 lastChangedTimeStamp 最晚的
-  // NOTE 不會有同 responseId 的情形，因為
-  //  1. 每次 responseRestored 都會創新的
-  //  2. Firestore 上的 documentId 就是 responseId
+  // S_ 合併剛下載的 responseMap 與當前的 responseMap
   for (final response in state.downloadedResponseMap.values) {
     final responseId = response.responseId;
-    if (!responseMap.containsKey(response.responseId) ||
-        (response.lastChangedTimeStamp.toInt() >
-            (responseMap[responseId]?.lastChangedTimeStamp.toInt() ?? -1))) {
+    if (!responseMap.containsKey(response.responseId)) {
       responseMap[responseId] = response;
 
       saveKeys.add(responseId);
@@ -156,10 +150,13 @@ ResponseState responseRestored(
   }
 
   // S_3 無論是否是新的 response，只要不是已完成，都要產生新的 responseId、tempResponseId
+  final uploadResponseIdSet = {...state.uploadResponseIdSet};
   if (response.responseStatus != ResponseStatus.finished()) {
+    final newResponseId = UniqueId.v1();
+    uploadResponseIdSet.add(newResponseId);
     final now = DeviceTimeStamp.now();
     response = response.copyWith(
-      responseId: UniqueId.v1(),
+      responseId: newResponseId,
       tempResponseId: UniqueId.v1(),
       editFinished: false,
       sessionStartTimeStamp: now,
@@ -194,6 +191,7 @@ ResponseState responseRestored(
   return state.copyWith(
     response: response,
     responseMap: responseMap,
+    uploadResponseIdSet: uploadResponseIdSet,
     questionMap: module.questionMap,
     mainResponse: mainResponse,
     moduleType: moduleType,
@@ -281,6 +279,7 @@ ResponseState editFinished(
 }
 
 // H_ 使用者在閒置後，選擇繼續訪問
+// FIXME 假設前一個 session 沒有順利 editFinished 怎麼處理
 ResponseState responseResumed(
   _ResponseResumed e,
   ResponseState state,
@@ -298,8 +297,22 @@ ResponseState responseResumed(
       lastChangedTimeStamp: now,
     );
 
+    // S_
+    final responseMap = {...state.responseMap};
+    final uploadResponseIdSet = {...state.uploadResponseIdSet};
+    responseMap[newResponse.responseId] = newResponse;
+    uploadResponseIdSet.add(newResponse.responseId);
+
     return state.copyWith(
       response: newResponse,
+      responseMap: responseMap,
+      uploadResponseIdSet: uploadResponseIdSet,
+      saveParameters: state.saveParameters.copyWith(
+        response: true,
+        responseMap: true,
+        responseMapKeys: {newResponse.responseId},
+        uploadResponseIdSet: true,
+      ),
     );
   } else {
     return state;

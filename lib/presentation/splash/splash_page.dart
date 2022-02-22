@@ -10,31 +10,25 @@ import 'listeners/network_listener.dart';
 import 'listeners/response_restore_listener.dart';
 import 'listeners/watch_firestore_listener.dart';
 
-class MyObserver extends WidgetsBindingObserver {
-  final BuildContext context;
-
-  MyObserver(this.context);
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    context.read<DeviceBloc>().add(
-          DeviceEvent.appLifeCycleChanged(state),
-        );
-  }
-}
-
 class SplashPage extends HookWidget {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // H_ 用來監聽 app lifecycle
-    // TODO 改成 useOnAppLifecycleStateChange
-    final myObserver = useMemoized(() => MyObserver(context));
+    // H_ 監聽網路狀態
+    // NOTE 放在這邊觸發，避免因 bloc 提早預備，加上 listener 還沒準備好，導致沒有監聽到變化
     useEffect(() {
-      WidgetsBinding.instance!.addObserver(myObserver);
-      return () => WidgetsBinding.instance!.removeObserver(myObserver);
+      context.read<DeviceBloc>().add(
+            const DeviceEvent.watchNetworkStarted(),
+          );
     }, []);
+
+    // H_ 監聽 app lifecycle
+    useOnAppLifecycleStateChange(
+      (p, c) => context.read<DeviceBloc>().add(
+            DeviceEvent.appLifeCycleChanged(c),
+          ),
+    );
 
     return MultiBlocListener(
       listeners: [
@@ -42,9 +36,7 @@ class SplashPage extends HookWidget {
         networkListener,
         appLifeCycleListener,
         watchFirestoreListener,
-        // H_ survey
         audioRecorderListener,
-        // H_ response
         responseRestoreListener,
       ],
       child: const Scaffold(
