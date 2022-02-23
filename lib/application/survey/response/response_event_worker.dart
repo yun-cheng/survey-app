@@ -142,7 +142,7 @@ void _eventWorker(
           )
           .updateSuccess();
     },
-    // H_ 使用者在閒置後，選擇繼續訪問
+    // H_ 使用者在暫停問卷後，點擊繼續訪問
     responseResumed: (e) {
       // NOTE 在裡面決定 saveParameters
       state = responseResumed(e, state);

@@ -49,7 +49,7 @@ final responseRestoreListener = BlocListener<ResponseBloc, ResponseState>(
           );
 
       // S_ 開始錄音
-      if (state.moduleType == ModuleType.main() && !isReadOnly) {
+      if (state.moduleType.shouldRecord && !isReadOnly) {
         context
             .read<AudioRecorderBloc>()
             .add(AudioRecorderEvent.recordStarted(state.response.responseId));

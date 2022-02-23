@@ -244,7 +244,7 @@ void _eventWorker(
       dialogShowed: (e) {
         logger('Event').i('UpdateAnswerStatusEvent: dialogShowed');
 
-        if (e.type.isBreakInterview && state.moduleType.isMain) {
+        if (e.type.isBreakInterview && state.moduleType.shouldRecord) {
           state = state.copyWith(
             dialogType: e.type,
           );
@@ -292,9 +292,7 @@ void _eventWorker(
 
         DialogType dialogType = state.dialogType;
 
-        if (e.isPaused &&
-            state.moduleType == ModuleType.main() &&
-            !state.isReadOnly) {
+        if (e.isPaused && state.moduleType.shouldRecord && !state.isReadOnly) {
           dialogType = DialogType.breakInterview();
         }
 

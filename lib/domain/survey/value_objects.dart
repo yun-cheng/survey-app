@@ -154,6 +154,7 @@ class ModuleType with _$ModuleType {
   bool get isInterviewReport => value == 'interviewReport';
   bool get isRecode => value == 'recode';
   bool get needUpdateTab => value != 'visitReport';
+  bool get shouldRecord => ['samplingWithinHousehold', 'main'].contains(value);
   bool get ableToReAnswer =>
       ['samplingWithinHousehold', 'housingType'].contains(value);
   bool get shouldKeepInfo => ['visitReport', 'housingType'].contains(value);

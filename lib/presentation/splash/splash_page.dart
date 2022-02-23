@@ -3,12 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
 import '../../application/core/device/device_bloc.dart';
-import 'listeners/app_life_cycle_listener.dart';
-import 'listeners/audio_recorder_listener.dart';
-import 'listeners/navigation_listener.dart';
-import 'listeners/network_listener.dart';
-import 'listeners/response_restore_listener.dart';
-import 'listeners/watch_firestore_listener.dart';
+import '../core/app_listeners.dart';
 
 class SplashPage extends HookWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -30,16 +25,8 @@ class SplashPage extends HookWidget {
           ),
     );
 
-    return MultiBlocListener(
-      listeners: [
-        navigationListener,
-        networkListener,
-        appLifeCycleListener,
-        watchFirestoreListener,
-        audioRecorderListener,
-        responseRestoreListener,
-      ],
-      child: const Scaffold(
+    return const AppListeners(
+      child: Scaffold(
         body: Center(
           child: CircularProgressIndicator(),
         ),

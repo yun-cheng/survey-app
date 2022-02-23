@@ -278,45 +278,40 @@ ResponseState editFinished(
   }
 }
 
-// H_ 使用者在閒置後，選擇繼續訪問
-// FIXME 假設前一個 session 沒有順利 editFinished 怎麼處理
+// H_ 使用者在暫停問卷後，點擊繼續訪問
 ResponseState responseResumed(
   _ResponseResumed e,
   ResponseState state,
 ) {
   logger('Compute').i('ResponseResumed');
 
-  if (state.response.editFinished) {
-    final now = DeviceTimeStamp.now();
-    final newResponse = state.response.copyWith(
-      responseId: e.responseId,
-      tempResponseId: UniqueId.v1(),
-      editFinished: false,
-      sessionStartTimeStamp: now,
-      sessionEndTimeStamp: now,
-      lastChangedTimeStamp: now,
-    );
+  final now = DeviceTimeStamp.now();
+  final newResponse = state.response.copyWith(
+    responseId: e.responseId,
+    tempResponseId: UniqueId.v1(),
+    editFinished: false,
+    sessionStartTimeStamp: now,
+    sessionEndTimeStamp: now,
+    lastChangedTimeStamp: now,
+  );
 
-    // S_
-    final responseMap = {...state.responseMap};
-    final uploadResponseIdSet = {...state.uploadResponseIdSet};
-    responseMap[newResponse.responseId] = newResponse;
-    uploadResponseIdSet.add(newResponse.responseId);
+  // S_
+  final responseMap = {...state.responseMap};
+  final uploadResponseIdSet = {...state.uploadResponseIdSet};
+  responseMap[newResponse.responseId] = newResponse;
+  uploadResponseIdSet.add(newResponse.responseId);
 
-    return state.copyWith(
-      response: newResponse,
-      responseMap: responseMap,
-      uploadResponseIdSet: uploadResponseIdSet,
-      saveParameters: state.saveParameters.copyWith(
-        response: true,
-        responseMap: true,
-        responseMapKeys: {newResponse.responseId},
-        uploadResponseIdSet: true,
-      ),
-    );
-  } else {
-    return state;
-  }
+  return state.copyWith(
+    response: newResponse,
+    responseMap: responseMap,
+    uploadResponseIdSet: uploadResponseIdSet,
+    saveParameters: state.saveParameters.copyWith(
+      response: true,
+      responseMap: true,
+      responseMapKeys: {newResponse.responseId},
+      uploadResponseIdSet: true,
+    ),
+  );
 }
 
 // H_ 更新當前受訪者在其他模組的 responses
