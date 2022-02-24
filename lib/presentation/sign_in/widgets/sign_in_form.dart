@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../application/auth/auth_bloc.dart';
+import '../../../application/core/device/device_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../core/style/main.dart';
 import '../../core/widgets/rounded_button.dart';
@@ -52,8 +54,13 @@ class SignInForm extends StatelessWidget {
           RoundedButton(
             title: '登入',
             color: Colors.lightBlueAccent[400]!,
-            onPressed: () =>
-                context.read<AuthBloc>().add(const AuthEvent.signInPressed()),
+            onPressed: () {
+              final networkType = context.read<DeviceBloc>().state.networkType;
+
+              if (networkType.isConnected || kIsWeb) {
+                context.read<AuthBloc>().add(const AuthEvent.signInPressed());
+              }
+            },
           ),
         ],
       ),

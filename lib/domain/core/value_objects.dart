@@ -90,6 +90,8 @@ class SyncState with _$SyncState {
   factory SyncState.failure() => const SyncState('failure');
   factory SyncState.success() => const SyncState('success');
 
+  bool get isSuccess => value == 'success';
+
   String toText() {
     switch (value) {
       case 'inProgress':

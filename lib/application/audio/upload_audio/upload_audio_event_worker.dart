@@ -31,7 +31,7 @@ void _eventWorker(
         audioMap: audioMap,
       );
 
-      if (state.networkType.isConnected) {
+      if (state.networkType.isConnected || kIsWeb) {
         channel.send(const UploadAudioEvent.audioUploading());
       }
     },
@@ -62,11 +62,15 @@ void _eventWorker(
         networkType: e.networkType,
       );
 
-      if (state.networkType.isConnected) {
+      if (state.networkType.isConnected || kIsWeb) {
         channel.send(const UploadAudioEvent.audioUploading());
       }
     },
     loggedOut: (e) {
+      commonClearStorage(
+        localStorage: localStorage,
+        infoMap: UploadAudioStateDto.infoMap(),
+      );
       state = UploadAudioState.initial();
     },
     orElse: () {},

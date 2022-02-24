@@ -117,6 +117,26 @@ void commonSaveState({
   }
 }
 
+void commonClearStorage({
+  required ILocalStorage localStorage,
+  required Map<String, DtoInfo> infoMap,
+}) {
+  // S_ 迴圈有定義 DtoInfo 的參數
+  for (final parameter in infoMap.keys) {
+    final info = infoMap[parameter]!;
+
+    // S_ 有特別儲存的參數
+    if (!info.readOnly && info.key == null) {
+      final box = info.box ?? parameter;
+
+      localStorage.clear(box: box);
+    }
+  }
+
+  // S_ 剩下存在 default box 的參數
+  localStorage.clear();
+}
+
 Future<Map<String, dynamic>?> jsonFromStorage({
   required ILocalStorage localStorage,
   required Map<String, DtoInfo> infoMap,

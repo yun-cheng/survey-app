@@ -137,7 +137,7 @@ void _eventWorker(
       state = responseInfoMapUpdated(e.responseMap, state);
       state = visitReportUpdated(state);
     },
-      // H_ 住屋更新時
+    // H_ 住屋更新時
     housingUpdated: (e) {
       logger('Event').i('RespondentEvent: housingUpdated');
 
@@ -184,7 +184,12 @@ void _eventWorker(
         searchRespondentMap: searchRespondentMap,
       );
     },
+    // H_ 登出
     loggedOut: (e) {
+      commonClearStorage(
+        localStorage: localStorage,
+        infoMap: RespondentStateDto.infoMap(),
+      );
       state = RespondentState.initial().copyWith(
         saveParameters: StateParameters.clear(),
       );

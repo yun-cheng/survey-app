@@ -8,26 +8,27 @@ import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/watch_survey/watch_survey_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
-import '../../../domain/overview/survey.dart';
 import '../../core/style/main.dart';
 import '../../routes/router.gr.dart';
 
 class SurveyCard extends StatelessWidget {
   final int index;
-  final Survey survey;
+  final String surveyId;
 
   const SurveyCard({
     Key? key,
     required this.index,
-    required this.survey,
+    required this.surveyId,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<WatchSurveyBloc, WatchSurveyState>(
+      buildWhen: (p, c) => p.eventState != c.eventState,
       builder: (context, state) {
         logger('Build').i('SurveyCard');
 
+        final survey = state.surveyMap[surveyId]!;
         final projectName = state.projectMap[survey.projectId]?.name ?? '';
 
         return Column(

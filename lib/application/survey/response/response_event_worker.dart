@@ -163,6 +163,7 @@ void _eventWorker(
       // NOTE 在裡面決定要 update/save 什麼
       state = editFinished(e, state).updateSuccess();
     },
+    // H_ 網路狀態更新時
     networkUpdated: (e) async {
       logger('Event').i('ResponseEvent: networkUpdated');
 
@@ -172,7 +173,12 @@ void _eventWorker(
 
       channel.send(const ResponseEvent.responseMapUploading());
     },
+    // H_ 登出
     loggedOut: (e) {
+      commonClearStorage(
+        localStorage: localStorage,
+        infoMap: ResponseStateDto.infoMap(),
+      );
       state = ResponseState.initial().copyWith(
         saveParameters: StateParameters.clear(),
       );

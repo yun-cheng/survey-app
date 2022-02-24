@@ -34,6 +34,13 @@ void _eventWorker(
     surveyMapReceived: (e) {
       logger('Receive').i('WatchSurveyEvent: surveyMapReceived');
 
+      state = state
+          .copyWith(
+            surveyMapState: LoadState.inProgress(),
+            surveyFailure: none(),
+          )
+          .send(channel);
+
       state = e.failureOrSurveyMap.fold(
         (f) => state.copyWith(
           surveyMapState: LoadState.failure(),
@@ -91,6 +98,10 @@ void _eventWorker(
       );
     },
     loggedOut: (e) {
+      commonClearStorage(
+        localStorage: localStorage,
+        infoMap: WatchSurveyStateDto.infoMap(),
+      );
       state = WatchSurveyState.initial();
     },
     orElse: () {},

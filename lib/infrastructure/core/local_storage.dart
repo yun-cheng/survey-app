@@ -84,4 +84,14 @@ class LocalStorage implements ILocalStorage {
       _lock.synchronized(() => lazyBox.put(key ?? 'state', data));
     }
   }
+
+  @override
+  Future<void> clear({
+    String box = 'default',
+  }) async {
+    await openBox(box);
+    final lazyBox = boxMap[box]!;
+
+    _lock.synchronized(() => lazyBox.clear());
+  }
 }

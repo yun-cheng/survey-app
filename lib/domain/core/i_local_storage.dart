@@ -16,4 +16,8 @@ abstract class ILocalStorage {
     bool isMapEntries = false,
     required dynamic data,
   });
+
+  Future<void> clear({
+    String box = 'default',
+  });
 }

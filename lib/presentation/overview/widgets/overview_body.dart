@@ -14,7 +14,7 @@ class OverviewBody extends StatelessWidget {
     logger('Build').i('OverviewBody');
 
     return BlocBuilder<WatchSurveyBloc, WatchSurveyState>(
-      buildWhen: (p, c) => true,
+      buildWhen: (p, c) => p.eventState != c.eventState,
       builder: (context, state) {
         if (state.surveyMap.isNotEmpty) {
           return ListView.builder(
@@ -26,7 +26,7 @@ class OverviewBody extends StatelessWidget {
               return SurveyCard(
                 key: ValueKey(index),
                 index: index,
-                survey: survey,
+                surveyId: survey.id,
               );
             },
           );

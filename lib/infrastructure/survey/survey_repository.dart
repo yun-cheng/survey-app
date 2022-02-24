@@ -38,7 +38,7 @@ class SurveyRepository implements ISurveyRepository {
     final surveyRef = _storage.surveyRef.child('$surveyId/$surveyId.json');
 
     final Uint8List? data =
-        await surveyRef.getData().timeout(const Duration(seconds: 30));
+        await surveyRef.getData().timeout(const Duration(minutes: 1));
     final jsonStr = data != null ? String.fromCharCodes(data) : '';
     final result = await json.decode(jsonStr) as Map<String, dynamic>;
 

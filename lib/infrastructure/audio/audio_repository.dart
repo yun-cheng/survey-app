@@ -47,7 +47,9 @@ class AudioRepository implements IAudioRepository {
     required Audio audio,
   }) async {
     try {
+      // NOTE /data/user/0/com.yun_cheng.survey.dev/app_flutter/
       final appDir = await getApplicationDocumentsDirectory();
+      // NOTE /data/user/0/com.yun_cheng.survey.dev/cache
       final tempDir = await getTemporaryDirectory();
 
       final fromFilePath = '${tempDir.path}/${audio.toFileNameString()}';
@@ -86,7 +88,7 @@ class AudioRepository implements IAudioRepository {
       final result = await audioRef
           .child(audio.fileName.value)
           .list(const ListOptions(maxResults: 1))
-          .timeout(const Duration(seconds: 15));
+          .timeout(const Duration(seconds: 30));
 
       if (result.items.isEmpty) {
         final metadata = SettableMetadata(
@@ -113,6 +115,24 @@ class AudioRepository implements IAudioRepository {
       } else {
         return left(AudioFailure.unexpected());
       }
+    }
+  }
+
+  @override
+  Future<Either<AudioFailure, Unit>> clearLocalAudioDirectory() async {
+    try {
+      final appDir = await getApplicationDocumentsDirectory();
+      final audioPath = '${appDir.path}/audio/';
+      final audioPathExist = await Directory(audioPath).exists();
+
+      if (audioPathExist) {
+        await Directory(audioPath).delete(recursive: true);
+      }
+
+      return right(unit);
+    } catch (e) {
+      logger('Error').e('ClearLocalAudioDirectory Error!');
+      return left(AudioFailure.unexpected());
     }
   }
 }

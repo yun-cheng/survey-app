@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:async_task/async_task.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:dartz/dartz.dart' hide Tuple2;
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:tuple/tuple.dart';
@@ -62,6 +63,7 @@ class UploadAudioBloc extends IsolateBloc<UploadAudioEvent, UploadAudioState> {
       loggedOut: (e) async {
         _uploadProgressWatcher?.cancel();
         await execute(event, emit);
+        await _iAudioRepository.clearLocalAudioDirectory();
       },
       orElse: () async {
         await execute(event, emit);

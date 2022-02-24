@@ -72,8 +72,6 @@ class AuthBloc extends IsolateBloc<AuthEvent, AuthState> {
             );
       },
       loggedOut: (e) async {
-        _teamListSubscription?.cancel();
-        _interviewerListSubscription?.cancel();
         await execute(event, emit);
       },
       orElse: () async {

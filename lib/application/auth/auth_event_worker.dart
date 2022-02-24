@@ -118,7 +118,10 @@ void _eventWorker(
       }
     },
     loggedOut: (e) {
-      state = AuthState.initial();
+      state = AuthState.initial().copyWith(
+        teamList: state.teamList,
+        interviewerList: state.interviewerList,
+      );
     },
     orElse: () {},
   );

@@ -16,4 +16,6 @@ abstract class IAudioRepository {
   Future<Either<AudioFailure, Audio>> uploadAudio({
     required Audio audio,
   });
+
+  Future<Either<AudioFailure, Unit>> clearLocalAudioDirectory();
 }
