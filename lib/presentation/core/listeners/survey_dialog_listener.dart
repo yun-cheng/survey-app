@@ -7,6 +7,7 @@ import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/core/logger.dart';
 import '../../survey/widgets/break_interview_dialog.dart';
+import '../../survey/widgets/re_answer_dialog.dart';
 import '../../survey/widgets/switch_module_dialog.dart';
 import '../style/main.dart';
 
@@ -15,8 +16,9 @@ final surveyDialogListener =
   // H_ 需要跳出對話框時
   listenWhen: (p, c) => p.dialogType != c.dialogType && c.dialogType.notNone,
   listener: (context, state) {
-    logger('Build').i('SurveyDialog');
+    logger('Listen').i('UpdateAnswerStatusBloc: dialogType');
 
+    // H_ 訪問暫停時，停止錄音並結束編輯
     if (state.dialogType.isBreakInterview) {
       context
           .read<AudioRecorderBloc>()
@@ -40,8 +42,11 @@ final surveyDialogListener =
             child: state.dialogType.isBreakInterview
                 // H_ 訪問暫停
                 ? BreakInterviewDialog(controller: controller)
-                // H_ 切換至戶抽模組
-                : SwitchModuleDialog(controller: controller),
+                : state.dialogType.isSwitchToSamplingWithinHouseholdModule
+                    // H_ 切換至戶抽模組
+                    ? SwitchModuleDialog(controller: controller)
+                    // H_ 重新作答
+                    : ReAnswerDialog(controller: controller),
           ),
         );
       },

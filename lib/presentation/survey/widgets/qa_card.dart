@@ -131,7 +131,10 @@ class QaCard extends StatelessWidget {
                       // H_ RecodeBox
                       if (state.isRecodeModule && question.recodeNeeded) ...[
                         const SizedBox(height: 10),
-                        RecodeBox(questionId: question.id),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: RecodeBox(questionId: question.id),
+                        ),
                       ],
                       const SizedBox(height: 15),
                       // H_ Divider

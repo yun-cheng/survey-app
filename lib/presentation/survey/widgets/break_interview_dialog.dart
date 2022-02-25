@@ -7,6 +7,7 @@ import '../../../application/audio/audio_recorder/audio_recorder_bloc.dart';
 import '../../../application/navigation/navigation_bloc.dart';
 import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
+import '../../../domain/core/logger.dart';
 import '../../../domain/core/value_objects.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
@@ -22,6 +23,8 @@ class BreakInterviewDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    logger('Build').i('BreakInterviewDialog');
+
     return FlashBar(
       content: const Text(
         '繼續或中止訪問',
@@ -34,7 +37,10 @@ class BreakInterviewDialog extends StatelessWidget {
             style: kPTextStyle,
           ),
           onPressed: () async {
-            controller.dismiss(true);
+            controller.dismiss();
+            context.read<UpdateAnswerStatusBloc>().add(
+                  const UpdateAnswerStatusEvent.dialogClosed(),
+                );
 
             final moduleType =
                 context.read<UpdateAnswerStatusBloc>().state.moduleType;

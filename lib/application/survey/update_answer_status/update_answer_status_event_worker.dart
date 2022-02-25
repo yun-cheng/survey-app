@@ -244,7 +244,18 @@ void _eventWorker(
       dialogShowed: (e) {
         logger('Event').i('UpdateAnswerStatusEvent: dialogShowed');
 
-        if (e.type.isBreakInterview && state.moduleType.shouldRecord) {
+        state = state
+            .copyWith(
+              dialogType: DialogType.none(),
+            )
+            .send(channel);
+
+        if ((e.type.isBreakInterview &&
+                state.moduleType.shouldRecord &&
+                !state.isReadOnly) ||
+            (e.type.isReAnswer &&
+                state.moduleType.ableToReAnswer &&
+                state.isReadOnly)) {
           state = state.copyWith(
             dialogType: e.type,
           );

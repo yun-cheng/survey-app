@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'listeners/app_is_paused_listener.dart';
 import 'listeners/app_life_cycle_listener.dart';
 import 'listeners/audio_recorder_listener.dart';
 import 'listeners/navigation_listener.dart';
@@ -32,7 +31,6 @@ class AppListeners extends StatelessWidget {
         // H_ survey
         audioRecorderListener,
         responseRestoreListener,
-        appIsPausedListener,
         surveyDialogListener,
         surveyEventStateListener,
         surveyRestartStateListener,

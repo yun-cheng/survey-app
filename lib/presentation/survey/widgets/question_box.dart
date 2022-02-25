@@ -39,25 +39,31 @@ class QuestionBox extends StatelessWidget {
         logger('Build').i('QuestionBox');
 
         final question = state.questionMap[questionId] ?? Question.empty();
-
-        final questionText = question.toPlainTextBody(
-          withId: !question.hideId || state.isRecodeModule,
-        );
+        final withId = !question.hideId || state.isRecodeModule;
+        final isRecoding = question.recodeNeeded && state.isRecodeModule;
 
         return Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: isinCell ? null : kQuestionBackgroundColor,
+            color: isinCell
+                ? null
+                : (isRecoding
+                    ? kRecodeBackgroundColor
+                    : kQuestionBackgroundColor),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                questionText,
-                style: (isinCell ? kPTextStyle : kH3TextStyle).copyWith(
-                  fontWeight: FontWeight.w500,
+              RichText(
+                text: TextSpan(
+                  text: withId ? '$questionId. ' : '',
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        fontSize: isinCell ? kPFontSize : kH3FontSize,
+                        fontWeight: FontWeight.w500,
+                      ),
+                  children: question.toTextSpanList(),
                 ),
               ),
               if (question.note != '') ...[

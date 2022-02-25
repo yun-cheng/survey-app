@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../application/survey/response/response_bloc.dart';
 import '../../../application/survey/update_answer_status/update_answer_status_bloc.dart';
 import '../../../domain/survey/value_objects.dart';
 import '../../core/style/main.dart';
@@ -38,18 +37,9 @@ class ReAnswerButton extends StatelessWidget {
             padding: const EdgeInsets.all(10),
             child: OutlinedButton(
               onPressed: () {
-                context.read<ResponseBloc>().add(
-                      const ResponseEvent.editFinished(responseFinished: false),
-                    );
                 context.read<UpdateAnswerStatusBloc>().add(
-                      const UpdateAnswerStatusEvent.stateCleared(),
-                    );
-
-                context.read<ResponseBloc>().add(
-                      ResponseEvent.responseStarted(
-                        respondent: state.respondent,
-                        moduleType: state.moduleType,
-                        isNewResponse: true,
+                      UpdateAnswerStatusEvent.dialogShowed(
+                        type: DialogType.reAnswer(),
                       ),
                     );
               },

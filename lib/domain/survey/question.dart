@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'answer.dart';
@@ -102,4 +103,6 @@ class Question with _$Question {
     final idText = withId ? '$id. ' : '';
     return idText + stringBody;
   }
+
+  List<TextSpan> toTextSpanList() => body.map((e) => e.toTextSpan()).toList();
 }

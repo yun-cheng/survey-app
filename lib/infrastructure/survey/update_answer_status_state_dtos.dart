@@ -170,7 +170,7 @@ class UpdateAnswerStatusStateDto with _$UpdateAnswerStatusStateDto {
     );
     return state.copyWith(
       // NOTE 確保真的有出現 dialog
-      dialogType: state.moduleType == ModuleType.main() && !state.isReadOnly
+      dialogType: state.moduleType.shouldRecord && !state.isReadOnly
           ? DialogType.breakInterview()
           : state.dialogType,
     );

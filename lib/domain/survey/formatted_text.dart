@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'answer.dart';
@@ -60,12 +61,26 @@ class FormattedText with _$FormattedText {
   }
 
   String toPlainText() {
-    if (type == FormatType.string()) {
+    if (type.isString) {
       return stringBody;
-    } else if (type == FormatType.referenceKey()) {
+    } else if (type.isReference) {
       return answer.stringBody;
     }
 
     return '';
+  }
+
+  TextSpan toTextSpan() {
+    TextStyle style = const TextStyle();
+
+    if (type.isReference) {
+      style = style.copyWith(
+        color: Colors.green[600],
+      );
+    }
+    return TextSpan(
+      text: toPlainText(),
+      style: style,
+    );
   }
 }

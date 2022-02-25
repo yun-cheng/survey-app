@@ -11,6 +11,9 @@ class FormatType with _$FormatType {
   factory FormatType.empty() => const FormatType('');
   factory FormatType.string() => const FormatType('string');
   factory FormatType.referenceKey() => const FormatType('referenceKey');
+
+  bool get isReference => value == 'referenceKey';
+  bool get isString => value == 'string';
 }
 
 @freezed
@@ -235,10 +238,12 @@ class DialogType with _$DialogType {
 
   factory DialogType.none() => const DialogType('');
   factory DialogType.breakInterview() => const DialogType('breakInterview');
+  factory DialogType.reAnswer() => const DialogType('reAnswer');
   factory DialogType.switchToSamplingWithinHouseholdModule() =>
       const DialogType('switchToSamplingWithinHouseholdModule');
 
   bool get isBreakInterview => value == 'breakInterview';
+  bool get isReAnswer => value == 'reAnswer';
   bool get isSwitchToSamplingWithinHouseholdModule =>
       value == 'switchToSamplingWithinHouseholdModule';
   bool get notNone => value != '';

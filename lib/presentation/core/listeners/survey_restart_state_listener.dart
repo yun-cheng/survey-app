@@ -14,7 +14,7 @@ final surveyRestartStateListener =
   // H_ 需要重置 state 時
   listenWhen: (p, c) => p.restartState != c.restartState && c.restartState,
   listener: (context, state) {
-    logger('Listen').i('UpdateAnswerStatusBloc: restartState');
+    logger('Listen').e('UpdateAnswerStatusBloc: restartState');
 
     context
         .read<AudioRecorderBloc>()
