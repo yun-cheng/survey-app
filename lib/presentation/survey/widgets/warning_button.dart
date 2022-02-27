@@ -38,8 +38,7 @@ class WarningButton extends StatelessWidget {
               onPressed: () {
                 context.read<BlockGestureCubit>().block();
                 context.read<UpdateAnswerStatusBloc>().add(
-                      UpdateAnswerStatusEvent.navigatedToQuestionId(
-                        page: warning.pageNumber,
+                      UpdateAnswerStatusEvent.jumpedToWarningQuestion(
                         questionId: warning.id,
                       ),
                     );

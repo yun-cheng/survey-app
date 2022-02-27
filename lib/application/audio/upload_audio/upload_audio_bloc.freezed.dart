@@ -179,15 +179,23 @@ class __$AudioAddedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AudioAdded implements _AudioAdded {
+class _$_AudioAdded with DiagnosticableTreeMixin implements _AudioAdded {
   const _$_AudioAdded({required this.audio});
 
   @override
   final Audio audio;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UploadAudioEvent.audioAdded(audio: $audio)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UploadAudioEvent.audioAdded'))
+      ..add(DiagnosticsProperty('audio', audio));
   }
 
   @override
@@ -325,12 +333,21 @@ class __$AudioUploadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AudioUploading implements _AudioUploading {
+class _$_AudioUploading
+    with DiagnosticableTreeMixin
+    implements _AudioUploading {
   const _$_AudioUploading();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UploadAudioEvent.audioUploading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UploadAudioEvent.audioUploading'));
   }
 
   @override
@@ -468,15 +485,23 @@ class __$AudioUploadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_AudioUploaded implements _AudioUploaded {
+class _$_AudioUploaded with DiagnosticableTreeMixin implements _AudioUploaded {
   const _$_AudioUploaded(this.failureOrAudio);
 
   @override
   final Either<AudioFailure, Audio> failureOrAudio;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UploadAudioEvent.audioUploaded(failureOrAudio: $failureOrAudio)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UploadAudioEvent.audioUploaded'))
+      ..add(DiagnosticsProperty('failureOrAudio', failureOrAudio));
   }
 
   @override
@@ -638,15 +663,25 @@ class __$NetworkUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NetworkUpdated implements _NetworkUpdated {
+class _$_NetworkUpdated
+    with DiagnosticableTreeMixin
+    implements _NetworkUpdated {
   const _$_NetworkUpdated({required this.networkType});
 
   @override
   final NetworkType networkType;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UploadAudioEvent.networkUpdated(networkType: $networkType)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UploadAudioEvent.networkUpdated'))
+      ..add(DiagnosticsProperty('networkType', networkType));
   }
 
   @override
@@ -785,12 +820,18 @@ class __$LoggedOutCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoggedOut implements _LoggedOut {
+class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   const _$_LoggedOut();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UploadAudioEvent.loggedOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'UploadAudioEvent.loggedOut'));
   }
 
   @override
@@ -915,12 +956,19 @@ class __$InitializedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
+class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   const _$_Initialized();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UploadAudioEvent.initialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UploadAudioEvent.initialized'));
   }
 
   @override
@@ -1235,7 +1283,8 @@ class __$UploadAudioStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UploadAudioState extends _UploadAudioState {
+class _$_UploadAudioState extends _UploadAudioState
+    with DiagnosticableTreeMixin {
   const _$_UploadAudioState(
       {required this.stateId,
       required this.audioMap,
@@ -1259,8 +1308,21 @@ class _$_UploadAudioState extends _UploadAudioState {
   final LoadState eventState;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'UploadAudioState(stateId: $stateId, audioMap: $audioMap, networkType: $networkType, uploadState: $uploadState, audioFailure: $audioFailure, eventState: $eventState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'UploadAudioState'))
+      ..add(DiagnosticsProperty('stateId', stateId))
+      ..add(DiagnosticsProperty('audioMap', audioMap))
+      ..add(DiagnosticsProperty('networkType', networkType))
+      ..add(DiagnosticsProperty('uploadState', uploadState))
+      ..add(DiagnosticsProperty('audioFailure', audioFailure))
+      ..add(DiagnosticsProperty('eventState', eventState));
   }
 
   @override

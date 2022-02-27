@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,22 +26,22 @@ class SimpleTableChoicesBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer? timer;
+
     return BlocListener<AnswerCubit, Answer>(
       listenWhen: (p, c) => p != c,
       listener: (context, answer) {
-        if (context
-                .read<UpdateAnswerStatusBloc>()
-                .state
-                .answerMap[questionId] !=
-            answer) {
-          context.read<UpdateAnswerStatusBloc>().add(
+        timer?.cancel();
+        timer = Timer(
+          const Duration(milliseconds: 500),
+          () => context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(
                   questionId: questionId,
                   answerValue: null,
                   answer: answer,
                 ),
-              );
-        }
+              ),
+        );
       },
       child: BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
         buildWhen: (p, c) {

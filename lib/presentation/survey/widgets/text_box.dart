@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +27,7 @@ class TextBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('TextBox');
 
+    Timer? timer;
     late final TextEditingController controller;
 
     final state = useBloc<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
@@ -81,12 +84,16 @@ class TextBox extends HookWidget {
                   ]
                 : null,
         onChanged: (value) {
-          context.read<UpdateAnswerStatusBloc>().add(
-                UpdateAnswerStatusEvent.answerUpdated(
-                  questionId: questionId,
-                  answerValue: value,
+          timer?.cancel();
+          timer = Timer(
+            const Duration(milliseconds: 500),
+            () => context.read<UpdateAnswerStatusBloc>().add(
+                  UpdateAnswerStatusEvent.answerUpdated(
+                    questionId: questionId,
+                    answerValue: value,
+                  ),
                 ),
-              );
+          );
         },
         // validator: (_) {},
       ),

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -11,6 +13,8 @@ class SearchBox extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final controller = useTextEditingController(text: '');
+
+    Timer? timer;
 
     return SizedBox(
       width: kAnswerElementWidth,
@@ -37,11 +41,15 @@ class SearchBox extends HookWidget {
           ),
         ),
         onChanged: (value) {
-          context.read<RespondentBloc>().add(
-                RespondentEvent.textSearched(
-                  text: value,
+          timer?.cancel();
+          timer = Timer(
+            const Duration(milliseconds: 500),
+            () => context.read<RespondentBloc>().add(
+                  RespondentEvent.textSearched(
+                    text: value,
+                  ),
                 ),
-              );
+          );
         },
         // validator: (_) {},
       ),

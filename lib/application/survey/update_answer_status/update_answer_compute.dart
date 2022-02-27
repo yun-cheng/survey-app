@@ -11,14 +11,14 @@ UpdateAnswerStatusState answerUpdated(
   final answerMap = {
     ...state.isRecodeModule ? state.recodeAnswerMap : state.answerMap
   };
-  
+
   late final Answer newAnswer;
   if (e.answer != null) {
     newAnswer = e.answer!;
   } else {
     final oldAnswer = answerMap[e.questionId] ?? Answer.empty();
 
-    if (e.toggleSpecialAnswer) {
+    if (e.setIsSpecialAnswer != null) {
       newAnswer = Answer.empty();
     } else if (e.isNote) {
       newAnswer = oldAnswer.setNote(e.answerValue, e.noteOf!);

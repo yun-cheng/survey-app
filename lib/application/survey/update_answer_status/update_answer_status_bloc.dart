@@ -36,9 +36,6 @@ part 'update_survey_page_compute.dart';
 
 class UpdateAnswerStatusBloc
     extends IsolateBloc<UpdateAnswerStatusEvent, UpdateAnswerStatusState> {
-  final _answerUpdatedList = <_AnswerUpdated>[];
-  bool _stateIsYielding = false;
-
   UpdateAnswerStatusBloc() : super(UpdateAnswerStatusState.initial()) {
     on<UpdateAnswerStatusEvent>(_onEvent, transformer: sequential());
     add(const UpdateAnswerStatusEvent.initialized());
@@ -58,36 +55,10 @@ class UpdateAnswerStatusBloc
           emit: emit,
         );
       },
-      answerUpdated: (e) async {
-        // NOTE 若短時間內快速輸入，同一題只保留最後一個輸入結果進去運算，除了多選題
-        if (_answerUpdatedList.isNotEmpty && !e.toggle) {
-          _answerUpdatedList.removeWhere((x) => x.questionId == e.questionId);
-        }
-        _answerUpdatedList.add(e);
-
-        if (!_stateIsYielding) {
-          _stateIsYielding = true;
-          await answerUpdatedStream(emit);
-        }
-      },
       orElse: () async {
         await execute(event, emit);
       },
     );
-  }
-
-  Future<void> answerUpdatedStream(
-    Emitter<UpdateAnswerStatusState> emit,
-  ) async {
-    while (true) {
-      if (_answerUpdatedList.isNotEmpty) {
-        final event = _answerUpdatedList.removeAt(0);
-        await execute(event, emit);
-      } else {
-        _stateIsYielding = false;
-        break;
-      }
-    }
   }
 
   // HIGHLIGHT 用 eventState 來判斷是否結束這回的 state emit 較直觀也較快

@@ -32,7 +32,7 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     @Default(false) bool toggle,
     String? noteOf,
     @Default(false) bool isRecode,
-    @Default(false) bool toggleSpecialAnswer,
+    bool? setIsSpecialAnswer,
   }) = _AnswerUpdated;
 
   // H_ 切換頁面
@@ -45,6 +45,10 @@ class UpdateAnswerStatusEvent with _$UpdateAnswerStatusEvent {
     required int page,
     required String questionId,
   }) = _ScrolledToQuestionId;
+
+  const factory UpdateAnswerStatusEvent.jumpedToWarningQuestion({
+    required String questionId,
+  }) = _JumpedToWarningQuestion;
 
   // H_ 更新目錄題目
   const factory UpdateAnswerStatusEvent.contentQuestionMapUpdated() =

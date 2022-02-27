@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,22 +21,21 @@ class SpecialAnswerSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer? timer;
+
     return BlocConsumer<IsSpecialAnswerCubit, bool>(
       listener: (context, isSpecialAnswer) {
-        if (context
-                .read<UpdateAnswerStatusBloc>()
-                .state
-                .answerStatusMap[questionId]
-                ?.isSpecialAnswer !=
-            isSpecialAnswer) {
-          context.read<UpdateAnswerStatusBloc>().add(
+        timer?.cancel();
+        timer = Timer(
+          const Duration(milliseconds: 500),
+          () => context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(
                   questionId: questionId,
                   answerValue: null,
-                  toggleSpecialAnswer: true,
+                  setIsSpecialAnswer: isSpecialAnswer,
                 ),
-              );
-        }
+              ),
+        );
       },
       builder: (context, isSpecialAnswer) {
         logger('Build').i('SpecialAnswerSwitch');

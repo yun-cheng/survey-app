@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -25,6 +27,8 @@ class NoteBox extends HookWidget {
   Widget build(BuildContext context) {
     logger('Build').i('NoteBox');
 
+    Timer? timer;
+
     final controller = useTextEditingController(text: note);
 
     return Container(
@@ -47,14 +51,18 @@ class NoteBox extends HookWidget {
         maxLines: null,
         keyboardType: TextInputType.multiline,
         onChanged: (value) {
-          context.read<UpdateAnswerStatusBloc>().add(
-                UpdateAnswerStatusEvent.answerUpdated(
-                  questionId: questionId,
-                  answerValue: value,
-                  isNote: true,
-                  noteOf: choice.id,
+          timer?.cancel();
+          timer = Timer(
+            const Duration(milliseconds: 500),
+            () => context.read<UpdateAnswerStatusBloc>().add(
+                  UpdateAnswerStatusEvent.answerUpdated(
+                    questionId: questionId,
+                    answerValue: value,
+                    isNote: true,
+                    noteOf: choice.id,
+                  ),
                 ),
-              );
+          );
         },
       ),
     );

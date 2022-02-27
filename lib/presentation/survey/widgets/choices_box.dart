@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,21 +29,24 @@ class ChoicesBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer? timer;
+
     return BlocListener<AnswerCubit, Answer>(
       listener: (context, answer) {
-        if (context
-                .read<UpdateAnswerStatusBloc>()
-                .state
-                .answerMap[questionId] !=
-            answer) {
-          context.read<UpdateAnswerStatusBloc>().add(
+        // H_ 將 cubit 最新的 answer 傳進 bloc
+        // HIGHLIGHT 不需事先與 bloc 的 answer 比對，
+        //  因短時間快速切換 answer 可能不是比對到真正最新的 answer，而造成錯誤！
+        timer?.cancel();
+        timer = Timer(
+          const Duration(milliseconds: 500),
+          () => context.read<UpdateAnswerStatusBloc>().add(
                 UpdateAnswerStatusEvent.answerUpdated(
                   questionId: questionId,
                   answerValue: null,
                   answer: answer,
                 ),
-              );
-        }
+              ),
+        );
       },
       child: BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
         buildWhen: (p, c) {

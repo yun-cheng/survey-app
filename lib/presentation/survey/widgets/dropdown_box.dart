@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +24,8 @@ class DropdownBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Timer? timer;
+
     return BlocBuilder<UpdateAnswerStatusBloc, UpdateAnswerStatusState>(
       buildWhen: (p, c) {
         if (p.updateState != c.updateState &&
@@ -131,15 +135,19 @@ class DropdownBox extends StatelessWidget {
                   ),
                   items: choiceItemList,
                   onChanged: (String? value) {
-                    context.read<UpdateAnswerStatusBloc>().add(
-                          UpdateAnswerStatusEvent.answerUpdated(
-                            questionId: questionId,
-                            answerValue: choiceList
-                                .firstWhere((choice) => choice.id == value),
-                            isSpecialAnswer: isSpecialAnswer,
-                            // asSingle: choice.asSingle,
+                    timer?.cancel();
+                    timer = Timer(
+                      const Duration(milliseconds: 500),
+                      () => context.read<UpdateAnswerStatusBloc>().add(
+                            UpdateAnswerStatusEvent.answerUpdated(
+                              questionId: questionId,
+                              answerValue: choiceList
+                                  .firstWhere((choice) => choice.id == value),
+                              isSpecialAnswer: isSpecialAnswer,
+                              // asSingle: choice.asSingle,
+                            ),
                           ),
-                        );
+                    );
                   },
                 ),
               ),

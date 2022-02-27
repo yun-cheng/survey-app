@@ -357,7 +357,9 @@ class __$WatchResponseMapStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
+class _$_WatchResponseMapStarted
+    with DiagnosticableTreeMixin
+    implements _WatchResponseMapStarted {
   const _$_WatchResponseMapStarted(
       {required this.teamId, required this.interviewer});
 
@@ -367,8 +369,18 @@ class _$_WatchResponseMapStarted implements _WatchResponseMapStarted {
   final Interviewer interviewer;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.watchResponseMapAndReferenceListStarted(teamId: $teamId, interviewer: $interviewer)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty(
+          'type', 'ResponseEvent.watchResponseMapAndReferenceListStarted'))
+      ..add(DiagnosticsProperty('teamId', teamId))
+      ..add(DiagnosticsProperty('interviewer', interviewer));
   }
 
   @override
@@ -633,15 +645,25 @@ class __$ResponseMapReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseMapReceived implements _ResponseMapReceived {
+class _$_ResponseMapReceived
+    with DiagnosticableTreeMixin
+    implements _ResponseMapReceived {
   const _$_ResponseMapReceived(this.failureOrResponseMap);
 
   @override
   final Either<SurveyFailure, Map<UniqueId, Response>> failureOrResponseMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseMapReceived(failureOrResponseMap: $failureOrResponseMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseMapReceived'))
+      ..add(DiagnosticsProperty('failureOrResponseMap', failureOrResponseMap));
   }
 
   @override
@@ -901,15 +923,26 @@ class __$ReferenceListReceivedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ReferenceListReceived implements _ReferenceListReceived {
+class _$_ReferenceListReceived
+    with DiagnosticableTreeMixin
+    implements _ReferenceListReceived {
   const _$_ReferenceListReceived(this.failureOrReferenceList);
 
   @override
   final Either<SurveyFailure, List<Reference>> failureOrReferenceList;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.referenceListReceived(failureOrReferenceList: $failureOrReferenceList)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.referenceListReceived'))
+      ..add(DiagnosticsProperty(
+          'failureOrReferenceList', failureOrReferenceList));
   }
 
   @override
@@ -1156,12 +1189,21 @@ class __$UploadTimerUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UploadTimerUpdated implements _UploadTimerUpdated {
+class _$_UploadTimerUpdated
+    with DiagnosticableTreeMixin
+    implements _UploadTimerUpdated {
   const _$_UploadTimerUpdated();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.uploadTimerUpdated()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.uploadTimerUpdated'));
   }
 
   @override
@@ -1391,12 +1433,21 @@ class __$ResponseMapUploadingCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseMapUploading implements _ResponseMapUploading {
+class _$_ResponseMapUploading
+    with DiagnosticableTreeMixin
+    implements _ResponseMapUploading {
   const _$_ResponseMapUploading();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseMapUploading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseMapUploading'));
   }
 
   @override
@@ -1639,15 +1690,25 @@ class __$ResponseMapUploadedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseMapUploaded implements _ResponseMapUploaded {
+class _$_ResponseMapUploaded
+    with DiagnosticableTreeMixin
+    implements _ResponseMapUploaded {
   const _$_ResponseMapUploaded(this.failureOrResult);
 
   @override
   final Either<SurveyFailure, Set<UniqueId>> failureOrResult;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseMapUploaded(failureOrResult: $failureOrResult)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseMapUploaded'))
+      ..add(DiagnosticsProperty('failureOrResult', failureOrResult));
   }
 
   @override
@@ -1916,15 +1977,25 @@ class __$SurveySelectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_SurveySelected implements _SurveySelected {
+class _$_SurveySelected
+    with DiagnosticableTreeMixin
+    implements _SurveySelected {
   const _$_SurveySelected({required this.survey});
 
   @override
   final Survey survey;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.surveySelected(survey: $survey)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.surveySelected'))
+      ..add(DiagnosticsProperty('survey', survey));
   }
 
   @override
@@ -2240,7 +2311,9 @@ class __$ResponseStartedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseStarted implements _ResponseStarted {
+class _$_ResponseStarted
+    with DiagnosticableTreeMixin
+    implements _ResponseStarted {
   const _$_ResponseStarted(
       {required this.respondent,
       required this.moduleType,
@@ -2266,8 +2339,21 @@ class _$_ResponseStarted implements _ResponseStarted {
   final UniqueId? responseId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseStarted(respondent: $respondent, moduleType: $moduleType, withResponseId: $withResponseId, breakInterview: $breakInterview, isNewResponse: $isNewResponse, responseId: $responseId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseStarted'))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('withResponseId', withResponseId))
+      ..add(DiagnosticsProperty('breakInterview', breakInterview))
+      ..add(DiagnosticsProperty('isNewResponse', isNewResponse))
+      ..add(DiagnosticsProperty('responseId', responseId));
   }
 
   @override
@@ -2577,7 +2663,9 @@ class __$ResponseUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseUpdated implements _ResponseUpdated {
+class _$_ResponseUpdated
+    with DiagnosticableTreeMixin
+    implements _ResponseUpdated {
   const _$_ResponseUpdated(
       {required this.answerMap,
       required this.answerStatusMap,
@@ -2591,8 +2679,18 @@ class _$_ResponseUpdated implements _ResponseUpdated {
   final SimpleSurveyPageState surveyPageState;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseUpdated(answerMap: $answerMap, answerStatusMap: $answerStatusMap, surveyPageState: $surveyPageState)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseUpdated'))
+      ..add(DiagnosticsProperty('answerMap', answerMap))
+      ..add(DiagnosticsProperty('answerStatusMap', answerStatusMap))
+      ..add(DiagnosticsProperty('surveyPageState', surveyPageState));
   }
 
   @override
@@ -2860,15 +2958,23 @@ class __$EditFinishedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_EditFinished implements _EditFinished {
+class _$_EditFinished with DiagnosticableTreeMixin implements _EditFinished {
   const _$_EditFinished({required this.responseFinished});
 
   @override // NOTE 是否完成這份問卷
   final bool responseFinished;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.editFinished(responseFinished: $responseFinished)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.editFinished'))
+      ..add(DiagnosticsProperty('responseFinished', responseFinished));
   }
 
   @override
@@ -3136,15 +3242,25 @@ class __$ResponseResumedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseResumed implements _ResponseResumed {
+class _$_ResponseResumed
+    with DiagnosticableTreeMixin
+    implements _ResponseResumed {
   const _$_ResponseResumed(this.responseId);
 
   @override
   final UniqueId responseId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.responseResumed(responseId: $responseId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.responseResumed'))
+      ..add(DiagnosticsProperty('responseId', responseId));
   }
 
   @override
@@ -3410,15 +3526,25 @@ class __$NetworkUpdatedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_NetworkUpdated implements _NetworkUpdated {
+class _$_NetworkUpdated
+    with DiagnosticableTreeMixin
+    implements _NetworkUpdated {
   const _$_NetworkUpdated({required this.networkType});
 
   @override
   final NetworkType networkType;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.networkUpdated(networkType: $networkType)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseEvent.networkUpdated'))
+      ..add(DiagnosticsProperty('networkType', networkType));
   }
 
   @override
@@ -3661,12 +3787,18 @@ class __$LoggedOutCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_LoggedOut implements _LoggedOut {
+class _$_LoggedOut with DiagnosticableTreeMixin implements _LoggedOut {
   const _$_LoggedOut();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.loggedOut()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ResponseEvent.loggedOut'));
   }
 
   @override
@@ -3895,12 +4027,18 @@ class __$InitializedCopyWithImpl<$Res> extends _$ResponseEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Initialized implements _Initialized {
+class _$_Initialized with DiagnosticableTreeMixin implements _Initialized {
   const _$_Initialized();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseEvent.initialized()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ResponseEvent.initialized'));
   }
 
   @override
@@ -4698,7 +4836,7 @@ class __$ResponseStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ResponseState extends _ResponseState {
+class _$_ResponseState extends _ResponseState with DiagnosticableTreeMixin {
   const _$_ResponseState(
       {required this.stateId,
       required this.survey,
@@ -4773,8 +4911,38 @@ class _$_ResponseState extends _ResponseState {
   final StateParameters saveParameters;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ResponseState(stateId: $stateId, survey: $survey, interviewer: $interviewer, respondent: $respondent, response: $response, responseMap: $responseMap, referenceList: $referenceList, moduleType: $moduleType, responseId: $responseId, mainResponse: $mainResponse, questionMap: $questionMap, uploadResponseIdSet: $uploadResponseIdSet, downloadedResponseMap: $downloadedResponseMap, respondentResponseMap: $respondentResponseMap, dialogType: $dialogType, networkType: $networkType, responseMapState: $responseMapState, syncState: $syncState, responseFailure: $responseFailure, eventState: $eventState, updateState: $updateState, updateParameters: $updateParameters, saveParameters: $saveParameters)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ResponseState'))
+      ..add(DiagnosticsProperty('stateId', stateId))
+      ..add(DiagnosticsProperty('survey', survey))
+      ..add(DiagnosticsProperty('interviewer', interviewer))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('response', response))
+      ..add(DiagnosticsProperty('responseMap', responseMap))
+      ..add(DiagnosticsProperty('referenceList', referenceList))
+      ..add(DiagnosticsProperty('moduleType', moduleType))
+      ..add(DiagnosticsProperty('responseId', responseId))
+      ..add(DiagnosticsProperty('mainResponse', mainResponse))
+      ..add(DiagnosticsProperty('questionMap', questionMap))
+      ..add(DiagnosticsProperty('uploadResponseIdSet', uploadResponseIdSet))
+      ..add(DiagnosticsProperty('downloadedResponseMap', downloadedResponseMap))
+      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
+      ..add(DiagnosticsProperty('dialogType', dialogType))
+      ..add(DiagnosticsProperty('networkType', networkType))
+      ..add(DiagnosticsProperty('responseMapState', responseMapState))
+      ..add(DiagnosticsProperty('syncState', syncState))
+      ..add(DiagnosticsProperty('responseFailure', responseFailure))
+      ..add(DiagnosticsProperty('eventState', eventState))
+      ..add(DiagnosticsProperty('updateState', updateState))
+      ..add(DiagnosticsProperty('updateParameters', updateParameters))
+      ..add(DiagnosticsProperty('saveParameters', saveParameters));
   }
 
   @override
@@ -5197,7 +5365,7 @@ class __$StateParametersCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StateParameters extends _StateParameters {
+class _$_StateParameters extends _StateParameters with DiagnosticableTreeMixin {
   const _$_StateParameters(
       {required this.referenceList,
       required this.response,
@@ -5239,8 +5407,27 @@ class _$_StateParameters extends _StateParameters {
   final bool tabRespondentMap;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'StateParameters(referenceList: $referenceList, response: $response, survey: $survey, interviewer: $interviewer, respondent: $respondent, responseMap: $responseMap, responseMapKeys: $responseMapKeys, uploadResponseIdSet: $uploadResponseIdSet, visitReportsMap: $visitReportsMap, housingMap: $housingMap, respondentResponseMap: $respondentResponseMap, tabRespondentMap: $tabRespondentMap)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'StateParameters'))
+      ..add(DiagnosticsProperty('referenceList', referenceList))
+      ..add(DiagnosticsProperty('response', response))
+      ..add(DiagnosticsProperty('survey', survey))
+      ..add(DiagnosticsProperty('interviewer', interviewer))
+      ..add(DiagnosticsProperty('respondent', respondent))
+      ..add(DiagnosticsProperty('responseMap', responseMap))
+      ..add(DiagnosticsProperty('responseMapKeys', responseMapKeys))
+      ..add(DiagnosticsProperty('uploadResponseIdSet', uploadResponseIdSet))
+      ..add(DiagnosticsProperty('visitReportsMap', visitReportsMap))
+      ..add(DiagnosticsProperty('housingMap', housingMap))
+      ..add(DiagnosticsProperty('respondentResponseMap', respondentResponseMap))
+      ..add(DiagnosticsProperty('tabRespondentMap', tabRespondentMap));
   }
 
   @override

@@ -44,6 +44,10 @@ class AnswerStatus with _$AnswerStatus {
 
   AnswerStatus reset() => AnswerStatus.empty().setUnanswered();
 
+  AnswerStatus setSpecialAnswer(bool isSpecialAnswer) => reset().copyWith(
+        isSpecialAnswer: isSpecialAnswer,
+      );
+
   // H_ 更新狀態
   AnswerStatus updateTimeStamp() => copyWith(
         lastChangedTimeStamp: DeviceTimeStamp.now(),
@@ -91,10 +95,6 @@ class AnswerStatus with _$AnswerStatus {
       noteMap: newNoteMap,
     );
   }
-
-  AnswerStatus switchSpecialAnswer() => reset().copyWith(
-        isSpecialAnswer: !isSpecialAnswer,
-      );
 
   // H_
   Warning toWarning(Question question) {

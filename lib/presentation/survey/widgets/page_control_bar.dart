@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -18,6 +20,8 @@ class PageControlBar extends HookWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    Timer? timer;
+
     // H_ 用來在鍵盤顯示時，隱藏 PageControlBar
     final keyboardVisibilityController = KeyboardVisibilityController();
 
@@ -59,17 +63,24 @@ class PageControlBar extends HookWidget {
       void onPressed(Direction? direction) {
         context.read<BlockGestureCubit>().block();
 
-        if (direction != null) {
-          context.read<UpdateAnswerStatusBloc>().add(
-                UpdateAnswerStatusEvent.pageNavigatedTo(
-                  direction: direction,
-                ),
-              );
-        } else {
-          context.read<UpdateAnswerStatusBloc>().add(
-                const UpdateAnswerStatusEvent.finishedButtonPressed(),
-              );
-        }
+        // NOTE timer 避免短時間內觸發多次，也避免在答題後馬上切換頁面所致的作答遺漏
+        timer?.cancel();
+        timer = Timer(
+          const Duration(milliseconds: 500),
+          () {
+            if (direction != null) {
+              context.read<UpdateAnswerStatusBloc>().add(
+                    UpdateAnswerStatusEvent.pageNavigatedTo(
+                      direction: direction,
+                    ),
+                  );
+            } else {
+              context.read<UpdateAnswerStatusBloc>().add(
+                    const UpdateAnswerStatusEvent.finishedButtonPressed(),
+                  );
+            }
+          },
+        );
       }
 
       return Visibility(

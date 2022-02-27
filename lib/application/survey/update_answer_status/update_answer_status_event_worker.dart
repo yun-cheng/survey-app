@@ -172,34 +172,30 @@ void _eventWorker(
 
         state = state.sendInProgress(channel, blockGesture: true);
 
-        state = state.copyWith(
-          direction: Direction.current,
-          page: state.isReadOnly ? 0 : e.page,
-          scrollToQuestionIndex: -99,
-          saveParameters: state.saveParameters.copyWith(
-            page: true,
-          ),
+        state = jumpedToQuestionFlow(
+          channel,
+          state,
+          page: e.page,
+          questionId: e.questionId,
         );
-        if (!state.isReadOnly) {
-          state = pageUpdatedFlow(channel, state);
+      },
+      jumpedToWarningQuestion: (e) {
+        logger('User Event')
+            .i('UpdateAnswerStatusEvent: jumpedToWarningQuestion');
+
+        state = state.sendInProgress(channel, blockGesture: true);
+
+        final warning = state.warning;
+
+        // S_ 確認要去的 warning 還在
+        if (e.questionId == warning.id) {
+          state = jumpedToQuestionFlow(
+            channel,
+            state,
+            page: warning.pageNumber,
+            questionId: warning.id,
+          );
         }
-
-        final pageQIdList = state.pageQIdSet
-            .map((questionId) => state.questionMap[questionId]!)
-            .filter((question) =>
-                question.tableId == '' ||
-                (question.tableId != '' && question.type.isTable))
-            .map((question) => question.id)
-            .toList();
-
-        final questionIndex = pageQIdList
-            .indexOfFirst((questionId) => questionId == e.questionId);
-
-        state = state
-            .copyWith(
-              scrollToQuestionIndex: questionIndex,
-            )
-            .send(channel);
       },
       // H_ 更新目錄題目
       contentQuestionMapUpdated: (e) {
@@ -392,4 +388,48 @@ UpdateAnswerStatusState pageUpdatedFlow(
       answerStatusMap: true,
     ),
   );
+}
+
+UpdateAnswerStatusState jumpedToQuestionFlow(
+  AsyncTaskChannel channel,
+  UpdateAnswerStatusState state, {
+  required int page,
+  required String questionId,
+}) {
+  final currentPage = state.page;
+
+  state = state.copyWith(
+    direction: Direction.current,
+    page: state.isReadOnly ? 0 : page,
+    saveParameters: state.saveParameters.copyWith(
+      page: true,
+    ),
+  );
+
+  if (!state.isReadOnly && state.page != currentPage) {
+    state = pageUpdatedFlow(channel, state);
+  }
+
+  final pageQIdList = state.pageQIdSet
+      .map((questionId) => state.questionMap[questionId]!)
+      .filter((question) =>
+          question.tableId == '' ||
+          (question.tableId != '' && question.type.isTable))
+      .map((question) => question.id)
+      .toList();
+
+  // S_ 在該頁的題目順序
+  final questionIndex = pageQIdList.indexOfFirst((qId) => qId == questionId);
+
+  state = state
+      .copyWith(
+        scrollToQuestionIndex: -99,
+      )
+      .send(channel);
+
+  return state
+      .copyWith(
+        scrollToQuestionIndex: questionIndex,
+      )
+      .send(channel);
 }
